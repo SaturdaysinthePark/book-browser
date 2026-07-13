@@ -1,0 +1,12 @@
+# Netlify deploy config for BookJumpr.
+# The whole repo stays in git, but only the static site files are PUBLISHED:
+# the build step copies them into _site/ and Netlify serves that directory —
+# so bookjumpr.db, tools/, data/, docs/ etc. are versioned but never served.
+[build]
+  command = "rm -rf _site && mkdir -p _site && cp index.html app.js bookjumpr-data.js favicon.svg _site/ && cp -R vendor _site/"
+  publish = "_site"
+
+# The data pipeline's dev dependency (unpdf) isn't needed to serve the site.
+[build.environment]
+  NETLIFY_USE_YARN = "false"
+  NPM_FLAGS = "--no-save"

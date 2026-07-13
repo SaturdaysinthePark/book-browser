@@ -15,3 +15,6 @@ inbox/pending/
 # Dictionary: raw catalog dumps are regenerable; only the compact titles.json is committed
 tools/dict/*
 !tools/dict/titles.json
+
+# Netlify build output (generated from the site files)
+_site/
