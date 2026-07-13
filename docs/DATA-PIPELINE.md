@@ -56,6 +56,27 @@ default to empty (`author` → `""`, `year` → `0`, `synopsis` → `""`).
 
 Each `(source, mentioned)` pair is unique — adding the same reference twice is a no-op.
 
+### Genres & cover styles
+
+Every cover is procedural — a colored **band** + a hand-drawn **icon** chosen by the book's
+**genre**. There are **18 built-in genres** (Fiction, Sci-Fi, History, Philosophy, Poetry &
+Epics, … and **MISC**). A book with **no genre assigned** shows the plain black **MISC**
+cover; assign a genre and the cover switches to that genre's color + icon. (Genre is
+independent of metadata — any book, even a synopsis-less one, can have a genre.)
+
+```bash
+npm run bj -- genres                                       # list the 18 assignable genres
+npm run bj -- set-genre --title "Dune" --genre "SCI-FI"    # assign (case-insensitive)
+npm run bj -- set-genre --title "Dune" --genre ""          # clear → back to MISC
+npm run bj:build
+```
+
+- **Admin UI:** open a book → the **Genre** dropdown (saves immediately) → **Rebuild site**.
+- **JSON import:** add `"genre": "SCI-FI"` to a `books[]` entry, or a top-level
+  `"genres": [ { "title": "Dune", "genre": "SCI-FI" } ]` array (genre-only, no metadata).
+
+Genres are stored per book and emitted to the site as a `GENRES` map in `bookjumpr-data.js`.
+
 ---
 
 ## 3. Four ways to add & manage data

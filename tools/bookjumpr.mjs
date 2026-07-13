@@ -7,9 +7,10 @@ import { seed } from './seed.mjs';
 import { writeBuild } from './build.mjs';
 import {
   upsertBook, upsertMention, importJsonFile, exportCsv, importCsv,
-  renameBook, removeMention, removeBook,
+  renameBook, removeMention, removeBook, setGenre,
 } from './importer.mjs';
 import { doctor, printReport } from './doctor.mjs';
+import { GENRES } from './genres.mjs';
 
 function parseArgs(argv) {
   const a = { _: [] };
@@ -37,9 +38,11 @@ Usage: npm run bj -- <command> [options]
   list [books|mentions]        List rows (default: books)
   search <query>               Find books by title or author
 
-  add-book --title T [--author A] [--year Y] [--synopsis S]
+  add-book --title T [--author A] [--year Y] [--synopsis S] [--genre G]
   add-mention --source S --mentioned M [--author A] [--note N]
-  import <file.json>           Import a JSON batch (books[] + mentions[])
+  set-genre --title T --genre G   Assign a genre (--genre "" clears it → MISC)
+  genres                       List the assignable genres
+  import <file.json>           Import a JSON batch (books[] + mentions[] + genres[])
   export-csv                   Write data/books.csv + data/mentions.csv
   import-csv [--replace]       Load data/*.csv into the DB
   rename --from OLD --to NEW    Rename a book (cascades its slug)
@@ -164,10 +167,25 @@ async function run(cmd, args) {
 
     case 'add-book':
       withDb((db) => {
-        const r = upsertBook(db, { title: args.title, author: args.author, year: args.year, synopsis: args.synopsis });
+        const r = upsertBook(db, { title: args.title, author: args.author, year: args.year, synopsis: args.synopsis, genre: args.genre });
         console.log(`✓ ${r.createdRow ? 'added' : r.wasMeta ? 'updated' : 'added metadata to'} book: ${args.title}  (${r.slug})`);
         console.log('  run `build` to regenerate the site.');
       });
+      return;
+
+    case 'set-genre':
+      if (!args.title || args.genre === undefined) throw new Error('usage: set-genre --title T --genre "GENRE" (use --genre "" to clear)');
+      withDb((db) => {
+        const g = args.genre === true ? '' : args.genre;
+        const r = setGenre(db, args.title, g);
+        console.log(r.genre ? `✓ ${args.title} → genre "${r.genre}"` : `✓ cleared genre on ${args.title} (→ MISC)`);
+        console.log('  run `build` to regenerate the site.');
+      });
+      return;
+
+    case 'genres':
+      console.log('Assignable genres (name — cover color):');
+      for (const g of GENRES) console.log(`  ${g.name}${' '.repeat(Math.max(1, 22 - g.name.length))}${g.color}`);
       return;
 
     case 'add-mention':
@@ -188,6 +206,7 @@ async function run(cmd, args) {
         console.log(`✓ imported ${file}`);
         console.log(`  books: +${r.booksCreated} new, ${r.booksMetaSet} with metadata`);
         console.log(`  mentions: +${r.mentionsAdded} added, ${r.mentionsUpdated} updated, ${r.mentionsDup} already present`);
+        if (r.genresSet) console.log(`  genres: ${r.genresSet} assigned`);
         console.log('  run `build` to regenerate the site.');
       });
       return;

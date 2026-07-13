@@ -1,6 +1,9 @@
 // Dataset validation. Errors block `build` (unless --force); warnings/notes are advisory.
+import fs from 'node:fs';
+import path from 'node:path';
 import { slug } from './slug.mjs';
-import { counts } from './db.mjs';
+import { counts, ROOT } from './db.mjs';
+import { genreNames } from './genres.mjs';
 
 export function doctor(db, { fix = false } = {}) {
   const errors = [], warnings = [], notes = [];
@@ -15,6 +18,20 @@ export function doctor(db, { fix = false } = {}) {
 
   const drift = db.prepare('SELECT slug, title FROM books').all().filter((r) => slug(r.title) !== r.slug);
   if (drift.length) errors.push(`${drift.length} book(s) where slug(title) != stored slug — identity drift (tools/slug.mjs out of sync with app.js?). e.g. ${JSON.stringify(drift[0].title)}`);
+
+  // genre parity: tools/genres.mjs names must match app.js GEN3 names
+  try {
+    const appjs = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
+    const block = appjs.match(/P\.GEN3\s*=\s*\[([\s\S]*?)\];/);
+    const appNames = block ? [...block[1].matchAll(/name:\s*'([^']*)'/g)].map((x) => x[1]) : [];
+    if (appNames.join('|') !== genreNames().join('|')) {
+      errors.push(`genre list drift: tools/genres.mjs (${genreNames().length}) does not match app.js GEN3 (${appNames.length}).`);
+    }
+  } catch (e) { warnings.push('could not verify genre parity vs app.js: ' + e.message); }
+
+  const validGenres = new Set(genreNames());
+  const badGenre = db.prepare("SELECT title, genre FROM books WHERE genre IS NOT NULL AND genre <> ''").all().filter((r) => !validGenres.has(r.genre));
+  if (badGenre.length) errors.push(`${badGenre.length} book(s) have an unknown genre. e.g. "${badGenre[0].title}": ${JSON.stringify(badGenre[0].genre)}.`);
 
   // --- warnings ---
   const noSynopsis = db.prepare("SELECT COUNT(*) AS n FROM books WHERE has_meta = 1 AND COALESCE(synopsis,'') = ''").get().n;

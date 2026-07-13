@@ -23,6 +23,7 @@ CREATE TABLE IF NOT EXISTS books (
   author     TEXT,                        -- '' allowed; NULL if unknown
   year       INTEGER,                     -- 0/NULL unknown; negative = BC
   synopsis   TEXT,
+  genre      TEXT,                        -- explicit genre name (one of tools/genres.mjs); NULL => MISC fallback
   has_meta   INTEGER NOT NULL DEFAULT 0,  -- 1 => emit into META
   sort_order INTEGER,                     -- deterministic META emit order
   created_at TEXT NOT NULL DEFAULT (datetime('now')),
@@ -51,6 +52,9 @@ export function open(dbPath = DB_PATH) {
   db.exec('PRAGMA journal_mode = WAL;');
   db.exec('PRAGMA foreign_keys = ON;');
   db.exec(DDL);
+  // Migration: add the genre column to a DB created before genres existed (IF NOT EXISTS DDL won't alter it).
+  const cols = db.prepare('PRAGMA table_info(books)').all();
+  if (!cols.some((c) => c.name === 'genre')) db.exec('ALTER TABLE books ADD COLUMN genre TEXT');
   return db;
 }
 

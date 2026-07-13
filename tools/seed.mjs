@@ -26,7 +26,7 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
     throw new Error(`DB is not empty (books=${c0.books}, mentions=${c0.mentions}). Re-run with --reset to overwrite.`);
   }
 
-  const { MENTIONS, META } = loadDataJs(file);
+  const { MENTIONS, META, GENRES = {} } = loadDataJs(file);
 
   const ensureBook = db.prepare(
     'INSERT OR IGNORE INTO books (slug, title, has_meta) VALUES (?, ?, 0)'
@@ -39,6 +39,7 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
     `UPDATE books SET author = ?, year = ?, synopsis = ?, has_meta = 1, sort_order = ?, updated_at = datetime('now')
      WHERE slug = ?`
   );
+  const applyGenre = db.prepare("UPDATE books SET genre = ? WHERE slug = ?");
 
   let dupes = 0;
   const dupeExamples = [];
@@ -70,6 +71,12 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
       ensureBook.run(slug(title), title); // no-op if already present (keeps first-seen title)
       applyMeta.run(author, year, synopsis, i, slug(title));
       i++;
+    }
+
+    // 3) Apply explicit genres (if the data file carries a GENRES map).
+    for (const title of Object.keys(GENRES)) {
+      ensureBook.run(slug(title), title);
+      applyGenre.run(GENRES[title], slug(title));
     }
 
     db.exec('COMMIT');

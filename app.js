@@ -24,7 +24,7 @@
   var React = window.React;
   var ReactDOM = window.ReactDOM;
   var h = React.createElement;
-  var DATA = window.BookJumprData || { MENTIONS: [], META: {} };
+  var DATA = window.BookJumprData || { MENTIONS: [], META: {}, GENRES: {} };
 
   /* ------------------------------------------------------------------ *
    * Template compiler — a minimal, faithful re-implementation of the
@@ -288,7 +288,7 @@
     React.Component.call(this, props);
     this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, netZoom: 1, netX: 0, netY: 0, netHover: null };
     // Data is available synchronously via the vendored global, so build it up front.
-    this.buildData(DATA.MENTIONS, DATA.META);
+    this.buildData(DATA.MENTIONS, DATA.META, DATA.GENRES || {});
     this.state.ready = true;
     this.state.vw = typeof window !== 'undefined' ? window.innerWidth : 1280;
     if (typeof location !== 'undefined' && location.hash && location.hash.length > 2) {
@@ -322,8 +322,9 @@
   };
   P.hash = function (s) { var h = 2166136261; for (var i = 0; i < s.length; i++) { h ^= s.charCodeAt(i); h = Math.imul(h, 16777619); } return h >>> 0; };
 
-  P.buildData = function (MENTIONS, META) {
+  P.buildData = function (MENTIONS, META, GENRES) {
     var self = this;
+    GENRES = GENRES || {};
     var books = {};
     var ensure = function (title, author) {
       var id = self.slug(title);
@@ -334,9 +335,13 @@
           author: (meta && meta[0]) || author || '',
           year: (meta && meta[1]) || 0,
           synopsis: (meta && meta[2]) || '',
+          genre: GENRES[title] || null,
           out: [], in: [], isSource: false
         };
-      } else if (!books[id].author && author) books[id].author = author;
+      } else {
+        if (!books[id].author && author) books[id].author = author;
+        if (!books[id].genre && GENRES[title]) books[id].genre = GENRES[title];
+      }
       return books[id];
     };
     for (var k = 0; k < MENTIONS.length; k++) {
@@ -375,9 +380,14 @@
     { name: 'FOOD & COOKING', mark: 'pan', color: '#a04a2a' },
     { name: 'MISC', mark: 'diamond', color: '#141414' }
   ];
+  P.genreByName = function (name) {
+    var key = String(name).trim().toUpperCase();
+    for (var i = 0; i < this.GEN3.length; i++) if (this.GEN3[i].name === key) return this.GEN3[i];
+    return null;
+  };
   P.genreOf = function (b) {
-    var gi = this.hash(b.id) % 22;
-    return gi < 17 ? this.GEN3[gi] : this.GEN3[17];
+    if (b && b.genre) { var g = this.genreByName(b.genre); if (g) return g; }
+    return this.GEN3[17]; // MISC fallback (unset or unknown genre)
   };
 
   P.mark2 = function (name, size, ink, hole) {
@@ -524,7 +534,7 @@
 
   P.triCover = function (b, g, tier, mode) {
     this._tri = this._tri || {};
-    var key = b.id + ':' + tier + ':' + mode;
+    var key = b.id + ':' + tier + ':' + mode + ':' + (b.genre || '');
     if (this._tri[key]) return this._tri[key];
     var misc = g.name === 'MISC';
     var bandBg;

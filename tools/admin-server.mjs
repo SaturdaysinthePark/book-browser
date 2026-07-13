@@ -6,10 +6,11 @@ import path from 'node:path';
 import { open, counts, ROOT } from './db.mjs';
 import {
   upsertBook, upsertMention, importBatch, exportCsv,
-  renameBook, removeMention, removeBook,
+  renameBook, removeMention, removeBook, setGenre,
 } from './importer.mjs';
 import { writeBuild } from './build.mjs';
 import { doctor } from './doctor.mjs';
+import { GENRES } from './genres.mjs';
 
 const PORT = Number(process.env.PORT) || 8918;
 const db = open(); // single synchronous connection for the server's lifetime
@@ -38,7 +39,7 @@ function readBody(req) {
 function booksList() {
   return db.prepare(`
     SELECT slug, title, COALESCE(author,'') AS author, COALESCE(year,0) AS year,
-           COALESCE(synopsis,'') AS synopsis, has_meta,
+           COALESCE(synopsis,'') AS synopsis, COALESCE(genre,'') AS genre, has_meta,
            (SELECT COUNT(*) FROM mentions WHERE source_slug = books.slug) AS out,
            (SELECT COUNT(*) FROM mentions WHERE mentioned_slug = books.slug) AS inn
     FROM books ORDER BY title
@@ -51,6 +52,28 @@ function mentionsList() {
     ORDER BY m.id DESC
   `).all();
 }
+// One book plus both directions of its mentions (includes note, which the global list omits).
+function bookDetail(slug) {
+  const book = db.prepare(`
+    SELECT slug, title, COALESCE(author,'') AS author, COALESCE(year,0) AS year,
+           COALESCE(synopsis,'') AS synopsis, COALESCE(genre,'') AS genre, has_meta,
+           (SELECT COUNT(*) FROM mentions WHERE source_slug = books.slug) AS out,
+           (SELECT COUNT(*) FROM mentions WHERE mentioned_slug = books.slug) AS inn
+    FROM books WHERE slug = ?
+  `).get(slug);
+  if (!book) return null;
+  const mentions = db.prepare(`
+    SELECT b.title AS mentioned, COALESCE(m.mentioned_author,'') AS author, m.note AS note
+    FROM mentions m JOIN books b ON b.slug = m.mentioned_slug
+    WHERE m.source_slug = ? ORDER BY b.title
+  `).all(slug);
+  const mentionedBy = db.prepare(`
+    SELECT b.title AS source, COALESCE(m.mentioned_author,'') AS author, m.note AS note
+    FROM mentions m JOIN books b ON b.slug = m.source_slug
+    WHERE m.mentioned_slug = ? ORDER BY b.title
+  `).all(slug);
+  return { book, mentions, mentionedBy };
+}
 
 const server = http.createServer(async (req, res) => {
   const url = new URL(req.url, `http://localhost:${PORT}`);
@@ -61,12 +84,18 @@ const server = http.createServer(async (req, res) => {
       if (req.method === 'GET' && p === '/api/stats') return json(res, 200, counts(db));
       if (req.method === 'GET' && p === '/api/books') return json(res, 200, booksList());
       if (req.method === 'GET' && p === '/api/mentions') return json(res, 200, mentionsList());
+      if (req.method === 'GET' && p === '/api/book') {
+        const detail = bookDetail(url.searchParams.get('slug') || '');
+        return detail ? json(res, 200, detail) : json(res, 404, { error: 'no such book' });
+      }
+      if (req.method === 'GET' && p === '/api/genres') return json(res, 200, GENRES);
       if (req.method === 'GET' && p === '/api/doctor') return json(res, 200, doctor(db));
 
       if (req.method === 'POST') {
         const body = await readBody(req);
         switch (p) {
           case '/api/book': return json(res, 200, { ok: true, ...upsertBook(db, body) });
+          case '/api/genre': return json(res, 200, { ok: true, ...setGenre(db, body.title, body.genre) });
           case '/api/mention': return json(res, 200, { ok: true, ...upsertMention(db, body) });
           case '/api/import': return json(res, 200, { ok: true, ...importBatch(db, body) });
           case '/api/rename': return json(res, 200, { ok: true, ...renameBook(db, body.from, body.to) });

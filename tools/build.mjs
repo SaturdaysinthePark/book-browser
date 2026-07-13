@@ -28,19 +28,30 @@ export function computeData(db) {
   const meta = {};
   for (const r of metaRows) meta[r.title] = [r.author, r.year, r.synopsis];
 
-  return { mentions, meta };
+  // GENRES: only books with an explicit genre (any book, not just metadata ones).
+  const genreRows = db.prepare(`
+    SELECT title, genre FROM books
+    WHERE genre IS NOT NULL AND genre <> ''
+    ORDER BY sort_order, slug
+  `).all();
+  const genres = {};
+  for (const r of genreRows) genres[r.title] = r.genre;
+
+  return { mentions, meta, genres };
 }
 
 // The exact bytes app.js expects. JSON.stringify (no spaces) matches the original
 // hand-authored formatting; unicode passes through unescaped.
-export function renderFile({ mentions, meta }) {
+export function renderFile({ mentions, meta, genres }) {
   return `// BookJumpr data — generated from mentions CSV + book metadata.
 // MENTIONS: [sourceTitle, mentionedTitle, mentionedAuthor]
 const MENTIONS = ${JSON.stringify(mentions)};
 // META: title -> [author, year, synopsis]  (the "books" CSV)
 const META = ${JSON.stringify(meta)};
+// GENRES: title -> genre name  (books with an explicitly assigned genre)
+const GENRES = ${JSON.stringify(genres || {})};
 
-window.BookJumprData = { MENTIONS: MENTIONS, META: META };
+window.BookJumprData = { MENTIONS: MENTIONS, META: META, GENRES: GENRES };
 `;
 }
 

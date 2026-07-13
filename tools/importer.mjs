@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import { slug } from './slug.mjs';
 import { BOOKS_CSV, MENTIONS_CSV } from './db.mjs';
 import { parseCsvObjects, toCsv } from './csv.mjs';
+import { canonicalGenre } from './genres.mjs';
 
 function cleanStr(v) { return v == null ? '' : String(v).trim(); }
 function toYear(v) {
@@ -20,9 +21,26 @@ export function ensureBook(db, title) {
   return id;
 }
 
+// Assign (or clear) a book's genre. Independent of metadata — works on any book,
+// including identity-only "ref" rows. `genre` must be a known genre name
+// (case-insensitive); '' / null clears it (→ MISC fallback on the site).
+export function setGenre(db, title, genre) {
+  const t = cleanStr(title);
+  if (!t) throw new Error('set-genre requires a title');
+  const id = ensureBook(db, t);
+  const raw = genre == null ? '' : String(genre).trim();
+  let value = null;
+  if (raw) {
+    value = canonicalGenre(raw);
+    if (!value) throw new Error(`unknown genre: ${JSON.stringify(genre)} — run \`bj genres\` for the list`);
+  }
+  db.prepare("UPDATE books SET genre = ?, updated_at = datetime('now') WHERE slug = ?").run(value, id);
+  return { slug: id, genre: value };
+}
+
 // Add/update a book's metadata (sets has_meta=1). The provided title becomes the
-// canonical display title + META key for its slug.
-export function upsertBook(db, { title, author = '', year = 0, synopsis = '' }) {
+// canonical display title + META key for its slug. Pass `genre` to also set it.
+export function upsertBook(db, { title, author = '', year = 0, synopsis = '', genre }) {
   const t = cleanStr(title);
   if (!t) throw new Error('add-book requires a non-empty --title');
   const id = slug(t);
@@ -37,6 +55,7 @@ export function upsertBook(db, { title, author = '', year = 0, synopsis = '' }) 
       sort_order = COALESCE(books.sort_order, excluded.sort_order),
       updated_at = datetime('now')
   `).run(id, t, cleanStr(author), toYear(year), cleanStr(synopsis), nextOrder);
+  if (genre !== undefined) setGenre(db, t, genre);
   return { slug: id, createdRow: !before, wasMeta: !!(before && before.has_meta) };
 }
 
@@ -68,9 +87,10 @@ export function importBatch(db, batch) {
   if (!batch || typeof batch !== 'object') throw new Error('batch must be a JSON object');
   const books = Array.isArray(batch.books) ? batch.books : [];
   const mentions = Array.isArray(batch.mentions) ? batch.mentions : [];
-  if (!books.length && !mentions.length) throw new Error('batch has no books[] or mentions[]');
+  const genres = Array.isArray(batch.genres) ? batch.genres : [];
+  if (!books.length && !mentions.length && !genres.length) throw new Error('batch has no books[], mentions[] or genres[]');
 
-  const rep = { booksCreated: 0, booksMetaSet: 0, mentionsAdded: 0, mentionsDup: 0, mentionsUpdated: 0 };
+  const rep = { booksCreated: 0, booksMetaSet: 0, mentionsAdded: 0, mentionsDup: 0, mentionsUpdated: 0, genresSet: 0 };
   db.exec('BEGIN');
   try {
     for (const b of books) {
@@ -87,6 +107,7 @@ export function importBatch(db, batch) {
       else if (r.updated) rep.mentionsUpdated++;
       else rep.mentionsDup++;
     }
+    for (const g of genres) { setGenre(db, g.title, g.genre); rep.genresSet++; }
     db.exec('COMMIT');
   } catch (e) {
     db.exec('ROLLBACK');
