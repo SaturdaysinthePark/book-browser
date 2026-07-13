@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookJumpr — Admin</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f7f5f0;--ink:#141414;--card:#fdfcfa;--accent:#9c3d22;--mut:rgba(20,20,20,.55)}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased}
+  .mono{font-family:'IBM Plex Mono',monospace}
+  .serif{font-family:'Instrument Serif',serif;font-weight:400}
+  a{color:var(--ink)}
+  header{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:1.5px solid var(--ink)}
+  .bar{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:12px 22px}
+  .brand{font-family:'Instrument Serif',serif;font-size:26px}
+  .chip{font-family:'IBM Plex Mono',monospace;font-size:11px;border:1.5px solid var(--ink);border-radius:999px;padding:4px 11px;white-space:nowrap}
+  .chip b{font-family:'Instrument Serif',serif;font-size:16px;font-weight:400}
+  .spacer{flex:1}
+  button{font-family:'IBM Plex Mono',monospace;font-size:12px;border:1.5px solid var(--ink);background:var(--card);color:var(--ink);border-radius:999px;padding:8px 15px;cursor:pointer}
+  button:hover{background:var(--ink);color:var(--paper)}
+  button.solid{background:var(--ink);color:var(--paper)}
+  button.solid:hover{background:var(--accent);border-color:var(--accent)}
+  button.mini{padding:4px 10px;font-size:10.5px}
+  button.danger:hover{background:var(--accent);border-color:var(--accent)}
+  main{max-width:1180px;margin:0 auto;padding:26px 22px 80px}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  @media(max-width:820px){.grid2{grid-template-columns:1fr}}
+  .card{border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:18px 20px}
+  h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:23px;margin:0 0 4px}
+  .sub{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);margin-bottom:14px}
+  label{display:block;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:10px 0 4px}
+  input,textarea{width:100%;font-family:inherit;font-size:14px;border:1.5px solid var(--ink);border-radius:10px;background:var(--paper);color:var(--ink);padding:9px 12px}
+  input:focus,textarea:focus{outline:none;box-shadow:0 2px 0 rgba(20,20,20,.7)}
+  textarea{resize:vertical;min-height:120px;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.5}
+  .row{display:flex;gap:10px;flex-wrap:wrap}
+  .row>div{flex:1;min-width:120px}
+  .actions{display:flex;gap:8px;margin-top:14px;flex-wrap:wrap}
+  section.tables{margin-top:26px}
+  .tabs{display:flex;gap:8px;margin-bottom:14px;align-items:center;flex-wrap:wrap}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid rgba(20,20,20,.12);vertical-align:top}
+  th{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut)}
+  tr:hover td{background:var(--paper)}
+  .badge{font-family:'IBM Plex Mono',monospace;font-size:9.5px;border:1.5px solid var(--ink);border-radius:999px;padding:1px 7px}
+  .badge.meta{background:var(--ink);color:var(--paper)}
+  .tablewrap{max-height:440px;overflow:auto;border:1.5px solid var(--ink);border-radius:14px}
+  .muted{color:var(--mut)}
+  #toast{position:fixed;left:50%;bottom:26px;transform:translateX(-50%);background:var(--ink);color:var(--paper);font-family:'IBM Plex Mono',monospace;font-size:12.5px;padding:11px 18px;border-radius:999px;opacity:0;transition:opacity .2s;pointer-events:none;max-width:90vw}
+  #toast.show{opacity:1}
+  #toast.err{background:var(--accent)}
+  .hint{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--mut);line-height:1.6}
+  .linkish{background:none;border:none;padding:0;font-family:inherit;font-size:13px;color:var(--ink);cursor:pointer;text-align:left;text-decoration:underline;text-decoration-color:rgba(20,20,20,.28);text-underline-offset:2px}
+  .linkish:hover{background:none;color:var(--accent)}
+  /* book editor modal */
+  .overlay{position:fixed;inset:0;background:rgba(20,20,20,.45);display:flex;align-items:flex-start;justify-content:center;padding:40px 16px;z-index:50;overflow:auto}
+  .modal{background:var(--paper);border:1.5px solid var(--ink);border-radius:18px;max-width:640px;width:100%;box-shadow:0 30px 70px rgba(20,20,20,.3)}
+  .modal-head{display:flex;align-items:center;gap:12px;padding:15px 20px;border-bottom:1.5px solid var(--ink);position:sticky;top:0;background:var(--paper);border-radius:18px 18px 0 0;z-index:1}
+  .modal-head .serif{font-size:24px;flex:1;line-height:1.15}
+  .modal-body{padding:16px 20px 24px}
+  .mentions-block{margin-top:18px;border-top:1.5px solid var(--ink);padding-top:12px}
+  .mb-head{display:flex;align-items:baseline;gap:10px;margin-bottom:6px}
+  .mrow{display:flex;align-items:center;gap:8px;padding:6px 2px;border-bottom:1px solid rgba(20,20,20,.1)}
+  .mrow-meta{font-size:10.5px;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .mrow-actions{display:flex;gap:6px;white-space:nowrap;margin-left:auto}
+  .addrow{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+  .addrow input{flex:1;min-width:120px}
+  @media(max-width:560px){.overlay{padding:0}.modal{border-radius:0;min-height:100%}}
+</style>
+</head>
+<body>
+<header>
+  <div class="bar">
+    <span class="brand">BookJumpr <span class="mono" style="font-size:12px;letter-spacing:.12em">ADMIN</span></span>
+    <span class="chip"><b id="s-books">–</b> books</span>
+    <span class="chip"><b id="s-mentions">–</b> mentions</span>
+    <span class="chip"><b id="s-sources">–</b> indexed</span>
+    <span class="spacer"></span>
+    <button id="btn-rebuild" class="solid">↻ Rebuild site</button>
+    <button onclick="window.open('/?v='+Date.now(),'_blank')">↗ View site</button>
+  </div>
+</header>
+
+<main>
+  <div class="grid2">
+    <div class="card">
+      <h2>Add / update a book</h2>
+      <div class="sub">metadata — gives the book a synopsis &amp; page</div>
+      <label>Title *</label><input id="b-title" placeholder="The Name of the Rose">
+      <div class="row">
+        <div><label>Author</label><input id="b-author" placeholder="Umberto Eco"></div>
+        <div><label>Year</label><input id="b-year" placeholder="1980" inputmode="numeric"></div>
+      </div>
+      <label>Synopsis</label><textarea id="b-synopsis" placeholder="One or two sentences…" style="min-height:80px"></textarea>
+      <div class="actions">
+        <button class="solid" onclick="addBook()">Save book</button>
+        <button onclick="clearBook()">Clear</button>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>Add a mention</h2>
+      <div class="sub">source book names the mentioned book</div>
+      <label>Source book * <span class="muted">(the one doing the mentioning)</span></label><input id="m-source" placeholder="The Name of the Rose">
+      <label>Mentioned book *</label><input id="m-mentioned" placeholder="Poetics">
+      <div class="row">
+        <div><label>Mentioned author</label><input id="m-author" placeholder="Aristotle"></div>
+        <div><label>Note (optional, not shown on site)</label><input id="m-note" placeholder="quoted in the library scene"></div>
+      </div>
+      <div class="actions">
+        <button class="solid" onclick="addMention()">Add mention</button>
+        <button onclick="clearMention()">Clear</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="margin-top:22px">
+    <h2>Import a batch (paste JSON)</h2>
+    <div class="sub">books[] + mentions[] — the same format Claude produces</div>
+    <textarea id="imp" placeholder='{ "books": [ { "title": "...", "author": "...", "year": 0, "synopsis": "..." } ], "mentions": [ { "source": "...", "mentioned": "...", "author": "" } ] }'></textarea>
+    <div class="actions"><button class="solid" onclick="doImport()">Import batch</button><span class="hint">Books referenced only by a mention are created automatically.</span></div>
+  </div>
+
+  <section class="tables">
+    <p class="hint" style="margin:0 0 12px">A book isn't a “source” or a “mentioned” book — it's just a book. <b>Click one to open it</b> and manage the references pointing <b>out of</b> it (↓ mentions) and <b>into</b> it (↑ mentioned by).</p>
+    <div class="tabs">
+      <button id="tab-books" class="solid mini" onclick="showTab('books')">Books</button>
+      <button id="tab-mentions" class="mini" onclick="showTab('mentions')">Mentions</button>
+      <input id="filter" placeholder="filter…" style="max-width:280px;margin-left:auto">
+    </div>
+    <div id="view-books"><div class="tablewrap"><table><thead><tr><th>Book</th><th>Author</th><th>Yr</th><th title="↓ books it mentions / ↑ books that mention it">↓/↑</th><th></th><th></th></tr></thead><tbody id="tb-books"></tbody></table></div></div>
+    <div id="view-mentions" style="display:none"><div class="tablewrap"><table><thead><tr><th>Source</th><th>Mentioned</th><th>Author</th><th></th></tr></thead><tbody id="tb-mentions"></tbody></table></div></div>
+  </section>
+</main>
+
+<!-- Book editor: metadata + both directions of mentions, in one place -->
+<div id="book-modal" class="overlay" style="display:none">
+  <div class="modal" role="dialog" aria-modal="true">
+    <div class="modal-head">
+      <span id="bm-heading" class="serif"></span>
+      <button class="mini" onclick="closeBook()" aria-label="Close">✕</button>
+    </div>
+    <div class="modal-body">
+      <div id="bm-slug" class="mono muted" style="font-size:10.5px;margin-bottom:8px"></div>
+      <div id="bm-hint" class="hint" style="margin-bottom:8px;color:var(--accent)"></div>
+      <div class="row">
+        <div><label>Author</label><input id="bm-author"></div>
+        <div style="flex:0 0 120px;max-width:120px"><label>Year</label><input id="bm-year" inputmode="numeric"></div>
+      </div>
+      <label>Synopsis</label><textarea id="bm-synopsis" style="min-height:84px"></textarea>
+      <label>Genre <span class="muted">— cover style (saves immediately)</span></label>
+      <div style="display:flex;align-items:center;gap:10px">
+        <select id="bm-genre" onchange="setGenreM()" style="flex:1;font-family:inherit;font-size:14px;border:1.5px solid var(--ink);border-radius:10px;background:var(--paper);color:var(--ink);padding:9px 12px"></select>
+        <span id="bm-genre-dot" title="cover color" style="width:18px;height:18px;border-radius:999px;border:1.5px solid var(--ink);flex:0 0 auto"></span>
+      </div>
+      <div class="actions">
+        <button class="solid" onclick="saveMeta()">Save</button>
+        <button onclick="renameBookM()">Rename</button>
+        <button class="danger" onclick="deleteBookM()">Delete</button>
+      </div>
+
+      <div class="mentions-block">
+        <div class="mb-head"><span class="serif" style="font-size:19px">↓ Mentions</span><span class="muted mono" style="font-size:10px;letter-spacing:.08em;text-transform:uppercase">books it names</span></div>
+        <div id="bm-out"></div>
+        <div class="addrow">
+          <input id="bm-out-title" placeholder="a book this one mentions…">
+          <input id="bm-out-author" placeholder="author (optional)" style="flex:0 1 160px">
+          <button class="mini solid" onclick="addOut()">+ add</button>
+        </div>
+      </div>
+
+      <div class="mentions-block">
+        <div class="mb-head"><span class="serif" style="font-size:19px">↑ Mentioned by</span><span class="muted mono" style="font-size:10px;letter-spacing:.08em;text-transform:uppercase">books that name it</span></div>
+        <div id="bm-in"></div>
+        <div class="addrow">
+          <input id="bm-in-title" placeholder="a book that mentions this one…">
+          <button class="mini solid" onclick="addIn()">+ add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+const $ = (id) => document.getElementById(id);
+let BOOKS = [], MENTIONS = [], TAB = 'books';
+let MODAL = null, EDIT_OUT = null;   // MODAL = currently-open book detail; EDIT_OUT = title of the outgoing mention being edited
+
+async function api(method, path, body){
+  const r = await fetch(path, {method, headers:{'Content-Type':'application/json'}, body: body?JSON.stringify(body):undefined});
+  const j = await r.json().catch(()=>({}));
+  if(!r.ok) throw new Error(j.error || (j.errors && j.errors.join('; ')) || ('HTTP '+r.status));
+  return j;
+}
+function toast(msg, err){ const t=$('toast'); t.textContent=msg; t.className='show'+(err?' err':''); setTimeout(()=>t.className='',2600); }
+function esc(s){ return String(s==null?'':s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+
+async function refreshStats(){ const c = await api('GET','/api/stats'); $('s-books').textContent=c.books; $('s-mentions').textContent=c.mentions; $('s-sources').textContent=c.sources; }
+async function loadBooks(){ BOOKS = await api('GET','/api/books'); renderBooks(); }
+async function loadMentions(){ MENTIONS = await api('GET','/api/mentions'); renderMentions(); }
+function refreshTables(){ return Promise.all([refreshStats(), loadBooks(), loadMentions()]); }
+
+function matches(row){ const f=$('filter').value.toLowerCase(); if(!f) return true; return JSON.stringify(row).toLowerCase().includes(f); }
+
+// --- the two overview tables (data-* attrs + delegation avoid inline-quoting bugs with apostrophes) ---
+function renderBooks(){
+  const rows = BOOKS.filter(matches).map(b=>`<tr>
+    <td><button class="linkish" data-open="${esc(b.slug)}">${esc(b.title)}</button></td>
+    <td class="muted">${esc(b.author)}</td><td class="mono">${b.year||''}</td>
+    <td class="mono">${b.out}/${b.inn}</td>
+    <td>${b.has_meta?'<span class="badge meta">meta</span>':'<span class="badge">ref</span>'}</td>
+    <td style="white-space:nowrap">
+      <button class="mini" data-open="${esc(b.slug)}">open</button>
+      <button class="mini danger" data-del="${esc(b.slug)}">del</button>
+    </td></tr>`).join('');
+  $('tb-books').innerHTML = rows || '<tr><td colspan="6" class="muted">no books</td></tr>';
+}
+function renderMentions(){
+  const rows = MENTIONS.filter(matches).map(m=>`<tr>
+    <td><button class="linkish" data-hop="${esc(m.source)}">${esc(m.source)}</button></td>
+    <td><button class="linkish" data-hop="${esc(m.mentioned)}">${esc(m.mentioned)}</button></td>
+    <td class="muted">${esc(m.author)}</td>
+    <td><button class="mini danger" data-rms="${esc(m.source)}" data-rmm="${esc(m.mentioned)}">del</button></td></tr>`).join('');
+  $('tb-mentions').innerHTML = rows || '<tr><td colspan="4" class="muted">no mentions</td></tr>';
+}
+function showTab(t){ TAB=t; $('view-books').style.display=t==='books'?'':'none'; $('view-mentions').style.display=t==='mentions'?'':'none';
+  $('tab-books').className='mini'+(t==='books'?' solid':''); $('tab-mentions').className='mini'+(t==='mentions'?' solid':''); }
+$('filter').addEventListener('input',()=>{ TAB==='books'?renderBooks():renderMentions(); });
+
+document.querySelector('section.tables').addEventListener('click', async (e)=>{
+  const t = e.target.closest('button'); if(!t) return;
+  try{
+    if(t.dataset.open!=null) openBook(t.dataset.open);
+    else if(t.dataset.del!=null) await delBookBySlug(t.dataset.del);
+    else if(t.dataset.hop!=null) hop(t.dataset.hop);
+    else if(t.dataset.rms!=null){ await api('POST','/api/remove-mention',{source:t.dataset.rms,mentioned:t.dataset.rmm}); toast('removed'); await refreshTables(); }
+  }catch(err){ toast(err.message,true); }
+});
+
+// --- quick-add forms + import + rebuild ---
+function clearBook(){ ['b-title','b-author','b-year','b-synopsis'].forEach(id=>$(id).value=''); }
+function clearMention(){ ['m-source','m-mentioned','m-author','m-note'].forEach(id=>$(id).value=''); }
+async function addBook(){
+  try{ const title=$('b-title').value.trim(); if(!title) return toast('title is required',true);
+    await api('POST','/api/book',{title,author:$('b-author').value,year:$('b-year').value,synopsis:$('b-synopsis').value});
+    toast('saved “'+title+'”'); clearBook(); await refreshTables();
+  }catch(e){ toast(e.message,true); }
+}
+async function addMention(){
+  try{ const source=$('m-source').value.trim(), mentioned=$('m-mentioned').value.trim(); if(!source||!mentioned) return toast('source and mentioned are required',true);
+    const r=await api('POST','/api/mention',{source,mentioned,author:$('m-author').value,note:$('m-note').value});
+    toast(r.added?'added mention':r.updated?'updated mention':'already existed'); clearMention(); await refreshTables();
+  }catch(e){ toast(e.message,true); }
+}
+async function doImport(){
+  try{ const body=JSON.parse($('imp').value); const r=await api('POST','/api/import',body);
+    toast(`imported: +${r.booksCreated} books, +${r.mentionsAdded} mentions (${r.mentionsDup} dup)`); $('imp').value='';
+    await refreshTables();
+  }catch(e){ toast('import failed: '+e.message,true); }
+}
+async function delBookBySlug(slug){
+  const b = BOOKS.find(x=>x.slug===slug); if(!b) return;
+  if(!confirm('Delete “'+b.title+'” and any mentions involving it?')) return;
+  await api('POST','/api/remove-book',{title:b.title,cascade:true}); toast('deleted'); await refreshTables();
+}
+$('btn-rebuild').addEventListener('click', async ()=>{
+  try{ const r=await api('POST','/api/build',{}); toast(`rebuilt · ${r.counts.books} books, ${r.counts.mentions} mentions`); }
+  catch(e){ toast('build blocked: '+e.message,true); }
+});
+
+// --- book editor modal ---
+async function openBook(slug){
+  try{ MODAL = await api('GET','/api/book?slug='+encodeURIComponent(slug)); EDIT_OUT=null; renderModal(); $('book-modal').style.display='flex'; document.body.style.overflow='hidden'; }
+  catch(e){ toast(e.message,true); }
+}
+function closeBook(){ $('book-modal').style.display='none'; document.body.style.overflow=''; MODAL=null; EDIT_OUT=null; }
+async function hop(title){
+  let b=BOOKS.find(x=>x.title===title); if(!b){ await loadBooks(); b=BOOKS.find(x=>x.title===title); }
+  b ? openBook(b.slug) : toast('not found: '+title,true);
+}
+function mrow(dir, m){
+  const other = dir==='out' ? m.mentioned : m.source;
+  if(dir==='out' && other===EDIT_OUT){
+    return `<div class="mrow">
+      <span style="max-width:38%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(other)}</span>
+      <input id="eo-author" value="${esc(m.author)}" placeholder="author" style="flex:1;min-width:80px">
+      <input id="eo-note" value="${esc(m.note)}" placeholder="note" style="flex:1;min-width:80px">
+      <span class="mrow-actions"><button class="mini solid" data-save-out="${esc(other)}">save</button><button class="mini" data-cancel="1">cancel</button></span>
+    </div>`;
+  }
+  const meta = [m.author, m.note].filter(Boolean).map(esc).join(' · ');
+  return `<div class="mrow">
+    <button class="linkish" data-hop2="${esc(other)}" style="flex:0 1 auto;max-width:60%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${esc(other)}</button>
+    <span class="muted mono mrow-meta">${meta}</span>
+    <span class="mrow-actions">
+      ${dir==='out' ? `<button class="mini" data-edit-out="${esc(other)}">edit</button>` : ''}
+      <button class="mini danger" data-rm-dir="${dir}" data-rm-other="${esc(other)}" title="remove">×</button>
+    </span>
+  </div>`;
+}
+function renderModal(){
+  const d=MODAL; if(!d) return;
+  $('bm-heading').textContent=d.book.title;
+  $('bm-slug').textContent='#/book/'+d.book.slug;
+  $('bm-author').value=d.book.author||'';
+  $('bm-year').value=d.book.year||'';
+  $('bm-synopsis').value=d.book.synopsis||'';
+  $('bm-hint').textContent=d.book.has_meta?'':'No synopsis yet — add author / year / synopsis to give this book a full page.';
+  $('bm-genre').value=d.book.genre||'';
+  updateGenreDot();
+  const none='<div class="muted mono" style="font-size:11px;padding:6px 2px">— none —</div>';
+  $('bm-out').innerHTML=d.mentions.length ? d.mentions.map(m=>mrow('out',m)).join('') : none;
+  $('bm-in').innerHTML=d.mentionedBy.length ? d.mentionedBy.map(m=>mrow('in',m)).join('') : none;
+}
+async function modalRefresh(slug){ await refreshTables(); await openBook(slug); }
+let GENRE_LIST = [];
+async function loadGenres(){
+  try{ GENRE_LIST = await api('GET','/api/genres'); }catch(e){ GENRE_LIST = []; }
+  $('bm-genre').innerHTML = ['<option value="">— none (MISC) —</option>']
+    .concat(GENRE_LIST.map(g=>`<option value="${esc(g.name)}">${esc(g.name)}</option>`)).join('');
+}
+function updateGenreDot(){ const g=GENRE_LIST.find(x=>x.name===$('bm-genre').value); $('bm-genre-dot').style.background = g ? g.color : 'transparent'; }
+async function setGenreM(){
+  const d=MODAL; if(!d) return;
+  updateGenreDot();
+  try{ await api('POST','/api/genre',{title:d.book.title,genre:$('bm-genre').value});
+    toast($('bm-genre').value ? 'genre → '+$('bm-genre').value : 'genre cleared (→ MISC)'); await modalRefresh(d.book.slug); }
+  catch(e){ toast(e.message,true); }
+}
+async function saveMeta(){
+  const d=MODAL; if(!d) return;
+  try{ await api('POST','/api/book',{title:d.book.title,author:$('bm-author').value,year:$('bm-year').value,synopsis:$('bm-synopsis').value});
+    toast('saved'); await modalRefresh(d.book.slug); }catch(e){ toast(e.message,true); }
+}
+async function renameBookM(){
+  const d=MODAL; if(!d) return;
+  const to=prompt('Rename “'+d.book.title+'” to:', d.book.title); if(!to || to.trim()===d.book.title) return;
+  try{ const r=await api('POST','/api/rename',{from:d.book.title,to:to.trim()});
+    toast(r.slugChanged?'renamed — its #/book/ URL changed':'renamed'); await refreshTables(); await openBook(r.slug); }catch(e){ toast(e.message,true); }
+}
+async function deleteBookM(){
+  const d=MODAL; if(!d) return;
+  if(!confirm('Delete “'+d.book.title+'” and any mentions involving it?')) return;
+  try{ await api('POST','/api/remove-book',{title:d.book.title,cascade:true}); toast('deleted'); closeBook(); await refreshTables(); }catch(e){ toast(e.message,true); }
+}
+async function addOut(){
+  const d=MODAL; if(!d) return;
+  const mentioned=$('bm-out-title').value.trim(); if(!mentioned) return toast('enter a book it mentions',true);
+  try{ await api('POST','/api/mention',{source:d.book.title,mentioned,author:$('bm-out-author').value});
+    $('bm-out-title').value=''; $('bm-out-author').value=''; toast('added'); await modalRefresh(d.book.slug); }catch(e){ toast(e.message,true); }
+}
+async function addIn(){
+  const d=MODAL; if(!d) return;
+  const source=$('bm-in-title').value.trim(); if(!source) return toast('enter a book that mentions this',true);
+  try{ await api('POST','/api/mention',{source,mentioned:d.book.title});
+    $('bm-in-title').value=''; toast('added'); await modalRefresh(d.book.slug); }catch(e){ toast(e.message,true); }
+}
+async function saveOut(other){
+  const d=MODAL; if(!d) return;
+  try{ await api('POST','/api/mention',{source:d.book.title,mentioned:other,author:$('eo-author').value,note:$('eo-note').value,update:true});
+    EDIT_OUT=null; toast('updated'); await modalRefresh(d.book.slug); }catch(e){ toast(e.message,true); }
+}
+async function removeMdir(dir,other){
+  const d=MODAL; if(!d) return;
+  const source = dir==='out' ? d.book.title : other;
+  const mentioned = dir==='out' ? other : d.book.title;
+  try{ await api('POST','/api/remove-mention',{source,mentioned}); toast('removed'); await modalRefresh(d.book.slug); }catch(e){ toast(e.message,true); }
+}
+$('book-modal').addEventListener('click', (e)=>{
+  if(e.target===$('book-modal')) return closeBook();          // click backdrop
+  const t=e.target.closest('button'); if(!t) return;
+  if(t.dataset.hop2!=null) hop(t.dataset.hop2);
+  else if(t.dataset.editOut!=null){ EDIT_OUT=t.dataset.editOut; renderModal(); }
+  else if(t.dataset.cancel!=null){ EDIT_OUT=null; renderModal(); }
+  else if(t.dataset.saveOut!=null) saveOut(t.dataset.saveOut);
+  else if(t.dataset.rmDir!=null) removeMdir(t.dataset.rmDir, t.dataset.rmOther);
+});
+document.addEventListener('keydown',(e)=>{ if(e.key==='Escape' && $('book-modal').style.display==='flex') closeBook(); });
+
+(async function init(){ try{ await loadGenres(); await refreshTables(); }catch(e){ toast('cannot reach admin server — run `npm run admin`',true); } })();
+</script>
+</body>
+</html>

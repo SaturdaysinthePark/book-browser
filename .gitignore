@@ -1,0 +1,17 @@
+# SQLite WAL sidecars (the .db itself IS committed as the source of truth)
+bookjumpr.db-wal
+bookjumpr.db-shm
+
+# Node
+node_modules/
+
+# Tooling scratch
+.playwright-mcp/
+*.log
+
+# Detector: source PDFs + generated candidate/batch files (author-side, not shipped)
+inbox/pending/
+
+# Dictionary: raw catalog dumps are regenerable; only the compact titles.json is committed
+tools/dict/*
+!tools/dict/titles.json
