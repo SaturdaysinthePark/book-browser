@@ -999,12 +999,15 @@
           var vy = dir * (6 + (h2 % 5) * 1.3);
           wrap.transform = 'rotate(' + rot.toFixed(2) + 'deg) translateY(' + vy.toFixed(1) + 'px)';
           wrap.margin = wallCfg.overlap;
-          inner.boxShadow = '0 6px 14px rgba(20,20,20,.20)';
+          // Cream "mat" ring keeps each cover's outer border against a consistent
+          // light backdrop, so it reads solid instead of dashing where it crosses
+          // the dark/light bands of the overlapped neighbours beneath it.
+          inner.boxShadow = '0 0 0 3px #f2ecdd, 0 6px 14px rgba(20,20,20,.20)';
         } else if (wallMode === 'light') {
           // Gentle per-item scatter with a light overlap — textured, not packed.
           wrap.transform = 'rotate(' + (((h1 % 11) - 5) * 0.8).toFixed(2) + 'deg) translateY(' + (((h2 % 9) - 4) * 1.1).toFixed(1) + 'px)';
           wrap.margin = wallCfg.overlap;
-          inner.boxShadow = '0 4px 10px rgba(20,20,20,.12)';
+          inner.boxShadow = '0 0 0 2px #f2ecdd, 0 4px 10px rgba(20,20,20,.12)';
         } else {
           wrap.transform = 'rotate(' + (((h1 % 9) - 4) * 1.2).toFixed(2) + 'deg)';
         }
