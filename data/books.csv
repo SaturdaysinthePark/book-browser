@@ -125,3 +125,409 @@ Sons and Lovers,D. H. Lawrence,1913,"A Nottinghamshire miner's son, bound by an 
 Dombey and Son,Charles Dickens,1848,"The story of the proud shipping merchant Paul Dombey, whose obsession with a male heir blinds him to the devotion of his daughter Florence."
 The Awakening,Kate Chopin,1899,"A conventional Louisiana wife and mother, Edna Pontellier, awakens to her own desires and independence, defying social expectations toward a tragic end."
 The War of the Worlds,H. G. Wells,1898,"Martians land in the English countryside and lay waste to Surrey and London with heat-rays and poison smoke, as an unnamed narrator struggles to survive the collapse of human civilization."
+Robinson Crusoe,Daniel Defoe,1719,"Shipwrecked and alone, a castaway spends twenty-eight years wresting a life from a desert island."
+The Vicar of Wakefield,Oliver Goldsmith,1766,"A gentle country parson watches misfortune strip away his family's fortune, home, and honor before providence relents."
+Don Quixote,Miguel de Cervantes,1605,"An aging gentleman, his wits addled by chivalric romances, rides out to revive knight-errantry with his squire Sancho Panza."
+Macbeth,William Shakespeare,1606,"Spurred by witches' prophecy and his wife's ambition, a Scottish general murders his king and is consumed by the crown he steals."
+Rasselas,Samuel Johnson,1759,A prince escapes the Happy Valley to search the world for a way of life that truly satisfies.
+Divine Comedy,Dante Alighieri,1320,"Guided by Virgil and Beatrice, the poet descends through Hell and climbs Purgatory and Paradise toward the vision of God."
+Julius Caesar,William Shakespeare,1599,"Fearing tyranny, Brutus and his fellow conspirators assassinate Rome's rising dictator and unleash civil war."
+Othello,William Shakespeare,1603,"A Moorish general, poisoned by his ensign's whispers, strangles the innocent wife he loves."
+The Sorrows of Young Werther,Johann Wolfgang von Goethe,1774,A sensitive young man's hopeless love for a woman already betrothed drives him to despair and suicide.
+Tom Jones,Henry Fielding,1749,"A good-hearted foundling stumbles through scrapes, seductions, and the open road on his way to winning his beloved Sophia."
+Idylls of the King,"Alfred, Lord Tennyson",1859,"Arthur's Round Table rises in glory and crumbles through Guinevere's betrayal, told in twelve linked verse tales."
+Iliad,Homer,0,"The wrath of Achilles turns the tide of the Trojan War through slaughter, grief, and the fall of Hector."
+King Lear,William Shakespeare,1606,An aging king divides his realm by his daughters' flattery and is driven mad by their cruelty.
+Marmion,Walter Scott,1808,"A tale of forgery, betrayed love, and knightly deceit that ends on the disastrous field of Flodden."
+Symposium,Plato,0,"At a drinking party, guests take turns praising love until Socrates reframes it as the soul's ascent toward beauty itself."
+The Lady of the Lake,Walter Scott,1810,"Love, honor, and clan feud entangle a Highland maiden and a disguised king around the shores of Loch Katrine."
+An Essay Concerning Human Understanding,John Locke,1689,"The mind begins as a blank slate, and all our knowledge is written on it by experience."
+Faust,Johann Wolfgang von Goethe,1808,A restless scholar wagers his soul with Mephistopheles for boundless knowledge and earthly experience.
+Henry V,William Shakespeare,1599,A reformed young king rallies his outnumbered English army to improbable victory at Agincourt.
+Holy Living and Holy Dying,Jeremy Taylor,1650,A devotional handbook on ordering one's days in virtue and meeting death with a prepared soul.
+Humphry Clinker,Tobias Smollett,1771,"A crotchety squire and his household tour Britain, their clashing letters mapping the comedy of the road."
+Paul and Virginia,Jacques-Henri Bernardin de Saint-Pierre,1788,Two children raised in island innocence grow into a love that the wider world destroys.
+Phaedrus,Plato,0,"Strolling beyond the city walls, Socrates and Phaedrus debate love, the soul, and the true art of rhetoric."
+Richard III,William Shakespeare,1593,"A deformed, silver-tongued duke murders his way to the English throne and reigns until conscience and Bosworth undo him."
+Roderick Random,Tobias Smollett,1748,"A quick-tempered young Scot endures press-gangs, shipwrecks, and betrayals as he chases his fortune across land and sea."
+Rubáiyát of Omar Khayyám,Omar Khayyám,1859,A Persian astronomer's quatrains urge us to seize the wine and the passing hour before the grave claims us.
+Sartor Resartus,Thomas Carlyle,1836,A fictional German professor's 'philosophy of clothes' becomes a meditation on how all creeds and forms are garments the spirit wears.
+Tales of the Genii,James Ridley,1764,"Oriental fables, passed off as translations from the Persian, in which genii test mortals and reward virtue over vice."
+The Aeneid,Virgil,0,"A Trojan refugee, driven by fate and the gods, sails to Italy to found the race that will become Rome."
+The Christian Year,John Keble,1827,"Devotional poems for every Sunday and holy day of the Anglican calendar, turning the church's seasons into quiet meditation."
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,1776,"The vast, ironic chronicle of Rome's collapse across thirteen centuries, tracing the empire's ruin to barbarism and religion."
+The Italian,Ann Radcliffe,1797,"In the shadow of the Inquisition, two lovers are torn apart by a scheming monk with a guilty past."
+The Koran,,0,"The revelations Muslims hold that Muhammad received from God, calling humankind to submission, judgment, and mercy."
+The Lord of the Rings,J R R Tolkien,1954,A hobbit inherits a ring of terrible power and carries it across Middle-earth to unmake it in the fire that forged it.
+The Raven,Edgar Allan Poe,1845,"A grieving lover, visited at midnight by a black bird that answers only 'Nevermore,' sinks toward madness."
+The Task,William Cowper,1785,"A poem that begins in jest with a sofa and wanders into praise of rural quiet, gardens, and the country over the town."
+Timaeus,Plato,0,"Plato's speaker recounts how a divine craftsman shaped the ordered cosmos, the world-soul, and time itself from eternal forms."
+A Bend in the River,V. S. Naipaul,1979,An Indian trader builds a life at a town deep in a newly independent African country as it slides toward chaos.
+A Child's Garden of Verses,Robert Louis Stevenson,1885,"Poems that see the world through a child's eyes — bedtime, shadows, journeys, and the small kingdoms of play."
+A Dictionary of the English Language,Samuel Johnson,1755,"One man's monumental attempt to fix and define the whole English tongue, his wit and prejudice included."
+"A Dissertation on Liberty and Necessity, Pleasure and Pain",Benjamin Franklin,1725,"A precocious pamphlet arguing that in a world wholly governed by God there can be no free will, and so no vice or virtue."
+A Farewell to Arms,Ernest Hemingway,1929,An American ambulance driver on the Italian front falls in love with a nurse and deserts a war that spares no one.
+A Gossip on Romance,Robert Louis Stevenson,1882,An essay defending the deep pleasures of storytelling — the vivid scenes and incidents that seize a reader and never let go.
+A History of British Birds,Thomas Bewick,1797,"A naturalist's finely engraved catalogue of the land and water birds of Britain, each cut from wood by his own hand."
+A New Voyage Round the World,William Dampier,1697,"A buccaneer-naturalist's account of circling the globe, mixing piracy with careful notes on winds, coasts, and strange creatures."
+A Shropshire Lad,A. E. Housman,1896,"Spare, aching poems of young men, lost love, and early death in a half-imagined Shropshire countryside."
+A Tale of a Tub,Jonathan Swift,1704,"A riotous satire in which three brothers mangle their father's will, mocking the corruptions of the Christian churches."
+A Theory of Justice,John Rawls,1971,A thought experiment behind a 'veil of ignorance' derives the principles a fair society would choose for itself.
+A Treatise of Human Nature,David Hume,1739,"Hume grounds all human knowledge in experience and passion, arguing that reason is the slave of the passions."
+Acres of Diamond,Russel H. Conwell,1890,"A farmer sells his land to chase diamonds abroad, never knowing the richest mine lies in his own backyard."
+Adaptation and Natural Selection,George C Williams,1966,"Natural selection acts on genes and individuals, not groups — a rigorous case against loose adaptationist thinking."
+Aerothermodynamics of Gas Turbine and Rocket Propulsion,Gordon C Oates,0,A graduate text on the thermodynamics and gas dynamics governing jet engines and rocket motors.
+Aesop's Fables,Aesop,0,"Talking animals enact brief moral lessons, from the tortoise outracing the hare to the fox spurning sour grapes."
+Agamemnon,Aeschylus,0,"Returning victorious from Troy, the king is murdered in his bath by the wife who never forgave their daughter's sacrifice."
+American Grace: How Religion Divides and Unites Us,David E. Campbell and Robert D. Putnam,2010,A sweeping survey of how American religion fosters both tolerance and division across a diverse democracy.
+An Essay on Man,Alexander Pope,1734,"A philosophical poem defending providence and man's place in the ordered chain of being — whatever is, is right."
+An Essay on Projects,Daniel Defoe,1697,"A young Defoe proposes banks, insurance, pensions, and academies to remake the commerce and welfare of England."
+An Iceland Fisherman,Pierre Loti,1886,"A Breton woman waits ashore for the fisherman she loves, whose heart belongs to the perilous northern sea."
+Anne of Geierstein,Walter Scott,1829,An exiled English nobleman is drawn into Swiss intrigue and the doomed ambition of Charles the Bold of Burgundy.
+Apologia Pro Vita Sua,John Henry Newman,1864,Newman traces the history of his religious opinions to justify his conversion from Anglicanism to Rome.
+Apology,Plato,0,"Socrates defends his life of questioning before an Athenian jury, refusing to beg for his acquittal."
+Aurora Leigh,Elizabeth Barrett Browning,1856,A verse novel following an orphaned woman's struggle to become a poet and reconcile art with love.
+Average is Over,Tyler Cowen,2013,An economist forecasts a hyper-meritocracy where those who work well with machines thrive and the rest stagnate.
+Belinda,Maria Edgeworth,1801,A sensible young woman navigates fashionable London society and the perils of courtship and reputation.
+Ben-Hur,Lew Wallace,1880,A Jewish prince betrayed into slavery seeks revenge on his Roman friend and crosses paths with Christ.
+Beowulf,,0,"A Geatish hero slays the monster Grendel and its mother, then falls decades later battling a dragon."
+Book of Imaginary Beings,Jorge Luis Borges,1967,A wry bestiary cataloguing the fantastic creatures dreamed up across the world's myths and literatures.
+Bowling Alone,Robert Putnam,2000,"Americans grow ever more disconnected from family, neighbors, and civic life — the quiet collapse of social capital."
+Breakfast at Tiffany's,Truman Capote,1958,"A writer remembers Holly Golightly, a New York café-society drifter chasing rich men and a sense of belonging that stays out of reach."
+Breaking the Spell: Religion as a Natural Phenomenon,Daniel Dennett,2006,"A philosopher argues that religion should be studied scientifically, as a natural phenomenon shaped by evolution and human need rather than shielded from inquiry."
+Camilla,Frances Burney,1796,"A spirited young woman's path to marrying the man she loves is tangled by debts, misunderstandings, and her own impulsive heart."
+Carmen Saeculare,Horace,0,"A choral hymn to Apollo and Diana, commissioned by Augustus and sung by children to bless the future of Rome."
+Castle of Wolfenbach,Eliza Parsons,0,"Fleeing a predatory uncle, a young woman takes refuge in a haunted castle whose locked rooms hide a wronged countess's secret."
+Cecilia,Frances Burney,1782,"An heiress may keep her fortune only if her husband takes her surname, a condition that torments her love for a proud family's son."
+Chaos: Making a New Science,James Gleick,1987,"A narrative history of chaos theory, following the scientists who found strange order in turbulence, weather, and the unpredictable."
+Charterhouse of Parma,Stendhal,1839,A young Italian nobleman chases love and glory from the field of Waterloo to the intrigues of a petty court and a prison tower.
+Chastelard,Algernon Charles Swinburne,1865,"A French poet at the Scottish court loves Mary, Queen of Scots, so recklessly that he courts his own execution."
+Chinese Ghosts,Lafcadio Hearn,1887,"Six retold Chinese legends of great bells, temple spirits, and doomed love, rendered in lush, incantatory prose."
+Christus,Henry Wadsworth Longfellow,1872,A dramatic trilogy tracing Christianity from the Nativity through medieval faith to the persecutions of Puritan New England.
+"Chrysal, or the Adventures of a Guinea",Charles Johnstone,1760,"A gold guinea narrates its passage through the hands of misers, harlots, and hypocrites, exposing the vices of Georgian society."
+Civil and Moral Discourse,Francis Bacon,0,"Terse, worldly essays on ambition, friendship, truth, and study, offering hard counsel for getting on in public and private life."
+Clermont,Regina Maria Roche,1798,A girl raised in rural seclusion with her father is drawn into a web of aristocratic secrets and Gothic peril when the past intrudes.
+Clisson et Eugene,Napoleon,0,"A brilliant soldier withdraws into idyllic love with Eugénie, then is recalled to war and undone by betrayal — Napoleon's autobiographical romance."
+Cocker's Arithmetick,Edward Cocker,1677,A practical arithmetic textbook so authoritative that 'according to Cocker' came to mean precisely correct.
+Code of Hummarabi,Hummarabi,0,"A Babylonian king's engraved code of laws, prescribing an eye for an eye across matters of trade, family, and property."
+Collected Verses of Walt Whitman,Walt Whitman,0,"Free-verse hymns to democracy, the body, and the American self, gathered from a lifetime of expanding Leaves of Grass."
+Colomba,Prosper Merimee,1840,"A Corsican woman goads her reluctant, Europeanized brother into carrying out the blood vendetta owed for their father's murder."
+Confessions of an English Opium Eater,Thomas De Quincey,1821,A writer chronicles the visionary pleasures and slow torments of his addiction to opium.
+Conservatism,Jerry Muller,1997,An anthology tracing conservative social and political thought from David Hume to the present day.
+"Consolations in Travels; or, The Last Days of a Philosopher",Humphry Davy,1830,"Dialogues on science, nature, and the soul, composed by a dying chemist on his final journeys."
+Contes Drolatiques,Honore de Balzac,1837,"Bawdy, Rabelaisian tales of old Touraine spun in mock-medieval French."
+Corinne,Madame de Stael,1807,An improvising Italian poetess loves a melancholy Scottish nobleman who cannot free himself from northern duty.
+Coriolanus,William Shakespeare,1608,"A proud Roman general, banished by the city he saved, turns his sword against Rome."
+Critias,Plato,0,An unfinished dialogue recounting the ancient war between primeval Athens and the island empire of Atlantis.
+Cryptonomicon,Neal Stephenson,1999,Second World War cryptographers and their grandchildren chase buried gold and a data haven across two eras.
+Curfew Must Not Ring To-Night,Rose Hartwick Thorpe,1867,"To save her condemned lover, a young woman climbs the belfry and clings to the great bell's clapper to silence the curfew."
+DIANA: Her True Story,Andrew Morton,1992,"The secret account of a princess's unhappy royal marriage, told with her own covert cooperation."
+Dancing in the Streets: A History of Collective Joy,Barbara Ehrenreich,2006,"A history of communal ecstasy — festival, carnival, and dance — and the forces that worked to suppress it."
+Darwin's Cathedrals,David Sloan Wilson,2002,An argument that religion evolved as an adaptation binding human groups into cooperative organisms.
+De Officiis,Marcus Tullius Cicero,0,"A statesman's letter to his son on duty, honor, and reconciling expediency with virtue."
+Delivering Happiness,Tony Hsieh,2010,"The Zappos founder recounts building a company on customer service, culture, and the pursuit of happiness."
+Descartes' Error,Antonio Damasio,1994,"A neuroscientist argues that emotion, far from clouding reason, is indispensable to sound judgment."
+Destruction of Black Civilization,Chancellor Williams,1971,A sweeping history arguing that Africa's great civilizations were deliberately undermined across six thousand years.
+Digest of International Law,J. B. Moore,1906,A monumental compendium of the precedents and practice of international law drawn from American diplomacy.
+Don Juan,George Gordon Byron,0,A satirical epic recasting the legendary seducer as an innocent swept through the follies of Europe.
+Dreams of My Father,Barack Obama,1995,"A future president's memoir of race, identity, and the search for a father he barely knew."
+Dune,Frank Herbert,1965,"On a desert planet prized for a mind-expanding spice, a betrayed heir rises as a messiah among its people."
+Elective Affinities,Johann Wolfgang von Goethe,1809,"A contented married couple invite two guests, and chemical attraction quietly and tragically rearranges all four hearts."
+Electra,Sophocles,0,"Consumed by grief, Electra waits for her exiled brother to return and avenge their father's murder by their mother."
+Elegant Extracts,Vicesimus Knox,0,"A schoolmaster's popular anthology of instructive poetry and prose, gathered to improve the taste and morals of the young."
+Eloquence,Ralph Waldo Emerson,0,Emerson anatomizes the orator's power to seize a crowd and bend it toward the truth of the moment.
+Encyclopaedia Britannica,,1768,"A comprehensive reference work marshaling the whole of human knowledge — science, art, history — into alphabetically ordered articles."
+Epipsychidion,Percy Bysshe Shelley,1821,"A rapturous verse hymn to a young woman who embodies the poet's vision of ideal, boundless spiritual love."
+Essays of Elia,Charles Lamb,1823,"Whimsical, tender personal essays in which 'Elia' muses on old actors, roast pig, chimney-sweeps, and vanished friends."
+Essays to do Good,Cotton Mather,1710,"A Puritan minister's practical exhortation that every person, in every station, seize daily occasions to do good."
+Essays: Circles,Ralph Waldo Emerson,1841,Emerson finds in the ever-widening circle a figure for a self and universe that endlessly outgrow every limit.
+Euphorion,Vernon Lee,1884,Impressionistic essays tracing how the antique and medieval worlds mingle and transform within the art of the Renaissance.
+Excelsior,Henry Wadsworth Longfellow,1841,A youth bearing a banner marked 'Excelsior' climbs ever higher through an Alpine village toward a frozen death.
+Exotics and Retrospectives,Lafcadio Hearn,1898,"Delicate essays on Japanese nature and memory, from the singing of insects to intimations of former lives."
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",1841,"A rollicking history of mass folly — tulip mania, alchemy, witch-hunts, and speculative bubbles that swept whole nations."
+Family Instructor,Daniel Defoe,1715,"Didactic dialogues in which parents, children, and servants wrestle over religious duty within the Christian household."
+Fordyce's Sermons,James Fordyce,1766,"Earnest sermons instructing young women in modesty, piety, and the domestic virtues thought becoming to their sex."
+Fundamentals of Astrodynamics,"Roger R. Bate, Donald D. Mueller, Jerry E. White",1971,"A rigorous introduction to orbital mechanics — two-body motion, orbit determination, and interplanetary transfer — for aspiring space engineers."
+Garden of Cyrus,Thomas Browne,1658,"Browne traces the quincunx, the five-point pattern, through gardens, art, and nature into the mystical design of the cosmos."
+Gargantua and Pantagruel,Francois Rabelais,0,"The bawdy, riotous adventures of two giant kings, brimming with satire, learning, and boundless appetite for life."
+Gerusalemme Liberata,Torquato Tasso,1581,"An epic of the First Crusade, where Christian knights besiege Jerusalem amid sorcery, love, and holy war."
+Gil Blas,Alain-René Lesage,0,"A picaresque chronicle of a Spanish youth's rise and fall through servants' halls, robbers' dens, and royal courts."
+God is Not Great: How Religion Poisons Everything,Christopher Hitchins,2007,"A blistering polemic arguing that religion is man-made, violent, and a poison at the root of human cruelty."
+Gone with the Wind,Margaret Mitchell,1936,"Willful Scarlett O'Hara claws her way through the ruin of the Civil War South, loving the wrong man."
+Good natured: The Origins of Right and Wrong in Humans and Other Animals,Frans B. M. de Waal,1996,"A primatologist finds the roots of human morality in the empathy, reciprocity, and fairness already at work among apes and monkeys."
+Grendel,John Gardner,1971,"Beowulf's monster tells his own story, a lonely, philosophical beast raging against the meaning humans insist on imposing."
+Gunn’s Domestic Medicine,John C Gunn,1830,A frontier household's plain-language guide to treating disease and injury when no doctor can be reached.
+Heimskringla,Snorri Sturluson,0,"The saga chronicle of the kings of Norway, from mythic Odin-descended origins down to the twelfth century."
+Helen,Isocrates,0,A showpiece of oratory that turns to praise of Helen of Troy for the beauty that stirred all Greece.
+Hierarchy in the Forest,Christopher Boem,1999,Egalitarian societies persist because the rank and file band together to suppress anyone who reaches for dominance.
+Hints from Horace,George Gordon Byron,0,Byron transplants Horace's Art of Poetry to Regency London and lashes its literary fashions in couplets.
+Histories,Herodotus,0,"Herodotus inquires into the great war between Greeks and Persians, gathering the customs and marvels of the known world."
+History of European Morals,William Edward Hartpole Lecky,1869,Lecky traces the slow evolution of European moral feeling from the age of Augustus to Charlemagne.
+Holy Fair,Robert Burns,0,"Burns satirizes a Scottish communion gathering where sermon and flirtation, piety and drink mingle freely."
+Horrid Mysteries,Carl Grosse,0,A young nobleman is drawn into the labyrinthine intrigues and staged deaths of a sinister secret society.
+How They Brought the Good News from Ghent to Aix,Robert Browning,1845,"Three riders gallop through the night, and only one horse survives to carry the news to Aix."
+"How to Attract and Hold an Audience: A Popular Treatise on the Nature, Preparation, and Delivery of Public Discourse",Joseph Berg Esenwein,0,A practical treatise on preparing and delivering a public speech that seizes and holds a crowd's attention.
+How to Win Friends and Influence People,Dale Carnegie,1936,A salesman's rules for making people like you and bringing them around to your way of thinking.
+Hydriotaphia,Thomas Browne,1658,"Unearthed Roman urns prompt Browne to meditate on burial rites, oblivion, and the vanity of earthly remembrance."
+In Memoram,Alfred Tennyson,1850,A long elegy works through years of grief for a dead friend toward a hard-won faith.
+In the Penal Colony,Franz Kafka,1919,A visitor watches an officer demonstrate the machine that executes prisoners by slowly carving their sentence into their flesh.
+Introduction to the Principles of Morals and Legislation,Jeremy Bentham,1789,Bentham grounds law and morality in one principle: the greatest happiness of the greatest number.
+Invictus,William Ernest Henley,1888,"Bloodied but unbowed, the speaker declares himself master of his fate and captain of his soul."
+"Isabella, or the Pot of Basil",John Keats,1820,"Isabella's brothers murder her lover, and she buries his severed head in a pot of basil she tends with her grief."
+Killshot,Elmore Leonard,1989,An ordinary working couple witnesses a shakedown and must survive two mismatched hitmen bent on erasing them.
+Kokoro,Natsume Sōseki,1914,A young man befriends an aloof older Sensei whose reserve hides a betrayal that has haunted him for years.
+L'Allegro,John Milton,1645,"A day in the company of Mirth — from the lark's dawn song to firelit tales — celebrating the cheerful, sociable life."
+L'Entranger,Albert Camus,1942,"Meursault, indifferent to his mother's death, kills a man on a sun-blinded beach and is condemned as much for his honesty as his crime."
+La Guerre des Dieux,Evariste de Parny,1799,"The pagan gods wage bawdy war on the newly arrived Christian trinity in a mock-heroic, anticlerical epic."
+La Tour de Nesle,Alexandre Dumas,1832,"Marguerite of Burgundy lures lovers to a riverside tower by night and has them murdered, until one proves bound to her own buried past."
+Lady Clara Vere de Vere,Alfred Tennyson,1842,"A poet rebuffs a cold, highborn beauty, reminding her that kind hearts are more than coronets."
+Lalla Rookh,Thomas Moore,1817,"A Mughal princess journeys to her wedding in Kashmir, beguiled along the way by a poet's four Eastern tales."
+Laon and Cythna,Percy Bysshe Shelley,1817,"Two lovers lead a bloodless revolution against tyranny and pay for it with martyrdom, in Shelley's visionary epic."
+Laws,Plato,0,"In his last dialogue, an Athenian stranger designs the laws and institutions of a second-best city."
+Lay Sermons,Thomas Henry Huxley,1870,Essays and addresses in which Huxley preaches the method and morality of science to a lay Victorian public.
+Le Morte d'Arthur,Sir Thomas Malory,1485,"The rise and ruin of King Arthur's Round Table — Lancelot's love, the Grail quest, and the last battle in the west."
+Lenore,Gottfried August Burger,1774,"A grieving maiden curses God, and her dead lover returns at midnight to carry her on horseback to his grave."
+Les Chouans,Honoré de Balzac,1829,"A republican beauty is sent to seduce and betray a royalist rebel leader in war-torn Brittany, and falls in love instead."
+Les Miserables,Victor Hugo,1862,The ex-convict Jean Valjean seeks redemption across decades while the relentless Inspector Javert hunts him through the streets of France.
+Lettres a une Inconnue,Prosper Merimee,1873,"Mérimée's decades of witty, tender letters to a woman he never names, published after his death."
+Light in August,William Faulkner,1932,"In a Mississippi August, an orphan haunted by rumors of black blood collides with a pregnant girl walking north to find her lover."
+Light of Asia,Edwin Arnold,1879,"The life and awakening of Prince Gautama, who leaves his palace to become the Buddha, told in flowing verse."
+Literary Character,Isaac Disraeli,0,"A study of the temperament, habits, and sufferings of authors and men of genius."
+Literary Character of Men of Genius,Isaac Disraeli,0,"An inquiry into the mind and character of literary genius, drawn from the lives of great authors."
+Literary Studies,Walter Bagehot,1879,"Collected essays in which Bagehot weighs English poets and writers with shrewd, worldly judgment."
+Little Dorrit,Charles Dickens,1857,"Born in a debtors' prison, gentle Amy Dorrit keeps faith with her proud father while fortune and ruin turn on a hidden inheritance."
+Lives and Anecdotes of Misers,Frederic Somner Merryweather,1850,"Biographical sketches chronicling the strange, grasping careers of history's most notorious misers and hoarders."
+Logic or the Art of Thinking,Antoine Arnauld and Pierre Nicole,1662,"The Port-Royal treatise on how to reason well, teaching conception, judgment, deduction, and method."
+Lost World,Arthur Conan Doyle,1912,Professor Challenger leads an expedition to a South American plateau where dinosaurs still walk.
+Lotos Time in Japan,Henry T. Finck,1895,"A Western critic's leisurely travel impressions of temples, gardens, and festivals across Meiji-era Japan."
+Love in a Village,Isaac Bickerstaffe,1762,Young lovers disguise themselves as servants to escape arranged marriages in this pastoral ballad opera.
+Lovers' Vows,Elizabeth Inchbald,1798,"A soldier discovers that the baron who seduced and abandoned his dying mother is his own father, and forces a reckoning."
+Made in the USA,Vaclac Smil,2013,"A data-driven account of the rise and retreat of American manufacturing, and why a nation that stops making things falters."
+Manon Lescaut,Abbé Prévost,1731,"A young nobleman abandons everything for the beautiful, faithless Manon, following her from Paris to ruin and exile."
+Marco Bozzaris,Fitz-Greene Halleck,1825,A Greek chieftain leads a midnight charge against the Turks and falls in the very hour of victory.
+Martin Chuzzlewit,Charles Dickens,1844,Greed and hypocrisy swirl around old Martin Chuzzlewit while his disinherited grandson learns the cost of selfishness on both sides of the Atlantic.
+Mary Stuart,Friedrich Schiller,1800,"Imprisoned and awaiting the axe, Mary Queen of Scots faces her rival Elizabeth in a doomed contest of crowns."
+Masnawi,Rumi,0,"A vast poem of spiritual couplets, threading fables and parables toward union with the divine."
+Measure for Measure,William Shakespeare,1604,"A duke steps aside and his puritanical deputy condemns a man to death for fornication, then propositions the man's chaste sister."
+Mein Kampf,Adolph Hitler,1925,"Hitler's autobiographical manifesto setting out his ideology of racial nationalism, antisemitism, and territorial conquest."
+Midsummer-Night's Dream,William Shakespeare,1600,"Four lovers, a troupe of bumbling actors, and quarreling fairies tangle in a moonlit wood outside Athens."
+Moby Dick,Herman Melville,1851,"A sailor ships aboard the Pequod under Captain Ahab, whose monomaniac hunt for the white whale drives all toward the abyss."
+Moll Flanders,Daniel Defoe,1722,"The candid confessions of a woman born in Newgate who becomes wife, thief, and penitent across a long, hard life."
+Monsieur Lecoq,Émile Gaboriau,1869,"A young police detective reconstructs a triple murder from a single clue, only to be baffled by the prisoner's true identity."
+Monsieur de Camors,Octave Feuillet,1867,"Heir to his dead father's creed of ambition without conscience, a count pursues power and pleasure until they destroy him."
+"Moral, Believing Animals",Christian Smith,2003,"A sociologist argues that human beings are, at bottom, moral and believing creatures who live inside the stories they tell."
+Mr Palomar,Italo Calvino,1983,"A man tries to observe the world with perfect attention — a wave, a cheese counter, the stars — and meets the limits of knowing."
+Nature,Ralph Waldo Emerson,1836,A transcendentalist manifesto finding in the natural world a mirror of spirit and a path to self-reliance.
+Neuromancer,William Gibson,1984,A burned-out hacker is hired for one last job in cyberspace and pulled into the schemes of a rogue artificial intelligence.
+Night Thoughts,Edward Young,1742,"A grieving poet meditates through the dark hours on death, immortality, and the consolations of Christian faith."
+Notre Dame de Paris,Victor Hugo,1831,"In medieval Paris, a deformed bell-ringer loves the gypsy dancer Esmeralda, coveted also by the tormented archdeacon Frollo."
+Oedipus Rex,Sophocles,0,"A king vows to purge the plague from Thebes, not knowing he himself killed his father and wed his mother."
+Of Human Bondage,Somerset Maugham,1915,A club-footed orphan seeks meaning through art and medicine while enslaved by his obsession with a callous waitress.
+On History,Thomas Carlyle,1830,"An essay arguing that history is the true epic, the essence of innumerable biographies no narrator can ever fully grasp."
+On Liberty,John Stuart Mill,1859,"A defense of individual freedom against social tyranny, holding that liberty may be curbed only to prevent harm to others."
+On The Road,Jack Kerouac,1957,"Sal Paradise crisscrosses postwar America with the restless, rhapsodic Dean Moriarty in a headlong search for experience."
+Out of Africa,Isak Dinesen,1937,A Danish baroness recalls her coffee farm at the foot of the Ngong Hills in colonial Kenya.
+Out of the House of Bondage,Thavolia Glymph,2008,A history of the plantation household as a violent workplace where white and enslaved women struggled over labor and power.
+Outliers,Malcolm Gladwell,2008,"Success is less lone genius than accident of birth, culture, and the ten thousand hours behind any mastery."
+Pamela,Samuel Richardson,1740,A virtuous servant girl resists her master's advances through a torrent of letters until he reforms and marries her.
+"Pamela, or Virtue Rewarded",Samuel Richardson,1740,A young maidservant's letters chronicle her defense of her chastity against a predatory master who at last weds her.
+Peregrine Pickle,Tobias Smollett,1751,"A headstrong, prank-loving gentleman roams England and the Continent, squandering fortunes and playing cruel jokes before humbling reversals."
+Phaedo,Plato,0,"On his last day, Socrates argues for the immortality of the soul, then calmly drinks the hemlock."
+Philosophy of History,Georg Wilhelm Friedrich Hegel,1837,"History is the rational progress of Spirit toward the consciousness of freedom, unfolding through the rise and fall of nations."
+Pleasures of Hope,Thomas Campbell,1799,A didactic poem celebrating hope as the consolation that gilds human life and sustains the mind through suffering.
+Pleasures of Memory,Samuel Rogers,1792,A didactic poem tracing how memory preserves the past and colors the present with tender recollection.
+"Patterns, Thinking and Cognition",Howard Margolis,1987,"A theory of judgment arguing that all thinking, even reasoning, rests fundamentally on pattern recognition rather than logical rules."
+Predictably Irrational,Dan Ariely,2008,"Experiments reveal the hidden, systematic forces that make people irrational in consistent and foreseeable ways."
+Principles of Psychology,William James,1890,"A sweeping foundational treatise on habit, emotion, will, and the ceaseless stream of consciousness."
+Protagoras,Plato,0,Socrates and the celebrated sophist debate whether virtue is a single thing and whether it can be taught.
+Public Speaking and Debate,George Jacob Holyoake,0,"A practical manual for advocates and agitators on the arts of oratory, argument, and public debate."
+Reflections on the Revolution in France,Edmund Burke,1790,"A statesman's impassioned warning that the Revolution's abstract rights will devour tradition, order, and liberty itself."
+Religious Courtship,Daniel Defoe,1722,"Through cautionary domestic tales, Defoe argues that the pious should marry only the equally devout."
+Rights of Man,Thomas Paine,1791,"Answering Burke, Paine defends the French Revolution and every generation's natural right to govern itself."
+Rivals,Jilly Cooper,1988,"Rival television magnates, adulterous affairs, and ruthless ambition collide in the fight for a Cotswolds franchise."
+Robin Hood,,0,"The outlaw of Sherwood Forest robs the rich, feeds the poor, and defies the Sheriff of Nottingham."
+Rocket Propulsion Elements,George P Sutton,1949,"The standard engineering treatise on how rocket engines generate thrust, from propellant chemistry to nozzle design."
+Rudin,Ivan Turgenev,1856,"An eloquent, idealistic drifter dazzles a provincial household yet proves incapable of acting on his own words."
+Ruins of Empire,Constantin-François Volney,1791,"Meditating amid fallen ruins, a traveler traces the rise and collapse of empires to superstition and tyranny."
+Ruins of Empires,Constantin-François Volney,1791,"Contemplating the wreckage of vanished civilizations, a traveler indicts superstition and despotism as the ruin of nations."
+Sanshiro,Natsume Sōseki,1908,"A country youth arrives at Tokyo University and drifts through study, friendship, and a love he cannot grasp."
+Shahnameh,Ferdowsi,1010,The great Persian epic recounting the mythical and heroic history of Iran's kings from creation to the Arab conquest.
+Shenandoah,Bronson Howard,1888,A Civil War melodrama in which love and friendship are strained across the battle lines of North and South.
+Sir Charles Grandison,Samuel Richardson,1753,An epistolary portrait of a paragon gentleman whose virtue steers him between two women who love him.
+Sociology: The New Synthesis,E. O Wilson,1975,"A sweeping argument that social behavior in animals and humans rests on a biological, evolutionary foundation."
+Sonnets from the Portuguese,Elizabeth Barrett Browning,1850,Forty-four love sonnets tracing a poet's disbelief giving way to devotion — 'How do I love thee?'
+Spring Torrents,Ivan Turgenev,1872,"A middle-aged man recalls the springtime love of his youth, betrayed by an enchanting, imperious woman."
+Stranger in a Strange Land,Robert A. Heinlein,1961,"Raised by Martians, Valentine Michael Smith returns to Earth and becomes a messiah of radical freedom."
+Summa Tehologica,Thomas Aquinas,0,"Aquinas's monumental synthesis of Christian theology, arguing every question of God and man through reasoned disputation."
+Switch: How to Change Things when Change is Hard,Chip Heath and Dan Heath,2010,"Two brothers explain how lasting change happens by directing the rider, motivating the elephant, and shaping the path."
+Table Talk,Martin Luther,1566,"Informal dinner-table sayings of the Reformer, recorded by students, on faith, scripture, the devil, and daily life."
+Tales,George Crabbe,1812,"Plainspoken verse narratives of English village life, tracing the moral fortunes of ordinary provincial souls."
+Tales of Moonlight and Rain,Ueda Akinari,1776,"Nine eerie Japanese tales in which ghosts, spirits, and the restless dead intrude upon the living."
+Tales of Old Japan,Algernon Bertram Freeman-Mitford,1871,"A collection of Japanese legends, folk tales, and customs, including the vendetta of the forty-seven ronin."
+Tales of the Alhambra,Washington Irving,1832,Sketches and Moorish legends drawn from the author's residence in the crumbling Alhambra palace above Granada.
+Tartarin de Tarascon,Alphonse Daudet,1872,"A boastful Provençal burgher, hungry for glory, sets off to hunt lions in the wilds of Algeria."
+The Advancement of Learning,Francis Bacon,1605,"Bacon surveys the whole of human knowledge, diagnosing its defects and urging an empirical advance of learning."
+The Aenid,Virgil,0,Aeneas flees the ashes of Troy to found the race that will one day become Rome.
+The African Origin of Civilization,Cheikh Anta Diop,1974,Diop argues that ancient Egypt was a Black African civilization and the wellspring of later Mediterranean culture.
+The Ancient History,Charles Rollin,0,"A sweeping narrative of the Egyptians, Assyrians, Babylonians, Persians, and Greeks from their rise to their fall."
+The Art of Animation,Bob Thomas,1958,A behind-the-scenes chronicle of the Walt Disney studio and the craft that gave its cartoons life.
+The Audacity of Hope,Barack Obama,2006,"A senator's reflections on faith, politics, and the possibility of common ground in a divided America."
+The Betrothed,Alessandro Manzoni,1827,"In seventeenth-century Lombardy, a tyrant's whim tears two peasant lovers apart amid plague, famine, and war."
+The Blank Slate: The Modern Denial of Human Nature,Steven Pinker,2002,"Pinker dismantles the doctrine that the mind is a blank slate, defending an innate and universal human nature."
+The Book of Martyrs,John Foxe,1563,A Protestant martyrology recounting the sufferings and deaths of Christians persecuted for their faith.
+The Boscombe Valley Mystery,Arthur Conan Doyle,1891,Holmes reads the mud and footprints around a pond to clear a young man accused of murdering his father.
+The Bride of Abydos,Lord Byron,1813,"In a Turkish court, Selim and Zuleika love across a forbidden bond that ends in bloodshed."
+The Bride of Lammermoor,Walter Scott,1819,"The doomed love of Lucy Ashton and Edgar Ravenswood, divided by their families' feud over ancestral lands."
+The Brook,Alfred Tennyson,1855,"A babbling stream narrates its own winding journey to the river, outlasting the men who come and go."
+The Brothers Karamazov,Fyodor Dostoyevsky,1880,"Three brothers and their dissolute father collide over faith, doubt, and desire until the old man is murdered."
+The Carpetbaggers,Harold Robbins,1961,"A ruthless young tycoon claws through aviation, munitions, and Hollywood, wrecking lives as he builds his empire."
+The Castle,Franz Kafka,1926,A land surveyor called K. struggles endlessly to reach the elusive authorities of the castle that rules a snowbound village.
+The Children of the Abbey,Regina Maria Roche,1796,"Amanda and Oscar Fitzalan, cheated of their inheritance, endure slander and misfortune before virtue is at last rewarded."
+The Chrysanthemum Pledge,Ueda Akinari,1776,"A samurai vows to return by the Chrysanthemum Festival, and when death prevents him, his ghost keeps the promise."
+The Cost of Discipleship,Dietrich Bonhoeffer,1937,"Bonhoeffer contrasts cheap grace with the costly grace of truly following Christ, whatever the sacrifice."
+The Culprit Fay,Joseph Rodman Drake,1835,"A fairy of the Hudson Highlands, having loved a mortal maid, must complete perilous quests to cleanse his stain."
+The Decameron,Giovanni Boccaccio,1353,"Ten young Florentines flee the plague to a country villa, passing ten days telling a hundred tales of love and wit."
+The Deerslayer,Fenimore Cooper,1841,"Young Natty Bumppo, a frontier hunter raised among the Delaware, faces his first battle and first kill in the New York wilderness."
+The Descent of Man,Charles Darwin,1871,"Darwin extends evolution to humankind, arguing that our bodies, minds, and morals descend from animal ancestors and are shaped by sexual selection."
+The Deserted Village,Oliver Goldsmith,1770,"A poet mourns Auburn, a once-thriving English village emptied by enclosure and greed, its cottagers driven into exile and poverty."
+The Destruction of Dresden,David Irving,1963,A controversial account of the Allied firebombing that reduced the German city to ash in February 1945.
+The Doctrine Of The Mean,Confucius,0,"A Confucian classic on cultivating equilibrium and sincerity as the constant, unswerving path to moral harmony."
+The Doctrine of Fascism,Benito Mussolini and Giovanni Gentile,1932,"Mussolini and Gentile set out fascism's creed — the total state above the individual, glorifying war, authority, and national will."
+"The End of Faith: Religion, Terror and the Future of Reason",Sam Harris,2004,"Harris indicts religious faith as a dangerous relic, arguing that dogma and revelation fuel violence in an age of nuclear weapons."
+The End of the Affair,Graham Greene,1951,"In wartime London, a jealous novelist reconstructs his passionate affair with a married woman who abruptly abandoned him."
+"The English People, a Study of Their Political Psychology",Emile Gaston Boutmy,0,"A French scholar dissects the political psychology and national character of the English, tracing their institutions to temperament and history."
+The English Rogue,Richard Head,1665,"The bawdy, picaresque confessions of Meriton Latroon, a scoundrel who cheats and thieves his way across seventeenth-century England."
+The Excursion,William Wordsworth,1814,"A wandering poet, a disillusioned Solitary, and a wise Wanderer debate faith, despair, and nature across the English hills."
+The Execution of Private Slovik,William Bradford Huie,1954,"The true story of Eddie Slovik, the only American soldier since the Civil War executed for desertion."
+The Fable of the Bees,Bernard Mandeville,1714,"A verse fable and essays arguing that private vices — greed, vanity, luxury — paradoxically drive public prosperity."
+The Faith Instinct,Nicholas Wade,2009,"Wade argues that religion is woven into human nature by evolution, an instinct that once bound early societies together for survival."
+The Fire Next Time,James Baldwin,1963,"Two searing essays on race, faith, and America's coming reckoning, opening with a letter to Baldwin's young nephew."
+The First Blast of the Trumpet Against the Monstruous Regiment of Women,John Knox,1558,"Knox thunders against female monarchs, declaring that rule by women defies God, nature, and right order."
+The Georgics,Virgil,0,"Virgil's didactic poem on farming — of crops, vines, cattle, and bees — as a meditation on labor, order, and Italy."
+The Giaour,Lord Byron,1813,"A fragmented Byronic tale of a brooding infidel who avenges Leila, the harem slave drowned for loving him."
+The God Delusion,Richard Dawkins,2006,"Dawkins mounts a sweeping case against belief in God, arguing that religion is a delusion unsupported by evidence and often harmful."
+The Good Earth,Pearl S Buck,1931,"The Chinese farmer Wang Lung rises from poverty to wealth, bound always to the land that sustains and defines him."
+The Great Stagnation,Tyler Cowen,2011,"Cowen argues that America has consumed the easy sources of growth, leaving decades of technological and economic slowdown."
+The Greening of America,Charles A Reich,1970,Reich hails a coming cultural revolution in which a new youthful consciousness liberates America from the corporate machine.
+The Happiness Hypothesis,Jonathan Haidt,2006,"Haidt tests ten ancient ideas about happiness against modern psychology, seeking wisdom in the divided human mind."
+The Heart of the Matter,Graham Greene,1948,"A scrupulous colonial policeman in wartime West Africa is undone by pity, adultery, and his own Catholic conscience."
+The Heir of Redclyffe,Charlotte M. Yonge,1853,A high-spirited young heir battles his inherited temper and a family feud in a Victorian tale of Christian self-conquest.
+"The History of Henry, Earl of Moreland",Henry Brooke,0,A nobleman's younger son is raised amid nature and benevolence to become an ideal man of feeling.
+The History of Rome,Oliver Goldsmith,1769,"Goldsmith's popular narrative of Rome from its founding through kings, republic, and empire to decline."
+The History of Sandford and Merton,Thomas Day,1783,A spoiled merchant's son is reformed by the example of a virtuous farmer's boy and their wise tutor.
+The History of the Devil,Daniel Defoe,1726,"Defoe traces the Devil's career from his fall to his meddling in human affairs, half history and half satire."
+The History of the Puritans,Daniel Neal,1732,A sympathetic history of the English Puritans from the Reformation through their long struggle for religious liberty.
+The Holy War,John Bunyan,1682,"Bunyan's allegory of the town of Mansoul, lost to Diabolus and reclaimed by the prince Emanuel."
+The Hound of Baskerville,Arthur Conan Doyle,1902,Sherlock Holmes investigates a spectral hound said to stalk an heir across the fog-bound moors of Dartmoor.
+The House of Life,Dante Gabriel Rossetti,1881,"A sonnet sequence charting love, its consummation, and its loss under the shadow of death and art."
+The Imitation of Christ,Thomas a Kempis,0,"A devotional manual counseling humility, detachment from the world, and the inward following of Christ."
+The Importance of Being Earnest,Oscar Wilde,1895,Two Victorian bachelors invent fictitious identities named Ernest to escape duty and win the women they love.
+The Inferno,Dante,0,"Guided by Virgil, Dante descends through the nine circles of Hell, meeting the damned at every ledge."
+The Legend of Sleepy Hollow,Washington Irving,1820,A superstitious Yankee schoolmaster courting a Dutch heiress is chased from the valley by a headless horseman.
+The Life of Cowper,Robert Southey,1835,"Southey's biography of the gentle, melancholy poet William Cowper, tracing his faith, his madness, and his verse."
+The London Merchant,George Lillo,1731,"An apprentice, seduced by a scheming woman, robs his master and murders his uncle in this domestic tragedy."
+The Maid of the Mill,Isaac Bickerstaffe,1765,A comic opera in which a miller's virtuous daughter is courted by a young gentleman far above her station.
+The Maid's Tragedy,Francis Beaumont and John Fletcher,1619,"Ordered to abandon his betrothed and marry the king's secret mistress, Amintor is drawn into a tragedy of revenge."
+The Marble Faun,Nathaniel Hawthorne,1860,Four artists in Rome are bound together by a sudden murder that awakens one innocent nature to sin and sorrow.
+The Martyrdom of Man,Winwood Reade,1872,"A sweeping secular history of humanity's progress through war, religion, liberty, and intellect."
+The Masqueraders,Georgette Heyer,1928,"A Jacobite brother and sister hide in Georgian London disguised as the opposite sex, courting both danger and love."
+The Memorable Thoughts of Socrates,Xenophon,-371,"A soldier-companion's recollections of Socrates, defending his master against impiety and showing his plain wisdom in everyday talk."
+The Merry Wives of Windsor,William Shakespeare,1602,"The fat knight Falstaff woos two respectable wives for their husbands' money, and the wives conspire to humiliate him."
+The Monk,Matthew Lewis,1796,"A revered Spanish abbot yields to lust and the Devil, tumbling from sanctity into rape, murder, and damnation."
+The Moon is a Harsh Mistress,Robert A Heinlein,1966,"A lunar penal colony, aided by a self-aware computer, revolts to win its independence from Earth."
+The Moral Essays,Alexander Pope,1735,Four verse epistles anatomizing the characters of men and women and the right and ruinous uses of riches.
+The Mourning Bride,William Congreve,1697,A Granadan princess secretly wed to a prince she believes drowned grieves amid royal vengeance and disguise — for hell hath no fury like a woman scorned.
+The Murder of Roger Ackroyd,Agatha Christie,1926,"Poirot investigates a country squire's stabbing, narrated by the village doctor who assists him."
+The Murders in the Rue Morgue,Edgar Allan Poe,1841,The reasoner Dupin unravels a savage double murder in a locked Paris room that baffles the police.
+The Mysteries of Udolpho,Ann Radcliffe,1794,"Orphaned Emily St. Aubert, imprisoned in a brooding Apennine castle by her aunt's sinister husband, confronts terrors that reason will explain."
+The Nature and Necessity of a Paper Currency,Benjamin Franklin,1729,A young printer argues that issuing paper money would ease colonial Pennsylvania's scarcity of coin and quicken its trade.
+The Odyssey,Homer,-700,"Ten years after Troy's fall, Odysseus struggles homeward past monsters and gods to the wife and son who still await him."
+"The Paypal Wars: Battles with eBay, the Media, the Mafia, and the Rest of Planet Earth",Eric M Jackson,2004,"An insider's account of PayPal's scrappy fight to survive fraud, rivals, and eBay on its way to reinventing online money."
+The Pickwick Papers,Charles Dickens,1837,"The genial Mr. Pickwick and his club ramble across England, tumbling through misadventures, lawsuits, and the comic loyalty of Sam Weller."
+The Pirate,Walter Scott,1822,"In the remote Shetland Isles, a shipwrecked stranger who proves to be a pirate captain unsettles the loves of two sisters."
+The Political Brain,Drew Westen,2007,"A psychologist argues that elections are won through emotion, not reason, and faults Democrats for appealing to the head over the heart."
+The Powers That Be,David Halberstam,1979,"A sweeping history of how CBS, Time, the Washington Post, and the Los Angeles Times grew into empires that shaped American politics."
+The Prophet,Khalil Gibran,1923,"On the eve of his departure, the sage Almustafa answers a town's questions with poetic counsel on love, work, sorrow, and death."
+The Rape of the Lock,Alexander Pope,1714,A stolen lock of hair ignites a mock-epic war among the fashionable belles and beaux of England.
+The Razor's Edge,W. Somerset Maugham,1944,"A young American, scarred by the Great War, forsakes wealth and convention to wander in search of meaning."
+The Red and the Black,Stendhal,1830,An ambitious carpenter's son schemes his way through the church and the salons of Restoration France.
+The Religion of Nature Delineated,William Wollaston,1722,A moral philosophy grounding right and wrong in whether our actions affirm or deny the truth of things.
+The Religions of Japan,William Elliot Griffis,0,"A survey of Shinto, Buddhism, and Confucianism as they shaped the faith and daily life of Japan."
+The Renaissance,Walter Pater,1873,"Essays on the art and poetry of the Renaissance that urge the reader to burn with a hard, gemlike flame."
+The Romance of the Forest,Ann Radcliffe,1791,A persecuted young woman takes refuge in a ruined abbey where buried family secrets slowly close in around her.
+The Saints' Everlasting Rest,Richard Baxter,1650,A Puritan pastor's meditation urging the faithful toward the eternal rest that awaits them in heaven.
+The Satyricon,Petronius,0,"The disreputable misadventures of a wandering rogue and his boy lover, centered on a vulgar freedman's lavish banquet."
+The Sea,Barry Cornwall,0,"A rolling hymn to the open sea, which the poet claims as his wild home, his joy, and his ever-free element."
+The Seasons,James Thomson,1730,"A four-part poem tracing the turning year through spring, summer, autumn, and winter across the English countryside."
+The Shaughraun,Dion Boucicault,1874,A merry Irish vagabond schemes to rescue a Fenian exile and outwit an informer in a melodrama of old Ireland.
+The Sketch Book of Geoffrey Crayon,Washington Irving,1820,"A genial traveler's miscellany of English sketches and American tales, home to Rip Van Winkle and Sleepy Hollow."
+The Sound and Fury,William Faulkner,1929,"The Compson family's decline told in fractured voices, beginning with the wordless grief of an idiot son."
+The Spirit of the Laws,Montesquieu,1748,"A sweeping comparison of governments arguing that liberty depends on separating legislative, executive, and judicial power."
+The Swiss Family Robinson,Johann David Wyss,1812,A shipwrecked pastor and his family build an ingenious island home from the salvage of their wrecked ship.
+The Tattler,John Addison,1709,"A gentleman's periodical of essays on manners, morals, and the coffeehouse life of early eighteenth-century London."
+The Tour of Doctor Syntax in Search of the Picturesque,William Combe,1812,A bumbling clergyman-schoolmaster sets off on horseback in comic pursuit of picturesque scenery and easy fortune.
+The Vanity of Human Wishes,Samuel Johnson,1749,"A grave survey of humanity's futile ambitions, showing how wealth, power, and fame all end in ruin."
+The Way of All Flesh,Samuel Butler,1903,Four generations of a Victorian family expose the quiet tyrannies of respectable religion and paternal love.
+The Whole Duty of Man,Richard Allestree,1658,"A devotional manual laying out the ordinary Christian's duties to God, to neighbor, and to himself."
+"The Wide, Wide World",Susan Warner,1850,"An orphaned girl, sent from her dying mother into hard hands, learns to endure through piety and tears."
+The Winter's Tale,William Shakespeare,1611,"A king's sudden jealousy destroys his family, until time and a living statue restore what he had lost."
+The Wizard of Oz,L Frank Baum,1900,"A Kansas girl swept to a magic land follows a golden road, gathering odd companions on her way home."
+Theory of the Leisure Class,Thorstein Veblen,1899,An economist dissects how the wealthy signal status through conspicuous consumption and deliberate waste rather than usefulness.
+Things Fall Apart,Chinua Achebe,1958,"Okonkwo, a proud Igbo warrior, watches his world and his standing unravel as British colonizers and missionaries arrive in his Nigerian village."
+Toussant l'Ouverture,Wendel Phillips,1861,An abolitionist orator hails the self-freed slave who led Haiti's revolution as a soldier and statesman greater than Napoleon.
+Travels with a Donkey,Robert Louis Stevenson,1879,A restless young writer treks through the Cévennes mountains with only a stubborn donkey named Modestine for company.
+Treason: Liberal Treachery from the Cold War to the War on Terrorism,Ann Coulter,2003,A combative polemic arguing that American liberals have betrayed the nation from the Cold War through the war on terror.
+Treatise on the Law of Corporations,Stewart Kyd,1793,"The first English-language treatise on corporate law, defining what a corporation is and how one may be created, governed, and dissolved."
+Undine and Sintram,Friedrich de la Motte Fouqué,1811,"A water nymph marries a knight to win a human soul, only to be betrayed by his wandering heart."
+Urn Burial,Thomas Browne,1658,"Roman funeral urns unearthed in Norfolk prompt a sweeping meditation on death, memory, and the vanity of earthly monuments."
+Valentine and Orson,Anonymous,0,"Twin brothers separated at birth — one raised at court, the other by a bear in the forest — reunite in chivalric adventure."
+Valley of the Dolls,Jacqueline Susann,1966,"Three ambitious women chase fame in New York and Hollywood, propped up by pills and worn down by the men around them."
+Voyage autour de ma Chambre,Xavier de Maistre,1794,"Confined to his room for forty-two days, an officer turns the journey from bed to armchair into a witty philosophical travelogue."
+Walden,Henry David Thoreau,1854,A man retreats to a cabin by a Massachusetts pond to live deliberately and strip life down to its essentials.
+Waverley,Walter Scott,1814,A dreamy young English officer is swept into the doomed Jacobite rising of 1745 in the Scottish Highlands.
+What's the Matter with Kansas,Thomas Frank,2004,An argument that working-class Americans have been lured into voting against their own economic interests by cultural grievances.
+Wilhelm Meister's Apprenticeship,Johann Wolfgang von Goethe,1795,"A merchant's son abandons commerce for the theater, drifting through love and illusion toward a hard-won maturity."
+Windsor Forest,Alexander Pope,1713,A pastoral poem celebrating the English countryside and the peace of Queen Anne's reign.
+Wonderful Ethiopians of the Ancient Cushite Empire,Drusilla D Houston,1926,A sweeping history arguing that a great Cushite civilization of black Africa shaped the ancient world from Ethiopia to India.
+the Selfish Gene,Richard Dawkins,1976,"Evolution seen from the gene's point of view, where organisms are survival machines built to propagate their DNA."
+À Rebours,Joris-Karl Huysmans,1884,"A jaded aristocrat withdraws from society into a private world of rare perfumes, art, and exquisite artificial sensations."
+Émaux et Camées,Théophile Gautier,1852,"A collection of finely chiseled poems that treat verse as sculpture, pursuing beauty for its own sake."
+Articles of Belief and Acts of Religion,Benjamin Franklin,1728,The young printer drafts a private liturgy and personal creed for his own solitary worship of a benevolent God.
+Before an Audience,Nathan Sheppard,1886,"Force of will, not gesture or elocution, is what truly commands a speaker's audience."
+Belsham's Essays,William Belsham,1789,"Essays ranging across philosophy, history, and letters, defending human liberty against the doctrine of necessity."
+Brideshead,Evelyn Waugh,1945,"Charles Ryder recalls his enchantment with an aristocratic Catholic family and its slow, grace-haunted decline."
+"Buy Low, Sell High, Collect Early, and Pay Late: The Manager's Guide to Financial Survival",Richard I. Levin,1983,A manager's plain-spoken guide to reading the numbers and surviving the game of corporate finance.
+Caesar's Wars,Julius Caesar,0,Caesar's own terse account of his conquest of Gaul and the civil war that made him Rome's master.
+Children of the Sun,George Wells Parker,1918,Parker marshals early anthropology to argue that Greek and Mesopotamian civilization sprang from African roots.
+Confession of General Bonaparte to he Abbe Maury,Jean Sarrazin,1811,"An exiled general puts imagined confessions in Napoleon's mouth, a bitter satire on imperial ambition."
+Contes de Daudet,Alphonse Daudet,0,"Tales of Provence and wartime France, tender, ironic, and lit with Southern sun."
+Crowds,Gerald Stanley Lee,1913,"Lee reads modern democracy as one vast, hopeful crowd and asks how to make it good and beautiful."
+Crown of Wild Olive,John Ruskin,1866,"Four Ruskin lectures on work, traffic, war, and what a nation owes to its own soul."
+"Dresden, History, Stage and Gallery",Mary Endell,1908,"A cultured tour of Dresden's history, its opera and theater, and the treasures of its picture gallery."
+Edda,Snorri Sturluson,1220,Snorri gathers the Norse myths and the craft of skaldic verse into the great handbook of the North.
+Feudal and Modern Japan,Arthur May Knapp,1897,Knapp explains how Japan cast off feudalism and remade itself into a modern power within a single generation.
+Friendship's Offering,,1824,"A Christmas gift-book annual gathering poems, songs, and prose legends from Byron, Southey, and other fashionable authors of the day."
+History Philosophically Illustrated,George Miller,1832,Miller traces the philosophical causes behind European events from the fall of Rome to the French Revolution.
+How Plants Grow,Asa Gray,1858,"Asa Gray's simple introduction to botany for young students, long a standard American school text."
+Japan in Transition,Stafford Ransome,1899,"Ransome measures Japan's rapid progress, policy, and methods in the years after its victory over China."
+Miscellaneous Essays,George Saintsbury,1892,"Saintsbury's critical essays range over English and French prose style, Baudelaire, Renan, and the present state of the novel."
+Poppies,Natsume Soseki,1907,Six young men and women navigate love and ambition in Meiji Japan's collision of tradition and modernity.
+Princess Mary's Gift Book,"various (anthology, ed. for Queen Mary's charity)",1914,"Stories and poems by Barrie, Kipling, and Doyle, sold to fund Christmas gifts for Britain's wartime soldiers and sailors."
+Psychology,Daniel Putnam,1889,"An elementary school textbook of mental and moral science, surveying perception, memory, emotion, and will."
+Talk to Students on the Art of Study,Frank Cramer,1902,"A biologist's practical counsel to students on how to concentrate, reason, and learn effectively."
+The Gist of Japan,R. B. Peery,1897,"A missionary surveys Japan's islands, people, and religions, and the progress of Christian missions among them."
+The Infallibility of Human Judgment,Lyons,1724,Lyons proposes a new art of reasoning that reduces every dispute to self-evident propositions to settle truth.
+The Midnight Bell,Francis Lathom,1798,"Fleeing his father's murder, a young Saxon count is drawn back to a haunted castle whose bell tolls each midnight."
+The Mysterious Warning,Eliza Parsons,1796,"A spectral voice warns young Ferdinand against his brother, launching a Gothic tangle of disinheritance, murder, and buried family sin."
+The Necromancer of the Black Forest,Ludwig Flammenberg (Carl Friedrich Kahlert),1794,Interlocking tales of banditry and seeming sorcery in the Black Forest circle a mysterious necromancer whose hauntings prove all too human.
+The Orphan of the Rhine,Eleanor Sleath,1798,An orphaned girl and her protector flee across Italy through haunted castles as a hidden noble parentage and villainous schemes unravel.
+The Principles of Ethics,Herbert Spencer,1892,"Spencer grounds morality in evolution, deriving the laws of right conduct from biology, psychology, and the survival of society."
+The Working Principles of Rhetoric,John Franklin Genung,1900,"Genung's exhaustive college manual anatomizes effective writing into invention, style, and structure as teachable working principles."
+Thinking and Learning to Think,Nathan C. Schaeffer,1900,"Schaeffer examines attention, memory, and reasoning to argue that education's true aim is teaching pupils to think, not memorize."
+Voyages,James Cook,1777,"Captain Cook's own journals of Pacific exploration, charting Tahiti, New Zealand, and the search for a great southern continent."
+Works and Days,Hesiod,-700,"Hesiod counsels his idle brother on honest labor, the farmer's calendar, and the ages of man in a world where the gods watch over justice."
+Writing and Speaking,Charles Sears Baldwin,1909,"Baldwin's rhetoric text treats composition and oratory together, teaching how ideas become clear, persuasive writing and speech."
+Time Traveler,Norman and Jeanne MacKenzie,1973,"A full-length biography of H.G. Wells, tracing the draper's apprentice who became a prophet of science fiction and social reform."
+College Friends,Edmondo De Amicis,0,"De Amicis's nostalgic reminiscence of his years as a cadet at the military college of Modena, recalling the friendships, hardships, and youthful ardor of army-school life."
+Essays,Ralph Waldo Emerson,1841,"Emerson's First Series preaches individual conscience and the divinity within each soul, from Self-Reliance to The Over-Soul."
+The Essays,Michel de Montaigne,1580,"Montaigne turns his skeptical gaze on himself, wandering through fear, friendship, and death to ask, 'What do I know?'"

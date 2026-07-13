@@ -9,9 +9,6 @@ Special Topics in Calamity Physics,The Sound and Fury,William Faulkner
 American Gods,Poor Richard's Almanack,Benjamin Franklin
 American Gods,The Murder of Roger Ackroyd,Agatha Christie
 American Gods,Histories,Herodotus
-American Gods,Perplexing Parlour Illusions,
-American Gods,Common Diseases of the Urinary Tract with Illustrations by a Medical Doctor,
-American Gods,Minutes of the Lakeside City Council,
 American Gods,Stranger in a Strange Land,Robert A. Heinlein
 Napoleon: A Life,Clisson et Eugene,Napoleon
 Napoleon: A Life,The Sorrows of Young Werther,Johann Wolfgang von Goethe
@@ -62,7 +59,6 @@ The Reluctant Fundamentalist,The Legend of Sleepy Hollow,Washington Irving
 Coraline,Romeo and Juliet,William Shakespeare
 The Book Thief,Mein Kampf,Adolph Hitler
 Hard Boiled Wonderland and the End of the World,Time Traveler,H G Wells
-Hard Boiled Wonderland and the End of the World,Archaeology of Animals,Burtland Cooper
 Hard Boiled Wonderland and the End of the World,Book of Imaginary Beings,Jorge Luis Borges
 Hard Boiled Wonderland and the End of the World,Lost World,Arthur Conan Doyle
 Hard Boiled Wonderland and the End of the World,Rudin,Ivan Turgenev
@@ -154,7 +150,6 @@ The Just City,Protagoras,Plato
 The Just City,Iliad,Homer
 The Just City,Laws,Plato
 The Just City,Apology,Plato
-The Just City,Telemachus,Aeschylus
 The Just City,Phaedo,Plato
 Americanah,The Heart of the Matter,Graham Greene
 Americanah,The Fire Next Time,James Baldwin
@@ -209,7 +204,6 @@ The Art of Public Speaking,In Memoram,Alfred Tennyson
 The Art of Public Speaking,Lady Clara Vere de Vere,Alfred Tennyson
 The Art of Public Speaking,Pleasures of Hope,Thomas Campbell
 The Art of Public Speaking,The Deserted Village,Oliver Goldsmith
-The Art of Public Speaking,Needless Alarm,William Cowper
 The Art of Public Speaking,Rights of Man,Thomas Paine
 The Art of Public Speaking,The Moral Essays,Alexander Pope
 The Art of Public Speaking,Othello,William Shakespeare
@@ -220,7 +214,6 @@ The Art of Public Speaking,Christus,Henry Wadsworth Longfellow
 The Art of Public Speaking,The Tattler,John Addison
 The Art of Public Speaking,L'Allegro,John Milton
 The Art of Public Speaking,The Sea,Barry Cornwall
-The Art of Public Speaking,The Lark,James Hogg
 The Art of Public Speaking,The Brook,Alfred Tennyson
 The Art of Public Speaking,Works and Days,Hesiod
 The Art of Public Speaking,Iliad,Homer
@@ -231,9 +224,7 @@ The Art of Public Speaking,How Plants Grow,Grant Allen
 The Art of Public Speaking,Hints from Horace,George Gordon Byron
 The Art of Public Speaking,Thinking and Learning to Think,Nathan C. Schaeffer
 The Art of Public Speaking,Talk to Students on the Art of Study,Frank Cramer
-The Art of Public Speaking,The New Americanism,Henry Watterson
 The Art of Public Speaking,Acres of Diamond,Russel H. Conwell
-The Art of Public Speaking,Pass Prosperity Around,Albert J. Beveridge
 The Art of Public Speaking,The Advancement of Learning,Francis Bacon
 The Art of Public Speaking,Lay Sermons,Thomas Henry Huxley
 The Art of Public Speaking,The Merry Wives of Windsor,William Shakespeare
@@ -244,33 +235,23 @@ The Art of Public Speaking,Travels with a Donkey,Robert Louis Stevenson
 The Art of Public Speaking,An Iceland Fisherman,Pierre Loti
 The Art of Public Speaking,College Friends,Edmondo de Amicis
 The Art of Public Speaking,A Gossip on Romance,Robert Louis Stevenson
-The Art of Public Speaking,Midnight in London,Ardennes Jones-Foster
 The Art of Public Speaking,Martin Chuzzlewit,Charles Dickens
 The Art of Public Speaking,Literary Studies,Walter Bagehot
 The Art of Public Speaking,On History,Thomas Carlyle
-The Art of Public Speaking,Marius in Prison,Thomas de Quincy
-The Art of Public Speaking,A Reminiscience of Lexington,Theodore Parker
-The Art of Public Speaking,Paul Revere's Ride,George William Curtis
-The Art of Public Speaking,The Leadership of Educated Men,George William Curtis
 The Art of Public Speaking,Public Speaking and Debate,George Jacob Holyoake
-The Art of Public Speaking,The Monroe Doctrine,T. B. Edgington
 The Art of Public Speaking,Digest of International Law,J. B. Moore
 The Art of Public Speaking,Measure for Measure,William Shakespeare
 The Art of Public Speaking,Eloquence,Ralph Waldo Emerson
 The Art of Public Speaking,Julius Caesar,William Shakespeare
 The Art of Public Speaking,Marco Bozzaris,Fitz-Greene Halleck
-The Art of Public Speaking,Puritan and Cavalier,Henry Watterson
 The Art of Public Speaking,Crowds,Gerald Stanley Lee
 The Art of Public Speaking,Literary Character of Men of Genius,Isaac Disraeli
 The Art of Public Speaking,Midsummer-Night's Dream,William Shakespeare
-The Art of Public Speaking,The Harbringer,O. Henry
-The Art of Public Speaking,The First Settler's Story,Will Carleton
 The Art of Public Speaking,Pleasures of Memory,Samuel Rogers
 The Art of Public Speaking,Civil and Moral Discourse,Francis Bacon
 The Art of Public Speaking,Essays: Circles,Ralph Waldo Emerson
 The Art of Public Speaking,Writing and Speaking,C. S. Baldwin
 The Art of Public Speaking,Toussant l'Ouverture,Wendel Phillips
-The Art of Public Speaking,The Race Problem,Henry W Grady
 The Art of Public Speaking,Holy Fair,Robert Burns
 The Art of Public Speaking,Miscellaneous Essays,George Saintsbury
 The Art of Public Speaking,The Working Principles of Rhetoric,John Franklin Genung
@@ -544,10 +525,8 @@ My Ántonia,The Count of Monte Cristo,Alexandre Dumas
 My Ántonia,The Winter's Tale,William Shakespeare
 My Ántonia,Shenandoah,Bronson Howard
 The House of Mirth,Rubáiyát of Omar Khayyám,Omar Khayyám
-Heart of Darkness,An Inquiry into some Points of Seamanship,Towson
 Tristram Shandy,Don Quixote,Miguel de Cervantes
 Tristram Shandy,An Essay Concerning Human Understanding,John Locke
-Tristram Shandy,Essays,Michel de Montaigne
 Tristram Shandy,Gargantua and Pantagruel,Francois Rabelais
 Tristram Shandy,A Tale of a Tub,Jonathan Swift
 Bleak House,Othello,William Shakespeare
@@ -598,3 +577,4 @@ Sons and Lovers,Rubáiyát of Omar Khayyám,Omar Khayyam
 Dombey and Son,Hamlet,William Shakespeare
 Dombey and Son,Macbeth,William Shakespeare
 Dombey and Son,Robinson Crusoe,Daniel Defoe
+Tristram Shandy,The Essays,Michel de Montaigne
