@@ -532,9 +532,10 @@
     return R('svg', { viewBox: '0 0 48 48', width: size, height: size, style: { display: 'block' } }, kids);
   };
 
-  P.triCover = function (b, g, tier, mode) {
+  P.triCover = function (b, g, tier, mode, borderOpt) {
     this._tri = this._tri || {};
-    var key = b.id + ':' + tier + ':' + mode + ':' + (b.genre || '');
+    borderOpt = (borderOpt === 'cream' || borderOpt === 'none') ? borderOpt : 'ink';
+    var key = b.id + ':' + tier + ':' + mode + ':' + borderOpt + ':' + (b.genre || '');
     if (this._tri[key]) return this._tri[key];
     var misc = g.name === 'MISC';
     var bandBg;
@@ -543,20 +544,39 @@
     else if (mode === 'color') bandBg = 'var(--hb, ' + g.color + ')';
     else bandBg = 'var(--hb, #141414)';
     var T = {
-      xs: { mark: 13, blob: [14, 6.5], bw: '1.5px', t: [6.5, 6, 5.5], a: 4.5, gap: '2px', pad: '2px 4px' },
-      s: { mark: 26, blob: [25, 11], bw: '2px', t: [10.5, 9, 8], a: 6.5, gap: '3px', pad: '3px 8px' },
-      l: { mark: 34, blob: [30, 13], bw: '2px', t: [13, 11.5, 10], a: 8, gap: '4px', pad: '4px 10px' },
-      xl: { mark: 46, blob: [42, 18], bw: '2.5px', t: [19, 16, 13.5], a: 9.5, gap: '6px', pad: '6px 14px' }
+      xs: { mark: 13, blob: [14, 6.5], bw: '1.5px', tb: 6.5, tmin: 5, ab: 4.5, amin: 4, gap: '2px', pad: '2px 4px' },
+      s: { mark: 26, blob: [25, 11], bw: '2px', tb: 10.5, tmin: 7, ab: 6.5, amin: 5, gap: '3px', pad: '3px 8px' },
+      l: { mark: 34, blob: [30, 13], bw: '2px', tb: 13, tmin: 9, ab: 8, amin: 6.5, gap: '4px', pad: '4px 10px' },
+      xl: { mark: 46, blob: [42, 18], bw: '2.5px', tb: 19, tmin: 12, ab: 9.5, amin: 7.5, gap: '6px', pad: '6px 14px' }
     }[tier];
     var band = { backgroundColor: bandBg, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' };
+
+    // Outer cover frame is tweakable (ink / cream / none); the internal color-band
+    // dividers below stay ink regardless so the bands never lose their edge.
+    var coverBorder = borderOpt === 'none' ? 'none'
+      : borderOpt === 'cream' ? (T.bw + ' solid #f2ecdd')
+      : (T.bw + ' solid var(--ink)');
+
+    // Title: 6 length buckets, each a smaller size + more clamp lines (up to 6).
     var len = b.title.length;
+    var ts = len < 10 ? [1.00, 2] : len < 18 ? [0.90, 3] : len < 28 ? [0.80, 4]
+      : len < 40 ? [0.70, 5] : len < 60 ? [0.60, 6] : [0.52, 6];
+    var tSize = Math.max(T.tmin, Math.round(T.tb * ts[0] * 2) / 2);
+    var tClamp = tier === 'xs' ? Math.min(ts[1], 3) : ts[1];
+
+    // Author scales on its own length and wraps to 2 lines when the name is long.
+    var alen = (b.author || '').length;
+    var as = alen < 14 ? [1.00, 1] : alen < 22 ? [0.90, 2] : alen < 32 ? [0.82, 2] : [0.74, 2];
+    var aSize = Math.max(T.amin, Math.round(T.ab * as[0] * 2) / 2);
+    var aClamp = as[1];
+
     var item = {
-      cover: { aspectRatio: '2 / 3', width: '100%', border: T.bw + ' solid var(--ink)', display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#f2ecdd', boxSizing: 'border-box', textAlign: 'center' },
+      cover: { aspectRatio: '2 / 3', width: '100%', border: coverBorder, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#f2ecdd', boxSizing: 'border-box', textAlign: 'center' },
       top: Object.assign({}, band, { height: '26%', borderBottom: '1.5px solid var(--ink)' }),
       blob: { width: T.blob[0] + 'px', height: T.blob[1] + 'px', background: '#f2ecdd', borderRadius: '50% / 48%' },
-      mid: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: T.gap, padding: T.pad },
-      title: { fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', fontSize: (len < 15 ? T.t[0] : len < 28 ? T.t[1] : T.t[2]) + 'px', lineHeight: 1.18, letterSpacing: '.01em', color: 'var(--ink)', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: tier === 'xs' ? 3 : 4, overflow: 'hidden' },
-      author: { fontFamily: "'IBM Plex Mono', monospace", fontSize: T.a + 'px', letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.7, color: 'var(--ink)', display: tier === 'xs' ? 'none' : '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: 1, overflow: 'hidden' },
+      mid: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: T.gap, padding: T.pad, overflow: 'hidden' },
+      title: { fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', fontSize: tSize + 'px', lineHeight: 1.18, letterSpacing: '.01em', color: 'var(--ink)', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: tClamp, overflow: 'hidden' },
+      author: { fontFamily: "'IBM Plex Mono', monospace", fontSize: aSize + 'px', letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.7, color: 'var(--ink)', lineHeight: 1.3, display: tier === 'xs' ? 'none' : '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: aClamp, overflow: 'hidden' },
       bot: Object.assign({}, band, { height: '24%', borderTop: '1.5px solid var(--ink)' }),
       mark: this.mark2(g.mark, T.mark, '#f7f5f0', mode === 'static' ? bandBg : (misc ? '#141414' : bandBg)),
       titleText: b.title, authorText: b.author
@@ -892,6 +912,7 @@
     var heroStyle = Pr.heroStyle != null ? Pr.heroStyle : 'dense wall';
     var accent = Pr.accent != null ? Pr.accent : '#9c3d22';
     var coverMode = String(Pr.coverMode != null ? Pr.coverMode : 'ink, color on hover').indexOf('color,') === 0 ? 'color' : 'ink';
+    var coverBorder = (Pr.coverBorder === 'cream' || Pr.coverBorder === 'none') ? Pr.coverBorder : 'ink';
     var bandcFor = function (g) { return g.name === 'MISC' ? null : (coverMode === 'ink' ? g.color : '#141414'); };
     if (typeof document !== 'undefined') {
       var r = document.documentElement.style;
@@ -942,35 +963,58 @@
     vals.showHomeSuggest = this.state.suggestFor === 'home' && sugg.length > 0;
     vals.showHeaderSuggest = this.state.suggestFor === 'header' && sugg.length > 0;
 
-    // home wall
-    var dense = heroStyle !== 'scattered' && heroStyle !== 'plain paper';
+    // home wall — four densities: dense wall > light wall > scattered > plain paper.
+    var wallMode = heroStyle === 'scattered' ? 'scattered'
+      : heroStyle === 'plain paper' ? 'plain'
+      : heroStyle === 'light wall' ? 'light'
+      : 'dense';
+    var wallCfg = {
+      dense: { count: m ? 110 : 180, min: m ? 88 : 110, gap: '0px', pad: '0', inset: '-46px -36px', tier: 's', overlap: '-15px -20px' },
+      light: { count: m ? 68 : 104, min: m ? 104 : 128, gap: '0px', pad: '6px', inset: '-38px -28px', tier: 's', overlap: '-6px -8px' },
+      scattered: { count: m ? 36 : 54, min: m ? 118 : 148, gap: '26px', pad: '20px', inset: '-30px', tier: 'l', overlap: null },
+      plain: { count: 0, min: m ? 118 : 148, gap: '26px', pad: '20px', inset: '-30px', tier: 'l', overlap: null }
+    }[wallMode];
     if (page === 'home') {
       var sorted = all.slice().sort(function (a, b2) { return self.hash(a.id) - self.hash(b2.id); });
       var list = [];
-      var target = heroStyle === 'plain paper' ? 0 : dense ? (m ? 110 : 180) : (m ? 36 : 54);
+      var target = wallCfg.count;
       while (list.length < target && sorted.length) list = list.concat(sorted.slice(0, target - list.length));
       vals.wallCovers = list.map(function (b, i) {
         var h1 = self.hash(b.id + i), h2 = self.hash(i + '/' + b.id);
         var g = self.genreOf(b);
         var bc = bandcFor(g);
-        var inner = { transition: 'transform .24s cubic-bezier(.3,1.6,.45,1), box-shadow .22s ease' };
-        if (bc) inner['--bandc'] = bc;
-        var s = dense ? 1 + (h1 % 9) / 90 : 1;
-        var wrap = dense ? {
-          transform: 'rotate(' + (((h1 % 15) - 7) * 0.7) + 'deg) translateY(' + (((h2 % 17) - 8) * 1.4) + 'px) scale(' + s.toFixed(3) + ')',
-          margin: '-7px -10px',
-          position: 'relative'
-        } : {
-          transform: 'rotate(' + (((h1 % 9) - 4) * 1.2) + 'deg)',
-          position: 'relative'
+        // backface-visibility on both wrapper and card tucks antialiasing seams
+        // under neighbours where rotated covers overlap.
+        var inner = {
+          transition: 'transform .24s cubic-bezier(.3,1.6,.45,1), box-shadow .22s ease',
+          backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden'
         };
-        return Object.assign({ wrap: wrap, inner: inner }, self.triCover(b, g, dense ? 's' : 'l', coverMode));
+        if (bc) inner['--bandc'] = bc;
+        var wrap = { position: 'relative', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' };
+        if (wallMode === 'dense') {
+          // Systematic zigzag: rotation direction + vertical offset flip every ~3
+          // covers for a woven rhythm; uniform sizes (no per-card scale variance).
+          var grp = Math.floor(i / 3), dir = grp % 2 === 0 ? 1 : -1;
+          var rot = dir * (2.4 + (h1 % 4) * 0.6);
+          var vy = dir * (6 + (h2 % 5) * 1.3);
+          wrap.transform = 'rotate(' + rot.toFixed(2) + 'deg) translateY(' + vy.toFixed(1) + 'px)';
+          wrap.margin = wallCfg.overlap;
+          inner.boxShadow = '0 6px 14px rgba(20,20,20,.20)';
+        } else if (wallMode === 'light') {
+          // Gentle per-item scatter with a light overlap — textured, not packed.
+          wrap.transform = 'rotate(' + (((h1 % 11) - 5) * 0.8).toFixed(2) + 'deg) translateY(' + (((h2 % 9) - 4) * 1.1).toFixed(1) + 'px)';
+          wrap.margin = wallCfg.overlap;
+          inner.boxShadow = '0 4px 10px rgba(20,20,20,.12)';
+        } else {
+          wrap.transform = 'rotate(' + (((h1 % 9) - 4) * 1.2).toFixed(2) + 'deg)';
+        }
+        return Object.assign({ wrap: wrap, inner: inner }, self.triCover(b, g, wallCfg.tier, coverMode, coverBorder));
       });
       vals.wallStyle = {
         position: 'absolute', zIndex: 0, isolation: 'isolate',
-        inset: dense ? '-46px -36px' : '-30px', display: 'grid',
-        gridTemplateColumns: 'repeat(auto-fill, minmax(' + (dense ? (m ? 88 : 110) : (m ? 118 : 148)) + 'px, 1fr))',
-        gap: dense ? '0px' : '26px', padding: dense ? '0' : '20px', alignContent: 'start'
+        inset: wallCfg.inset, display: 'grid',
+        gridTemplateColumns: 'repeat(auto-fill, minmax(' + wallCfg.min + 'px, 1fr))',
+        gap: wallCfg.gap, padding: wallCfg.pad, alignContent: 'start'
       };
       vals.wallFade = heroStyle === 'plain paper' ? {
         position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1,
@@ -993,7 +1037,7 @@
       var b = books[route.id];
       if (b) {
         vals.b_title = b.title;
-        vals.b_t = this.triCover(b, this.genreOf(b), 'xl', 'static');
+        vals.b_t = this.triCover(b, this.genreOf(b), 'xl', 'static', coverBorder);
         var by = [b.author ? 'by ' + b.author : null, this.yearLabel(b.year) || null].filter(Boolean).join('  ·  ');
         vals.b_byline = by;
         vals.b_synopsis = b.synopsis || 'No synopsis on file yet — but the trail doesn’t stop here. See what it’s connected to below.';
@@ -1005,7 +1049,7 @@
           var bc = bandcFor(g);
           var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block' };
           if (bc) btnStyle['--bandc'] = bc;
-          return { t: self.triCover(bk, g, 'l', coverMode), btnStyle: btnStyle, title: bk.title, author: bk.author || 'author unknown', sub: self.subFor(bk), go: function () { self.goBook(id); } };
+          return { t: self.triCover(bk, g, 'l', coverMode, coverBorder), btnStyle: btnStyle, title: bk.title, author: bk.author || 'author unknown', sub: self.subFor(bk), go: function () { self.goBook(id); } };
         };
         vals.cardsOut = b.out.map(card);
         vals.cardsIn = b.in.map(card);
@@ -1015,7 +1059,7 @@
       } else {
         vals.b_title = this.state.ready ? 'Book not found' : 'Opening the stacks…'; vals.b_byline = ''; vals.b_synopsis = this.state.ready ? 'That book isn’t in the network yet.' : 'One moment.';
         var phb = { id: 'x', title: '?', author: '' };
-        vals.b_t = this.triCover(phb, this.genreOf(phb), 'xl', 'static');
+        vals.b_t = this.triCover(phb, this.genreOf(phb), 'xl', 'static', coverBorder);
         vals.cntOut = 0; vals.cntIn = 0; vals.hasOut = false; vals.hasIn = false; vals.noOut = true; vals.noIn = true;
         vals.cardsOut = []; vals.cardsIn = []; vals.miniGraph = null; vals.jumpOut = function () {}; vals.jumpIn = function () {};
       }
@@ -1031,7 +1075,7 @@
         var bc = bandcFor(g);
         var rowStyle = { display: 'flex', alignItems: 'center', gap: '22px', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '16px 8px', fontFamily: 'inherit', width: '100%' };
         if (bc) rowStyle['--bandc'] = bc;
-        return { t: self.triCover(b, g, 'xs', coverMode), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), go: function () { self.goBook(b.id); } };
+        return { t: self.triCover(b, g, 'xs', coverMode, coverBorder), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), go: function () { self.goBook(b.id); } };
       });
       vals.s_has = res.length > 0; vals.s_none = res.length === 0;
       vals.s_count = res.length === 0 ? 'no matches' : res.length + (res.length === 1 ? ' match' : ' matches');
@@ -1073,7 +1117,7 @@
   };
 
   // Default props mirror the design's data-props defaults.
-  var DEFAULT_PROPS = { coverMode: 'ink, color on hover', heroStyle: 'dense wall', warmPaper: true, accent: '#9c3d22' };
+  var DEFAULT_PROPS = { coverMode: 'ink, color on hover', heroStyle: 'dense wall', warmPaper: true, accent: '#9c3d22', coverBorder: 'ink' };
 
   function mount() {
     var el = document.getElementById('app');
