@@ -84,6 +84,20 @@ books     →  title → [ author, year, synopsis ]
 
 Books without a metadata row still get a page — they just wait for a synopsis.
 
+## Detecting mentions from a PDF
+
+Instead of hand-authoring every mention, you can fast-track them from a source book's PDF.
+`tools/detect.mjs` mechanically extracts a short, ranked list of candidate book references
+(quoted titles, Title-Case runs, dictionary matches, reading-word proximity) so only that
+shortlist needs verifying — not the whole book. See **[docs/detector.md](docs/detector.md)**.
+
+```bash
+npm run bj:dict                                              # build the known-titles dictionary (once)
+npm run bj:detect -- inbox/pending/Book.pdf --title "Book"   # PDF -> candidates.json
+# verify candidates -> inbox/pending/<slug>.batch.json, then:
+npm run bj -- import inbox/pending/<slug>.batch.json && npm run bj:build
+```
+
 ## Growing the dataset (data pipeline)
 
 The data lives in a lightweight **SQLite database** (`bookjumpr.db`). You edit the
@@ -99,6 +113,7 @@ flag for you). Quick start:
 ```bash
 npm run bj:seed                     # one-time: load the current data into the database
 npm run bj -- add-mention --source "Dune" --mentioned "The Bible"   # add a reference
+npm run bj -- set-genre --title "Dune" --genre "SCI-FI"   # pick a cover style (else MISC)
 npm run bj -- import inbox/batch.json    # or import a JSON batch (a list, or one book + refs)
 npm run bj:build                    # regenerate bookjumpr-data.js
 npm run admin                       # …or manage it all in a local web UI (localhost:8918/admin)
