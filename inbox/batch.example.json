@@ -1,0 +1,23 @@
+{
+  "_readme": [
+    "A BookJumpr import batch. Run:  npm run bj -- import inbox/batch.example.json",
+    "'books' = metadata records (the books.csv). Each becomes a full book page.",
+    "  Fields: title (required), author, year (number, 0 if unknown), synopsis.",
+    "'mentions' = one book naming another inside its text.",
+    "  Fields: source (required), mentioned (required), author (of the mentioned book).",
+    "Books referenced only by a mention are created automatically (they just wait for a synopsis).",
+    "Keys starting with '_' are ignored by the importer, so this note is safe to leave in."
+  ],
+  "books": [
+    {
+      "title": "The Name of the Rose",
+      "author": "Umberto Eco",
+      "year": 1980,
+      "synopsis": "A Franciscan friar and his novice investigate a series of deaths in a wealthy medieval Italian abbey, following clues through its labyrinthine library."
+    }
+  ],
+  "mentions": [
+    { "source": "The Name of the Rose", "mentioned": "Poetics", "author": "Aristotle" },
+    { "source": "The Name of the Rose", "mentioned": "Coena Cypriani", "author": "" }
+  ]
+}
