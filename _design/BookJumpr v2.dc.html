@@ -692,7 +692,7 @@ class Component extends DCLogic {
     else bandBg = 'var(--hb, #141414)';
     const T = {
       xs: { mark: 13, blob: [14, 6.5], bw: '1.5px', tb: 6.5, tmin: 5, ab: 4.5, amin: 4, gap: '2px', pad: '2px 4px' },
-      s: { mark: 26, blob: [25, 11], bw: '2px', tb: 10.5, tmin: 7, ab: 6.5, amin: 5, gap: '3px', pad: '3px 8px' },
+      s: { mark: 26, blob: [25, 11], bw: '2px', tb: 11.5, tmin: 7.5, ab: 7, amin: 5.5, gap: '7px', pad: '6px 8px' },
       l: { mark: 34, blob: [30, 13], bw: '2px', tb: 13, tmin: 9, ab: 8, amin: 6.5, gap: '4px', pad: '4px 10px' },
       xl: { mark: 46, blob: [42, 18], bw: '2.5px', tb: 19, tmin: 12, ab: 9.5, amin: 7.5, gap: '6px', pad: '6px 14px' }
     }[tier];
@@ -720,7 +720,7 @@ class Component extends DCLogic {
       cover: { aspectRatio: '2 / 3', width: '100%', border: coverBorder, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#f2ecdd', boxSizing: 'border-box', textAlign: 'center' },
       top: Object.assign({}, band, { height: '26%', borderBottom: '1.5px solid var(--ink)' }),
       blob: { width: T.blob[0] + 'px', height: T.blob[1] + 'px', background: '#f2ecdd', borderRadius: '50% / 48%' },
-      mid: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: T.gap, padding: T.pad, overflow: 'hidden' },
+      mid: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: tier === 's' ? 'space-between' : 'center', gap: T.gap, padding: T.pad, overflow: 'hidden' },
       title: { fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', fontSize: tSize + 'px', lineHeight: 1.18, letterSpacing: '.01em', color: 'var(--ink)', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: tClamp, overflow: 'hidden' },
       author: { fontFamily: "'IBM Plex Mono', monospace", fontSize: aSize + 'px', letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.7, color: 'var(--ink)', lineHeight: 1.3, display: tier === 'xs' ? 'none' : '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: aClamp, overflow: 'hidden' },
       bot: Object.assign({}, band, { height: '24%', borderTop: '1.5px solid var(--ink)' }),
@@ -1121,19 +1121,28 @@ class Component extends DCLogic {
           const vy = dir * (6 + (h2 % 5) * 1.3);
           wrap.transform = 'rotate(' + rot.toFixed(2) + 'deg) translateY(' + vy.toFixed(1) + 'px)';
           wrap.margin = wallCfg.overlap;
-          // Cream "mat" ring keeps each cover's outer border against a consistent
-          // light backdrop, so it reads solid instead of dashing where it crosses
-          // the dark/light bands of the overlapped neighbours beneath it.
-          inner.boxShadow = '0 0 0 3px #f2ecdd, 0 6px 14px rgba(20,20,20,.20)';
+          // Opaque ink frame (real padding, not a soft shadow) fills the thin
+          // slivers that rotation opens between overlapping covers, so no light
+          // edges of the covers beneath dash through. This is the black frame.
+          inner.background = '#141414';
+          inner.padding = '4px';
+          inner.boxSizing = 'border-box';
+          inner.boxShadow = '0 6px 14px rgba(20,20,20,.20)';
         } else if (wallMode === 'light') {
           // Gentle per-item scatter with a light overlap — textured, not packed.
           wrap.transform = 'rotate(' + (((h1 % 11) - 5) * 0.8).toFixed(2) + 'deg) translateY(' + (((h2 % 9) - 4) * 1.1).toFixed(1) + 'px)';
           wrap.margin = wallCfg.overlap;
-          inner.boxShadow = '0 0 0 2px #f2ecdd, 0 4px 10px rgba(20,20,20,.12)';
+          inner.background = '#141414';
+          inner.padding = '3px';
+          inner.boxSizing = 'border-box';
+          inner.boxShadow = '0 4px 10px rgba(20,20,20,.12)';
         } else {
           wrap.transform = 'rotate(' + (((h1 % 9) - 4) * 1.2).toFixed(2) + 'deg)';
         }
-        return Object.assign({ wrap, inner }, this.triCover(b, g, wallCfg.tier, coverMode, coverBorder));
+        // Overlapping walls draw their dark edge with the opaque frame above, so the
+        // cover's own border is dropped (no double edge); other modes keep it.
+        const wallBorder = (wallMode === 'dense' || wallMode === 'light') ? 'none' : coverBorder;
+        return Object.assign({ wrap, inner }, this.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
       });
       vals.wallStyle = {
         position: 'absolute', zIndex: 0, isolation: 'isolate',
