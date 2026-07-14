@@ -39,15 +39,16 @@ Usage: npm run bj -- <command> [options]
   search <query>               Find books by title or author
 
   add-book --title T [--author A] [--year Y] [--synopsis S] [--genre G]
-  add-mention --source S --mentioned M [--author A] [--note N]
-  set-genre --title T --genre G   Assign a genre (--genre "" clears it → MISC)
+  add-mention --source S --mentioned M [--author A] [--source-author SA] [--note N]
+  set-genre --title T --genre G [--author A]   Assign a genre (--genre "" clears → MISC)
   genres                       List the assignable genres
   import <file.json>           Import a JSON batch (books[] + mentions[] + genres[])
   export-csv                   Write data/books.csv + data/mentions.csv
   import-csv [--replace]       Load data/*.csv into the DB
-  rename --from OLD --to NEW    Rename a book (cascades its slug)
-  remove-mention --source S --mentioned M
-  remove-book --title T [--cascade]
+  rename --from OLD --to NEW    Rename a book (cascades its key)
+  remove-mention --source S --mentioned M [--author A] [--source-author SA]
+  remove-book --title T [--cascade] [--author A]
+  # keys are author-first (slug(author)/slug(title)); --author disambiguates a shared title
   doctor [--fix]               Validate the dataset
 `;
 
@@ -177,7 +178,7 @@ async function run(cmd, args) {
       if (!args.title || args.genre === undefined) throw new Error('usage: set-genre --title T --genre "GENRE" (use --genre "" to clear)');
       withDb((db) => {
         const g = args.genre === true ? '' : args.genre;
-        const r = setGenre(db, args.title, g);
+        const r = setGenre(db, args.title, g, args.author);
         console.log(r.genre ? `✓ ${args.title} → genre "${r.genre}"` : `✓ cleared genre on ${args.title} (→ MISC)`);
         console.log('  run `build` to regenerate the site.');
       });
@@ -190,7 +191,7 @@ async function run(cmd, args) {
 
     case 'add-mention':
       withDb((db) => {
-        const r = upsertMention(db, { source: args.source, mentioned: args.mentioned, author: args.author, note: args.note, update: !!args.force });
+        const r = upsertMention(db, { source: args.source, mentioned: args.mentioned, author: args.author, sourceAuthor: args['source-author'], note: args.note, update: !!args.force });
         console.log(r.added ? `✓ added mention: ${args.source} → ${args.mentioned}`
           : r.updated ? `✓ updated existing mention: ${args.source} → ${args.mentioned}`
           : `• mention already exists (skipped): ${args.source} → ${args.mentioned}  (use --force to update author/note)`);
@@ -232,14 +233,14 @@ async function run(cmd, args) {
       withDb((db) => {
         const r = renameBook(db, args.from, args.to);
         console.log(`✓ renamed to "${args.to}"`);
-        if (r.slugChanged) console.log(`  ⚠ slug changed ${r.from} → ${r.slug} (its #/book/ URL changes).`);
+        if (r.slugChanged) console.log(`  ⚠ key changed ${r.from} → ${r.slug} (its #/<author>/<title> URL changes).`);
       });
       return;
 
     case 'remove-mention':
       if (!args.source || !args.mentioned) throw new Error('usage: remove-mention --source S --mentioned M');
       withDb((db) => {
-        const r = removeMention(db, args.source, args.mentioned);
+        const r = removeMention(db, args.source, args.mentioned, { sourceAuthor: args['source-author'], mentionedAuthor: args.author });
         console.log(r.removed ? `✓ removed mention: ${args.source} → ${args.mentioned}` : '• no such mention');
       });
       return;
@@ -247,7 +248,7 @@ async function run(cmd, args) {
     case 'remove-book':
       if (!args.title) throw new Error('usage: remove-book --title T [--cascade]');
       withDb((db) => {
-        const r = removeBook(db, args.title, { cascade: !!args.cascade });
+        const r = removeBook(db, args.title, { cascade: !!args.cascade, author: args.author });
         console.log(r.removed ? `✓ removed book: ${args.title}${r.mentionsRemoved ? ` (and ${r.mentionsRemoved} mention(s))` : ''}` : '• no such book');
       });
       return;

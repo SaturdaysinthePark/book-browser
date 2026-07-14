@@ -42,9 +42,12 @@ Key files:
 Everything is two lists:
 
 - **Books** — a title, and optionally `author`, `year`, `synopsis`. A book with those
-  details gets a full page with a synopsis. Books are identified by a **slug** derived
-  from the title (`"Kafka on the Shore"` → `kafka-on-the-shore`), which is also its URL
-  (`#/book/kafka-on-the-shore`).
+  details gets a full page with a synopsis. Books are identified **author-first** by a
+  key of `slug(author)/slug(title)` (`"Kafka on the Shore"` by Haruki Murakami →
+  `haruki-murakami/kafka-on-the-shore`), which is also its URL (`#/<author>/<title>`).
+  A book with no known author uses the `anonymous/` author segment. Because the author
+  leads, two different authors can share a title with no collision — the two "Essays"
+  become `ralph-waldo-emerson/essays` and `robert-louis-stevenson/essays`.
 - **Mentions** — "book A names book B inside its text." A mention has a **source** (the
   book doing the mentioning), a **mentioned** book, and optionally the mentioned book's
   **author**.
@@ -174,7 +177,7 @@ npm run bj -- stats                 # books / mentions / indexed counts (matches
 npm run bj -- list books            # every book (● has metadata, ○ identity-only) with in/out degree
 npm run bj -- list mentions         # every reference
 npm run bj -- search "gatsby"       # find books by title or author
-npm run bj -- slug "Kafka on the Shore"   # the book's URL slug → #/book/<slug>
+npm run bj -- slug "Kafka on the Shore"   # the title-slug half of the key (URL is #/<author>/<title>)
 ```
 
 To see the live site:
@@ -184,7 +187,7 @@ npm run serve                       # http://localhost:8917/index.html
 ```
 
 Then open the **Stats** page (the counts there should match `npm run bj -- stats`) and the
-new book at `#/book/<slug>`.
+new book at `#/<author>/<title>`.
 
 ---
 

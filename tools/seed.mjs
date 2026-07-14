@@ -1,21 +1,20 @@
-// One-time migration: load the existing bookjumpr-data.js into the DB with zero
-// data loss, reusing the site's slug and replaying app.js's `ensure` walk order.
+// Load bookjumpr-data.js into the DB (disaster-recovery / round-trip check). Identity is
+// the explicit node KEY carried in the data file, so this restores books and edges verbatim
+// — no re-deriving identity from title. `--verify` asserts buildText(db) === the source file.
 import fs from 'node:fs';
 import vm from 'node:vm';
-import { slug } from './slug.mjs';
 import { DATA_JS, counts } from './db.mjs';
 import { buildText } from './build.mjs';
 
-// Read window.BookJumprData out of the generated JS by running it in a sandbox
-// (robust — no regex parsing of the giant literals).
+// Read window.BookJumprData out of the generated JS by running it in a sandbox.
 export function loadDataJs(file = DATA_JS) {
   const code = fs.readFileSync(file, 'utf8');
   const sandbox = { window: {} };
   vm.createContext(sandbox);
   vm.runInContext(code, sandbox, { filename: file });
   const data = sandbox.window.BookJumprData;
-  if (!data || !Array.isArray(data.MENTIONS) || typeof data.META !== 'object' || data.META == null) {
-    throw new Error('Could not read window.BookJumprData from ' + file);
+  if (!data || typeof data.NODES !== 'object' || data.NODES == null || !Array.isArray(data.MENTIONS)) {
+    throw new Error('Could not read window.BookJumprData { NODES, MENTIONS } from ' + file);
   }
   return data;
 }
@@ -26,59 +25,38 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
     throw new Error(`DB is not empty (books=${c0.books}, mentions=${c0.mentions}). Re-run with --reset to overwrite.`);
   }
 
-  const { MENTIONS, META, GENRES = {} } = loadDataJs(file);
-
-  const ensureBook = db.prepare(
-    'INSERT OR IGNORE INTO books (slug, title, has_meta) VALUES (?, ?, 0)'
+  const { NODES, MENTIONS } = loadDataJs(file);
+  const insBook = db.prepare(
+    `INSERT INTO books (slug, title, author, year, synopsis, genre, has_meta, sort_order)
+     VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
   );
   const insMention = db.prepare(
     `INSERT OR IGNORE INTO mentions (source_slug, mentioned_slug, mentioned_author, source_title_raw, mentioned_title_raw)
      VALUES (?, ?, ?, ?, ?)`
   );
-  const applyMeta = db.prepare(
-    `UPDATE books SET author = ?, year = ?, synopsis = ?, has_meta = 1, sort_order = ?, updated_at = datetime('now')
-     WHERE slug = ?`
-  );
-  const applyGenre = db.prepare("UPDATE books SET genre = ? WHERE slug = ?");
 
-  let dupes = 0;
-  const dupeExamples = [];
-
+  let dupes = 0; const dupeExamples = [];
   db.exec('BEGIN');
   try {
     if (reset) {
       db.exec('DELETE FROM mentions');
       db.exec('DELETE FROM books');
-      db.exec("DELETE FROM sqlite_sequence WHERE name = 'mentions'"); // restart ids at 1 for stable order
+      db.exec("DELETE FROM sqlite_sequence WHERE name = 'mentions'");
     }
-
-    // 1) Replay the ensure walk in array order (source before mentioned, per row).
-    for (const row of MENTIONS) {
-      const s = row[0], t = row[1], a = row[2] == null ? '' : row[2];
-      ensureBook.run(slug(s), s);
-      ensureBook.run(slug(t), t);
-      const res = insMention.run(slug(s), slug(t), a, s, t);
-      if (res.changes === 0) {
-        dupes++;
-        if (dupeExamples.length < 5) dupeExamples.push([s, t]);
-      }
-    }
-
-    // 2) Apply metadata (books.csv) in key order.
+    // NODES preserve emit order; sort_order = position reproduces the build's ordering.
     let i = 0;
-    for (const title of Object.keys(META)) {
-      const [author = '', year = 0, synopsis = ''] = META[title];
-      ensureBook.run(slug(title), title); // no-op if already present (keeps first-seen title)
-      applyMeta.run(author, year, synopsis, i, slug(title));
+    for (const key of Object.keys(NODES)) {
+      const [title, author, year, synopsis, genre] = NODES[key];
+      const hasMeta = (year && year !== 0) || (synopsis && synopsis !== '') ? 1 : 0;
+      insBook.run(key, title, author || null, year || 0, synopsis || null, genre || null, hasMeta, i);
       i++;
     }
-
-    // 3) Apply explicit genres (if the data file carries a GENRES map).
-    for (const title of Object.keys(GENRES)) {
-      ensureBook.run(slug(title), title);
-      applyGenre.run(GENRES[title], slug(title));
+    for (const [s, t] of MENTIONS) {
+      const mentAuthor = (NODES[t] && NODES[t][1]) || '';
+      const st = (NODES[s] && NODES[s][0]) || s, mt = (NODES[t] && NODES[t][0]) || t;
+      const res = insMention.run(s, t, mentAuthor, st, mt);
+      if (res.changes === 0) { dupes++; if (dupeExamples.length < 5) dupeExamples.push([s, t]); }
     }
-
     db.exec('COMMIT');
   } catch (e) {
     db.exec('ROLLBACK');
@@ -88,10 +66,8 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
   const c = counts(db);
   const report = {
     books: c.books, meta: c.meta, mentions: c.mentions, sources: c.sources,
-    rawMentionRows: MENTIONS.length, metaKeys: Object.keys(META).length,
-    dupes, dupeExamples,
+    nodeKeys: Object.keys(NODES).length, rawMentionRows: MENTIONS.length, dupes, dupeExamples,
   };
-
   if (verify) {
     const rebuilt = buildText(db);
     const original = fs.readFileSync(file, 'utf8');
@@ -104,6 +80,5 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
       report.diffRebuilt = JSON.stringify(rebuilt.slice(k, k + 80));
     }
   }
-
   return report;
 }

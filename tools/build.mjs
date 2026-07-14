@@ -2,56 +2,42 @@
 import fs from 'node:fs';
 import { DATA_JS } from './db.mjs';
 
-// Pull the two site-shaped structures out of the DB.
-//   MENTIONS: [[source, mentioned, author], ...]  (row order = mentions.id)
-//   META:     { title: [author, year, synopsis] } (only has_meta=1 rows)
-// Titles come from the registry so META[title] always resolves at runtime, and
-// COALESCE reproduces app.js's `|| ''` / `|| 0` fallbacks.
+// Pull the site-shaped structures out of the DB. Identity is the book KEY (books.slug),
+// which is (title + author)-aware, so the data file carries explicit node keys and the
+// site consumes them (no re-deriving identity from title).
+//   NODES:    { key: [title, author, year, synopsis, genre] }  (every book)
+//   MENTIONS: [[sourceKey, mentionedKey], ...]                 (row order = mentions.id)
+// NODES order: metadata books first (by sort_order), then the rest by key — deterministic.
 export function computeData(db) {
-  const mentions = db.prepare(`
-    SELECT b1.title AS s, b2.title AS t, m.mentioned_author AS a
-    FROM mentions m
-    JOIN books b1 ON b1.slug = m.source_slug
-    JOIN books b2 ON b2.slug = m.mentioned_slug
-    ORDER BY m.id
-  `).all().map((r) => [r.s, r.t, r.a]);
-
-  const metaRows = db.prepare(`
-    SELECT title,
+  const nodeRows = db.prepare(`
+    SELECT slug,
+           title,
            COALESCE(author, '')   AS author,
            COALESCE(year, 0)      AS year,
-           COALESCE(synopsis, '') AS synopsis
+           COALESCE(synopsis, '') AS synopsis,
+           COALESCE(genre, '')    AS genre
     FROM books
-    WHERE has_meta = 1
-    ORDER BY sort_order, slug
+    ORDER BY (sort_order IS NULL), sort_order, slug
   `).all();
-  const meta = {};
-  for (const r of metaRows) meta[r.title] = [r.author, r.year, r.synopsis];
+  const nodes = {};
+  for (const r of nodeRows) nodes[r.slug] = [r.title, r.author, r.year, r.synopsis, r.genre];
 
-  // GENRES: only books with an explicit genre (any book, not just metadata ones).
-  const genreRows = db.prepare(`
-    SELECT title, genre FROM books
-    WHERE genre IS NOT NULL AND genre <> ''
-    ORDER BY sort_order, slug
-  `).all();
-  const genres = {};
-  for (const r of genreRows) genres[r.title] = r.genre;
+  const mentions = db.prepare(`
+    SELECT source_slug AS s, mentioned_slug AS t FROM mentions ORDER BY id
+  `).all().map((r) => [r.s, r.t]);
 
-  return { mentions, meta, genres };
+  return { nodes, mentions };
 }
 
-// The exact bytes app.js expects. JSON.stringify (no spaces) matches the original
-// hand-authored formatting; unicode passes through unescaped.
-export function renderFile({ mentions, meta, genres }) {
-  return `// BookJumpr data — generated from mentions CSV + book metadata.
-// MENTIONS: [sourceTitle, mentionedTitle, mentionedAuthor]
+// The bytes app.js expects. JSON.stringify (no spaces); unicode passes through unescaped.
+export function renderFile({ nodes, mentions }) {
+  return `// BookJumpr data — generated from the book graph (bookjumpr.db).
+// NODES: key -> [title, author, year, synopsis, genre]
+const NODES = ${JSON.stringify(nodes)};
+// MENTIONS: [sourceKey, mentionedKey]
 const MENTIONS = ${JSON.stringify(mentions)};
-// META: title -> [author, year, synopsis]  (the "books" CSV)
-const META = ${JSON.stringify(meta)};
-// GENRES: title -> genre name  (books with an explicitly assigned genre)
-const GENRES = ${JSON.stringify(genres || {})};
 
-window.BookJumprData = { MENTIONS: MENTIONS, META: META, GENRES: GENRES };
+window.BookJumprData = { NODES: NODES, MENTIONS: MENTIONS };
 `;
 }
 

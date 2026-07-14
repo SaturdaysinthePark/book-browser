@@ -4,6 +4,8 @@ import path from 'node:path';
 import { slug } from './slug.mjs';
 import { counts, ROOT } from './db.mjs';
 import { genreNames } from './genres.mjs';
+import { canonicalAuthor } from './authors.mjs';
+import { bookKey } from './bookkey.mjs';
 
 export function doctor(db, { fix = false } = {}) {
   const errors = [], warnings = [], notes = [];
@@ -16,8 +18,11 @@ export function doctor(db, { fix = false } = {}) {
   const selfMentions = db.prepare('SELECT COUNT(*) AS n FROM mentions WHERE source_slug = mentioned_slug').get().n;
   if (selfMentions) errors.push(`${selfMentions} self-mention(s): a book listed as mentioning itself.`);
 
-  const drift = db.prepare('SELECT slug, title FROM books').all().filter((r) => slug(r.title) !== r.slug);
-  if (drift.length) errors.push(`${drift.length} book(s) where slug(title) != stored slug — identity drift (tools/slug.mjs out of sync with app.js?). e.g. ${JSON.stringify(drift[0].title)}`);
+  // Identity integrity: a book's key must be its author-first form slug(author)/slug(title)
+  // (author defaults to "anonymous" when blank). Anything else is drift.
+  const drift = db.prepare('SELECT slug, title, author FROM books').all()
+    .filter((r) => r.slug !== bookKey(r.title, canonicalAuthor(r.author) || 'Anonymous'));
+  if (drift.length) errors.push(`${drift.length} book(s) whose key isn't slug(author)/slug(title) — identity drift. e.g. ${JSON.stringify(drift[0].title)} (${drift[0].slug}).`);
 
   // genre parity: tools/genres.mjs names must match app.js GEN3 names
   try {
@@ -49,13 +54,22 @@ export function doctor(db, { fix = false } = {}) {
   `).get().n;
   if (backlogTotal) warnings.push(`${backlogTotal} mentioned book(s) have no metadata yet (waiting for a synopsis).`);
 
-  const conflicts = db.prepare(`
-    SELECT DISTINCT b.title, b.author AS bookAuthor, m.mentioned_author AS mentAuthor
+  // Author conflicts, compared on the CANONICAL form (so mere spelling variants — e.g.
+  // "Sir Walter Scott" vs "Walter Scott" — don't count; only genuinely different authors do).
+  // A node cited under >1 canonical author is a title-collision to disambiguate.
+  const authRows = db.prepare(`
+    SELECT b.slug, b.title, m.mentioned_author AS a
     FROM mentions m JOIN books b ON b.slug = m.mentioned_slug
-    WHERE b.has_meta = 1 AND COALESCE(m.mentioned_author,'') <> '' AND m.mentioned_author <> COALESCE(b.author,'')
+    WHERE m.mentioned_author IS NOT NULL AND length(m.mentioned_author) > 0
   `).all();
-  if (conflicts.length) {
-    warnings.push(`${conflicts.length} mention(s) whose author differs from the book's stored author. e.g. "${conflicts[0].title}": mention "${conflicts[0].mentAuthor}" vs book "${conflicts[0].bookAuthor}".`);
+  const bySlug = new Map();
+  for (const r of authRows) {
+    if (!bySlug.has(r.slug)) bySlug.set(r.slug, { title: r.title, canon: new Set() });
+    const c = canonicalAuthor(r.a); if (c) bySlug.get(r.slug).canon.add(c);
+  }
+  const collisions = [...bySlug.values()].filter((v) => v.canon.size > 1).map((v) => ({ title: v.title, canon: [...v.canon] }));
+  if (collisions.length) {
+    warnings.push(`${collisions.length} node(s) cited under >1 canonical author (title-collision — needs a composite key). e.g. "${collisions[0].title}": ${collisions[0].canon.join(' | ')}.`);
   }
 
   const orphans = db.prepare(`

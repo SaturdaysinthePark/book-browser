@@ -46,8 +46,9 @@ vendored locally and the data loads via a classic script rather than an ES modul
 - **Network** — a force-directed graph of the whole web of mentions (drag / hover / zoom)
 - **About** — how the dataset works
 
-Routing is hash-based (`#/book/<slug>`, `#/search/<q>`, `#/stats`, `#/network`,
-`#/about`), so deep links and the back button work.
+Routing is hash-based and author-first: a book lives at `#/<author>/<title>` (e.g.
+`#/fyodor-dostoevsky/crime-and-punishment`) and an author's page at `#/<author>`; plus
+`#/search/<q>`, `#/stats`, `#/network`, `#/about`. Deep links and the back button work.
 
 ## How it was built
 
