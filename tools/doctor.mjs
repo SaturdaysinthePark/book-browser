@@ -82,6 +82,20 @@ export function doctor(db, { fix = false } = {}) {
   const futureYear = db.prepare('SELECT COUNT(*) AS n FROM books WHERE year > 2026').get().n;
   if (futureYear) warnings.push(`${futureYear} book(s) with a year in the future.`);
 
+  // Anachronism: a book can't name a work published AFTER it — such a mention almost always
+  // came from the edition's introduction/footnotes (editorial apparatus), not the text.
+  // Only fires where both publication years are known.
+  const anachron = db.prepare(`
+    SELECT b1.title AS src, b1.year AS sy, b2.title AS men, b2.year AS my
+    FROM mentions m JOIN books b1 ON b1.slug = m.source_slug JOIN books b2 ON b2.slug = m.mentioned_slug
+    WHERE b1.year IS NOT NULL AND b1.year <> 0 AND b2.year IS NOT NULL AND b2.year <> 0 AND b2.year > b1.year
+    ORDER BY (b2.year - b1.year) DESC
+  `).all();
+  if (anachron.length) {
+    const e = anachron[0];
+    warnings.push(`${anachron.length} anachronistic mention(s): a book "mentions" a work published after it (likely from an edition's intro/footnotes). e.g. "${e.src}" (${e.sy}) → "${e.men}" (${e.my}).`);
+  }
+
   const whitespace = db.prepare("SELECT slug, title FROM books WHERE title <> trim(title) OR title LIKE '%  %'").all();
   if (whitespace.length) warnings.push(`${whitespace.length} book title(s) with leading/trailing or doubled whitespace.`);
 

@@ -84,6 +84,13 @@ play**, resolve canonical **title + author**, and drop the exclusions —
 - ✗ scripture (the Bible), newspapers/periodicals
 - ✗ author name-drops with no title, fictional/in-world books, the source book itself
 - ✗ Title-Case noise: character names, places, chapter titles
+- ✗ **editorial apparatus** — an edition's introduction, preface, footnotes, endnotes, or
+  translator/reference notes. Only the work's **own authored text** counts (a character reads,
+  quotes, or names a book; an author-chosen chapter epigraph). Scholarly Gutenberg editions
+  bundle a lot of this — e.g. a Jonson edition's career essay names dozens of other plays.
+- ✗ **anachronisms** — a work published *after* the source (a book can't name a later work in
+  its own text), which is almost always apparatus. `bj doctor` flags these where both
+  publication years are known.
 
 Put the triggering quote in each mention's `note` (stored, not shown on the site) and an
 optional `confidence` (`high`/`medium`/`low`, ignored by the importer) to speed review.
