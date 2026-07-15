@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BookJumpr — Network</title>
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{--paper:#f7f5f0;--ink:#141414;--card:#fdfcfa;}
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;background:var(--paper);color:var(--ink);
+    font-family:Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;overflow:hidden;}
+  #stage{position:fixed;inset:0;}
+  canvas{display:block;width:100%;height:100%;cursor:grab;touch-action:none;}
+  .chrome{position:fixed;font-family:'IBM Plex Mono',monospace;z-index:10;}
+  .mast{top:18px;left:22px;}
+  .mast .wordmark{font-family:'Instrument Serif',serif;font-size:26px;letter-spacing:.01em;}
+  .mast .sub{font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;opacity:.55;margin-top:2px;}
+  .mast a{color:inherit;text-decoration:none;border-bottom:1px solid rgba(20,20,20,.3);}
+  .search{top:20px;right:22px;width:300px;}
+  .search input{height:44px;width:100%;border:1.5px solid var(--ink);border-radius:999px;
+    padding:0 20px;font-size:13.5px;background:var(--paper);color:var(--ink);
+    font-family:'IBM Plex Mono',monospace;box-shadow:0 4px 0 rgba(20,20,20,.9);outline:none;}
+  .sugg{margin-top:8px;background:var(--card);border:1.5px solid var(--ink);border-radius:14px;
+    overflow:hidden;box-shadow:0 4px 0 rgba(20,20,20,.9);display:none;}
+  .sugg button{display:block;width:100%;text-align:left;border:0;border-bottom:1px solid rgba(20,20,20,.12);
+    background:none;padding:9px 15px;cursor:pointer;font-family:inherit;}
+  .sugg button:last-child{border-bottom:0;}
+  .sugg button:hover{background:var(--paper);}
+  .sugg .t{font-family:'Instrument Serif',serif;font-size:15px;}
+  .sugg .a{font-size:10px;opacity:.6;margin-left:6px;}
+  .legend{left:22px;bottom:20px;background:var(--card);border:1.5px solid var(--ink);
+    border-radius:14px;padding:13px 15px;box-shadow:0 4px 0 rgba(20,20,20,.9);
+    font-size:11px;line-height:1.5;max-width:262px;}
+  .legend .row{display:flex;align-items:center;gap:9px;margin-bottom:6px;}
+  .legend .dot{width:13px;height:13px;border-radius:999px;border:1.5px solid var(--ink);flex:0 0 auto;}
+  .legend .fill{background:var(--ink);} .legend .ring{background:var(--card);}
+  .legend .tip{opacity:.6;font-size:10px;line-height:1.5;border-top:1px solid rgba(20,20,20,.12);padding-top:7px;margin-top:2px;}
+  .zoom{right:22px;bottom:20px;display:flex;flex-direction:column;gap:8px;}
+  .zoom button{width:40px;height:40px;border-radius:999px;border:1.5px solid var(--ink);
+    background:var(--card);cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:18px;
+    box-shadow:0 3px 0 rgba(20,20,20,.9);}
+  .staging{top:20px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.14em;
+    text-transform:uppercase;opacity:.55;border:1.5px solid rgba(20,20,20,.3);border-radius:999px;padding:5px 12px;}
+</style>
+</head>
+<body>
+<div id="stage"><canvas id="c"></canvas></div>
+
+<div class="chrome mast">
+  <div class="wordmark">BookJumpr</div>
+  <div class="sub"><a href="index.html">← site</a> · The Network · <span id="stat"></span></div>
+</div>
+<div class="chrome staging">network v2 · staging · <a href="index.html#/network" style="color:inherit;">▸ old network</a></div>
+<div class="chrome search">
+  <input id="q" placeholder="search a title…" autocomplete="off">
+  <div class="sugg" id="sugg"></div>
+</div>
+<div class="chrome legend">
+  <div class="row"><span class="dot fill"></span> <b>Fan-out hub</b> — one book + its bibliography</div>
+  <div class="row"><span class="dot ring"></span> <b>Neighborhood</b> book (multi-source region)</div>
+  <div class="tip">dot size = mentions (in + out) · <b>hover</b> a book to trace its connections in colour · <b>click a hub</b> to expand its bibliography · click a book to open it</div>
+</div>
+<div class="chrome zoom"><button id="zin" title="zoom in">+</button><button id="zout" title="zoom out">−</button><button id="zfit" title="fit" style="font-size:12px;">⤢</button></div>
+
+<script src="network-data.js"></script>
+<script src="network-view.js"></script>
+<script>
+(function () {
+  var DATA = window.BookJumprNetwork;
+  var canvas = document.getElementById('c');
+  document.getElementById('stat').textContent = DATA.meta.nodeCount + ' books · ' + DATA.communities.length + ' communities';
+
+  var view = new NetworkView(canvas, DATA, {
+    onNavigate: function (id) { location.href = 'index.html#/' + id; }
+  });
+  window.__nv = view; // exposed for staging tests / eventual SPA integration hooks
+
+  window.addEventListener('resize', function () { view.resize(); });
+  document.getElementById('zin').onclick = function () { view.zoomBy(1.45); };
+  document.getElementById('zout').onclick = function () { view.zoomBy(1 / 1.45); };
+  document.getElementById('zfit').onclick = function () { view.fit(); view._collapse && view._collapse(); };
+
+  // search → suggestions → pan/zoom + highlight
+  var q = document.getElementById('q'), sugg = document.getElementById('sugg');
+  var results = [];
+  function render(rs) {
+    results = rs;
+    if (!rs.length) { sugg.style.display = 'none'; return; }
+    sugg.innerHTML = rs.map(function (r, i) {
+      return '<button data-i="' + i + '"><span class="t">' + esc(r.title) + '</span>' + (r.author ? '<span class="a">' + esc(r.author) + '</span>' : '') + '</button>';
+    }).join('');
+    Array.prototype.forEach.call(sugg.querySelectorAll('button'), function (b) {
+      b.onclick = function () { pick(results[+b.getAttribute('data-i')]); };
+    });
+    sugg.style.display = 'block';
+  }
+  function pick(r) { view.goToBook(r); q.value = r.title; sugg.style.display = 'none'; }
+  q.addEventListener('input', function () { render(view.findBooks(q.value)); });
+  q.addEventListener('keydown', function (e) { if (e.key === 'Enter' && results[0]) pick(results[0]); if (e.key === 'Escape') { sugg.style.display = 'none'; q.blur(); } });
+  document.addEventListener('mousedown', function (e) { if (!e.target.closest('.search')) sugg.style.display = 'none'; });
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' })[c]; }); }
+})();
+</script>
+</body>
+</html>
