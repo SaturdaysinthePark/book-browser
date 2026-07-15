@@ -1,0 +1,1803 @@
+community_id,community_size,community_flavor,key,title,author,total_degree,out_mentions,in_mentions
+0,139,neighborhood,william-shakespeare/hamlet,Hamlet,William Shakespeare,26,0,26
+0,139,neighborhood,sinclair-lewis/main-street,Main Street,Sinclair Lewis,20,20,0
+0,139,neighborhood,william-shakespeare/romeo-and-juliet,Romeo and Juliet,William Shakespeare,19,0,19
+0,139,neighborhood,george-bernard-shaw/mrs-warren-s-profession,Mrs Warren's Profession,George Bernard Shaw,18,18,0
+0,139,neighborhood,walter-scott/the-antiquary,The Antiquary,Walter Scott,16,16,0
+0,139,neighborhood,george-eliot/felix-holt-the-radical,"Felix Holt, the Radical",George Eliot,13,13,0
+0,139,neighborhood,james-fenimore-cooper/the-pioneers,The Pioneers,James Fenimore Cooper,13,13,0
+0,139,neighborhood,james-fenimore-cooper/the-prairie,The Prairie,James Fenimore Cooper,13,13,0
+0,139,neighborhood,walter-scott/kenilworth,Kenilworth,Walter Scott,13,13,0
+0,139,neighborhood,william-shakespeare/king-lear,King Lear,William Shakespeare,12,0,12
+0,139,neighborhood,james-fenimore-cooper/the-last-of-the-mohicans,The Last of the Mohicans,James Fenimore Cooper,11,9,2
+0,139,neighborhood,walter-scott/old-mortality,Old Mortality,Walter Scott,11,10,1
+0,139,neighborhood,j-d-salinger/the-catcher-in-the-rye,The Catcher in the Rye,J. D. Salinger,10,10,0
+0,139,neighborhood,thomas-carlyle/on-heroes-hero-worship-and-the-heroic-in-history,"On Heroes, Hero-Worship, and The Heroic in History",Thomas Carlyle,9,9,0
+0,139,neighborhood,anna-katharine-green/the-leavenworth-case,The Leavenworth Case,Anna Katharine Green,8,7,1
+0,139,neighborhood,charles-dickens/our-mutual-friend,Our Mutual Friend,Charles Dickens,8,7,1
+0,139,neighborhood,peter-thiel/zero-to-one,Zero to One,Peter Thiel,8,8,0
+0,139,neighborhood,william-shakespeare/as-you-like-it,As You Like It,William Shakespeare,8,0,8
+0,139,neighborhood,william-shakespeare/henry-v,Henry V,William Shakespeare,8,0,8
+0,139,neighborhood,william-shakespeare/julius-caesar,Julius Caesar,William Shakespeare,8,0,8
+0,139,neighborhood,william-shakespeare/richard-iii,Richard III,William Shakespeare,8,0,8
+0,139,neighborhood,mark-twain/adventures-of-huckleberry-finn,Adventures of Huckleberry Finn,Mark Twain,7,7,0
+0,139,neighborhood,walter-scott/guy-mannering,Guy Mannering,Walter Scott,7,7,0
+0,139,neighborhood,william-dean-howells/the-rise-of-silas-lapham,The Rise of Silas Lapham,William Dean Howells,6,6,0
+0,139,neighborhood,william-shakespeare/henry-iv,Henry IV,William Shakespeare,6,0,6
+0,139,neighborhood,ben-jonson/the-alchemist,The Alchemist,Ben Jonson,5,2,3
+0,139,neighborhood,dante-alighieri/divine-comedy,Divine Comedy,Dante Alighieri,5,0,5
+0,139,neighborhood,william-shakespeare/a-midsummer-night-s-dream,A Midsummer Night's Dream,William Shakespeare,5,0,5
+0,139,neighborhood,william-shakespeare/measure-for-measure,Measure for Measure,William Shakespeare,5,0,5
+0,139,neighborhood,william-shakespeare/much-ado-about-nothing,Much Ado About Nothing,William Shakespeare,5,0,5
+0,139,neighborhood,william-shakespeare/the-merchant-of-venice,The Merchant of Venice,William Shakespeare,5,0,5
+0,139,neighborhood,arnold-bennett/how-to-live-on-twenty-four-hours-a-day,How to Live on Twenty-Four Hours a Day,Arnold Bennett,4,4,0
+0,139,neighborhood,leo-tolstoy/anna-karenina,Anna Karenina,Leo Tolstoy,4,1,3
+0,139,neighborhood,rudyard-kipling/kim,Kim,Rudyard Kipling,4,4,0
+0,139,neighborhood,william-shakespeare/king-john,King John,William Shakespeare,4,0,4
+0,139,neighborhood,william-shakespeare/richard-ii,Richard II,William Shakespeare,4,0,4
+0,139,neighborhood,william-shakespeare/troilus-and-cressida,Troilus and Cressida,William Shakespeare,4,0,4
+0,139,neighborhood,anthony-trollope/phineas-finn,Phineas Finn,Anthony Trollope,3,3,0
+0,139,neighborhood,caleb-carr/the-alienist,The Alienist,Caleb Carr,3,3,0
+0,139,neighborhood,charles-dickens/great-expectations,Great Expectations,Charles Dickens,3,3,0
+0,139,neighborhood,douglas-adams/the-hitchhiker-s-guide-to-the-galaxy,The Hitchhiker's Guide to the Galaxy,Douglas Adams,3,1,2
+0,139,neighborhood,edward-gibbon/the-history-of-the-decline-and-fall-of-the-roman-empire,The History of the Decline and Fall of the Roman Empire,Edward Gibbon,3,0,3
+0,139,neighborhood,richard-brinsley-sheridan/the-rivals,The Rivals,Richard Brinsley Sheridan,3,0,3
+0,139,neighborhood,william-shakespeare/henry-vi,Henry VI,William Shakespeare,3,0,3
+0,139,neighborhood,william-shakespeare/twelfth-night,Twelfth Night,William Shakespeare,3,0,3
+0,139,neighborhood,anonymous/the-koran,The Koran,Anonymous,2,0,2
+0,139,neighborhood,e-nesbit/five-children-and-it,Five Children and It,E. Nesbit,2,2,0
+0,139,neighborhood,henrik-ibsen/the-wild-duck,The Wild Duck,Henrik Ibsen,2,1,1
+0,139,neighborhood,j-r-r-tolkien/the-lord-of-the-rings,The Lord of the Rings,J R R Tolkien,2,0,2
+0,139,neighborhood,james-ridley/tales-of-the-genii,Tales of the Genii,James Ridley,2,0,2
+0,139,neighborhood,johann-wolfgang-von-goethe/wilhelm-meister-s-apprenticeship,Wilhelm Meister's Apprenticeship,Johann Wolfgang von Goethe,2,0,2
+0,139,neighborhood,laurence-sterne/a-sentimental-journey,A Sentimental Journey,Laurence Sterne,2,2,0
+0,139,neighborhood,thomas-hardy/the-woodlanders,The Woodlanders,Thomas Hardy,2,2,0
+0,139,neighborhood,walter-scott/the-fair-maid-of-perth,The Fair Maid of Perth,Walter Scott,2,0,2
+0,139,neighborhood,wilkie-collins/no-name,No Name,Wilkie Collins,2,2,0
+0,139,neighborhood,wilkie-collins/the-woman-in-white,The Woman in White,Wilkie Collins,2,2,0
+0,139,neighborhood,william-shakespeare/timon-of-athens,Timon of Athens,William Shakespeare,2,0,2
+0,139,neighborhood,william-shakespeare/titus-andronicus,Titus Andronicus,William Shakespeare,2,0,2
+0,139,neighborhood,adolphe-d-ennery/the-two-orphans,The Two Orphans,Adolphe d'Ennery,1,0,1
+0,139,neighborhood,alexander-gordon/itinerarium-septentrionale,Itinerarium Septentrionale,Alexander Gordon,1,0,1
+0,139,neighborhood,alexandre-dumas-fils/the-lady-of-the-camellias,The Lady of the Camellias,Alexandre Dumas fils,1,0,1
+0,139,neighborhood,anonymous/a-boke-of-cokery,A Boke of Cokery,Anonymous,1,0,1
+0,139,neighborhood,anonymous/beowulf,Beowulf,Anonymous,1,0,1
+0,139,neighborhood,anonymous/friendship-s-offering,Friendship's Offering,Anonymous,1,0,1
+0,139,neighborhood,anonymous/harrison-s-history-of-london,Harrison's History of London,Anonymous,1,0,1
+0,139,neighborhood,anonymous/the-complaynt-of-scotland,The Complaynt of Scotland,Anonymous,1,0,1
+0,139,neighborhood,anonymous/the-heliogabaliad,The Heliogabaliad,Anonymous,1,0,1
+0,139,neighborhood,anthony-trollope/doctor-thorne,Doctor Thorne,Anthony Trollope,1,1,0
+0,139,neighborhood,arthur-wing-pinero/the-gay-lord-quex,The Gay Lord Quex,Arthur Wing Pinero,1,0,1
+0,139,neighborhood,arthur-wing-pinero/the-notorious-mrs-ebbsmith,The Notorious Mrs Ebbsmith,Arthur Wing Pinero,1,0,1
+0,139,neighborhood,arthur-wing-pinero/the-profligate,The Profligate,Arthur Wing Pinero,1,0,1
+0,139,neighborhood,arthur-wing-pinero/the-second-mrs-tanqueray,The Second Mrs Tanqueray,Arthur Wing Pinero,1,0,1
+0,139,neighborhood,ben-jonson/the-new-inn,The New Inn,Ben Jonson,1,0,1
+0,139,neighborhood,bernard-shaw/androcles-and-the-lion,Androcles and the Lion,Bernard Shaw,1,0,1
+0,139,neighborhood,bernard-shaw/how-he-lied-to-her-husband,How He Lied to Her Husband,Bernard Shaw,1,0,1
+0,139,neighborhood,byron/poems,Poems,Byron,1,0,1
+0,139,neighborhood,byron/the-dream,The Dream,Byron,1,0,1
+0,139,neighborhood,charles-major/dorothy-vernon-of-haddon-hall,Dorothy Vernon of Haddon Hall,Charles Major,1,0,1
+0,139,neighborhood,charles-perrault/contes-de-ma-mere-l-oye,Contes de ma mère l'Oye,Charles Perrault,1,0,1
+0,139,neighborhood,charlotte-perkins-gilman/herland,Herland,Charlotte Perkins Gilman,1,1,0
+0,139,neighborhood,daniel-neal/the-history-of-the-puritans,The History of the Puritans,Daniel Neal,1,0,1
+0,139,neighborhood,edward-bulwer-lytton/eugene-aram,Eugene Aram,Edward Bulwer-Lytton,1,0,1
+0,139,neighborhood,edward-payson-roe/barriers-burned-away,Barriers Burned Away,Edward Payson Roe,1,0,1
+0,139,neighborhood,elizabeth-barrett-browning/aurora-leigh,Aurora Leigh,Elizabeth Barrett Browning,1,0,1
+0,139,neighborhood,ernest-hemingway/a-farewell-to-arms,A Farewell to Arms,Ernest Hemingway,1,0,1
+0,139,neighborhood,eugene-brieux/damaged-goods,Damaged Goods,Eugene Brieux,1,0,1
+0,139,neighborhood,f-anstey/the-brass-bottle,The Brass Bottle,F. Anstey,1,0,1
+0,139,neighborhood,frederic-somner-merryweather/lives-and-anecdotes-of-misers,Lives and Anecdotes of Misers,Frederic Somner Merryweather,1,0,1
+0,139,neighborhood,friedrich-schiller/wallenstein,Wallenstein,Friedrich Schiller,1,0,1
+0,139,neighborhood,garci-rodriguez-de-montalvo/amadis-de-gaul,Amadis de Gaul,Garci Rodriguez de Montalvo,1,0,1
+0,139,neighborhood,george-lillo/the-london-merchant,The London Merchant,George Lillo,1,0,1
+0,139,neighborhood,h-rider-haggard/she,She,H. Rider Haggard,1,1,0
+0,139,neighborhood,harold-frederic/the-damnation-of-theron-ware,The Damnation of Theron Ware,Harold Frederic,1,0,1
+0,139,neighborhood,harry-castlemon/frank-on-the-lower-mississippi,Frank on the Lower Mississippi,Harry Castlemon,1,0,1
+0,139,neighborhood,henrik-ibsen/ghosts,Ghosts,Henrik Ibsen,1,0,1
+0,139,neighborhood,isak-dinesen/out-of-africa,Out of Africa,Isak Dinesen,1,0,1
+0,139,neighborhood,james-boswell/life-of-johnson,Life of Johnson,James Boswell,1,0,1
+0,139,neighborhood,james-macpherson/the-poems-of-ossian,The Poems of Ossian,James Macpherson,1,0,1
+0,139,neighborhood,james-whitcomb-riley/an-old-sweetheart-of-mine,An Old Sweetheart of Mine,James Whitcomb Riley,1,0,1
+0,139,neighborhood,jane-austen/sense-and-sensibility,Sense and Sensibility,Jane Austen,1,1,0
+0,139,neighborhood,john-c-gunn/gunn-s-domestic-medicine,Gunn’s Domestic Medicine,John C Gunn,1,0,1
+0,139,neighborhood,john-dick/the-testimony-to-the-doctrine-worship-discipline-and-government-of-the-church-of-scotland,"The Testimony to the Doctrine, Worship, Discipline, and Government of the Church of Scotland",John Dick,1,0,1
+0,139,neighborhood,john-howe/the-living-temple,The Living Temple,John Howe,1,0,1
+0,139,neighborhood,john-rastell/the-pastyme-of-people,The Pastyme of People,John Rastell,1,0,1
+0,139,neighborhood,john-rawls/a-theory-of-justice,A Theory of Justice,John Rawls,1,0,1
+0,139,neighborhood,leo-tolstoy/the-power-of-darkness,The Power of Darkness,Leo Tolstoy,1,0,1
+0,139,neighborhood,lucy-leavenworth-wilder-morris/old-rail-fence-corners,Old Rail Fence Corners,Lucy Leavenworth Wilder Morris,1,0,1
+0,139,neighborhood,malcolm-gladwell/outliers,Outliers,Malcolm Gladwell,1,0,1
+0,139,neighborhood,martin-luther/table-talk,Table Talk,Martin Luther,1,0,1
+0,139,neighborhood,neal-stephenson/cryptonomicon,Cryptonomicon,Neal Stephenson,1,0,1
+0,139,neighborhood,neil-gaiman/coraline,Coraline,Neil Gaiman,1,1,0
+0,139,neighborhood,owen-davis/nellie-the-beautiful-cloak-model,Nellie the Beautiful Cloak Model,Owen Davis,1,0,1
+0,139,neighborhood,philip-freneau/the-indian-student,The Indian Student,Philip Freneau,1,0,1
+0,139,neighborhood,philip-melanchthon/augsburg-confession,Augsburg Confession,Philip Melanchthon,1,0,1
+0,139,neighborhood,reginald-scot/the-discoverie-of-witchcraft,The Discoverie of Witchcraft,Reginald Scot,1,0,1
+0,139,neighborhood,richard-brinsley-sheridan/the-school-for-scandal,The School for Scandal,Richard Brinsley Sheridan,1,0,1
+0,139,neighborhood,robert-of-gloucester/the-chronicle-of-robert-of-gloucester,The Chronicle of Robert of Gloucester,Robert of Gloucester,1,0,1
+0,139,neighborhood,robert-recorde/the-castle-of-knowledge,The Castle of Knowledge,Robert Recorde,1,0,1
+0,139,neighborhood,robert-sempill-of-beltrees/elegy-on-habbie-simpson,Elegy on Habbie Simpson,Robert Sempill of Beltrees,1,0,1
+0,139,neighborhood,samuel-butler/hudibras,Hudibras,Samuel Butler,1,0,1
+0,139,neighborhood,snorri-sturluson/edda,Edda,Snorri Sturluson,1,0,1
+0,139,neighborhood,snorri-sturluson/heimskringla,Heimskringla,Snorri Sturluson,1,0,1
+0,139,neighborhood,somerset-maugham/of-human-bondage,Of Human Bondage,Somerset Maugham,1,0,1
+0,139,neighborhood,thomas-campbell/gertrude-of-wyoming,Gertrude of Wyoming,Thomas Campbell,1,0,1
+0,139,neighborhood,thomas-campbell/pleasures-of-hope,Pleasures of Hope,Thomas Campbell,1,0,1
+0,139,neighborhood,walter-scott/the-lay-of-the-last-minstrel,The Lay of the Last Minstrel,Walter Scott,1,0,1
+0,139,neighborhood,walter-scott/the-lord-of-the-isles,The Lord of the Isles,Walter Scott,1,0,1
+0,139,neighborhood,william-cartwright/the-ordinary,The Ordinary,William Cartwright,1,0,1
+0,139,neighborhood,william-congreve/the-way-of-the-world,The Way of the World,William Congreve,1,0,1
+0,139,neighborhood,william-falconer/the-shipwreck,The Shipwreck,William Falconer,1,0,1
+0,139,neighborhood,william-james/principles-of-psychology,Principles of Psychology,William James,1,0,1
+0,139,neighborhood,william-julius-mickle/cumnor-hall,Cumnor Hall,William Julius Mickle,1,0,1
+0,139,neighborhood,william-shakespeare/cymbeline,Cymbeline,William Shakespeare,1,0,1
+0,139,neighborhood,william-shakespeare/love-s-labour-s-lost,Love's Labour's Lost,William Shakespeare,1,0,1
+0,139,neighborhood,william-shakespeare/pericles-prince-of-tyre,"Pericles, Prince of Tyre",William Shakespeare,1,0,1
+0,139,neighborhood,william-shakespeare/the-comedy-of-errors,The Comedy of Errors,William Shakespeare,1,0,1
+0,139,neighborhood,william-shakespeare/venus-and-adonis,Venus and Adonis,William Shakespeare,1,0,1
+0,139,neighborhood,william-wordsworth/the-excursion,The Excursion,William Wordsworth,1,0,1
+0,139,neighborhood,william-wordsworth/we-are-seven,We Are Seven,William Wordsworth,1,0,1
+1,106,neighborhood,oliver-wendell-holmes/the-autocrat-of-the-breakfast-table,The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,27,26,1
+1,106,neighborhood,george-eliot/the-mill-on-the-floss,The Mill on the Floss,George Eliot,17,15,2
+1,106,neighborhood,kate-douglas-wiggin/rebecca-of-sunnybrook-farm,Rebecca of Sunnybrook Farm,Kate Douglas Wiggin,17,17,0
+1,106,neighborhood,louisa-may-alcott/little-women,Little Women,Louisa May Alcott,14,13,1
+1,106,neighborhood,elizabeth-gaskell/cranford,Cranford,Elizabeth Gaskell,13,12,1
+1,106,neighborhood,george-eliot/middlemarch,Middlemarch,George Eliot,13,11,2
+1,106,neighborhood,john-bunyan/the-pilgrim-s-progress,The Pilgrim's Progress,John Bunyan,10,0,10
+1,106,neighborhood,charlotte-bronte/jane-eyre,Jane Eyre,Charlotte Brontë,9,9,0
+1,106,neighborhood,fergus-hume/the-mystery-of-a-hansom-cab,The Mystery of a Hansom Cab,Fergus Hume,8,8,0
+1,106,neighborhood,henry-james/the-portrait-of-a-lady,The Portrait of a Lady,Henry James,8,8,0
+1,106,neighborhood,harriet-beecher-stowe/uncle-tom-s-cabin,Uncle Tom's Cabin,Harriet Beecher Stowe,7,3,4
+1,106,neighborhood,jonathan-swift/gulliver-s-travels,Gulliver's Travels,Jonathan Swift,7,1,6
+1,106,neighborhood,samuel-johnson/rasselas,Rasselas,Samuel Johnson,7,0,7
+1,106,neighborhood,george-eliot/adam-bede,Adam Bede,George Eliot,6,4,2
+1,106,neighborhood,virginia-woolf/night-and-day,Night and Day,Virginia Woolf,6,6,0
+1,106,neighborhood,charles-dickens/a-christmas-carol,A Christmas Carol,Charles Dickens,5,4,1
+1,106,neighborhood,henry-wadsworth-longfellow/the-song-of-hiawatha,The Song of Hiawatha,Henry Wadsworth Longfellow,5,3,2
+1,106,neighborhood,john-keble/the-christian-year,The Christian Year,John Keble,4,0,4
+1,106,neighborhood,w-e-b-du-bois/the-souls-of-black-folk,The Souls of Black Folk,W. E. B. Du Bois,4,4,0
+1,106,neighborhood,walter-scott/marmion,Marmion,Walter Scott,4,0,4
+1,106,neighborhood,aesop/aesop-s-fables,Aesop's Fables,Aesop,3,0,3
+1,106,neighborhood,anne-bronte/the-tenant-of-wildfell-hall,The Tenant of Wildfell Hall,Anne Bronte,3,3,0
+1,106,neighborhood,charles-dickens/the-pickwick-papers,The Pickwick Papers,Charles Dickens,3,0,3
+1,106,neighborhood,harriet-jacobs/incidents-in-the-life-of-a-slave-girl,Incidents in the Life of a Slave Girl,Harriet Jacobs,3,3,0
+1,106,neighborhood,richard-allestree/the-whole-duty-of-man,The Whole Duty of Man,Richard Allestree,3,0,3
+1,106,neighborhood,alexander-pope/an-essay-on-man,An Essay on Man,Alexander Pope,2,0,2
+1,106,neighborhood,alfred-tennyson/the-brook,The Brook,Alfred Tennyson,2,0,2
+1,106,neighborhood,anonymous/ali-baba-and-the-forty-thieves,Ali Baba and the Forty Thieves,Anonymous,2,0,2
+1,106,neighborhood,anonymous/valentine-and-orson,Valentine and Orson,Anonymous,2,0,2
+1,106,neighborhood,charles-dickens/the-old-curiosity-shop,The Old Curiosity Shop,Charles Dickens,2,2,0
+1,106,neighborhood,charlotte-m-yonge/the-heir-of-redclyffe,The Heir of Redclyffe,Charlotte M. Yonge,2,0,2
+1,106,neighborhood,friedrich-schiller/mary-stuart,Mary Stuart,Friedrich Schiller,2,0,2
+1,106,neighborhood,henry-james/the-american,The American,Henry James,2,1,1
+1,106,neighborhood,jane-porter/thaddeus-of-warsaw,Thaddeus of Warsaw,Jane Porter,2,0,2
+1,106,neighborhood,jeremy-taylor/holy-living-and-holy-dying,Holy Living and Holy Dying,Jeremy Taylor,2,0,2
+1,106,neighborhood,john-bunyan/the-holy-war,The Holy War,John Bunyan,2,0,2
+1,106,neighborhood,thomas-campbell/the-pleasures-of-hope,The Pleasures of Hope,Thomas Campbell,2,0,2
+1,106,neighborhood,thomas-hardy/the-return-of-the-native,The Return of the Native,Thomas Hardy,2,1,1
+1,106,neighborhood,walter-scott/waverley,Waverley,Walter Scott,2,0,2
+1,106,neighborhood,alfred-tennyson/locksley-hall,Locksley Hall,Alfred Tennyson,1,0,1
+1,106,neighborhood,alfred-tennyson/the-bugle-song,The Bugle Song,Alfred Tennyson,1,0,1
+1,106,neighborhood,anna-maria-porter/the-hungarian-brothers,The Hungarian Brothers,Anna Maria Porter,1,0,1
+1,106,neighborhood,anonymous/aladdin-and-the-wonderful-lamp,Aladdin and the Wonderful Lamp,Anonymous,1,0,1
+1,106,neighborhood,anonymous/arabian-nights,Arabian Nights,Anonymous,1,0,1
+1,106,neighborhood,anonymous/concilium-tridentinum,Concilium Tridentinum,Anonymous,1,0,1
+1,106,neighborhood,anonymous/the-arabian-nights-entertainments,The Arabian Nights' Entertainments,Anonymous,1,0,1
+1,106,neighborhood,anonymous/the-stars-and-the-earth,The Stars and the Earth,Anonymous,1,0,1
+1,106,neighborhood,arthur-conan-doyle/the-return-of-sherlock-holmes,The Return of Sherlock Holmes,Arthur Conan Doyle,1,1,0
+1,106,neighborhood,benjamin-disraeli/vivian-grey,Vivian Grey,Benjamin Disraeli,1,0,1
+1,106,neighborhood,catherine-cuthbertson/santo-sebastiano-or-the-young-protector,"Santo Sebastiano; or, The Young Protector",Catherine Cuthbertson,1,0,1
+1,106,neighborhood,charles-dickens/the-haunted-man-and-the-ghost-s-bargain,The Haunted Man and the Ghost's Bargain,Charles Dickens,1,0,1
+1,106,neighborhood,charles-johnstone/chrysal-or-the-adventures-of-a-guinea,"Chrysal, or the Adventures of a Guinea",Charles Johnstone,1,0,1
+1,106,neighborhood,charles-rollin/the-ancient-history,The Ancient History,Charles Rollin,1,0,1
+1,106,neighborhood,cicero/de-senectute,De Senectute,Cicero,1,0,1
+1,106,neighborhood,cicero/pro-archia-poeta,Pro Archia Poeta,Cicero,1,0,1
+1,106,neighborhood,daniel-defoe/the-history-of-the-devil,The History of the Devil,Daniel Defoe,1,0,1
+1,106,neighborhood,desiderius-erasmus/colloquia,Colloquia,Desiderius Erasmus,1,0,1
+1,106,neighborhood,dinah-mulock-craik/john-halifax-gentleman,"John Halifax, Gentleman",Dinah Mulock Craik,1,0,1
+1,106,neighborhood,elias-lonnrot/kalevala,Kalevala,Elias Lönnrot,1,0,1
+1,106,neighborhood,fortune-du-boisgobey/an-omnibus-mystery,An Omnibus Mystery,Fortuné du Boisgobey,1,0,1
+1,106,neighborhood,friedrich-de-la-motte-fouque/undine-and-sintram,Undine and Sintram,Friedrich de la Motte Fouqué,1,0,1
+1,106,neighborhood,george-colman-the-younger/the-poor-gentleman,The Poor Gentleman,George Colman the Younger,1,0,1
+1,106,neighborhood,henry-brooke/the-history-of-henry-earl-of-moreland,"The History of Henry, Earl of Moreland",Henry Brooke,1,0,1
+1,106,neighborhood,henry-james/roderick-hudson,Roderick Hudson,Henry James,1,0,1
+1,106,neighborhood,henry-james/the-ambassadors,The Ambassadors,Henry James,1,0,1
+1,106,neighborhood,henry-rowe-schoolcraft/algic-researches,Algic Researches,Henry Rowe Schoolcraft,1,0,1
+1,106,neighborhood,henry-rowe-schoolcraft/the-myth-of-hiawatha,The Myth of Hiawatha,Henry Rowe Schoolcraft,1,0,1
+1,106,neighborhood,humphry-davy/consolations-in-travels-or-the-last-days-of-a-philosopher,"Consolations in Travels; or, The Last Days of a Philosopher",Humphry Davy,1,0,1
+1,106,neighborhood,john-foxe/book-of-martyrs,Book of Martyrs,John Foxe,1,0,1
+1,106,neighborhood,john-foxe/foxe-s-book-of-martyrs,Foxe's Book of Martyrs,John Foxe,1,0,1
+1,106,neighborhood,john-greenleaf-whittier/barbara-frietchie,Barbara Frietchie,John Greenleaf Whittier,1,0,1
+1,106,neighborhood,john-keats/isabella-or-the-pot-of-basil,"Isabella, or the Pot of Basil",John Keats,1,0,1
+1,106,neighborhood,john-keats/la-belle-dame-sans-merci,La Belle Dame sans Merci,John Keats,1,0,1
+1,106,neighborhood,madame-d-aulnoy/the-fair-one-with-golden-locks,The Fair One with Golden Locks,Madame d'Aulnoy,1,0,1
+1,106,neighborhood,madame-d-aulnoy/the-yellow-dwarf,The Yellow Dwarf,Madame d'Aulnoy,1,0,1
+1,106,neighborhood,madame-de-stael/corinne,Corinne,Madame de Stael,1,0,1
+1,106,neighborhood,maria-edgeworth/old-poz,Old Poz,Maria Edgeworth,1,0,1
+1,106,neighborhood,maria-s-cummins/the-lamplighter,The Lamplighter,Maria S. Cummins,1,0,1
+1,106,neighborhood,martin-farquhar-tupper/poems,Poems,Martin Farquhar Tupper,1,0,1
+1,106,neighborhood,martin-farquhar-tupper/proverbial-philosophy,Proverbial Philosophy,Martin Farquhar Tupper,1,0,1
+1,106,neighborhood,matthew-poole/synopsis-criticorum,Synopsis Criticorum,Matthew Poole,1,0,1
+1,106,neighborhood,nehemiah-adams/a-south-side-view-of-slavery,A South-Side View of Slavery,Nehemiah Adams,1,0,1
+1,106,neighborhood,oliver-goldsmith/the-history-of-rome,The History of Rome,Oliver Goldsmith,1,0,1
+1,106,neighborhood,peter-mark-roget/bridgewater-treatise,Bridgewater Treatise,Peter Mark Roget,1,0,1
+1,106,neighborhood,richard-baxter/the-saints-everlasting-rest,The Saints' Everlasting Rest,Richard Baxter,1,0,1
+1,106,neighborhood,robert-louis-stevenson/the-black-arrow,The Black Arrow,Robert Louis Stevenson,1,1,0
+1,106,neighborhood,robert-southey/the-life-of-cowper,The Life of Cowper,Robert Southey,1,0,1
+1,106,neighborhood,rudolf-erich-raspe/the-surprising-adventures-of-baron-munchausen,The Surprising Adventures of Baron Munchausen,Rudolf Erich Raspe,1,0,1
+1,106,neighborhood,samuel-richardson/pamela,Pamela,Samuel Richardson,1,0,1
+1,106,neighborhood,susan-and-anna-b-warner/the-gold-of-chickaree,The Gold of Chickaree,Susan and Anna B. Warner,1,0,1
+1,106,neighborhood,susan-warner/the-wide-wide-world,"The Wide, Wide World",Susan Warner,1,0,1
+1,106,neighborhood,thomas-bewick/a-history-of-british-birds,A History of British Birds,Thomas Bewick,1,0,1
+1,106,neighborhood,thomas-browne/garden-of-cyrus,Garden of Cyrus,Thomas Browne,1,0,1
+1,106,neighborhood,thomas-browne/hydriotaphia,Hydriotaphia,Thomas Browne,1,0,1
+1,106,neighborhood,thomas-browne/urn-burial,Urn Burial,Thomas Browne,1,0,1
+1,106,neighborhood,thomas-hardy/the-mayor-of-casterbridge,The Mayor of Casterbridge,Thomas Hardy,1,1,0
+1,106,neighborhood,thomas-moore/lalla-rookh,Lalla Rookh,Thomas Moore,1,0,1
+1,106,neighborhood,thomas-moore/political-poems,Political Poems,Thomas Moore,1,0,1
+1,106,neighborhood,tomas-sanchez/disputationes-de-sancto-matrimonio,Disputationes de Sancto Matrimonio,Tomás Sánchez,1,0,1
+1,106,neighborhood,walter-scott/anne-of-geierstein,Anne of Geierstein,Walter Scott,1,0,1
+1,106,neighborhood,walter-scott/the-pirate,The Pirate,Walter Scott,1,0,1
+1,106,neighborhood,washington-irving/the-sketch-book-of-geoffrey-crayon,The Sketch Book of Geoffrey Crayon,Washington Irving,1,0,1
+1,106,neighborhood,william-belsham/belsham-s-essays,Belsham's Essays,William Belsham,1,0,1
+1,106,neighborhood,william-cowper/john-gilpin,John Gilpin,William Cowper,1,0,1
+1,106,neighborhood,william-dampier/a-new-voyage-round-the-world,A New Voyage Round the World,William Dampier,1,0,1
+1,106,neighborhood,william-dean-howells/a-foregone-conclusion,A Foregone Conclusion,William Dean Howells,1,0,1
+2,81,neighborhood,daniel-defoe/robinson-crusoe,Robinson Crusoe,Daniel Defoe,33,0,33
+2,81,neighborhood,henry-adams/the-education-of-henry-adams,The Education of Henry Adams,Henry Adams,27,27,0
+2,81,neighborhood,charles-darwin/the-voyage-of-the-beagle,The Voyage of the Beagle,Charles Darwin,17,16,1
+2,81,neighborhood,charles-dickens/david-copperfield,David Copperfield,Charles Dickens,15,11,4
+2,81,neighborhood,jack-london/the-valley-of-the-moon,The Valley of the Moon,Jack London,8,8,0
+2,81,neighborhood,richard-henry-dana/two-years-before-the-mast,Two Years Before the Mast,Richard Henry Dana,8,8,0
+2,81,neighborhood,willa-cather/my-antonia,My Ántonia,Willa Cather,7,7,0
+2,81,neighborhood,henry-fielding/tom-jones,Tom Jones,Henry Fielding,6,0,6
+2,81,neighborhood,willa-cather/o-pioneers,O Pioneers!,Willa Cather,5,5,0
+2,81,neighborhood,mark-twain/a-connecticut-yankee-in-king-arthur-s-court,A Connecticut Yankee in King Arthur's Court,Mark Twain,4,4,0
+2,81,neighborhood,johann-david-wyss/the-swiss-family-robinson,The Swiss Family Robinson,Johann David Wyss,3,0,3
+2,81,neighborhood,mikhail-lermontov/a-hero-of-our-time,A Hero of Our Time,Mikhail Lermontov,3,3,0
+2,81,neighborhood,walter-scott/the-talisman,The Talisman,Walter Scott,3,2,1
+2,81,neighborhood,wilkie-collins/the-moonstone,The Moonstone,Wilkie Collins,3,2,1
+2,81,neighborhood,algernon-charles-swinburne/atalanta-in-calydon,Atalanta in Calydon,Algernon Charles Swinburne,2,0,2
+2,81,neighborhood,anthony-trollope/the-way-we-live-now,The Way We Live Now,Anthony Trollope,2,2,0
+2,81,neighborhood,augustine-of-hippo/confessions,Confessions,Augustine of Hippo,2,0,2
+2,81,neighborhood,jean-jacques-rousseau/confessions,Confessions,Jean-Jacques Rousseau,2,0,2
+2,81,neighborhood,rudyard-kipling/plain-tales-from-the-hills,Plain Tales from the Hills,Rudyard Kipling,2,2,0
+2,81,neighborhood,tobias-smollett/peregrine-pickle,Peregrine Pickle,Tobias Smollett,2,0,2
+2,81,neighborhood,tobias-smollett/roderick-random,Roderick Random,Tobias Smollett,2,0,2
+2,81,neighborhood,william-shakespeare/the-winter-s-tale,The Winter's Tale,William Shakespeare,2,0,2
+2,81,neighborhood,alexander-pushkin/eugene-onegin,Eugene Onegin,Alexander Pushkin,1,0,1
+2,81,neighborhood,alexander-von-humboldt/fragments-de-geologie-et-de-climatologie-asiatiques,Fragments de geologie et de climatologie asiatiques,Alexander von Humboldt,1,0,1
+2,81,neighborhood,alexander-von-humboldt/personal-narrative-of-travels-to-the-equinoctial-regions-of-the-new-continent,Personal Narrative of Travels to the Equinoctial Regions of the New Continent,Alexander von Humboldt,1,0,1
+2,81,neighborhood,alexander-von-humboldt/political-essay-on-the-kingdom-of-new-spain,Political Essay on the Kingdom of New Spain,Alexander von Humboldt,1,0,1
+2,81,neighborhood,algernon-charles-swinburne/poems-and-ballads,Poems and Ballads,Algernon Charles Swinburne,1,0,1
+2,81,neighborhood,algernon-charles-swinburne/queen-rosamond,Queen Rosamond,Algernon Charles Swinburne,1,0,1
+2,81,neighborhood,anthony-trollope/can-you-forgive-her,Can You Forgive Her?,Anthony Trollope,1,1,0
+2,81,neighborhood,baroness-tautphoeus/the-initials,The Initials,Baroness Tautphoeus,1,0,1
+2,81,neighborhood,bolton-hall/three-acres-and-liberty,Three Acres and Liberty,Bolton Hall,1,0,1
+2,81,neighborhood,bronson-howard/shenandoah,Shenandoah,Bronson Howard,1,0,1
+2,81,neighborhood,charles-dickens/hard-times,Hard Times,Charles Dickens,1,1,0
+2,81,neighborhood,charles-greville/the-greville-memoirs,The Greville Memoirs,Charles Greville,1,0,1
+2,81,neighborhood,charles-lyell/principles-of-geology,Principles of Geology,Charles Lyell,1,0,1
+2,81,neighborhood,charles-lyell/the-geological-evidences-of-the-antiquity-of-man,The Geological Evidences of the Antiquity of Man,Charles Lyell,1,0,1
+2,81,neighborhood,edward-bulwer-lytton/paul-clifford,Paul Clifford,Edward Bulwer-Lytton,1,0,1
+2,81,neighborhood,edward-j-wickson/california-fruits-and-how-to-grow-them,California Fruits and How to Grow Them,Edward J. Wickson,1,0,1
+2,81,neighborhood,edward-j-wickson/california-vegetables,California Vegetables,Edward J. Wickson,1,0,1
+2,81,neighborhood,ella-sterling-mighels/the-story-of-the-files-a-review-of-californian-writers-and-literature,The Story of the Files: A Review of Californian Writers and Literature,Ella Sterling Mighels,1,0,1
+2,81,neighborhood,esaias-tegner/frithiof-s-saga,Frithiof's Saga,Esaias Tegnér,1,0,1
+2,81,neighborhood,felix-de-azara/voyages-dans-l-amerique-meridionale,Voyages dans l'Amerique meridionale,Felix de Azara,1,0,1
+2,81,neighborhood,georges-cuvier/recherches-sur-les-ossemens-fossiles,Recherches sur les Ossemens Fossiles,Georges Cuvier,1,0,1
+2,81,neighborhood,giuseppe-garibaldi/autobiography,Autobiography,Giuseppe Garibaldi,1,0,1
+2,81,neighborhood,henry-adams/a-letter-to-american-teachers-of-history,A Letter to American Teachers of History,Henry Adams,1,0,1
+2,81,neighborhood,henry-adams/the-new-york-gold-conspiracy,The New York Gold Conspiracy,Henry Adams,1,0,1
+2,81,neighborhood,henry-wadsworth-longfellow/the-golden-legend,The Golden Legend,Henry Wadsworth Longfellow,1,0,1
+2,81,neighborhood,henry-wadsworth-longfellow/the-spanish-student,The Spanish Student,Henry Wadsworth Longfellow,1,0,1
+2,81,neighborhood,j-b-stallo/concepts-of-modern-physics,Concepts of Modern Physics,J. B. Stallo,1,0,1
+2,81,neighborhood,james-fenimore-cooper/the-pilot,The Pilot,James Fenimore Cooper,1,0,1
+2,81,neighborhood,james-fenimore-cooper/the-red-rover,The Red Rover,James Fenimore Cooper,1,0,1
+2,81,neighborhood,james-russell-lowell/the-biglow-papers,The Biglow Papers,James Russell Lowell,1,0,1
+2,81,neighborhood,johann-wolfgang-von-goethe/erlking,Erlking,Johann Wolfgang von Goethe,1,0,1
+2,81,neighborhood,john-adams-and-daniel-leonard/novanglus-and-massachusettensis,Novanglus and Massachusettensis,John Adams and Daniel Leonard,1,0,1
+2,81,neighborhood,john-bulkeley-and-john-cummins/a-faithful-narrative-of-the-loss-of-his-majesty-s-ship-the-wager,A Faithful Narrative of the Loss of His Majesty's Ship the Wager,John Bulkeley and John Cummins,1,0,1
+2,81,neighborhood,john-foxe/the-book-of-martyrs,The Book of Martyrs,John Foxe,1,0,1
+2,81,neighborhood,john-milton/paradise-regained,Paradise Regained,John Milton,1,0,1
+2,81,neighborhood,john-quincy-adams/diary-of-john-quincy-adams,Diary of John Quincy Adams,John Quincy Adams,1,0,1
+2,81,neighborhood,john-russell/recollections-and-suggestions,Recollections and Suggestions,John Russell,1,0,1
+2,81,neighborhood,john-williams/a-narrative-of-missionary-enterprises-in-the-south-sea-islands,A Narrative of Missionary Enterprises in the South Sea Islands,John Williams,1,0,1
+2,81,neighborhood,karl-marx/capital,Capital,Karl Marx,1,0,1
+2,81,neighborhood,karl-pearson/the-grammar-of-science,The Grammar of Science,Karl Pearson,1,0,1
+2,81,neighborhood,martin-dobrizhoffer/an-account-of-the-abipones,An Account of the Abipones,Martin Dobrizhoffer,1,0,1
+2,81,neighborhood,nathaniel-ames/mariner-s-sketches,Mariner's Sketches,Nathaniel Ames,1,0,1
+2,81,neighborhood,otto-von-kotzebue/a-new-voyage-round-the-world,A New Voyage Round the World,Otto von Kotzebue,1,0,1
+2,81,neighborhood,peter-kropotkin/fields-factories-and-workshops,"Fields, Factories and Workshops",Peter Kropotkin,1,0,1
+2,81,neighborhood,phillip-parker-king/narrative-of-a-survey-of-the-intertropical-and-western-coasts-of-australia,Narrative of a Survey of the Intertropical and Western Coasts of Australia,Phillip Parker King,1,0,1
+2,81,neighborhood,r-m-ballantyne/erling-the-bold,Erling the Bold,R. M. Ballantyne,1,0,1
+2,81,neighborhood,robert-kerr/a-general-history-and-collection-of-voyages-and-travels,A General History and Collection of Voyages and Travels,Robert Kerr,1,0,1
+2,81,neighborhood,thomas-de-quincey/confessions-of-an-english-opium-eater,Confessions of an English Opium Eater,Thomas De Quincey,1,0,1
+2,81,neighborhood,thomas-malory/le-morte-d-arthur,Le Morte d'Arthur,Thomas Malory,1,0,1
+2,81,neighborhood,thomas-mayne-reid/afloat-in-the-forest,Afloat in the Forest,Thomas Mayne Reid,1,0,1
+2,81,neighborhood,torquato-tasso/jerusalem-delivered,Jerusalem Delivered,Torquato Tasso,1,0,1
+2,81,neighborhood,virgil/the-georgics,The Georgics,Virgil,1,0,1
+2,81,neighborhood,w-h-b-webster/narrative-of-a-voyage-to-the-southern-atlantic-ocean,Narrative of a Voyage to the Southern Atlantic Ocean,W. H. B. Webster,1,0,1
+2,81,neighborhood,william-cowper/table-talk,Table Talk,William Cowper,1,0,1
+2,81,neighborhood,william-ellis/polynesian-researches,Polynesian Researches,William Ellis,1,0,1
+2,81,neighborhood,william-fitzwilliam-owen/narrative-of-voyages-to-explore-the-shores-of-africa-arabia-and-madagascar,"Narrative of Voyages to Explore the Shores of Africa, Arabia, and Madagascar",William FitzWilliam Owen,1,0,1
+2,81,neighborhood,william-godwin/mandeville-a-romance,"Mandeville, a Romance",William Godwin,1,0,1
+2,81,neighborhood,william-scoresby/an-account-of-the-arctic-regions,An Account of the Arctic Regions,William Scoresby,1,0,1
+2,81,neighborhood,william-shakespeare/henry-iv-part-i,"Henry IV, Part I",William Shakespeare,1,0,1
+3,75,fan-out,helen-keller/the-story-of-my-life,The Story of My Life,Helen Keller,68,68,0
+3,75,fan-out,charles-kingsley/westward-ho,Westward Ho!,Charles Kingsley,20,20,0
+3,75,fan-out,erskine-childers/the-riddle-of-the-sands,The Riddle of the Sands,Erskine Childers,5,5,0
+3,75,fan-out,jean-de-la-fontaine/fables,Fables,Jean de La Fontaine,3,0,3
+3,75,fan-out,robert-burton/the-anatomy-of-melancholy,The Anatomy of Melancholy,Robert Burton,3,0,3
+3,75,fan-out,alfred-tennyson/in-memoriam,In Memoriam,Alfred Tennyson,2,0,2
+3,75,fan-out,dinah-maria-mulock-craik/king-arthur,King Arthur,Dinah Maria Mulock Craik,2,0,2
+3,75,fan-out,e-nesbit/the-story-of-the-treasure-seekers,The Story of the Treasure Seekers,E. Nesbit,2,2,0
+3,75,fan-out,frances-hodgson-burnett/little-lord-fauntleroy,Little Lord Fauntleroy,Frances Hodgson Burnett,2,1,1
+3,75,fan-out,horace-walpole/the-castle-of-otranto,The Castle of Otranto,Horace Walpole,2,1,1
+3,75,fan-out,john-milton/areopagitica,Areopagitica,John Milton,2,1,1
+3,75,fan-out,mark-twain/the-prince-and-the-pauper,The Prince and the Pauper,Mark Twain,2,1,1
+3,75,fan-out,robert-louis-stevenson/treasure-island,Treasure Island,Robert Louis Stevenson,2,0,2
+3,75,fan-out,rudyard-kipling/the-jungle-book,The Jungle Book,Rudyard Kipling,2,0,2
+3,75,fan-out,william-shakespeare/the-tempest,The Tempest,William Shakespeare,2,0,2
+3,75,fan-out,alfred-tennyson/enoch-arden,Enoch Arden,Alfred Tennyson,1,0,1
+3,75,fan-out,alfred-thayer-mahan/the-influence-of-sea-power-upon-history,The Influence of Sea Power upon History,Alfred Thayer Mahan,1,0,1
+3,75,fan-out,anna-sewell/black-beauty,Black Beauty,Anna Sewell,1,0,1
+3,75,fan-out,anonymous/a-boy-i-knew,A Boy I Knew,Anonymous,1,0,1
+3,75,fan-out,anonymous/king-of-no-land,King of No-land,Anonymous,1,0,1
+3,75,fan-out,anonymous/little-jakey,Little Jakey,Anonymous,1,0,1
+3,75,fan-out,anonymous/our-world,Our World,Anonymous,1,0,1
+3,75,fan-out,anonymous/palamon-and-arcite,Palamon and Arcite,Anonymous,1,0,1
+3,75,fan-out,anonymous/the-history-of-the-nine-worthies,The History of the Nine Worthies,Anonymous,1,0,1
+3,75,fan-out,anonymous/theologia-germanica,Theologia Germanica,Anonymous,1,0,1
+3,75,fan-out,antonio-galvao/the-discoveries-of-the-world,The Discoveries of the World,Antonio Galvão,1,0,1
+3,75,fan-out,aristotle/de-mundo,De Mundo,Aristotle,1,0,1
+3,75,fan-out,arthur-conan-doyle/sherlock-holmes,Sherlock Holmes,Arthur Conan Doyle,1,0,1
+3,75,fan-out,bartolome-de-las-casas/history-of-the-west-indies,History of the West Indies,Bartolomé de las Casas,1,0,1
+3,75,fan-out,bartolome-de-las-casas/the-cruelties-of-the-spaniards,The Cruelties of the Spaniards,Bartolomé de las Casas,1,0,1
+3,75,fan-out,charles-dickens/a-child-s-history-of-england,A Child's History of England,Charles Dickens,1,0,1
+3,75,fan-out,charles-dickens/american-notes,American Notes,Charles Dickens,1,0,1
+3,75,fan-out,charles-dickens/the-mystery-of-edwin-drood,The Mystery of Edwin Drood,Charles Dickens,1,1,0
+3,75,fan-out,charles-kingsley/the-heroes-greek-heroes,The Heroes (Greek Heroes),Charles Kingsley,1,0,1
+3,75,fan-out,edmund-spenser/a-view-of-the-state-of-ireland,A View of the State of Ireland,Edmund Spenser,1,0,1
+3,75,fan-out,edward-a-freeman/history-of-europe,History of Europe,Edward A. Freeman,1,0,1
+3,75,fan-out,ephraim-emerton/an-introduction-to-the-study-of-the-middle-ages,An Introduction to the Study of the Middle Ages,Ephraim Emerton,1,0,1
+3,75,fan-out,ernest-thompson-seton/wild-animals-i-have-known,Wild Animals I Have Known,Ernest Thompson Seton,1,0,1
+3,75,fan-out,frank-cowper/sailing-tours,Sailing Tours,Frank Cowper,1,0,1
+3,75,fan-out,friedrich-schiller/wilhelm-tell,Wilhelm Tell,Friedrich Schiller,1,0,1
+3,75,fan-out,gotthold-ephraim-lessing/minna-von-barnhelm,Minna von Barnhelm,Gotthold Ephraim Lessing,1,0,1
+3,75,fan-out,gotthold-ephraim-lessing/nathan-the-wise,Nathan the Wise,Gotthold Ephraim Lessing,1,0,1
+3,75,fan-out,h-g-wells/the-war-of-the-worlds,The War of the Worlds,H. G. Wells,1,1,0
+3,75,fan-out,hans-christian-andersen/andersen-s-fairy-tales,Andersen's Fairy Tales,Hans Christian Andersen,1,0,1
+3,75,fan-out,heinrich-heine/die-harzreise,Die Harzreise,Heinrich Heine,1,0,1
+3,75,fan-out,honore-de-balzac/eugenie-grandet,Eugénie Grandet,Honoré de Balzac,1,1,0
+3,75,fan-out,horace-walpole/anecdotes-of-painting-in-england,Anecdotes of Painting in England,Horace Walpole,1,0,1
+3,75,fan-out,jean-racine/athalie,Athalie,Jean Racine,1,0,1
+3,75,fan-out,johanna-spyri/heidi,Heidi,Johanna Spyri,1,0,1
+3,75,fan-out,john-foxe/actes-and-monuments-foxe-s-book-of-martyrs,Actes and Monuments (Foxe's Book of Martyrs),John Foxe,1,0,1
+3,75,fan-out,john-greenleaf-whittier/in-school-days,In School Days,John Greenleaf Whittier,1,0,1
+3,75,fan-out,john-greenleaf-whittier/laus-deo,Laus Deo,John Greenleaf Whittier,1,0,1
+3,75,fan-out,john-greenleaf-whittier/my-playmate,My Playmate,John Greenleaf Whittier,1,0,1
+3,75,fan-out,john-jewel/an-apology-of-the-church-of-england,An Apology of the Church of England,John Jewel,1,0,1
+3,75,fan-out,john-richard-green/a-short-history-of-the-english-people,A Short History of the English People,John Richard Green,1,0,1
+3,75,fan-out,kate-douglas-wiggin/patsy,Patsy,Kate Douglas Wiggin,1,0,1
+3,75,fan-out,kate-douglas-wiggin/the-birds-christmas-carol,The Birds' Christmas Carol,Kate Douglas Wiggin,1,0,1
+3,75,fan-out,livy/history-of-rome-ab-urbe-condita,History of Rome (Ab Urbe Condita),Livy,1,0,1
+3,75,fan-out,margaret-t-canby/birdie-and-his-fairy-friends,Birdie and His Fairy Friends,Margaret T. Canby,1,0,1
+3,75,fan-out,margaret-t-canby/the-frost-fairies,The Frost Fairies,Margaret T. Canby,1,0,1
+3,75,fan-out,margaret-t-canby/the-rose-fairies,The Rose Fairies,Margaret T. Canby,1,0,1
+3,75,fan-out,moliere/le-medecin-malgre-lui,Le Medecin Malgre Lui,Moliere,1,0,1
+3,75,fan-out,moliere/les-femmes-savantes,Les Femmes Savantes,Moliere,1,0,1
+3,75,fan-out,nathaniel-hawthorne/wonder-book,Wonder Book,Nathaniel Hawthorne,1,0,1
+3,75,fan-out,oliver-wendell-holmes/the-chambered-nautilus,The Chambered Nautilus,Oliver Wendell Holmes,1,0,1
+3,75,fan-out,philip-sidney/arcadia,Arcadia,Philip Sidney,1,0,1
+3,75,fan-out,pierre-corneille/horace,Horace,Pierre Corneille,1,0,1
+3,75,fan-out,r-t-mcmullen/down-channel,Down Channel,R. T. McMullen,1,0,1
+3,75,fan-out,richard-head/the-english-rogue,The English Rogue,Richard Head,1,0,1
+3,75,fan-out,robert-louis-stevenson/new-arabian-nights,New Arabian Nights,Robert Louis Stevenson,1,0,1
+3,75,fan-out,rudyard-kipling/dreaming-true,Dreaming True,Rudyard Kipling,1,0,1
+3,75,fan-out,w-g-wills/king-charles-the-first,King Charles the First,W. G. Wills,1,0,1
+3,75,fan-out,william-h-prescott/history-of-the-conquest-of-mexico,History of the Conquest of Mexico,William H. Prescott,1,0,1
+3,75,fan-out,william-h-prescott/history-of-the-conquest-of-peru,History of the Conquest of Peru,William H. Prescott,1,0,1
+3,75,fan-out,william-harrison-ainsworth/the-tower-of-london,The Tower of London,William Harrison Ainsworth,1,0,1
+4,73,neighborhood,lytton-strachey/eminent-victorians,Eminent Victorians,Lytton Strachey,15,15,0
+4,73,neighborhood,g-k-chesterton/orthodoxy,Orthodoxy,G. K. Chesterton,13,13,0
+4,73,neighborhood,louisa-may-alcott/eight-cousins,Eight Cousins,Louisa May Alcott,13,13,0
+4,73,neighborhood,edgar-lee-masters/spoon-river-anthology,Spoon River Anthology,Edgar Lee Masters,10,10,0
+4,73,neighborhood,henry-david-thoreau/walden,Walden,Henry David Thoreau,10,9,1
+4,73,neighborhood,charles-kingsley/the-water-babies,The Water-Babies,Charles Kingsley,8,7,1
+4,73,neighborhood,kurt-vonnegut/breakfast-of-champions,Breakfast of Champions,Kurt Vonnegut,6,6,0
+4,73,neighborhood,lewis-carroll/alice-s-adventures-in-wonderland,Alice's Adventures in Wonderland,Lewis Carroll,5,0,5
+4,73,neighborhood,wilkie-collins/the-law-and-the-lady,The Law and the Lady,Wilkie Collins,5,5,0
+4,73,neighborhood,homer/the-iliad,The Iliad,Homer,4,0,4
+4,73,neighborhood,anonymous/cinderella,Cinderella,Anonymous,3,0,3
+4,73,neighborhood,anonymous/sleeping-beauty,Sleeping Beauty,Anonymous,3,0,3
+4,73,neighborhood,francis-bacon/essays,Essays,Francis Bacon,3,0,3
+4,73,neighborhood,george-macdonald/at-the-back-of-the-north-wind,At the Back of the North Wind,George MacDonald,3,3,0
+4,73,neighborhood,henry-james/the-princess-casamassima,The Princess Casamassima,Henry James,3,3,0
+4,73,neighborhood,aristophanes/the-clouds,The Clouds,Aristophanes,2,1,1
+4,73,neighborhood,ernest-renan/vie-de-jesus,Vie de Jesus,Ernest Renan,2,0,2
+4,73,neighborhood,isaac-watts/the-improvement-of-the-mind,The Improvement of the Mind,Isaac Watts,2,0,2
+4,73,neighborhood,jeanne-marie-leprince-de-beaumont/beauty-and-the-beast,Beauty and the Beast,Jeanne-Marie Leprince de Beaumont,2,0,2
+4,73,neighborhood,plato/dialogues,Dialogues,Plato,2,0,2
+4,73,neighborhood,tobias-smollett/the-history-of-england,The History of England,Tobias Smollett,2,0,2
+4,73,neighborhood,toni-morrison/song-of-solomon,Song of Solomon,Toni Morrison,2,2,0
+4,73,neighborhood,walt-whitman/leaves-of-grass,Leaves of Grass,Walt Whitman,2,1,1
+4,73,neighborhood,alfred-tennyson/tears-idle-tears,"Tears, Idle Tears",Alfred Tennyson,1,0,1
+4,73,neighborhood,alphonse-daudet/contes-de-daudet,Contes de Daudet,Alphonse Daudet,1,0,1
+4,73,neighborhood,anatole-france/vie-de-jeanne-d-arc,Vie de Jeanne d'Arc,Anatole France,1,0,1
+4,73,neighborhood,anonymous/advent-sermons-on-antichrist,Advent Sermons on Antichrist,Anonymous,1,0,1
+4,73,neighborhood,anonymous/babes-in-the-wood,Babes in the Wood,Anonymous,1,0,1
+4,73,neighborhood,anonymous/jack-and-the-beanstalk,Jack and the Beanstalk,Anonymous,1,0,1
+4,73,neighborhood,anonymous/jack-the-giant-killer,Jack the Giant Killer,Anonymous,1,0,1
+4,73,neighborhood,anonymous/regeneration,Regeneration,Anonymous,1,0,1
+4,73,neighborhood,anonymous/souvenirs-de-la-marquise-de-crequi,Souvenirs de la Marquise de Créqui,Anonymous,1,0,1
+4,73,neighborhood,anonymous/the-gypsy-s-child,The Gypsy's Child,Anonymous,1,0,1
+4,73,neighborhood,anonymous/the-loves-of-the-triangles,The Loves of the Triangles,Anonymous,1,0,1
+4,73,neighborhood,anonymous/tracts-for-the-times,Tracts for the Times,Anonymous,1,0,1
+4,73,neighborhood,basil-valentine/triumph-of-antimony,Triumph of Antimony,Basil Valentine,1,0,1
+4,73,neighborhood,benvenuto-cellini/memoirs-of-benvenuto-cellini,Memoirs of Benvenuto Cellini,Benvenuto Cellini,1,0,1
+4,73,neighborhood,cato-the-elder/de-re-rustica,De Re Rustica,Cato the Elder,1,0,1
+4,73,neighborhood,charles-dickens/a-tale-of-two-cities,A Tale of Two Cities,Charles Dickens,1,0,1
+4,73,neighborhood,charles-george-gordon/journals-of-major-gen-c-g-gordon-at-kartoum,Journals of Major-Gen. C.G. Gordon at Kartoum,Charles George Gordon,1,0,1
+4,73,neighborhood,charles-perrault/puss-in-boots,Puss in Boots,Charles Perrault,1,0,1
+4,73,neighborhood,constantin-francois-de-volney/the-ruins,The Ruins,Constantin-François de Volney,1,0,1
+4,73,neighborhood,david-friedrich-strauss/das-leben-jesu,Das Leben Jesu,David Friedrich Strauss,1,0,1
+4,73,neighborhood,edward-johnson/wonder-working-providence,Wonder-Working Providence,Edward Johnson,1,0,1
+4,73,neighborhood,florence-nightingale/notes-on-nursing,Notes on Nursing,Florence Nightingale,1,0,1
+4,73,neighborhood,frederick-marryat/peter-simple,Peter Simple,Frederick Marryat,1,0,1
+4,73,neighborhood,g-k-chesterton/heretics,Heretics,G. K. Chesterton,1,0,1
+4,73,neighborhood,g-k-chesterton/the-man-who-was-thursday,The Man Who Was Thursday,G. K. Chesterton,1,1,0
+4,73,neighborhood,george-macdonald/ranald-bannerman-s-boyhood,Ranald Bannerman's Boyhood,George MacDonald,1,0,1
+4,73,neighborhood,h-g-wells/doubts-of-the-instrument,Doubts of the Instrument,H. G. Wells,1,0,1
+4,73,neighborhood,heinrich-kramer/malleus-maleficarum,Malleus Maleficarum,Heinrich Kramer,1,0,1
+4,73,neighborhood,henry-morley/palissy-the-potter,"Palissy, the Potter",Henry Morley,1,0,1
+4,73,neighborhood,henry-wadsworth-longfellow/evangeline,Evangeline,Henry Wadsworth Longfellow,1,0,1
+4,73,neighborhood,henry-wood/east-lynne,East Lynne,Henry Wood,1,0,1
+4,73,neighborhood,jacob-and-wilhelm-grimm/grimm-s-fairy-tales,Grimm's Fairy Tales,Jacob and Wilhelm Grimm,1,0,1
+4,73,neighborhood,james-hogg/kilmeny,Kilmeny,James Hogg,1,0,1
+4,73,neighborhood,johannes-nider/formicarius,Formicarius,Johannes Nider,1,0,1
+4,73,neighborhood,john-milton/poems,Poems,John Milton,1,0,1
+4,73,neighborhood,john-ogilvie/imperial-dictionary,Imperial Dictionary,John Ogilvie,1,0,1
+4,73,neighborhood,kalidasa/shakuntala,Shakuntala,Kalidasa,1,0,1
+4,73,neighborhood,matthew-arnold/the-forsaken-merman,The Forsaken Merman,Matthew Arnold,1,0,1
+4,73,neighborhood,pearl-s-buck/the-good-earth,The Good Earth,Pearl S Buck,1,0,1
+4,73,neighborhood,percy-bysshe-shelley/prometheus-unbound,Prometheus Unbound,Percy Bysshe Shelley,1,0,1
+4,73,neighborhood,robert-browning/men-and-women,Men and Women,Robert Browning,1,0,1
+4,73,neighborhood,saadi/gulistan,Gulistan,Saadi,1,0,1
+4,73,neighborhood,samuel-clarke/scripture-promises,Scripture Promises,Samuel Clarke,1,0,1
+4,73,neighborhood,silvio-pellico/my-prisons,My Prisons,Silvio Pellico,1,0,1
+4,73,neighborhood,simonides/the-shearing-of-the-ram,The Shearing of the Ram,Simonides,1,0,1
+4,73,neighborhood,thomas-hughes/tom-brown-s-school-days,Tom Brown's School Days,Thomas Hughes,1,0,1
+4,73,neighborhood,thomas-hughes/tom-brown-s-schooldays,Tom Brown's Schooldays,Thomas Hughes,1,0,1
+4,73,neighborhood,thomas-scott/a-commentary-on-the-whole-bible,A Commentary on the Whole Bible,Thomas Scott,1,0,1
+4,73,neighborhood,ulysses-s-grant/personal-memoirs-of-ulysses-s-grant,Personal Memoirs of Ulysses S. Grant,Ulysses S. Grant,1,0,1
+4,73,neighborhood,william-wordsworth/ode-to-duty,Ode to Duty,William Wordsworth,1,0,1
+5,69,neighborhood,george-bernard-shaw/man-and-superman,Man and Superman,George Bernard Shaw,14,14,0
+5,69,neighborhood,h-g-wells/love-and-mr-lewisham,Love and Mr Lewisham,H. G. Wells,13,13,0
+5,69,neighborhood,jack-london/martin-eden,Martin Eden,Jack London,13,12,1
+5,69,neighborhood,george-du-maurier/trilby,Trilby,George du Maurier,7,7,0
+5,69,neighborhood,jack-london/john-barleycorn,John Barleycorn,Jack London,7,7,0
+5,69,neighborhood,olive-schreiner/the-story-of-an-african-farm,The Story of an African Farm,Olive Schreiner,6,6,0
+5,69,neighborhood,thomas-carlyle/sartor-resartus,Sartor Resartus,Thomas Carlyle,6,0,6
+5,69,neighborhood,walter-scott/quentin-durward,Quentin Durward,Walter Scott,6,4,2
+5,69,neighborhood,aristotle/the-nicomachean-ethics,The Nicomachean Ethics,Aristotle,5,5,0
+5,69,neighborhood,jack-london/the-sea-wolf,The Sea-Wolf,Jack London,5,5,0
+5,69,neighborhood,ralph-waldo-emerson/essays,Essays,Ralph Waldo Emerson,4,0,4
+5,69,neighborhood,charles-darwin/on-the-origin-of-species,On the Origin of Species,Charles Darwin,3,0,3
+5,69,neighborhood,charles-dickens/nicholas-nickleby,Nicholas Nickleby,Charles Dickens,3,1,2
+5,69,neighborhood,charles-dickens/oliver-twist,Oliver Twist,Charles Dickens,3,0,3
+5,69,neighborhood,henry-james/the-europeans,The Europeans,Henry James,3,3,0
+5,69,neighborhood,herbert-spencer/first-principles,First Principles,Herbert Spencer,3,0,3
+5,69,neighborhood,jack-london/the-people-of-the-abyss,The People of the Abyss,Jack London,3,3,0
+5,69,neighborhood,joseph-butler/the-analogy-of-religion,The Analogy of Religion,Joseph Butler,3,0,3
+5,69,neighborhood,samuel-taylor-coleridge/the-rime-of-the-ancient-mariner,The Rime of the Ancient Mariner,Samuel Taylor Coleridge,3,0,3
+5,69,neighborhood,thomas-hardy/desperate-remedies,Desperate Remedies,Thomas Hardy,3,3,0
+5,69,neighborhood,alfred-tennyson/the-princess,The Princess,Alfred Tennyson,2,0,2
+5,69,neighborhood,edward-bellamy/looking-backward,Looking Backward,Edward Bellamy,2,1,1
+5,69,neighborhood,elizabeth-gaskell/mary-barton,Mary Barton,Elizabeth Gaskell,2,2,0
+5,69,neighborhood,henry-george/progress-and-poverty,Progress and Poverty,Henry George,2,0,2
+5,69,neighborhood,herbert-spencer/the-principles-of-psychology,The Principles of Psychology,Herbert Spencer,2,0,2
+5,69,neighborhood,james-thomson/the-city-of-dreadful-night,The City of Dreadful Night,James Thomson,2,0,2
+5,69,neighborhood,john-greenleaf-whittier/snow-bound,Snow-Bound,John Greenleaf Whittier,2,0,2
+5,69,neighborhood,robert-browning/the-statue-and-the-bust,The Statue and the Bust,Robert Browning,2,0,2
+5,69,neighborhood,rudyard-kipling/the-light-that-failed,The Light That Failed,Rudyard Kipling,2,2,0
+5,69,neighborhood,thomas-bulfinch/the-age-of-fable,The Age of Fable,Thomas Bulfinch,2,0,2
+5,69,neighborhood,albert-schaffle/the-quintessence-of-socialism,The Quintessence of Socialism,Albert Schäffle,1,0,1
+5,69,neighborhood,alfred-tennyson/the-cup,The Cup,Alfred Tennyson,1,0,1
+5,69,neighborhood,anonymous/elementary-physiology,Elementary Physiology,Anonymous,1,0,1
+5,69,neighborhood,anonymous/everyman,Everyman,Anonymous,1,0,1
+5,69,neighborhood,anonymous/the-squire-of-low-degree,The Squire of Low Degree,Anonymous,1,0,1
+5,69,neighborhood,aristotle/rhetoric,Rhetoric,Aristotle,1,0,1
+5,69,neighborhood,arthur-morrison/a-child-of-the-jago,A Child of the Jago,Arthur Morrison,1,0,1
+5,69,neighborhood,arthur-schopenhauer/the-world-as-will-and-representation,The World as Will and Representation,Arthur Schopenhauer,1,0,1
+5,69,neighborhood,august-bebel/woman-under-socialism,Woman under Socialism,August Bebel,1,0,1
+5,69,neighborhood,c-w-saleeby/the-cycle-of-life,The Cycle of Life,C. W. Saleeby,1,0,1
+5,69,neighborhood,charles-dickens/the-chimes,The Chimes,Charles Dickens,1,0,1
+5,69,neighborhood,charles-letourneau/the-evolution-of-marriage,The Evolution of Marriage,Charles Letourneau,1,0,1
+5,69,neighborhood,dante-gabriel-rossetti/the-blessed-damozel,The Blessed Damozel,Dante Gabriel Rossetti,1,0,1
+5,69,neighborhood,edward-bellamy/dr-heidenhoff-s-process,Dr. Heidenhoff's Process,Edward Bellamy,1,0,1
+5,69,neighborhood,euripides/alcmaeon,Alcmaeon,Euripides,1,0,1
+5,69,neighborhood,george-bernard-shaw/socialism-for-millionaires,Socialism for Millionaires,George Bernard Shaw,1,0,1
+5,69,neighborhood,george-bernard-shaw/three-plays-for-puritans,Three Plays for Puritans,George Bernard Shaw,1,0,1
+5,69,neighborhood,george-eliot/silas-marner,Silas Marner,George Eliot,1,0,1
+5,69,neighborhood,helena-blavatsky/the-secret-doctrine,The Secret Doctrine,Helena Blavatsky,1,0,1
+5,69,neighborhood,herbert-spencer/an-autobiography,An Autobiography,Herbert Spencer,1,0,1
+5,69,neighborhood,herbert-spencer/the-principles-of-biology,The Principles of Biology,Herbert Spencer,1,0,1
+5,69,neighborhood,honore-de-balzac/the-magic-skin,The Magic Skin,Honoré de Balzac,1,0,1
+5,69,neighborhood,john-barbour/the-bruce,The Bruce,John Barbour,1,0,1
+5,69,neighborhood,john-stuart-mill/principles-of-political-economy,Principles of Political Economy,John Stuart Mill,1,0,1
+5,69,neighborhood,joseph-butler/fifteen-sermons,Fifteen Sermons,Joseph Butler,1,0,1
+5,69,neighborhood,mary-somerville/physical-geography,Physical Geography,Mary Somerville,1,0,1
+5,69,neighborhood,moliere/dom-juan-le-festin-de-pierre,Dom Juan (Le Festin de Pierre),Molière,1,0,1
+5,69,neighborhood,robert-browning/in-a-balcony,In a Balcony,Robert Browning,1,0,1
+5,69,neighborhood,robert-browning/mr-sludge-the-medium,"Mr. Sludge, ""The Medium""",Robert Browning,1,0,1
+5,69,neighborhood,robert-herrick/the-night-piece-to-julia,"The Night-Piece, to Julia",Robert Herrick,1,0,1
+5,69,neighborhood,robert-louis-stevenson/the-bottle-imp,The Bottle Imp,Robert Louis Stevenson,1,0,1
+5,69,neighborhood,rudyard-kipling/the-galley-slave,The Galley-Slave,Rudyard Kipling,1,0,1
+5,69,neighborhood,thomas-campbell/hohenlinden,Hohenlinden,Thomas Campbell,1,0,1
+5,69,neighborhood,tirso-de-molina/el-burlador-de-sevilla,El Burlador de Sevilla,Tirso de Molina,1,0,1
+5,69,neighborhood,tobias-smollett/the-adventures-of-peregrine-pickle,The Adventures of Peregrine Pickle,Tobias Smollett,1,0,1
+5,69,neighborhood,walter-scott/redgauntlet,Redgauntlet,Walter Scott,1,0,1
+5,69,neighborhood,washington-irving/the-alhambra,The Alhambra,Washington Irving,1,0,1
+5,69,neighborhood,william-shakespeare/henry-iv-part-2,"Henry IV, Part 2",William Shakespeare,1,0,1
+5,69,neighborhood,william-shakespeare/henry-viii,Henry VIII,William Shakespeare,1,0,1
+6,60,fan-out,miguel-de-cervantes/don-quixote,Don Quixote,Miguel de Cervantes,65,41,24
+6,60,fan-out,arthur-conan-doyle/micah-clarke,Micah Clarke,Arthur Conan Doyle,8,8,0
+6,60,fan-out,alexandre-dumas/twenty-years-after,Twenty Years After,Alexandre Dumas,5,5,0
+6,60,fan-out,alexandre-dumas/the-three-musketeers,The Three Musketeers,Alexandre Dumas,3,1,2
+6,60,fan-out,edmond-rostand/cyrano-de-bergerac,Cyrano de Bergerac,Edmond Rostand,2,2,0
+6,60,fan-out,julius-caesar/commentaries-on-the-gallic-war,Commentaries on the Gallic War,Julius Caesar,2,0,2
+6,60,fan-out,leo-tolstoy/the-cossacks,The Cossacks,Leo Tolstoy,2,2,0
+6,60,fan-out,madeleine-de-scudery/artamene-ou-le-grand-cyrus,"Artamène, ou le Grand Cyrus",Madeleine de Scudéry,2,0,2
+6,60,fan-out,alonso-de-ercilla/la-araucana,La Araucana,Alonso de Ercilla,1,0,1
+6,60,fan-out,anonymous/don-cirongilio-of-thrace,Don Cirongilio of Thrace,Anonymous,1,0,1
+6,60,fan-out,anonymous/faithful-contendings,Faithful Contendings,Anonymous,1,0,1
+6,60,fan-out,anonymous/felixmarte-of-hircania,Felixmarte of Hircania,Anonymous,1,0,1
+6,60,fan-out,anonymous/lazarillo-de-tormes,Lazarillo de Tormes,Anonymous,1,0,1
+6,60,fan-out,anonymous/light-of-the-soul,Light of the Soul,Anonymous,1,0,1
+6,60,fan-out,anonymous/nymphs-and-shepherds-of-henares,Nymphs and Shepherds of Henares,Anonymous,1,0,1
+6,60,fan-out,anonymous/palmerin-de-oliva,Palmerín de Oliva,Anonymous,1,0,1
+6,60,fan-out,anonymous/poem-of-the-cid,Poem of the Cid,Anonymous,1,0,1
+6,60,fan-out,anonymous/spirit-cordial,Spirit Cordial,Anonymous,1,0,1
+6,60,fan-out,anonymous/tablante-de-ricamonte,Tablante de Ricamonte,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-carolea,The Carolea,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-cortes-of-death,The Cortes of Death,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-enlightenment-of-jealousy,The Enlightenment of Jealousy,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-friendly-fair-foe,The Friendly Fair Foe,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-knight-of-the-cross,The Knight of the Cross,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-knight-platir,The Knight Platir,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-lion-of-spain,The Lion of Spain,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-merchant-lover,The Merchant Lover,Anonymous,1,0,1
+6,60,fan-out,anonymous/the-mirror-of-chivalry,The Mirror of Chivalry,Anonymous,1,0,1
+6,60,fan-out,antonio-de-lofraso/fortune-of-love,Fortune of Love,Antonio de Lofraso,1,0,1
+6,60,fan-out,antonio-de-torquemada/don-olivante-de-laura,Don Olivante de Laura,Antonio de Torquemada,1,0,1
+6,60,fan-out,antonio-de-torquemada/the-garden-of-flowers,The Garden of Flowers,Antonio de Torquemada,1,0,1
+6,60,fan-out,balthazar-baro/la-clorise,La Clorise,Balthazar Baro,1,0,1
+6,60,fan-out,battista-guarini/il-pastor-fido,Il Pastor Fido,Battista Guarini,1,0,1
+6,60,fan-out,cristobal-de-virues/el-monserrate,El Monserrate,Cristóbal de Virués,1,0,1
+6,60,fan-out,garci-rodriguez-de-montalvo/amadis-of-gaul,Amadis of Gaul,Garci Rodríguez de Montalvo,1,0,1
+6,60,fan-out,george-eliot/the-lifted-veil,The Lifted Veil,George Eliot,1,1,0
+6,60,fan-out,heliodorus/theagenes-and-chariclea,Theagenes and Chariclea,Heliodorus,1,0,1
+6,60,fan-out,henry-james/the-spoils-of-poynton,The Spoils of Poynton,Henry James,1,1,0
+6,60,fan-out,jorge-de-montemayor/diana,Diana,Jorge de Montemayor,1,0,1
+6,60,fan-out,joseph-alleine/an-alarm-to-the-unconverted,An Alarm to the Unconverted,Joseph Alleine,1,0,1
+6,60,fan-out,juan-rufo/la-austriada,La Austriada,Juan Rufo,1,0,1
+6,60,fan-out,lope-de-vega/the-ingratitude-revenged,The Ingratitude Revenged,Lope de Vega,1,0,1
+6,60,fan-out,lopez-maldonado/cancionero,Cancionero,López Maldonado,1,0,1
+6,60,fan-out,ludovico-ariosto/orlando-furioso,Orlando Furioso,Ludovico Ariosto,1,0,1
+6,60,fan-out,luigi-tansillo/tears-of-saint-peter,Tears of Saint Peter,Luigi Tansillo,1,0,1
+6,60,fan-out,luis-de-avila/the-deeds-of-the-emperor,The Deeds of the Emperor,Luis de Ávila,1,0,1
+6,60,fan-out,lupercio-leonardo-de-argensola/alexandra,Alexandra,Lupercio Leonardo de Argensola,1,0,1
+6,60,fan-out,lupercio-leonardo-de-argensola/isabella,Isabella,Lupercio Leonardo de Argensola,1,0,1
+6,60,fan-out,lupercio-leonardo-de-argensola/phyllis,Phyllis,Lupercio Leonardo de Argensola,1,0,1
+6,60,fan-out,madeleine-de-scudery/clelie,Clélie,Madeleine de Scudéry,1,0,1
+6,60,fan-out,miguel-de-cervantes/el-trato-de-argel,El Trato de Argel,Miguel de Cervantes,1,0,1
+6,60,fan-out,miguel-de-cervantes/la-galatea,La Galatea,Miguel de Cervantes,1,0,1
+6,60,fan-out,miguel-de-cervantes/la-numancia,La Numancia,Miguel de Cervantes,1,0,1
+6,60,fan-out,miguel-de-cervantes/rinconete-and-cortadillo,Rinconete and Cortadillo,Miguel de Cervantes,1,0,1
+6,60,fan-out,miguel-de-cervantes/the-labours-of-persiles-and-sigismunda,The Labours of Persiles and Sigismunda,Miguel de Cervantes,1,0,1
+6,60,fan-out,patrick-lamb/the-complete-court-cook,The Complete Court-Cook,Patrick Lamb,1,0,1
+6,60,fan-out,pierino-belli/de-re-militari,De Re Militari,Pierino Belli,1,0,1
+6,60,fan-out,richard-baxter/sermons,Sermons,Richard Baxter,1,0,1
+6,60,fan-out,richard-johnson/the-seven-champions-of-christendom,The Seven Champions of Christendom,Richard Johnson,1,0,1
+6,60,fan-out,torquato-tasso/aminta,Aminta,Torquato Tasso,1,0,1
+7,53,mixed,adam-smith/the-wealth-of-nations,The Wealth of Nations,Adam Smith,21,20,1
+7,53,mixed,alexis-de-tocqueville/democracy-in-america,Democracy in America,Alexis de Tocqueville,19,19,0
+7,53,mixed,mary-wollstonecraft/a-vindication-of-the-rights-of-woman,A Vindication of the Rights of Woman,Mary Wollstonecraft,9,9,0
+7,53,mixed,thomas-paine/the-rights-of-man,The Rights of Man,Thomas Paine,4,4,0
+7,53,mixed,edmund-burke/reflections-on-the-revolution-in-france,Reflections on the Revolution in France,Edmund Burke,3,0,3
+7,53,mixed,thomas-day/the-history-of-sandford-and-merton,The History of Sandford and Merton,Thomas Day,2,0,2
+7,53,mixed,thomas-hutchinson/the-history-of-the-colony-and-province-of-massachusetts-bay,The History of the Colony and Province of Massachusetts Bay,Thomas Hutchinson,2,0,2
+7,53,mixed,adam-anderson/an-historical-and-chronological-deduction-of-the-origin-of-commerce,An Historical and Chronological Deduction of the Origin of Commerce,Adam Anderson,1,0,1
+7,53,mixed,adam-smith/the-theory-of-moral-sentiments,The Theory of Moral Sentiments,Adam Smith,1,0,1
+7,53,mixed,alexander-hamilton-james-madison-and-john-jay/the-federalist,The Federalist,"Alexander Hamilton, James Madison, and John Jay",1,0,1
+7,53,mixed,anonymous/essai-sur-la-police-generale-des-grains-essay-on-the-policy-of-grain,Essai sur la police generale des grains (Essay on the Policy of Grain),Anonymous,1,0,1
+7,53,mixed,anonymous/memoires-upon-the-impositions-in-france,Memoires upon the Impositions in France,Anonymous,1,0,1
+7,53,mixed,anonymous/new-haven-antiquities,New Haven Antiquities,Anonymous,1,0,1
+7,53,mixed,antoine-simon-le-page-du-pratz/histoire-de-la-louisiane,Histoire de la Louisiane,Antoine-Simon Le Page du Pratz,1,0,1
+7,53,mixed,c-f-volney/tableau-du-climat-et-du-sol-des-etats-unis-d-amerique,Tableau du climat et du sol des Etats-Unis d'Amerique,C.-F. Volney,1,0,1
+7,53,mixed,charles-smith/three-tracts-on-the-corn-trade-and-corn-laws,Three Tracts on the Corn-Trade and Corn-Laws,Charles Smith,1,0,1
+7,53,mixed,david-bailie-warden/description-of-the-united-states,Description of the United States,David Bailie Warden,1,0,1
+7,53,mixed,david-hume/political-discourses,Political Discourses,David Hume,1,0,1
+7,53,mixed,gouverneur-emerson/medical-statistics,Medical Statistics,Gouverneur Emerson,1,0,1
+7,53,mixed,isaac-goodwin/the-town-officer,The Town Officer,Isaac Goodwin,1,0,1
+7,53,mixed,jacques-necker/essai-sur-la-legislation-et-le-commerce-des-grains,Essai sur la legislation et le commerce des grains,Jacques Necker,1,0,1
+7,53,mixed,james-adair/the-history-of-the-american-indians,The History of the American Indians,James Adair,1,0,1
+7,53,mixed,james-anderson/diplomata-scotiae,Diplomata Scotiae,James Anderson,1,0,1
+7,53,mixed,james-boswell/the-life-of-samuel-johnson,The Life of Samuel Johnson,James Boswell,1,0,1
+7,53,mixed,james-hervey/meditations-and-contemplations,Meditations and Contemplations,James Hervey,1,0,1
+7,53,mixed,james-kent/commentaries-on-american-law,Commentaries on American Law,James Kent,1,0,1
+7,53,mixed,james-postlethwayt/the-history-of-the-public-revenue-of-the-british-empire,The History of the Public Revenue of the British Empire,James Postlethwayt,1,0,1
+7,53,mixed,james-tyrrell/the-general-history-of-england,The General History of England,James Tyrrell,1,0,1
+7,53,mixed,jerome-k-jerome/three-men-in-a-boat,Three Men in a Boat,Jerome K. Jerome,1,1,0
+7,53,mixed,john-gregory/a-father-s-legacy-to-his-daughters,A Father's Legacy to His Daughters,John Gregory,1,0,1
+7,53,mixed,john-law/money-and-trade-considered-with-a-proposal-for-supplying-the-nation-with-money,"Money and Trade Considered, with a Proposal for Supplying the Nation with Money",John Law,1,0,1
+7,53,mixed,john-marshall/the-life-of-george-washington,The Life of George Washington,John Marshall,1,0,1
+7,53,mixed,john-sinclair/the-history-of-the-public-revenue-of-the-british-empire,The History of the Public Revenue of the British Empire,John Sinclair,1,0,1
+7,53,mixed,john-smith/memoirs-of-wool,Memoirs of Wool,John Smith,1,0,1
+7,53,mixed,mercier-de-la-riviere/l-ordre-naturel-et-essentiel-des-societes-politiques-the-natural-and-essential-order-of-political-societies,L'Ordre naturel et essentiel des societes politiques (The Natural and Essential Order of Political Societies),Mercier de la Riviere,1,0,1
+7,53,mixed,nathaniel-morton/new-england-s-memorial,New England's Memorial,Nathaniel Morton,1,0,1
+7,53,mixed,pierre-francois-xavier-de-charlevoix/histoire-et-description-generale-de-la-nouvelle-france,Histoire et description generale de la Nouvelle France,Pierre Francois Xavier de Charlevoix,1,0,1
+7,53,mixed,richard-burn/the-history-of-the-poor-laws,The History of the Poor Laws,Richard Burn,1,0,1
+7,53,mixed,robert-beverley/the-history-and-present-state-of-virginia,The History and Present State of Virginia,Robert Beverley,1,0,1
+7,53,mixed,robert-brady/an-historical-treatise-of-cities-and-boroughs,An Historical Treatise of Cities and Boroughs,Robert Brady,1,0,1
+7,53,mixed,thomas-birch/the-life-of-henry-prince-of-wales,"The Life of Henry, Prince of Wales",Thomas Birch,1,0,1
+7,53,mixed,thomas-jefferson/memoirs-of-thomas-jefferson,Memoirs of Thomas Jefferson,Thomas Jefferson,1,0,1
+7,53,mixed,thomas-jefferson/notes-on-the-state-of-virginia,Notes on the State of Virginia,Thomas Jefferson,1,0,1
+7,53,mixed,thomas-madox/firma-burgi,Firma Burgi,Thomas Madox,1,0,1
+7,53,mixed,thomas-madox/the-history-of-the-exchequer,The History of the Exchequer,Thomas Madox,1,0,1
+7,53,mixed,thomas-mun/england-s-treasure-in-foreign-trade,England's Treasure in Foreign Trade,Thomas Mun,1,0,1
+7,53,mixed,thomas-paine/a-letter-to-the-abbe-raynal,A Letter to the Abbe Raynal,Thomas Paine,1,0,1
+7,53,mixed,thomas-sergeant/constitutional-law,Constitutional Law,Thomas Sergeant,1,0,1
+7,53,mixed,timothy-pitkin/a-political-and-civil-history-of-the-united-states-of-america,A Political and Civil History of the United States of America,Timothy Pitkin,1,0,1
+7,53,mixed,vicesimus-knox/essays-moral-and-literary,Essays Moral and Literary,Vicesimus Knox,1,0,1
+7,53,mixed,william-darby/view-of-the-united-states,View of the United States,William Darby,1,0,1
+7,53,mixed,william-godwin/an-enquiry-concerning-political-justice,An Enquiry Concerning Political Justice,William Godwin,1,0,1
+7,53,mixed,william-lowndes/an-essay-for-the-amendment-of-the-silver-coins,An Essay for the Amendment of the Silver Coins,William Lowndes,1,0,1
+8,53,fan-out,dale-carnegie-j-berg-esenwein/the-art-of-public-speaking,The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,60,60,0
+8,53,fan-out,jane-austen/mansfield-park,Mansfield Park,Jane Austen,3,3,0
+8,53,fan-out,william-shakespeare/the-merry-wives-of-windsor,The Merry Wives of Windsor,William Shakespeare,3,0,3
+8,53,fan-out,asa-gray/how-plants-grow,How Plants Grow,Asa Gray,2,0,2
+8,53,fan-out,charles-dickens/barnaby-rudge,Barnaby Rudge,Charles Dickens,2,2,0
+8,53,fan-out,william-cowper/the-task,The Task,William Cowper,2,0,2
+8,53,fan-out,alexander-pope/the-moral-essays,The Moral Essays,Alexander Pope,1,0,1
+8,53,fan-out,alexander-pope/windsor-forest,Windsor Forest,Alexander Pope,1,0,1
+8,53,fan-out,alfred-tennyson/lady-clara-vere-de-vere,Lady Clara Vere de Vere,Alfred Tennyson,1,0,1
+8,53,fan-out,barry-cornwall/the-sea,The Sea,Barry Cornwall,1,0,1
+8,53,fan-out,charles-dickens/martin-chuzzlewit,Martin Chuzzlewit,Charles Dickens,1,0,1
+8,53,fan-out,charles-sears-baldwin/writing-and-speaking,Writing and Speaking,Charles Sears Baldwin,1,0,1
+8,53,fan-out,daniel-putnam/psychology,Psychology,Daniel Putnam,1,0,1
+8,53,fan-out,edmondo-de-amicis/college-friends,College Friends,Edmondo De Amicis,1,0,1
+8,53,fan-out,elizabeth-inchbald/lovers-vows,Lovers' Vows,Elizabeth Inchbald,1,0,1
+8,53,fan-out,fitz-greene-halleck/marco-bozzaris,Marco Bozzaris,Fitz-Greene Halleck,1,0,1
+8,53,fan-out,francis-bacon/civil-and-moral-discourse,Civil and Moral Discourse,Francis Bacon,1,0,1
+8,53,fan-out,frank-cramer/talk-to-students-on-the-art-of-study,Talk to Students on the Art of Study,Frank Cramer,1,0,1
+8,53,fan-out,george-crabbe/tales,Tales,George Crabbe,1,0,1
+8,53,fan-out,george-gordon-byron/hints-from-horace,Hints from Horace,George Gordon Byron,1,0,1
+8,53,fan-out,george-jacob-holyoake/public-speaking-and-debate,Public Speaking and Debate,George Jacob Holyoake,1,0,1
+8,53,fan-out,george-saintsbury/miscellaneous-essays,Miscellaneous Essays,George Saintsbury,1,0,1
+8,53,fan-out,gerald-stanley-lee/crowds,Crowds,Gerald Stanley Lee,1,0,1
+8,53,fan-out,henry-wadsworth-longfellow/christus,Christus,Henry Wadsworth Longfellow,1,0,1
+8,53,fan-out,hesiod/works-and-days,Works and Days,Hesiod,1,0,1
+8,53,fan-out,isaac-disraeli/literary-character,Literary Character,Isaac Disraeli,1,0,1
+8,53,fan-out,isaac-disraeli/literary-character-of-men-of-genius,Literary Character of Men of Genius,Isaac Disraeli,1,0,1
+8,53,fan-out,j-b-moore/digest-of-international-law,Digest of International Law,J. B. Moore,1,0,1
+8,53,fan-out,john-addison/the-tattler,The Tattler,John Addison,1,0,1
+8,53,fan-out,john-franklin-genung/the-working-principles-of-rhetoric,The Working Principles of Rhetoric,John Franklin Genung,1,0,1
+8,53,fan-out,john-milton/l-allegro,L'Allegro,John Milton,1,0,1
+8,53,fan-out,joseph-berg-esenwein/how-to-attract-and-hold-an-audience-a-popular-treatise-on-the-nature-preparation-and-delivery-of-public-discourse,"How to Attract and Hold an Audience: A Popular Treatise on the Nature, Preparation, and Delivery of Public Discourse",Joseph Berg Esenwein,1,0,1
+8,53,fan-out,lafcadio-hearn/chinese-ghosts,Chinese Ghosts,Lafcadio Hearn,1,0,1
+8,53,fan-out,nathan-c-schaeffer/thinking-and-learning-to-think,Thinking and Learning to Think,Nathan C. Schaeffer,1,0,1
+8,53,fan-out,nathan-sheppard/before-an-audience,Before an Audience,Nathan Sheppard,1,0,1
+8,53,fan-out,oliver-goldsmith/the-deserted-village,The Deserted Village,Oliver Goldsmith,1,0,1
+8,53,fan-out,philip-dormer-stanhope-earl-of-chesterfield/letters-to-his-son,Letters to His Son,"Philip Dormer Stanhope, Earl of Chesterfield",1,0,1
+8,53,fan-out,pierre-loti/an-iceland-fisherman,An Iceland Fisherman,Pierre Loti,1,0,1
+8,53,fan-out,ralph-waldo-emerson/eloquence,Eloquence,Ralph Waldo Emerson,1,0,1
+8,53,fan-out,ralph-waldo-emerson/essays-circles,Essays: Circles,Ralph Waldo Emerson,1,0,1
+8,53,fan-out,ralph-waldo-emerson/nature,Nature,Ralph Waldo Emerson,1,0,1
+8,53,fan-out,robert-burns/holy-fair,Holy Fair,Robert Burns,1,0,1
+8,53,fan-out,robert-louis-stevenson/a-child-s-garden-of-verses,A Child's Garden of Verses,Robert Louis Stevenson,1,0,1
+8,53,fan-out,robert-louis-stevenson/a-gossip-on-romance,A Gossip on Romance,Robert Louis Stevenson,1,0,1
+8,53,fan-out,robert-louis-stevenson/essays,Essays,Robert Louis Stevenson,1,0,1
+8,53,fan-out,robert-louis-stevenson/travels-with-a-donkey,Travels with a Donkey,Robert Louis Stevenson,1,0,1
+8,53,fan-out,russel-h-conwell/acres-of-diamond,Acres of Diamond,Russel H. Conwell,1,0,1
+8,53,fan-out,samuel-rogers/pleasures-of-memory,Pleasures of Memory,Samuel Rogers,1,0,1
+8,53,fan-out,thomas-carlyle/on-history,On History,Thomas Carlyle,1,0,1
+8,53,fan-out,thomas-henry-huxley/lay-sermons,Lay Sermons,Thomas Henry Huxley,1,0,1
+8,53,fan-out,walter-bagehot/literary-studies,Literary Studies,Walter Bagehot,1,0,1
+8,53,fan-out,wendel-phillips/toussant-l-ouverture,Toussant l'Ouverture,Wendel Phillips,1,0,1
+8,53,fan-out,william-ernest-henley/invictus,Invictus,William Ernest Henley,1,0,1
+9,52,neighborhood,stendhal/the-charterhouse-of-parma,The Charterhouse of Parma,Stendhal,18,17,1
+9,52,neighborhood,haruki-murakami/hard-boiled-wonderland-and-the-end-of-the-world,Hard Boiled Wonderland and the End of the World,Haruki Murakami,14,14,0
+9,52,neighborhood,fyodor-dostoevsky/the-idiot,The Idiot,Fyodor Dostoevsky,6,6,0
+9,52,neighborhood,voltaire/candide,Candide,Voltaire,6,2,4
+9,52,neighborhood,fyodor-dostoevsky/the-brothers-karamazov,The Brothers Karamazov,Fyodor Dostoevsky,5,4,1
+9,52,neighborhood,gustave-flaubert/madame-bovary,Madame Bovary,Gustave Flaubert,5,4,1
+9,52,neighborhood,leo-tolstoy/the-kingdom-of-god-is-within-you,The Kingdom of God Is Within You,Leo Tolstoy,5,5,0
+9,52,neighborhood,alain-rene-lesage/gil-blas,Gil Blas,Alain-René Lesage,4,0,4
+9,52,neighborhood,bernardin-de-saint-pierre/paul-and-virginia,Paul and Virginia,Bernardin de Saint-Pierre,4,0,4
+9,52,neighborhood,oscar-wilde/the-picture-of-dorian-gray,The Picture of Dorian Gray,Oscar Wilde,4,4,0
+9,52,neighborhood,victor-hugo/notre-dame-de-paris,Notre Dame de Paris,Victor Hugo,4,0,4
+9,52,neighborhood,charles-dickens/little-dorrit,Little Dorrit,Charles Dickens,3,2,1
+9,52,neighborhood,nathaniel-hawthorne/the-house-of-the-seven-gables,The House of the Seven Gables,Nathaniel Hawthorne,3,3,0
+9,52,neighborhood,abbe-prevost/manon-lescaut,Manon Lescaut,Abbé Prévost,2,0,2
+9,52,neighborhood,alexander-pope/the-rape-of-the-lock,The Rape of the Lock,Alexander Pope,2,0,2
+9,52,neighborhood,anthony-trollope/barchester-towers,Barchester Towers,Anthony Trollope,2,2,0
+9,52,neighborhood,nikolai-gogol/dead-souls,Dead Souls,Nikolai Gogol,2,0,2
+9,52,neighborhood,albert-camus/l-entranger,L'Entranger,Albert Camus,1,0,1
+9,52,neighborhood,alexander-pushkin/the-poor-knight,The Poor Knight,Alexander Pushkin,1,0,1
+9,52,neighborhood,alexandre-dumas-fils/la-dame-aux-camelias,La Dame aux Camelias,Alexandre Dumas fils,1,0,1
+9,52,neighborhood,alexandre-dumas/la-tour-de-nesle,La Tour de Nesle,Alexandre Dumas,1,0,1
+9,52,neighborhood,arthur-conan-doyle/lost-world,Lost World,Arthur Conan Doyle,1,0,1
+9,52,neighborhood,bernardin-de-saint-pierre/la-chaumiere-indienne,La Chaumière indienne,Bernardin de Saint-Pierre,1,0,1
+9,52,neighborhood,blaise-pascal/les-provinciales,Les Provinciales,Blaise Pascal,1,0,1
+9,52,neighborhood,carlo-goldoni/la-locandiera,La Locandiera,Carlo Goldoni,1,0,1
+9,52,neighborhood,charles-a-reich/the-greening-of-america,The Greening of America,Charles A Reich,1,0,1
+9,52,neighborhood,daniel-musser/non-resistance-asserted,Non-resistance Asserted,Daniel Musser,1,0,1
+9,52,neighborhood,evariste-de-parny/la-guerre-des-dieux,La Guerre des Dieux,Evariste de Parny,1,0,1
+9,52,neighborhood,francois-de-la-rochefoucauld/maximes,Maximes,François de La Rochefoucauld,1,0,1
+9,52,neighborhood,friedrich-schiller/the-robbers,The Robbers,Friedrich Schiller,1,0,1
+9,52,neighborhood,honore-de-balzac/les-chouans,Les Chouans,Honoré de Balzac,1,0,1
+9,52,neighborhood,honore-de-balzac/un-prince-de-la-boheme,Un Prince de la Bohème,Honoré de Balzac,1,0,1
+9,52,neighborhood,honore-de-balzac/z-marcas,Z. Marcas,Honoré de Balzac,1,0,1
+9,52,neighborhood,ivan-krylov/the-lion-and-the-ass,The Lion and the Ass,Ivan Krylov,1,0,1
+9,52,neighborhood,ivan-turgenev/rudin,Rudin,Ivan Turgenev,1,0,1
+9,52,neighborhood,ivan-turgenev/spring-torrents,Spring Torrents,Ivan Turgenev,1,0,1
+9,52,neighborhood,jean-jacques-rousseau/profession-de-foi-du-vicaire-savoyard,Profession de foi du vicaire savoyard,Jean-Jacques Rousseau,1,0,1
+9,52,neighborhood,john-dryden/dryden-s-miscellanies,Dryden's Miscellanies,John Dryden,1,0,1
+9,52,neighborhood,jonathan-dymond/on-war,On War,Jonathan Dymond,1,0,1
+9,52,neighborhood,jorge-luis-borges/book-of-imaginary-beings,Book of Imaginary Beings,Jorge Luis Borges,1,0,1
+9,52,neighborhood,joris-karl-huysmans/a-rebours,À Rebours,Joris-Karl Huysmans,1,0,1
+9,52,neighborhood,l-frank-baum/the-wizard-of-oz,The Wizard of Oz,L Frank Baum,1,0,1
+9,52,neighborhood,montesquieu/considerations-sur-les-causes-de-la-grandeur-des-romains-et-de-leur-decadence,Considérations sur les causes de la grandeur des Romains et de leur décadence,Montesquieu,1,0,1
+9,52,neighborhood,norman-and-jeanne-mackenzie/time-traveler,Time Traveler,Norman and Jeanne MacKenzie,1,0,1
+9,52,neighborhood,petr-chelcicky/the-net-of-faith,The Net of Faith,Petr Chelčický,1,0,1
+9,52,neighborhood,petronius/the-satyricon,The Satyricon,Petronius,1,0,1
+9,52,neighborhood,stendhal/the-red-and-the-black,The Red and the Black,Stendhal,1,0,1
+9,52,neighborhood,theophile-gautier/emaux-et-camees,Émaux et Camées,Théophile Gautier,1,0,1
+9,52,neighborhood,thomas-corneille/le-comte-d-essex,Le Comte d'Essex,Thomas Corneille,1,0,1
+9,52,neighborhood,voltaire/dialogue-de-sylla-et-d-eucrate,Dialogue de Sylla et d'Eucrate,Voltaire,1,0,1
+9,52,neighborhood,w-somerset-maugham/the-razor-s-edge,The Razor's Edge,W. Somerset Maugham,1,0,1
+9,52,neighborhood,xavier-de-maistre/le-lepreux-de-la-vallee-d-aoste,Le Lépreux de la vallée d'Aoste,Xavier de Maistre,1,0,1
+10,52,fan-out,william-james/the-varieties-of-religious-experience,The Varieties of Religious Experience,William James,54,54,0
+10,52,fan-out,alexander-campbell-fraser/essays-in-philosophy,Essays in Philosophy,Alexander Campbell Fraser,1,0,1
+10,52,fan-out,alfred-binet/alterations-of-personality,Alterations of Personality,Alfred Binet,1,0,1
+10,52,fan-out,angelus-silesius/cherubinischer-wandersmann,Cherubinischer Wandersmann,Angelus Silesius,1,0,1
+10,52,fan-out,annie-payson-call/as-a-matter-of-course,As a Matter of Course,Annie Payson Call,1,0,1
+10,52,fan-out,anonymous/cautionary-verses-for-children,Cautionary Verses for Children,Anonymous,1,0,1
+10,52,fan-out,anonymous/oahspe-a-new-bible,Oahspe: A New Bible,Anonymous,1,0,1
+10,52,fan-out,anonymous/tennyson-s-trances-and-the-anaesthetic-revelation,Tennyson's Trances and the Anaesthetic Revelation,Anonymous,1,0,1
+10,52,fan-out,anonymous/zertoulem-s-wisdom-of-the-ages,Zertoulem's Wisdom of the Ages,Anonymous,1,0,1
+10,52,fan-out,augustus-clissold/the-prophetic-spirit-in-genius-and-madness,The Prophetic Spirit in Genius and Madness,Augustus Clissold,1,0,1
+10,52,fan-out,bishop-of-ripon/in-answer-to-prayer,In Answer to Prayer,Bishop of Ripon,1,0,1
+10,52,fan-out,borden-parker-bowne/the-atonement,The Atonement,Borden Parker Bowne,1,0,1
+10,52,fan-out,borden-parker-bowne/the-christian-revelation,The Christian Revelation,Borden Parker Bowne,1,0,1
+10,52,fan-out,edward-arber/an-english-garner,An English Garner,Edward Arber,1,0,1
+10,52,fan-out,etienne-vacherot/la-religion,La Religion,Etienne Vacherot,1,0,1
+10,52,fan-out,f-w-bourne/the-king-s-son-a-memoir-of-billy-bray,The King's Son: A Memoir of Billy Bray,F. W. Bourne,1,0,1
+10,52,fan-out,furneaux-jordan/character-in-birth-and-parentage,Character in Birth and Parentage,Furneaux Jordan,1,0,1
+10,52,fan-out,george-mueller/the-life-of-trust,The Life of Trust,George Mueller,1,0,1
+10,52,fan-out,gertrude-of-helfta/revelations,Revelations,Gertrude of Helfta,1,0,1
+10,52,fan-out,h-fielding/the-hearts-of-men,The Hearts of Men,H. Fielding,1,0,1
+10,52,fan-out,hannah-whitall-smith/the-christian-s-secret-of-a-happy-life,The Christian's Secret of a Happy Life,Hannah Whitall Smith,1,0,1
+10,52,fan-out,henri-delacroix/essai-sur-le-mysticisme-speculatif-en-allemagne-au-xivme-siecle,Essai sur le mysticisme speculatif en Allemagne au XIVme Siecle,Henri Delacroix,1,0,1
+10,52,fan-out,henri-frederic-amiel/journal-intime,Journal Intime,Henri Frederic Amiel,1,0,1
+10,52,fan-out,henry-clarke-warren/buddhism-in-translation,Buddhism in Translation,Henry Clarke Warren,1,0,1
+10,52,fan-out,henry-drummond/natural-law-in-the-spiritual-world,Natural Law in the Spiritual World,Henry Drummond,1,0,1
+10,52,fan-out,horatio-dresser/voices-of-freedom,Voices of Freedom,Horatio Dresser,1,0,1
+10,52,fan-out,ignatius-of-loyola/spiritual-exercises,Spiritual Exercises,Ignatius of Loyola,1,0,1
+10,52,fan-out,jakob-boehme/dialogues-on-the-supersensual-life,Dialogues on the Supersensual Life,Jakob Boehme,1,0,1
+10,52,fan-out,jakob-boehme/theosophic-philosophy,Theosophic Philosophy,Jakob Boehme,1,0,1
+10,52,fan-out,james-mark-baldwin/the-story-of-the-mind,The Story of the Mind,James Mark Baldwin,1,0,1
+10,52,fan-out,james-martineau/endeavours-after-a-christian-life,Endeavours after a Christian Life,James Martineau,1,0,1
+10,52,fan-out,jan-baptist-van-helmont/a-ternary-of-paradoxes,A Ternary of Paradoxes,Jan Baptist van Helmont,1,0,1
+10,52,fan-out,jean-francois-marmontel/memoirs,Memoirs,Jean-Francois Marmontel,1,0,1
+10,52,fan-out,john-foster/essay-on-decision-of-character,Essay on Decision of Character,John Foster,1,0,1
+10,52,fan-out,john-g-paton/an-autobiography,An Autobiography,John G. Paton,1,0,1
+10,52,fan-out,john-henry-newman/lectures-on-justification,Lectures on Justification,John Henry Newman,1,0,1
+10,52,fan-out,john-of-the-cross/ascent-of-mount-carmel,Ascent of Mount Carmel,John of the Cross,1,0,1
+10,52,fan-out,john-stuart-mill/autobiography,Autobiography,John Stuart Mill,1,0,1
+10,52,fan-out,jonathan-edwards/a-treatise-concerning-religious-affections,A Treatise Concerning Religious Affections,Jonathan Edwards,1,0,1
+10,52,fan-out,leo-tolstoy/my-confession,My Confession,Leo Tolstoy,1,0,1
+10,52,fan-out,luke-tyerman/life-of-wesley,Life of Wesley,Luke Tyerman,1,0,1
+10,52,fan-out,mark-rutherford/deliverance,Deliverance,Mark Rutherford,1,0,1
+10,52,fan-out,martin-luther/commentary-on-galatians,Commentary on Galatians,Martin Luther,1,0,1
+10,52,fan-out,max-nordau/degeneration,Degeneration,Max Nordau,1,0,1
+10,52,fan-out,miguel-de-molinos/spiritual-guide,Spiritual Guide,Miguel de Molinos,1,0,1
+10,52,fan-out,philip-doddridge/life-of-colonel-james-gardiner,Life of Colonel James Gardiner,Philip Doddridge,1,0,1
+10,52,fan-out,teresa-of-avila/the-interior-castle,The Interior Castle,Teresa of Avila,1,0,1
+10,52,fan-out,thomas-ellwood/the-history-of-thomas-ellwood-written-by-himself,"The History of Thomas Ellwood, Written by Himself",Thomas Ellwood,1,0,1
+10,52,fan-out,william-ralph-inge/christian-mysticism,Christian Mysticism,William Ralph Inge,1,0,1
+10,52,fan-out,william-sanday/the-oracles-of-god,The Oracles of God,William Sanday,1,0,1
+10,52,fan-out,william-wallace/lectures-and-essays,Lectures and Essays,William Wallace,1,0,1
+10,52,fan-out,wincenty-lutoslawski/the-origin-and-growth-of-plato-s-logic,The Origin and Growth of Plato's Logic,Wincenty Lutoslawski,1,0,1
+11,51,neighborhood,willa-cather/the-song-of-the-lark,The Song of the Lark,Willa Cather,18,18,0
+11,51,neighborhood,thomas-paine/the-age-of-reason,The Age of Reason,Thomas Paine,16,15,1
+11,51,neighborhood,h-g-wells/tono-bungay,Tono-Bungay,H. G. Wells,9,9,0
+11,51,neighborhood,thomas-carlyle/the-french-revolution-a-history,The French Revolution: A History,Thomas Carlyle,9,7,2
+11,51,neighborhood,gustave-flaubert/sentimental-education,Sentimental Education,Gustave Flaubert,8,8,0
+11,51,neighborhood,robert-louis-stevenson/travels-with-a-donkey-in-the-cevennes,Travels with a Donkey in the Cévennes,Robert Louis Stevenson,5,5,0
+11,51,neighborhood,thomas-paine/rights-of-man,Rights of Man,Thomas Paine,5,0,5
+11,51,neighborhood,thomas-a-kempis/the-imitation-of-christ,The Imitation of Christ,Thomas a Kempis,3,0,3
+11,51,neighborhood,thomas-paine/common-sense,Common Sense,Thomas Paine,3,0,3
+11,51,neighborhood,anthony-trollope/the-small-house-at-allington,The Small House at Allington,Anthony Trollope,2,2,0
+11,51,neighborhood,walter-scott/waverley-novels,Waverley Novels,Walter Scott,2,0,2
+11,51,neighborhood,william-beckford/vathek,Vathek,William Beckford,2,0,2
+11,51,neighborhood,alexandre-dumas/le-chevalier-de-maison-rouge,Le Chevalier de Maison-Rouge,Alexandre Dumas,1,0,1
+11,51,neighborhood,ann-s-stephens/the-polish-boy,The Polish Boy,Ann S. Stephens,1,0,1
+11,51,neighborhood,anonymous/life-of-elizabeth-seton,Life of Elizabeth Seton,Anonymous,1,0,1
+11,51,neighborhood,anonymous/life-of-paul,Life of Paul,Anonymous,1,0,1
+11,51,neighborhood,anonymous/polar-explorations,Polar Explorations,Anonymous,1,0,1
+11,51,neighborhood,anonymous/standard-recitations,Standard Recitations,Anonymous,1,0,1
+11,51,neighborhood,anonymous/the-veteran-of-1812,The Veteran of 1812,Anonymous,1,0,1
+11,51,neighborhood,anonymous/tom-paine-s-jest-book,Tom Paine's Jest Book,Anonymous,1,0,1
+11,51,neighborhood,anthony-hope/the-god-in-the-car,The God in the Car,Anthony Hope,1,0,1
+11,51,neighborhood,arthur-balfour/the-foundations-of-belief,The Foundations of Belief,Arthur Balfour,1,0,1
+11,51,neighborhood,augustine-of-hippo/contra-faustum-manichaeum,Contra Faustum Manichaeum,Augustine of Hippo,1,0,1
+11,51,neighborhood,austin-flint/flint-s-physiology,Flint's Physiology,Austin Flint,1,0,1
+11,51,neighborhood,byron/maid-of-athens,Maid of Athens,Byron,1,0,1
+11,51,neighborhood,david-levi/defence-of-the-old-testament,Defence of the Old Testament,David Levi,1,0,1
+11,51,neighborhood,elie-berthet/la-bete-du-gevaudan,La Bête du Gévaudan,Elie Berthet,1,0,1
+11,51,neighborhood,euclid/elements-of-geometry,Elements of Geometry,Euclid,1,0,1
+11,51,neighborhood,frederic-masson/napoleon-and-the-fair-sex,Napoleon and the Fair Sex,Frédéric Masson,1,0,1
+11,51,neighborhood,george-melville-baker/among-the-breakers,Among the Breakers,George Melville Baker,1,0,1
+11,51,neighborhood,grant-allen/the-woman-who-did,The Woman Who Did,Grant Allen,1,0,1
+11,51,neighborhood,honore-de-balzac/a-distinguished-provincial-in-paris,A Distinguished Provincial in Paris,Honore de Balzac,1,0,1
+11,51,neighborhood,honore-gabriel-riqueti-comte-de-mirabeau/des-lettres-de-cachet-et-des-prisons-d-etat,Des Lettres de cachet et des prisons d'état,"Honoré Gabriel Riqueti, comte de Mirabeau",1,0,1
+11,51,neighborhood,jacques-cazotte/le-diable-amoureux,Le Diable Amoureux,Jacques Cazotte,1,0,1
+11,51,neighborhood,jacques-de-norvins/histoire-de-napoleon,Histoire de Napoléon,Jacques de Norvins,1,0,1
+11,51,neighborhood,jean-de-la-bruyere/les-caracteres,Les Caractères,Jean de La Bruyère,1,0,1
+11,51,neighborhood,joseph-addison/cato,Cato,Joseph Addison,1,0,1
+11,51,neighborhood,la-fougere/l-art-de-n-etre-jamais-tue-ni-blesse-en-duel,L'Art de n'être jamais tué ni blessé en duel,La Fougère,1,0,1
+11,51,neighborhood,ludwig-tieck/die-verkehrte-welt-the-world-turned-upside-down,Die verkehrte Welt (The World Turned Upside Down),Ludwig Tieck,1,0,1
+11,51,neighborhood,napoleon-bonaparte/le-souper-de-beaucaire,Le Souper de Beaucaire,Napoleon Bonaparte,1,0,1
+11,51,neighborhood,napoleon-peyrat/pastors-of-the-desert,Pastors of the Desert,Napoléon Peyrat,1,0,1
+11,51,neighborhood,pierre-lachambeaudie/fables,Fables,Pierre Lachambeaudie,1,0,1
+11,51,neighborhood,richard-watson/an-apology-for-the-bible,An Apology for the Bible,Richard Watson,1,0,1
+11,51,neighborhood,robert-burns/death-and-doctor-hornbook,Death and Doctor Hornbook,Robert Burns,1,0,1
+11,51,neighborhood,robert-burns/the-jolly-beggars,The Jolly Beggars,Robert Burns,1,0,1
+11,51,neighborhood,samuel-j-muscroft/the-drummer-boy-of-shiloh,The Drummer Boy of Shiloh,Samuel J. Muscroft,1,0,1
+11,51,neighborhood,thomas-paine/an-essay-on-dream,An Essay on Dream,Thomas Paine,1,0,1
+11,51,neighborhood,thomas-paine/discourse-to-the-theophilanthropists,Discourse to the Theophilanthropists,Thomas Paine,1,0,1
+11,51,neighborhood,thomas-paine/the-crisis,The Crisis,Thomas Paine,1,0,1
+11,51,neighborhood,thomas-paine/theological-works-of-thomas-paine,Theological Works of Thomas Paine,Thomas Paine,1,0,1
+11,51,neighborhood,william-hazlitt/the-life-of-napoleon-buonaparte,The Life of Napoleon Buonaparte,William Hazlitt,1,0,1
+12,50,mixed,herman-melville/billy-budd,Billy Budd,Herman Melville,24,24,0
+12,50,mixed,thomas-hardy/jude-the-obscure,Jude the Obscure,Thomas Hardy,10,9,1
+12,50,mixed,homer/iliad,Iliad,Homer,9,0,9
+12,50,mixed,sinclair-lewis/babbitt,Babbitt,Sinclair Lewis,7,7,0
+12,50,mixed,henryk-sienkiewicz/quo-vadis,Quo Vadis,Henryk Sienkiewicz,6,6,0
+12,50,mixed,e-m-forster/a-room-with-a-view,A Room with a View,E. M. Forster,4,4,0
+12,50,mixed,wilkie-collins/man-and-wife,Man and Wife,Wilkie Collins,4,4,0
+12,50,mixed,giovanni-boccaccio/the-decameron,The Decameron,Giovanni Boccaccio,3,0,3
+12,50,mixed,cotton-mather/magnalia-christi-americana,Magnalia Christi Americana,Cotton Mather,2,0,2
+12,50,mixed,jules-verne/twenty-thousand-leagues-under-the-sea,Twenty Thousand Leagues Under the Sea,Jules Verne,2,1,1
+12,50,mixed,nathaniel-hawthorne/the-scarlet-letter,The Scarlet Letter,Nathaniel Hawthorne,2,0,2
+12,50,mixed,nathaniel-hawthorne/twice-told-tales,Twice-Told Tales,Nathaniel Hawthorne,2,0,2
+12,50,mixed,samuel-butler/the-way-of-all-flesh,The Way of All Flesh,Samuel Butler,2,0,2
+12,50,mixed,sherwood-anderson/winesburg-ohio,"Winesburg, Ohio",Sherwood Anderson,2,2,0
+12,50,mixed,a-e-housman/a-shropshire-lad,A Shropshire Lad,A. E. Housman,1,0,1
+12,50,mixed,aeschylus/agamemnon,Agamemnon,Aeschylus,1,0,1
+12,50,mixed,aeschylus/prometheus-bound,Prometheus Bound,Aeschylus,1,0,1
+12,50,mixed,alessandro-manzoni/the-betrothed,The Betrothed,Alessandro Manzoni,1,0,1
+12,50,mixed,anonymous/report-of-the-royal-commissioners-on-the-laws-of-marriage,Report of the Royal Commissioners on the Laws of Marriage,Anonymous,1,0,1
+12,50,mixed,anonymous/the-newgate-calendar,The Newgate Calendar,Anonymous,1,0,1
+12,50,mixed,ella-wheeler-wilcox/the-man-worth-while,The Man Worth While,Ella Wheeler Wilcox,1,0,1
+12,50,mixed,henry-wadsworth-longfellow/excelsior,Excelsior,Henry Wadsworth Longfellow,1,0,1
+12,50,mixed,horace/carmen-saeculare,Carmen Saeculare,Horace,1,0,1
+12,50,mixed,james-branch-cabell/figures-of-earth,Figures of Earth,James Branch Cabell,1,0,1
+12,50,mixed,john-henry-newman/apologia-pro-vita-sua,Apologia Pro Vita Sua,John Henry Newman,1,0,1
+12,50,mixed,joseph-conrad/the-rescue,The Rescue,Joseph Conrad,1,0,1
+12,50,mixed,joseph-hergesheimer/the-three-black-pennys,The Three Black Pennys,Joseph Hergesheimer,1,0,1
+12,50,mixed,jules-verne/the-mysterious-island,The Mysterious Island,Jules Verne,1,1,0
+12,50,mixed,nathaniel-hawthorne/a-select-party,A Select Party,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/buds-and-bird-voices,Buds and Bird Voices,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/earth-s-holocaust,Earth's Holocaust,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/fire-worship,Fire-Worship,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/monsieur-du-miroir,Monsieur du Miroir,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/mosses-from-an-old-manse,Mosses from an Old Manse,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/the-bosom-serpent,The Bosom Serpent,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/the-christmas-banquet,The Christmas Banquet,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/the-intelligence-office,The Intelligence Office,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/the-old-apple-dealer,The Old Apple-Dealer,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nathaniel-hawthorne/young-goodman-brown,Young Goodman Brown,Nathaniel Hawthorne,1,0,1
+12,50,mixed,nero/troica-the-burning-of-troy,Troica (The Burning of Troy),Nero,1,0,1
+12,50,mixed,percy-bysshe-shelley/epipsychidion,Epipsychidion,Percy Bysshe Shelley,1,0,1
+12,50,mixed,percy-bysshe-shelley/laon-and-cythna,Laon and Cythna,Percy Bysshe Shelley,1,0,1
+12,50,mixed,petronius/satyricon-feast-of-trimalchion,Satyricon (Feast of Trimalchion),Petronius,1,0,1
+12,50,mixed,richard-emmons/the-fredoniad,The Fredoniad,Richard Emmons,1,0,1
+12,50,mixed,richard-walton-tully/the-bird-of-paradise,The Bird of Paradise,Richard Walton Tully,1,0,1
+12,50,mixed,rudyard-kipling/if,If—,Rudyard Kipling,1,0,1
+12,50,mixed,sherwood-anderson/the-man-who-became-a-woman,The Man Who Became a Woman,Sherwood Anderson,1,0,1
+12,50,mixed,theocritus/idylls,Idylls,Theocritus,1,0,1
+12,50,mixed,timothy-dwight/travels-in-new-england-and-new-york,Travels in New-England and New-York,Timothy Dwight,1,0,1
+12,50,mixed,virgil/eclogues,Eclogues,Virgil,1,0,1
+13,50,mixed,ralph-waldo-emerson/representative-men,Representative Men,Ralph Waldo Emerson,24,24,0
+13,50,mixed,henry-james/the-tragic-muse,The Tragic Muse,Henry James,12,12,0
+13,50,mixed,charles-maturin/melmoth-the-wanderer,Melmoth the Wanderer,Charles Maturin,9,9,0
+13,50,mixed,william-makepeace-thackeray/the-history-of-henry-esmond,The History of Henry Esmond,William Makepeace Thackeray,9,8,1
+13,50,mixed,geoffrey-chaucer/troilus-and-criseyde,Troilus and Criseyde,Geoffrey Chaucer,4,0,4
+13,50,mixed,johann-wolfgang-von-goethe/wilhelm-meister,Wilhelm Meister,Johann Wolfgang von Goethe,3,0,3
+13,50,mixed,anonymous/robin-hood,Robin Hood,Anonymous,2,0,2
+13,50,mixed,edith-wharton/the-fruit-of-the-tree,The Fruit of the Tree,Edith Wharton,2,2,0
+13,50,mixed,jean-racine/phedre,Phèdre,Jean Racine,2,0,2
+13,50,mixed,michel-de-montaigne/essays,Essays,Michel de Montaigne,2,0,2
+13,50,mixed,william-shakespeare/antony-and-cleopatra,Antony and Cleopatra,William Shakespeare,2,0,2
+13,50,mixed,william-wycherley/love-in-a-wood,Love in a Wood,William Wycherley,2,0,2
+13,50,mixed,abraham-cowley/cutter-of-coleman-street,Cutter of Coleman Street,Abraham Cowley,1,0,1
+13,50,mixed,alexandre-dumas/les-trois-mousquetaires,Les Trois Mousquetaires,Alexandre Dumas,1,0,1
+13,50,mixed,alfred-de-musset/il-ne-faut-jurer-de-rien,Il ne faut jurer de rien,Alfred de Musset,1,0,1
+13,50,mixed,alfred-de-musset/les-nuits,Les Nuits,Alfred de Musset,1,0,1
+13,50,mixed,alfred-tennyson/edward-gray,Edward Gray,Alfred Tennyson,1,0,1
+13,50,mixed,alfred-tennyson/the-lotus-eaters,The Lotus-Eaters,Alfred Tennyson,1,0,1
+13,50,mixed,anonymous/sinbad-the-sailor,Sinbad the Sailor,Anonymous,1,0,1
+13,50,mixed,charles-i/eikon-basilike,Eikon Basilike,Charles I,1,0,1
+13,50,mixed,emanuel-swedenborg/conjugial-love,Conjugial Love,Emanuel Swedenborg,1,0,1
+13,50,mixed,emanuel-swedenborg/daedalus-hyperboreus,Daedalus Hyperboreus,Emanuel Swedenborg,1,0,1
+13,50,mixed,emanuel-swedenborg/the-animal-kingdom,The Animal Kingdom,Emanuel Swedenborg,1,0,1
+13,50,mixed,emanuel-swedenborg/the-economy-of-the-animal-kingdom,The Economy of the Animal Kingdom,Emanuel Swedenborg,1,0,1
+13,50,mixed,geoffrey-chaucer/the-romaunt-of-the-rose,The Romaunt of the Rose,Geoffrey Chaucer,1,0,1
+13,50,mixed,honore-de-balzac/la-cousine-bette,La Cousine Bette,Honoré de Balzac,1,0,1
+13,50,mixed,johann-wolfgang-von-goethe/campaign-in-france,Campaign in France,Johann Wolfgang von Goethe,1,0,1
+13,50,mixed,johann-wolfgang-von-goethe/day-and-year-papers,Day and Year Papers,Johann Wolfgang von Goethe,1,0,1
+13,50,mixed,johann-wolfgang-von-goethe/faust-part-two,"Faust, Part Two",Johann Wolfgang von Goethe,1,0,1
+13,50,mixed,johann-wolfgang-von-goethe/italian-journey,Italian Journey,Johann Wolfgang von Goethe,1,0,1
+13,50,mixed,johann-wolfgang-von-goethe/theory-of-colours,Theory of Colours,Johann Wolfgang von Goethe,1,0,1
+13,50,mixed,john-dryden/marriage-a-la-mode,Marriage à la Mode,John Dryden,1,0,1
+13,50,mixed,john-gay/the-beggar-s-opera,The Beggar's Opera,John Gay,1,0,1
+13,50,mixed,john-gay/trivia-or-the-art-of-walking-the-streets-of-london,"Trivia: or, the Art of Walking the Streets of London",John Gay,1,0,1
+13,50,mixed,john-keats/endymion,Endymion,John Keats,1,1,0
+13,50,mixed,joseph-addison/the-campaign,The Campaign,Joseph Addison,1,0,1
+13,50,mixed,jules-sandeau/mademoiselle-de-la-seigliere,Mademoiselle de la Seiglière,Jules Sandeau,1,0,1
+13,50,mixed,madeleine-de-scudery/artamene-or-the-grand-cyrus,"Artamène, or the Grand Cyrus",Madeleine de Scudéry,1,0,1
+13,50,mixed,maria-edgeworth/the-absentee,The Absentee,Maria Edgeworth,1,0,1
+13,50,mixed,mark-twain/the-adventures-of-tom-sawyer,The Adventures of Tom Sawyer,Mark Twain,1,1,0
+13,50,mixed,plato/timaeus-and-phaedrus,Timaeus and Phaedrus,Plato,1,0,1
+13,50,mixed,rabindranath-tagore/gitanjali,Gitanjali,Rabindranath Tagore,1,1,0
+13,50,mixed,richard-steele/the-christian-hero,The Christian Hero,Richard Steele,1,0,1
+13,50,mixed,stephanie-felicite-de-genlis/julien-delmour,Julien Delmour,Stéphanie Félicité de Genlis,1,0,1
+13,50,mixed,theodore-seruzier/military-memoirs,Military Memoirs,Théodore Séruzier,1,0,1
+13,50,mixed,thomas-betterton/the-history-of-the-english-stage,The History of the English Stage,Thomas Betterton,1,0,1
+13,50,mixed,thomas-sackville-and-thomas-norton/gorboduc-ferrex-and-porrex,Gorboduc (Ferrex and Porrex),Thomas Sackville and Thomas Norton,1,0,1
+13,50,mixed,walter-raleigh/the-soul-s-errand,The Soul's Errand,Walter Raleigh,1,0,1
+13,50,mixed,walter-scott/the-minstrelsy-of-the-scottish-border,The Minstrelsy of the Scottish Border,Walter Scott,1,0,1
+13,50,mixed,william-edward-hartpole-lecky/history-of-european-morals-from-augustus-to-charlemagne,History of European Morals from Augustus to Charlemagne,William Edward Hartpole Lecky,1,0,1
+14,46,fan-out,jonathan-haidt/the-righteous-mind,The Righteous Mind,Jonathan Haidt,42,42,0
+14,46,fan-out,jack-london/the-iron-heel,The Iron Heel,Jack London,8,8,0
+14,46,fan-out,john-stuart-mill/on-liberty,On Liberty,John Stuart Mill,2,0,2
+14,46,fan-out,ambrose-bierce/the-cynic-s-word-book,The Cynic's Word Book,Ambrose Bierce,1,0,1
+14,46,fan-out,ann-coulter/treason-liberal-treachery-from-the-cold-war-to-the-war-on-terrorism,Treason: Liberal Treachery from the Cold War to the War on Terrorism,Ann Coulter,1,0,1
+14,46,fan-out,antonio-damasio/descartes-error,Descartes' Error,Antonio Damasio,1,0,1
+14,46,fan-out,barack-obama/the-audacity-of-hope,The Audacity of Hope,Barack Obama,1,0,1
+14,46,fan-out,barbara-ehrenreich/dancing-in-the-streets-a-history-of-collective-joy,Dancing in the Streets: A History of Collective Joy,Barbara Ehrenreich,1,0,1
+14,46,fan-out,benito-mussolini-and-giovanni-gentile/the-doctrine-of-fascism,The Doctrine of Fascism,Benito Mussolini and Giovanni Gentile,1,0,1
+14,46,fan-out,carroll-d-wright/the-battles-of-labor,The Battles of Labor,Carroll D. Wright,1,0,1
+14,46,fan-out,charles-darwin/the-descent-of-man,The Descent of Man,Charles Darwin,1,0,1
+14,46,fan-out,chip-heath-and-dan-heath/switch-how-to-change-things-when-change-is-hard,Switch: How to Change Things when Change is Hard,Chip Heath and Dan Heath,1,0,1
+14,46,fan-out,christian-smith/moral-believing-animals,"Moral, Believing Animals",Christian Smith,1,0,1
+14,46,fan-out,christopher-boem/hierarchy-in-the-forest,Hierarchy in the Forest,Christopher Boem,1,0,1
+14,46,fan-out,christopher-hitchins/god-is-not-great-how-religion-poisons-everything,God is Not Great: How Religion Poisons Everything,Christopher Hitchins,1,0,1
+14,46,fan-out,dale-carnegie/how-to-win-friends-and-influence-people,How to Win Friends and Influence People,Dale Carnegie,1,0,1
+14,46,fan-out,dan-ariely/predictably-irrational,Predictably Irrational,Dan Ariely,1,0,1
+14,46,fan-out,daniel-dennett/breaking-the-spell-religion-as-a-natural-phenomenon,Breaking the Spell: Religion as a Natural Phenomenon,Daniel Dennett,1,0,1
+14,46,fan-out,dante/the-inferno,The Inferno,Dante,1,0,1
+14,46,fan-out,david-e-campbell-and-robert-d-putnam/american-grace-how-religion-divides-and-unites-us,American Grace: How Religion Divides and Unites Us,David E. Campbell and Robert D. Putnam,1,0,1
+14,46,fan-out,david-hume/a-treatise-of-human-nature,A Treatise of Human Nature,David Hume,1,0,1
+14,46,fan-out,david-sloan-wilson/darwin-s-cathedrals,Darwin's Cathedrals,David Sloan Wilson,1,0,1
+14,46,fan-out,drew-westen/the-political-brain,The Political Brain,Drew Westen,1,0,1
+14,46,fan-out,e-o-wilson/sociology-the-new-synthesis,Sociology: The New Synthesis,E. O Wilson,1,0,1
+14,46,fan-out,frans-b-m-de-waal/good-natured-the-origins-of-right-and-wrong-in-humans-and-other-animals,Good natured: The Origins of Right and Wrong in Humans and Other Animals,Frans B. M. de Waal,1,0,1
+14,46,fan-out,george-c-williams/adaptation-and-natural-selection,Adaptation and Natural Selection,George C Williams,1,0,1
+14,46,fan-out,h-g-wells/anticipations,Anticipations,H. G. Wells,1,0,1
+14,46,fan-out,h-g-wells/mankind-in-the-making,Mankind in the Making,H. G. Wells,1,0,1
+14,46,fan-out,henry-van-dyke/essays-in-application,Essays in Application,Henry van Dyke,1,0,1
+14,46,fan-out,howard-margolis/patterns-thinking-and-cognition,"Patterns, Thinking and Cognition",Howard Margolis,1,0,1
+14,46,fan-out,hummarabi/code-of-hummarabi,Code of Hummarabi,Hummarabi,1,0,1
+14,46,fan-out,jeremy-bentham/introduction-to-the-principles-of-morals-and-legislation,Introduction to the Principles of Morals and Legislation,Jeremy Bentham,1,0,1
+14,46,fan-out,jerry-muller/conservatism,Conservatism,Jerry Muller,1,0,1
+14,46,fan-out,jonathan-haidt/the-happiness-hypothesis,The Happiness Hypothesis,Jonathan Haidt,1,0,1
+14,46,fan-out,nicholas-wade/the-faith-instinct,The Faith Instinct,Nicholas Wade,1,0,1
+14,46,fan-out,richard-dawkins/the-god-delusion,The God Delusion,Richard Dawkins,1,0,1
+14,46,fan-out,richard-dawkins/the-selfish-gene,the Selfish Gene,Richard Dawkins,1,0,1
+14,46,fan-out,robert-hunter/poverty,Poverty,Robert Hunter,1,0,1
+14,46,fan-out,robert-putnam/bowling-alone,Bowling Alone,Robert Putnam,1,0,1
+14,46,fan-out,sam-harris/the-end-of-faith-religion-terror-and-the-future-of-reason,"The End of Faith: Religion, Terror and the Future of Reason",Sam Harris,1,0,1
+14,46,fan-out,steven-pinker/the-blank-slate-the-modern-denial-of-human-nature,The Blank Slate: The Modern Denial of Human Nature,Steven Pinker,1,0,1
+14,46,fan-out,stewart-kyd/treatise-on-the-law-of-corporations,Treatise on the Law of Corporations,Stewart Kyd,1,0,1
+14,46,fan-out,thomas-frank/what-s-the-matter-with-kansas,What's the Matter with Kansas,Thomas Frank,1,0,1
+14,46,fan-out,tony-hsieh/delivering-happiness,Delivering Happiness,Tony Hsieh,1,0,1
+14,46,fan-out,w-j-ghent/our-benevolent-feudalism,Our Benevolent Feudalism,W. J. Ghent,1,0,1
+14,46,fan-out,william-gibson/neuromancer,Neuromancer,William Gibson,1,0,1
+15,45,neighborhood,edith-wharton/the-age-of-innocence,The Age of Innocence,Edith Wharton,15,15,0
+15,45,neighborhood,h-g-wells/kipps,Kipps,H. G. Wells,12,12,0
+15,45,neighborhood,d-h-lawrence/sons-and-lovers,Sons and Lovers,D. H. Lawrence,9,9,0
+15,45,neighborhood,frank-norris/the-octopus,The Octopus,Frank Norris,8,8,0
+15,45,neighborhood,e-m-forster/howards-end,Howards End,E. M. Forster,5,5,0
+15,45,neighborhood,alfred-tennyson/idylls-of-the-king,Idylls of the King,Alfred Tennyson,4,0,4
+15,45,neighborhood,jane-austen/persuasion,Persuasion,Jane Austen,4,4,0
+15,45,neighborhood,l-m-montgomery/anne-of-green-gables,Anne of Green Gables,L. M. Montgomery,4,4,0
+15,45,neighborhood,walter-scott/the-lady-of-the-lake,The Lady of the Lake,Walter Scott,4,0,4
+15,45,neighborhood,john-ruskin/sesame-and-lilies,Sesame and Lilies,John Ruskin,3,0,3
+15,45,neighborhood,alphonse-daudet/tartarin-de-tarascon,Tartarin de Tarascon,Alphonse Daudet,2,0,2
+15,45,neighborhood,edgar-allan-poe/the-raven,The Raven,Edgar Allan Poe,2,0,2
+15,45,neighborhood,jane-porter/the-scottish-chiefs,The Scottish Chiefs,Jane Porter,2,0,2
+15,45,neighborhood,john-ruskin/the-stones-of-venice,The Stones of Venice,John Ruskin,2,0,2
+15,45,neighborhood,nathaniel-hawthorne/the-marble-faun,The Marble Faun,Nathaniel Hawthorne,2,0,2
+15,45,neighborhood,prosper-merimee/colomba,Colomba,Prosper Merimee,2,0,2
+15,45,neighborhood,algernon-charles-swinburne/chastelard,Chastelard,Algernon Charles Swinburne,1,0,1
+15,45,neighborhood,anonymous/enquire-within-upon-everything,Enquire Within Upon Everything,Anonymous,1,0,1
+15,45,neighborhood,anonymous/manners-and-rules-of-good-society,Manners and Rules of Good Society,Anonymous,1,0,1
+15,45,neighborhood,anonymous/the-art-of-conversing,The Art of Conversing,Anonymous,1,0,1
+15,45,neighborhood,byron/the-bride-of-abydos,The Bride of Abydos,Byron,1,0,1
+15,45,neighborhood,byron/the-giaour,The Giaour,Byron,1,0,1
+15,45,neighborhood,charles-lamb/the-essays-of-elia,The Essays of Elia,Charles Lamb,1,0,1
+15,45,neighborhood,christoph-christian-sturm/reflections-on-the-works-of-god,Reflections on the Works of God,Christoph Christian Sturm,1,0,1
+15,45,neighborhood,dante-gabriel-rossetti/the-house-of-life,The House of Life,Dante Gabriel Rossetti,1,0,1
+15,45,neighborhood,dion-boucicault/the-shaughraun,The Shaughraun,Dion Boucicault,1,0,1
+15,45,neighborhood,e-v-lucas/the-open-road,The Open Road,E. V. Lucas,1,0,1
+15,45,neighborhood,elizabeth-barrett-browning/sonnets-from-the-portuguese,Sonnets from the Portuguese,Elizabeth Barrett Browning,1,0,1
+15,45,neighborhood,george-meredith/the-ordeal-of-richard-feverel,The Ordeal of Richard Feverel,George Meredith,1,0,1
+15,45,neighborhood,honore-de-balzac/contes-drolatiques,Contes Drolatiques,Honore de Balzac,1,0,1
+15,45,neighborhood,humphry-ward/sir-george-tressady,Sir George Tressady,Humphry Ward,1,0,1
+15,45,neighborhood,james-thomson/the-seasons,The Seasons,James Thomson,1,0,1
+15,45,neighborhood,joseph-rodman-drake/the-culprit-fay,The Culprit Fay,Joseph Rodman Drake,1,0,1
+15,45,neighborhood,lew-wallace/ben-hur,Ben-Hur,Lew Wallace,1,0,1
+15,45,neighborhood,octave-feuillet/monsieur-de-camors,Monsieur de Camors,Octave Feuillet,1,0,1
+15,45,neighborhood,prosper-merimee/lettres-a-une-inconnue,Lettres a une Inconnue,Prosper Merimee,1,0,1
+15,45,neighborhood,robert-browning/how-they-brought-the-good-news-from-ghent-to-aix,How They Brought the Good News from Ghent to Aix,Robert Browning,1,0,1
+15,45,neighborhood,robert-louis-stevenson/prince-otto,Prince Otto,Robert Louis Stevenson,1,0,1
+15,45,neighborhood,samuel-warren/ten-thousand-a-year,Ten Thousand a Year,Samuel Warren,1,0,1
+15,45,neighborhood,vernon-lee/euphorion,Euphorion,Vernon Lee,1,0,1
+15,45,neighborhood,walter-pater/marius-the-epicurean,Marius the Epicurean,Walter Pater,1,0,1
+15,45,neighborhood,walter-pater/the-renaissance,The Renaissance,Walter Pater,1,0,1
+15,45,neighborhood,walter-savage-landor/imaginary-conversations,Imaginary Conversations,Walter Savage Landor,1,0,1
+15,45,neighborhood,william-senhouse-kirkes/kirkes-handbook-of-physiology,Kirkes' Handbook of Physiology,William Senhouse Kirkes,1,0,1
+15,45,neighborhood,xavier-de-maistre/voyage-autour-de-ma-chambre,Voyage autour de ma Chambre,Xavier de Maistre,1,0,1
+16,45,mixed,honore-de-balzac/lost-illusions,Lost Illusions,Honoré de Balzac,20,20,0
+16,45,mixed,jean-jacques-rousseau/emile,Emile,Jean-Jacques Rousseau,15,15,0
+16,45,mixed,niccolo-machiavelli/the-prince,The Prince,Niccolò Machiavelli,9,7,2
+16,45,mixed,emile-zola/l-assommoir,L'Assommoir,Émile Zola,4,4,0
+16,45,mixed,fanny-burney/evelina,Evelina,Fanny Burney,4,4,0
+16,45,mixed,eugene-sue/the-wandering-jew,The Wandering Jew,Eugene Sue,3,0,3
+16,45,mixed,marcus-tullius-cicero/de-officiis,De Officiis,Marcus Tullius Cicero,3,0,3
+16,45,mixed,eugene-sue/the-mysteries-of-paris,The Mysteries of Paris,Eugène Sue,2,0,2
+16,45,mixed,ivan-turgenev/a-sportsman-s-sketches,A Sportsman's Sketches,Ivan Turgenev,2,2,0
+16,45,mixed,jean-jacques-rousseau/julie-or-the-new-heloise,"Julie, or the New Heloise",Jean-Jacques Rousseau,2,0,2
+16,45,mixed,adelbert-von-chamisso/peter-schlemihl,Peter Schlemihl,Adelbert von Chamisso,1,0,1
+16,45,mixed,albert-sorel/the-eastern-question,The Eastern Question,Albert Sorel,1,0,1
+16,45,mixed,alphonse-de-lamartine/histoire-des-girondins,Histoire des Girondins,Alphonse de Lamartine,1,0,1
+16,45,mixed,andre-chenier/le-malade,Le Malade,André Chénier,1,0,1
+16,45,mixed,andre-chenier/neere,Néère,André Chénier,1,0,1
+16,45,mixed,anonymous/jocko,Jocko,Anonymous,1,0,1
+16,45,mixed,anonymous/la-belle-maguelonne,La Belle Maguelonne,Anonymous,1,0,1
+16,45,mixed,anonymous/le-beau-voyage-de-canada,Le Beau Voyage de Canada,Anonymous,1,0,1
+16,45,mixed,anonymous/le-long-voyage-de-siam,Le Long Voyage de Siam,Anonymous,1,0,1
+16,45,mixed,anonymous/robert-the-devil,Robert the Devil,Anonymous,1,0,1
+16,45,mixed,auguste-hilarion-de-keratry/inductions-morales,Inductions Morales,Auguste-Hilarion de Kératry,1,0,1
+16,45,mixed,charles-nodier/jean-sbogar,Jean Sbogar,Charles Nodier,1,0,1
+16,45,mixed,charles-nodier/smarra,Smarra,Charles Nodier,1,0,1
+16,45,mixed,charles-robert-maturin/bertram,Bertram,Charles Robert Maturin,1,0,1
+16,45,mixed,christopher-anstey/the-new-bath-guide,The New Bath Guide,Christopher Anstey,1,0,1
+16,45,mixed,donald-mackenzie-wallace/russia,Russia,Donald Mackenzie Wallace,1,0,1
+16,45,mixed,francis-bacon/the-history-of-the-reign-of-king-henry-vii,The History of the Reign of King Henry VII,Francis Bacon,1,0,1
+16,45,mixed,francois-fenelon/telemachus,Telemachus,François Fénelon,1,0,1
+16,45,mixed,francois-fenelon/the-adventures-of-telemachus,The Adventures of Telemachus,François Fénelon,1,0,1
+16,45,mixed,heinrich-heine/reisebilder,Reisebilder,Heinrich Heine,1,0,1
+16,45,mixed,homer/odyssey,Odyssey,Homer,1,0,1
+16,45,mixed,jean-jacques-rousseau/discourse-on-the-origin-of-inequality,Discourse on the Origin of Inequality,Jean-Jacques Rousseau,1,0,1
+16,45,mixed,jean-jacques-rousseau/essay-on-the-origin-of-languages,Essay on the Origin of Languages,Jean-Jacques Rousseau,1,0,1
+16,45,mixed,la-calprenede/cassandre,Cassandre,La Calprenède,1,0,1
+16,45,mixed,la-calprenede/cleopatre,Cléopâtre,La Calprenède,1,0,1
+16,45,mixed,louis-benoit-picard/la-maison-en-loterie,La Maison en Loterie,Louis-Benoît Picard,1,0,1
+16,45,mixed,louis-blanc/histoire-de-dix-ans,Histoire de Dix Ans,Louis Blanc,1,0,1
+16,45,mixed,moliere/monsieur-de-pourceaugnac,Monsieur de Pourceaugnac,Molière,1,0,1
+16,45,mixed,niccolo-machiavelli/the-art-of-war,The Art of War,Niccolò Machiavelli,1,0,1
+16,45,mixed,niccolo-machiavelli/the-private-correspondence-of-niccolo-machiavelli,The Private Correspondence of Niccolò Machiavelli,Niccolò Machiavelli,1,0,1
+16,45,mixed,pier-desiderio-pasolini/catherine-sforza,Catherine Sforza,Pier Desiderio Pasolini,1,0,1
+16,45,mixed,plato/symposium-the-banquet,Symposium (The Banquet),Plato,1,0,1
+16,45,mixed,vicomte-d-arlincourt/le-solitaire,Le Solitaire,Vicomte d'Arlincourt,1,0,1
+16,45,mixed,victor-ducange/leonide,Léonide,Victor Ducange,1,0,1
+16,45,mixed,william-congreve/love-for-love,Love for Love,William Congreve,1,0,1
+17,45,mixed,inazo-nitobe/bushido-the-soul-of-japan,Bushido: The Soul of Japan,Inazo Nitobe,18,18,0
+17,45,mixed,h-g-wells/the-history-of-mr-polly,The History of Mr Polly,H. G. Wells,13,13,0
+17,45,mixed,louisa-may-alcott/little-men,Little Men,Louisa May Alcott,10,10,0
+17,45,mixed,anonymous/the-arabian-nights,The Arabian Nights,Anonymous,8,0,8
+17,45,mixed,george-bernard-shaw/arms-and-the-man,Arms and the Man,George Bernard Shaw,5,5,0
+17,45,mixed,george-meredith/the-egoist,The Egoist,George Meredith,3,2,1
+17,45,mixed,algernon-bertram-freeman-mitford/tales-of-old-japan,Tales of Old Japan,Algernon Bertram Freeman-Mitford,2,0,2
+17,45,mixed,anonymous/mother-goose,Mother Goose,Anonymous,2,0,2
+17,45,mixed,john-buchan/greenmantle,Greenmantle,John Buchan,2,2,0
+17,45,mixed,anonymous/roland-and-maybird,Roland and Maybird,Anonymous,1,0,1
+17,45,mixed,arthur-may-knapp/feudal-and-modern-japan,Feudal and Modern Japan,Arthur May Knapp,1,0,1
+17,45,mixed,bart-kennedy/a-sailor-tramp,A Sailor Tramp,Bart Kennedy,1,0,1
+17,45,mixed,charles-waterton/wanderings-in-south-america,Wanderings in South America,Charles Waterton,1,0,1
+17,45,mixed,confucius/the-doctrine-of-the-mean,The Doctrine Of The Mean,Confucius,1,0,1
+17,45,mixed,edwin-arnold/light-of-asia,Light of Asia,Edwin Arnold,1,0,1
+17,45,mixed,emile-gaston-boutmy/the-english-people-a-study-of-their-political-psychology,"The English People, a Study of Their Political Psychology",Emile Gaston Boutmy,1,0,1
+17,45,mixed,evariste-regis-huc-and-joseph-gabet/travels-in-tartary-thibet-and-china,"Travels in Tartary, Thibet, and China",Evariste Regis Huc and Joseph Gabet,1,0,1
+17,45,mixed,georg-wilhelm-friedrich-hegel/philosophy-of-history,Philosophy of History,Georg Wilhelm Friedrich Hegel,1,0,1
+17,45,mixed,george-bernard-shaw/candida,Candida,George Bernard Shaw,1,0,1
+17,45,mixed,george-bernard-shaw/the-man-of-destiny,The Man of Destiny,George Bernard Shaw,1,0,1
+17,45,mixed,george-bernard-shaw/you-never-can-tell,You Never Can Tell,George Bernard Shaw,1,0,1
+17,45,mixed,george-miller/history-philosophically-illustrated,History Philosophically Illustrated,George Miller,1,0,1
+17,45,mixed,harriet-martineau/the-crofton-boys,The Crofton Boys,Harriet Martineau,1,0,1
+17,45,mixed,henry-t-finck/lotos-time-in-japan,Lotos Time in Japan,Henry T. Finck,1,0,1
+17,45,mixed,herbert-spencer/the-principles-of-ethics,The Principles of Ethics,Herbert Spencer,1,0,1
+17,45,mixed,hilaire-belloc/the-path-to-rome,The Path to Rome,Hilaire Belloc,1,0,1
+17,45,mixed,horace/satires-and-epistles,Satires and Epistles,Horace,1,0,1
+17,45,mixed,james-rennie/insect-architecture,Insect Architecture,James Rennie,1,0,1
+17,45,mixed,john-buchan/the-thirty-nine-steps,The Thirty-Nine Steps,John Buchan,1,0,1
+17,45,mixed,john-ruskin/crown-of-wild-olive,Crown of Wild Olive,John Ruskin,1,0,1
+17,45,mixed,lafcadio-hearn/exotics-and-retrospectives,Exotics and Retrospectives,Lafcadio Hearn,1,0,1
+17,45,mixed,maria-edgeworth/edgeworth-s-tales,Edgeworth's Tales,Maria Edgeworth,1,0,1
+17,45,mixed,maria-edgeworth/harry-and-lucy,Harry and Lucy,Maria Edgeworth,1,0,1
+17,45,mixed,mary-howitt/mabel-on-midsummer-day,Mabel on Midsummer Day,Mary Howitt,1,0,1
+17,45,mixed,michael-scott/tom-cringle-s-log,Tom Cringle's Log,Michael Scott,1,0,1
+17,45,mixed,r-b-peery/the-gist-of-japan,The Gist of Japan,R. B. Peery,1,0,1
+17,45,mixed,richard-le-gallienne/the-quest-of-the-golden-girl,The Quest of the Golden Girl,Richard Le Gallienne,1,0,1
+17,45,mixed,robert-louis-stevenson/the-island-nights-entertainments,The Island Nights' Entertainments,Robert Louis Stevenson,1,0,1
+17,45,mixed,robert-southey/life-of-lord-nelson,Life of Lord Nelson,Robert Southey,1,0,1
+17,45,mixed,samuel-purchas/purchas-his-pilgrimes,Purchas his Pilgrimes,Samuel Purchas,1,0,1
+17,45,mixed,stafford-ransome/japan-in-transition,Japan in Transition,Stafford Ransome,1,0,1
+17,45,mixed,thorstein-veblen/theory-of-the-leisure-class,Theory of the Leisure Class,Thorstein Veblen,1,0,1
+17,45,mixed,william-edward-hartpole-lecky/history-of-european-morals,History of European Morals,William Edward Hartpole Lecky,1,0,1
+17,45,mixed,william-elliot-griffis/the-religions-of-japan,The Religions of Japan,William Elliot Griffis,1,0,1
+17,45,mixed,william-morris/the-life-and-death-of-jason,The Life and Death of Jason,William Morris,1,0,1
+18,43,neighborhood,ashlee-vance/elon-musk-tesla-spacex-and-the-quest-for-a-fantastic-future,"Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future",Ashlee Vance,13,13,0
+18,43,neighborhood,george-macdonald/phantastes,Phantastes,George MacDonald,11,11,0
+18,43,neighborhood,james-joyce/a-portrait-of-the-artist-as-a-young-man,A Portrait of the Artist as a Young Man,James Joyce,8,8,0
+18,43,neighborhood,alexandre-dumas/the-count-of-monte-cristo,The Count of Monte Cristo,Alexandre Dumas,7,4,3
+18,43,neighborhood,mark-twain/the-innocents-abroad,The Innocents Abroad,Mark Twain,7,7,0
+18,43,neighborhood,anthony-trollope/the-eustace-diamonds,The Eustace Diamonds,Anthony Trollope,6,6,0
+18,43,neighborhood,edmund-spenser/the-faerie-queene,The Faerie Queene,Edmund Spenser,6,0,6
+18,43,neighborhood,nathaniel-hawthorne/the-blithedale-romance,The Blithedale Romance,Nathaniel Hawthorne,4,4,0
+18,43,neighborhood,jane-austen/pride-and-prejudice,Pride and Prejudice,Jane Austen,3,1,2
+18,43,neighborhood,robert-burns/tam-o-shanter,Tam o' Shanter,Robert Burns,2,0,2
+18,43,neighborhood,walter-scott/the-bride-of-lammermoor,The Bride of Lammermoor,Walter Scott,2,0,2
+18,43,neighborhood,anonymous/diseases-of-the-ox,Diseases of the Ox,Anonymous,1,0,1
+18,43,neighborhood,anonymous/encyclopaedia-britannica,Encyclopaedia Britannica,Anonymous,1,0,1
+18,43,neighborhood,anonymous/life-in-the-holy-land,Life in the Holy Land,Anonymous,1,0,1
+18,43,neighborhood,anonymous/sir-andrew-barton,Sir Andrew Barton,Anonymous,1,0,1
+18,43,neighborhood,anonymous/synopsis-philosophi-scholastic-ad-mentem-divi-thom,Synopsis Philosophiæ Scholasticæ ad mentem divi Thomæ,Anonymous,1,0,1
+18,43,neighborhood,anonymous/the-ballad-of-sir-aldingar,The Ballad of Sir Aldingar,Anonymous,1,0,1
+18,43,neighborhood,charles-perrault/the-sleeping-beauty-in-the-wood,The Sleeping Beauty in the Wood,Charles Perrault,1,0,1
+18,43,neighborhood,cyril-tourneur/the-revenger-s-tragedy,The Revenger's Tragedy,Cyril Tourneur,1,0,1
+18,43,neighborhood,edmund-burke/the-speeches-of-edmund-burke,The Speeches of Edmund Burke,Edmund Burke,1,0,1
+18,43,neighborhood,eric-m-jackson/the-paypal-wars-battles-with-ebay-the-media-the-mafia-and-the-rest-of-planet-earth,"The Paypal Wars: Battles with eBay, the Media, the Mafia, and the Rest of Planet Earth",Eric M Jackson,1,0,1
+18,43,neighborhood,friedrich-schiller/das-ideal-und-das-leben,Das Ideal und das Leben,Friedrich Schiller,1,0,1
+18,43,neighborhood,geoffrey-chaucer/the-pardoner-s-tale,The Pardoner's Tale,Geoffrey Chaucer,1,0,1
+18,43,neighborhood,george-p-sutton/rocket-propulsion-elements,Rocket Propulsion Elements,George P Sutton,1,0,1
+18,43,neighborhood,gordon-c-oates/aerothermodynamics-of-gas-turbine-and-rocket-propulsion,Aerothermodynamics of Gas Turbine and Rocket Propulsion,Gordon C Oates,1,0,1
+18,43,neighborhood,gotthold-ephraim-lessing/laocoon,Laocoön,Gotthold Ephraim Lessing,1,0,1
+18,43,neighborhood,james-cornwell/cornwell-s-spelling-book,Cornwell's Spelling Book,James Cornwell,1,0,1
+18,43,neighborhood,james-fordyce/fordyce-s-sermons,Fordyce's Sermons,James Fordyce,1,0,1
+18,43,neighborhood,jean-paul/hesperus,Hesperus,Jean Paul,1,0,1
+18,43,neighborhood,jean-paul/titan,Titan,Jean Paul,1,0,1
+18,43,neighborhood,khalil-gibran/the-prophet,The Prophet,Khalil Gibran,1,0,1
+18,43,neighborhood,madame-d-aulnoy/the-history-of-graciosa-and-percinet,The History of Graciosa and Percinet,Madame d'Aulnoy,1,0,1
+18,43,neighborhood,madame-d-aulnoy/the-white-cat,The White Cat,Madame d'Aulnoy,1,0,1
+18,43,neighborhood,percy-bysshe-shelley/queen-mab,Queen Mab,Percy Bysshe Shelley,1,0,1
+18,43,neighborhood,robert-a-heinlein/the-moon-is-a-harsh-mistress,The Moon is a Harsh Mistress,Robert A Heinlein,1,0,1
+18,43,neighborhood,roger-r-bate-donald-d-mueller-jerry-e-white/fundamentals-of-astrodynamics,Fundamentals of Astrodynamics,"Roger R. Bate, Donald D. Mueller, Jerry E. White",1,0,1
+18,43,neighborhood,samuel-griswold-goodrich/peter-parley-s-tales-about-greece-and-rome,Peter Parley's Tales about Greece and Rome,Samuel Griswold Goodrich,1,0,1
+18,43,neighborhood,tyler-cowen/average-is-over,Average is Over,Tyler Cowen,1,0,1
+18,43,neighborhood,tyler-cowen/the-great-stagnation,The Great Stagnation,Tyler Cowen,1,0,1
+18,43,neighborhood,vaclac-smil/made-in-the-usa,Made in the USA,Vaclac Smil,1,0,1
+18,43,neighborhood,victor-hugo/the-toilers-of-the-sea,The Toilers of the Sea,Victor Hugo,1,0,1
+18,43,neighborhood,william-c-prime/tent-life-in-the-holy-land,Tent Life in the Holy Land,William C. Prime,1,0,1
+18,43,neighborhood,william-m-thomson/the-land-and-the-book,The Land and the Book,William M. Thomson,1,0,1
+19,42,fan-out,geoffrey-chaucer/the-canterbury-tales,The Canterbury Tales,Geoffrey Chaucer,32,30,2
+19,42,fan-out,victor-hugo/the-hunchback-of-notre-dame,The Hunchback of Notre-Dame,Victor Hugo,8,7,1
+19,42,fan-out,george-eliot/romola,Romola,George Eliot,6,6,0
+19,42,fan-out,dante-alighieri/inferno,Inferno,Dante Alighieri,5,0,5
+19,42,fan-out,angelo-poliziano/miscellanea,Miscellanea,Angelo Poliziano,1,0,1
+19,42,fan-out,anonymous/distichs-of-cato,Distichs of Cato,Anonymous,1,0,1
+19,42,fan-out,anonymous/romance-of-renard,Romance of Renard,Anonymous,1,0,1
+19,42,fan-out,anonymous/the-game-and-playe-of-the-chesse,The Game and Playe of the Chesse,Anonymous,1,0,1
+19,42,fan-out,anonymous/theatrum-chemicum,Theatrum Chemicum,Anonymous,1,0,1
+19,42,fan-out,arnaldus-de-villanova/rosarium-philosophorum,Rosarium Philosophorum,Arnaldus de Villanova,1,0,1
+19,42,fan-out,cicero/de-divinatione,De Divinatione,Cicero,1,0,1
+19,42,fan-out,ciriaco-d-ancona/itineraria,Itineraria,Ciriaco d'Ancona,1,0,1
+19,42,fan-out,claudian/de-raptu-proserpinae,De Raptu Proserpinae,Claudian,1,0,1
+19,42,fan-out,cristoforo-buondelmonte/isolario,Isolario,Cristoforo Buondelmonte,1,0,1
+19,42,fan-out,dante-alighieri/purgatorio,Purgatorio,Dante Alighieri,1,0,1
+19,42,fan-out,edward-stanley/a-familiar-history-of-birds,A Familiar History of Birds,Edward Stanley,1,0,1
+19,42,fan-out,geoffrey-chaucer/a-treatise-on-the-astrolabe,A Treatise on the Astrolabe,Geoffrey Chaucer,1,0,1
+19,42,fan-out,geoffrey-chaucer/of-queen-annelida-and-false-arcite,Of Queen Annelida and False Arcite,Geoffrey Chaucer,1,0,1
+19,42,fan-out,geoffrey-chaucer/the-parliament-of-fowls,The Parliament of Fowls,Geoffrey Chaucer,1,0,1
+19,42,fan-out,giovanni-boccaccio/de-casibus-virorum-illustrium,De Casibus Virorum Illustrium,Giovanni Boccaccio,1,0,1
+19,42,fan-out,giovanni-boccaccio/de-claris-mulieribus,De Claris Mulieribus,Giovanni Boccaccio,1,0,1
+19,42,fan-out,horace/ars-poetica,Ars Poetica,Horace,1,0,1
+19,42,fan-out,horace/odes-of-horace,Odes of Horace,Horace,1,0,1
+19,42,fan-out,jacobus-de-voragine/legenda-aurea,Legenda Aurea,Jacobus de Voragine,1,0,1
+19,42,fan-out,jerome/adversus-jovinianum,Adversus Jovinianum,Jerome,1,0,1
+19,42,fan-out,john-milton/il-penseroso,Il Penseroso,John Milton,1,0,1
+19,42,fan-out,lorenzo-de-medici/carnival-song,Carnival Song,Lorenzo de' Medici,1,0,1
+19,42,fan-out,macrobius/commentary-on-the-dream-of-scipio,Commentary on the Dream of Scipio,Macrobius,1,0,1
+19,42,fan-out,michael-psellus/dialogus-de-energia-et-operatione-daemonum,Dialogus de Energia et Operatione Daemonum,Michael Psellus,1,0,1
+19,42,fan-out,nigellus-wireker/speculum-speculorum,Speculum Speculorum,Nigellus Wireker,1,0,1
+19,42,fan-out,ovid/fasti,Fasti,Ovid,1,0,1
+19,42,fan-out,ovid/metamorphoses,Metamorphoses,Ovid,1,0,1
+19,42,fan-out,ovid/remedia-amoris,Remedia Amoris,Ovid,1,0,1
+19,42,fan-out,peter-lombard/sentences,Sentences,Peter Lombard,1,0,1
+19,42,fan-out,petrus-alphonsi/disciplina-clericalis,Disciplina Clericalis,Petrus Alphonsi,1,0,1
+19,42,fan-out,pierre-corneille/le-cid,Le Cid,Pierre Corneille,1,0,1
+19,42,fan-out,plautus/aulularia,Aulularia,Plautus,1,0,1
+19,42,fan-out,pope-innocent-iii/de-contemptu-mundi,De Contemptu Mundi,Pope Innocent III,1,0,1
+19,42,fan-out,salvian-of-marseille/adversus-avaritiam,Adversus Avaritiam,Salvian of Marseille,1,0,1
+19,42,fan-out,seneca/de-ira,De Ira,Seneca,1,0,1
+19,42,fan-out,theophrastus/liber-aureolus-theophrasti-de-nuptiis,Liber Aureolus Theophrasti de Nuptiis,Theophrastus,1,0,1
+19,42,fan-out,thomas-bradwardine/de-causa-dei,De Causa Dei,Thomas Bradwardine,1,0,1
+20,42,neighborhood,john-milton/paradise-lost,Paradise Lost,John Milton,18,0,18
+20,42,neighborhood,thomas-hardy/far-from-the-madding-crowd,Far from the Madding Crowd,Thomas Hardy,11,11,0
+20,42,neighborhood,andrew-roberts/napoleon-a-life,Napoleon: A Life,Andrew Roberts,7,7,0
+20,42,neighborhood,oliver-goldsmith/the-vicar-of-wakefield,The Vicar of Wakefield,Oliver Goldsmith,7,0,7
+20,42,neighborhood,william-makepeace-thackeray/vanity-fair,Vanity Fair,William Makepeace Thackeray,6,5,1
+20,42,neighborhood,johann-wolfgang-von-goethe/the-sorrows-of-young-werther,The Sorrows of Young Werther,Johann Wolfgang von Goethe,5,0,5
+20,42,neighborhood,mary-shelley/frankenstein,Frankenstein,Mary Shelley,5,5,0
+20,42,neighborhood,william-shakespeare/othello,Othello,William Shakespeare,5,0,5
+20,42,neighborhood,jane-austen/emma,Emma,Jane Austen,4,4,0
+20,42,neighborhood,mary-shelley/frankenstein-or-the-modern-prometheus,"Frankenstein, or, the Modern Prometheus",Mary Shelley,4,4,0
+20,42,neighborhood,charles-dickens/bleak-house,Bleak House,Charles Dickens,3,3,0
+20,42,neighborhood,charlotte-bronte/the-professor,The Professor,Charlotte Bronte,3,3,0
+20,42,neighborhood,h-rider-haggard/king-solomon-s-mines,King Solomon's Mines,H. Rider Haggard,3,3,0
+20,42,neighborhood,plutarch/plutarch-s-lives,Plutarch's Lives,Plutarch,3,0,3
+20,42,neighborhood,thomas-hardy/the-hand-of-ethelberta,The Hand of Ethelberta,Thomas Hardy,3,3,0
+20,42,neighborhood,constantin-francois-volney/ruins-of-empires,Ruins of Empires,Constantin-François Volney,2,0,2
+20,42,neighborhood,james-cook/voyages,Voyages,James Cook,2,0,2
+20,42,neighborhood,montesquieu/the-spirit-of-the-laws,The Spirit of the Laws,Montesquieu,2,0,2
+20,42,neighborhood,richard-harris-barham/ingoldsby-legends,Ingoldsby Legends,Richard Harris Barham,2,0,2
+20,42,neighborhood,samuel-johnson/a-dictionary-of-the-english-language,A Dictionary of the English Language,Samuel Johnson,2,0,2
+20,42,neighborhood,tobias-smollett/humphry-clinker,Humphry Clinker,Tobias Smollett,2,0,2
+20,42,neighborhood,ann-radcliffe/the-romance-of-the-forest,The Romance of the Forest,Ann Radcliffe,1,0,1
+20,42,neighborhood,charlotte-bronte/villette,Villette,Charlotte Bronte,1,1,0
+20,42,neighborhood,daniel-defoe/the-shortest-way-with-the-dissenters,The Shortest Way with the Dissenters,Daniel Defoe,1,0,1
+20,42,neighborhood,edward-young/night-thoughts,Night Thoughts,Edward Young,1,0,1
+20,42,neighborhood,francis-beaumont-and-john-fletcher/the-maid-s-tragedy,The Maid's Tragedy,Francis Beaumont and John Fletcher,1,0,1
+20,42,neighborhood,h-rider-haggard/allan-quatermain,Allan Quatermain,H. Rider Haggard,1,1,0
+20,42,neighborhood,isaac-bickerstaffe/love-in-a-village,Love in a Village,Isaac Bickerstaffe,1,0,1
+20,42,neighborhood,isaac-bickerstaffe/the-maid-of-the-mill,The Maid of the Mill,Isaac Bickerstaffe,1,0,1
+20,42,neighborhood,jean-sarrazin/confession-of-general-bonaparte-to-he-abbe-maury,Confession of General Bonaparte to he Abbe Maury,Jean Sarrazin,1,0,1
+20,42,neighborhood,johann-wolfgang-von-goethe/elective-affinities,Elective Affinities,Johann Wolfgang von Goethe,1,0,1
+20,42,neighborhood,julius-caesar/caesar-s-wars,Caesar's Wars,Julius Caesar,1,0,1
+20,42,neighborhood,maria-edgeworth/castle-rackrent,Castle Rackrent,Maria Edgeworth,1,1,0
+20,42,neighborhood,napoleon/clisson-et-eugene,Clisson et Eugene,Napoleon,1,0,1
+20,42,neighborhood,regina-maria-roche/the-children-of-the-abbey,The Children of the Abbey,Regina Maria Roche,1,0,1
+20,42,neighborhood,richard-harris-barham/the-jackdaw-of-rheims,The Jackdaw of Rheims,Richard Harris Barham,1,0,1
+20,42,neighborhood,samuel-johnson/the-vanity-of-human-wishes,The Vanity of Human Wishes,Samuel Johnson,1,0,1
+20,42,neighborhood,sarah-orne-jewett/the-country-of-the-pointed-firs,The Country of the Pointed Firs,Sarah Orne Jewett,1,1,0
+20,42,neighborhood,vicesimus-knox/elegant-extracts,Elegant Extracts,Vicesimus Knox,1,0,1
+20,42,neighborhood,william-blake/the-marriage-of-heaven-and-hell,The Marriage of Heaven and Hell,William Blake,1,1,0
+20,42,neighborhood,william-combe/the-tour-of-doctor-syntax-in-search-of-the-picturesque,The Tour of Doctor Syntax in Search of the Picturesque,William Combe,1,0,1
+20,42,neighborhood,william-congreve/the-mourning-bride,The Mourning Bride,William Congreve,1,0,1
+21,41,mixed,benjamin-franklin/the-autobiography-of-benjamin-franklin,The Autobiography of Benjamin Franklin,Benjamin Franklin,20,20,0
+21,41,mixed,knut-hamsun/growth-of-the-soil,Growth of the Soil,Knut Hamsun,8,8,0
+21,41,mixed,laurence-sterne/tristram-shandy,Tristram Shandy,Laurence Sterne,8,5,3
+21,41,mixed,samuel-richardson/clarissa,Clarissa,Samuel Richardson,7,5,2
+21,41,mixed,charles-reade/the-cloister-and-the-hearth,The Cloister and the Hearth,Charles Reade,4,3,1
+21,41,mixed,john-locke/an-essay-concerning-human-understanding,An Essay Concerning Human Understanding,John Locke,4,0,4
+21,41,mixed,neil-gaiman/american-gods,American Gods,Neil Gaiman,4,4,0
+21,41,mixed,benjamin-franklin/poor-richard-s-almanack,Poor Richard's Almanack,Benjamin Franklin,2,0,2
+21,41,mixed,robert-louis-stevenson/the-master-of-ballantrae,The Master of Ballantrae,Robert Louis Stevenson,2,2,0
+21,41,mixed,agatha-christie/the-murder-of-roger-ackroyd,The Murder of Roger Ackroyd,Agatha Christie,1,0,1
+21,41,mixed,antoine-arnauld-and-pierre-nicole/logic-or-the-art-of-thinking,Logic or the Art of Thinking,Antoine Arnauld and Pierre Nicole,1,0,1
+21,41,mixed,benjamin-franklin/a-dissertation-on-liberty-and-necessity-pleasure-and-pain,"A Dissertation on Liberty and Necessity, Pleasure and Pain",Benjamin Franklin,1,0,1
+21,41,mixed,benjamin-franklin/articles-of-belief-and-acts-of-religion,Articles of Belief and Acts of Religion,Benjamin Franklin,1,0,1
+21,41,mixed,benjamin-franklin/the-nature-and-necessity-of-a-paper-currency,The Nature and Necessity of a Paper Currency,Benjamin Franklin,1,0,1
+21,41,mixed,bernard-mandeville/the-fable-of-the-bees,The Fable of the Bees,Bernard Mandeville,1,0,1
+21,41,mixed,cotton-mather/essays-to-do-good,Essays to do Good,Cotton Mather,1,0,1
+21,41,mixed,daniel-defoe/an-essay-on-projects,An Essay on Projects,Daniel Defoe,1,0,1
+21,41,mixed,daniel-defoe/family-instructor,Family Instructor,Daniel Defoe,1,0,1
+21,41,mixed,daniel-defoe/moll-flanders,Moll Flanders,Daniel Defoe,1,0,1
+21,41,mixed,daniel-defoe/religious-courtship,Religious Courtship,Daniel Defoe,1,0,1
+21,41,mixed,edward-cocker/cocker-s-arithmetick,Cocker's Arithmetick,Edward Cocker,1,0,1
+21,41,mixed,francesco-colonna/hypnerotomachia-poliphili-the-dream-of-poliphilo,Hypnerotomachia Poliphili (The Dream of Poliphilo),Francesco Colonna,1,0,1
+21,41,mixed,francois-rabelais/gargantua-and-pantagruel,Gargantua and Pantagruel,Francois Rabelais,1,0,1
+21,41,mixed,george-herbert/the-temple,The Temple,George Herbert,1,0,1
+21,41,mixed,herodotus/histories,Histories,Herodotus,1,0,1
+21,41,mixed,jonathan-swift/a-tale-of-a-tub,A Tale of a Tub,Jonathan Swift,1,0,1
+21,41,mixed,knut-hamsun/beneath-the-autumn-star,Beneath the Autumn Star,Knut Hamsun,1,0,1
+21,41,mixed,knut-hamsun/new-ground,New Ground,Knut Hamsun,1,0,1
+21,41,mixed,knut-hamsun/the-last-joy,The Last Joy,Knut Hamsun,1,0,1
+21,41,mixed,knut-hamsun/vendt-the-monk,Vendt the Monk,Knut Hamsun,1,0,1
+21,41,mixed,lyons/the-infallibility-of-human-judgment,The Infallibility of Human Judgment,Lyons,1,0,1
+21,41,mixed,michel-de-montaigne/the-essays,The Essays,Michel de Montaigne,1,0,1
+21,41,mixed,nathaniel-lee/the-rival-queens-or-the-death-of-alexander-the-great,"The Rival Queens; or, the Death of Alexander the Great",Nathaniel Lee,1,0,1
+21,41,mixed,otto-weininger/sex-and-character,Sex and Character,Otto Weininger,1,0,1
+21,41,mixed,robert-a-heinlein/stranger-in-a-strange-land,Stranger in a Strange Land,Robert A. Heinlein,1,0,1
+21,41,mixed,samuel-richardson/pamela-or-virtue-rewarded,"Pamela, or Virtue Rewarded",Samuel Richardson,1,0,1
+21,41,mixed,thomas-otway/the-orphan,The Orphan,Thomas Otway,1,0,1
+21,41,mixed,thomas-otway/venice-preserv-d,Venice Preserv'd,Thomas Otway,1,0,1
+21,41,mixed,william-wollaston/the-religion-of-nature-delineated,The Religion of Nature Delineated,William Wollaston,1,0,1
+21,41,mixed,xenophon/cyropaedia,Cyropaedia,Xenophon,1,0,1
+21,41,mixed,xenophon/the-memorable-thoughts-of-socrates,The Memorable Thoughts of Socrates,Xenophon,1,0,1
+22,40,mixed,herman-melville/moby-dick,Moby-Dick,Herman Melville,26,25,1
+22,40,mixed,francis-bacon/novum-organum,Novum Organum,Francis Bacon,7,7,0
+22,40,mixed,francis-bacon/the-advancement-of-learning,The Advancement of Learning,Francis Bacon,5,0,5
+22,40,mixed,boethius/the-consolation-of-philosophy,The Consolation of Philosophy,Boethius,4,4,0
+22,40,mixed,plato/timaeus,Timaeus,Plato,4,0,4
+22,40,mixed,herman-melville/typee,Typee,Herman Melville,3,2,1
+22,40,mixed,jack-london/the-cruise-of-the-snark,The Cruise of the Snark,Jack London,3,3,0
+22,40,mixed,omar-khayyam/rubaiyat-of-omar-khayyam,Rubáiyát of Omar Khayyám,Omar Khayyám,3,0,3
+22,40,mixed,oliver-goldsmith/a-history-of-the-earth-and-animated-nature,A History of the Earth and Animated Nature,Oliver Goldsmith,2,0,2
+22,40,mixed,albrecht-von-haller/elementa-physiologiae-physiology,Elementa Physiologiae (Physiology),Albrecht von Haller,1,0,1
+22,40,mixed,antonio-de-ulloa/a-voyage-to-south-america,A Voyage to South America,Antonio de Ulloa,1,0,1
+22,40,mixed,aristotle/de-caelo,De Caelo,Aristotle,1,0,1
+22,40,mixed,aristotle/metaphysics,Metaphysics,Aristotle,1,0,1
+22,40,mixed,aristotle/physics,Physics,Aristotle,1,0,1
+22,40,mixed,bernardino-telesio/de-rerum-natura-iuxta-propria-principia,De Rerum Natura Iuxta Propria Principia,Bernardino Telesio,1,0,1
+22,40,mixed,charles-darwin/journal-of-researches-the-voyage-of-a-naturalist,Journal of Researches (The Voyage of a Naturalist),Charles Darwin,1,0,1
+22,40,mixed,charles-e-woodruff/effects-of-tropical-light-on-white-men,Effects of Tropical Light on White Men,Charles E. Woodruff,1,0,1
+22,40,mixed,charles-lamb/the-triumph-of-the-whale,The Triumph of the Whale,Charles Lamb,1,0,1
+22,40,mixed,cicero/de-republica,De Republica,Cicero,1,0,1
+22,40,mixed,edith-wharton/the-house-of-mirth,The House of Mirth,Edith Wharton,1,1,0
+22,40,mixed,edmund-waller/the-battle-of-the-summer-islands,The Battle of the Summer Islands,Edmund Waller,1,0,1
+22,40,mixed,francis-bacon/de-augmentis-scientiarum,De Augmentis Scientiarum,Francis Bacon,1,0,1
+22,40,mixed,francis-bacon/the-translation-of-certain-psalms-into-english-verse,The Translation of Certain Psalms into English Verse,Francis Bacon,1,0,1
+22,40,mixed,frederick-debell-bennett/narrative-of-a-whaling-voyage-round-the-globe,Narrative of a Whaling Voyage Round the Globe,Frederick Debell Bennett,1,0,1
+22,40,mixed,j-r-mcculloch/a-dictionary-of-commerce,A Dictionary of Commerce,J. R. McCulloch,1,0,1
+22,40,mixed,j-ross-browne/etchings-of-a-whaling-cruise,Etchings of a Whaling Cruise,J. Ross Browne,1,0,1
+22,40,mixed,james-colnett/a-voyage-round-cape-horn-into-the-south-seas,A Voyage round Cape Horn into the South Seas,James Colnett,1,0,1
+22,40,mixed,john-dryden/annus-mirabilis,Annus Mirabilis,John Dryden,1,0,1
+22,40,mixed,joseph-c-hart/miriam-coffin-or-the-whale-fisherman,"Miriam Coffin, or The Whale-Fisherman",Joseph C. Hart,1,0,1
+22,40,mixed,obed-macy/the-history-of-nantucket,The History of Nantucket,Obed Macy,1,0,1
+22,40,mixed,robert-sibbald/the-history-of-fife-and-kinross,The History of Fife and Kinross,Robert Sibbald,1,0,1
+22,40,mixed,seneca/natural-questions,Natural Questions,Seneca,1,0,1
+22,40,mixed,thomas-beale/the-natural-history-of-the-sperm-whale,The Natural History of the Sperm Whale,Thomas Beale,1,0,1
+22,40,mixed,thomas-edge/ten-voyages-to-spitzbergen,Ten Voyages to Spitzbergen,Thomas Edge,1,0,1
+22,40,mixed,thomas-fuller/the-holy-state-and-the-profane-state,The Holy State and the Profane State,Thomas Fuller,1,0,1
+22,40,mixed,thomas-herbert/some-yeares-travels-into-africa-and-asia,Some Yeares Travels into Africa and Asia,Thomas Herbert,1,0,1
+22,40,mixed,thomas-hobbes/leviathan,Leviathan,Thomas Hobbes,1,0,1
+22,40,mixed,uno-von-troil/letters-on-iceland,Letters on Iceland,Uno von Troil,1,0,1
+22,40,mixed,willem-schouten/sixth-circumnavigation,Sixth Circumnavigation,Willem Schouten,1,0,1
+22,40,mixed,william-cowper/on-the-queen-s-visit-to-london,On the Queen's Visit to London,William Cowper,1,0,1
+23,36,neighborhood,jo-walton/the-just-city,The Just City,Jo Walton,7,7,0
+23,36,neighborhood,jo-walton/the-philosopher-kings,The Philosopher Kings,Jo Walton,7,7,0
+23,36,neighborhood,plato/the-republic,The Republic,Plato,7,0,7
+23,36,neighborhood,elizabeth-gaskell/north-and-south,North and South,Elizabeth Gaskell,6,6,0
+23,36,neighborhood,rudyard-kipling/puck-of-pook-s-hill,Puck of Pook's Hill,Rudyard Kipling,6,6,0
+23,36,neighborhood,byron/childe-harold-s-pilgrimage,Childe Harold's Pilgrimage,Byron,5,1,4
+23,36,neighborhood,anne-carson/the-autobiography-of-red,The Autobiography of Red,Anne Carson,4,4,0
+23,36,neighborhood,francis-parkman/the-oregon-trail,The Oregon Trail,Francis Parkman,4,4,0
+23,36,neighborhood,thomas-more/utopia,Utopia,Thomas More,4,3,1
+23,36,neighborhood,virgil/the-aeneid,The Aeneid,Virgil,4,0,4
+23,36,neighborhood,plato/symposium,Symposium,Plato,3,0,3
+23,36,neighborhood,aristotle/politics,Politics,Aristotle,2,2,0
+23,36,neighborhood,plato/laws,Laws,Plato,2,0,2
+23,36,neighborhood,plato/phaedrus,Phaedrus,Plato,2,0,2
+23,36,neighborhood,plato/republic,Republic,Plato,2,0,2
+23,36,neighborhood,r-m-ballantyne/the-coral-island,The Coral Island,R. M. Ballantyne,2,1,1
+23,36,neighborhood,thomas-babington-macaulay/lays-of-ancient-rome,Lays of Ancient Rome,Thomas Babington Macaulay,2,0,2
+23,36,neighborhood,annie-and-eliza-keary/the-heroes-of-asgard,The Heroes of Asgard,Annie and Eliza Keary,1,0,1
+23,36,neighborhood,anonymous/octavia,Octavia,Anonymous,1,0,1
+23,36,neighborhood,elmore-leonard/killshot,Killshot,Elmore Leonard,1,0,1
+23,36,neighborhood,george-borrow/the-bible-in-spain,The Bible in Spain,George Borrow,1,0,1
+23,36,neighborhood,henry-wadsworth-longfellow/the-discoverer-of-the-north-cape,The Discoverer of the North Cape,Henry Wadsworth Longfellow,1,0,1
+23,36,neighborhood,henry-wadsworth-longfellow/the-slave-s-dream,The Slave's Dream,Henry Wadsworth Longfellow,1,0,1
+23,36,neighborhood,isocrates/helen,Helen,Isocrates,1,0,1
+23,36,neighborhood,james-cook/captain-cook-s-voyages,Captain Cook's Voyages,James Cook,1,0,1
+23,36,neighborhood,john-c-fremont/report-of-the-exploring-expedition-to-the-rocky-mountains,Report of the Exploring Expedition to the Rocky Mountains,John C. Frémont,1,0,1
+23,36,neighborhood,marcus-aurelius/meditations,Meditations,Marcus Aurelius,1,1,0
+23,36,neighborhood,plato/apology,Apology,Plato,1,0,1
+23,36,neighborhood,plato/critias,Critias,Plato,1,0,1
+23,36,neighborhood,plato/phaedo,Phaedo,Plato,1,0,1
+23,36,neighborhood,plato/protagoras,Protagoras,Plato,1,0,1
+23,36,neighborhood,r-m-ballantyne/the-gorilla-hunters,The Gorilla Hunters,R. M. Ballantyne,1,0,1
+23,36,neighborhood,thomas-aquinas/summa-tehologica,Summa Tehologica,Thomas Aquinas,1,0,1
+23,36,neighborhood,thomas-more/the-history-of-king-richard-iii,The History of King Richard III,Thomas More,1,0,1
+23,36,neighborhood,walt-whitman/collected-verses-of-walt-whitman,Collected Verses of Walt Whitman,Walt Whitman,1,0,1
+23,36,neighborhood,washington-irving/tales-of-the-alhambra,Tales of the Alhambra,Washington Irving,1,0,1
+24,34,mixed,haruki-murakami/kafka-on-the-shore,Kafka on the Shore,Haruki Murakami,17,17,0
+24,34,mixed,johann-wolfgang-von-goethe/faust,Faust,Johann Wolfgang von Goethe,10,0,10
+24,34,mixed,william-shakespeare/macbeth,Macbeth,William Shakespeare,10,0,10
+24,34,mixed,ivan-turgenev/first-love,First Love,Ivan Turgenev,8,8,0
+24,34,mixed,george-gissing/new-grub-street,New Grub Street,George Gissing,7,7,0
+24,34,mixed,charles-dickens/dombey-and-son,Dombey and Son,Charles Dickens,3,3,0
+24,34,mixed,friedrich-nietzsche/beyond-good-and-evil,Beyond Good and Evil,Friedrich Nietzsche,3,3,0
+24,34,mixed,alexander-pushkin/the-gypsies,The Gypsies,Alexander Pushkin,2,0,2
+24,34,mixed,sophocles/oedipus-rex,Oedipus Rex,Sophocles,2,0,2
+24,34,mixed,wilkie-collins/armadale,Armadale,Wilkie Collins,2,2,0
+24,34,mixed,alexander-pushkin/on-the-hills-of-georgia,On the Hills of Georgia,Alexander Pushkin,1,0,1
+24,34,mixed,arthur-schopenhauer/on-the-basis-of-morality,On the Basis of Morality,Arthur Schopenhauer,1,0,1
+24,34,mixed,dante-alighieri/the-divine-comedy,The Divine Comedy,Dante Alighieri,1,0,1
+24,34,mixed,elkanah-settle/absalom-senior-or-achitophel-transpros-d,"Absalom Senior; or, Achitophel Transpros'd",Elkanah Settle,1,0,1
+24,34,mixed,franz-kafka/in-the-penal-colony,In the Penal Colony,Franz Kafka,1,0,1
+24,34,mixed,franz-kafka/the-castle,The Castle,Franz Kafka,1,0,1
+24,34,mixed,franz-kafka/the-metamorphosis,The Metamorphosis,Franz Kafka,1,0,1
+24,34,mixed,franz-kafka/the-trial,The Trial,Franz Kafka,1,0,1
+24,34,mixed,friedrich-schiller/the-brigands,The Brigands,Friedrich Schiller,1,0,1
+24,34,mixed,friedrich-schiller/william-tell,William Tell,Friedrich Schiller,1,0,1
+24,34,mixed,henry-james/the-bostonians,The Bostonians,Henry James,1,1,0
+24,34,mixed,honore-de-balzac/cousin-pons,Cousin Pons,Honoré de Balzac,1,0,1
+24,34,mixed,james-harrington/oceana,Oceana,James Harrington,1,0,1
+24,34,mixed,john-dryden/absalom-and-achitophel,Absalom and Achitophel,John Dryden,1,0,1
+24,34,mixed,murasaki-shikibu/the-tale-of-genji,The Tale of Genji,Murasaki Shikibu,1,0,1
+24,34,mixed,natsume-soseki/kokoro,Kokoro,Natsume Sōseki,1,0,1
+24,34,mixed,natsume-soseki/poppies,Poppies,Natsume Soseki,1,0,1
+24,34,mixed,natsume-soseki/sanshiro,Sanshiro,Natsume Sōseki,1,0,1
+24,34,mixed,natsume-soseki/the-miner,The Miner,Natsume Sōseki,1,0,1
+24,34,mixed,sophocles/electra,Electra,Sophocles,1,0,1
+24,34,mixed,thomas-shadwell/epsom-wells,Epsom Wells,Thomas Shadwell,1,0,1
+24,34,mixed,ueda-akinari/tales-of-moonlight-and-rain,Tales of Moonlight and Rain,Ueda Akinari,1,0,1
+24,34,mixed,ueda-akinari/the-chrysanthemum-pledge,The Chrysanthemum Pledge,Ueda Akinari,1,0,1
+24,34,mixed,yakov-polonsky/recollections-of-turgenev,Recollections of Turgenev,Yakov Polonsky,1,0,1
+25,32,mixed,jane-austen/northanger-abbey,Northanger Abbey,Jane Austen,16,15,1
+25,32,mixed,ivan-turgenev/fathers-and-sons,Fathers and Sons,Ivan Turgenev,11,11,0
+25,32,mixed,ann-radcliffe/the-mysteries-of-udolpho,The Mysteries of Udolpho,Ann Radcliffe,4,0,4
+25,32,mixed,jules-verne/five-weeks-in-a-balloon,Five Weeks in a Balloon,Jules Verne,4,4,0
+25,32,mixed,charlotte-bronte/shirley,Shirley,Charlotte Bronte,3,3,0
+25,32,mixed,ann-radcliffe/the-italian,The Italian,Ann Radcliffe,2,0,2
+25,32,mixed,henry-james/the-turn-of-the-screw,The Turn of the Screw,Henry James,2,2,0
+25,32,mixed,anonymous/alexis-or-the-cottage-in-the-forest,"Alexis, or the Cottage in the Forest",Anonymous,1,0,1
+25,32,mixed,carl-grosse/horrid-mysteries,Horrid Mysteries,Carl Grosse,1,0,1
+25,32,mixed,charles-beke/the-sources-of-the-nile,The Sources of the Nile,Charles Beke,1,0,1
+25,32,mixed,christoph-wilhelm-hufeland/makrobiotik-or-the-art-of-prolonging-life,"Makrobiotik, or The Art of Prolonging Life",Christoph Wilhelm Hufeland,1,0,1
+25,32,mixed,e-halperine-kaminsky/turgenev-and-his-french-circle,Turgenev and His French Circle,E. Halperine-Kaminsky,1,0,1
+25,32,mixed,eleanor-sleath/the-orphan-of-the-rhine,The Orphan of the Rhine,Eleanor Sleath,1,0,1
+25,32,mixed,eliza-parsons/castle-of-wolfenbach,Castle of Wolfenbach,Eliza Parsons,1,0,1
+25,32,mixed,eliza-parsons/the-mysterious-warning,The Mysterious Warning,Eliza Parsons,1,0,1
+25,32,mixed,frances-burney/camilla,Camilla,Frances Burney,1,0,1
+25,32,mixed,frances-burney/cecilia,Cecilia,Frances Burney,1,0,1
+25,32,mixed,francis-lathom/the-midnight-bell,The Midnight Bell,Francis Lathom,1,0,1
+25,32,mixed,henry-fielding/amelia,Amelia,Henry Fielding,1,0,1
+25,32,mixed,ivan-turgenev/hamlet-and-don-quixote,Hamlet and Don Quixote,Ivan Turgenev,1,0,1
+25,32,mixed,ivan-turgenev/punin-and-baburin,Punin and Baburin,Ivan Turgenev,1,0,1
+25,32,mixed,ivan-turgenev/russian-life-in-the-interior-a-sportsman-s-sketches,Russian Life in the Interior (A Sportsman's Sketches),Ivan Turgenev,1,0,1
+25,32,mixed,j-a-t-lloyd/two-russian-reformers-ivan-turgenev-leo-tolstoy,"Two Russian Reformers: Ivan Turgenev, Leo Tolstoy",J. A. T. Lloyd,1,0,1
+25,32,mixed,konstantin-masalsky/the-streltsy,The Streltsy,Konstantin Masalsky,1,0,1
+25,32,mixed,ludwig-flammenberg/the-necromancer-of-the-black-forest,The Necromancer of the Black Forest,Ludwig Flammenberg,1,0,1
+25,32,mixed,maria-edgeworth/belinda,Belinda,Maria Edgeworth,1,0,1
+25,32,mixed,matthew-lewis/the-monk,The Monk,Matthew Lewis,1,0,1
+25,32,mixed,regina-maria-roche/clermont,Clermont,Regina Maria Roche,1,0,1
+25,32,mixed,samuel-richardson/sir-charles-grandison,Sir Charles Grandison,Samuel Richardson,1,0,1
+25,32,mixed,theophile-jules-pelouse-and-edmond-fremy/notions-generales-de-chimie,Notions Generales de Chimie,Theophile-Jules Pelouse and Edmond Fremy,1,0,1
+25,32,mixed,walter-scott/the-monastery,The Monastery,Walter Scott,1,0,1
+25,32,mixed,william-shakespeare/coriolanus,Coriolanus,William Shakespeare,1,0,1
+26,30,neighborhood,walter-scott/ivanhoe,Ivanhoe,Walter Scott,18,9,9
+26,30,neighborhood,victor-hugo/les-miserables,Les Misérables,Victor Hugo,8,6,2
+26,30,neighborhood,anthony-trollope/the-last-chronicle-of-barset,The Last Chronicle of Barset,Anthony Trollope,5,5,0
+26,30,neighborhood,aristophanes/the-birds,The Birds,Aristophanes,5,5,0
+26,30,neighborhood,george-eliot/daniel-deronda,Daniel Deronda,George Eliot,5,4,1
+26,30,neighborhood,khaled-hosseini/the-kite-runner,The Kite Runner,Khaled Hosseini,5,5,0
+26,30,neighborhood,homer/the-odyssey,The Odyssey,Homer,4,0,4
+26,30,neighborhood,emily-bronte/wuthering-heights,Wuthering Heights,Emily Bronte,2,1,1
+26,30,neighborhood,aeschylus/niobe,Niobe,Aeschylus,1,0,1
+26,30,neighborhood,aeschylus/the-myrmidons,The Myrmidons,Aeschylus,1,0,1
+26,30,neighborhood,amipsias/the-comastoe-revellers,The Comastoe (Revellers),Amipsias,1,0,1
+26,30,neighborhood,andre-chenier/la-jeune-malade,La Jeune Malade,André Chénier,1,0,1
+26,30,neighborhood,anonymous/sir-john-oldcastle,Sir John Oldcastle,Anonymous,1,0,1
+26,30,neighborhood,aristophanes/the-knights,The Knights,Aristophanes,1,0,1
+26,30,neighborhood,augustine-of-hippo/the-city-of-god,The City of God,Augustine of Hippo,1,0,1
+26,30,neighborhood,charles-lamb/essays-of-elia,Essays of Elia,Charles Lamb,1,0,1
+26,30,neighborhood,ducray-duminil/god-the-king-honour-and-the-ladies,"God, the King, Honour and the Ladies",Ducray-Duminil,1,0,1
+26,30,neighborhood,emmanuel-de-las-cases/memorial-de-sainte-helene,Mémorial de Sainte-Hélène,Emmanuel de Las Cases,1,0,1
+26,30,neighborhood,ferdowsi/shahnameh,Shahnameh,Ferdowsi,1,0,1
+26,30,neighborhood,francis-drake/eboracum-or-the-history-and-antiquities-of-york,"Eboracum, or the History and Antiquities of York",Francis Drake,1,0,1
+26,30,neighborhood,george-ellis/specimens-of-early-english-metrical-romances,Specimens of Early English Metrical Romances,George Ellis,1,0,1
+26,30,neighborhood,jean-hotman-de-villiers/de-la-charge-et-dignite-de-l-ambassadeur,De la Charge et Dignité de l'Ambassadeur,Jean Hotman de Villiers,1,0,1
+26,30,neighborhood,john-ferne/the-blazon-of-gentrie,The Blazon of Gentrie,John Ferne,1,0,1
+26,30,neighborhood,john-milton/lycidas,Lycidas,John Milton,1,0,1
+26,30,neighborhood,john-milton/samson-agonistes,Samson Agonistes,John Milton,1,0,1
+26,30,neighborhood,joseph-ritson/ancient-engleish-metrical-romancees,Ancient Engleish Metrical Romanceës,Joseph Ritson,1,0,1
+26,30,neighborhood,marguerite-de-navarre/les-marguerites-de-la-marguerite,Les Marguerites de la Marguerite,Marguerite de Navarre,1,0,1
+26,30,neighborhood,rumi/masnawi,Masnawi,Rumi,1,0,1
+26,30,neighborhood,torquato-tasso/gerusalemme-liberata,Gerusalemme Liberata,Torquato Tasso,1,0,1
+26,30,neighborhood,william-camden/britannia,Britannia,William Camden,1,0,1
+27,29,neighborhood,anonymous/a-thousand-and-one-nights,A Thousand and One Nights,Anonymous,20,0,20
+27,29,neighborhood,leo-tolstoy/the-kreutzer-sonata,The Kreutzer Sonata,Leo Tolstoy,7,6,1
+27,29,neighborhood,marisha-pessl/special-topics-in-calamity-physics,Special Topics in Calamity Physics,Marisha Pessl,7,7,0
+27,29,neighborhood,honore-de-balzac/father-goriot,Father Goriot,Honoré de Balzac,5,5,0
+27,29,neighborhood,bram-stoker/dracula,Dracula,Bram Stoker,3,3,0
+27,29,neighborhood,ernesto-che-guevara/the-motorcycle-diaries,The Motorcycle Diaries,Ernesto Che Guevara,3,2,1
+27,29,neighborhood,f-scott-fitzgerald/the-great-gatsby,The Great Gatsby,F Scott Fitzgerald,3,0,3
+27,29,neighborhood,jean-jacques-rousseau/the-social-contract,The Social Contract,Jean-Jacques Rousseau,3,0,3
+27,29,neighborhood,leo-tolstoy/war-and-peace,War and Peace,Leo Tolstoy,3,2,1
+27,29,neighborhood,mohsin-hamid/the-reluctant-fundamentalist,The Reluctant Fundamentalist,Mohsin Hamid,3,3,0
+27,29,neighborhood,alexander-pushkin/little-feet,Little Feet,Alexander Pushkin,1,0,1
+27,29,neighborhood,alexandre-dumas/the-man-in-the-iron-mask,The Man in the Iron Mask,Alexandre Dumas,1,1,0
+27,29,neighborhood,benvenuto-cellini/the-autobiography-of-benvenuto-cellini,The Autobiography of Benvenuto Cellini,Benvenuto Cellini,1,0,1
+27,29,neighborhood,charles-victor-prevost-d-arlincourt/le-solitaire,Le Solitaire,Charles-Victor Prévost d'Arlincourt,1,0,1
+27,29,neighborhood,david-halberstam/the-powers-that-be,The Powers That Be,David Halberstam,1,0,1
+27,29,neighborhood,elizabeth-gaskell/wives-and-daughters,Wives and Daughters,Elizabeth Gaskell,1,1,0
+27,29,neighborhood,gottfried-august-burger/lenore,Lenore,Gottfried August Burger,1,0,1
+27,29,neighborhood,italo-calvino/mr-palomar,Mr Palomar,Italo Calvino,1,0,1
+27,29,neighborhood,jack-kerouac/on-the-road,On The Road,Jack Kerouac,1,0,1
+27,29,neighborhood,jose-maria-de-eca-de-queiros/cousin-basilo,Cousin Basilo,José Maria de Eça de Queirós,1,0,1
+27,29,neighborhood,leo-tolstoy/a-lost-opportunity,A Lost Opportunity,Leo Tolstoy,1,0,1
+27,29,neighborhood,leo-tolstoy/ivan-the-fool,Ivan the Fool,Leo Tolstoy,1,0,1
+27,29,neighborhood,leo-tolstoy/polikushka,Polikushka,Leo Tolstoy,1,0,1
+27,29,neighborhood,leo-tolstoy/the-candle,The Candle,Leo Tolstoy,1,0,1
+27,29,neighborhood,oscar-wilde/the-importance-of-being-earnest,The Importance of Being Earnest,Oscar Wilde,1,0,1
+27,29,neighborhood,rene-charles-guilbert-de-pixerecourt/le-mont-sauvage,Le Mont Sauvage,René-Charles Guilbert de Pixérécourt,1,0,1
+27,29,neighborhood,stephanie-felicite-de-genlis/les-chevaliers-du-cygne,Les Chevaliers du Cygne,Stephanie Felicite de Genlis,1,0,1
+27,29,neighborhood,washington-irving/the-legend-of-sleepy-hollow,The Legend of Sleepy Hollow,Washington Irving,1,0,1
+27,29,neighborhood,william-faulkner/the-sound-and-fury,The Sound and Fury,William Faulkner,1,0,1
+28,24,neighborhood,mark-twain/life-on-the-mississippi,Life on the Mississippi,Mark Twain,13,13,0
+28,24,neighborhood,frederick-douglass/narrative-of-the-life-of-frederick-douglass,Narrative of the Life of Frederick Douglass,Frederick Douglass,5,5,0
+28,24,neighborhood,miguel-de-cervantes-saavedra/don-quixote,Don Quixote,Miguel de Cervantes Saavedra,5,0,5
+28,24,neighborhood,booker-t-washington/up-from-slavery,Up from Slavery,Booker T. Washington,4,4,0
+28,24,neighborhood,tobias-smollett/the-adventures-of-roderick-random,The Adventures of Roderick Random,Tobias Smollett,4,4,0
+28,24,neighborhood,tobias-smollett/the-expedition-of-humphry-clinker,The Expedition of Humphry Clinker,Tobias Smollett,4,4,0
+28,24,neighborhood,frederick-douglass/life-and-times-of-frederick-douglass,Life and Times of Frederick Douglass,Frederick Douglass,2,0,2
+28,24,neighborhood,henry-fielding/joseph-andrews,Joseph Andrews,Henry Fielding,2,2,0
+28,24,neighborhood,horace/odes,Odes,Horace,2,0,2
+28,24,neighborhood,joel-chandler-harris/uncle-remus,Uncle Remus,Joel Chandler Harris,2,0,2
+28,24,neighborhood,laurence-sterne/a-sentimental-journey-through-france-and-italy,A Sentimental Journey Through France and Italy,Laurence Sterne,2,0,2
+28,24,neighborhood,noah-webster/the-american-spelling-book,The American Spelling Book,Noah Webster,2,0,2
+28,24,neighborhood,allan-ramsay/the-ever-green,The Ever Green,Allan Ramsay,1,0,1
+28,24,neighborhood,anonymous/alonzo-and-melissa,Alonzo and Melissa,Anonymous,1,0,1
+28,24,neighborhood,anonymous/cotton-is-king,Cotton is King,Anonymous,1,0,1
+28,24,neighborhood,anonymous/peboan-and-seegwun,Peboan and Seegwun,Anonymous,1,0,1
+28,24,neighborhood,anonymous/the-undying-head,The Undying Head,Anonymous,1,0,1
+28,24,neighborhood,caleb-bingham/the-columbian-orator,The Columbian Orator,Caleb Bingham,1,0,1
+28,24,neighborhood,daniel-defoe/colonel-jack,Colonel Jack,Daniel Defoe,1,0,1
+28,24,neighborhood,ernst-von-hesse-wartegg/mississippi-fahrten,Mississippi-Fahrten,Ernst von Hesse-Wartegg,1,0,1
+28,24,neighborhood,frederick-douglass/my-bondage-and-my-freedom,My Bondage and My Freedom,Frederick Douglass,1,0,1
+28,24,neighborhood,hannah-more/the-shepherd-of-salisbury-plain,The Shepherd of Salisbury Plain,Hannah More,1,0,1
+28,24,neighborhood,mark-twain-and-charles-dudley-warner/the-gilded-age,The Gilded Age,Mark Twain and Charles Dudley Warner,1,0,1
+28,24,neighborhood,philip-frowde/philotas,Philotas,Philip Frowde,1,0,1
+29,19,mixed,george-eliot/scenes-of-clerical-life,Scenes of Clerical Life,George Eliot,10,10,0
+29,19,mixed,louisa-may-alcott/an-old-fashioned-girl,An Old-Fashioned Girl,Louisa May Alcott,7,7,0
+29,19,mixed,mary-elizabeth-braddon/lady-audley-s-secret,Lady Audley's Secret,Mary Elizabeth Braddon,4,3,1
+29,19,mixed,george-gordon-byron/don-juan,Don Juan,George Gordon Byron,3,0,3
+29,19,mixed,hannah-more/sacred-dramas,Sacred Dramas,Hannah More,2,0,2
+29,19,mixed,albert-harkness/a-latin-reader,A Latin Reader,Albert Harkness,1,0,1
+29,19,mixed,anonymous/breaking-a-butterfly,Breaking a Butterfly,Anonymous,1,0,1
+29,19,mixed,anonymous/life-of-legh-richmond,Life of Legh Richmond,Anonymous,1,0,1
+29,19,mixed,anonymous/memoir-of-bishop-jebb,Memoir of Bishop Jebb,Anonymous,1,0,1
+29,19,mixed,anonymous/the-phantom-bride,The Phantom Bride,Anonymous,1,0,1
+29,19,mixed,edmund-burke/a-philosophical-enquiry-into-the-origin-of-our-ideas-of-the-sublime-and-beautiful,A Philosophical Enquiry into the Origin of Our Ideas of the Sublime and Beautiful,Edmund Burke,1,0,1
+29,19,mixed,grace-kennedy/father-clement,Father Clement,Grace Kennedy,1,0,1
+29,19,mixed,honore-de-balzac/cousin-bette,Cousin Bette,Honoré de Balzac,1,0,1
+29,19,mixed,john-sargent/memoir-of-the-rev-henry-martyn,Memoir of the Rev. Henry Martyn,John Sargent,1,0,1
+29,19,mixed,john-tillotson/sermons,Sermons,John Tillotson,1,0,1
+29,19,mixed,thomas-babington-macaulay/the-battle-of-lake-regillus,The Battle of Lake Regillus,Thomas Babington Macaulay,1,0,1
+29,19,mixed,thomas-scott/the-force-of-truth,The Force of Truth,Thomas Scott,1,0,1
+29,19,mixed,virgil/the-works-of-virgil,The Works of Virgil,Virgil,1,0,1
+29,19,mixed,william-stephen-gilly/memoirs-of-felix-neff-pastor-of-the-high-alps,"Memoirs of Felix Neff, Pastor of the High Alps",William Stephen Gilly,1,0,1
+30,17,fan-out,edith-wharton/the-valley-of-decision,The Valley of Decision,Edith Wharton,16,16,0
+30,17,fan-out,alphonsus-liguori/the-glories-of-mary,The Glories of Mary,Alphonsus Liguori,1,0,1
+30,17,fan-out,anonymous/cento-novelle-antiche,Cento Novelle Antiche,Anonymous,1,0,1
+30,17,fan-out,aristotle/history-of-animals,History of Animals,Aristotle,1,0,1
+30,17,fan-out,battista-varani/the-mental-sorrows-of-christ,The Mental Sorrows of Christ,Battista Varani,1,0,1
+30,17,fan-out,cesare-beccaria/on-crimes-and-punishments,On Crimes and Punishments,Cesare Beccaria,1,0,1
+30,17,fan-out,petrarch/italia-mia-ode-to-italy,Italia mia (Ode to Italy),Petrarch,1,0,1
+30,17,fan-out,saverio-bettinelli/lettere-virgiliane,Lettere Virgiliane,Saverio Bettinelli,1,0,1
+30,17,fan-out,scipione-maffei/verona-illustrata,Verona Illustrata,Scipione Maffei,1,0,1
+30,17,fan-out,virgil/aeneid,Aeneid,Virgil,1,0,1
+30,17,fan-out,virgil/georgics,Georgics,Virgil,1,0,1
+30,17,fan-out,vittorio-alfieri/antigone,Antigone,Vittorio Alfieri,1,0,1
+30,17,fan-out,vittorio-alfieri/l-america-libera-odes-to-free-america,L'America libera (Odes to Free America),Vittorio Alfieri,1,0,1
+30,17,fan-out,vittorio-alfieri/la-congiura-de-pazzi,La Congiura de' Pazzi,Vittorio Alfieri,1,0,1
+30,17,fan-out,vittorio-alfieri/virginia,Virginia,Vittorio Alfieri,1,0,1
+30,17,fan-out,voltaire/lettres-philosophiques,Lettres philosophiques,Voltaire,1,0,1
+30,17,fan-out,voltaire/zaire,Zaire,Voltaire,1,0,1
+31,12,fan-out,izaak-walton/the-compleat-angler,The Compleat Angler,Izaak Walton,11,11,0
+31,12,fan-out,anonymous/a-private-school-of-defence,A Private School of Defence,Anonymous,1,0,1
+31,12,fan-out,fernao-mendes-pinto/the-travels-of-mendes-pinto,The Travels of Mendes Pinto,Fernão Mendes Pinto,1,0,1
+31,12,fan-out,francis-bacon/sylva-sylvarum-natural-history,Sylva Sylvarum (Natural History),Francis Bacon,1,0,1
+31,12,fan-out,george-herbert/contemplation-on-god-s-providence,Contemplation on God's Providence,George Herbert,1,0,1
+31,12,fan-out,janus-dubravius/of-fish-and-fish-ponds,Of Fish and Fish-ponds,Janus Dubravius,1,0,1
+31,12,fan-out,meric-casaubon/of-credulity-and-incredulity,Of Credulity and Incredulity,Meric Casaubon,1,0,1
+31,12,fan-out,michael-drayton/sonnets,Sonnets,Michael Drayton,1,0,1
+31,12,fan-out,phineas-fletcher/piscatorie-eclogs,Piscatorie Eclogs,Phineas Fletcher,1,0,1
+31,12,fan-out,plutarch/de-sollertia-animalium-de-industria-animalium,De Sollertia Animalium (De Industria Animalium),Plutarch,1,0,1
+31,12,fan-out,richard-baker/a-chronicle-of-the-kings-of-england,A Chronicle of the Kings of England,Richard Baker,1,0,1
+31,12,fan-out,seneca/naturales-quaestiones-natural-questions,Naturales Quaestiones (Natural Questions),Seneca,1,0,1
+32,12,fan-out,mark-haddon/the-curious-incident-of-the-dog-in-the-night-time,The Curious Incident of the Dog in the Night-time,Mark Haddon,10,10,0
+32,12,fan-out,arthur-conan-doyle/the-hound-of-the-baskervilles,The Hound of the Baskervilles,Arthur Conan Doyle,2,0,2
+32,12,fan-out,andrew-morton/diana-her-true-story,DIANA: Her True Story,Andrew Morton,1,0,1
+32,12,fan-out,arthur-conan-doyle/the-boscombe-valley-mystery,The Boscombe Valley Mystery,Arthur Conan Doyle,1,0,1
+32,12,fan-out,dietrich-bonhoeffer/the-cost-of-discipleship,The Cost of Discipleship,Dietrich Bonhoeffer,1,0,1
+32,12,fan-out,edith-wharton/the-custom-of-the-country,The Custom of the Country,Edith Wharton,1,1,0
+32,12,fan-out,frank-herbert/dune,Dune,Frank Herbert,1,0,1
+32,12,fan-out,georgette-heyer/the-masqueraders,The Masqueraders,Georgette Heyer,1,0,1
+32,12,fan-out,james-gleick/chaos-making-a-new-science,Chaos: Making a New Science,James Gleick,1,0,1
+32,12,fan-out,jilly-cooper/rivals,Rivals,Jilly Cooper,1,0,1
+32,12,fan-out,joseph-conrad/heart-of-darkness,Heart of Darkness,Joseph Conrad,1,0,1
+32,12,fan-out,various/princess-mary-s-gift-book,Princess Mary's Gift Book,various,1,0,1
+33,12,fan-out,theodore-dreiser/sister-carrie,Sister Carrie,Theodore Dreiser,9,9,0
+33,12,fan-out,washington-irving/rip-van-winkle,Rip Van Winkle,Washington Irving,3,0,3
+33,12,fan-out,wilkie-collins/the-haunted-hotel,The Haunted Hotel,Wilkie Collins,3,3,0
+33,12,fan-out,albert-ross/moulding-a-maiden,Moulding a Maiden,Albert Ross,1,0,1
+33,12,fan-out,alexandre-dumas/the-corsican-brothers,The Corsican Brothers,Alexandre Dumas,1,0,1
+33,12,fan-out,anonymous/the-queen-s-mate,The Queen's Mate,Anonymous,1,0,1
+33,12,fan-out,augustin-daly/under-the-gaslight,Under the Gaslight,Augustin Daly,1,0,1
+33,12,fan-out,brander-matthews/a-gold-mine,A Gold Mine,Brander Matthews,1,0,1
+33,12,fan-out,charlotte-m-brame/dora-thorne,Dora Thorne,Charlotte M. Brame,1,0,1
+33,12,fan-out,denman-thompson/the-old-homestead,The Old Homestead,Denman Thompson,1,0,1
+33,12,fan-out,honore-de-balzac/pere-goriot,Père Goriot,Honoré de Balzac,1,0,1
+33,12,fan-out,wilkie-collins/my-lady-s-money,My Lady's Money,Wilkie Collins,1,0,1
+34,12,fan-out,william-james/pragmatism,Pragmatism,William James,11,11,0
+34,12,fan-out,augustine-of-hippo/city-of-god,City of God,Augustine of Hippo,1,0,1
+34,12,fan-out,caelius-secundus-curio/de-amplitudine-regni-coelestis,De Amplitudine Regni Coelestis,Caelius Secundus Curio,1,0,1
+34,12,fan-out,f-c-s-schiller/humanism,Humanism,F. C. S. Schiller,1,0,1
+34,12,fan-out,f-c-s-schiller/studies-in-humanism,Studies in Humanism,F. C. S. Schiller,1,0,1
+34,12,fan-out,h-h-joachim/the-nature-of-truth,The Nature of Truth,H. H. Joachim,1,0,1
+34,12,fan-out,heinrich-rickert/der-gegenstand-der-erkenntniss,Der Gegenstand der Erkenntniss,Heinrich Rickert,1,0,1
+34,12,fan-out,john-dewey/studies-in-logical-theory,Studies in Logical Theory,John Dewey,1,0,1
+34,12,fan-out,josiah-royce/the-conception-of-god,The Conception of God,Josiah Royce,1,0,1
+34,12,fan-out,josiah-royce/the-world-and-the-individual,The World and the Individual,Josiah Royce,1,0,1
+34,12,fan-out,morrison-i-swift/human-submission,Human Submission,Morrison I. Swift,1,0,1
+34,12,fan-out,william-james/the-will-to-believe,The Will to Believe,William James,1,0,1
+35,9,fan-out,chimamanda-ngozi-adichie/americanah,Americanah,Chimamanda Ngozi Adichie,8,8,0
+35,9,fan-out,barack-obama/dreams-of-my-father,Dreams of My Father,Barack Obama,1,0,1
+35,9,fan-out,chinua-achebe/things-fall-apart,Things Fall Apart,Chinua Achebe,1,0,1
+35,9,fan-out,evelyn-waugh/brideshead,Brideshead,Evelyn Waugh,1,0,1
+35,9,fan-out,graham-greene/the-end-of-the-affair,The End of the Affair,Graham Greene,1,0,1
+35,9,fan-out,graham-greene/the-heart-of-the-matter,The Heart of the Matter,Graham Greene,1,0,1
+35,9,fan-out,james-baldwin/the-fire-next-time,The Fire Next Time,James Baldwin,1,0,1
+35,9,fan-out,v-s-naipaul/a-bend-in-the-river,A Bend in the River,V. S. Naipaul,1,0,1
+35,9,fan-out,william-faulkner/light-in-august,Light in August,William Faulkner,1,0,1
+36,8,fan-out,james-joyce/dubliners,Dubliners,James Joyce,8,8,0
+36,8,fan-out,anonymous/the-devout-communicant,The Devout Communicant,Anonymous,1,0,1
+36,8,fan-out,caroline-norton/the-arab-s-farewell-to-his-steed,The Arab's Farewell to his Steed,Caroline Norton,1,0,1
+36,8,fan-out,eugene-francois-vidocq/memoirs-of-vidocq,Memoirs of Vidocq,Eugène François Vidocq,1,0,1
+36,8,fan-out,friedrich-nietzsche/the-gay-science,The Gay Science,Friedrich Nietzsche,1,0,1
+36,8,fan-out,friedrich-nietzsche/thus-spoke-zarathustra,Thus Spoke Zarathustra,Friedrich Nietzsche,1,0,1
+36,8,fan-out,gerhart-hauptmann/michael-kramer,Michael Kramer,Gerhart Hauptmann,1,0,1
+36,8,fan-out,walter-scott/the-abbot,The Abbot,Walter Scott,1,0,1
+37,7,fan-out,kurt-vonnegut/slaughterhouse-five,Slaughterhouse-Five,Kurt Vonnegut,6,6,0
+37,7,fan-out,charles-mackay-ll-d/extraordinary-popular-delusions-and-the-madness-of-crowds,Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",1,0,1
+37,7,fan-out,david-irving/the-destruction-of-dresden,The Destruction of Dresden,David Irving,1,0,1
+37,7,fan-out,jacqueline-susann/valley-of-the-dolls,Valley of the Dolls,Jacqueline Susann,1,0,1
+37,7,fan-out,mary-endell/dresden-history-stage-and-gallery,"Dresden, History, Stage and Gallery",Mary Endell,1,0,1
+37,7,fan-out,stephen-crane/the-red-badge-of-courage,The Red Badge of Courage,Stephen Crane,1,0,1
+37,7,fan-out,william-bradford-huie/the-execution-of-private-slovik,The Execution of Private Slovik,William Bradford Huie,1,0,1
+38,7,fan-out,ta-nehisi-coates/between-the-world-and-me,Between the World and Me,Ta-Nehisi Coates,6,6,0
+38,7,fan-out,chancellor-williams/destruction-of-black-civilization,Destruction of Black Civilization,Chancellor Williams,1,0,1
+38,7,fan-out,cheikh-anta-diop/the-african-origin-of-civilization,The African Origin of Civilization,Cheikh Anta Diop,1,0,1
+38,7,fan-out,drusilla-d-houston/wonderful-ethiopians-of-the-ancient-cushite-empire,Wonderful Ethiopians of the Ancient Cushite Empire,Drusilla D Houston,1,0,1
+38,7,fan-out,george-wells-parker/children-of-the-sun,Children of the Sun,George Wells Parker,1,0,1
+38,7,fan-out,thavolia-glymph/out-of-the-house-of-bondage,Out of the House of Bondage,Thavolia Glymph,1,0,1
+38,7,fan-out,truman-capote/breakfast-at-tiffany-s,Breakfast at Tiffany's,Truman Capote,1,0,1
+39,6,fan-out,arnold-bennett/the-old-wives-tale,The Old Wives' Tale,Arnold Bennett,5,5,0
+39,6,fan-out,anonymous/the-harvest-of-a-quiet-eye,The Harvest of a Quiet Eye,Anonymous,1,0,1
+39,6,fan-out,elizabeth-missing-sewell/the-experience-of-life,The Experience of Life,Elizabeth Missing Sewell,1,0,1
+39,6,fan-out,emile-zola/la-debacle,La Débâcle,Émile Zola,1,0,1
+39,6,fan-out,grace-aguilar/the-days-of-bruce,The Days of Bruce,Grace Aguilar,1,0,1
+39,6,fan-out,guy-de-maupassant/fort-comme-la-mort,Fort Comme la Mort,Guy de Maupassant,1,0,1
+40,6,fan-out,jack-london/burning-daylight,Burning Daylight,Jack London,5,5,0
+40,6,fan-out,h-g-wells/the-wheels-of-chance,The Wheels of Chance,H. G. Wells,1,0,1
+40,6,fan-out,robert-browning/caliban-upon-setebos,Caliban upon Setebos,Robert Browning,1,0,1
+40,6,fan-out,robert-browning/fra-lippo-lippi,Fra Lippo Lippi,Robert Browning,1,0,1
+40,6,fan-out,rudyard-kipling/tomlinson,Tomlinson,Rudyard Kipling,1,0,1
+40,6,fan-out,william-ernest-henley/the-song-of-the-sword,The Song of the Sword,William Ernest Henley,1,0,1
+41,6,fan-out,jules-verne/from-the-earth-to-the-moon,From the Earth to the Moon,Jules Verne,5,5,0
+41,6,fan-out,bernard-le-bovier-de-fontenelle/the-plurality-of-worlds,The Plurality of Worlds,Bernard le Bovier de Fontenelle,1,0,1
+41,6,fan-out,cyrano-de-bergerac/journeys-in-the-moon,Journeys in the Moon,Cyrano de Bergerac,1,0,1
+41,6,fan-out,edgar-allan-poe/the-unparalleled-adventure-of-one-hans-pfaall,The Unparalleled Adventure of One Hans Pfaall,Edgar Allan Poe,1,0,1
+41,6,fan-out,francis-godwin/the-man-in-the-moone,The Man in the Moone,Francis Godwin,1,0,1
+41,6,fan-out,richard-adams-locke/the-moon-hoax,The Moon Hoax,Richard Adams Locke,1,0,1
+42,5,mixed,jean-jacques-rousseau/the-confessions,The Confessions,Jean-Jacques Rousseau,3,2,1
+42,5,mixed,fyodor-dostoevsky/crime-and-punishment,Crime and Punishment,Fyodor Dostoevsky,2,2,0
+42,5,mixed,alexander-pushkin/egyptian-nights,Egyptian Nights,Alexander Pushkin,1,0,1
+42,5,mixed,augustine-of-hippo/de-magistro-the-teacher,De Magistro (The Teacher),Augustine of Hippo,1,0,1
+42,5,mixed,cicero/hortensius,Hortensius,Cicero,1,0,1
+43,5,fan-out,mark-twain/roughing-it,Roughing It,Mark Twain,4,4,0
+43,5,fan-out,c-v-waite/the-mormon-prophet,The Mormon Prophet,C. V. Waite,1,0,1
+43,5,fan-out,charles-reade/love-me-little-love-me-long,"Love Me Little, Love Me Long",Charles Reade,1,0,1
+43,5,fan-out,j-g-wood/the-uncivilized-races-of-men-in-all-countries-of-the-world,The Uncivilized Races of Men in All Countries of the World,J. G. Wood,1,0,1
+43,5,fan-out,thomas-j-dimsdale/the-vigilantes-of-montana,The Vigilantes of Montana,Thomas J. Dimsdale,1,0,1
+44,4,fan-out,euripides/the-trojan-women,The Trojan Women,Euripides,3,3,0
+44,4,fan-out,anonymous/the-song-of-roland,The Song of Roland,Anonymous,1,0,1
+44,4,fan-out,isocrates/encomium-of-helen,Encomium of Helen,Isocrates,1,0,1
+44,4,fan-out,jane-ellen-harrison/prolegomena-to-the-study-of-greek-religion,Prolegomena to the Study of Greek Religion,Jane Ellen Harrison,1,0,1
+45,4,fan-out,fyodor-dostoevsky/notes-from-the-underground,Notes from the Underground,Fyodor Dostoevsky,3,3,0
+45,4,fan-out,alexander-pushkin/the-shot,The Shot,Alexander Pushkin,1,0,1
+45,4,fan-out,byron/manfred,Manfred,Byron,1,0,1
+45,4,fan-out,mikhail-lermontov/masquerade,Masquerade,Mikhail Lermontov,1,0,1
+46,4,fan-out,samuel-butler/erewhon,Erewhon,Samuel Butler,3,3,0
+46,4,fan-out,edward-bulwer-lytton/the-coming-race,The Coming Race,Edward Bulwer-Lytton,1,0,1
+46,4,fan-out,samuel-butler/erewhon-revisited,Erewhon Revisited,Samuel Butler,1,0,1
+46,4,fan-out,samuel-butler/life-and-habit,Life and Habit,Samuel Butler,1,0,1
+47,4,fan-out,sheridan-le-fanu/carmilla,Carmilla,Sheridan Le Fanu,3,3,0
+47,4,fan-out,johann-christoph-harenberg/philosophicae-et-christianae-cogitationes-de-vampiris,Philosophicae et Christianae Cogitationes de Vampiris,Johann Christoph Harenberg,1,0,1
+47,4,fan-out,karl-ferdinand-von-schertz/magia-posthuma,Magia Posthuma,Karl Ferdinand von Schertz,1,0,1
+47,4,fan-out,phlegon-of-tralles/de-mirabilibus,De Mirabilibus,Phlegon of Tralles,1,0,1
+48,4,fan-out,suetonius/the-twelve-caesars,The Twelve Caesars,Suetonius,3,3,0
+48,4,fan-out,gnaeus-naevius/bellum-punicum,Bellum Punicum,Gnaeus Naevius,1,0,1
+48,4,fan-out,julius-caesar/anticato,Anticato,Julius Caesar,1,0,1
+48,4,fan-out,seneca/hercules-oetaeus,Hercules Oetaeus,Seneca,1,0,1
+49,3,mixed,anthony-hope/the-prisoner-of-zenda,The Prisoner of Zenda,Anthony Hope,2,1,1
+49,3,mixed,a-e-w-mason/the-four-feathers,The Four Feathers,A. E. W. Mason,1,1,0
+49,3,mixed,richard-brinsley-sheridan/the-critic,The Critic,Richard Brinsley Sheridan,1,0,1
+50,3,fan-out,apuleius/the-golden-ass,The Golden Ass,Apuleius,2,2,0
+50,3,fan-out,anonymous/the-dialogue-of-trismegistus,The Dialogue of Trismegistus,Anonymous,1,0,1
+50,3,fan-out,aristotle/meteorology,Meteorology,Aristotle,1,0,1
+51,3,fan-out,arthur-conan-doyle/a-study-in-scarlet,A Study in Scarlet,Arthur Conan Doyle,2,2,0
+51,3,fan-out,edgar-allan-poe/the-murders-in-the-rue-morgue,The Murders in the Rue Morgue,Edgar Allan Poe,1,0,1
+51,3,fan-out,emile-gaboriau/monsieur-lecoq,Monsieur Lecoq,Émile Gaboriau,1,0,1
+52,3,fan-out,arthur-conan-doyle/the-white-company,The White Company,Arthur Conan Doyle,2,2,0
+52,3,fan-out,anonymous/doon-de-mayence,Doon de Mayence,Anonymous,1,0,1
+52,3,fan-out,anonymous/garin-de-montglane,Garin de Montglane,Anonymous,1,0,1
+53,3,fan-out,e-nesbit/the-railway-children,The Railway Children,E. Nesbit,2,2,0
+53,3,fan-out,anonymous/the-child-s-guide-to-knowledge,The Child's Guide to Knowledge,Anonymous,1,0,1
+53,3,fan-out,rudyard-kipling/the-man-who-was,The Man Who Was,Rudyard Kipling,1,0,1
+54,3,fan-out,ed-catmull/creativity-inc,"Creativity, Inc.",Ed Catmull,2,2,0
+54,3,fan-out,bob-thomas/the-art-of-animation,The Art of Animation,Bob Thomas,1,0,1
+54,3,fan-out,richard-i-levin/buy-low-sell-high-collect-early-and-pay-late-the-manager-s-guide-to-financial-survival,"Buy Low, Sell High, Collect Early, and Pay Late: The Manager's Guide to Financial Survival",Richard I. Levin,1,0,1
+55,3,fan-out,edith-wharton/the-reef,The Reef,Edith Wharton,2,2,0
+55,3,fan-out,erckmann-chatrian/l-ami-fritz,L'Ami Fritz,Erckmann-Chatrian,1,0,1
+55,3,fan-out,henri-bernstein/le-vertige,Le Vertige,Henri Bernstein,1,0,1
+56,3,fan-out,eleanor-h-porter/pollyanna,Pollyanna,Eleanor H. Porter,2,2,0
+56,3,fan-out,eleanor-h-porter/the-turn-of-the-tides,The Turn of the Tides,Eleanor H. Porter,1,0,1
+56,3,fan-out,g-a-henty/the-lost-heir,The Lost Heir,G. A. Henty,1,0,1
+57,3,fan-out,elizabeth-gaskell/sylvia-s-lovers,Sylvia's Lovers,Elizabeth Gaskell,2,2,0
+57,3,fan-out,john-mason/a-treatise-on-self-knowledge,A Treatise on Self-Knowledge,John Mason,1,0,1
+57,3,fan-out,william-law/a-serious-call-to-a-devout-and-holy-life,A Serious Call to a Devout and Holy Life,William Law,1,0,1
+58,3,fan-out,erasmus/the-praise-of-folly,The Praise of Folly,Erasmus,2,2,0
+58,3,fan-out,anonymous/gesta-romanorum,Gesta Romanorum,Anonymous,1,0,1
+58,3,fan-out,plutarch/gryllus,Gryllus,Plutarch,1,0,1
+59,3,fan-out,guy-de-maupassant/une-vie,Une Vie,Guy de Maupassant,2,2,0
+59,3,fan-out,alphonse-de-lamartine/meditations-poetiques,Méditations poétiques,Alphonse de Lamartine,1,0,1
+59,3,fan-out,germaine-de-stael/corinne,Corinne,Germaine de Staël,1,0,1
+60,3,fan-out,herman-melville/bartleby-the-scrivener,"Bartleby, the Scrivener",Herman Melville,2,2,0
+60,3,fan-out,jonathan-edwards/the-freedom-of-the-will,The Freedom of the Will,Jonathan Edwards,1,0,1
+60,3,fan-out,joseph-priestley/the-doctrine-of-philosophical-necessity-illustrated,The Doctrine of Philosophical Necessity Illustrated,Joseph Priestley,1,0,1
+61,3,fan-out,jack-london/the-star-rover,The Star Rover,Jack London,2,2,0
+61,3,fan-out,anonymous/mahabharata,Mahabharata,Anonymous,1,0,1
+61,3,fan-out,daniel-foss/a-journal-of-the-shipwreck-and-sufferings-of-daniel-foss,A Journal of the Shipwreck and Sufferings of Daniel Foss,Daniel Foss,1,0,1
+62,3,fan-out,knut-hamsun/hunger,Hunger,Knut Hamsun,2,2,0
+62,3,fan-out,knut-hamsun/in-wonderland,In Wonderland,Knut Hamsun,1,0,1
+62,3,fan-out,knut-hamsun/the-spiritual-life-of-modern-america,The Spiritual Life of Modern America,Knut Hamsun,1,0,1
+63,3,fan-out,prosper-merimee/carmen,Carmen,Prosper Mérimée,2,2,0
+63,3,fan-out,anonymous/bellum-hispaniense,Bellum Hispaniense,Anonymous,1,0,1
+63,3,fan-out,julius-caesar/commentaries,Commentaries,Julius Caesar,1,0,1
+64,3,fan-out,rudyard-kipling/captains-courageous,Captains Courageous,Rudyard Kipling,2,2,0
+64,3,fan-out,flavius-josephus/the-works-of-josephus,The Works of Josephus,Flavius Josephus,1,0,1
+64,3,fan-out,john-greenleaf-whittier/skipper-ireson-s-ride,Skipper Ireson's Ride,John Greenleaf Whittier,1,0,1
+65,3,fan-out,s-e-hinton/the-outsiders,The Outsiders,S. E. Hinton,2,2,0
+65,3,fan-out,harold-robbins/the-carpetbaggers,The Carpetbaggers,Harold Robbins,1,0,1
+65,3,fan-out,margaret-mitchell/gone-with-the-wind,Gone with the Wind,Margaret Mitchell,1,0,1
+66,2,fan-out,adolph-hitler/mein-kampf,Mein Kampf,Adolph Hitler,1,0,1
+66,2,fan-out,markus-zusak/the-book-thief,The Book Thief,Markus Zusak,1,1,0
+67,2,fan-out,alfred-tennyson/oenone,Oenone,Alfred Tennyson,1,0,1
+67,2,fan-out,thomas-hardy/two-on-a-tower,Two on a Tower,Thomas Hardy,1,1,0
+68,2,fan-out,anonymous/queen-elizabeth,Queen Elizabeth,Anonymous,1,1,0
+68,2,fan-out,john-knox/the-first-blast-of-the-trumpet-against-the-monstruous-regiment-of-women,The First Blast of the Trumpet Against the Monstruous Regiment of Women,John Knox,1,0,1
+69,2,fan-out,anonymous/recueil-des-miracles-de-l-abbe-paris,Recueil des Miracles de l'Abbe Paris,Anonymous,1,0,1
+69,2,fan-out,david-hume/an-enquiry-concerning-human-understanding,An Enquiry Concerning Human Understanding,David Hume,1,1,0
+70,2,fan-out,anonymous/the-compleat-fortune-teller,The Compleat Fortune-Teller,Anonymous,1,0,1
+70,2,fan-out,thomas-hardy/tess-of-the-d-urbervilles,Tess of the d'Urbervilles,Thomas Hardy,1,1,0
+71,2,fan-out,aristophanes/the-frogs,The Frogs,Aristophanes,1,1,0
+71,2,fan-out,euripides/andromeda,Andromeda,Euripides,1,0,1
+72,2,fan-out,arrian/the-discourses-of-epictetus,The Discourses of Epictetus,Arrian,1,0,1
+72,2,fan-out,epictetus/the-enchiridion,The Enchiridion,Epictetus,1,1,0
+73,2,fan-out,arthur-conan-doyle/the-sign-of-the-four,The Sign of the Four,Arthur Conan Doyle,1,1,0
+73,2,fan-out,winwood-reade/the-martyrdom-of-man,The Martyrdom of Man,Winwood Reade,1,0,1
+74,2,fan-out,baruch-spinoza/ethics,Ethics,Baruch Spinoza,1,1,0
+74,2,fan-out,baruch-spinoza/principles-of-cartesian-philosophy,Principles of Cartesian Philosophy,Baruch Spinoza,1,0,1
+75,2,fan-out,charles-perrault/riquet-a-la-houppe,Riquet a la Houppe,Charles Perrault,1,0,1
+75,2,fan-out,frances-hodgson-burnett/the-secret-garden,The Secret Garden,Frances Hodgson Burnett,1,1,0
+76,2,fan-out,edith-wharton/ethan-frome,Ethan Frome,Edith Wharton,1,1,0
+76,2,fan-out,rose-hartwick-thorpe/curfew-must-not-ring-to-night,Curfew Must Not Ring To-Night,Rose Hartwick Thorpe,1,0,1
+77,2,fan-out,elizabeth-gaskell/ruth,Ruth,Elizabeth Gaskell,1,1,0
+77,2,fan-out,jacopo-facciolati/lexicon-totius-latinitatis-facciolati-s-latin-lexicon,Lexicon totius Latinitatis (Facciolati's Latin Lexicon),Jacopo Facciolati,1,0,1
+78,2,fan-out,fenimore-cooper/the-deerslayer,The Deerslayer,Fenimore Cooper,1,0,1
+78,2,fan-out,mikhail-bulgakov/a-country-doctor-s-notebook,A Country Doctor's Notebook,Mikhail Bulgakov,1,1,0
+79,2,fan-out,g-k-chesterton/the-innocence-of-father-brown,The Innocence of Father Brown,G. K. Chesterton,1,1,0
+79,2,fan-out,h-g-wells/the-invisible-man,The Invisible Man,H. G. Wells,1,0,1
+80,2,fan-out,h-g-wells/the-first-men-in-the-moon,The First Men in the Moon,H. G. Wells,1,1,0
+80,2,fan-out,william-shakespeare/the-works-of-william-shakespeare,The Works of William Shakespeare,William Shakespeare,1,0,1
+81,2,fan-out,h-g-wells/the-food-of-the-gods,The Food of the Gods,H. G. Wells,1,1,0
+81,2,fan-out,marie-corelli/the-mighty-atom,The Mighty Atom,Marie Corelli,1,0,1
+82,2,fan-out,h-g-wells/the-island-of-doctor-moreau,The Island of Doctor Moreau,H. G. Wells,1,1,0
+82,2,fan-out,victor-hugo/l-homme-qui-rit,L'Homme qui Rit,Victor Hugo,1,0,1
+83,2,fan-out,henry-demarest-lloyd/wealth-against-commonwealth,Wealth Against Commonwealth,Henry Demarest Lloyd,1,0,1
+83,2,fan-out,upton-sinclair/the-jungle,The Jungle,Upton Sinclair,1,1,0
+84,2,fan-out,henry-james/daisy-miller,Daisy Miller,Henry James,1,1,0
+84,2,fan-out,victor-cherbuliez/paule-mere,Paule Méré,Victor Cherbuliez,1,0,1
+85,2,fan-out,herbert-spencer/social-statics,Social Statics,Herbert Spencer,1,0,1
+85,2,fan-out,leo-tolstoy/resurrection,Resurrection,Leo Tolstoy,1,1,0
+86,2,fan-out,j-m-synge/the-playboy-of-the-western-world,The Playboy of the Western World,J. M. Synge,1,1,0
+86,2,fan-out,j-m-synge/the-shadow-of-the-glen,The Shadow of the Glen,J. M. Synge,1,0,1
+87,2,fan-out,john-stuart-mill/the-subjection-of-women,The Subjection of Women,John Stuart Mill,1,1,0
+87,2,fan-out,madame-de-stael/delphine,Delphine,Madame de Staël,1,0,1
+88,2,fan-out,jules-verne/michael-strogoff,Michael Strogoff,Jules Verne,1,1,0
+88,2,fan-out,william-cowper/the-diverting-history-of-john-gilpin,The Diverting History of John Gilpin,William Cowper,1,0,1
+89,2,fan-out,thomas-hardy/wessex-tales,Wessex Tales,Thomas Hardy,1,1,0
+89,2,fan-out,william-buchan/domestic-medicine,Domestic Medicine,William Buchan,1,0,1
+90,2,fan-out,w-h-hudson/green-mansions,Green Mansions,W. H. Hudson,1,1,0
+90,2,fan-out,w-h-hudson/idle-days-in-patagonia,Idle Days in Patagonia,W. H. Hudson,1,0,1
