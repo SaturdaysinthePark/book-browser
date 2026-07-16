@@ -1,0 +1,219 @@
+#!/usr/bin/env node
+// build-book-graph.mjs — precompute the Constellation page's data, offline, from the DB.
+//
+// Reads bookjumpr.db (the source of truth) and emits constellation-data.js:
+//   window.BookGraph = { meta, nodes, edges, leaves, leavesFor }
+// a file://-friendly global, exactly like network-data.js / bookjumpr-data.js.
+//
+// The design: a radial "constellation". The mention graph is split into
+//   backbone — books that are a source, or are cited by >1 book (rendered as stars, given x/y)
+//   leaves   — books cited by exactly one hub and citing nothing (rim books; positioned on
+//              demand in the UI, so they carry no x/y here, only a leavesFor hub mapping)
+// Backbone nodes are laid out by a Fruchterman-Reingold force sim PLUS a radial spring that
+// pulls each node toward a target radius = f(degree): most-connected → center, so the guide
+// rings ("20+/8+/3+/1+ CONNECTIONS") read as real connection tiers. `ls` is a PageRank-style
+// popularity used only for label priority. Deterministic (seeded) → byte-stable output.
+//
+// NOTE (data limits): the DB's `mentions` table is UNIQUE(source,target), so every edge weight
+// is 1 (flow-line thickness / strongest-link are uniform — they degrade gracefully). Node x/y
+// are freshly computed here and intentionally do NOT match the design handoff's frozen coords;
+// fidelity lives in the renderer, layout comes from data.
+//
+// Run:  npm run bj:graph      (adds --experimental-sqlite for you)
+
+import { readFileSync, writeFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import { dirname, join, resolve } from 'node:path';
+import { open } from './db.mjs';
+
+const HERE = dirname(fileURLToPath(import.meta.url));
+const ROOT = resolve(HERE, '..');
+const EXTENT = 2000;          // world is EXTENT×EXTENT, centered at origin (coords ≈ ±1000)
+const RIM = EXTENT / 2 - 40;  // outermost usable radius (matches the engine's leaf rim)
+
+// Guide-ring anchors: a book with v+ total connections sits within radius r. The radial layout
+// is anchored to exactly these, so the rings mark the band boundaries.
+const RING_ANCHORS = [{ v: 20, r: 177 }, { v: 8, r: 425 }, { v: 3, r: 708 }, { v: 1, r: 920 }];
+const INNER_R = 44;           // radius the single most-connected book is pulled toward
+
+// Fiction/nonfiction from genre (MISC/unknown → fiction; matches the corpus's heavy fiction skew).
+const NONFICTION = new Set([
+  'HISTORY', 'BIOGRAPHY & MEMOIR', 'PHILOSOPHY', 'PSYCHOLOGY', 'POLITICS & WORLD',
+  'BUSINESS & ECONOMICS', 'ESSAYS & JOURNALISM', 'FOOD & COOKING',
+]);
+const isFiction = (genre) => (NONFICTION.has(String(genre || '').trim().toUpperCase()) ? 0 : 1);
+
+// deterministic RNG (mulberry32) so the layout is stable run-to-run
+function mulberry32(seed) {
+  let a = seed >>> 0;
+  return () => {
+    a |= 0; a = (a + 0x6d2b79f5) | 0;
+    let t = Math.imul(a ^ (a >>> 15), 1 | a);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+// Target radius (from origin) for a node of total degree `deg`. Monotonic-decreasing, anchored
+// on the ring boundaries: deg=1→920, 3→708, 8→425, 20→177, maxDeg→INNER_R.
+function targetRadius(deg, maxDeg) {
+  const [r20, r8, r3, r1] = [177, 425, 708, 920];
+  if (deg >= 20) { const hi = Math.max(21, maxDeg); const t = Math.min(1, (deg - 20) / (hi - 20)); return r20 + (INNER_R - r20) * t; }
+  if (deg >= 8) { const t = (deg - 8) / (20 - 8); return r8 + (r20 - r8) * t; }
+  if (deg >= 3) { const t = (deg - 3) / (8 - 3); return r3 + (r8 - r3) * t; }
+  const t = Math.max(0, (deg - 1)) / (3 - 1); return r1 + (r3 - r1) * t;
+}
+
+function main() {
+  const db = open();
+  const bookRows = db.prepare(`
+    SELECT slug,
+           title,
+           COALESCE(author, '')   AS author,
+           COALESCE(year, 0)      AS year,
+           COALESCE(synopsis, '') AS synopsis,
+           COALESCE(genre, '')    AS genre
+    FROM books
+  `).all();
+  const mentions = db.prepare(`SELECT source_slug AS s, mentioned_slug AS t FROM mentions ORDER BY id`).all().map(r => [r.s, r.t]);
+  db.close();
+
+  const book = new Map();
+  for (const r of bookRows) book.set(r.slug, r);
+
+  // ---- degrees + citer sets (from ALL mentions, incl. leaf-targeted ones) ----
+  const outDeg = new Map(), inDeg = new Map(), sourcesOf = new Map(), touched = new Set();
+  for (const [s, t] of mentions) {
+    if (s === t) continue;
+    outDeg.set(s, (outDeg.get(s) || 0) + 1);
+    inDeg.set(t, (inDeg.get(t) || 0) + 1);
+    if (!sourcesOf.has(t)) sourcesOf.set(t, new Set());
+    sourcesOf.get(t).add(s);
+    touched.add(s); touched.add(t);
+  }
+  const oOf = k => outDeg.get(k) || 0;
+  const iOf = k => inDeg.get(k) || 0;
+
+  // ---- split: leaf = cited by exactly one source AND cites nothing; else backbone ----
+  const isLeaf = (k) => oOf(k) === 0 && (sourcesOf.get(k)?.size || 0) === 1;
+  const universe = [...touched].filter(k => book.has(k));   // books that appear in the mention graph
+  const backboneKeys = universe.filter(k => !isLeaf(k));
+  const leafKeys = universe.filter(k => isLeaf(k));
+
+  // deterministic node order: descending total degree, then slug (index 0 = most connected)
+  backboneKeys.sort((a, b) => (oOf(b) + iOf(b)) - (oOf(a) + iOf(a)) || (a < b ? -1 : 1));
+  const bIdx = new Map(backboneKeys.map((k, i) => [k, i]));
+  const isBackbone = k => bIdx.has(k);
+
+  // ---- backbone edges + leavesFor (leaves grouped under their single citing hub) ----
+  const leafIdx = new Map(leafKeys.map((k, i) => [k, i]));
+  const edgeSet = new Set();     // dedupe (should already be unique) "a>b"
+  const edges = [];
+  const leavesFor = {};
+  for (const [s, t] of mentions) {
+    if (s === t || !isBackbone(s)) continue;         // every source is backbone (it has out>0)
+    if (isBackbone(t)) {
+      const a = bIdx.get(s), b = bIdx.get(t), key = a + '>' + b;
+      if (!edgeSet.has(key)) { edgeSet.add(key); edges.push([a, b, 1]); }
+    } else if (leafIdx.has(t)) {
+      const hub = bIdx.get(s), li = leafIdx.get(t);
+      (leavesFor[hub] || (leavesFor[hub] = [])).push(li);
+    }
+  }
+
+  // ---- ls: PageRank-style popularity over the backbone graph (label priority only) ----
+  const n = backboneKeys.length;
+  const outAdj = Array.from({ length: n }, () => []);
+  for (const [a, b] of edges) outAdj[a].push(b);
+  let pr = new Array(n).fill(1 / n);
+  const dcy = 0.85;
+  for (let it = 0; it < 50; it++) {
+    const next = new Array(n).fill((1 - dcy) / n);
+    let dangling = 0;
+    for (let i = 0; i < n; i++) { if (outAdj[i].length === 0) dangling += pr[i]; else { const share = dcy * pr[i] / outAdj[i].length; for (const j of outAdj[i]) next[j] += share; } }
+    const dShare = dcy * dangling / n;
+    for (let i = 0; i < n; i++) next[i] += dShare;
+    pr = next;
+  }
+  const maxPr = Math.max(...pr, 1e-9);
+  const lsOf = i => +(pr[i] / maxPr * 95 + 0.3).toFixed(2);
+
+  // ---- degree-radial force layout for the backbone ----
+  const rng = mulberry32(7);
+  const degOf = i => oOf(backboneKeys[i]) + iOf(backboneKeys[i]);
+  const maxDeg = Math.max(...backboneKeys.map((k) => oOf(k) + iOf(k)), 1);
+  const Rt = new Array(n);
+  const px = new Array(n), py = new Array(n);
+  for (let i = 0; i < n; i++) {
+    Rt[i] = targetRadius(degOf(i), maxDeg);
+    const a = i * Math.PI * (3 - Math.sqrt(5)) + rng() * 0.3;   // golden-angle seed + tiny jitter
+    px[i] = Math.cos(a) * Rt[i]; py[i] = Math.sin(a) * Rt[i];
+  }
+  const ITERS = 480, SEP = 30, KREP = 0.9, KATT = 0.018, REST = 62, KRAD = 0.22;
+  for (let it = 0; it < ITERS; it++) {
+    const cool = 1 - it / ITERS;                 // 1 → 0
+    const step = 0.9 * cool + 0.15;
+    const dx = new Array(n).fill(0), dy = new Array(n).fill(0);
+    // short-range anti-overlap repulsion (keeps stars from stacking without global spreading)
+    for (let a = 0; a < n; a++) for (let b = a + 1; b < n; b++) {
+      let ex = px[a] - px[b], ey = py[a] - py[b];
+      let d = Math.hypot(ex, ey); if (d < 1e-4) { ex = rng() - 0.5; ey = rng() - 0.5; d = 1e-4; }
+      if (d < SEP) { const f = KREP * (SEP - d) / d; dx[a] += ex * f; dy[a] += ey * f; dx[b] -= ex * f; dy[b] -= ey * f; }
+    }
+    // edge attraction (connected books form neighborhood arcs)
+    for (const [a, b] of edges) {
+      const ex = px[a] - px[b], ey = py[a] - py[b];
+      const d = Math.hypot(ex, ey) || 1e-4; const f = KATT * (d - REST);
+      dx[a] -= (ex / d) * f; dy[a] -= (ey / d) * f; dx[b] += (ex / d) * f; dy[b] += (ey / d) * f;
+    }
+    // radial spring toward degree-target radius (forms the ring structure)
+    for (let i = 0; i < n; i++) {
+      const r = Math.hypot(px[i], py[i]) || 1e-4;
+      const f = KRAD * (Rt[i] - r);
+      dx[i] += (px[i] / r) * f; dy[i] += (py[i] / r) * f;
+    }
+    for (let i = 0; i < n; i++) { px[i] += dx[i] * step; py[i] += dy[i] * step; }
+  }
+  // recenter + clamp within rim (preserving each node's angle)
+  let cx = 0, cy = 0; for (let i = 0; i < n; i++) { cx += px[i]; cy += py[i]; } cx /= n; cy /= n;
+  for (let i = 0; i < n; i++) {
+    px[i] -= cx; py[i] -= cy;
+    const r = Math.hypot(px[i], py[i]);
+    if (r > RIM) { px[i] *= RIM / r; py[i] *= RIM / r; }
+  }
+
+  // ---- assemble ----
+  const round = v => Math.round(v * 10) / 10;
+  const nodes = backboneKeys.map((k, i) => {
+    const r = book.get(k);
+    return {
+      n: r.title, a: r.author, x: round(px[i]), y: round(py[i]),
+      o: oOf(k), i: iOf(k), f: isFiction(r.genre), yr: r.year || 0,
+      sy: r.synopsis || '', ls: lsOf(i), key: k,
+    };
+  });
+  const leaves = leafKeys.map((k) => { const r = book.get(k); return { name: r.title, a: r.author, key: k }; });
+
+  const rings = RING_ANCHORS.filter(ring => backboneKeys.some(k => (oOf(k) + iOf(k)) >= ring.v));
+  const meta = {
+    books: backboneKeys.length + leafKeys.length,
+    backbone: backboneKeys.length,
+    edges: edges.length,
+    leaves: leafKeys.length,
+    rings, extent: EXTENT, exact: true,
+    generatedFrom: 'bookjumpr.db',
+  };
+
+  const out = { meta, nodes, edges, leaves, leavesFor };
+  const js = `// GENERATED by tools/build-book-graph.mjs from bookjumpr.db — do not hand-edit.\nwindow.BookGraph = ${JSON.stringify(out)};\n`;
+  writeFileSync(join(ROOT, 'constellation-data.js'), js);
+
+  console.log('constellation-data.js written');
+  console.log(`  universe:  ${meta.books} books  (${meta.backbone} backbone + ${meta.leaves} leaves)`);
+  console.log(`  edges:     ${meta.edges} (backbone, weight 1)`);
+  console.log(`  leavesFor: ${Object.keys(leavesFor).length} hubs`);
+  console.log(`  rings:     ${rings.map(r => r.v + '+@' + r.r).join(', ')}`);
+  console.log(`  maxDeg:    ${maxDeg}  (node[0] = ${nodes[0] && nodes[0].n})`);
+}
+
+main();

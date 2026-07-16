@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&display=swap" rel="stylesheet">
+<style>
+  html,body{margin:0;padding:0;height:100%;overflow:hidden;background:#f4f2ec;}
+  a{color:#1c1b18;} a:hover{color:#8f2d1a;}
+  ::selection{background:#e8e2d2;}
+  input{outline:none;}
+  @keyframes fadeIn{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+</style>
+</helmet>
+
+<div style="position:fixed; inset:0; display:flex; flex-direction:column; background:#f4f2ec; color:#1c1b18; font-family:'IBM Plex Mono',monospace;">
+
+  <!-- HEADER -->
+  <div style="display:flex; align-items:center; gap:14px; padding:10px 16px; border-bottom:1px solid #d8d3c4; flex:none; background:#f4f2ec; z-index:20; flex-wrap:nowrap;">
+    <div style="font-family:'Source Serif 4',Georgia,serif; font-weight:600; font-size:20px; white-space:nowrap;">BookJumpr</div>
+    <sc-if value="{{ showStat }}" hint-placeholder-val="{{ true }}">
+      <div style="font-size:10px; letter-spacing:0.1em; color:#8a8474; white-space:nowrap; overflow:hidden; text-overflow:ellipsis;">{{ statLine }}</div>
+    </sc-if>
+    <div style="display:flex; border:1px solid #1c1b18; margin-left:auto; flex:none;">
+      <button onClick="{{ setModeBooks }}" style="{{ btnBooks }}">BOOKS</button>
+      <button onClick="{{ setModeAuthors }}" style="{{ btnAuthors }}">AUTHORS</button>
+    </div>
+    <div style="position:relative; flex:none; width:{{ searchW }};">
+      <input ref="{{ searchRef }}" value="{{ searchQ }}" onChange="{{ onSearch }}" onFocus="{{ onSearchFocus }}" onBlur="{{ onSearchBlur }}" placeholder="search…" style="width:100%; box-sizing:border-box; padding:7px 12px; border:1px solid #1c1b18; border-radius:18px; background:#f9f8f3; font-family:'IBM Plex Mono',monospace; font-size:12px;"></input>
+      <sc-if value="{{ hasSearchResults }}" hint-placeholder-val="{{ false }}">
+        <div style="position:absolute; top:calc(100% + 6px); right:0; width:300px; max-width:86vw; background:#f9f8f3; border:1px solid #1c1b18; box-shadow:4px 4px 0 rgba(28,27,24,0.12); z-index:60; animation:fadeIn 0.12s ease;">
+          <sc-if value="{{ showPopularHead }}" hint-placeholder-val="{{ false }}">
+            <div style="padding:7px 14px 5px; font-size:8.5px; letter-spacing:0.16em; color:#8a8474; border-bottom:1px solid #e6e1d3;">MOST CONNECTED</div>
+          </sc-if>
+          <sc-for list="{{ searchResults }}" as="res" hint-placeholder-count="0">
+            <div onMouseDown="{{ res.pick }}" style="padding:8px 14px; cursor:pointer; border-bottom:1px solid #e6e1d3;" style-hover="background:#eee9db;">
+              <div style="font-family:'Source Serif 4',Georgia,serif; font-size:14px;">{{ res.name }}</div>
+              <div style="font-size:10px; color:#8a8474; margin-top:1px;">{{ res.sub }}</div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+
+  <!-- CANVAS -->
+  <div style="flex:1; min-height:0; position:relative;">
+    <div ref="{{ wrapRef }}" style="position:absolute; inset:0; cursor:grab; overflow:hidden; touch-action:none;">
+      <canvas ref="{{ canvasRef }}" onMouseDown="{{ onDown }}" onMouseMove="{{ onMove }}" onMouseUp="{{ onUp }}" onMouseLeave="{{ onLeave }}" onClick="{{ onCanvasClick }}" style="position:absolute; inset:0; display:block;"></canvas>
+    </div>
+
+    <sc-if value="{{ showHint }}" hint-placeholder-val="{{ true }}">
+      <div style="position:absolute; bottom:12px; right:16px; font-size:10px; letter-spacing:0.05em; color:#8a8474; pointer-events:none; z-index:5; text-align:right;">{{ hintLine }}</div>
+    </sc-if>
+
+    <!-- zoom rail -->
+    <div style="position:absolute; top:14px; right:14px; display:flex; flex-direction:column; align-items:center; gap:7px; z-index:5;">
+      <button onClick="{{ zoomIn }}" style="width:30px; height:30px; border:1px solid #1c1b18; border-radius:50%; background:#f9f8f3; font-size:14px; cursor:pointer; font-family:'IBM Plex Mono',monospace; padding:0;" style-hover="background:#1c1b18; color:#f4f2ec;">+</button>
+      <div ref="{{ railRef }}" onPointerDown="{{ railDown }}" onPointerMove="{{ railMove }}" onPointerUp="{{ railUp }}" style="position:relative; width:30px; height:{{ railH }}; cursor:ns-resize; touch-action:none;">
+        <div style="position:absolute; left:50%; top:0; bottom:0; width:2px; margin-left:-1px; background:#1c1b18; opacity:0.22;"></div>
+        <div ref="{{ railThumbRef }}" style="position:absolute; left:50%; top:50%; width:16px; height:16px; margin:-8px 0 0 -8px; border-radius:50%; background:#f9f8f3; border:1px solid #1c1b18; box-shadow:2px 2px 0 rgba(28,27,24,0.15); pointer-events:none;"></div>
+      </div>
+      <button onClick="{{ zoomOutBtn }}" style="width:30px; height:30px; border:1px solid #1c1b18; border-radius:50%; background:#f9f8f3; font-size:14px; cursor:pointer; font-family:'IBM Plex Mono',monospace; padding:0;" style-hover="background:#1c1b18; color:#f4f2ec;">−</button>
+      <button onClick="{{ fitAll }}" style="height:26px; padding:0 9px; border:1px solid #1c1b18; border-radius:13px; background:#f9f8f3; font-size:9px; letter-spacing:0.1em; cursor:pointer; font-family:'IBM Plex Mono',monospace;" style-hover="background:#1c1b18; color:#f4f2ec;">FIT</button>
+    </div>
+
+    <!-- focus chip -->
+    <sc-if value="{{ chipVisible }}" hint-placeholder-val="{{ false }}">
+      <div style="{{ chipStyle }}">
+        <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+          <div style="font-family:'Source Serif 4',Georgia,serif; font-weight:700; font-size:17px; line-height:1.2; min-width:0;">{{ focName }}</div>
+          <button onClick="{{ clearFocus }}" style="border:none; background:none; cursor:pointer; font-size:14px; color:#8a8474; padding:0 0 0 4px; font-family:inherit; flex:none;">✕</button>
+        </div>
+        <sc-if value="{{ focAuthor }}" hint-placeholder-val="{{ false }}">
+          <div style="font-size:11px; color:#5f5a4d; margin-top:3px;">{{ focAuthor }}</div>
+        </sc-if>
+        <div style="font-size:9.5px; color:#8a8474; margin-top:6px; letter-spacing:0.06em;">{{ focSub }}</div>
+        <sc-if value="{{ hasStrong }}" hint-placeholder-val="{{ false }}">
+          <div onClick="{{ strongPick }}" style="display:flex; align-items:baseline; gap:7px; margin-top:10px; padding-top:9px; border-top:1px solid #e6e1d3; cursor:pointer;" style-hover="background:#f0ecdf;">
+            <div style="font-size:8.5px; letter-spacing:0.12em; color:#8f2d1a; flex:none;">STRONGEST LINK →</div>
+            <div style="font-family:'Source Serif 4',Georgia,serif; font-style:italic; font-size:12.5px; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ strongName }}</div>
+          </div>
+        </sc-if>
+        <div style="display:flex; gap:8px; margin-top:12px;">
+          <button onClick="{{ openPanel }}" style="padding:7px 14px; border:1px solid #1c1b18; background:#1c1b18; color:#f4f2ec; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; cursor:pointer;">DETAILS</button>
+          <sc-if value="{{ hasUrl }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ openPage }}" style="padding:7px 14px; border:1px solid #1c1b18; background:transparent; color:#1c1b18; font-family:'IBM Plex Mono',monospace; font-size:10px; letter-spacing:0.1em; cursor:pointer;" style-hover="background:#f0ecdf;">OPEN PAGE ↗</button>
+          </sc-if>
+        </div>
+      </div>
+    </sc-if>
+
+    <!-- details panel -->
+    <sc-if value="{{ panelVisible }}" hint-placeholder-val="{{ false }}">
+      <div style="{{ panelStyle }}">
+        <div style="padding:16px 18px 12px; border-bottom:1px solid #e6e1d3; flex:none;">
+          <div style="display:flex; justify-content:space-between; gap:10px; align-items:flex-start;">
+            <div style="font-family:'Source Serif 4',Georgia,serif; font-weight:700; font-size:19px; line-height:1.2;">{{ focName }}</div>
+            <button onClick="{{ closePanel }}" style="border:none; background:none; cursor:pointer; font-size:14px; color:#8a8474; padding:0; font-family:inherit;">✕</button>
+          </div>
+          <sc-if value="{{ focAuthor }}" hint-placeholder-val="{{ false }}">
+            <div style="font-size:11px; color:#5f5a4d; margin-top:4px;">{{ focAuthor }}</div>
+          </sc-if>
+          <div style="font-size:9.5px; color:#8a8474; margin-top:5px; letter-spacing:0.06em;">{{ focSub }}</div>
+          <sc-if value="{{ focSyn }}" hint-placeholder-val="{{ false }}">
+            <div style="font-family:'Source Serif 4',Georgia,serif; font-size:12.5px; line-height:1.5; color:#3d3a33; margin-top:10px; font-style:italic;">{{ focSyn }}</div>
+          </sc-if>
+        </div>
+        <div style="flex:1; overflow-y:auto; min-height:0; padding:6px 0;">
+          <sc-for list="{{ focSections }}" as="sec" hint-placeholder-count="0">
+            <div style="padding:8px 18px 2px; font-size:9px; letter-spacing:0.14em; color:{{ sec.color }}; font-weight:600;">{{ sec.label }}</div>
+            <sc-for list="{{ sec.items }}" as="it" hint-placeholder-count="0">
+              <div onClick="{{ it.pick }}" style="display:flex; align-items:baseline; gap:8px; padding:6px 18px; cursor:pointer;" style-hover="background:#f0ecdf;">
+                <div style="font-family:'Source Serif 4',Georgia,serif; font-size:13px; font-style:italic; min-width:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">{{ it.name }}</div>
+                <div style="margin-left:auto; flex:none; font-size:9.5px; color:#8a8474;">{{ it.w }}</div>
+              </div>
+            </sc-for>
+          </sc-for>
+        </div>
+      </div>
+    </sc-if>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:&quot;100%&quot;,&quot;height&quot;:&quot;100%&quot;},&quot;bookUrlPattern&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Links&quot;},&quot;showRings&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Map&quot;},&quot;labelDensity&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1,&quot;min&quot;:0.5,&quot;max&quot;:2,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Map&quot;},&quot;ambientTours&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Map&quot;}}">
+class Component extends DCLogic {
+  state = { ready: false, mode: 'books', focus: -1, panelOpen: false, searchQ: '', searchResults: [], popular: false, isMobile: false };
+  view = { x: 0, y: 0, k: 0.5 };
+  tween = null; dragging = false; dragMoved = false; lastMX = 0; lastMY = 0;
+  hover = -1; dirty = true; raf = 0; graphs = {};
+  pulseOn = true; pinch = null; touchStart = null;
+  tourT0 = 0; tourIdx = 0; railDrag = false; lastRailK = 0;
+
+  componentDidMount() {
+    Promise.all([import('./book-graph.js'), import('./author-graph.js')]).then(([b, a]) => {
+      this.graphs.books = this.prep(b.BG);
+      this.graphs.authors = this.prep(a.AG);
+      this.setupCanvas();
+      this.fit();
+      this.setState({ ready: true, isMobile: this.wrapEl.clientWidth < 640 });
+      this.loop();
+    });
+    this.keyH = e => {
+      if (e.key === 'Escape') { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; }
+      else if (e.key === '/' && document.activeElement !== this.searchEl) { e.preventDefault(); if (this.searchEl) this.searchEl.focus(); }
+    };
+    window.addEventListener('keydown', this.keyH);
+  }
+  prep(G) {
+    const adjOut = G.nodes.map(() => []), adjIn = G.nodes.map(() => []);
+    for (const [i, j, w] of G.edges) { adjOut[i].push([j, w || 1]); adjIn[j].push([i, w || 1]); }
+    const neigh = G.nodes.map((_, i) => new Set([...adjOut[i].map(e => e[0]), ...adjIn[i].map(e => e[0])]));
+    const order = [...G.nodes.keys()].sort((x, y) => (G.nodes[y].o + G.nodes[y].i) - (G.nodes[x].o + G.nodes[x].i));
+    const labelOrder = [...G.nodes.keys()].sort((x, y) => (G.nodes[y].ls || 0) - (G.nodes[x].ls || 0));
+    const c = { G, adjOut, adjIn, neigh, order, labelOrder, extent: G.meta.extent || 2000 };
+    c.chains = this.buildChains(c);
+    return c;
+  }
+  buildChains(c) {
+    const res = [], used = new Set();
+    for (const s of c.order) {
+      if (res.length >= 20) break;
+      const seen = new Set([s]); const path = [s]; let cur = s;
+      while (path.length < 6) {
+        let best = -1, bw = -1;
+        for (const [j, w] of c.adjOut[cur]) if (!seen.has(j) && w > bw) { bw = w; best = j; }
+        if (best < 0) break;
+        seen.add(best); path.push(best); cur = best;
+      }
+      if (path.length >= 4 && !used.has(path[0]) && !used.has(path[1])) { res.push(path); for (const p of path) used.add(p); }
+    }
+    for (let i = res.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [res[i], res[j]] = [res[j], res[i]]; }
+    return res;
+  }
+  cur() { return this.graphs[this.state.mode]; }
+  componentWillUnmount() { cancelAnimationFrame(this.raf); if (this.ro) this.ro.disconnect(); window.removeEventListener('keydown', this.keyH); }
+
+  setupCanvas() {
+    const cv = this.canvasEl, wrap = this.wrapEl;
+    this.ctx = cv.getContext('2d');
+    const resize = () => {
+      const dpr = window.devicePixelRatio || 1;
+      cv.width = wrap.clientWidth * dpr; cv.height = wrap.clientHeight * dpr;
+      cv.style.width = wrap.clientWidth + 'px'; cv.style.height = wrap.clientHeight + 'px';
+      this.dpr = dpr; this.dirty = true;
+      const mob = wrap.clientWidth < 640;
+      if (this.state.ready && mob !== this.state.isMobile) this.setState({ isMobile: mob });
+    };
+    this.ro = new ResizeObserver(resize); this.ro.observe(wrap); resize();
+    wrap.addEventListener('wheel', e => {
+      e.preventDefault();
+      const r = wrap.getBoundingClientRect();
+      this.zoomAt(e.clientX - r.left, e.clientY - r.top, Math.exp(-e.deltaY * 0.0016));
+    }, { passive: false });
+    if (this.railEl) this.railEl.addEventListener('wheel', e => {
+      e.preventDefault(); e.stopPropagation();
+      const w = wrap.clientWidth, h = wrap.clientHeight;
+      this.zoomAt(w / 2, h / 2, Math.exp(-e.deltaY * 0.0016));
+    }, { passive: false });
+    wrap.addEventListener('touchstart', e => {
+      e.preventDefault();
+      if (e.touches.length === 1) {
+        const t = e.touches[0];
+        this.touchStart = { x: t.clientX, y: t.clientY, t: Date.now(), moved: false };
+        this.lastMX = t.clientX; this.lastMY = t.clientY;
+      } else if (e.touches.length === 2) {
+        this.touchStart = null;
+        const [a, b] = e.touches;
+        this.pinch = { d: Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY), mx: (a.clientX + b.clientX) / 2, my: (a.clientY + b.clientY) / 2 };
+      }
+    }, { passive: false });
+    wrap.addEventListener('touchmove', e => {
+      e.preventDefault();
+      const r = wrap.getBoundingClientRect();
+      if (e.touches.length === 1 && this.touchStart) {
+        const t = e.touches[0];
+        const dx = t.clientX - this.lastMX, dy = t.clientY - this.lastMY;
+        if (Math.abs(t.clientX - this.touchStart.x) + Math.abs(t.clientY - this.touchStart.y) > 8) this.touchStart.moved = true;
+        this.view.x -= dx / this.view.k; this.view.y -= dy / this.view.k;
+        this.lastMX = t.clientX; this.lastMY = t.clientY;
+        this.tween = null; this.dirty = true;
+      } else if (e.touches.length === 2 && this.pinch) {
+        const [a, b] = e.touches;
+        const d = Math.hypot(a.clientX - b.clientX, a.clientY - b.clientY);
+        const mx = (a.clientX + b.clientX) / 2 - r.left, my = (a.clientY + b.clientY) / 2 - r.top;
+        this.zoomAt(mx, my, d / this.pinch.d);
+        this.pinch.d = d;
+      }
+    }, { passive: false });
+    wrap.addEventListener('touchend', e => {
+      e.preventDefault();
+      if (e.touches.length === 0 && this.pinch) this.pinch = null;
+      if (this.touchStart && !this.touchStart.moved && Date.now() - this.touchStart.t < 500) {
+        const r = wrap.getBoundingClientRect();
+        const i = this.pick(this.touchStart.x - r.left, this.touchStart.y - r.top, true);
+        if (i < 0 || i === this.state.focus) { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; }
+        else this.focusNode(i);
+      }
+      this.touchStart = null;
+    }, { passive: false });
+  }
+
+  fit() {
+    const c = this.cur(); if (!c) return;
+    const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+    this.view = { x: 0, y: 0, k: Math.min(w / c.extent, h / c.extent) };
+    this.dirty = true;
+  }
+  toScreen(x, y) { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; return [(x - this.view.x) * this.view.k + w / 2, (y - this.view.y) * this.view.k + h / 2]; }
+  toWorld(sx, sy) { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; return [(sx - w / 2) / this.view.k + this.view.x, (sy - h / 2) / this.view.k + this.view.y]; }
+  zoomAt(mx, my, f) {
+    const [wx, wy] = this.toWorld(mx, my);
+    const k2 = Math.max(0.1, Math.min(10, this.view.k * f));
+    const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+    this.view.x = wx - (mx - w / 2) / k2; this.view.y = wy - (my - h / 2) / k2; this.view.k = k2;
+    this.tween = null; this.dirty = true;
+  }
+  flyTo(x, y, k) { this.tween = { t0: performance.now(), dur: 550, from: { ...this.view }, to: { x, y, k } }; this.dirty = true; }
+
+  railApply(e) {
+    const r = this.railEl.getBoundingClientRect();
+    const t = Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
+    const k = Math.exp(Math.log(10) + t * (Math.log(0.1) - Math.log(10)));
+    const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+    this.zoomAt(w / 2, h / 2, k / this.view.k);
+  }
+
+  loop = () => {
+    this.raf = requestAnimationFrame(this.loop);
+    if (this.tween) {
+      const p = Math.min(1, (performance.now() - this.tween.t0) / this.tween.dur);
+      const e = 1 - Math.pow(1 - p, 3);
+      const { from, to } = this.tween;
+      this.view.x = from.x + (to.x - from.x) * e; this.view.y = from.y + (to.y - from.y) * e; this.view.k = from.k + (to.k - from.k) * e;
+      if (p >= 1) this.tween = null;
+      this.dirty = true;
+    }
+    if (this.railThumbEl && this.view.k !== this.lastRailK) {
+      this.lastRailK = this.view.k;
+      const t = (Math.log(10) - Math.log(this.view.k)) / (Math.log(10) - Math.log(0.1));
+      this.railThumbEl.style.top = (Math.max(0, Math.min(1, t)) * 100) + '%';
+    }
+    if (this.state.focus < 0 && (this.pulseOn || (this.props.ambientTours ?? true))) this.dirty = true;
+    if (this.state.focus >= 0 || this.hover >= 0) this.dirty = true;
+    if (this.dirty) { this.dirty = false; this.draw(); }
+  };
+
+  nodeR(n) { return Math.max(2.8, Math.min(24, (2 + Math.sqrt(n.o + n.i) * 1.5) * Math.sqrt(this.view.k) * 1.35)); }
+  genreCol(n) { return n.f ? '#8f2d1a' : '#2d6e52'; }
+
+  leafPositions(f) {
+    const c = this.cur();
+    const ids = (c.G.leavesFor[f] || []);
+    const n = c.G.nodes[f];
+    const rim = c.extent / 2 - 40;
+    const focR = Math.hypot(n.x, n.y);
+    const outA = focR > 1 ? Math.atan2(n.y, n.x) : 0;
+    const spread = Math.min(Math.PI * 0.9, 0.5 + ids.length * 0.05);
+    const r0 = Math.max(focR + 90, rim * 0.45);
+    return ids.map((li, j) => {
+      const t = ids.length === 1 ? 0.5 : j / (ids.length - 1);
+      const a = outA + (t - 0.5) * spread;
+      const shell = j % 3;
+      const rr = Math.min(rim, r0 + (rim - r0) * (0.55 + shell * 0.22));
+      return { li, x: Math.cos(a) * rr, y: Math.sin(a) * rr };
+    });
+  }
+
+  arrow(ctx, x1, y1, x2, y2, col, alpha, lw) {
+    ctx.strokeStyle = col; ctx.globalAlpha = alpha; ctx.lineWidth = lw;
+    const flow = (performance.now() / 40) % 20;
+    ctx.setLineDash([9, 11]); ctx.lineDashOffset = -flow;
+    ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    ctx.setLineDash([]); ctx.lineDashOffset = 0;
+    ctx.globalAlpha = 1;
+  }
+
+  tourInfo(c) {
+    if (!c.chains || !c.chains.length) return null;
+    const t = performance.now();
+    if (!this.tourT0) { this.tourT0 = t; }
+    const F = 800, H = 3200, GAP = 700, TOT = F + H + F + GAP;
+    let el = t - this.tourT0;
+    if (el > TOT) { this.tourIdx = (this.tourIdx + 1) % c.chains.length; this.tourT0 = t; el = 0; }
+    const a = el < F ? el / F : el < F + H ? 1 : el < F + H + F ? 1 - (el - F - H) / F : 0;
+    return { path: c.chains[this.tourIdx], a };
+  }
+
+  draw() {
+    const ctx = this.ctx; const c = this.cur(); if (!ctx || !c) return;
+    const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight, dpr = this.dpr || 1;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    ctx.fillStyle = '#f4f2ec'; ctx.fillRect(0, 0, w, h);
+    const k = this.view.k;
+    const focus = this.state.focus >= 0 ? this.state.focus : this.hover;
+    const hasFocus = focus >= 0;
+    const N = c.G.nodes;
+    const isBooks = this.state.mode === 'books';
+    const showRings = this.props.showRings ?? true;
+    const mob = this.state.isMobile;
+
+    let hop2 = null;
+    if (hasFocus) {
+      hop2 = new Set();
+      for (const j of c.neigh[focus]) for (const [j2] of c.adjOut[j]) if (j2 !== focus && !c.neigh[focus].has(j2)) hop2.add(j2);
+    }
+
+    if (showRings && c.G.meta.rings) {
+      const [cx, cy] = this.toScreen(0, 0);
+      ctx.textAlign = 'center';
+      for (const ring of c.G.meta.rings) {
+        if (ring.r === 0) continue;
+        const sr = ring.r * k;
+        ctx.beginPath(); ctx.arc(cx, cy, sr, 0, 7);
+        ctx.strokeStyle = 'rgba(28,27,24,0.055)'; ctx.lineWidth = 1;
+        ctx.setLineDash([3, 5]); ctx.stroke(); ctx.setLineDash([]);
+        if (k > 0.35 && !hasFocus) {
+          ctx.font = '400 9px "IBM Plex Mono", monospace';
+          ctx.fillStyle = '#b0a992';
+          ctx.fillText(ring.v + '+ CONNECTIONS', cx, cy - sr - 4);
+        }
+      }
+    }
+
+    for (const [i, j, wt0] of c.G.edges) {
+      const wt = wt0 || 1;
+      if (hasFocus) continue;
+      const [x1, y1] = this.toScreen(N[i].x, N[i].y);
+      const [x2, y2] = this.toScreen(N[j].x, N[j].y);
+      if ((x1 < 0 && x2 < 0) || (x1 > w && x2 > w) || (y1 < 0 && y2 < 0) || (y1 > h && y2 > h)) continue;
+      ctx.strokeStyle = '#1c1b18';
+      ctx.globalAlpha = Math.min(0.16, 0.05 + wt * 0.02);
+      ctx.lineWidth = Math.min(3, 0.5 + wt * 0.3);
+      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+      ctx.globalAlpha = 1;
+    }
+
+    if (this.state.focus >= 0) {
+      const lp = this.leafPositions(this.state.focus);
+      const [fx, fy] = this.toScreen(N[this.state.focus].x, N[this.state.focus].y);
+      for (const p of lp) {
+        const [sx, sy] = this.toScreen(p.x, p.y);
+        this.arrow(ctx, fx, fy, sx, sy, '#8f2d1a', 0.45, 0.9);
+        ctx.beginPath(); ctx.arc(sx, sy, 2.5, 0, 7);
+        ctx.fillStyle = '#f9f8f3'; ctx.fill();
+        ctx.strokeStyle = '#8f2d1a'; ctx.lineWidth = 1; ctx.stroke();
+      }
+      if (lp.length <= 40 || k > 1.4) {
+        ctx.font = 'italic 400 10.5px "Source Serif 4", Georgia, serif';
+        ctx.textAlign = 'left'; ctx.fillStyle = '#5f5a4d';
+        for (const p of lp) {
+          const [sx, sy] = this.toScreen(p.x, p.y);
+          const name = c.G.leaves[p.li].name;
+          ctx.fillText(name.length > 26 ? name.slice(0, 24) + '…' : name, sx + 6, sy + 3);
+        }
+      }
+    }
+
+    const hovChain = hasFocus && this.state.focus >= 0 && this.hover >= 0 && this.hover !== focus && c.neigh[focus].has(this.hover) ? this.hover : -1;
+    this.hop2Lit = hovChain >= 0 ? new Set(c.adjOut[hovChain].map(e => e[0])) : null;
+    if (hasFocus) {
+      const flow = (performance.now() / 55) % 14;
+      ctx.setLineDash([4, 10]); ctx.lineDashOffset = -flow;
+      for (const j of c.neigh[focus]) {
+        ctx.strokeStyle = '#a0522d';
+        ctx.globalAlpha = j === hovChain ? 0.7 : hovChain >= 0 ? 0.08 : 0.28;
+        ctx.lineWidth = j === hovChain ? 1.4 : 0.8;
+        ctx.beginPath();
+        const [jx, jy] = this.toScreen(N[j].x, N[j].y);
+        for (const [j2] of c.adjOut[j]) {
+          if (j2 === focus || c.neigh[focus].has(j2)) continue;
+          const [kx, ky] = this.toScreen(N[j2].x, N[j2].y);
+          ctx.moveTo(jx, jy); ctx.lineTo(kx, ky);
+        }
+        ctx.stroke();
+      }
+      ctx.setLineDash([]); ctx.globalAlpha = 1;
+    }
+
+    if (hasFocus) {
+      const [fx, fy] = this.toScreen(N[focus].x, N[focus].y);
+      let strongJ = -1, strongW = -1;
+      for (const [j, wt] of c.adjOut[focus]) if (wt > strongW) { strongW = wt; strongJ = j; }
+      for (const [j, wt] of c.adjOut[focus]) {
+        const [jx, jy] = this.toScreen(N[j].x, N[j].y);
+        const em = j === strongJ;
+        this.arrow(ctx, fx, fy, jx, jy, '#8f2d1a', em ? 0.85 : 0.6, Math.min(4, 0.8 + wt * 0.5) + (em ? 0.8 : 0));
+      }
+      for (const [j, wt] of c.adjIn[focus]) {
+        const [jx, jy] = this.toScreen(N[j].x, N[j].y);
+        this.arrow(ctx, jx, jy, fx, fy, '#1a5f8f', 0.6, Math.min(4, 0.8 + wt * 0.5));
+      }
+    }
+
+    for (let i = 0; i < N.length; i++) {
+      const n = N[i];
+      const [sx, sy] = this.toScreen(n.x, n.y);
+      const r = this.nodeR(n);
+      if (sx < -30 || sx > w + 30 || sy < -30 || sy > h + 30) continue;
+      const isF = i === focus;
+      const conn = hasFocus && c.neigh[focus].has(i);
+      const inHop2 = hasFocus && hop2.has(i);
+      const lit2 = inHop2 && this.hop2Lit && this.hop2Lit.has(i);
+      ctx.globalAlpha = hasFocus ? (isF || conn || lit2 ? 1 : inHop2 ? (this.hop2Lit ? 0.15 : 0.45) : 0.12) : 1;
+      ctx.beginPath(); ctx.arc(sx, sy, r, 0, 7);
+      const gc = this.genreCol(n);
+      const hovered = i === this.hover && !mob;
+      ctx.fillStyle = isF ? gc : hovered ? gc : '#f9f8f3'; ctx.fill();
+      ctx.strokeStyle = (isF || hovered) ? gc : '#1c1b18'; ctx.lineWidth = isF ? 1.5 : 1.1; ctx.stroke();
+      if (!isF && !hovered && n.o > 0 && n.i > 0) { ctx.beginPath(); ctx.arc(sx, sy, Math.max(1.2, r * 0.35), 0, 7); ctx.fillStyle = '#1c1b18'; ctx.fill(); }
+      ctx.globalAlpha = 1;
+    }
+
+    if (this.pulseOn && !hasFocus && c.order.length) {
+      const top = c.order[0];
+      const [px, py] = this.toScreen(N[top].x, N[top].y);
+      const ph = (performance.now() % 1600) / 1600;
+      const pr = this.nodeR(N[top]) + 6 + ph * 26;
+      ctx.beginPath(); ctx.arc(px, py, pr, 0, 7);
+      ctx.strokeStyle = 'rgba(143,45,26,' + (0.55 * (1 - ph)).toFixed(3) + ')';
+      ctx.lineWidth = 2; ctx.stroke();
+    }
+
+    // labels
+    const placedR = [];
+    const tryPlace = (x, y, wpx, hpx) => {
+      const r1 = { x: x - wpx / 2, y: y - hpx / 2, w: wpx, h: hpx };
+      for (const r2 of placedR) if (r1.x < r2.x + r2.w && r1.x + r1.w > r2.x && r1.y < r2.y + r2.h && r1.y + r1.h > r2.y) return false;
+      placedR.push(r1); return true;
+    };
+    const place = (sx, sy, twd, fs, r, padW, padH) => {
+      for (const ly of [sy - r - 6, sy + r + fs + 4]) if (tryPlace(sx, ly - fs / 2, twd + padW, fs + padH)) return ly;
+      return null;
+    };
+    ctx.textAlign = 'center';
+    if (hasFocus) {
+      // guaranteed labels: focus, every hop-1 neighbor, top hop-2
+      const nb = [...c.neigh[focus]].sort((a, b) => (N[b].ls || 0) - (N[a].ls || 0));
+      let h2list;
+      if (this.hop2Lit) h2list = [...this.hop2Lit];
+      else { h2list = [...hop2].sort((a, b) => (N[b].ls || 0) - (N[a].ls || 0)).slice(0, 8); }
+      const list = [[focus, 1], ...nb.map(i => [i, 0]), ...h2list.map(i => [i, 2])];
+      for (const [i, tier] of list) {
+        const n = N[i];
+        const [sx, sy] = this.toScreen(n.x, n.y);
+        if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) continue;
+        const fs = tier === 1 ? Math.max(13, Math.min(17, 9 + Math.sqrt(n.o + n.i) * 0.75)) : tier === 0 ? (mob ? 11.5 : 11) : 10;
+        ctx.font = (isBooks ? 'italic ' : '') + (tier === 1 ? '700 ' : '600 ') + fs + 'px "Source Serif 4", Georgia, serif';
+        let label = n.n; if (label.length > 30) label = label.slice(0, 28) + '…';
+        const twd = ctx.measureText(label).width;
+        const ly = place(sx, sy, twd, fs, this.nodeR(n), 14, 8);
+        if (ly === null) continue;
+        ctx.fillStyle = 'rgba(244,242,236,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
+        ctx.fillStyle = tier === 1 ? this.genreCol(n) : tier === 0 ? '#1c1b18' : (this.hop2Lit ? '#3d3a33' : '#8a8474');
+        ctx.fillText(label, sx, ly);
+      }
+    } else {
+      const density = this.props.labelDensity ?? 1;
+      const budget = Math.round(Math.min(70, (w * h) / 60000 * (k < 0.4 ? 0.45 : k < 0.8 ? 0.7 : k < 1.5 ? 1.0 : 1.5)) * density);
+      const rankCap = Math.round((k < 0.35 ? 24 : k < 0.6 ? 48 : k < 1 ? 90 : k < 1.8 ? 160 : N.length) * density);
+      let count = 0, rank = 0;
+      for (const i of c.labelOrder) {
+        rank++;
+        if (count >= budget || rank > rankCap) break;
+        const n = N[i];
+        const [sx, sy] = this.toScreen(n.x, n.y);
+        if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) continue;
+        const fs = Math.max(mob ? 12 : 10.5, Math.min(17, 9 + Math.sqrt(n.o + n.i) * 0.75));
+        ctx.font = (isBooks ? 'italic ' : '') + '600 ' + fs + 'px "Source Serif 4", Georgia, serif';
+        let label = n.n; if (label.length > 30) label = label.slice(0, 28) + '…';
+        const twd = ctx.measureText(label).width;
+        const ly = sy - this.nodeR(n) - 6;
+        if (!tryPlace(sx, ly - fs / 2, twd + 44, fs + 26)) continue;
+        ctx.fillStyle = 'rgba(244,242,236,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
+        ctx.fillStyle = '#3d3a33';
+        ctx.fillText(label, sx, ly);
+        count++;
+      }
+    }
+
+    // ambient constellation tour (drawn last so its labels stay readable)
+    if (!hasFocus && (this.props.ambientTours ?? true)) {
+      const ti = this.tourInfo(c);
+      if (ti && ti.a > 0.01) {
+        const a = ti.a, path = ti.path;
+        const pts = path.map(i => this.toScreen(N[i].x, N[i].y));
+        ctx.strokeStyle = '#8f2d1a'; ctx.globalAlpha = a * 0.55; ctx.lineWidth = 1.5;
+        ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+        for (let p = 1; p < pts.length; p++) ctx.lineTo(pts[p][0], pts[p][1]);
+        ctx.stroke();
+        ctx.globalAlpha = a * 0.7; ctx.lineWidth = 1.2;
+        for (let p = 0; p < pts.length; p++) {
+          ctx.beginPath(); ctx.arc(pts[p][0], pts[p][1], this.nodeR(N[path[p]]) + 3.5, 0, 7); ctx.stroke();
+        }
+        ctx.globalAlpha = a; ctx.textAlign = 'center';
+        ctx.font = 'italic 600 12px "Source Serif 4", Georgia, serif';
+        for (let p = 0; p < pts.length; p++) {
+          const n2 = N[path[p]]; let lb = n2.n; if (lb.length > 26) lb = lb.slice(0, 24) + '…';
+          const twd = ctx.measureText(lb).width;
+          const ly = pts[p][1] - this.nodeR(n2) - 8;
+          ctx.fillStyle = 'rgba(244,242,236,0.92)'; ctx.fillRect(pts[p][0] - twd / 2 - 3, ly - 12, twd + 6, 16);
+          ctx.fillStyle = '#8f2d1a'; ctx.fillText(lb, pts[p][0], ly);
+        }
+        ctx.globalAlpha = 1;
+      }
+    }
+  }
+
+  pick(mx, my, touch) {
+    const c = this.cur();
+    const [wx, wy] = this.toWorld(mx, my);
+    let best = -1, bd = 1e9;
+    for (let i = 0; i < c.G.nodes.length; i++) {
+      const n = c.G.nodes[i];
+      const d = Math.hypot(n.x - wx, n.y - wy);
+      const tol = (this.nodeR(n) + (touch ? 20 : 8)) / this.view.k;
+      if (d < tol && d < bd) { bd = d; best = i; }
+    }
+    return best;
+  }
+
+  handleDown = e => { this.dragging = true; this.dragMoved = false; this.lastMX = e.clientX; this.lastMY = e.clientY; };
+  handleMove = e => {
+    const r = this.wrapEl.getBoundingClientRect();
+    if (this.dragging) {
+      const dx = e.clientX - this.lastMX, dy = e.clientY - this.lastMY;
+      if (Math.abs(dx) + Math.abs(dy) > 2) this.dragMoved = true;
+      this.view.x -= dx / this.view.k; this.view.y -= dy / this.view.k;
+      this.lastMX = e.clientX; this.lastMY = e.clientY;
+      this.tween = null; this.dirty = true;
+    } else {
+      const hv = this.pick(e.clientX - r.left, e.clientY - r.top);
+      if (hv !== this.hover) { this.hover = hv; this.dirty = true; this.wrapEl.style.cursor = hv >= 0 ? 'pointer' : 'grab'; }
+    }
+  };
+  handleUp = () => { this.dragging = false; };
+  handleLeave = () => { this.dragging = false; if (this.hover >= 0) { this.hover = -1; this.dirty = true; } };
+  handleClick = e => {
+    if (this.dragMoved) return;
+    const r = this.wrapEl.getBoundingClientRect();
+    const i = this.pick(e.clientX - r.left, e.clientY - r.top);
+    if (i < 0 || i === this.state.focus) { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; return; }
+    this.focusNode(i);
+  };
+
+  focusNode(i) {
+    this.pulseOn = false;
+    const c = this.cur(), N = c.G.nodes, n = N[i];
+    this.setState({ focus: i, panelOpen: false, searchQ: '', searchResults: [], popular: false });
+    // frame the whole neighborhood: focus + hop-1 + labeled hop-2 + leaf bloom
+    const xs = [n.x], ys = [n.y];
+    const hop2 = [];
+    for (const j of c.neigh[i]) {
+      xs.push(N[j].x); ys.push(N[j].y);
+      for (const [j2] of c.adjOut[j]) if (j2 !== i && !c.neigh[i].has(j2)) hop2.push(j2);
+    }
+    hop2.sort((a, b) => (N[b].ls || 0) - (N[a].ls || 0));
+    for (const j2 of hop2.slice(0, 8)) { xs.push(N[j2].x); ys.push(N[j2].y); }
+    for (const p of this.leafPositions(i)) { xs.push(p.x); ys.push(p.y); }
+    const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+    const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+    const mob = this.state.isMobile;
+    const padX = mob ? 28 : 90, padT = mob ? 56 : 76, padB = mob ? 235 : 110;
+    const availW = Math.max(120, w - padX * 2), availH = Math.max(120, h - padT - padB);
+    const bw = Math.max(maxX - minX, 120), bh = Math.max(maxY - minY, 120);
+    let k = Math.min(availW / bw, availH / bh);
+    k = Math.max(0.28, Math.min(mob ? 1.5 : 1.8, k));
+    const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+    const sx0 = padX + availW / 2, sy0 = padT + availH / 2;
+    this.flyTo(cx - (sx0 - w / 2) / k, cy - (sy0 - h / 2) / k, k);
+    this.dirty = true;
+  }
+  setMode(m) {
+    if (m === this.state.mode) return;
+    this.hover = -1; this.tourT0 = 0; this.tourIdx = 0;
+    this.setState({ mode: m, focus: -1, panelOpen: false, searchQ: '', searchResults: [], popular: false }, () => this.fit());
+  }
+  bookUrl(n) {
+    const pat = this.props.bookUrlPattern ?? '';
+    if (!pat) return null;
+    const slug = s => (s || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    return pat.replace('{title}', slug(n.n)).replace('{author}', slug(n.a || ''));
+  }
+
+  renderVals() {
+    const st = this.state;
+    const c = this.graphs[st.mode];
+    const isBooks = st.mode === 'books';
+    const mob = st.isMobile;
+    const btn = a => 'padding:7px 13px; border:none; background:' + (a ? '#1c1b18' : 'transparent') + '; color:' + (a ? '#f4f2ec' : '#1c1b18') + '; font-family:\'IBM Plex Mono\',monospace; font-size:10px; letter-spacing:0.1em; cursor:pointer;';
+    const f = st.focus;
+    const fn = f >= 0 && c ? c.G.nodes[f] : null;
+
+    let focSections = [], focSub = '', focAuthor = null, focSyn = null, strong = null;
+    if (fn && c) {
+      const noun = isBooks ? 'BOOK' : 'AUTHOR';
+      const pl = n => n === 1 ? ' ' + noun : ' ' + noun + 'S';
+      const onward = j => { const o = c.adjOut[j].length + ((c.G.leavesFor[j] || []).length); return o > 0 ? '→ ' + o : ''; };
+      const cites = c.adjOut[f].sort((a, b) => b[1] - a[1]).map(([j, w]) => ({ name: c.G.nodes[j].n, w: (w > 1 ? '×' + w + ' ' : '') + onward(j), pick: () => this.focusNode(j) }));
+      const leafIds = c.G.leavesFor[f] || [];
+      for (const li of leafIds) cites.push({ name: c.G.leaves[li].name, w: 'only here', pick: () => {} });
+      const citedBy = c.adjIn[f].sort((a, b) => b[1] - a[1]).map(([j, w]) => ({ name: c.G.nodes[j].n, w: (w > 1 ? '×' + w + ' ' : '') + onward(j), pick: () => this.focusNode(j) }));
+      if (citedBy.length) focSections.push({ label: 'MENTIONED BY ' + citedBy.length + pl(citedBy.length), color: '#1a5f8f', items: citedBy });
+      if (cites.length) focSections.push({ label: 'MENTIONS ' + cites.length + pl(cites.length), color: '#8f2d1a', items: cites });
+      if (!isBooks && fn.b) {
+        const books = fn.b.sort((a, b) => (b[1] + b[2]) - (a[1] + a[2])).slice(0, 12).map(b => ({ name: b[0], w: (b[2] > 0 ? '↓' + b[2] : '') + (b[1] > 0 ? ' ↑' + b[1] : ''), pick: () => {} }));
+        focSections.push({ label: fn.b.length + (fn.b.length === 1 ? ' BOOK' : ' BOOKS') + ' IN CATALOGUE', color: '#8a8474', items: books });
+      }
+      const m = n => n + (n === 1 ? ' mention' : ' mentions');
+      const recvd = c.adjIn[f].reduce((s, [, w]) => s + w, 0);
+      const made = c.adjOut[f].reduce((s, [, w]) => s + w, 0) + (leafIds.length || 0);
+      focSub = (fn.f ? 'FICTION' : 'NONFICTION') + (fn.yr ? ' · ' + fn.yr : '') + ' · ' + (recvd > 0 ? m(recvd) + ' received' : '') + (recvd > 0 && made > 0 ? ' · ' : '') + (made > 0 ? m(made) + ' made' : '');
+      focAuthor = isBooks ? (fn.a || null) : null;
+      focSyn = isBooks ? (fn.sy || null) : null;
+      let best = null;
+      for (const [j, w] of c.adjOut[f]) if (!best || w > best.w) best = { j, w };
+      if (!best) for (const [j, w] of c.adjIn[f]) if (!best || w > best.w) best = { j, w };
+      if (best) strong = { name: c.G.nodes[best.j].n, pick: () => this.focusNode(best.j) };
+    }
+
+    const chipStyle = mob
+      ? 'position:absolute; left:10px; right:10px; bottom:10px; background:#f9f8f3; border:1px solid #1c1b18; box-shadow:4px 4px 0 rgba(28,27,24,0.15); padding:14px 16px; z-index:10; animation:fadeIn 0.15s ease;'
+      : 'position:absolute; left:18px; bottom:18px; width:280px; background:#f9f8f3; border:1px solid #1c1b18; box-shadow:5px 5px 0 rgba(28,27,24,0.15); padding:16px 18px; z-index:10; animation:fadeIn 0.15s ease;';
+    const panelStyle = mob
+      ? 'position:absolute; left:0; right:0; bottom:0; max-height:62%; display:flex; flex-direction:column; background:#f9f8f3; border-top:1px solid #1c1b18; box-shadow:0 -4px 0 rgba(28,27,24,0.12); z-index:12; animation:fadeIn 0.15s ease;'
+      : 'position:absolute; left:18px; bottom:18px; width:320px; max-height:72%; display:flex; flex-direction:column; background:#f9f8f3; border:1px solid #1c1b18; box-shadow:5px 5px 0 rgba(28,27,24,0.15); z-index:12; animation:fadeIn 0.15s ease;';
+
+    const popularList = () => c.order.slice(0, 6).map(i => {
+      const n = c.G.nodes[i];
+      return { name: n.n, sub: (isBooks ? (n.a || '—') + ' · ' : '') + (n.o + n.i) + ' connections', pick: () => this.focusNode(i) };
+    });
+
+    return {
+      showStat: !mob,
+      statLine: c ? (isBooks
+        ? c.G.meta.backbone + ' OF ' + c.G.meta.books + ' BOOKS · ' + c.G.meta.leaves + ' TUCKED AT THE RIM · EXACT MENTION DATA'
+        : c.G.meta.backbone + ' OF ' + c.G.meta.authors + ' AUTHORS · ' + c.G.meta.leaves + ' TUCKED AWAY · EXACT MENTION DATA') : 'LOADING…',
+      btnBooks: btn(isBooks), btnAuthors: btn(!isBooks),
+      setModeBooks: () => this.setMode('books'),
+      setModeAuthors: () => this.setMode('authors'),
+      searchW: mob ? '120px' : '220px',
+      searchQ: st.searchQ,
+      searchRef: el => { this.searchEl = el; },
+      onSearch: e => {
+        const q = e.target.value; let res = [];
+        if (c && q.trim().length > 1) {
+          const ql = q.trim().toLowerCase();
+          for (let i = 0; i < c.G.nodes.length && res.length < 7; i++) {
+            const n = c.G.nodes[i];
+            const inBooks = !isBooks && n.b && n.b.some(b => b[0].toLowerCase().includes(ql));
+            if (n.n.toLowerCase().includes(ql) || (isBooks && (n.a || '').toLowerCase().includes(ql)) || inBooks) {
+              let sub;
+              if (isBooks) sub = (n.a || '—') + ' · ' + (n.o + n.i) + ' connections';
+              else { const bk = inBooks ? n.b.find(b => b[0].toLowerCase().includes(ql)) : null; sub = bk && !n.n.toLowerCase().includes(ql) ? '\u201c' + bk[0] + '\u201d' : (n.b ? n.b.length + ' books · ' : '') + (n.o + n.i) + ' connections'; }
+              res.push({ name: n.n, sub, pick: () => this.focusNode(i) });
+            }
+          }
+          if (res.length < 7) {
+            for (const [hub, ids] of Object.entries(c.G.leavesFor)) {
+              if (res.length >= 7) break;
+              for (const li of ids) {
+                if (res.length >= 7) break;
+                const lf = c.G.leaves[li];
+                if (lf.name.toLowerCase().includes(ql)) res.push({ name: lf.name, sub: 'cited only by ' + c.G.nodes[+hub].n, pick: () => this.focusNode(+hub) });
+              }
+            }
+          }
+          this.setState({ searchQ: q, searchResults: res, popular: false });
+        } else if (c && !q.trim()) {
+          this.setState({ searchQ: q, searchResults: popularList(), popular: true });
+        } else {
+          this.setState({ searchQ: q, searchResults: [], popular: false });
+        }
+      },
+      onSearchFocus: () => { if (c && !st.searchQ.trim()) this.setState({ searchResults: popularList(), popular: true }); },
+      onSearchBlur: () => { setTimeout(() => { if (document.activeElement !== this.searchEl) this.setState({ searchResults: [], popular: false }); }, 200); },
+      showPopularHead: st.popular,
+      hasSearchResults: st.searchResults.length > 0,
+      searchResults: st.searchResults,
+      canvasRef: el => { this.canvasEl = el; },
+      wrapRef: el => { this.wrapEl = el; },
+      railRef: el => { this.railEl = el; },
+      railThumbRef: el => { this.railThumbEl = el; },
+      railH: mob ? '96px' : '150px',
+      railDown: e => { this.railDrag = true; e.target.setPointerCapture(e.pointerId); this.railApply(e); },
+      railMove: e => { if (this.railDrag) this.railApply(e); },
+      railUp: () => { this.railDrag = false; },
+      onDown: this.handleDown, onMove: this.handleMove, onUp: this.handleUp, onLeave: this.handleLeave, onCanvasClick: this.handleClick,
+      zoomIn: () => { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; this.zoomAt(w / 2, h / 2, 1.5); },
+      zoomOutBtn: () => { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; this.zoomAt(w / 2, h / 2, 1 / 1.5); },
+      fitAll: () => { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.fit(); },
+      showHint: !mob,
+      hintLine: (isBooks ? 'dot = book' : 'dot = author') + ' · center = most connected · red = fiction, green = nonfiction · click to trace · esc to reset',
+      chipVisible: !!fn && !st.panelOpen,
+      panelVisible: !!fn && st.panelOpen,
+      chipStyle, panelStyle,
+      focName: fn ? fn.n : null,
+      focAuthor, focSub, focSyn, focSections,
+      hasStrong: !!strong,
+      strongName: strong ? strong.name : null,
+      strongPick: () => { if (strong) strong.pick(); },
+      openPanel: () => this.setState({ panelOpen: true }),
+      closePanel: () => this.setState({ panelOpen: false }),
+      hasUrl: !!(fn && isBooks && this.bookUrl(fn)),
+      openPage: () => { const u = fn && this.bookUrl(fn); if (u) window.open(u, '_blank'); },
+      clearFocus: () => { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; },
+    };
+  }
+}
+</script>
+</body>
+</html>

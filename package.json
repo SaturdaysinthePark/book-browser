@@ -11,6 +11,7 @@
     "bj:doctor": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs doctor",
     "bj:export": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs export-csv",
     "bj:dict": "node --experimental-sqlite --no-warnings tools/build-dict.mjs",
+    "bj:graph": "node --experimental-sqlite --no-warnings tools/build-book-graph.mjs",
     "bj:detect": "node --no-warnings tools/detect.mjs",
     "serve": "python3 -m http.server 8917",
     "admin": "node --experimental-sqlite --no-warnings tools/admin-server.mjs"
