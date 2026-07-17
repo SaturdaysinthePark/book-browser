@@ -3,7 +3,7 @@
 # the build step copies them into _site/ and Netlify serves that directory —
 # so bookjumpr.db, tools/, data/, docs/ etc. are versioned but never served.
 [build]
-  command = "rm -rf _site && mkdir -p _site && cp index.html app.js bookjumpr-data.js network-2.html network-view.js network-data.js constellation.html constellation-view.js constellation-data.js favicon.svg _site/ && cp -R vendor _site/"
+  command = "rm -rf _site && mkdir -p _site && cp index.html app.js bookjumpr-data.js constellation-view.js constellation-data.js favicon.svg _site/ && cp -R vendor _site/"
   publish = "_site"
 
 # The data pipeline's dev dependency (unpdf) isn't needed to serve the site.

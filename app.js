@@ -286,7 +286,7 @@
 
   var BookJumpr = function (props) {
     React.Component.call(this, props);
-    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, netZoom: 1, netX: 0, netY: 0, netHover: null };
+    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0 };
     // Data is available synchronously via the vendored global, so build it up front.
     this.buildData(DATA.NODES || {}, DATA.MENTIONS || []);
     this.state.ready = true;
@@ -303,11 +303,7 @@
     var self = this;
     this._onHash = function () { self.applyHash(); };
     window.addEventListener('hashchange', this._onHash);
-    this._onResize = function () {
-      var st = { vw: window.innerWidth };
-      if (self._netOuter) st.netW = self._netOuter.clientWidth;
-      self.setState(st);
-    };
+    this._onResize = function () { self.setState({ vw: window.innerWidth }); };
     window.addEventListener('resize', this._onResize);
     if (location.hash && location.hash.length > 2) this.applyHash();
   };
@@ -712,188 +708,6 @@
       pts.length ? nodeEls : empty, center, more);
   };
 
-  // ---------- full network ----------
-  P.netLayout = function (effW, effH) {
-    var self = this;
-    var ckey = Math.round(effW / 24) + 'x' + Math.round(effH / 24);
-    if (this._net2 && this._net2.ckey === ckey) return this._net2;
-    var inc = this.all.filter(function (b) { return b.isSource || b.in.length >= 2; });
-    var idx = {}; inc.forEach(function (b, i) { idx[b.id] = i; });
-    var edges = [];
-    for (var ii = 0; ii < inc.length; ii++) {
-      var b = inc[ii];
-      for (var oi = 0; oi < b.out.length; oi++) { var t = b.out[oi]; if (idx[t] !== undefined) edges.push([idx[b.id], idx[t]]); }
-    }
-    var n = inc.length;
-    var W = 1180, H = 660;
-    var px = [], py = [];
-    for (var i = 0; i < n; i++) {
-      var hsh = this.hash(inc[i].id);
-      var ang = (hsh % 360) * Math.PI / 180, r = 120 + (hsh % 200);
-      px.push(W / 2 + Math.cos(ang) * r); py.push(H / 2 + Math.sin(ang) * r * 0.6);
-    }
-    var k = Math.sqrt((W * H) / n) * 0.7;
-    for (var iter = 0; iter < 220; iter++) {
-      var dx = new Array(n).fill(0), dy = new Array(n).fill(0);
-      for (var a = 0; a < n; a++) for (var j = a + 1; j < n; j++) {
-        var ex = px[a] - px[j], ey = py[a] - py[j];
-        var d2 = ex * ex + ey * ey; if (d2 < 1) { ex = Math.random() - .5; ey = Math.random() - .5; d2 = 1; }
-        var f = (k * k) / d2;
-        dx[a] += ex * f; dy[a] += ey * f; dx[j] -= ex * f; dy[j] -= ey * f;
-      }
-      for (var e = 0; e < edges.length; e++) {
-        var A = edges[e][0], bI = edges[e][1];
-        var ex2 = px[A] - px[bI], ey2 = py[A] - py[bI];
-        var d = Math.sqrt(ex2 * ex2 + ey2 * ey2) || 1;
-        var f2 = (d * d) / k / d * 0.06;
-        dx[A] -= ex2 * f2; dy[A] -= ey2 * f2; dx[bI] += ex2 * f2; dy[bI] += ey2 * f2;
-      }
-      var temp = 12 * (1 - iter / 220) + 0.5;
-      for (var m = 0; m < n; m++) {
-        var d3 = Math.sqrt(dx[m] * dx[m] + dy[m] * dy[m]) || 1;
-        var lim = Math.min(d3, temp);
-        px[m] += (dx[m] / d3) * lim; py[m] += (dy[m] / d3) * lim;
-        px[m] += (W / 2 - px[m]) * 0.012; py[m] += (H / 2 - py[m]) * 0.012;
-      }
-    }
-    var minX = Infinity, maxX = -Infinity, minY = Infinity, maxY = -Infinity;
-    for (var q = 0; q < n; q++) { minX = Math.min(minX, px[q]); maxX = Math.max(maxX, px[q]); minY = Math.min(minY, py[q]); maxY = Math.max(maxY, py[q]); }
-    var sx = function (x) { return 46 + ((x - minX) / (maxX - minX || 1)) * (W - 92); };
-    var sy = function (y) { return 34 + ((y - minY) / (maxY - minY || 1)) * (H - 68); };
-    var pos = inc.map(function (b, i) { return { x: sx(px[i]), y: sy(py[i]) }; });
-    var rx = W / Math.max(320, effW || W);
-    var ry = H / Math.max(300, effH || H);
-    var boxes = inc.map(function (b) {
-      var deg = b.out.length + b.in.length;
-      var fs = Math.min(13, 8.5 + deg * 0.28);
-      var label = b.title.length > 26 ? b.title.slice(0, 25).replace(/\s+$/, '') + '…' : b.title;
-      return { fs: fs, label: label, w: (Math.min(label.length, 26) * fs * 0.64 + 18) * rx, h: (fs + 13) * ry };
-    });
-    var clampAll = function () {
-      for (var i = 0; i < n; i++) {
-        var cw = Math.min(70, boxes[i].w / 2), chh = Math.min(30, boxes[i].h / 2 + 4);
-        pos[i].x = Math.max(cw, Math.min(W - cw, pos[i].x));
-        pos[i].y = Math.max(chh, Math.min(H - chh, pos[i].y));
-      }
-    };
-    for (var it = 0; it < 140; it++) {
-      var moved = false;
-      for (var i2 = 0; i2 < n; i2++) for (var j2 = i2 + 1; j2 < n; j2++) {
-        var A2 = pos[i2], B2 = pos[j2];
-        var ox = (boxes[i2].w + boxes[j2].w) / 2 + 4 - Math.abs(A2.x - B2.x);
-        var oy = (boxes[i2].h + boxes[j2].h) / 2 + 4 - Math.abs(A2.y - B2.y);
-        if (ox > 0 && oy > 0) {
-          moved = true;
-          if (ox < oy * 2.2) { var s = (A2.x < B2.x ? -1 : 1) * ox / 2; A2.x += s; B2.x -= s; }
-          else { var s2 = (A2.y < B2.y ? -1 : 1) * oy / 2; A2.y += s2; B2.y -= s2; }
-        }
-      }
-      clampAll();
-      if (!moved) break;
-    }
-    this._net2 = { ckey: ckey, inc: inc, edges: edges, pos: pos, boxes: boxes, W: W, H: H };
-    return this._net2;
-  };
-  P.netGraph = function (m) {
-    var R = React.createElement;
-    var self = this;
-    var effH = m ? 360 : 640;  // shorter on mobile so the page can scroll past the graph
-    var effW = this.state.netW || (typeof window !== 'undefined' ? Math.min(1180, window.innerWidth - 60) : 1180);
-    var lay = this.netLayout(effW, effH);
-    var inc = lay.inc, edges = lay.edges, pos = lay.pos, boxes = lay.boxes, W = lay.W, H = lay.H;
-    var hov = this.state.netHover;
-    var nbr = null;
-    if (hov && this.books[hov]) {
-      nbr = {};
-      nbr[hov] = true;
-      this.books[hov].out.forEach(function (id) { nbr[id] = true; });
-      this.books[hov].in.forEach(function (id) { nbr[id] = true; });
-    }
-    var z = this.state.netZoom, tx = this.state.netX, ty = this.state.netY;
-    var lines = edges.map(function (e, i) {
-      var con = hov && (inc[e[0]].id === hov || inc[e[1]].id === hov);
-      return R('line', {
-        key: i, x1: pos[e[0]].x, y1: pos[e[0]].y, x2: pos[e[1]].x, y2: pos[e[1]].y,
-        stroke: 'var(--ink)', strokeWidth: con ? 1.8 : 1, opacity: hov ? (con ? 0.6 : 0.05) : 0.18
-      });
-    });
-    var nodes = inc.map(function (b, i) {
-      var src = b.isSource;
-      var dim = nbr && !nbr[b.id];
-      var isH = hov === b.id;
-      return R('button', {
-        key: b.id,
-        onClick: function () { if (self._suppressClick) { self._suppressClick = false; return; } self.goBook(b.id); },
-        onMouseEnter: function () { self.setState({ netHover: b.id }); },
-        onMouseLeave: function () { self.setState({ netHover: null }); },
-        title: b.title + (b.author ? ' — ' + b.author : ''),
-        style: {
-          position: 'absolute', left: (pos[i].x / W * 100) + '%', top: (pos[i].y / H * 100) + '%',
-          transform: 'translate(-50%,-50%) scale(' + (isH ? 1.14 : 1) + ')',
-          background: src ? 'var(--ink)' : 'var(--card)',
-          color: src ? 'var(--paper)' : 'var(--ink)',
-          border: '1.5px solid var(--ink)', borderRadius: 999,
-          padding: '3px 8px', fontSize: boxes[i].fs,
-          fontFamily: "'IBM Plex Mono', monospace", cursor: 'pointer',
-          maxWidth: 190, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis',
-          zIndex: isH ? 9 : src ? 3 : 2, opacity: dim ? 0.15 : 1,
-          transition: 'opacity .15s ease, transform .12s ease'
-        }
-      }, boxes[i].label);
-    });
-    var setZ = function (f) { self.setState({ netZoom: Math.min(4, Math.max(0.55, self.state.netZoom * f)) }); };
-    var zoomBtn = function (label, fn, key, fs) {
-      return R('button', {
-        key: key, onClick: fn, title: key,
-        style: { width: m ? 44 : 34, height: m ? 44 : 34, borderRadius: 999, border: '1.5px solid var(--ink)', background: 'var(--card)', cursor: 'pointer', fontFamily: "'IBM Plex Mono', monospace", fontSize: fs || 15, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: 0 }
-      }, label);
-    };
-    var start = function (x, y) { self._suppressClick = false; self._nDrag = { sx: x, sy: y, bx: self.state.netX, by: self.state.netY, dist: 0 }; };
-    var move = function (x, y) {
-      var d = self._nDrag; if (!d) return;
-      var dx = x - d.sx, dy = y - d.sy;
-      d.dist = Math.max(d.dist, Math.abs(dx) + Math.abs(dy));
-      d.cx = d.bx + dx; d.cy = d.by + dy;
-      if (self._netInner) self._netInner.style.transform = 'translate(' + d.cx + 'px,' + d.cy + 'px) scale(' + self.state.netZoom + ')';
-    };
-    var end = function () {
-      var d = self._nDrag; if (!d) return;
-      self._nDrag = null;
-      if (d.dist > 6) self._suppressClick = true;
-      if (d.cx !== undefined && d.dist > 6) self.setState({ netX: d.cx, netY: d.cy });
-    };
-    return R('div', {
-      ref: function (el) {
-        self._netOuter = el;
-        if (el) { var w = el.clientWidth; if (Math.abs((self.state.netW || 0) - w) > 30) self.setState({ netW: w }); }
-      },
-      style: { position: 'relative', width: '100%', height: effH, overflow: 'hidden' }
-    },
-      R('div', {
-        style: { position: 'absolute', inset: 0, cursor: 'grab', touchAction: 'none' },
-        onMouseDown: function (e) { start(e.clientX, e.clientY); },
-        onMouseMove: function (e) { move(e.clientX, e.clientY); },
-        onMouseUp: end, onMouseLeave: end,
-        onTouchStart: function (e) { var t = e.touches[0]; if (t) start(t.clientX, t.clientY); },
-        onTouchMove: function (e) { var t = e.touches[0]; if (t) move(t.clientX, t.clientY); },
-        onTouchEnd: end
-      },
-        R('div', {
-          ref: function (el) { self._netInner = el; },
-          style: { position: 'absolute', inset: 0, transform: 'translate(' + tx + 'px,' + ty + 'px) scale(' + z + ')', transformOrigin: '50% 50%' }
-        },
-          R('svg', { width: '100%', height: '100%', viewBox: '0 0 ' + W + ' ' + H, preserveAspectRatio: 'none', style: { position: 'absolute', inset: 0, overflow: 'visible' } }, lines),
-          nodes
-        )
-      ),
-      R('div', { style: { position: 'absolute', top: 12, right: 12, display: 'flex', flexDirection: 'column', gap: 6, zIndex: 20 } },
-        zoomBtn('+', function () { setZ(1.35); }, 'zoom in'),
-        zoomBtn('−', function () { setZ(1 / 1.35); }, 'zoom out'),
-        zoomBtn('fit', function () { self.setState({ netZoom: 1, netX: 0, netY: 0 }); }, 'reset view', 9)
-      )
-    );
-  };
-
   // ---------- stats ----------
   P.statsData = function () {
     if (this._stats) return this._stats;
@@ -946,7 +760,8 @@
       goNetwork: go(function () { self.navigate({ page: 'network' }, '#/network'); }),
       goAbout: go(function () { self.navigate({ page: 'about' }, '#/about'); }),
       showChrome: page !== 'home',
-      showHeaderSearch: page !== 'home',
+      showFooter: page !== 'home' && page !== 'network',
+      showHeaderSearch: page !== 'home' && page !== 'network',
       navText: page !== 'home' && !m,
       navIcons: page !== 'home' && m,
       hdrSearchWrap: m ? { position: 'relative', flexBasis: '100%', order: 9, margin: '2px 0 4px' } : { position: 'relative', marginRight: '8px' },
@@ -976,8 +791,6 @@
     vals.shuffleBtn = iconBtn(m ? 44 : 26, m ? 0.55 : 0.45);
     vals.homeNavBtn = iconBtn(m ? 44 : 32, 0.4);
     vals.hdrNavBtn = iconBtn(m ? 44 : 34, 0.6);
-    // Network legend hint: drop the meaningless "hover to trace" on touch.
-    vals.netHint = m ? 'drag to pan · tap to visit' : 'drag to pan · hover to trace · click to visit';
     // Mobile: hide secondary captions / truncate long titles so rows don't collide.
     vals.secCaption = m ? { display: 'none' } : { fontFamily: "'IBM Plex Mono', monospace", fontSize: '11.5px', opacity: 0.6 };
     vals.statTitle = m
@@ -1174,8 +987,27 @@
       });
     } else { vals.topBooks = vals.topBooks || []; vals.topAuthors = vals.topAuthors || []; }
 
-    // network page
-    vals.netEl = page === 'network' && all.length ? this.netGraph(m) : null;
+    // network page: mount the constellation canvas engine into the route host via a STABLE ref
+    // (created once, reused every render) so React only fires it on real mount/unmount — not on
+    // every setState — which would otherwise destroy+reconstruct the engine each frame.
+    vals.netHostRef = self._netHostRef || (self._netHostRef = function (el) {
+      if (el) {
+        if (self._constellation) return;                       // guard double-instantiation
+        if (!window.Constellation || !window.BookGraph) return;
+        self._constellation = new window.Constellation({
+          root: el,
+          data: window.BookGraph,
+          bookUrlPattern: 'index.html#/{author}/{title}',
+          showRings: true, labelDensity: 1, ambientTours: true,
+          onOpenPage: function (key) { self.navigate({ page: 'book', id: key }, '#/' + key); }
+        });
+        window.__constellation = self._constellation; // debug / integration hook
+      } else if (self._constellation) {
+        self._constellation.destroy();
+        self._constellation = null;
+        window.__constellation = null;
+      }
+    });
 
     return vals;
   };

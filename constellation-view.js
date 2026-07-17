@@ -26,6 +26,7 @@
     constructor(opts) {
       this.opts = opts || {};
       this.root = this.opts.root;
+      this.onOpenPage = this.opts.onOpenPage || null; // in-app nav hook (SPA); falls back to window.open
       this.props = {
         bookUrlPattern: this.opts.bookUrlPattern || '',
         showRings: this.opts.showRings !== false,
@@ -248,7 +249,7 @@
     };
 
     nodeR(n) { return Math.max(2.8, Math.min(24, (2 + Math.sqrt(n.o + n.i) * 1.5) * Math.sqrt(this.view.k) * 1.35)); }
-    genreCol(n) { return n.f ? '#8f2d1a' : '#2d6e52'; }
+    genreCol(n) { return n.f ? '#9c3d22' : '#2e8156'; }
 
     leafPositions(f) {
       const c = this.graph;
@@ -292,7 +293,7 @@
       const ctx = this.ctx; const c = this.graph; if (!ctx || !c) return;
       const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight, dpr = this.dpr || 1;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      ctx.fillStyle = '#f4f2ec'; ctx.fillRect(0, 0, w, h);
+      ctx.fillStyle = '#f7f5f0'; ctx.fillRect(0, 0, w, h);
       const k = this.view.k;
       const focus = this.state.focus >= 0 ? this.state.focus : this.hover;
       const hasFocus = focus >= 0;
@@ -313,11 +314,11 @@
           if (ring.r === 0) continue;
           const sr = ring.r * k;
           ctx.beginPath(); ctx.arc(cx, cy, sr, 0, 7);
-          ctx.strokeStyle = 'rgba(28,27,24,0.055)'; ctx.lineWidth = 1;
+          ctx.strokeStyle = 'rgba(20,20,20,0.055)'; ctx.lineWidth = 1;
           ctx.setLineDash([3, 5]); ctx.stroke(); ctx.setLineDash([]);
           if (k > 0.35 && !hasFocus) {
             ctx.font = '400 9px "IBM Plex Mono", monospace';
-            ctx.fillStyle = '#b0a992';
+            ctx.fillStyle = 'rgba(20,20,20,0.30)';
             ctx.fillText(ring.v + '+ CONNECTIONS', cx, cy - sr - 4);
           }
         }
@@ -329,7 +330,7 @@
         const [x1, y1] = this.toScreen(N[i].x, N[i].y);
         const [x2, y2] = this.toScreen(N[j].x, N[j].y);
         if ((x1 < 0 && x2 < 0) || (x1 > w && x2 > w) || (y1 < 0 && y2 < 0) || (y1 > h && y2 > h)) continue;
-        ctx.strokeStyle = '#1c1b18';
+        ctx.strokeStyle = '#141414';
         ctx.globalAlpha = Math.min(0.16, 0.05 + wt * 0.02);
         ctx.lineWidth = Math.min(3, 0.5 + wt * 0.3);
         ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
@@ -341,14 +342,14 @@
         const [fx, fy] = this.toScreen(N[this.state.focus].x, N[this.state.focus].y);
         for (const p of lp) {
           const [sx, sy] = this.toScreen(p.x, p.y);
-          this.arrow(ctx, fx, fy, sx, sy, '#8f2d1a', 0.45, 0.9);
+          this.arrow(ctx, fx, fy, sx, sy, '#9c3d22', 0.45, 0.9);
           ctx.beginPath(); ctx.arc(sx, sy, 2.5, 0, 7);
-          ctx.fillStyle = '#f9f8f3'; ctx.fill();
-          ctx.strokeStyle = '#8f2d1a'; ctx.lineWidth = 1; ctx.stroke();
+          ctx.fillStyle = '#fdfcfa'; ctx.fill();
+          ctx.strokeStyle = '#9c3d22'; ctx.lineWidth = 1; ctx.stroke();
         }
         if (lp.length <= 40 || k > 1.4) {
-          ctx.font = 'italic 400 10.5px "Source Serif 4", Georgia, serif';
-          ctx.textAlign = 'left'; ctx.fillStyle = '#5f5a4d';
+          ctx.font = 'italic 400 10.5px "Instrument Serif", Georgia, serif';
+          ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(20,20,20,0.62)';
           for (const p of lp) {
             const [sx, sy] = this.toScreen(p.x, p.y);
             const name = c.G.leaves[p.li].name;
@@ -363,7 +364,7 @@
         const flow = this.reduceMotion ? 0 : (performance.now() / 55) % 14;
         ctx.setLineDash([4, 10]); ctx.lineDashOffset = -flow;
         for (const j of c.neigh[focus]) {
-          ctx.strokeStyle = '#a0522d';
+          ctx.strokeStyle = '#a04a2a';
           ctx.globalAlpha = j === hovChain ? 0.7 : hovChain >= 0 ? 0.08 : 0.28;
           ctx.lineWidth = j === hovChain ? 1.4 : 0.8;
           ctx.beginPath();
@@ -385,11 +386,11 @@
         for (const [j, wt] of c.adjOut[focus]) {
           const [jx, jy] = this.toScreen(N[j].x, N[j].y);
           const em = j === strongJ;
-          this.arrow(ctx, fx, fy, jx, jy, '#8f2d1a', em ? 0.85 : 0.6, Math.min(4, 0.8 + wt * 0.5) + (em ? 0.8 : 0));
+          this.arrow(ctx, fx, fy, jx, jy, '#9c3d22', em ? 0.85 : 0.6, Math.min(4, 0.8 + wt * 0.5) + (em ? 0.8 : 0));
         }
         for (const [j, wt] of c.adjIn[focus]) {
           const [jx, jy] = this.toScreen(N[j].x, N[j].y);
-          this.arrow(ctx, jx, jy, fx, fy, '#1a5f8f', 0.6, Math.min(4, 0.8 + wt * 0.5));
+          this.arrow(ctx, jx, jy, fx, fy, '#2f5590', 0.6, Math.min(4, 0.8 + wt * 0.5));
         }
       }
 
@@ -406,9 +407,9 @@
         ctx.beginPath(); ctx.arc(sx, sy, r, 0, 7);
         const gc = this.genreCol(n);
         const hovered = i === this.hover && !mob;
-        ctx.fillStyle = isF ? gc : hovered ? gc : '#f9f8f3'; ctx.fill();
-        ctx.strokeStyle = (isF || hovered) ? gc : '#1c1b18'; ctx.lineWidth = isF ? 1.5 : 1.1; ctx.stroke();
-        if (!isF && !hovered && n.o > 0 && n.i > 0) { ctx.beginPath(); ctx.arc(sx, sy, Math.max(1.2, r * 0.35), 0, 7); ctx.fillStyle = '#1c1b18'; ctx.fill(); }
+        ctx.fillStyle = isF ? gc : hovered ? gc : '#fdfcfa'; ctx.fill();
+        ctx.strokeStyle = (isF || hovered) ? gc : '#141414'; ctx.lineWidth = isF ? 1.5 : 1.1; ctx.stroke();
+        if (!isF && !hovered && n.o > 0 && n.i > 0) { ctx.beginPath(); ctx.arc(sx, sy, Math.max(1.2, r * 0.35), 0, 7); ctx.fillStyle = '#141414'; ctx.fill(); }
         ctx.globalAlpha = 1;
       }
 
@@ -418,7 +419,7 @@
         const ph = (performance.now() % 1600) / 1600;
         const pr = this.nodeR(N[top]) + 6 + ph * 26;
         ctx.beginPath(); ctx.arc(px, py, pr, 0, 7);
-        ctx.strokeStyle = 'rgba(143,45,26,' + (0.55 * (1 - ph)).toFixed(3) + ')';
+        ctx.strokeStyle = 'rgba(156,61,34,' + (0.55 * (1 - ph)).toFixed(3) + ')';
         ctx.lineWidth = 2; ctx.stroke();
       }
 
@@ -445,13 +446,13 @@
           const [sx, sy] = this.toScreen(n.x, n.y);
           if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) continue;
           const fs = tier === 1 ? Math.max(13, Math.min(17, 9 + Math.sqrt(n.o + n.i) * 0.75)) : tier === 0 ? (mob ? 11.5 : 11) : 10;
-          ctx.font = 'italic ' + (tier === 1 ? '700 ' : '600 ') + fs + 'px "Source Serif 4", Georgia, serif';
+          ctx.font = 'italic ' + (tier === 1 ? '700 ' : '600 ') + fs + 'px "Instrument Serif", Georgia, serif';
           let label = n.n; if (label.length > 30) label = label.slice(0, 28) + '…';
           const twd = ctx.measureText(label).width;
           const ly = place(sx, sy, twd, fs, this.nodeR(n), 14, 8);
           if (ly === null) continue;
-          ctx.fillStyle = 'rgba(244,242,236,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
-          ctx.fillStyle = tier === 1 ? this.genreCol(n) : tier === 0 ? '#1c1b18' : (this.hop2Lit ? '#3d3a33' : '#8a8474');
+          ctx.fillStyle = 'rgba(247,245,240,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
+          ctx.fillStyle = tier === 1 ? this.genreCol(n) : tier === 0 ? '#141414' : (this.hop2Lit ? 'rgba(20,20,20,0.78)' : 'rgba(20,20,20,0.52)');
           ctx.fillText(label, sx, ly);
         }
       } else {
@@ -466,13 +467,13 @@
           const [sx, sy] = this.toScreen(n.x, n.y);
           if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) continue;
           const fs = Math.max(mob ? 12 : 10.5, Math.min(17, 9 + Math.sqrt(n.o + n.i) * 0.75));
-          ctx.font = 'italic 600 ' + fs + 'px "Source Serif 4", Georgia, serif';
+          ctx.font = 'italic 600 ' + fs + 'px "Instrument Serif", Georgia, serif';
           let label = n.n; if (label.length > 30) label = label.slice(0, 28) + '…';
           const twd = ctx.measureText(label).width;
           const ly = sy - this.nodeR(n) - 6;
           if (!tryPlace(sx, ly - fs / 2, twd + 44, fs + 26)) continue;
-          ctx.fillStyle = 'rgba(244,242,236,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
-          ctx.fillStyle = '#3d3a33';
+          ctx.fillStyle = 'rgba(247,245,240,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
+          ctx.fillStyle = 'rgba(20,20,20,0.78)';
           ctx.fillText(label, sx, ly);
           count++;
         }
@@ -484,7 +485,7 @@
         if (ti && ti.a > 0.01) {
           const a = ti.a, path = ti.path;
           const pts = path.map(i => this.toScreen(N[i].x, N[i].y));
-          ctx.strokeStyle = '#8f2d1a'; ctx.globalAlpha = a * 0.55; ctx.lineWidth = 1.5;
+          ctx.strokeStyle = '#9c3d22'; ctx.globalAlpha = a * 0.55; ctx.lineWidth = 1.5;
           ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
           for (let p = 1; p < pts.length; p++) ctx.lineTo(pts[p][0], pts[p][1]);
           ctx.stroke();
@@ -493,13 +494,13 @@
             ctx.beginPath(); ctx.arc(pts[p][0], pts[p][1], this.nodeR(N[path[p]]) + 3.5, 0, 7); ctx.stroke();
           }
           ctx.globalAlpha = a; ctx.textAlign = 'center';
-          ctx.font = 'italic 600 12px "Source Serif 4", Georgia, serif';
+          ctx.font = 'italic 600 12px "Instrument Serif", Georgia, serif';
           for (let p = 0; p < pts.length; p++) {
             const n2 = N[path[p]]; let lb = n2.n; if (lb.length > 26) lb = lb.slice(0, 24) + '…';
             const twd = ctx.measureText(lb).width;
             const ly = pts[p][1] - this.nodeR(n2) - 8;
-            ctx.fillStyle = 'rgba(244,242,236,0.92)'; ctx.fillRect(pts[p][0] - twd / 2 - 3, ly - 12, twd + 6, 16);
-            ctx.fillStyle = '#8f2d1a'; ctx.fillText(lb, pts[p][0], ly);
+            ctx.fillStyle = 'rgba(247,245,240,0.92)'; ctx.fillRect(pts[p][0] - twd / 2 - 3, ly - 12, twd + 6, 16);
+            ctx.fillStyle = '#9c3d22'; ctx.fillText(lb, pts[p][0], ly);
           }
           ctx.globalAlpha = 1;
         }
@@ -591,8 +592,8 @@
       for (const li of leafIds) cites.push({ name: c.G.leaves[li].name, w: 'only here', idx: -1, leaf: true });
       const citedBy = c.adjIn[f].slice().sort((a, b) => b[1] - a[1]).map(([j, w]) => ({ name: c.G.nodes[j].n, w: (w > 1 ? '×' + w + ' ' : '') + onward(j), idx: j, leaf: false }));
       const focSections = [];
-      if (citedBy.length) focSections.push({ label: 'MENTIONED BY ' + citedBy.length + pl(citedBy.length), color: '#1a5f8f', items: citedBy });
-      if (cites.length) focSections.push({ label: 'MENTIONS ' + cites.length + pl(cites.length), color: '#8f2d1a', items: cites });
+      if (citedBy.length) focSections.push({ label: 'MENTIONED BY ' + citedBy.length + pl(citedBy.length), color: '#2f5590', items: citedBy });
+      if (cites.length) focSections.push({ label: 'MENTIONS ' + cites.length + pl(cites.length), color: '#9c3d22', items: cites });
       const m = n => n + (n === 1 ? ' mention' : ' mentions');
       const recvd = c.adjIn[f].reduce((s, e) => s + e[1], 0);
       const made = c.adjOut[f].reduce((s, e) => s + e[1], 0) + (leafIds.length || 0);
@@ -660,7 +661,11 @@
       chip.querySelector('[data-act="close"]').onclick = () => this.clearFocus();
       const s = chip.querySelector('[data-act="strong"]'); if (s) s.onclick = () => { if (d.strong) this.focusNode(d.strong.idx); };
       chip.querySelector('[data-act="details"]').onclick = () => this.setState({ panelOpen: true });
-      const o = chip.querySelector('[data-act="open"]'); if (o) o.onclick = () => { const u = this.bookUrl(fn); if (u) window.open(u, '_blank'); };
+      const o = chip.querySelector('[data-act="open"]');
+      if (o) o.onclick = () => {
+        if (this.onOpenPage && fn.key) { this.onOpenPage(fn.key); return; }
+        const u = this.bookUrl(fn); if (u) window.open(u, '_blank');
+      };
     }
 
     buildPanel(panel, d) {
