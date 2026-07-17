@@ -60,7 +60,6 @@ Coraline,Neil Gaiman,Romeo and Juliet,William Shakespeare
 The Book Thief,Markus Zusak,Mein Kampf,Adolph Hitler
 Hard Boiled Wonderland and the End of the World,Haruki Murakami,Time Traveler,Norman and Jeanne MacKenzie
 Hard Boiled Wonderland and the End of the World,Haruki Murakami,Book of Imaginary Beings,Jorge Luis Borges
-Hard Boiled Wonderland and the End of the World,Haruki Murakami,Lost World,Arthur Conan Doyle
 Hard Boiled Wonderland and the End of the World,Haruki Murakami,Rudin,Ivan Turgenev
 Hard Boiled Wonderland and the End of the World,Haruki Murakami,Spring Torrents,Ivan Turgenev
 Hard Boiled Wonderland and the End of the World,Haruki Murakami,The Red and the Black,Stendhal
@@ -172,10 +171,6 @@ The Kite Runner,Khaled Hosseini,Ivanhoe,Walter Scott
 The Kite Runner,Khaled Hosseini,Wuthering Heights,Emily Bronte
 The Kite Runner,Khaled Hosseini,Les Misérables,Victor Hugo
 Queen Elizabeth,Anonymous,The First Blast of the Trumpet Against the Monstruous Regiment of Women,John Knox
-"Frankenstein, or, the Modern Prometheus",Mary Shelley,Ruins of Empires,Constantin-François Volney
-"Frankenstein, or, the Modern Prometheus",Mary Shelley,Paradise Lost,John Milton
-"Frankenstein, or, the Modern Prometheus",Mary Shelley,Plutarch's Lives,Plutarch
-"Frankenstein, or, the Modern Prometheus",Mary Shelley,The Sorrows of Young Werther,Johann Wolfgang von Goethe
 The Autobiography of Benjamin Franklin,Benjamin Franklin,The Pilgrim's Progress,John Bunyan
 The Autobiography of Benjamin Franklin,Benjamin Franklin,Plutarch's Lives,Plutarch
 The Autobiography of Benjamin Franklin,Benjamin Franklin,An Essay on Projects,Daniel Defoe
@@ -231,7 +226,6 @@ The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,The Merry Wives of W
 The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,Windsor Forest,Alexander Pope
 The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,Nature,Ralph Waldo Emerson
 The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,Chinese Ghosts,Lafcadio Hearn
-The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,Travels with a Donkey,Robert Louis Stevenson
 The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,An Iceland Fisherman,Pierre Loti
 The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,College Friends,Edmondo De Amicis
 The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,A Gossip on Romance,Robert Louis Stevenson
@@ -918,7 +912,6 @@ Trilby,George du Maurier,The Cup,Alfred Tennyson
 The Man Who Was Thursday,G. K. Chesterton,Alice's Adventures in Wonderland,Lewis Carroll
 The Innocence of Father Brown,G. K. Chesterton,The Invisible Man,H. G. Wells
 Orthodoxy,G. K. Chesterton,Robinson Crusoe,Daniel Defoe
-Orthodoxy,G. K. Chesterton,Grimm's Fairy Tales,Jacob and Wilhelm Grimm
 Orthodoxy,G. K. Chesterton,Heretics,G. K. Chesterton
 Orthodoxy,G. K. Chesterton,Henry V,William Shakespeare
 Orthodoxy,G. K. Chesterton,Alice's Adventures in Wonderland,Lewis Carroll
@@ -1075,7 +1068,6 @@ The Innocents Abroad,Mark Twain,The Count of Monte Cristo,Alexandre Dumas
 The Innocents Abroad,Mark Twain,Tam o' Shanter,Robert Burns
 The Innocents Abroad,Mark Twain,Life in the Holy Land,Anonymous
 Life on the Mississippi,Mark Twain,Uncle Remus,Joel Chandler Harris
-Life on the Mississippi,Mark Twain,Don Quixote,Miguel de Cervantes Saavedra
 Life on the Mississippi,Mark Twain,Ivanhoe,Walter Scott
 Life on the Mississippi,Mark Twain,Robinson Crusoe,Daniel Defoe
 Life on the Mississippi,Mark Twain,Julius Caesar,William Shakespeare
@@ -1467,7 +1459,6 @@ The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Proverbial Philosophy,
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,De Senectute,Cicero
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Voyages,James Cook
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,The Pleasures of Hope,Thomas Campbell
-The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Don Quixote,Miguel de Cervantes Saavedra
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,The Christian Year,John Keble
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Arabian Nights,Anonymous
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Book of Martyrs,John Foxe
@@ -1800,15 +1791,12 @@ Clarissa,Samuel Richardson,The Orphan,Thomas Otway
 Clarissa,Samuel Richardson,Venice Preserv'd,Thomas Otway
 Clarissa,Samuel Richardson,"The Rival Queens; or, the Death of Alexander the Great",Nathaniel Lee
 Clarissa,Samuel Richardson,The Temple,George Herbert
-Joseph Andrews,Henry Fielding,Don Quixote,Miguel de Cervantes Saavedra
 Joseph Andrews,Henry Fielding,Philotas,Philip Frowde
-The Expedition of Humphry Clinker,Tobias Smollett,Don Quixote,Miguel de Cervantes Saavedra
 The Expedition of Humphry Clinker,Tobias Smollett,The Ever Green,Allan Ramsay
 The Expedition of Humphry Clinker,Tobias Smollett,A Sentimental Journey Through France and Italy,Laurence Sterne
 The Expedition of Humphry Clinker,Tobias Smollett,Odes,Horace
 The Adventures of Roderick Random,Tobias Smollett,Robinson Crusoe,Daniel Defoe
 The Adventures of Roderick Random,Tobias Smollett,Colonel Jack,Daniel Defoe
-The Adventures of Roderick Random,Tobias Smollett,Don Quixote,Miguel de Cervantes Saavedra
 The Adventures of Roderick Random,Tobias Smollett,Odes,Horace
 A Sentimental Journey,Laurence Sterne,Much Ado About Nothing,William Shakespeare
 A Sentimental Journey,Laurence Sterne,Don Quixote,Miguel de Cervantes
@@ -2102,3 +2090,552 @@ Guy Mannering,Walter Scott,Richard II,William Shakespeare
 Guy Mannering,Walter Scott,Henry IV,William Shakespeare
 The Talisman,Walter Scott,Paradise Regained,John Milton
 The Talisman,Walter Scott,"Henry IV, Part I",William Shakespeare
+Ulysses,James Joyce,The Tempest,William Shakespeare
+Ulysses,James Joyce,Measure for Measure,William Shakespeare
+Ulysses,James Joyce,The Maid's Tragedy,Francis Beaumont and John Fletcher
+Ulysses,James Joyce,Hamlet,William Shakespeare
+Ulysses,James Joyce,King Lear,William Shakespeare
+Ulysses,James Joyce,Robinson Crusoe,Daniel Defoe
+Ulysses,James Joyce,Romeo and Juliet,William Shakespeare
+Ulysses,James Joyce,Antony and Cleopatra,William Shakespeare
+Ulysses,James Joyce,Paradise Lost,John Milton
+Ulysses,James Joyce,The Descent of Man,Charles Darwin
+Ulysses,James Joyce,The Origin of Species,Charles Darwin
+Ulysses,James Joyce,The Taming of the Shrew,William Shakespeare
+Ulysses,James Joyce,The Woman in White,Wilkie Collins
+Ulysses,James Joyce,Rip Van Winkle,Washington Irving
+Ulysses,James Joyce,Love's Labour's Lost,William Shakespeare
+Ulysses,James Joyce,Poetical Works,Denis Florence MacCarthy
+Ulysses,James Joyce,The Lamplighter,Maria Susanna Cummins
+Ulysses,James Joyce,The Sorrows of Satan,Marie Corelli
+Ulysses,James Joyce,The Stark-Munro Letters,Arthur Conan Doyle
+Ulysses,James Joyce,The Story of the Heavens,Robert Stawell Ball
+Ulysses,James Joyce,Troilus and Cressida,William Shakespeare
+Ulysses,James Joyce,Richard III,William Shakespeare
+Ulysses,James Joyce,The Merry Wives of Windsor,William Shakespeare
+Ulysses,James Joyce,Venus and Adonis,William Shakespeare
+Ulysses,James Joyce,The Two Gentlemen of Verona,William Shakespeare
+Ulysses,James Joyce,King John,William Shakespeare
+Ulysses,James Joyce,Molly Bawn,Margaret Wolfe Hungerford
+Ulysses,James Joyce,The Guide for the Perplexed,Maimonides
+Ulysses,James Joyce,"The Priest, the Woman and the Confessional",Charles Chiniquy
+Ulysses,James Joyce,Enoch Arden,Alfred Tennyson
+Journey to the Center of the Earth,Jules Verne,Heimskringla,Snorri Sturluson
+A Little Princess,Frances Hodgson Burnett,The French Revolution: A History,Thomas Carlyle
+A Little Princess,Frances Hodgson Burnett,The Arabian Nights,
+A Little Princess,Frances Hodgson Burnett,Sleeping Beauty,
+This Side of Paradise,F. Scott Fitzgerald,Little Women,Louisa May Alcott
+This Side of Paradise,F. Scott Fitzgerald,The Damnation of Theron Ware,Harold Frederic
+This Side of Paradise,F. Scott Fitzgerald,The Research Magnificent,H. G. Wells
+This Side of Paradise,F. Scott Fitzgerald,Anna Karenina,Leo Tolstoy
+This Side of Paradise,F. Scott Fitzgerald,L'Allegro,John Milton
+This Side of Paradise,F. Scott Fitzgerald,The Picture of Dorian Gray,Oscar Wilde
+This Side of Paradise,F. Scott Fitzgerald,Agamemnon,Aeschylus
+This Side of Paradise,F. Scott Fitzgerald,Faust,Johann Wolfgang von Goethe
+This Side of Paradise,F. Scott Fitzgerald,Arsène Lupin,Maurice Leblanc
+This Side of Paradise,F. Scott Fitzgerald,Dombey and Son,Charles Dickens
+This Side of Paradise,F. Scott Fitzgerald,Sir Nigel,Arthur Conan Doyle
+This Side of Paradise,F. Scott Fitzgerald,The Broad Highway,Jeffery Farnol
+This Side of Paradise,F. Scott Fitzgerald,The Common Law,Robert W. Chambers
+This Side of Paradise,F. Scott Fitzgerald,The New Arabian Nights,Robert Louis Stevenson
+This Side of Paradise,F. Scott Fitzgerald,The New Machiavelli,H. G. Wells
+This Side of Paradise,F. Scott Fitzgerald,Vandover and the Brute,Frank Norris
+This Side of Paradise,F. Scott Fitzgerald,Almayer’s Folly,Joseph Conrad
+This Side of Paradise,F. Scott Fitzgerald,Patience,Gilbert and Sullivan
+This Side of Paradise,F. Scott Fitzgerald,Sapho,Alphonse Daudet
+This Side of Paradise,F. Scott Fitzgerald,Frank on the Mississippi,Harry Castlemon
+This Side of Paradise,F. Scott Fitzgerald,Sinister Street,Compton Mackenzie
+This Side of Paradise,F. Scott Fitzgerald,Clair de Lune,Paul Verlaine
+This Side of Paradise,F. Scott Fitzgerald,None Other Gods,Robert Hugh Benson
+This Side of Paradise,F. Scott Fitzgerald,The Beloved Vagabond,William J. Locke
+This Side of Paradise,F. Scott Fitzgerald,The White Company,Arthur Conan Doyle
+This Side of Paradise,F. Scott Fitzgerald,Three Weeks,Elinor Glyn
+This Side of Paradise,F. Scott Fitzgerald,A Song in Time of Order,Algernon Charles Swinburne
+This Side of Paradise,F. Scott Fitzgerald,The Kreutzer Sonata,Leo Tolstoy
+This Side of Paradise,F. Scott Fitzgerald,The Shooting of Dan McGrew,Robert W. Service
+This Side of Paradise,F. Scott Fitzgerald,Do and Dare,Horatio Alger
+This Side of Paradise,F. Scott Fitzgerald,Fêtes galantes,Paul Verlaine
+This Side of Paradise,F. Scott Fitzgerald,For the Honor of the School,Ralph Henry Barbour
+This Side of Paradise,F. Scott Fitzgerald,Poems and Ballads,Algernon Charles Swinburne
+This Side of Paradise,F. Scott Fitzgerald,The Little Millionaire,George M. Cohan
+This Side of Paradise,F. Scott Fitzgerald,The Morals of Marcus Ordeyne,William J. Locke
+This Side of Paradise,F. Scott Fitzgerald,Ode to a Nightingale,John Keats
+This Side of Paradise,F. Scott Fitzgerald,The Spell of the Yukon,Robert W. Service
+This Side of Paradise,F. Scott Fitzgerald,The Triumph of Time,Algernon Charles Swinburne
+This Side of Paradise,F. Scott Fitzgerald,The Varieties of Religious Experience,William James
+This Side of Paradise,F. Scott Fitzgerald,Jennie Gerhardt,Theodore Dreiser
+This Side of Paradise,F. Scott Fitzgerald,"Mary Ware, the Little Colonel’s Chum",Annie Fellows Johnston
+This Side of Paradise,F. Scott Fitzgerald,The Man Who Was Thursday,G. K. Chesterton
+This Side of Paradise,F. Scott Fitzgerald,The Undying Fire,H. G. Wells
+This Side of Paradise,F. Scott Fitzgerald,Gunga Din,Rudyard Kipling
+This Side of Paradise,F. Scott Fitzgerald,Joan and Peter,H. G. Wells
+This Side of Paradise,F. Scott Fitzgerald,Marpessa,Stephen Phillips
+This Side of Paradise,F. Scott Fitzgerald,A Portrait of the Artist as a Young Man,James Joyce
+Anne of the Island,L. M. Montgomery,Childe Harold's Pilgrimage,Byron
+The Virginian,Owen Wister,David Copperfield,Charles Dickens
+The Virginian,Owen Wister,Kenilworth,Walter Scott
+The Virginian,Owen Wister,Othello,William Shakespeare
+The Virginian,Owen Wister,Romeo and Juliet,William Shakespeare
+The Virginian,Owen Wister,Pippa Passes,Robert Browning
+The Virginian,Owen Wister,The Rime of the Ancient Mariner,Samuel Taylor Coleridge
+The Virginian,Owen Wister,The Scarlet Letter,Nathaniel Hawthorne
+The Virginian,Owen Wister,Uncle Tom's Cabin,Harriet Beecher Stowe
+The Virginian,Owen Wister,Emma,Jane Austen
+The Virginian,Owen Wister,Pride and Prejudice,Jane Austen
+The Virginian,Owen Wister,"Hugh Wynne, Free Quaker",S. Weir Mitchell
+The Virginian,Owen Wister,The Rise of Silas Lapham,William Dean Howells
+My Man Jeeves,P. G. Wodehouse,The Old Oaken Bucket,Samuel Woodworth
+My Man Jeeves,P. G. Wodehouse,The Rosary,Robert Cameron Rogers
+The Enchanted April,Elizabeth von Arnim,Bleak House,Charles Dickens
+The Enchanted April,Elizabeth von Arnim,The Stones of Venice,John Ruskin
+The Magnificent Ambersons,Booth Tarkington,The Virginians,William Makepeace Thackeray
+The Magnificent Ambersons,Booth Tarkington,The History of Henry Esmond,William Makepeace Thackeray
+The Magnificent Ambersons,Booth Tarkington,Twelfth Night,William Shakespeare
+The Magnificent Ambersons,Booth Tarkington,Don Quixote,Miguel de Cervantes
+The Magnificent Ambersons,Booth Tarkington,Robinson Crusoe,Daniel Defoe
+The Magnificent Ambersons,Booth Tarkington,Sappho,Alphonse Daudet
+The Magnificent Ambersons,Booth Tarkington,The Little Minister,J. M. Barrie
+The Magnificent Ambersons,Booth Tarkington,The Arabian Nights,
+The Magnificent Ambersons,Booth Tarkington,Mr. Barnes of New York,Archibald Clavering Gunter
+The Magnificent Ambersons,Booth Tarkington,Hazel Kirke,Steele MacKaye
+The Good Soldier,Ford Madox Ford,Table Talk,Martin Luther
+The Good Soldier,Ford Madox Ford,History of the Popes,Leopold von Ranke
+The Good Soldier,Ford Madox Ford,The Chronicles of Froissart,Jean Froissart
+The Four Million,O. Henry,The Cloister and the Hearth,Charles Reade
+The Four Million,O. Henry,Junie's Love Test,Laura Jean Libbey
+Life on the Mississippi,Mark Twain,Don Quixote,Miguel de Cervantes
+The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Don Quixote,Miguel de Cervantes
+Joseph Andrews,Henry Fielding,Don Quixote,Miguel de Cervantes
+The Expedition of Humphry Clinker,Tobias Smollett,Don Quixote,Miguel de Cervantes
+The Adventures of Roderick Random,Tobias Smollett,Don Quixote,Miguel de Cervantes
+Hard Boiled Wonderland and the End of the World,Haruki Murakami,The Lost World,Arthur Conan Doyle
+The Art of Public Speaking,Dale Carnegie & J. Berg Esenwein,Travels with a Donkey in the Cévennes,Robert Louis Stevenson
+Orthodoxy,G. K. Chesterton,Grimms' Fairy Tales,Jacob and Wilhelm Grimm
+The Sun Also Rises,Ernest Hemingway,The Purple Land,W. H. Hudson
+The Sun Also Rises,Ernest Hemingway,A Sportsman's Sketches,Ivan Turgenev
+The Beautiful and Damned,F. Scott Fitzgerald,Ethan Frome,Edith Wharton
+The Beautiful and Damned,F. Scott Fitzgerald,Penrod,Booth Tarkington
+The Beautiful and Damned,F. Scott Fitzgerald,Atalanta in Calydon,Algernon Charles Swinburne
+The Beautiful and Damned,F. Scott Fitzgerald,Sentimental Education,Gustave Flaubert
+The Beautiful and Damned,F. Scott Fitzgerald,This Side of Paradise,F. Scott Fitzgerald
+The Beautiful and Damned,F. Scott Fitzgerald,Peg o' My Heart,J. Hartley Manners
+The Beautiful and Damned,F. Scott Fitzgerald,Fair and Warmer,Avery Hopwood
+Tales of the Jazz Age,F. Scott Fitzgerald,Ivanhoe,Walter Scott
+Tales of the Jazz Age,F. Scott Fitzgerald,The Last of the Mohicans,James Fenimore Cooper
+Tales of the Jazz Age,F. Scott Fitzgerald,Two Years Before the Mast,Richard Henry Dana Jr.
+Tales of the Jazz Age,F. Scott Fitzgerald,Evangeline,Henry Wadsworth Longfellow
+Tales of the Jazz Age,F. Scott Fitzgerald,The Ballad of Reading Gaol,Oscar Wilde
+Tales of the Jazz Age,F. Scott Fitzgerald,The Eyes of the World,Harold Bell Wright
+Tales of the Jazz Age,F. Scott Fitzgerald,The Faerie Queene,Edmund Spenser
+Tales of the Jazz Age,F. Scott Fitzgerald,Robinson Crusoe,Daniel Defoe
+Tales of the Jazz Age,F. Scott Fitzgerald,The Rape of Lucrece,William Shakespeare
+Tales of the Jazz Age,F. Scott Fitzgerald,The Crime of Sylvester Bonnard,Anatole France
+Tales of the Jazz Age,F. Scott Fitzgerald,The Skeleton in Armor,Henry Wadsworth Longfellow
+Tales of the Jazz Age,F. Scott Fitzgerald,On a Slow Train Through Arkansaw,Thomas W. Jackson
+Flappers and Philosophers,F. Scott Fitzgerald,The Revolt of the Angels,Anatole France
+Flappers and Philosophers,F. Scott Fitzgerald,The Diary of Samuel Pepys,Samuel Pepys
+Flappers and Philosophers,F. Scott Fitzgerald,On the Improvement of the Understanding,Baruch Spinoza
+Flappers and Philosophers,F. Scott Fitzgerald,Little Women,Louisa May Alcott
+Flappers and Philosophers,F. Scott Fitzgerald,Adventures of Huckleberry Finn,Mark Twain
+Flappers and Philosophers,F. Scott Fitzgerald,Kubla Khan,Samuel Taylor Coleridge
+Flappers and Philosophers,F. Scott Fitzgerald,Peer Gynt,Henrik Ibsen
+Flappers and Philosophers,F. Scott Fitzgerald,The Shooting of Dan McGrew,Robert W. Service
+Love and Freindship,Jane Austen,Jane Shore,Nicholas Rowe
+Love and Freindship,Jane Austen,The Critic,Richard Brinsley Sheridan
+Love and Freindship,Jane Austen,Macbeth,William Shakespeare
+Love and Freindship,Jane Austen,Observations on the Highlands of Scotland,William Gilpin
+Love and Freindship,Jane Austen,The Plays of William Shakespeare,William Shakespeare
+The Poison Belt,Arthur Conan Doyle,The Lost World,Arthur Conan Doyle
+Rodney Stone,Arthur Conan Doyle,The Country Wife,William Wycherley
+Rodney Stone,Arthur Conan Doyle,The Romp,Isaac Bickerstaffe
+The Refugees,Arthur Conan Doyle,Phèdre,Jean Racine
+The Refugees,Arthur Conan Doyle,The Pretended Astrologer,Thomas Corneille
+Round the Red Lamp,Arthur Conan Doyle,A Dictionary of Medicine,Richard Quain
+Uncle Bernac,Arthur Conan Doyle,The Social Contract,Jean-Jacques Rousseau
+Uncle Bernac,Arthur Conan Doyle,The Poems of Ossian,James Macpherson
+The Firm of Girdlestone,Arthur Conan Doyle,Faust,Johann Wolfgang von Goethe
+The Firm of Girdlestone,Arthur Conan Doyle,The History of Henry Esmond,William Makepeace Thackeray
+The Firm of Girdlestone,Arthur Conan Doyle,The Ordeal of Richard Feverel,George Meredith
+The Firm of Girdlestone,Arthur Conan Doyle,A Chronicle of the Conquest of Granada,Washington Irving
+The Mystery of Cloomber,Arthur Conan Doyle,Inferno,Dante Alighieri
+The Mystery of Cloomber,Arthur Conan Doyle,Researches on Magnetism and Vital Force,Karl von Reichenbach
+The Mystery of Cloomber,Arthur Conan Doyle,Letters on Animal Magnetism,William Gregory
+Victory,Joseph Conrad,Lord Jim,Joseph Conrad
+The Secret Agent,Joseph Conrad,Don Quixote,Miguel de Cervantes
+The Secret Agent,Joseph Conrad,The Malay Archipelago,Alfred Russel Wallace
+Nostromo,Joseph Conrad,King John,William Shakespeare
+Nostromo,Joseph Conrad,Typhoon,Joseph Conrad
+Jacob's Room,Virginia Woolf,Phaedrus,Plato
+Jacob's Room,Virginia Woolf,Hamlet,William Shakespeare
+Jacob's Room,Virginia Woolf,Tom Jones,Henry Fielding
+Jacob's Room,Virginia Woolf,Adonais,Percy Bysshe Shelley
+Jacob's Room,Virginia Woolf,The Faerie Queene,Edmund Spenser
+Jacob's Room,Virginia Woolf,A History of the Byzantine Empire,George Finlay
+The Voyage Out,Virginia Woolf,Adonais,Percy Bysshe Shelley
+The Voyage Out,Virginia Woolf,Wuthering Heights,Emily Bronte
+The Voyage Out,Virginia Woolf,Man and Superman,George Bernard Shaw
+The Voyage Out,Virginia Woolf,Henry V,William Shakespeare
+The Voyage Out,Virginia Woolf,The History of the Decline and Fall of the Roman Empire,Edward Gibbon
+The Voyage Out,Virginia Woolf,La Cousine Bette,Honore de Balzac
+The Voyage Out,Virginia Woolf,Persuasion,Jane Austen
+The Voyage Out,Virginia Woolf,The Prelude,William Wordsworth
+The Voyage Out,Virginia Woolf,Modern Love,George Meredith
+Women in Love,D. H. Lawrence,Fathers and Sons,Ivan Turgenev
+Women in Love,D. H. Lawrence,Romeo and Juliet,William Shakespeare
+The Rainbow,D. H. Lawrence,Ulysses,Alfred Tennyson
+The Rainbow,D. H. Lawrence,Ode to the West Wind,Percy Bysshe Shelley
+The Rainbow,D. H. Lawrence,Idylls of the King,Alfred Tennyson
+The Rainbow,D. H. Lawrence,Woman and Labour,Olive Schreiner
+The Rainbow,D. H. Lawrence,As You Like It,William Shakespeare
+The Rainbow,D. H. Lawrence,Wuthering Heights,Emily Bronte
+The Rainbow,D. H. Lawrence,The Invisible Man,H. G. Wells
+Where Angels Fear to Tread,E. M. Forster,Inferno,Dante Alighieri
+Where Angels Fear to Tread,E. M. Forster,Purgatorio,Dante Alighieri
+Where Angels Fear to Tread,E. M. Forster,Paradiso,Dante Alighieri
+Where Angels Fear to Tread,E. M. Forster,A Tramp Abroad,Mark Twain
+Where Angels Fear to Tread,E. M. Forster,Childe Harold's Pilgrimage,Byron
+Where Angels Fear to Tread,E. M. Forster,Lucia di Lammermoor,Gaetano Donizetti
+One of Ours,Willa Cather,Paradise Lost,John Milton
+One of Ours,Willa Cather,Bleak House,Charles Dickens
+One of Ours,Willa Cather,Robinson Crusoe,Daniel Defoe
+One of Ours,Willa Cather,Don Quixote,Miguel de Cervantes
+One of Ours,Willa Cather,Reisebilder,Heinrich Heine
+One of Ours,Willa Cather,Un Crime d'Amour,Paul Bourget
+The Enormous Room,E. E. Cummings,As You Like It,William Shakespeare
+The Enormous Room,E. E. Cummings,Hamlet,William Shakespeare
+The Enormous Room,E. E. Cummings,Julius Caesar,William Shakespeare
+The Enormous Room,E. E. Cummings,The Pilgrim's Progress,John Bunyan
+Zuleika Dobson,Max Beerbohm,Clarissa Harlowe,Samuel Richardson
+Zuleika Dobson,Max Beerbohm,The Invasion of the Crimea,Alexander William Kinglake
+Zuleika Dobson,Max Beerbohm,Politics,Aristotle
+Alice Adams,Booth Tarkington,Romeo and Juliet,William Shakespeare
+The Wisdom of Father Brown,G. K. Chesterton,Romeo and Juliet,William Shakespeare
+The Wisdom of Father Brown,G. K. Chesterton,Westward Ho!,Charles Kingsley
+The Wisdom of Father Brown,G. K. Chesterton,One Thousand and One Nights,
+Whose Body?,Dorothy L. Sayers,The Last Days of Pompeii,Edward Bulwer-Lytton
+Whose Body?,Dorothy L. Sayers,The Four Sons of Aymon,
+Whose Body?,Dorothy L. Sayers,The Golden Legend,Jacobus de Voragine
+Whose Body?,Dorothy L. Sayers,The Ingoldsby Legends,Richard Harris Barham
+Daddy-Long-Legs,Jean Webster,Little Women,Louisa May Alcott
+Daddy-Long-Legs,Jean Webster,Vanity Fair,William Makepeace Thackeray
+Daddy-Long-Legs,Jean Webster,Plain Tales from the Hills,Rudyard Kipling
+Daddy-Long-Legs,Jean Webster,Hamlet,William Shakespeare
+Daddy-Long-Legs,Jean Webster,Jane Eyre,Charlotte Bronte
+Daddy-Long-Legs,Jean Webster,Wuthering Heights,Emily Bronte
+Daddy-Long-Legs,Jean Webster,Essays,Ralph Waldo Emerson
+Daddy-Long-Legs,Jean Webster,The Life of Sir Walter Scott,John Gibson Lockhart
+Daddy-Long-Legs,Jean Webster,The History of the Decline and Fall of the Roman Empire,Edward Gibbon
+Daddy-Long-Legs,Jean Webster,The Autobiography of Benvenuto Cellini,Benvenuto Cellini
+Daddy-Long-Legs,Jean Webster,Tintern Abbey,William Wordsworth
+Daddy-Long-Legs,Jean Webster,As You Like It,William Shakespeare
+Daddy-Long-Legs,Jean Webster,The Portrait of a Lady,Henry James
+Daddy-Long-Legs,Jean Webster,Dover Beach,Matthew Arnold
+Daddy-Long-Legs,Jean Webster,Locksley Hall,Alfred Tennyson
+Daddy-Long-Legs,Jean Webster,Life and Letters of Thomas Henry Huxley,Leonard Huxley
+Daddy-Long-Legs,Jean Webster,The Journal of Marie Bashkirtseff,Marie Bashkirtseff
+Daddy-Long-Legs,Jean Webster,The Three Musketeers,Alexandre Dumas
+Daddy-Long-Legs,Jean Webster,Treasure Island,Robert Louis Stevenson
+Daddy-Long-Legs,Jean Webster,David Copperfield,Charles Dickens
+Daddy-Long-Legs,Jean Webster,Ivanhoe,Walter Scott
+Daddy-Long-Legs,Jean Webster,Robinson Crusoe,Daniel Defoe
+Daddy-Long-Legs,Jean Webster,Alice's Adventures in Wonderland,Lewis Carroll
+Daddy-Long-Legs,Jean Webster,Mother Goose,
+A Girl of the Limberlost,Gene Stratton-Porter,The Innocents Abroad,Mark Twain
+A Girl of the Limberlost,Gene Stratton-Porter,Natural History,Pliny the Elder
+The Vicomte de Bragelonne,Alexandre Dumas,Don Quixote,Miguel de Cervantes
+The Vicomte de Bragelonne,Alexandre Dumas,Mémoires,Agrippa d'Aubigné
+The Forty-Five Guardsmen,Alexandre Dumas,Chicot the Jester,Alexandre Dumas
+The Forty-Five Guardsmen,Alexandre Dumas,Don Quixote,Miguel de Cervantes
+The Forty-Five Guardsmen,Alexandre Dumas,De Rerum Natura,Lucretius
+The Queen's Necklace,Alexandre Dumas,The Marriage of Figaro,Pierre-Augustin Caron de Beaumarchais
+The Queen's Necklace,Alexandre Dumas,Adèle de Ponthieu,
+The Companions of Jehu,Alexandre Dumas,The Three Musketeers,Alexandre Dumas
+The Companions of Jehu,Alexandre Dumas,Christine,Alexandre Dumas
+The Companions of Jehu,Alexandre Dumas,Henri III and His Court,Alexandre Dumas
+The Companions of Jehu,Alexandre Dumas,Don Carlos,Friedrich Schiller
+The Companions of Jehu,Alexandre Dumas,"Julie, or the New Heloise",Jean-Jacques Rousseau
+The Companions of Jehu,Alexandre Dumas,The Rhine,Victor Hugo
+The Companions of Jehu,Alexandre Dumas,Histoire des Girondins,Alphonse de Lamartine
+The Companions of Jehu,Alexandre Dumas,Souvenirs de la Revolution,Charles Nodier
+The Companions of Jehu,Alexandre Dumas,Of Life and of Death,Xavier Bichat
+The Companions of Jehu,Alexandre Dumas,Le Devoir,Jules Simon
+Poirot Investigates,Agatha Christie,Who's Who,
+Poirot Investigates,Agatha Christie,Almanach de Gotha,
+The Man in the Brown Suit,Agatha Christie,Alice's Adventures in Wonderland,Lewis Carroll
+The Man in the Brown Suit,Agatha Christie,Treasure Island,Robert Louis Stevenson
+The Man in the Brown Suit,Agatha Christie,The Upper Berth,F. Marion Crawford
+The Man in the Brown Suit,Agatha Christie,Anna the Adventuress,E. Phillips Oppenheim
+The Secret of Chimneys,Agatha Christie,The Sheik,E. M. Hull
+His Family,Ernest Poole,A Christmas Carol,Charles Dickens
+His Family,Ernest Poole,John L. Stoddard's Lectures,John L. Stoddard
+His Family,Ernest Poole,Abide With Me,Henry Francis Lyte
+So Big,Edna Ferber,Pride and Prejudice,Jane Austen
+So Big,Edna Ferber,Ivanhoe,Walter Scott
+So Big,Edna Ferber,The Three Musketeers,Alexandre Dumas
+So Big,Edna Ferber,David Copperfield,Charles Dickens
+So Big,Edna Ferber,Little Women,Louisa May Alcott
+So Big,Edna Ferber,Rip Van Winkle,Washington Irving
+So Big,Edna Ferber,The Legend of Sleepy Hollow,Washington Irving
+So Big,Edna Ferber,Idylls of the King,Alfred Tennyson
+So Big,Edna Ferber,The Old Curiosity Shop,Charles Dickens
+So Big,Edna Ferber,A Little Princess,Frances Hodgson Burnett
+So Big,Edna Ferber,Samuel of Posen,George H. Jessop
+So Big,Edna Ferber,Pique,Augustin Daly
+Jean-Christophe,Romain Rolland,The Arabian Nights,
+Jean-Christophe,Romain Rolland,Les Misérables,Victor Hugo
+Jean-Christophe,Romain Rolland,Childhood,Leo Tolstoy
+Penguin Island,Anatole France,The Divine Comedy,Dante Alighieri
+Penguin Island,Anatole France,Natural History,Pliny the Elder
+Penguin Island,Anatole France,The Aeneid,Virgil
+Penguin Island,Anatole France,Eclogues,Virgil
+Penguin Island,Anatole France,The Voyage of St. Brendan,
+Penguin Island,Anatole France,The Vision of Albericus,
+Penguin Island,Anatole France,St. Patrick's Purgatory,
+Penguin Island,Anatole France,"Philosophical, Political, and Critical History of Christianity",Louis de Potter
+Penguin Island,Anatole France,Memoirs of Jacques Casanova,Giacomo Casanova
+Thaïs,Anatole France,"Lucius, or The Ass",Lucian
+Thaïs,Anatole France,The Widow of Ephesus,Petronius
+The Man of Property,John Galsworthy,Paradise Lost,John Milton
+The Man of Property,John Galsworthy,Childe Harold's Pilgrimage,Byron
+The Man of Property,John Galsworthy,The Merchant of Venice,William Shakespeare
+The Man of Property,John Galsworthy,The Count of Monte Cristo,Alexandre Dumas
+The Story of Gösta Berling,Selma Lagerlöf,Corinne,Madame de Staël
+The Story of Gösta Berling,Selma Lagerlöf,Axel,Esaias Tegnér
+The Story of Gösta Berling,Selma Lagerlöf,Frithiof's Saga,Esaias Tegnér
+Scaramouche,Rafael Sabatini,Don Quixote,Miguel de Cervantes
+Scaramouche,Rafael Sabatini,Monsieur de Pourceaugnac,Molière
+Scaramouche,Rafael Sabatini,Miles Gloriosus,Plautus
+Scaramouche,Rafael Sabatini,The Marriage of Figaro,Pierre Beaumarchais
+Captain Blood,Rafael Sabatini,Odes,Horace
+Captain Blood,Rafael Sabatini,Epodes,Horace
+Captain Blood,Rafael Sabatini,The Buccaneers of America,Alexandre Exquemelin
+Pan Michael,Henryk Sienkiewicz,With Fire and Sword,Henryk Sienkiewicz
+Pan Michael,Henryk Sienkiewicz,The Deluge,Henryk Sienkiewicz
+The Miracles of Antichrist,Selma Lagerlöf,The Old Martyrdom,Filippo Orioles
+The Girl from the Marsh Croft,Selma Lagerlöf,The Story of Gösta Berling,Selma Lagerlöf
+The Girl from the Marsh Croft,Selma Lagerlöf,Five Weeks in a Balloon,Jules Verne
+The Girl from the Marsh Croft,Selma Lagerlöf,The Thousand and One Nights,
+The Girl from the Marsh Croft,Selma Lagerlöf,Heimskringla,Snorri Sturluson
+The Girl from the Marsh Croft,Selma Lagerlöf,The Tales of Ensign Stål,Johan Ludvig Runeberg
+The Gods Are Athirst,Anatole France,The Chains of Slavery,Jean-Paul Marat
+The Gods Are Athirst,Anatole France,An Essay on Despotism,Comte de Mirabeau
+The Gods Are Athirst,Anatole France,The Crimes of Queens,Louise de Keralio
+The Gods Are Athirst,Anatole France,La Pucelle,Voltaire
+The Gods Are Athirst,Anatole France,L'Ami des Lois,Jean-Louis Laya
+The Gods Are Athirst,Anatole France,The Last Judgment of Kings,Sylvain Marechal
+The Gods Are Athirst,Anatole France,Memoir on the Origin of the Constellations,Charles-Francois Dupuis
+The Red Lily,Anatole France,The Divine Comedy,Dante Alighieri
+The Red Lily,Anatole France,The Arabian Nights,
+The Red Lily,Anatole France,Pantagruel,François Rabelais
+The Red Lily,Anatole France,The Memorial of Saint Helena,Emmanuel de Las Cases
+The Aspirations of Jean Servien,Anatole France,Gerusalemme Liberata,Torquato Tasso
+The Aspirations of Jean Servien,Anatole France,Adrienne Lecouvreur,Eugène Scribe
+The Aspirations of Jean Servien,Anatole France,Mithridate,Jean Racine
+The Aspirations of Jean Servien,Anatole France,Rodogune,Pierre Corneille
+The Aspirations of Jean Servien,Anatole France,Les Enfants d'Édouard,Casimir Delavigne
+The Aspirations of Jean Servien,Anatole France,La Fiammina,Mario Uchard
+The Aspirations of Jean Servien,Anatole France,Fables,Jean de La Fontaine
+The Aspirations of Jean Servien,Anatole France,History of France,Louis-Pierre Anquetil
+The Aspirations of Jean Servien,Anatole France,Dictionnaire Philosophique,Voltaire
+The Aspirations of Jean Servien,Anatole France,Manon Lescaut,Abbé Prévost
+The Aspirations of Jean Servien,Anatole France,Ancient History,Charles Rollin
+The Aspirations of Jean Servien,Anatole France,Myrrha,Vittorio Alfieri
+The Country House,John Galsworthy,Tom Brown's School Days,Thomas Hughes
+The Country House,John Galsworthy,The Mikado,W. S. Gilbert and Arthur Sullivan
+Fraternity,John Galsworthy,Hamlet,William Shakespeare
+Fraternity,John Galsworthy,The Iliad,Homer
+Fraternity,John Galsworthy,Don Quixote,Miguel de Cervantes
+Fraternity,John Galsworthy,The Comedies of Aristophanes,Aristophanes
+Fraternity,John Galsworthy,Adventures of Huckleberry Finn,Mark Twain
+Fraternity,John Galsworthy,The Pickwick Papers,Charles Dickens
+Fraternity,John Galsworthy,The Life of Jesus,Ernest Renan
+Fraternity,John Galsworthy,The Autobiography of Benvenuto Cellini,Benvenuto Cellini
+Fraternity,John Galsworthy,Mr Midshipman Easy,Frederick Marryat
+Fraternity,John Galsworthy,Idylls,Theocritus
+The Island Pharisees,John Galsworthy,Madame Bovary,Gustave Flaubert
+The Island Pharisees,John Galsworthy,The French Revolution,Thomas Carlyle
+The Island Pharisees,John Galsworthy,The Arabian Nights,
+The Island Pharisees,John Galsworthy,Market Harborough,George John Whyte-Melville
+The Island Pharisees,John Galsworthy,King John,William Shakespeare
+Shallow Soil,Knut Hamsun,Hunger,Knut Hamsun
+Shallow Soil,Knut Hamsun,King Lear,William Shakespeare
+Shallow Soil,Knut Hamsun,Niels Lyhne,J. P. Jacobsen
+The Job,Sinclair Lewis,Snow-Bound,John Greenleaf Whittier
+The Job,Sinclair Lewis,Sartor Resartus,Thomas Carlyle
+The Job,Sinclair Lewis,The People of the Abyss,Jack London
+The Job,Sinclair Lewis,Enoch Arden,Alfred Tennyson
+The Job,Sinclair Lewis,Evangeline,Henry Wadsworth Longfellow
+The Job,Sinclair Lewis,Vanity Fair,William Makepeace Thackeray
+The Job,Sinclair Lewis,Rip Van Winkle,Washington Irving
+The Job,Sinclair Lewis,Ships That Pass in the Night,Beatrice Harraden
+The Job,Sinclair Lewis,The Last Rose of Summer,Thomas Moore
+Free Air,Sinclair Lewis,Ivanhoe,Walter Scott
+Free Air,Sinclair Lewis,Ben-Hur,Lew Wallace
+Free Air,Sinclair Lewis,The Congo,Vachel Lindsay
+Free Air,Sinclair Lewis,The Santa Fe Trail,Vachel Lindsay
+Free Air,Sinclair Lewis,Merchants from Cathay,William Rose Benet
+Arne,Bjørnstjerne Bjørnson,Northern Mythology,Benjamin Thorpe
+The Home and the World,Rabindranath Tagore,Paradise Lost,John Milton
+The Comedienne,Władysław Reymont,Consuelo,George Sand
+The Comedienne,Władysław Reymont,Mazeppa,Juliusz Słowacki
+The Comedienne,Władysław Reymont,The Robbers,Friedrich Schiller
+The Comedienne,Władysław Reymont,The March Bachelor,Józef Bliziński
+The Comedienne,Władysław Reymont,The Iron Master,Georges Ohnet
+The Comedienne,Władysław Reymont,The Gypsy Baron,Johann Strauss II
+The Comedienne,Władysław Reymont,The Martyr,Adolphe d'Ennery
+The Comedienne,Władysław Reymont,Don César de Bazan,Dumanoir and Adolphe d'Ennery
+The Comedienne,Władysław Reymont,Doctor Robin,Jules de Prémaray
+The Comedienne,Władysław Reymont,Master and Apprentice,Józef Korzeniowski
+The Secret City,Hugh Walpole,Crime and Punishment,Fyodor Dostoevsky
+The Secret City,Hugh Walpole,Poor Folk,Fyodor Dostoevsky
+The Secret City,Hugh Walpole,The Insulted and Injured,Fyodor Dostoevsky
+The Secret City,Hugh Walpole,A Beleaguered City,Margaret Oliphant
+The Secret City,Hugh Walpole,Masquerade,Mikhail Lermontov
+The Secret City,Hugh Walpole,Pride and Prejudice,Jane Austen
+The Secret City,Hugh Walpole,Hamlet,William Shakespeare
+The Secret City,Hugh Walpole,The Wings of the Dove,Henry James
+The Secret City,Hugh Walpole,The Woman in White,Wilkie Collins
+The Secret City,Hugh Walpole,War and Peace,Leo Tolstoy
+The Secret City,Hugh Walpole,The Return,Walter de la Mare
+The Secret City,Hugh Walpole,Tono-Bungay,H. G. Wells
+The Secret City,Hugh Walpole,Wuthering Heights,Emily Bronte
+The Secret City,Hugh Walpole,The Rime of the Ancient Mariner,Samuel Taylor Coleridge
+The Secret City,Hugh Walpole,The Mystery of Edwin Drood,Charles Dickens
+The Secret City,Hugh Walpole,A House of Gentlefolk,Ivan Turgenev
+The Secret City,Hugh Walpole,La Locandiera,Carlo Goldoni
+The Secret City,Hugh Walpole,The Pale Horse,Boris Savinkov
+The Secret City,Hugh Walpole,Potash and Perlmutter,Montague Glass
+The Secret City,Hugh Walpole,Religio Medici,Thomas Browne
+The Secret City,Hugh Walpole,The Golden Bowl,Henry James
+The Secret City,Hugh Walpole,The Little Schoolmaster Mark,J. H. Shorthouse
+The Secret City,Hugh Walpole,The Nigger of the Narcissus,Joseph Conrad
+The Secret City,Hugh Walpole,The Spirit of Man,Robert Bridges
+The Lost Girl,D. H. Lawrence,Jude the Obscure,Thomas Hardy
+The Lost Girl,D. H. Lawrence,Tommy and Grizel,J. M. Barrie
+The Lost Girl,D. H. Lawrence,Alice's Adventures in Wonderland,Lewis Carroll
+The Lost Girl,D. H. Lawrence,The Woman in White,Wilkie Collins
+The Lost Girl,D. H. Lawrence,L'Aiglon,Edmond Rostand
+The Lost Girl,D. H. Lawrence,Vathek,William Beckford
+The Lost Girl,D. H. Lawrence,Les Cent Nouvelles Nouvelles,
+Lady into Fox,David Garnett,Clarissa,Samuel Richardson
+Riceyman Steps,Arnold Bennett,Poems,Thomas Gray
+Riceyman Steps,Arnold Bennett,Elegy Written in a Country Churchyard,Thomas Gray
+Riceyman Steps,Arnold Bennett,Tales,Jean de La Fontaine
+Riceyman Steps,Arnold Bennett,The Scapegoat,Hall Caine
+Riceyman Steps,Arnold Bennett,Just a Girl,Charles Garvice
+Riceyman Steps,Arnold Bennett,Not Like Other Girls,Rosa Nouchette Carey
+Riceyman Steps,Arnold Bennett,The Works of William Shakespeare,William Shakespeare
+Under Fire,Henri Barbusse,Don Quixote,Miguel de Cervantes
+In Chancery,John Galsworthy,Bel-Ami,Guy de Maupassant
+In Chancery,John Galsworthy,Romeo and Juliet,William Shakespeare
+In Chancery,John Galsworthy,The History of the Decline and Fall of the Roman Empire,Edward Gibbon
+In Chancery,John Galsworthy,Waverley Novels,Walter Scott
+In Chancery,John Galsworthy,Cosmos,Alexander von Humboldt
+To Let,John Galsworthy,Romeo and Juliet,William Shakespeare
+To Let,John Galsworthy,The Adventures of Tom Sawyer,Mark Twain
+To Let,John Galsworthy,Adventures of Huckleberry Finn,Mark Twain
+To Let,John Galsworthy,The Beggar's Opera,John Gay
+To Let,John Galsworthy,The Young Buglers,G. A. Henty
+To Let,John Galsworthy,Cast Up by the Sea,Samuel White Baker
+To Let,John Galsworthy,Ivanhoe,Walter Scott
+To Let,John Galsworthy,Bevis,Richard Jefferies
+To Let,John Galsworthy,Tom Brown's Schooldays,Thomas Hughes
+The Patrician,John Galsworthy,Our Mutual Friend,Charles Dickens
+The Elm-Tree on the Mall,Anatole France,Sartor Resartus,Thomas Carlyle
+The Elm-Tree on the Mall,Anatole France,Don Quixote,Miguel de Cervantes
+The Elm-Tree on the Mall,Anatole France,Tristram Shandy,Laurence Sterne
+The Elm-Tree on the Mall,Anatole France,Gargantua and Pantagruel,François Rabelais
+The Elm-Tree on the Mall,Anatole France,La Terre,Émile Zola
+The Elm-Tree on the Mall,Anatole France,The Imitation of Christ,Thomas à Kempis
+The Elm-Tree on the Mall,Anatole France,Phèdre,Jean Racine
+The Elm-Tree on the Mall,Anatole France,Histoire Générale des Voyages,Antoine François Prévost
+The Wicker-Work Woman,Anatole France,Don Quixote,Miguel de Cervantes
+The Wicker-Work Woman,Anatole France,Meditations,Marcus Aurelius
+The Wicker-Work Woman,Anatole France,The Aeneid,Virgil
+The Wicker-Work Woman,Anatole France,Cymbalum Mundi,Bonaventure des Périers
+The Wicker-Work Woman,Anatole France,Les Serées,Guillaume Bouchet
+The Wicker-Work Woman,Anatole France,Les Matinées,Nicolas de Cholières
+The Wicker-Work Woman,Anatole France,Les Contes et Discours d'Eutrapel,Noël du Fail
+The Wicker-Work Woman,Anatole France,Les Contes aux heures perdues,Antoine Le Métel d'Ouville
+The Wicker-Work Woman,Anatole France,Milesian Tales,Aristides of Miletus
+The Wicker-Work Woman,Anatole France,Élémens de la grammaire française,Charles François Lhomond
+The Amethyst Ring,Anatole France,Robinson Crusoe,Daniel Defoe
+The Amethyst Ring,Anatole France,Contes et Nouvelles en vers,Jean de La Fontaine
+The Amethyst Ring,Anatole France,The Decameron,Giovanni Boccaccio
+The Amethyst Ring,Anatole France,Les Cent Nouvelles Nouvelles,
+The Amethyst Ring,Anatole France,Cours de littérature,Jean-François de La Harpe
+The Amethyst Ring,Anatole France,La Gaule poétique,Louis-Antoine-François de Marchangy
+The Amethyst Ring,Anatole France,Les Vœux d'un solitaire,Bernardin de Saint-Pierre
+The Amethyst Ring,Anatole France,Projet d'une dîme royale,Sébastien Le Prestre de Vauban
+The Amethyst Ring,Anatole France,Handbuch der Archäologie der Kunst,Karl Otfried Müller
+The Amethyst Ring,Anatole France,Dies Irae,Thomas of Celano
+Monsieur Bergeret in Paris,Anatole France,The Arabian Nights,
+Clérambault,Romain Rolland,De la Constance et Consolation ès Calamités Publiques,Guillaume du Vair
+Clérambault,Romain Rolland,Le Contr'Un,Étienne de La Boétie
+Clérambault,Romain Rolland,De Viris Illustribus,Charles François Lhomond
+Our Mr. Wrenn,Sinclair Lewis,War and Peace,Leo Tolstoy
+Our Mr. Wrenn,Sinclair Lewis,Peter Pan,J. M. Barrie
+Our Mr. Wrenn,Sinclair Lewis,Alice's Adventures in Wonderland,Lewis Carroll
+The Trail of the Hawk,Sinclair Lewis,David Copperfield,Charles Dickens
+The Trail of the Hawk,Sinclair Lewis,Tono-Bungay,H. G. Wells
+The Trail of the Hawk,Sinclair Lewis,The Damnation of Theron Ware,Harold Frederic
+The Trail of the Hawk,Sinclair Lewis,War and Peace,Leo Tolstoy
+The Trail of the Hawk,Sinclair Lewis,Madame Bovary,Gustave Flaubert
+The Trail of the Hawk,Sinclair Lewis,Mankind in the Making,H. G. Wells
+The Trail of the Hawk,Sinclair Lewis,Nonsense Novels,Stephen Leacock
+The Trail of the Hawk,Sinclair Lewis,Three Weeks,Elinor Glyn
+The Trail of the Hawk,Sinclair Lewis,First and Last Things,H. G. Wells
+The Trail of the Hawk,Sinclair Lewis,A Psalm of Life,Henry Wadsworth Longfellow
+In God's Way,Bjørnstjerne Bjørnson,The Wild Duck,Henrik Ibsen
+In God's Way,Bjørnstjerne Bjørnson,Peer Gynt,Henrik Ibsen
+In God's Way,Bjørnstjerne Bjørnson,The Three Musketeers,Alexandre Dumas
+The Well of Saint Clare,Anatole France,The Decameron,Giovanni Boccaccio
+The Well of Saint Clare,Anatole France,Lives of the Most Excellent Painters,Giorgio Vasari
+The Well of Saint Clare,Anatole France,The Divine Comedy,Dante Alighieri
+The Well of Saint Clare,Anatole France,The Symposium,Plato
+The Well of Saint Clare,Anatole France,Odes,Horace
+The Well of Saint Clare,Anatole France,Orations,Cicero
+The Well of Saint Clare,Anatole France,La Vedova,Niccolo Buonaparte
+The Well of Saint Clare,Anatole France,La Promenade,Marie-Joseph Chenier
+The Well of Saint Clare,Anatole France,Mémorial de Sainte-Hélène,Emmanuel de Las Cases
+The Dark Flower,John Galsworthy,Sartor Resartus,Thomas Carlyle
+The Dark Flower,John Galsworthy,Don Quixote,Miguel de Cervantes
+The Dark Flower,John Galsworthy,King Lear,William Shakespeare
+The Dark Flower,John Galsworthy,Hamlet,William Shakespeare
+The Dark Flower,John Galsworthy,Fort Comme la Mort,Guy de Maupassant
+The Dark Flower,John Galsworthy,The Bard of the Dimbovitza,Carmen Sylva and Alma Strettell
+The World Set Free,H. G. Wells,The Interpretation of Radium,Frederick Soddy
+The World Set Free,H. G. Wells,The Golden Bough,James George Frazer
+The World Set Free,H. G. Wells,Wilhelm Meister,Johann Wolfgang von Goethe
+When the Sleeper Wakes,H. G. Wells,Heart of Darkness,Joseph Conrad
+When the Sleeper Wakes,H. G. Wells,The Madonna of the Future,Henry James
+When the Sleeper Wakes,H. G. Wells,Rip Van Winkle,Washington Irving
+The War in the Air,H. G. Wells,Robur the Conqueror,Jules Verne
+The Last Man,Mary Shelley,Sonnets,William Shakespeare
+The Last Man,Mary Shelley,Childe Harold's Pilgrimage,Byron
+The Last Man,Mary Shelley,Reflections on the Revolution in France,Edmund Burke
+The Last Man,Mary Shelley,The Cenci,Percy Bysshe Shelley
+The Last Man,Mary Shelley,The Bride's Tragedy,Thomas Lovell Beddoes
+The Last Man,Mary Shelley,Solomon,Matthew Prior
+The Last Man,Mary Shelley,Poems,John Cleveland
+The Last Man,Mary Shelley,Julius Caesar,William Shakespeare
+The Last Man,Mary Shelley,The Shield of Hercules,Hesiod
+The Last Man,Mary Shelley,Robinson Crusoe,Daniel Defoe
+The Last Man,Mary Shelley,Arthur Mervyn,Charles Brockden Brown
+The Last Man,Mary Shelley,The Italian,Ann Radcliffe
+The Blue Castle,L. M. Montgomery,Robinson Crusoe,Daniel Defoe
+Prester John,John Buchan,The Pilgrim's Progress,John Bunyan
+Prester John,John Buchan,Antony and Cleopatra,William Shakespeare
+Prester John,John Buchan,Anabasis,Xenophon
+Mr. Standfast,John Buchan,The Pilgrim's Progress,John Bunyan
+Mr. Standfast,John Buchan,The Thirty-Nine Steps,John Buchan
+Mr. Standfast,John Buchan,Ghost Stories of an Antiquary,M. R. James
+Mr. Standfast,John Buchan,The Golden Treasury,Francis Turner Palgrave
+The Amateur Cracksman,E. W. Hornung,Patience,W. S. Gilbert
+A Damsel in Distress,P. G. Wodehouse,Mariana,Alfred Tennyson
+A Damsel in Distress,P. G. Wodehouse,The Ingoldsby Legends,Richard Harris Barham
+A Damsel in Distress,P. G. Wodehouse,The Yeomen of the Guard,W. S. Gilbert and Arthur Sullivan
+Three Soldiers,John Dos Passos,Cyrano de Bergerac,Edmond Rostand
+Three Soldiers,John Dos Passos,The Iliad,Homer
+Three Soldiers,John Dos Passos,La Tentation de Saint Antoine,Gustave Flaubert
+Three Soldiers,John Dos Passos,A Shropshire Lad,A. E. Housman
