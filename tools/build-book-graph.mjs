@@ -11,7 +11,9 @@
 //              demand in the UI, so they carry no x/y here, only a leavesFor hub mapping)
 // Backbone nodes are laid out by a Fruchterman-Reingold force sim PLUS a radial spring that
 // pulls each node toward a target radius = f(degree): most-connected → center, so the guide
-// rings ("20+/8+/3+/1+ CONNECTIONS") read as real connection tiers. `ls` is a PageRank-style
+// rings ("20+/8+/3+/1+ CONNECTIONS") read as real connection tiers. A tangential angular-spread
+// force evens the star density around the circle so edge-attraction can't collapse the field
+// into a one-sided arc (which read as an "off-center" constellation). `ls` is a PageRank-style
 // popularity used only for label priority. Deterministic (seeded) → byte-stable output.
 //
 // NOTE (data limits): the DB's `mentions` table is UNIQUE(source,target), so every edge weight
@@ -149,7 +151,8 @@ function main() {
     const a = i * Math.PI * (3 - Math.sqrt(5)) + rng() * 0.3;   // golden-angle seed + tiny jitter
     px[i] = Math.cos(a) * Rt[i]; py[i] = Math.sin(a) * Rt[i];
   }
-  const ITERS = 480, SEP = 30, KREP = 0.9, KATT = 0.018, REST = 62, KRAD = 0.22;
+  const ITERS = 480, SEP = 30, KREP = 0.9, KATT = 0.018, REST = 62, KRAD = 0.22, KANG = 100;
+  const order = new Array(n), th = new Array(n);
   for (let it = 0; it < ITERS; it++) {
     const cool = 1 - it / ITERS;                 // 1 → 0
     const step = 0.9 * cool + 0.15;
@@ -171,6 +174,23 @@ function main() {
       const r = Math.hypot(px[i], py[i]) || 1e-4;
       const f = KRAD * (Rt[i] - r);
       dx[i] += (px[i] / r) * f; dy[i] += (py[i] / r) * f;
+    }
+    // angular spreading: even the star density around the circle so edge-attraction can't collapse
+    // the whole field into a one-sided arc. Sort by angle; where two angular neighbors sit closer
+    // than the even spacing (2π/n), push them apart *tangentially* (perpendicular to their radius),
+    // which evens the density without disturbing each node's degree-target radius / the guide rings.
+    for (let i = 0; i < n; i++) { order[i] = i; th[i] = Math.atan2(py[i], px[i]); }
+    order.sort((a, b) => th[a] - th[b]);
+    const want = 2 * Math.PI / n;
+    for (let s = 0; s < n; s++) {
+      const i = order[s], j = order[(s + 1) % n];
+      let g = th[j] - th[i]; if (g < 0) g += 2 * Math.PI;
+      const deficit = want - g;
+      if (deficit > 0) {
+        const f = KANG * deficit;                // tangential unit dir (-y,x)/r, scaled by r ⇒ (-y,x)
+        dx[i] += py[i] * f; dy[i] -= px[i] * f;   // nudge i backward along its ring
+        dx[j] -= py[j] * f; dy[j] += px[j] * f;   // nudge j forward along its ring
+      }
     }
     for (let i = 0; i < n; i++) { px[i] += dx[i] * step; py[i] += dy[i] * step; }
   }
