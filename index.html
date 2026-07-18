@@ -90,17 +90,15 @@ html,body{height:100%;}
 @keyframes cstlFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 
 .bj-constellation.is-mobile #stat,.bj-constellation.is-mobile #hint{display:none;}
-.bj-constellation.is-mobile .cstl-topbar{display:flex;position:absolute;top:10px;left:10px;right:10px;gap:8px;align-items:center;z-index:16;}
-.bj-constellation.is-mobile .cstl-search{position:relative;top:auto;left:auto;right:auto;width:auto;max-width:none;flex:46 1 0;min-width:140px;}
-.bj-constellation.is-mobile .cstl-search input{padding:0 14px;font-size:13px;}
+.bj-constellation.is-mobile .cstl-topbar{display:flex;position:absolute;top:10px;left:10px;right:10px;gap:8px;align-items:center;z-index:16;box-sizing:border-box;max-width:100%;}
+.bj-constellation.is-mobile .cstl-search{position:relative;top:auto;left:auto;right:auto;width:auto;max-width:none;flex:1.4 1 0%;min-width:0;}
+.bj-constellation.is-mobile .cstl-search input{padding:0 14px;font-size:16px;min-width:0;}
 .bj-constellation.is-mobile .dropdown{left:0;right:0;width:auto;max-width:none;}
-.bj-constellation.is-mobile .rail{position:relative;top:auto;right:auto;bottom:auto;transform:none;flex:54 1 0;min-width:150px;flex-direction:row;align-items:center;gap:5px;}
-.bj-constellation.is-mobile .rail .rbtn{width:36px;height:36px;flex:none;}
-.bj-constellation.is-mobile .rail .track{width:auto;height:36px;flex:1 1 auto;min-width:56px;cursor:ew-resize;order:2;}
+.bj-constellation.is-mobile .rail{position:relative;top:auto;right:auto;bottom:auto;transform:none;flex:1 1 0%;min-width:0;flex-direction:row;align-items:center;gap:6px;}
+.bj-constellation.is-mobile .rail #zoomIn,.bj-constellation.is-mobile .rail #zoomOut{display:none;}
+.bj-constellation.is-mobile .rail .track{width:auto;height:36px;flex:1 1 auto;min-width:80px;cursor:ew-resize;order:2;}
 .bj-constellation.is-mobile .rail .track .line{left:0;right:0;top:50%;bottom:auto;width:auto;height:2px;margin:-1px 0 0 0;}
 .bj-constellation.is-mobile .rail .track .thumb{width:20px;height:20px;margin:-10px 0 0 -10px;}
-.bj-constellation.is-mobile .rail #zoomOut{order:1;}
-.bj-constellation.is-mobile .rail #zoomIn{order:3;}
 .bj-constellation.is-mobile .rail .fit{order:4;flex:none;}
 .bj-constellation.is-mobile .chip{left:10px;right:10px;bottom:10px;width:auto;padding:14px 16px;}
 .bj-constellation.is-mobile .panel{left:0;right:0;bottom:0;width:auto;max-height:62%;border-radius:18px 18px 0 0;border-left:none;border-right:none;border-bottom:none;}
