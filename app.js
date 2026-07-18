@@ -26,6 +26,19 @@
   var h = React.createElement;
   var DATA = window.BookJumprData || { NODES: {}, MENTIONS: [] };
 
+  // Home-page suggestion pool: hand-picked, widely-known popular fiction (kept short
+  // so two mobile pills + the shuffle button stay on one row). Titles are resolved to
+  // books by slug via bookByTitle, so punctuation/accents/case don't need to match.
+  var POPULAR_FICTION = [
+    'Don Quixote', 'Robinson Crusoe', 'Moby-Dick', 'The Great Gatsby', 'Frankenstein',
+    'Dracula', 'Jane Eyre', 'Wuthering Heights', 'Little Women', 'Oliver Twist',
+    'David Copperfield', 'Great Expectations', 'A Tale of Two Cities', 'A Christmas Carol',
+    'Pride and Prejudice', 'Sense and Sensibility', 'Emma', 'War and Peace', 'Anna Karenina',
+    'Crime and Punishment', 'The Brothers Karamazov', 'Les Misérables', 'The Three Musketeers',
+    'Treasure Island', "Gulliver's Travels", 'The Catcher in the Rye', 'The Scarlet Letter',
+    "Uncle Tom's Cabin", 'Madame Bovary', 'Vanity Fair', 'Middlemarch', 'A Farewell to Arms', 'Lolita'
+  ];
+
   /* ------------------------------------------------------------------ *
    * Template compiler — a minimal, faithful re-implementation of the
    * subset of the DC runtime this template uses. Not the proprietary
@@ -784,11 +797,42 @@
 
     // Mobile: shorter placeholder that fits the narrow input; full copy on desktop.
     vals.homePlaceholder = m ? 'Try “Kafka on the Shore”…' : 'Search a book… try Kafka on the Shore';
+    // Mobile: drop the trailing call-to-action sentence from the intro paragraph.
+    // Desktop value keeps the leading space (static text ends at "name-drops one.").
+    vals.introTail = m ? '' : ' Pick a book, browse its shelf, and jump.';
     // Mobile: 44px tap targets for the icon buttons (icons inside keep their size).
     var iconBtn = function (size, op) {
       return { width: size + 'px', height: size + 'px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'none', border: '1.5px solid transparent', borderRadius: '999px', cursor: 'pointer', opacity: op, padding: 0 };
     };
     vals.shuffleBtn = iconBtn(m ? 44 : 26, m ? 0.55 : 0.45);
+    // Mobile hero: 1 chip with the shuffle inline beside it, no "rabbit holes" label.
+    vals.isMobile = m; vals.notMobile = !m;
+    vals.chipsRow = m
+      ? { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '24px' }
+      : { display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center', marginTop: '12px' };
+    // Mobile: trim the card's side padding so two suggestion pills + the shuffle fit on
+    // one row (and the whole card reads tighter). Desktop keeps its fluid clamp padding.
+    vals.heroCard = {
+      pointerEvents: 'auto', background: 'var(--card)', border: '1.5px solid var(--ink)', borderRadius: '20px',
+      boxShadow: '0 30px 70px rgba(20,20,20,.22)', maxWidth: '680px', width: '100%', textAlign: 'center', boxSizing: 'border-box',
+      padding: m ? '24px 18px 22px' : 'clamp(28px,5.5vw,52px) clamp(20px,6vw,60px) clamp(26px,4.5vw,44px)'
+    };
+    // Mobile: tighten the hero — smaller arc/paragraph and reduced vertical gaps.
+    vals.heroArc = m
+      ? { display: 'flex', justifyContent: 'center', maxWidth: '300px', margin: '0 auto' }
+      : { display: 'flex', justifyContent: 'center' };
+    vals.heroH1 = m
+      ? { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(31px,7.5vw,54px)', lineHeight: 1.05, margin: '12px 0 10px' }
+      : { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(31px,7.5vw,54px)', lineHeight: 1.05, margin: '20px 0 12px' };
+    vals.heroP = m
+      ? { fontSize: '14.5px', lineHeight: 1.55, opacity: 0.75, maxWidth: '470px', margin: '0 auto' }
+      : { fontSize: '15.5px', lineHeight: 1.6, opacity: 0.75, maxWidth: '470px', margin: '0 auto' };
+    vals.heroSearchWrap = m
+      ? { position: 'relative', maxWidth: '520px', margin: '20px auto 0' }
+      : { position: 'relative', maxWidth: '520px', margin: '26px auto 0' };
+    vals.homeIconsRow = m
+      ? { display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '22px' }
+      : { display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '30px' };
     vals.homeNavBtn = iconBtn(m ? 44 : 32, 0.4);
     vals.hdrNavBtn = iconBtn(m ? 44 : 34, 0.6);
     // Mobile: hide secondary captions / truncate long titles so rows don't collide.
@@ -875,16 +919,15 @@
         background: 'repeating-linear-gradient(90deg, transparent 0, transparent 88px, rgba(20,20,20,.05) 88px, rgba(20,20,20,.05) 89.5px)'
       } : { display: 'none' };
       var seed = this.state.chipSeed || 0;
-      var chipN = m ? 3 : 5, chipMax = m ? 22 : 28;  // fewer, shorter chips on mobile
-      var picks;
-      if (seed === 0 || !all.length) {
-        picks = ['Kafka on the Shore', 'The Catcher in the Rye', 'The Motorcycle Diaries', 'Slaughterhouse-Five', 'The Righteous Mind']
-          .map(function (t) { return self.bookByTitle(t); }).filter(Boolean);
-      } else {
-        var pool = all.filter(function (b) { return (b.isSource || b.in.length >= 2) && b.title.length <= chipMax; });
-        picks = pool.slice().sort(function (a, b2) { return self.hash(a.id + '~' + seed) - self.hash(b2.id + '~' + seed); }).slice(0, chipN);
-      }
-      vals.chips = picks.slice(0, chipN).map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
+      var chipN = m ? 2 : 5, chipMax = m ? 16 : 22;  // short pills; 2 on mobile so they never wrap
+      // Suggestions come from the curated POPULAR_FICTION set (resolved once, then cached),
+      // trimmed by title length so pills stay short, shuffled deterministically per seed.
+      var popPool = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(Boolean));
+      var pool = popPool.filter(function (b) { return b.title.length <= chipMax; });
+      // Prepend the seed (not append) so it perturbs the whole FNV hash via avalanche —
+      // appending only shifts every hash by a constant, leaving the sort order unchanged.
+      var picks = pool.slice().sort(function (a, b2) { return self.hash(seed + '~' + a.id) - self.hash(seed + '~' + b2.id); }).slice(0, chipN);
+      vals.chips = picks.map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
     } else { vals.wallCovers = []; vals.chips = []; vals.wallStyle = {}; vals.wallFade = {}; }
 
     // book page
