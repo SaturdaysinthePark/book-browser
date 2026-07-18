@@ -40,6 +40,7 @@
       this.state = { ready: false, focus: -1, panelOpen: false, searchQ: '', searchResults: [], popular: false, isMobile: false };
       // per-frame instance state (never triggers a chrome re-render)
       this.view = { x: 0, y: 0, k: 0.5 };
+      this.railHorizontal = false;
       this.tween = null; this.dragging = false; this.dragMoved = false; this.lastMX = 0; this.lastMY = 0;
       this.hover = -1; this.dirty = true; this.raf = 0; this.dpr = 1;
       this.pulseOn = !this.reduceMotion; this.pinch = null; this.touchStart = null;
@@ -219,7 +220,10 @@
     flyTo(x, y, k) { this.tween = { t0: performance.now(), dur: 550, from: { ...this.view }, to: { x, y, k } }; this.dirty = true; }
     railApply(e) {
       const r = this.railEl.getBoundingClientRect();
-      const t = Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
+      const horizontal = r.width > r.height;
+      const t = horizontal
+        ? 1 - Math.max(0, Math.min(1, (e.clientX - r.left) / r.width))
+        : Math.max(0, Math.min(1, (e.clientY - r.top) / r.height));
       const k = Math.exp(Math.log(10) + t * (Math.log(0.1) - Math.log(10)));
       const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
       this.zoomAt(w / 2, h / 2, k / this.view.k);
@@ -239,7 +243,9 @@
       if (this.railThumbEl && this.view.k !== this.lastRailK) {
         this.lastRailK = this.view.k;
         const t = (Math.log(10) - Math.log(this.view.k)) / (Math.log(10) - Math.log(0.1));
-        this.railThumbEl.style.top = (Math.max(0, Math.min(1, t)) * 100) + '%';
+        const p = Math.max(0, Math.min(1, t)) * 100;
+        if (this.railHorizontal) { this.railThumbEl.style.left = (100 - p) + '%'; this.railThumbEl.style.top = ''; }
+        else { this.railThumbEl.style.top = p + '%'; this.railThumbEl.style.left = ''; }
       }
       if (!this.reduceMotion) {
         if (this.state.focus < 0 && (this.pulseOn || this.props.ambientTours)) this.dirty = true;
@@ -347,15 +353,7 @@
           ctx.fillStyle = '#fdfcfa'; ctx.fill();
           ctx.strokeStyle = '#9c3d22'; ctx.lineWidth = 1; ctx.stroke();
         }
-        if (lp.length <= 40 || k > 1.4) {
-          ctx.font = 'italic 400 10.5px "Instrument Serif", Georgia, serif';
-          ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(20,20,20,0.62)';
-          for (const p of lp) {
-            const [sx, sy] = this.toScreen(p.x, p.y);
-            const name = c.G.leaves[p.li].name;
-            ctx.fillText(name.length > 26 ? name.slice(0, 24) + '…' : name, sx + 6, sy + 3);
-          }
-        }
+        // leaf *labels* are drawn later (in the label pass) so they respect the collision set
       }
 
       const hovChain = hasFocus && this.state.focus >= 0 && this.hover >= 0 && this.hover !== focus && c.neigh[focus].has(this.hover) ? this.hover : -1;
@@ -436,10 +434,11 @@
       };
       ctx.textAlign = 'center';
       if (hasFocus) {
-        const nb = [...c.neigh[focus]].sort((a, b) => (N[b].ls || 0) - (N[a].ls || 0));
+        let nb = [...c.neigh[focus]].sort((a, b) => (N[b].ls || 0) - (N[a].ls || 0));
         let h2list;
         if (this.hop2Lit) h2list = [...this.hop2Lit];
         else { h2list = [...hop2].sort((a, b) => (N[b].ls || 0) - (N[a].ls || 0)).slice(0, 8); }
+        if (mob) { nb = nb.slice(0, 12); h2list = h2list.slice(0, 4); }
         const list = [[focus, 1], ...nb.map(i => [i, 0]), ...h2list.map(i => [i, 2])];
         for (const [i, tier] of list) {
           const n = N[i];
@@ -449,11 +448,32 @@
           ctx.font = 'italic ' + (tier === 1 ? '700 ' : '600 ') + fs + 'px "Instrument Serif", Georgia, serif';
           let label = n.n; if (label.length > 30) label = label.slice(0, 28) + '…';
           const twd = ctx.measureText(label).width;
-          const ly = place(sx, sy, twd, fs, this.nodeR(n), 14, 8);
+          const ly = place(sx, sy, twd, fs, this.nodeR(n), mob ? 30 : 14, mob ? 14 : 8);
           if (ly === null) continue;
           ctx.fillStyle = 'rgba(247,245,240,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
           ctx.fillStyle = tier === 1 ? this.genreCol(n) : tier === 0 ? '#141414' : (this.hop2Lit ? 'rgba(20,20,20,0.78)' : 'rgba(20,20,20,0.52)');
           ctx.fillText(label, sx, ly);
+        }
+        // rim leaves fill only the gaps the important labels left (share placedR → no overlap)
+        if (this.state.focus >= 0) {
+          const lp2 = this.leafPositions(this.state.focus);
+          if (lp2.length <= 40 || k > 1.4) {
+            const lfs = mob ? 11 : 10.5;
+            ctx.font = 'italic 400 ' + lfs + 'px "Instrument Serif", Georgia, serif';
+            ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(20,20,20,0.62)';
+            let lcount = 0; const lcap = mob ? 14 : 999;
+            for (const p of lp2) {
+              if (lcount >= lcap) break;
+              const [sx, sy] = this.toScreen(p.x, p.y);
+              if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) continue;
+              let name = c.G.leaves[p.li].name; if (name.length > 26) name = name.slice(0, 24) + '…';
+              const twd = ctx.measureText(name).width;
+              if (!tryPlace(sx + 6 + twd / 2, sy - 2, twd + (mob ? 18 : 10), lfs + (mob ? 7 : 5))) continue;
+              ctx.fillText(name, sx + 6, sy + 3);
+              lcount++;
+            }
+            ctx.textAlign = 'center';
+          }
         }
       } else {
         const density = this.props.labelDensity;
@@ -499,6 +519,7 @@
             const n2 = N[path[p]]; let lb = n2.n; if (lb.length > 26) lb = lb.slice(0, 24) + '…';
             const twd = ctx.measureText(lb).width;
             const ly = pts[p][1] - this.nodeR(n2) - 8;
+            if (!tryPlace(pts[p][0], ly - 6, twd + 12, 16)) continue;
             ctx.fillStyle = 'rgba(247,245,240,0.92)'; ctx.fillRect(pts[p][0] - twd / 2 - 3, ly - 12, twd + 6, 16);
             ctx.fillStyle = '#9c3d22'; ctx.fillText(lb, pts[p][0], ly);
           }
@@ -561,7 +582,7 @@
       const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
       const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
       const mob = this.state.isMobile;
-      const padX = mob ? 28 : 90, padT = mob ? 56 : 76, padB = mob ? 235 : 110;
+      const padX = mob ? 28 : 90, padT = mob ? 66 : 76, padB = mob ? 235 : 110;
       const availW = Math.max(120, w - padX * 2), availH = Math.max(120, h - padT - padB);
       const bw = Math.max(maxX - minX, 120), bh = Math.max(maxY - minY, 120);
       let k = Math.min(availW / bw, availH / bh);
@@ -608,6 +629,12 @@
     renderChrome() {
       const st = this.state, c = this.graph;
       this.root.classList.toggle('is-mobile', !!st.isMobile);
+      const nh = !!st.isMobile;
+      if (nh !== this.railHorizontal) {
+        this.railHorizontal = nh; this.lastRailK = null;
+        if (this.railThumbEl) { this.railThumbEl.style.top = ''; this.railThumbEl.style.left = ''; }
+        this.dirty = true;
+      }
       if (this.statEl) this.statEl.textContent = c ? (c.G.meta.backbone + ' OF ' + c.G.meta.books + ' BOOKS · ' + c.G.meta.leaves + ' TUCKED AT THE RIM · EXACT MENTION DATA') : 'LOADING…';
       if (this.searchEl && this.searchEl.value !== st.searchQ) this.searchEl.value = st.searchQ;
       this.renderDropdown();
