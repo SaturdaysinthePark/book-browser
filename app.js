@@ -729,7 +729,9 @@
     var authors = {};
     for (var i = 0; i < this.all.length; i++) {
       var b = this.all[i];
-      if (!b.author || !b.in.length) continue;
+      // Anonymous isn't a real single author (Beowulf, the folk tales, etc. are unrelated works),
+      // so exclude it from the authors leaderboard — its books still rank in "Most mentioned books".
+      if (!b.author || b.author === 'Anonymous' || !b.in.length) continue;
       if (!authors[b.author]) authors[b.author] = { count: 0, works: {} };
       authors[b.author].count += b.in.length;
       authors[b.author].works[b.title] = true;
