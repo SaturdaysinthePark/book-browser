@@ -34,10 +34,10 @@ html,body{height:100%;}
 .bj-constellation #wrap{position:absolute;inset:0;overflow:hidden;cursor:grab;touch-action:none;}
 .bj-constellation #canvas{position:absolute;inset:0;display:block;}
 .bj-constellation #hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.04em;opacity:.45;pointer-events:none;z-index:5;text-align:center;max-width:70%;}
-.bj-constellation #stat{position:absolute;top:14px;left:18px;font-size:10px;letter-spacing:.1em;opacity:.5;z-index:5;max-width:52%;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 
 .bj-constellation .cstl-topbar{display:contents;}
-.bj-constellation .cstl-search{position:absolute;top:14px;right:14px;width:300px;max-width:calc(100% - 28px);z-index:16;}
+.bj-constellation .cstl-right{position:absolute;top:14px;right:14px;z-index:16;display:flex;align-items:center;gap:10px;max-width:calc(100% - 28px);}
+.bj-constellation .cstl-search{position:relative;width:300px;max-width:none;flex:1 1 auto;min-width:0;}
 .bj-constellation .cstl-search input{height:44px;width:100%;box-sizing:border-box;border:1.5px solid var(--ink);border-radius:999px;padding:0 20px;font-size:13.5px;background:var(--paper);color:var(--ink);font-family:'IBM Plex Mono',monospace;box-shadow:0 4px 0 rgba(20,20,20,.9);}
 .bj-constellation .dropdown{position:absolute;top:calc(100% + 8px);right:0;width:300px;max-width:86vw;background:var(--card);border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 4px 0 rgba(20,20,20,.9);z-index:60;display:none;animation:cstlFade .12s ease;}
 .bj-constellation .dropdown .pophead{padding:8px 15px 5px;font-size:8.5px;letter-spacing:.16em;opacity:.5;border-bottom:1px solid rgba(20,20,20,.1);}
@@ -55,6 +55,19 @@ html,body{height:100%;}
 .bj-constellation .rail .track .thumb{position:absolute;left:50%;top:50%;width:16px;height:16px;margin:-8px 0 0 -8px;border-radius:999px;background:var(--card);border:1.5px solid var(--ink);box-shadow:0 2px 0 rgba(20,20,20,.9);pointer-events:none;}
 .bj-constellation .rail .fit{height:28px;padding:0 10px;border:1.5px solid var(--ink);border-radius:999px;background:var(--card);font-size:9px;letter-spacing:.1em;cursor:pointer;font-family:'IBM Plex Mono',monospace;box-shadow:0 3px 0 rgba(20,20,20,.9);}
 .bj-constellation .rail .fit:hover{background:var(--ink);color:var(--paper);}
+
+.bj-constellation .cstl-modes{position:relative;flex:none;}
+.bj-constellation .mbtn-compact{display:flex;align-items:center;justify-content:center;position:relative;width:44px;height:44px;flex:none;border:1.5px solid var(--ink);border-radius:999px;background:var(--card);box-shadow:0 4px 0 rgba(20,20,20,.9);cursor:pointer;padding:0;color:var(--ink);}
+.bj-constellation .mbtn-compact:hover{background:var(--ink);color:var(--paper);}
+.bj-constellation .mbtn-compact .dot{display:none;position:absolute;top:6px;right:6px;width:7px;height:7px;border-radius:999px;background:#9c3d22;border:1.5px solid var(--card);}
+.bj-constellation .mbtn-compact.filtered .dot{display:block;}
+.bj-constellation .modes-pop{position:absolute;top:calc(100% + 8px);left:0;width:168px;background:var(--card);border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;box-shadow:0 4px 0 rgba(20,20,20,.9);z-index:60;display:none;animation:cstlFade .12s ease;}
+.bj-constellation .modes-pop.open{display:block;}
+.bj-constellation .modes-pop .row{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;box-sizing:border-box;padding:10px 15px;border:none;border-bottom:1px solid rgba(20,20,20,.1);background:none;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.1em;color:var(--ink);cursor:pointer;text-align:left;}
+.bj-constellation .modes-pop .row:last-child{border-bottom:none;}
+.bj-constellation .modes-pop .row:hover{background:var(--paper);}
+.bj-constellation .modes-pop .row .ck{opacity:0;font-size:11px;}
+.bj-constellation .modes-pop .row.active .ck{opacity:1;}
 
 .bj-constellation .chip{position:absolute;left:18px;bottom:18px;width:288px;box-sizing:border-box;z-index:20;display:none;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 4px 0 rgba(20,20,20,.9);padding:16px 18px;animation:cstlFade .15s ease;}
 .bj-constellation .chip .top{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;}
@@ -89,9 +102,10 @@ html,body{height:100%;}
 
 @keyframes cstlFade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
 
-.bj-constellation.is-mobile #stat,.bj-constellation.is-mobile #hint{display:none;}
+.bj-constellation.is-mobile #hint{display:none;}
 .bj-constellation.is-mobile .cstl-topbar{display:flex;position:absolute;top:10px;left:10px;right:10px;gap:8px;align-items:center;z-index:16;box-sizing:border-box;max-width:100%;}
-.bj-constellation.is-mobile .cstl-search{position:relative;top:auto;left:auto;right:auto;width:auto;max-width:none;flex:1.4 1 0%;min-width:0;}
+.bj-constellation.is-mobile .cstl-right{position:relative;top:auto;right:auto;max-width:none;flex:1.4 1 0%;min-width:0;gap:8px;}
+.bj-constellation.is-mobile .cstl-search{flex:1 1 auto;min-width:0;}
 .bj-constellation.is-mobile .cstl-search input{padding:0 14px;font-size:16px;min-width:0;}
 .bj-constellation.is-mobile .dropdown{left:0;right:0;width:auto;max-width:none;}
 .bj-constellation.is-mobile .rail{position:relative;top:auto;right:auto;bottom:auto;transform:none;flex:1 1 0%;min-width:0;flex-direction:row;align-items:center;gap:6px;}
@@ -496,9 +510,22 @@ html,body{height:100%;}
       <div id="wrap"><canvas id="canvas"></canvas></div>
       <div id="hint">dot = book · centre = most connected · click to trace a book · esc to reset</div>
       <div class="cstl-topbar">
-        <div class="cstl-search">
-          <input id="search" placeholder="Search a title…"></input>
-          <div class="dropdown" id="dropdown"></div>
+        <div class="cstl-right">
+          <div class="cstl-modes" id="modes">
+            <button class="mbtn-compact" id="modesCompact" title="Filter">
+              <svg width="14" height="14" viewBox="0 0 16 16"><path d="M2 3h12l-4.5 6.2v3.3l-3 1.5V9.2L2 3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"></path></svg>
+              <span class="dot"></span>
+            </button>
+            <div class="modes-pop" id="modesPop">
+              <button class="row active" data-mode="all">ALL<span class="ck">✓</span></button>
+              <button class="row" data-mode="fiction">FICTION<span class="ck">✓</span></button>
+              <button class="row" data-mode="nonfiction">NONFICTION<span class="ck">✓</span></button>
+            </div>
+          </div>
+          <div class="cstl-search">
+            <input id="search" placeholder="Search a title…"></input>
+            <div class="dropdown" id="dropdown"></div>
+          </div>
         </div>
         <div class="rail">
           <button class="rbtn" id="zoomIn" title="Zoom in">+</button>
@@ -507,7 +534,6 @@ html,body{height:100%;}
           <button class="fit" id="fit" title="Fit to view">FIT</button>
         </div>
       </div>
-      <div id="stat"></div>
       <div class="chip" id="chip"></div>
       <div class="panel" id="panel"></div>
     </div>
@@ -550,7 +576,7 @@ html,body{height:100%;}
 <script src="bookjumpr-data.js"></script>
 <!-- Network tab: constellation graph data (window.BookGraph) + engine (window.Constellation) -->
 <script src="constellation-data.js"></script>
-<script src="constellation-view.js?v=3"></script>
+<script src="constellation-view.js?v=10"></script>
 <!-- The application -->
 <script src="app.js"></script>
 </body>

@@ -22,11 +22,15 @@
     });
   }
 
+  const MODES = ['all', 'fiction', 'nonfiction'];
+
   class Constellation {
     constructor(opts) {
       this.opts = opts || {};
       this.root = this.opts.root;
       this.onOpenPage = this.opts.onOpenPage || null; // in-app nav hook (SPA); falls back to window.open
+      this.fullData = this.opts.data || {};   // { all, fiction, nonfiction } — each an independently laid-out graph
+      this.mode = MODES.includes(this.opts.initialMode) ? this.opts.initialMode : 'all';
       this.props = {
         bookUrlPattern: this.opts.bookUrlPattern || '',
         showRings: this.opts.showRings !== false,
@@ -45,6 +49,7 @@
       this.hover = -1; this.dirty = true; this.raf = 0; this.dpr = 1;
       this.pulseOn = !this.reduceMotion; this.pinch = null; this.touchStart = null;
       this.tourT0 = 0; this.tourIdx = 0; this.railDrag = false; this.lastRailK = 0; this.hop2Lit = null;
+      this.pulseT0 = 0;
 
       this.init();
     }
@@ -52,16 +57,18 @@
     // ---------------------------------------------------------------- lifecycle
     init() {
       const root = this.root;
-      this.graph = this.prep(this.opts.data);
+      this.graph = this.prep(this.fullData[this.mode]);
       this.wrapEl = root.querySelector('#wrap');
       this.canvasEl = root.querySelector('#canvas');
       this.railEl = root.querySelector('#rail');
       this.railThumbEl = root.querySelector('#railThumb');
       this.searchEl = root.querySelector('#search');
-      this.statEl = root.querySelector('#stat');
       this.dropdownEl = root.querySelector('#dropdown');
       this.chipEl = root.querySelector('#chip');
       this.panelEl = root.querySelector('#panel');
+      this.modesEl = root.querySelector('#modes');
+      this.modesCompactEl = root.querySelector('#modesCompact');
+      this.modesPopEl = root.querySelector('#modesPop');
 
       this.setupCanvas();
       this.fit();
@@ -73,6 +80,22 @@
       root.querySelector('#zoomIn').addEventListener('click', () => { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; this.zoomAt(w / 2, h / 2, 1.5); });
       root.querySelector('#zoomOut').addEventListener('click', () => { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; this.zoomAt(w / 2, h / 2, 1 / 1.5); });
       root.querySelector('#fit').addEventListener('click', () => { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.fit(); });
+      if (this.modesEl) this.modesEl.addEventListener('click', (e) => {
+        const btn = e.target.closest('[data-mode]'); if (!btn) return;
+        this.setMode(btn.getAttribute('data-mode'));
+        if (this.modesPopEl) this.modesPopEl.classList.remove('open');
+      });
+      if (this.modesCompactEl) this.modesCompactEl.addEventListener('click', (e) => {
+        e.stopPropagation();
+        if (this.modesPopEl) this.modesPopEl.classList.toggle('open');
+      });
+      this.modesOutsideClickH = (e) => {
+        if (this.modesPopEl && this.modesPopEl.classList.contains('open') && !this.modesEl.contains(e.target)) {
+          this.modesPopEl.classList.remove('open');
+        }
+      };
+      document.addEventListener('click', this.modesOutsideClickH);
+      if (this.modesCompactEl) this.modesCompactEl.classList.toggle('filtered', this.mode !== 'all');
       this.railEl.addEventListener('pointerdown', (e) => { this.railDrag = true; try { e.target.setPointerCapture(e.pointerId); } catch (_) {} this.railApply(e); });
       this.railEl.addEventListener('pointermove', (e) => { if (this.railDrag) this.railApply(e); });
       this.railEl.addEventListener('pointerup', () => { this.railDrag = false; });
@@ -84,7 +107,7 @@
       this.canvasEl.addEventListener('click', this.handleClick);
 
       this.keyH = (e) => {
-        if (e.key === 'Escape') { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; }
+        if (e.key === 'Escape') { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; if (this.modesPopEl) this.modesPopEl.classList.remove('open'); }
         else if (e.key === '/' && document.activeElement !== this.searchEl) { e.preventDefault(); if (this.searchEl) this.searchEl.focus(); }
       };
       window.addEventListener('keydown', this.keyH);
@@ -99,6 +122,24 @@
       if (this.ro) this.ro.disconnect();
       window.removeEventListener('keydown', this.keyH);
       window.removeEventListener('mouseup', this.handleUp);
+      document.removeEventListener('click', this.modesOutsideClickH);
+    }
+
+    // Swap to a different lens's independently-laid-out graph (see tools/build-book-graph.mjs —
+    // "fiction"/"nonfiction" aren't the "all" layout with nodes hidden, they're recomputed from
+    // scratch, so degree/rings/positions genuinely differ per mode). Resets camera + open focus.
+    setMode(mode) {
+      if (mode === this.mode || !this.fullData[mode]) return;
+      this.mode = mode;
+      this.graph = this.prep(this.fullData[mode]);
+      this.hover = -1; this.tourT0 = 0; this.tourIdx = 0;
+      this.pulseOn = !this.reduceMotion; this.pulseT0 = 0;  // replay the intro spotlight pulse for the new lens
+      if (this.modesEl) this.modesEl.querySelectorAll('[data-mode]').forEach(b => {
+        b.classList.toggle('active', b.getAttribute('data-mode') === mode);
+      });
+      if (this.modesCompactEl) this.modesCompactEl.classList.toggle('filtered', mode !== 'all');
+      this.setState({ focus: -1, panelOpen: false, searchQ: '', searchResults: [], popular: false });
+      this.fit();
     }
 
     setState(patch, cb) {
@@ -116,17 +157,37 @@
       const order = [...G.nodes.keys()].sort((x, y) => (G.nodes[y].o + G.nodes[y].i) - (G.nodes[x].o + G.nodes[x].i));
       const labelOrder = [...G.nodes.keys()].sort((x, y) => (G.nodes[y].ls || 0) - (G.nodes[x].ls || 0));
       const c = { G, adjOut, adjIn, neigh, order, labelOrder, extent: G.meta.extent || 2000 };
+      // The one always-on "spotlight" (pulse ring + persistent label) must be a node the radial
+      // layout actually drew near the visual center. labelOrder[0] (PageRank `ls`, rewards being
+      // *cited*) is normally that node, and is preferred here to avoid a "book-about-books" hub
+      // (high out-degree, cites everything, cited by nobody) winning the spotlight just by
+      // name-dropping widely. But in small/sparse lenses a handful of citations can win a
+      // disproportionate PageRank share for a node the layout still parks near the rim (low total
+      // degree) — using labelOrder[0] blindly then spotlights a book sitting visibly off to the
+      // side. So: use labelOrder[0] only if the layout placed it inside the well-connected inner
+      // band; otherwise fall back to order[0] (raw degree — the same ranking targetRadius() in
+      // tools/build-book-graph.mjs centers on), which is guaranteed near-center by construction.
+      const SPOTLIGHT_R = c.extent * 0.22; // ≈ the "8+ CONNECTIONS" ring boundary
+      const rad = i => Math.hypot(G.nodes[i].x, G.nodes[i].y);
+      c.spotlight = labelOrder.length
+        ? (rad(labelOrder[0]) <= SPOTLIGHT_R ? labelOrder[0] : order[0])
+        : -1;
       c.chains = this.buildChains(c);
       return c;
     }
     buildChains(c) {
       const res = [], used = new Set();
+      const deg = i => c.G.nodes[i].o + c.G.nodes[i].i;
       for (const s of c.order) {
         if (res.length >= 20) break;
         const seen = new Set([s]); const path = [s]; let cur = s;
         while (path.length < 6) {
-          let best = -1, bw = -1;
-          for (const [j, w] of c.adjOut[cur]) if (!seen.has(j) && w > bw) { bw = w; best = j; }
+          let best = -1, bd = -1;
+          // undirected: c.adjOut alone starves in lenses where most backbone nodes are pure
+          // "sink" targets (0 outbound edges within this lens) — walk c.neigh instead (both
+          // directions), tie-breaking on total degree since every mention edge weight is 1
+          // anyway (mentions is UNIQUE(source,target); see file header).
+          for (const j of c.neigh[cur]) if (!seen.has(j) && deg(j) > bd) { bd = deg(j); best = j; }
           if (best < 0) break;
           seen.add(best); path.push(best); cur = best;
         }
@@ -407,18 +468,25 @@
         const hovered = i === this.hover && !mob;
         ctx.fillStyle = isF ? gc : hovered ? gc : '#fdfcfa'; ctx.fill();
         ctx.strokeStyle = (isF || hovered) ? gc : '#141414'; ctx.lineWidth = isF ? 1.5 : 1.1; ctx.stroke();
-        if (!isF && !hovered && n.o > 0 && n.i > 0) { ctx.beginPath(); ctx.arc(sx, sy, Math.max(1.2, r * 0.35), 0, 7); ctx.fillStyle = '#141414'; ctx.fill(); }
         ctx.globalAlpha = 1;
       }
 
-      if (this.pulseOn && !hasFocus && !this.reduceMotion && c.order.length) {
-        const top = c.order[0];
-        const [px, py] = this.toScreen(N[top].x, N[top].y);
-        const ph = (performance.now() % 1600) / 1600;
-        const pr = this.nodeR(N[top]) + 6 + ph * 26;
-        ctx.beginPath(); ctx.arc(px, py, pr, 0, 7);
-        ctx.strokeStyle = 'rgba(156,61,34,' + (0.55 * (1 - ph)).toFixed(3) + ')';
-        ctx.lineWidth = 2; ctx.stroke();
+      if (this.pulseOn && !hasFocus && !this.reduceMotion && c.spotlight >= 0) {
+        const t = performance.now();
+        if (!this.pulseT0) this.pulseT0 = t;
+        const PULSE_MS = 1600, MAX_PULSES = 10;
+        const elapsed = t - this.pulseT0;
+        if (elapsed >= PULSE_MS * MAX_PULSES) {
+          this.pulseOn = false;   // hand off to the ambient tour, uncontested
+        } else {
+          const top = c.spotlight;
+          const [px, py] = this.toScreen(N[top].x, N[top].y);
+          const ph = (elapsed % PULSE_MS) / PULSE_MS;
+          const pr = this.nodeR(N[top]) + 6 + ph * 26;
+          ctx.beginPath(); ctx.arc(px, py, pr, 0, 7);
+          ctx.strokeStyle = 'rgba(156,61,34,' + (0.55 * (1 - ph)).toFixed(3) + ')';
+          ctx.lineWidth = 2; ctx.stroke();
+        }
       }
 
       // labels
@@ -477,25 +545,38 @@
         }
       } else {
         const density = this.props.labelDensity;
-        const budget = Math.round(Math.min(70, (w * h) / 60000 * (k < 0.4 ? 0.45 : k < 0.8 ? 0.7 : k < 1.5 ? 1.0 : 1.5)) * density);
-        const rankCap = Math.round((k < 0.35 ? 24 : k < 0.6 ? 48 : k < 1 ? 90 : k < 1.8 ? 160 : N.length) * density);
-        let count = 0, rank = 0;
-        for (const i of c.labelOrder) {
-          rank++;
-          if (count >= budget || rank > rankCap) break;
+        const drawLabel = (i) => {
           const n = N[i];
           const [sx, sy] = this.toScreen(n.x, n.y);
-          if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) continue;
+          if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) return false;
           const fs = Math.max(mob ? 12 : 10.5, Math.min(17, 9 + Math.sqrt(n.o + n.i) * 0.75));
           ctx.font = 'italic 600 ' + fs + 'px "Instrument Serif", Georgia, serif';
           let label = n.n; if (label.length > 30) label = label.slice(0, 28) + '…';
           const twd = ctx.measureText(label).width;
           const ly = sy - this.nodeR(n) - 6;
-          if (!tryPlace(sx, ly - fs / 2, twd + 44, fs + 26)) continue;
+          if (!tryPlace(sx, ly - fs / 2, twd + 44, fs + 26)) return false;
           ctx.fillStyle = 'rgba(247,245,240,0.88)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
           ctx.fillStyle = 'rgba(20,20,20,0.78)';
           ctx.fillText(label, sx, ly);
-          count++;
+          return true;
+        };
+        // the single always-on "spotlight" book — see prep()'s `c.spotlight`: normally
+        // labelOrder[0] (PageRank-style `ls`, rewards being *cited*, so a book-about-books
+        // can't win just by out-citing everything), but falls back to order[0] (raw degree)
+        // when that pick sits outside the well-connected inner band (visually off at the rim).
+        const top = c.spotlight;
+        if (top >= 0) drawLabel(top);
+        // everything else ramps up from ~nothing at the default fit zoom as the user zooms in
+        const zoomBudget = k < 0.6 ? 0 : k < 0.9 ? 4 : k < 1.3 ? 10 : k < 1.8 ? 24 : Math.min(70, (w * h) / 60000 * 1.5);
+        const zoomRankCap = k < 0.6 ? 0 : k < 0.9 ? 12 : k < 1.3 ? 30 : k < 1.8 ? 60 : N.length;
+        const budget = Math.round(zoomBudget * density);
+        const rankCap = Math.round(zoomRankCap * density);
+        let count = 0, rank = 0;
+        for (const i of c.labelOrder) {
+          if (i === top) continue;
+          rank++;
+          if (count >= budget || rank > rankCap) break;
+          if (drawLabel(i)) count++;
         }
       }
 
@@ -509,6 +590,12 @@
           ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
           for (let p = 1; p < pts.length; p++) ctx.lineTo(pts[p][0], pts[p][1]);
           ctx.stroke();
+          for (let p = 0; p < pts.length; p++) {
+            const rr = this.nodeR(N[path[p]]);
+            ctx.beginPath(); ctx.arc(pts[p][0], pts[p][1], rr, 0, 7);
+            ctx.fillStyle = '#9c3d22'; ctx.strokeStyle = '#9c3d22'; ctx.lineWidth = 1.1;
+            ctx.globalAlpha = a; ctx.fill(); ctx.stroke();
+          }
           ctx.globalAlpha = a * 0.7; ctx.lineWidth = 1.2;
           for (let p = 0; p < pts.length; p++) {
             ctx.beginPath(); ctx.arc(pts[p][0], pts[p][1], this.nodeR(N[path[p]]) + 3.5, 0, 7); ctx.stroke();
@@ -635,7 +722,6 @@
         if (this.railThumbEl) { this.railThumbEl.style.top = ''; this.railThumbEl.style.left = ''; }
         this.dirty = true;
       }
-      if (this.statEl) this.statEl.textContent = c ? (c.G.meta.backbone + ' OF ' + c.G.meta.books + ' BOOKS · ' + c.G.meta.leaves + ' TUCKED AT THE RIM · EXACT MENTION DATA') : 'LOADING…';
       if (this.searchEl && this.searchEl.value !== st.searchQ) this.searchEl.value = st.searchQ;
       this.renderDropdown();
       this.renderFocusUI();
