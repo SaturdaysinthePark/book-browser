@@ -52,6 +52,18 @@
       this.pulseOn = !this.reduceMotion; this.pinch = null; this.touchStart = null;
       this.tourT0 = 0; this.tourIdx = 0; this.railDrag = false; this.lastRailK = 0; this.hop2Lit = null;
       this.pulseT0 = 0;
+      // A↔B "storyline" (see buildThread): pick one book, then shift-click a second, and we thread
+      // the single longest undirected chain that runs into A, between A and B, and out of B.
+      this.thread = null;     // { connected, a, b, nodes:[ordered idx…], aPos, bPos }
+      this.threadT0 = 0;      // storyline reveal-animation start (mirrors igniteT0)
+      this.armPick = false;   // touch/keyboard-less: panel button armed the next tap as the 2nd pick
+      // ambient / interaction animation state
+      this.mouse = null;      // {mx,my} canvas-relative pointer for the gravitational cursor
+      this.morph = null;      // active lens-swap "reconstellation" transition
+      this.igniteT0 = 0;      // focus "ignition" start timestamp (0 = none)
+      this.lastT = 0;         // last frame time for the spring integrator's dt
+      // per-node motion buffers live on the prepped graph (this.graph.ax/ay/ox/oy/vx/vy + seeds),
+      // so they auto-reset to the right size whenever prep() swaps lenses — see buildMotion().
 
       this.init();
     }
@@ -68,6 +80,7 @@
       this.dropdownEl = root.querySelector('#dropdown');
       this.chipEl = root.querySelector('#chip');
       this.panelEl = root.querySelector('#panel');
+      this.pathHintEl = root.querySelector('#pathHint');
       this.modesEl = root.querySelector('#modes');
       this.modesCompactEl = root.querySelector('#modesCompact');
       this.modesPopEl = root.querySelector('#modesPop');
@@ -81,7 +94,7 @@
       this.searchEl.addEventListener('blur', this.onSearchBlur);
       root.querySelector('#zoomIn').addEventListener('click', () => { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; this.zoomAt(w / 2, h / 2, 1.5); });
       root.querySelector('#zoomOut').addEventListener('click', () => { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; this.zoomAt(w / 2, h / 2, 1 / 1.5); });
-      root.querySelector('#fit').addEventListener('click', () => { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.fit(); });
+      root.querySelector('#fit').addEventListener('click', () => { this.clearThread(); this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.fit(); });
       if (this.modesEl) this.modesEl.addEventListener('click', (e) => {
         const btn = e.target.closest('[data-mode]'); if (!btn) return;
         this.setMode(btn.getAttribute('data-mode'));
@@ -109,7 +122,7 @@
       this.canvasEl.addEventListener('click', this.handleClick);
 
       this.keyH = (e) => {
-        if (e.key === 'Escape') { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; if (this.modesPopEl) this.modesPopEl.classList.remove('open'); }
+        if (e.key === 'Escape') { this.clearThread(); this.armPick = false; this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; if (this.modesPopEl) this.modesPopEl.classList.remove('open'); }
         else if (e.key === '/' && document.activeElement !== this.searchEl) { e.preventDefault(); if (this.searchEl) this.searchEl.focus(); }
       };
       window.addEventListener('keydown', this.keyH);
@@ -132,7 +145,10 @@
     // scratch, so degree/rings/positions genuinely differ per mode). Resets camera + open focus.
     setMode(mode) {
       if (mode === this.mode || !this.fullData[mode]) return;
+      const prev = this.graph;
       this.mode = mode;
+      // the storyline is indexed to the old lens's node array — it can't survive a lens swap
+      this.thread = null; this.threadT0 = 0; this.armPick = false; this.hidePathHint();
       this.graph = this.prep(this.fullData[mode]);
       this.hover = -1; this.tourT0 = 0; this.tourIdx = 0;
       this.pulseOn = !this.reduceMotion; this.pulseT0 = 0;  // replay the intro spotlight pulse for the new lens
@@ -141,7 +157,29 @@
       });
       if (this.modesCompactEl) this.modesCompactEl.classList.toggle('filtered', mode !== 'all');
       this.setState({ focus: -1, panelOpen: false, searchQ: '', searchResults: [], popular: false });
-      this.enterView();
+      if (this.reduceMotion || !prev) { this.morph = null; this.enterView(); }
+      else { this.buildMorph(prev, this.graph); this.dirty = true; } // animate in place — camera stays put
+    }
+    // "Reconstellation" transition: books present in both lenses glide from their old position to
+    // their new one (matched by stable `key`), books only in the new lens fade in, books only in
+    // the old lens fade out as ghosts. Positions are interpolated in computePositions(); alphas in
+    // draw(). Camera is left untouched so you watch the sky reorganize.
+    buildMorph(prev, next) {
+      const oldByKey = new Map();
+      for (const nd of prev.G.nodes) if (nd.key) oldByKey.set(nd.key, { x: nd.x, y: nd.y });
+      const N = next.G.nodes, n = N.length;
+      const from = new Array(n), fadeIn = new Uint8Array(n), newKeys = new Set();
+      for (let i = 0; i < n; i++) {
+        const nd = N[i]; if (nd.key) newKeys.add(nd.key);
+        const o = nd.key && oldByKey.get(nd.key);
+        if (o) from[i] = { x: o.x, y: o.y };
+        else { from[i] = { x: nd.x, y: nd.y }; fadeIn[i] = 1; }
+      }
+      const leaving = [];
+      for (const nd of prev.G.nodes) if (!nd.key || !newKeys.has(nd.key)) {
+        leaving.push({ x: nd.x, y: nd.y, r: 2 + Math.sqrt((nd.o || 0) + (nd.i || 0)) * 1.2 });
+      }
+      this.morph = { t0: performance.now(), dur: 900, p: 0, from, fadeIn, leaving };
     }
 
     setState(patch, cb) {
@@ -175,7 +213,32 @@
         ? (rad(labelOrder[0]) <= SPOTLIGHT_R ? labelOrder[0] : order[0])
         : -1;
       c.chains = this.buildChains(c);
+      this.buildMotion(c);
       return c;
+    }
+    // Per-node ambient-motion state, tied to this lens's node indexing (auto-reset on lens swap).
+    // Seeds (phase/frequency/amplitude/twinkle) are deterministic from the node index — no runtime
+    // RNG — so the field looks identical every load. Spring state (ox/oy/vx/vy) starts at rest;
+    // ax/ay (animated world positions, read by draw()/pick()) start at the baked positions so hit-
+    // testing works before the first computePositions() runs and under prefers-reduced-motion.
+    buildMotion(c) {
+      const N = c.G.nodes, n = N.length, TAU = Math.PI * 2;
+      const frac = x => x - Math.floor(x);
+      const h = (i, s) => frac(Math.sin((i + 1) * s) * 43758.5453);
+      c.sPhX = new Float64Array(n); c.sPhY = new Float64Array(n);
+      c.sFx = new Float64Array(n); c.sFy = new Float64Array(n);
+      c.sAmp = new Float64Array(n); c.sTwPh = new Float64Array(n); c.sTwFq = new Float64Array(n);
+      c.ox = new Float64Array(n); c.oy = new Float64Array(n);
+      c.vx = new Float64Array(n); c.vy = new Float64Array(n);
+      c.ax = new Float64Array(n); c.ay = new Float64Array(n);
+      for (let i = 0; i < n; i++) {
+        c.sPhX[i] = h(i, 12.9898) * TAU; c.sPhY[i] = h(i, 78.233) * TAU;
+        c.sFx[i] = 0.28 + h(i, 3.17) * 0.34; c.sFy[i] = 0.28 + h(i, 5.91) * 0.34;
+        const deg = (N[i].o || 0) + (N[i].i || 0);
+        c.sAmp[i] = 9 - 7 * Math.min(1, Math.sqrt(deg) / 6); // hubs near-anchored (≈2), leaves shimmer (≈9)
+        c.sTwPh[i] = h(i, 1.7) * TAU; c.sTwFq[i] = 1.3 + h(i, 9.1) * 1.9;
+        c.ax[i] = N[i].x; c.ay[i] = N[i].y;
+      }
     }
     buildChains(c) {
       const res = [], used = new Set();
@@ -256,10 +319,12 @@
       wrap.addEventListener('touchend', e => {
         e.preventDefault();
         if (e.touches.length === 0 && this.pinch) this.pinch = null;
-        if (this.touchStart && !this.touchStart.moved && Date.now() - this.touchStart.t < 500) {
+        if (this.touchStart && !this.touchStart.moved && !this.morph && Date.now() - this.touchStart.t < 500) {
           const r = wrap.getBoundingClientRect();
           const i = this.pick(this.touchStart.x - r.left, this.touchStart.y - r.top, true);
-          if (i < 0 || i === this.state.focus) { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; }
+          if (this.armPick && this.state.focus >= 0 && i >= 0 && i !== this.state.focus) { this.buildThread(this.state.focus, i); }
+          else if (this.thread) { this.clearThread(); if (i >= 0 && i !== this.state.focus) this.focusNode(i); }
+          else if (i < 0 || i === this.state.focus) { this.clearFocus(); }
           else this.focusNode(i);
         }
         this.touchStart = null;
@@ -338,8 +403,8 @@
         else { this.railThumbEl.style.top = p + '%'; this.railThumbEl.style.left = ''; }
       }
       if (!this.reduceMotion) {
-        if (this.state.focus < 0 && (this.pulseOn || this.props.ambientTours)) this.dirty = true;
-        if (this.state.focus >= 0 || this.hover >= 0) this.dirty = true;
+        // ambient drift/twinkle/spring animate every frame; rAF already pauses on hidden tabs
+        this.dirty = true;
       }
       if (this.dirty) { this.dirty = false; this.draw(); }
     };
@@ -369,12 +434,35 @@
       });
     }
 
-    arrow(ctx, x1, y1, x2, y2, col, alpha, lw) {
+    // seg (0..1) grows the line for the focus "ignition" reveal: anchorStart=true grows from
+    // (x1,y1) outward toward (x2,y2); anchorStart=false grows from the (x2,y2) end back toward
+    // (x1,y1) — used for inbound arrows so they still extend outward from the focused node while
+    // keeping their dash flow direction. seg omitted ⇒ full line (steady state).
+    arrow(ctx, x1, y1, x2, y2, col, alpha, lw, seg, anchorStart) {
+      if (seg == null) seg = 1; else if (seg <= 0) return;
+      let ax1 = x1, ay1 = y1, ax2 = x2, ay2 = y2;
+      if (seg < 1) {
+        if (anchorStart === false) { ax1 = x2 + (x1 - x2) * seg; ay1 = y2 + (y1 - y2) * seg; }
+        else { ax2 = x1 + (x2 - x1) * seg; ay2 = y1 + (y2 - y1) * seg; }
+      }
       ctx.strokeStyle = col; ctx.globalAlpha = alpha; ctx.lineWidth = lw;
       const flow = this.reduceMotion ? 0 : (performance.now() / 40) % 20;
       ctx.setLineDash([9, 11]); ctx.lineDashOffset = -flow;
-      ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+      ctx.beginPath(); ctx.moveTo(ax1, ay1); ctx.lineTo(ax2, ay2); ctx.stroke();
       ctx.setLineDash([]); ctx.lineDashOffset = 0;
+      ctx.globalAlpha = 1;
+    }
+
+    // Small filled triangle at (tipX,tipY) pointing along `angle` — used to mark the true
+    // direction of a storyline mention (see the thread block in draw()).
+    arrowHead(ctx, tipX, tipY, angle, col, size) {
+      const s = size, spread = 0.45;
+      ctx.fillStyle = col; ctx.globalAlpha = 0.9;
+      ctx.beginPath();
+      ctx.moveTo(tipX, tipY);
+      ctx.lineTo(tipX - s * Math.cos(angle - spread), tipY - s * Math.sin(angle - spread));
+      ctx.lineTo(tipX - s * Math.cos(angle + spread), tipY - s * Math.sin(angle + spread));
+      ctx.closePath(); ctx.fill();
       ctx.globalAlpha = 1;
     }
 
@@ -389,19 +477,85 @@
       return { path: c.chains[this.tourIdx], a };
     }
 
+    // Fill c.ax/c.ay (animated world positions) for every backbone node, once per frame. Layers:
+    // (1) analytic drift = gentle per-node breathing around the baked position; (2) reconstellation
+    // morph = glide old→new position during a lens swap; (3) a damped spring per node that pulls
+    // toward the pointer (gravitational cursor) and settles back with a little overshoot. Under
+    // prefers-reduced-motion this is a straight copy of the baked positions.
+    computePositions(t) {
+      const c = this.graph; if (!c) return;
+      const N = c.G.nodes, n = N.length, ax = c.ax, ay = c.ay;
+      if (this.reduceMotion) { for (let i = 0; i < n; i++) { ax[i] = N[i].x; ay[i] = N[i].y; } return; }
+      const dt = this.lastT ? Math.min(0.048, (t - this.lastT) / 1000) : 0.016; this.lastT = t;
+      const ts = t / 1000;
+      let mp = 1, morph = this.morph;
+      if (morph) { const raw = Math.min(1, (t - morph.t0) / morph.dur); mp = 1 - Math.pow(1 - raw, 3); morph.p = mp; if (raw >= 1) { this.morph = null; morph = null; } }
+      // cursor gravity: off while dragging, focused, or mid-morph (keeps those states stable)
+      let hasCur = false, cwx = 0, cwy = 0;
+      if (this.mouse && !this.dragging && this.state.focus < 0 && !morph) {
+        const wc = this.toWorld(this.mouse.mx, this.mouse.my); cwx = wc[0]; cwy = wc[1]; hasCur = true;
+      }
+      const R = 190, R2 = R * R, KS = 90, KD = 14, KC = 30;
+      const ox = c.ox, oy = c.oy, vx = c.vx, vy = c.vy;
+      for (let i = 0; i < n; i++) {
+        const b = N[i], amp = c.sAmp[i];
+        let hx = b.x + Math.sin(ts * c.sFx[i] + c.sPhX[i]) * amp;
+        let hy = b.y + Math.cos(ts * c.sFy[i] + c.sPhY[i]) * amp;
+        if (morph) { const ef = morph.from[i]; if (ef) { hx = ef.x + (hx - ef.x) * mp; hy = ef.y + (hy - ef.y) * mp; } }
+        let px = ox[i], py = oy[i], pvx = vx[i], pvy = vy[i];
+        let accx = -KS * px - KD * pvx, accy = -KS * py - KD * pvy;
+        if (hasCur) {
+          // smooth attraction well: force ∝ (cursor−node), tapering to 0 at radius R AND at the
+          // cursor itself — so a node resting under the pointer feels ~no force (no jitter), and
+          // the pull is a gentle lean rather than a yank.
+          const dx = cwx - (hx + px), dy = cwy - (hy + py), d2 = dx * dx + dy * dy;
+          if (d2 < R2) { const fall = 1 - Math.sqrt(d2) / R; accx += dx * KC * fall; accy += dy * KC * fall; }
+        }
+        pvx += accx * dt; pvy += accy * dt; px += pvx * dt; py += pvy * dt;
+        if (px * px + py * py < 1e-4 && pvx * pvx + pvy * pvy < 1e-4) { px = 0; py = 0; pvx = 0; pvy = 0; } // settle to exact rest
+        ox[i] = px; oy[i] = py; vx[i] = pvx; vy[i] = pvy;
+        ax[i] = hx + px; ay[i] = hy + py;
+      }
+    }
+    nodeScreen(i) { const c = this.graph; return this.toScreen(c.ax[i], c.ay[i]); }
+
     draw() {
       const ctx = this.ctx; const c = this.graph; if (!ctx || !c) return;
+      this.computePositions(performance.now());
       const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight, dpr = this.dpr || 1;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = '#f7f5f0'; ctx.fillRect(0, 0, w, h);
       const k = this.view.k;
       const [bx, by] = this.axisScales();
       const refK = Math.min(bx, by) * k;
-      const focus = this.state.focus >= 0 ? this.state.focus : this.hover;
+      const thr = this.thread; // A↔B storyline takes over highlighting when active
+      const focus = thr ? -1 : (this.state.focus >= 0 ? this.state.focus : this.hover);
       const hasFocus = focus >= 0;
       const N = c.G.nodes;
+      // storyline reveal: nodes/segments light up sequentially from the lead-in tail to the tail-out
+      let threadPos = null, threadReveal = 1;
+      if (thr) {
+        threadPos = new Map(); thr.nodes.forEach((idx, p) => threadPos.set(idx, p));
+        const TH_MS = 1100;
+        threadReveal = (this.reduceMotion || !this.threadT0) ? 1 : Math.min(1, (performance.now() - this.threadT0) / TH_MS);
+      }
+      const threadLit = i => { // 0→1 reveal fraction for a thread node at chain index p
+        const p = threadPos.get(i); return Math.max(0, Math.min(1, threadReveal * thr.nodes.length - p));
+      };
       const showRings = this.props.showRings;
       const mob = this.state.isMobile;
+
+      // reconstellation morph (lens swap in flight) — computePositions clears this.morph when done
+      const morph = this.morph, mp = morph ? morph.p : 1;
+      const mEdgeA = morph ? Math.max(0, (mp - 0.35) / 0.65) : 1; // edges fade in over the back half
+      // focus "ignition": lines/nodes light up outward from the clicked node over IGNITE_MS.
+      // Only a real click (state.focus) ignites; hover-focus is instant. ip=1 ⇒ steady state.
+      const IGNITE_MS = 700;
+      const ip = (this.state.focus >= 0 && !this.reduceMotion && this.igniteT0)
+        ? Math.min(1, (performance.now() - this.igniteT0) / IGNITE_MS) : 1;
+      const smooth = s => s <= 0 ? 0 : s >= 1 ? 1 : s * s * (3 - 2 * s);
+      const seg1 = smooth(ip / 0.55);              // 1-hop window [0, 0.55]
+      const seg2 = smooth((ip - 0.4) / 0.6);       // 2-hop window [0.4, 1.0]
 
       let hop2 = null;
       if (hasFocus) {
@@ -418,7 +572,7 @@
           ctx.beginPath(); ctx.ellipse(cx, cy, srx, sry, 0, 0, 7);
           ctx.strokeStyle = 'rgba(20,20,20,0.055)'; ctx.lineWidth = 1;
           ctx.setLineDash([3, 5]); ctx.stroke(); ctx.setLineDash([]);
-          if (refK > 0.35 && !hasFocus) {
+          if (refK > 0.35 && !hasFocus && !thr) {
             ctx.font = '400 9px "IBM Plex Mono", monospace';
             ctx.fillStyle = 'rgba(20,20,20,0.30)';
             ctx.fillText(ring.v + '+ CONNECTIONS', cx, cy - sry - 4);
@@ -426,47 +580,92 @@
         }
       }
 
-      for (const [i, j, wt0] of c.G.edges) {
+      if (mEdgeA > 0 && !thr) for (const [i, j, wt0] of c.G.edges) {
         const wt = wt0 || 1;
         if (hasFocus) continue;
-        const [x1, y1] = this.toScreen(N[i].x, N[i].y);
-        const [x2, y2] = this.toScreen(N[j].x, N[j].y);
+        const [x1, y1] = this.nodeScreen(i);
+        const [x2, y2] = this.nodeScreen(j);
         if ((x1 < 0 && x2 < 0) || (x1 > w && x2 > w) || (y1 < 0 && y2 < 0) || (y1 > h && y2 > h)) continue;
         ctx.strokeStyle = '#141414';
-        ctx.globalAlpha = Math.min(0.16, 0.05 + wt * 0.02);
+        ctx.globalAlpha = Math.min(0.16, 0.05 + wt * 0.02) * mEdgeA;
         ctx.lineWidth = Math.min(3, 0.5 + wt * 0.3);
         ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
         ctx.globalAlpha = 1;
       }
 
+      // A↔B storyline: each link drawn in its TRUE mention direction (arrowhead + flow point the
+      // real way a book cites another; a mutual pair gets a double head). Undirected pathfinding
+      // still chose the chain — only the drawing is directional, so nothing reads backwards.
+      if (thr) {
+        if (thr.connected) {
+          const CO = '#9c3d22'; // one honest colour = "a mention"
+          const pts = thr.nodes.map(i => this.nodeScreen(i));
+          const len = thr.nodes.length;
+          const head = (fromP, toP, toIdx) => {
+            const ang = Math.atan2(toP[1] - fromP[1], toP[0] - fromP[0]);
+            const back = this.nodeR(N[toIdx]) + 3.5; // sit the tip just off the target star
+            this.arrowHead(ctx, toP[0] - Math.cos(ang) * back, toP[1] - Math.sin(ang) * back, ang, CO, 8);
+          };
+          for (let p = 0; p < len - 1; p++) {
+            const sg = Math.max(0, Math.min(1, threadReveal * (len - 1) - p));
+            if (sg <= 0) break; // reveal marches forward — nothing past here is lit yet
+            const u = thr.nodes[p], v = thr.nodes[p + 1];
+            const uv = c.adjOut[u].some(e => e[0] === v); // u mentions v
+            const vu = c.adjOut[v].some(e => e[0] === u); // v mentions u
+            const between = (p + 1 > thr.aPos) && (p < thr.bPos); // on the A↔B bridge → heavier line
+            const lw = between ? 2.6 : 1.5, al = between ? 0.8 : 0.55;
+            if (uv && vu) {
+              // mutual mention: static line (no flow implies no single direction), grows in chain order
+              const gx = pts[p][0] + (pts[p + 1][0] - pts[p][0]) * sg, gy = pts[p][1] + (pts[p + 1][1] - pts[p][1]) * sg;
+              ctx.strokeStyle = CO; ctx.globalAlpha = al; ctx.lineWidth = lw;
+              ctx.setLineDash([9, 7]); ctx.lineDashOffset = 0;
+              ctx.beginPath(); ctx.moveTo(pts[p][0], pts[p][1]); ctx.lineTo(gx, gy); ctx.stroke();
+              ctx.setLineDash([]); ctx.globalAlpha = 1;
+            } else {
+              // one-way: grow + flow from the real source toward the real target
+              const src = uv ? pts[p] : pts[p + 1], dst = uv ? pts[p + 1] : pts[p];
+              this.arrow(ctx, src[0], src[1], dst[0], dst[1], CO, al, lw, sg, true);
+            }
+            if (sg >= 0.9) { if (uv) head(pts[p], pts[p + 1], v); if (vu) head(pts[p + 1], pts[p], u); }
+          }
+        }
+        for (const ep of [thr.a, thr.b]) {
+          const [ex, ey] = this.nodeScreen(ep);
+          ctx.beginPath(); ctx.arc(ex, ey, this.nodeR(N[ep]) + 5, 0, 7);
+          ctx.strokeStyle = this.genreCol(N[ep]); ctx.globalAlpha = 0.9; ctx.lineWidth = 1.6; ctx.stroke(); ctx.globalAlpha = 1;
+        }
+      }
+
       if (this.state.focus >= 0) {
         const lp = this.leafPositions(this.state.focus);
-        const [fx, fy] = this.toScreen(N[this.state.focus].x, N[this.state.focus].y);
+        const [fx, fy] = this.nodeScreen(this.state.focus);
         for (const p of lp) {
           const [sx, sy] = this.toScreen(p.x, p.y);
-          this.arrow(ctx, fx, fy, sx, sy, '#9c3d22', 0.45, 0.9);
-          ctx.beginPath(); ctx.arc(sx, sy, 2.5, 0, 7);
-          ctx.fillStyle = '#fdfcfa'; ctx.fill();
-          ctx.strokeStyle = '#9c3d22'; ctx.lineWidth = 1; ctx.stroke();
+          this.arrow(ctx, fx, fy, sx, sy, '#9c3d22', 0.45, 0.9, seg1, true);
+          if (seg1 >= 0.98) {                       // dot appears once the line reaches the leaf
+            ctx.beginPath(); ctx.arc(sx, sy, 2.5, 0, 7);
+            ctx.fillStyle = '#fdfcfa'; ctx.fill();
+            ctx.strokeStyle = '#9c3d22'; ctx.lineWidth = 1; ctx.stroke();
+          }
         }
         // leaf *labels* are drawn later (in the label pass) so they respect the collision set
       }
 
       const hovChain = hasFocus && this.state.focus >= 0 && this.hover >= 0 && this.hover !== focus && c.neigh[focus].has(this.hover) ? this.hover : -1;
       this.hop2Lit = hovChain >= 0 ? new Set(c.adjOut[hovChain].map(e => e[0])) : null;
-      if (hasFocus) {
+      if (hasFocus && seg2 > 0) {
         const flow = this.reduceMotion ? 0 : (performance.now() / 55) % 14;
         ctx.setLineDash([4, 10]); ctx.lineDashOffset = -flow;
         for (const j of c.neigh[focus]) {
           ctx.strokeStyle = '#a04a2a';
-          ctx.globalAlpha = j === hovChain ? 0.7 : hovChain >= 0 ? 0.08 : 0.28;
+          ctx.globalAlpha = (j === hovChain ? 0.7 : hovChain >= 0 ? 0.08 : 0.28) * seg2;
           ctx.lineWidth = j === hovChain ? 1.4 : 0.8;
           ctx.beginPath();
-          const [jx, jy] = this.toScreen(N[j].x, N[j].y);
+          const [jx, jy] = this.nodeScreen(j);
           for (const [j2] of c.adjOut[j]) {
             if (j2 === focus || c.neigh[focus].has(j2)) continue;
-            const [kx, ky] = this.toScreen(N[j2].x, N[j2].y);
-            ctx.moveTo(jx, jy); ctx.lineTo(kx, ky);
+            const [kx, ky] = this.nodeScreen(j2);
+            ctx.moveTo(jx, jy); ctx.lineTo(jx + (kx - jx) * seg2, jy + (ky - jy) * seg2); // grow outward from j
           }
           ctx.stroke();
         }
@@ -474,39 +673,79 @@
       }
 
       if (hasFocus) {
-        const [fx, fy] = this.toScreen(N[focus].x, N[focus].y);
+        const [fx, fy] = this.nodeScreen(focus);
         let strongJ = -1, strongW = -1;
         for (const [j, wt] of c.adjOut[focus]) if (wt > strongW) { strongW = wt; strongJ = j; }
         for (const [j, wt] of c.adjOut[focus]) {
-          const [jx, jy] = this.toScreen(N[j].x, N[j].y);
+          const [jx, jy] = this.nodeScreen(j);
           const em = j === strongJ;
-          this.arrow(ctx, fx, fy, jx, jy, '#9c3d22', em ? 0.85 : 0.6, Math.min(4, 0.8 + wt * 0.5) + (em ? 0.8 : 0));
+          this.arrow(ctx, fx, fy, jx, jy, '#9c3d22', em ? 0.85 : 0.6, Math.min(4, 0.8 + wt * 0.5) + (em ? 0.8 : 0), seg1, true);
         }
         for (const [j, wt] of c.adjIn[focus]) {
-          const [jx, jy] = this.toScreen(N[j].x, N[j].y);
-          this.arrow(ctx, jx, jy, fx, fy, '#2f5590', 0.6, Math.min(4, 0.8 + wt * 0.5));
+          const [jx, jy] = this.nodeScreen(j);
+          this.arrow(ctx, jx, jy, fx, fy, '#2f5590', 0.6, Math.min(4, 0.8 + wt * 0.5), seg1, false); // grow from focus end
         }
       }
 
+      const nowS = performance.now() / 1000;
       for (let i = 0; i < N.length; i++) {
         const n = N[i];
-        const [sx, sy] = this.toScreen(n.x, n.y);
-        const r = this.nodeR(n);
+        const [sx, sy] = this.nodeScreen(i);
         if (sx < -30 || sx > w + 30 || sy < -30 || sy > h + 30) continue;
+        const tw = this.reduceMotion ? 1 : 1 + Math.sin(nowS * c.sTwFq[i] + c.sTwPh[i]) * 0.12; // twinkle
+        const r = this.nodeR(n) * tw;
         const isF = i === focus;
         const conn = hasFocus && c.neigh[focus].has(i);
         const inHop2 = hasFocus && hop2.has(i);
         const lit2 = inHop2 && this.hop2Lit && this.hop2Lit.has(i);
-        ctx.globalAlpha = hasFocus ? (isF || conn || lit2 ? 1 : inHop2 ? (this.hop2Lit ? 0.15 : 0.45) : 0.12) : 1;
-        ctx.beginPath(); ctx.arc(sx, sy, r, 0, 7);
         const gc = this.genreCol(n);
-        const hovered = i === this.hover && !mob;
-        ctx.fillStyle = isF ? gc : hovered ? gc : '#fdfcfa'; ctx.fill();
-        ctx.strokeStyle = (isF || hovered) ? gc : '#141414'; ctx.lineWidth = isF ? 1.5 : 1.1; ctx.stroke();
+        // popular stars get a soft breathing halo (at rest, zoomed in enough to read as glow)
+        if (!hasFocus && !thr && !morph && !this.reduceMotion && refK > 0.55) {
+          const glow = Math.max(0, Math.min(1, ((n.ls || 0) - 15) / 60));
+          if (glow > 0) {
+            ctx.globalAlpha = glow * 0.2 * (0.7 + 0.3 * Math.sin(nowS * c.sTwFq[i] + c.sTwPh[i]));
+            ctx.beginPath(); ctx.arc(sx, sy, r * 2.4, 0, 7); ctx.fillStyle = gc; ctx.fill();
+          }
+        }
+        // focus lighting ramps outward with the ignition (seg1 for 1-hop, seg2 for 2-hop);
+        // storyline mode overrides: chain books light up in sequence, everything else dims right down.
+        const inThread = thr && threadPos.has(i);
+        let ga;
+        if (thr) ga = inThread ? 0.12 + 0.88 * threadLit(i) : 0.09;
+        else if (!hasFocus) ga = 1;
+        else if (isF) ga = 1;
+        else if (conn) ga = 0.12 + 0.88 * seg1;
+        else if (lit2) ga = 0.12 + 0.88 * seg2;
+        else if (inHop2) ga = (this.hop2Lit ? 0.15 : 0.45) * seg2;
+        else ga = 0.12;
+        if (morph && morph.fadeIn[i]) ga *= mp; // new-lens-only stars fade in during the morph
+        ctx.globalAlpha = ga;
+        ctx.beginPath(); ctx.arc(sx, sy, r, 0, 7);
+        const hovered = i === this.hover && !mob && !thr;
+        if (inThread) {
+          const end = i === thr.a || i === thr.b;
+          ctx.fillStyle = end ? gc : '#fdfcfa'; ctx.fill();
+          ctx.strokeStyle = gc; ctx.lineWidth = end ? 1.8 : 1.3; ctx.stroke();
+        } else {
+          ctx.fillStyle = isF ? gc : hovered ? gc : '#fdfcfa'; ctx.fill();
+          ctx.strokeStyle = (isF || hovered) ? gc : '#141414'; ctx.lineWidth = isF ? 1.5 : 1.1; ctx.stroke();
+        }
         ctx.globalAlpha = 1;
       }
 
-      if (this.pulseOn && !hasFocus && !this.reduceMotion && c.spotlight >= 0) {
+      // leaving stars (books not in the new lens) fade out as ghosts during a morph
+      if (morph && morph.leaving.length) {
+        ctx.fillStyle = '#141414';
+        for (const g of morph.leaving) {
+          const [sx, sy] = this.toScreen(g.x, g.y);
+          if (sx < -30 || sx > w + 30 || sy < -30 || sy > h + 30) continue;
+          ctx.globalAlpha = 0.5 * (1 - mp);
+          ctx.beginPath(); ctx.arc(sx, sy, Math.max(2, g.r * Math.sqrt(refK)), 0, 7); ctx.fill();
+        }
+        ctx.globalAlpha = 1;
+      }
+
+      if (this.pulseOn && !hasFocus && !thr && !this.reduceMotion && c.spotlight >= 0) {
         const t = performance.now();
         if (!this.pulseT0) this.pulseT0 = t;
         const PULSE_MS = 1600, MAX_PULSES = 10;
@@ -515,7 +754,7 @@
           this.pulseOn = false;   // hand off to the ambient tour, uncontested
         } else {
           const top = c.spotlight;
-          const [px, py] = this.toScreen(N[top].x, N[top].y);
+          const [px, py] = this.nodeScreen(top);
           const ph = (elapsed % PULSE_MS) / PULSE_MS;
           const pr = this.nodeR(N[top]) + 6 + ph * 26;
           ctx.beginPath(); ctx.arc(px, py, pr, 0, 7);
@@ -536,7 +775,25 @@
         return null;
       };
       ctx.textAlign = 'center';
-      if (hasFocus) {
+      if (thr) {
+        // label every book on the storyline (chain is short) — endpoints emphasised
+        thr.nodes.forEach((idx, p) => {
+          if (threadLit(idx) < 0.5) return; // wait for the reveal to reach this book
+          const n = N[idx];
+          const [sx, sy] = this.nodeScreen(idx);
+          if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) return;
+          const end = idx === thr.a || idx === thr.b;
+          const fs = end ? 15 : 11.5;
+          ctx.font = 'italic ' + (end ? '700 ' : '600 ') + fs + 'px "Instrument Serif", Georgia, serif';
+          let label = n.n; if (label.length > 30) label = label.slice(0, 28) + '…';
+          const twd = ctx.measureText(label).width;
+          const ly = place(sx, sy, twd, fs, this.nodeR(n), 14, 8);
+          if (ly === null) return;
+          ctx.fillStyle = 'rgba(247,245,240,0.9)'; ctx.fillRect(sx - twd / 2 - 3, ly - fs, twd + 6, fs + 4);
+          ctx.fillStyle = end ? this.genreCol(n) : '#141414';
+          ctx.fillText(label, sx, ly);
+        });
+      } else if (hasFocus) {
         let nb = [...c.neigh[focus]].sort((a, b) => (N[b].ls || 0) - (N[a].ls || 0));
         let h2list;
         if (this.hop2Lit) h2list = [...this.hop2Lit];
@@ -545,7 +802,7 @@
         const list = [[focus, 1], ...nb.map(i => [i, 0]), ...h2list.map(i => [i, 2])];
         for (const [i, tier] of list) {
           const n = N[i];
-          const [sx, sy] = this.toScreen(n.x, n.y);
+          const [sx, sy] = this.nodeScreen(i);
           if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) continue;
           const fs = tier === 1 ? Math.max(13, Math.min(17, 9 + Math.sqrt(n.o + n.i) * 0.75)) : tier === 0 ? (mob ? 11.5 : 11) : 10;
           ctx.font = 'italic ' + (tier === 1 ? '700 ' : '600 ') + fs + 'px "Instrument Serif", Georgia, serif';
@@ -582,7 +839,7 @@
         const density = this.props.labelDensity;
         const drawLabel = (i) => {
           const n = N[i];
-          const [sx, sy] = this.toScreen(n.x, n.y);
+          const [sx, sy] = this.nodeScreen(i);
           if (sx < -20 || sx > w + 20 || sy < -20 || sy > h + 20) return false;
           const fs = Math.max(mob ? 12 : 10.5, Math.min(17, 9 + Math.sqrt(n.o + n.i) * 0.75));
           ctx.font = 'italic 600 ' + fs + 'px "Instrument Serif", Georgia, serif';
@@ -607,7 +864,7 @@
         const budget = Math.round(zoomBudget * density);
         const rankCap = Math.round(zoomRankCap * density);
         let count = 0, rank = 0;
-        for (const i of c.labelOrder) {
+        if (!morph) for (const i of c.labelOrder) {
           if (i === top) continue;
           rank++;
           if (count >= budget || rank > rankCap) break;
@@ -616,11 +873,11 @@
       }
 
       // ambient constellation tour (drawn last so its labels stay readable)
-      if (!hasFocus && this.props.ambientTours) {
+      if (!hasFocus && !thr && this.props.ambientTours && !morph) {
         const ti = this.tourInfo(c);
         if (ti && ti.a > 0.01) {
           const a = ti.a, path = ti.path;
-          const pts = path.map(i => this.toScreen(N[i].x, N[i].y));
+          const pts = path.map(i => this.nodeScreen(i));
           ctx.strokeStyle = '#9c3d22'; ctx.globalAlpha = a * 0.55; ctx.lineWidth = 1.5;
           ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
           for (let p = 1; p < pts.length; p++) ctx.lineTo(pts[p][0], pts[p][1]);
@@ -656,7 +913,7 @@
       let best = -1, bd = 1e9;
       for (let i = 0; i < c.G.nodes.length; i++) {
         const n = c.G.nodes[i];
-        const [sx, sy] = this.toScreen(n.x, n.y);
+        const [sx, sy] = this.nodeScreen(i); // match the displaced (drift/gravity) star, not the baked spot
         const d = Math.hypot(sx - mx, sy - my);
         const tol = this.nodeR(n) + (touch ? 20 : 8);
         if (d < tol && d < bd) { bd = d; best = i; }
@@ -675,22 +932,31 @@
         this.lastMX = e.clientX; this.lastMY = e.clientY;
         this.tween = null; this.dirty = true;
       } else {
-        const hv = this.pick(e.clientX - r.left, e.clientY - r.top);
+        this.mouse = { mx: e.clientX - r.left, my: e.clientY - r.top }; // drives the gravitational cursor
+        const hv = this.pick(this.mouse.mx, this.mouse.my);
         if (hv !== this.hover) { this.hover = hv; this.dirty = true; this.wrapEl.style.cursor = hv >= 0 ? 'pointer' : 'grab'; }
       }
     };
     handleUp = () => { this.dragging = false; };
-    handleLeave = () => { this.dragging = false; if (this.hover >= 0) { this.hover = -1; this.dirty = true; } };
+    handleLeave = () => { this.dragging = false; this.mouse = null; if (this.hover >= 0) { this.hover = -1; this.dirty = true; } };
     handleClick = e => {
-      if (this.dragMoved) return;
+      if (this.dragMoved || this.morph) return;
       const r = this.wrapEl.getBoundingClientRect();
       const i = this.pick(e.clientX - r.left, e.clientY - r.top);
-      if (i < 0 || i === this.state.focus) { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; return; }
+      // shift-click (or an armed 2nd pick) on a *different* star, with one already focused →
+      // thread the two together instead of re-focusing.
+      if ((e.shiftKey || this.armPick) && this.state.focus >= 0 && i >= 0 && i !== this.state.focus) {
+        this.buildThread(this.state.focus, i); return;
+      }
+      if (this.thread) { this.clearThread(); if (i < 0) return; }
+      if (i < 0 || i === this.state.focus) { this.clearFocus(); return; }
       this.focusNode(i);
     };
 
     focusNode(i) {
+      this.thread = null; this.threadT0 = 0; this.armPick = false; this.hidePathHint(); // single-select exits storyline mode
       this.pulseOn = false;
+      this.igniteT0 = performance.now(); // start the "ignition" reveal (draws connections outward)
       const c = this.graph, N = c.G.nodes, n = N[i];
       this.setState({ focus: i, panelOpen: false, searchQ: '', searchResults: [], popular: false });
       const xs = [n.x], ys = [n.y];
@@ -715,6 +981,97 @@
       const sx0 = padX + availW / 2, sy0 = padT + availH / 2;
       this.flyTo(cx - (sx0 - w / 2) / (bx * k), cy - (sy0 - h / 2) / (by * k), k);
       this.dirty = true;
+    }
+
+    // ---------------------------------------------------------------- A↔B storyline (undirected)
+    // Shortest undirected route between two backbone nodes (BFS over neigh) — the "between" spine.
+    shortestPathUndirected(a, b) {
+      if (a === b) return [a];
+      const c = this.graph, prev = new Map([[a, -1]]), q = [a];
+      for (let h = 0; h < q.length; h++) {
+        const u = q[h];
+        for (const v of c.neigh[u]) {
+          if (prev.has(v)) continue;
+          prev.set(v, u);
+          if (v === b) { const path = [b]; let x = u; while (x !== -1) { path.push(x); x = prev.get(x); } return path.reverse(); }
+          q.push(v);
+        }
+      }
+      return null;
+    }
+    // Longest simple chain starting at `start` that never enters `forbidden` — the tail that runs
+    // INTO A / OUT of B. Longest-simple-path is NP-hard, so this is a depth- and visit-budget-bounded
+    // DFS returning the best chain found (not a provable maximum); neighbors are expanded
+    // highest-degree-first so tails thread through the more notable books. Bounds keep the click snappy.
+    longestTail(start, forbidden) {
+      const c = this.graph, N = c.G.nodes, MAX = 8;
+      const deg = i => N[i].o + N[i].i;
+      let best = [], budget = 20000;
+      const seen = new Set(forbidden); seen.add(start);
+      const stack = [start];
+      const dfs = (u, depth) => {
+        if (stack.length > best.length) best = stack.slice();
+        if (depth >= MAX || budget <= 0) return;
+        const nb = [...c.neigh[u]].filter(v => !seen.has(v)).sort((x, y) => deg(y) - deg(x));
+        for (const v of nb) {
+          if (budget-- <= 0) return;
+          seen.add(v); stack.push(v);
+          dfs(v, depth + 1);
+          stack.pop(); seen.delete(v);
+        }
+      };
+      dfs(start, 0);
+      return best; // [start, ...]  (length ≥ 1)
+    }
+    // Build the storyline: [longest lead-in into A] → A → [route between] → B → [longest tail-out].
+    buildThread(a, b) {
+      const N = this.graph.G.nodes;
+      const spine = this.shortestPathUndirected(a, b);
+      if (!spine) {
+        this.thread = { connected: false, a, b, nodes: [a, b], aPos: 0, bPos: 1 };
+        this.threadT0 = performance.now(); this.armPick = false;
+        this.showPathHint('No connection between “' + N[a].n + '” and “' + N[b].n + '” in this lens.');
+        this.frameNodes([a, b]);
+        this.setState({ focus: -1, panelOpen: false }); this.dirty = true;
+        return;
+      }
+      const used = new Set(spine);
+      const inTail = this.longestTail(a, used);          // [a, …] grows away from the spine
+      for (const i of inTail) used.add(i);
+      const outTail = this.longestTail(b, used);         // [b, …]
+      const lead = inTail.slice(1).reverse();            // …→ (into A)
+      const tail = outTail.slice(1);                     // (out of B) →…
+      const nodes = [...lead, ...spine, ...tail];
+      const aPos = lead.length;                          // index of A in the chain
+      const bPos = lead.length + spine.length - 1;       // index of B in the chain
+      this.thread = { connected: true, a, b, nodes, aPos, bPos };
+      this.threadT0 = performance.now(); this.armPick = false; this.hidePathHint();
+      this.frameNodes(nodes);
+      this.setState({ focus: -1, panelOpen: false }); this.dirty = true;
+    }
+    // Fly the camera to frame an arbitrary set of nodes (generalises focusNode's bbox math).
+    frameNodes(idxs) {
+      const c = this.graph, N = c.G.nodes;
+      const xs = idxs.map(i => N[i].x), ys = idxs.map(i => N[i].y);
+      const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
+      const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight, mob = this.state.isMobile;
+      const [bx, by] = this.axisScales();
+      const padX = mob ? 28 : 90, padT = mob ? 66 : 76, padB = mob ? 235 : 110;
+      const availW = Math.max(120, w - padX * 2), availH = Math.max(120, h - padT - padB);
+      const bw = Math.max(maxX - minX, 120), bh = Math.max(maxY - minY, 120);
+      let k = Math.min(availW / (bw * bx), availH / (bh * by));
+      k = Math.max(0.5, Math.min(mob ? 3 : 3.2, k));
+      const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
+      const sx0 = padX + availW / 2, sy0 = padT + availH / 2;
+      this.flyTo(cx - (sx0 - w / 2) / (bx * k), cy - (sy0 - h / 2) / (by * k), k);
+    }
+    showPathHint(msg) { if (this.pathHintEl) { this.pathHintEl.textContent = msg; this.pathHintEl.style.display = 'block'; } }
+    hidePathHint() { if (this.pathHintEl) this.pathHintEl.style.display = 'none'; }
+    clearThread() {
+      const had = this.thread || this.armPick;
+      this.thread = null; this.threadT0 = 0; this.armPick = false; this.hidePathHint();
+      this.tourT0 = 0; this.dirty = true;
+      if (had) this.renderChrome(); // focus is already -1 in thread mode → hides the storyline chip
     }
 
     bookUrl(n) {
@@ -782,6 +1139,11 @@
 
     renderFocusUI() {
       const st = this.state, chip = this.chipEl, panel = this.panelEl;
+      if (this.thread && this.thread.connected) {
+        if (st.panelOpen) { chip.style.display = 'none'; chip.innerHTML = ''; this.buildThreadPanel(panel, this.thread); panel.style.display = 'flex'; }
+        else { panel.style.display = 'none'; panel.innerHTML = ''; this.buildThreadChip(chip, this.thread); chip.style.display = 'block'; }
+        return;
+      }
       const d = this.computeFocus();
       if (!d) {
         chip.style.display = 'none'; chip.innerHTML = '';
@@ -804,6 +1166,7 @@
       html += '<div class="sub">' + esc(d.focSub) + '</div>';
       if (d.strong) html += '<div class="strong" data-act="strong"><div class="lbl">STRONGEST LINK →</div><div class="sn">' + esc(d.strong.name) + '</div></div>';
       html += '<div class="btns"><button class="details" data-act="details">DETAILS</button>';
+      html += '<button class="details" data-act="thread" title="Shift-click another star, or tap one now">THREAD ↔</button>';
       const url = this.bookUrl(fn);
       if (url) html += '<button class="open" data-act="open">OPEN PAGE ↗</button>';
       html += '</div>';
@@ -811,6 +1174,7 @@
       chip.querySelector('[data-act="close"]').onclick = () => this.clearFocus();
       const s = chip.querySelector('[data-act="strong"]'); if (s) s.onclick = () => { if (d.strong) this.focusNode(d.strong.idx); };
       chip.querySelector('[data-act="details"]').onclick = () => this.setState({ panelOpen: true });
+      chip.querySelector('[data-act="thread"]').onclick = () => { this.armPick = true; this.showPathHint('Now pick a second star to thread it to “' + fn.n + '”.'); };
       const o = chip.querySelector('[data-act="open"]');
       if (o) o.onclick = () => {
         if (this.onOpenPage && fn.key) { this.onOpenPage(fn.key); return; }
@@ -843,7 +1207,42 @@
       });
     }
 
-    clearFocus() { this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.dirty = true; }
+    buildThreadChip(chip, t) {
+      const N = this.graph.G.nodes, A = N[t.a], B = N[t.b];
+      const between = t.bPos - t.aPos;
+      let html = '<div class="top"><div class="name" style="font-size:17px;line-height:1.2;">' + esc(A.n) + ' <span style="opacity:.45;">↔</span> ' + esc(B.n) + '</div><button class="x" data-act="close">✕</button></div>';
+      html += '<div class="sub">STORYLINE · ' + t.nodes.length + ' BOOKS · ' + between + (between === 1 ? ' HOP' : ' HOPS') + ' BETWEEN</div>';
+      html += '<div class="btns"><button class="details" data-act="list">SEE CHAIN</button></div>';
+      chip.innerHTML = html;
+      chip.querySelector('[data-act="close"]').onclick = () => this.clearThread();
+      chip.querySelector('[data-act="list"]').onclick = () => this.setState({ panelOpen: true });
+    }
+
+    buildThreadPanel(panel, t) {
+      const N = this.graph.G.nodes, A = N[t.a], B = N[t.b];
+      const region = i => i < t.aPos ? 'lead' : i > t.bPos ? 'tail' : 'between';
+      let html = '<div class="head"><div class="top"><div class="name" style="font-size:19px;">' + esc(A.n) + ' ↔ ' + esc(B.n) + '</div><button class="x" data-act="close">✕</button></div>';
+      html += '<div class="sub">LONGEST STORYLINE THROUGH BOTH · ' + t.nodes.length + ' BOOKS</div></div><div class="body">';
+      let last = null;
+      t.nodes.forEach((idx, i) => {
+        const rg = region(i);
+        if (rg !== last) {
+          const lbl = rg === 'lead' ? 'LEADS IN' : rg === 'between' ? 'BETWEEN' : 'LEADS OUT';
+          const col = rg === 'between' ? '#2f5590' : '#9c3d22';
+          html += '<div class="seclabel" style="color:' + col + '">' + lbl + '</div>';
+          last = rg;
+        }
+        const n = N[idx];
+        const mark = (idx === t.a || idx === t.b) ? ' ●' : '';
+        html += '<div class="item" data-idx="' + idx + '"><div class="n">' + esc(n.n) + mark + '</div><div class="w">' + esc(n.a || '') + '</div></div>';
+      });
+      html += '</div>';
+      panel.innerHTML = html;
+      panel.querySelector('[data-act="close"]').onclick = () => this.setState({ panelOpen: false });
+      panel.querySelectorAll('.item').forEach(el => { el.onclick = () => this.focusNode(+el.getAttribute('data-idx')); });
+    }
+
+    clearFocus() { this.thread = null; this.threadT0 = 0; this.armPick = false; this.hidePathHint(); this.setState({ focus: -1, panelOpen: false }); this.tourT0 = 0; this.igniteT0 = 0; this.dirty = true; }
 
     popularList() {
       const c = this.graph;
