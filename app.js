@@ -492,6 +492,83 @@
     return this.GEN3[17]; // MISC fallback (unset or unknown genre)
   };
 
+  // ---------- home-wall book selection ----------
+  // Deliberate, curated pick for the cover wall: popular + connected books, ~80/20 fiction, with
+  // genre + author variety. Only which ids populate the wall — the FLIP glide, idle pulse, and
+  // click-to-open all operate on whatever _wallIds holds.
+  //
+  // Fiction/non-fiction mirrors tools/build-book-graph.mjs: these 8 genres are non-fiction, and
+  // everything else (incl. MISC/unknown) is fiction.
+  P._NONFIC = { 'HISTORY': 1, 'BIOGRAPHY & MEMOIR': 1, 'PHILOSOPHY': 1, 'PSYCHOLOGY': 1, 'POLITICS & WORLD': 1, 'BUSINESS & ECONOMICS': 1, 'ESSAYS & JOURNALISM': 1, 'FOOD & COOKING': 1 };
+  P._isFiction = function (genre) { return !this._NONFIC[String(genre || '').trim().toUpperCase()]; };
+
+  // Scored candidate pool (cached). Eligible = mentions others (out>0) OR very-popular mentioned-only
+  // (in>=3). Score is popularity-led (inbound citations), with a both-sided tier bonus and a boost
+  // for the curated POPULAR_FICTION titles. Sorted best-first.
+  P._ensureWallPool = function () {
+    if (this._wallPool) return this._wallPool;
+    var self = this;
+    var popSet = {};
+    for (var p = 0; p < POPULAR_FICTION.length; p++) { var pb = this.bookByTitle(POPULAR_FICTION[p]); if (pb) popSet[pb.id] = 1; }
+    var log2 = function (x) { return Math.log(x) / Math.LN2; };
+    var pool = (this.all || []).filter(function (b) { return b.out.length > 0 || b.in.length >= 3; }).map(function (b) {
+      var both = b.out.length > 0 && b.in.length > 0;
+      var score = 3 * log2(1 + b.in.length) + log2(1 + b.out.length) + (both ? 2 : 1) + (popSet[b.id] ? 2 : 0);
+      return { id: b.id, fic: self._isFiction(b.genre), genre: self.genreOf(b).name, author: b.author || '', score: score };
+    });
+    pool.sort(function (a, b) { return b.score - a.score || (a.id < b.id ? -1 : 1); });
+    this._wallPool = pool;
+    return pool;
+  };
+
+  // Build a full wall of up to `wallTarget` ids honouring GLOBAL caps: an 80/20 fiction quota, a
+  // plain-FICTION-genre cap (variety) and an author cap (<=3). `keepIds` are retained up front (their
+  // covers glide on shuffle) and seed the running counts so the caps span the whole wall, not just the
+  // fill. `excludeIds` are additionally skipped (e.g. the just-removed books, so a shuffle brings in
+  // genuinely new titles). `randomize` jitters order for shuffle freshness (score order otherwise, so
+  // first paint leads with the most popular/connected books). Relax passes guarantee we reach target.
+  P._selectWall = function (wallTarget, keepIds, excludeIds, randomize) {
+    var pool = this._ensureWallPool();
+    var byId = this._wallPoolById || (this._wallPoolById = pool.reduce(function (m, c) { m[c.id] = c; return m; }, {}));
+    var fT = Math.round(wallTarget * 0.8), nT = wallTarget - fT;
+    var authorCap = 3, ficGenreCap = Math.round(fT * 0.55);
+    var authorKey = function (a) { return (a && a !== 'Anonymous') ? a : null; };
+    var picks = [], chosen = {}, authors = {}, ficN = 0, nfN = 0, plainFic = 0;
+    var bump = function (c) {
+      var ak = authorKey(c.author); if (ak) authors[ak] = (authors[ak] || 0) + 1;
+      if (c.fic) { ficN++; if (c.genre === 'FICTION') plainFic++; } else nfN++;
+    };
+    // Seed with the kept books so the running counts (and thus the caps) cover the whole wall.
+    (keepIds || []).forEach(function (id) { var c = byId[id]; if (!c || chosen[id]) return; picks.push(id); chosen[id] = 1; bump(c); });
+    if (excludeIds) excludeIds.forEach(function (id) { if (!chosen[id]) chosen[id] = 1; });
+    var ordered = pool;
+    if (randomize) {
+      ordered = pool.map(function (c) { return c; });
+      ordered.sort(function (a, b) { return (b.score + Math.random() * 4) - (a.score + Math.random() * 4); });
+    }
+    var i, c, ak;
+    // Pass 1 — full quotas + caps.
+    for (i = 0; i < ordered.length && picks.length < wallTarget; i++) {
+      c = ordered[i]; if (chosen[c.id]) continue;
+      ak = authorKey(c.author); if (ak && (authors[ak] || 0) >= authorCap) continue;
+      if (c.fic) { if (ficN >= fT) continue; if (c.genre === 'FICTION' && plainFic >= ficGenreCap) continue; }
+      else { if (nfN >= nT) continue; }
+      picks.push(c.id); chosen[c.id] = 1; bump(c);
+    }
+    // Pass 2 — relax genre/author caps, keep the fiction/non-fiction quota.
+    for (i = 0; i < ordered.length && picks.length < wallTarget; i++) {
+      c = ordered[i]; if (chosen[c.id]) continue;
+      if (c.fic) { if (ficN >= fT) continue; } else { if (nfN >= nT) continue; }
+      picks.push(c.id); chosen[c.id] = 1; if (c.fic) ficN++; else nfN++;
+    }
+    // Pass 3 — relax everything to reach target.
+    for (i = 0; i < ordered.length && picks.length < wallTarget; i++) {
+      c = ordered[i]; if (chosen[c.id]) continue;
+      picks.push(c.id); chosen[c.id] = 1;
+    }
+    return picks;
+  };
+
   P.mark2 = function (name, size, ink, hole) {
     var R = React.createElement;
     var kids = [];
@@ -886,17 +963,17 @@
       graphPanel: { border: '1.5px solid var(--ink)', borderRadius: '18px', background: 'var(--card)', padding: '18px 18px 10px', gridColumn: mid && !m ? '1 / -1' : 'auto', maxWidth: mid && !m ? '540px' : 'none' },
       statsCols: { display: 'grid', gridTemplateColumns: vw < 900 ? '1fr' : '1fr 1fr', gap: '44px 56px', alignItems: 'start' },
       shuffleChips: function () {
-        // Reshuffle the wall too: keep ~75% of the covers (they glide to new spots via the FLIP in
-        // componentDidUpdate) and swap ~25% for fresh books, then reorder the whole list.
-        var ids = self._wallIds;
-        if (ids && ids.length) {
-          ids = ids.slice();
-          var n = ids.length, swapN = Math.max(1, Math.round(n * 0.25));
-          var have = {}; ids.forEach(function (id) { have[id] = 1; });
-          var pool = all.filter(function (b) { return !have[b.id]; });
-          var k, j;
-          for (k = 0; k < swapN && ids.length; k++) ids.splice(Math.floor(Math.random() * ids.length), 1);
-          for (k = 0; k < swapN && pool.length; k++) ids.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0].id);
+        // Reshuffle the wall: keep ~75% of the covers (they glide to new spots via the FLIP in
+        // componentDidUpdate) and swap ~25% for fresh books drawn from the SAME curated pool
+        // (so eligibility, the 80/20 fiction mix and variety caps still hold), then reorder.
+        var cur = self._wallIds;
+        if (cur && cur.length) {
+          var n = cur.length, swapN = Math.max(1, Math.round(n * 0.25));
+          var kept = cur.slice(), removed = [], k, j;
+          for (k = 0; k < swapN && kept.length; k++) removed.push(kept.splice(Math.floor(Math.random() * kept.length), 1)[0]);
+          // Refill to n keeping the survivors; exclude the just-removed so genuinely new (curated) titles
+          // come in, and let the global caps span the whole wall.
+          var ids = self._selectWall(n, kept, removed, true);
           for (k = ids.length - 1; k > 0; k--) { j = Math.floor(Math.random() * (k + 1)); var t = ids[k]; ids[k] = ids[j]; ids[j] = t; }
           self._wallIds = ids;
         }
@@ -979,21 +1056,19 @@
       plain: { count: 0, min: m ? 118 : 148, gap: '26px', pad: '20px', inset: '-30px', tier: 'l', overlap: null }
     }[wallMode];
     if (page === 'home') {
-      // The wall is a persistent list of book ids (this._wallIds) so shuffles can KEEP most covers
-      // (they physically glide to new spots via the FLIP in componentDidUpdate) while swapping a
-      // slice for fresh books. Initial paint is the stable hash order (same as before).
+      // The wall is a persistent, curated list of book ids (this._wallIds) chosen by _selectWall
+      // (popular + connected, ~80/20 fiction, genre/author variety). It persists so shuffles can KEEP
+      // most covers (they glide to new spots via the FLIP in componentDidUpdate) while swapping a slice.
       var target = wallCfg.count;
       if (!this._wallIds) {
-        this._wallIds = all.slice().sort(function (a, b2) { return self.hash(a.id) - self.hash(b2.id); }).slice(0, target).map(function (b) { return b.id; });
+        this._wallIds = this._selectWall(target, null, null, false);
       }
-      // Adapt to viewport count changes (e.g. resize across the mobile breakpoint) without a reshuffle.
+      // Adapt to viewport count changes (e.g. resize across the mobile breakpoint) without a reshuffle:
+      // keep the current covers and either trim or top up (respecting the same global caps).
       if (this._wallIds.length > target) {
         this._wallIds = this._wallIds.slice(0, target);
       } else if (this._wallIds.length < target) {
-        var have = {}; this._wallIds.forEach(function (id) { have[id] = 1; });
-        var extra = all.slice().sort(function (a, b2) { return self.hash(a.id) - self.hash(b2.id); })
-          .filter(function (b) { return !have[b.id]; }).slice(0, target - this._wallIds.length).map(function (b) { return b.id; });
-        this._wallIds = this._wallIds.concat(extra);
+        this._wallIds = this._selectWall(target, this._wallIds, null, false);
       }
       var list = this._wallIds.map(function (id) { return books[id]; }).filter(Boolean);
       vals.wallCovers = list.map(function (b, i) {
