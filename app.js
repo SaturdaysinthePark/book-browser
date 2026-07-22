@@ -319,10 +319,45 @@
     this._onResize = function () { self.setState({ vw: window.innerWidth }); };
     window.addEventListener('resize', this._onResize);
     if (location.hash && location.hash.length > 2) this.applyHash();
+    this._startWallPulse();
   };
   P.componentWillUnmount = function () {
     window.removeEventListener('hashchange', this._onHash);
     window.removeEventListener('resize', this._onResize);
+    clearTimeout(this._pulseTimer);
+  };
+
+  // Idle home-wall spotlight: every ~8s, colour + bounce one random cover (an automatic
+  // replay of the hover state) so the wall feels alive. Driven imperatively via a CSS class
+  // (not React state) so it never triggers re-renders and costs nothing off the home page.
+  P._startWallPulse = function () {
+    var self = this;
+    var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+    var tick = function () {
+      self._pulseTimer = setTimeout(tick, 8000);
+      // Skip while off-home, backgrounded, or when the user is actively hovering the wall
+      // (hover always wins — don't pulse on top of what they're exploring).
+      if (self.state.route.page !== 'home') return;
+      if (typeof document !== 'undefined' && document.hidden) return;
+      if (document.querySelector('[data-wall] [data-hb]:hover')) return;
+      var wraps = document.querySelectorAll('[data-wall] > *');
+      if (!wraps.length) return;
+      // Only covers with a genre colour can "turn colour on"; skip MISC (no --bandc).
+      var pick = [];
+      for (var i = 0; i < wraps.length; i++) {
+        var inner = wraps[i].querySelector('[data-hb]');
+        if (inner && inner.style.getPropertyValue('--bandc')) pick.push(wraps[i]);
+      }
+      if (!pick.length) return;
+      var el = pick[Math.floor(Math.random() * pick.length)];
+      var innerEl = el.querySelector('[data-hb]');
+      el.setAttribute('data-pulse', '1');
+      var clear = function () { el.removeAttribute('data-pulse'); clearTimeout(safety); if (innerEl) innerEl.removeEventListener('animationend', clear); };
+      var safety = setTimeout(clear, 1800);
+      if (innerEl) innerEl.addEventListener('animationend', clear);
+    };
+    this._pulseTimer = setTimeout(tick, 8000);
   };
 
   P.slug = function (t) {
@@ -863,10 +898,16 @@
       plain: { count: 0, min: m ? 118 : 148, gap: '26px', pad: '20px', inset: '-30px', tier: 'l', overlap: null }
     }[wallMode];
     if (page === 'home') {
-      var sorted = all.slice().sort(function (a, b2) { return self.hash(a.id) - self.hash(b2.id); });
+      // Wall order (and thus which subset of the catalogue shows) is seeded by chipSeed so the
+      // hero's shuffle button reshuffles the covers too — a new seed => new order and new subset.
+      var wseed = this.state.chipSeed || 0;
+      var sorted = all.slice().sort(function (a, b2) { return self.hash(wseed + '~' + a.id) - self.hash(wseed + '~' + b2.id); });
       var list = [];
       var target = wallCfg.count;
       while (list.length < target && sorted.length) list = list.concat(sorted.slice(0, target - list.length));
+      // Alternating class re-triggers the flip-in animation on every shuffle (React reuses each
+      // grid node by position, so a changing className is what restarts the CSS animation).
+      var shufClass = wseed > 0 ? ('bj-shuffle-' + (wseed % 2 ? 'a' : 'b')) : '';
       vals.wallCovers = list.map(function (b, i) {
         var h1 = self.hash(b.id + i), h2 = self.hash(i + '/' + b.id);
         var g = self.genreOf(b);
@@ -878,7 +919,11 @@
           backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden'
         };
         if (bc) inner['--bandc'] = bc;
-        var wrap = { position: 'relative', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' };
+        // Per-cover stagger for the shuffle ripple (seeded so the cascade pattern varies each
+        // shuffle). Kept as a custom property, not inline animation-delay, so it can't perturb
+        // the idle-pulse animation (whose `animation` shorthand would otherwise reset the delay).
+        inner['--shuf-delay'] = (self.hash(wseed + 'sh' + i) % 40) * 10 + 'ms';
+        var wrap = { position: 'relative', cursor: 'pointer', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' };
         if (wallMode === 'dense') {
           // Systematic zigzag: rotation direction + vertical offset flip every ~3
           // covers for a woven rhythm; uniform sizes (no per-card scale variance).
@@ -908,7 +953,8 @@
         // Overlapping walls draw their dark edge with the opaque frame above, so the
         // cover's own border is dropped (no double edge); other modes keep it.
         var wallBorder = (wallMode === 'dense' || wallMode === 'light') ? 'none' : coverBorder;
-        return Object.assign({ wrap: wrap, inner: inner }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
+        var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id); }; })(b.id);
+        return Object.assign({ wrap: wrap, inner: inner, go: go, shufClass: shufClass }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
       });
       vals.wallStyle = {
         position: 'absolute', zIndex: 0, isolation: 'isolate',

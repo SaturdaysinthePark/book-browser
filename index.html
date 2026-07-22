@@ -17,6 +17,31 @@ a:hover{color:var(--accent);}
 ::selection{background:var(--ink);color:var(--paper);}
 input:focus{outline:none;}
 [data-hb]:hover{--hb:var(--bandc);}
+/* Idle home-wall spotlight: JS sets data-pulse on one random cover every ~8s, replaying
+   the hover state (genre colour + springy bounce) so the wall feels alive. A data attribute
+   (not a class) is used because React manages the cover's className via style-hover — it would
+   clobber an added class on re-render, but never touches an unknown data-* attribute. */
+@keyframes bjWallPulse{
+  0%{transform:translateY(0) scale(1);}
+  35%{transform:translateY(-10px) scale(1.12);}
+  62%{transform:translateY(-4px) scale(1.06);}
+  100%{transform:translateY(0) scale(1);}
+}
+[data-pulse]{z-index:80;}
+[data-pulse] [data-hb]{--hb:var(--bandc);animation:bjWallPulse 1.4s cubic-bezier(.3,1.6,.45,1);}
+@media (prefers-reduced-motion:reduce){[data-pulse] [data-hb]{animation:none;}}
+/* Shuffle: the hero's shuffle button reseeds the wall; each reused cell flips/deals in its new
+   book, staggered by --shuf-delay for a ripple. Two identical classes (a/b) alternate per shuffle
+   so the className changes and the CSS animation re-triggers on every click. */
+@keyframes bjShuffleIn{
+  0%{opacity:0;transform:perspective(620px) rotateX(-30deg) translateY(14px) scale(.9);}
+  55%{opacity:1;}
+  100%{opacity:1;transform:perspective(620px) rotateX(0) translateY(0) scale(1);}
+}
+/* fill-mode: backwards (not both) — hold the start frame through the stagger delay so covers wait
+   hidden then flip in, but DON'T retain the end frame, which would override the :hover lift after. */
+.bj-shuffle-a,.bj-shuffle-b{animation:bjShuffleIn .5s cubic-bezier(.3,1.2,.5,1) backwards;animation-delay:var(--shuf-delay,0s);}
+@media (prefers-reduced-motion:reduce){.bj-shuffle-a,.bj-shuffle-b{animation:none;}}
 button{color:inherit;}
 </style>
 <style>
@@ -190,10 +215,10 @@ html,body{height:100%;}
 
   <sc-if value="{{ pgHome }}" hint-placeholder-val="{{ true }}">
     <div data-screen-label="Home" style="position:relative;min-height:100dvh;overflow:hidden;">
-      <div style="{{ wallStyle }}">
+      <div data-wall="1" style="{{ wallStyle }}">
         <sc-for list="{{ wallCovers }}" as="w" hint-placeholder-count="24">
-          <div style="{{ w.wrap }}" style-hover="z-index:80;">
-            <div data-hb="1" style="{{ w.inner }}" style-hover="transform:translateY(-8px) scale(1.1);box-shadow:0 16px 34px rgba(20,20,20,.3);">
+          <div onClick="{{ w.go }}" style="{{ w.wrap }}" style-hover="z-index:80;">
+            <div data-hb="1" class="{{ w.shufClass }}" style="{{ w.inner }}" style-hover="transform:translateY(-8px) scale(1.1);box-shadow:0 16px 34px rgba(20,20,20,.3);">
               <div style="{{ w.cover }}">
                 <div style="{{ w.top }}"><div style="{{ w.blob }}"></div></div>
                 <div style="{{ w.mid }}">
