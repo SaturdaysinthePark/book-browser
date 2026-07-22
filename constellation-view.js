@@ -25,6 +25,8 @@
   const MODES = ['all', 'fiction', 'nonfiction'];
 
   class Constellation {
+    static IMMERSIVE_K = 1.45; // default entry zoom (see enterView()) — 1.0 would show the whole graph
+
     constructor(opts) {
       this.opts = opts || {};
       this.root = this.opts.root;
@@ -43,7 +45,7 @@
       // reactive state (drives DOM chrome only)
       this.state = { ready: false, focus: -1, panelOpen: false, searchQ: '', searchResults: [], popular: false, isMobile: false };
       // per-frame instance state (never triggers a chrome re-render)
-      this.view = { x: 0, y: 0, k: 0.5 };
+      this.view = { x: 0, y: 0, k: 1 };
       this.railHorizontal = false;
       this.tween = null; this.dragging = false; this.dragMoved = false; this.lastMX = 0; this.lastMY = 0;
       this.hover = -1; this.dirty = true; this.raf = 0; this.dpr = 1;
@@ -71,7 +73,7 @@
       this.modesPopEl = root.querySelector('#modesPop');
 
       this.setupCanvas();
-      this.fit();
+      this.enterView();
 
       // static chrome wiring
       this.searchEl.addEventListener('input', this.onSearch);
@@ -139,7 +141,7 @@
       });
       if (this.modesCompactEl) this.modesCompactEl.classList.toggle('filtered', mode !== 'all');
       this.setState({ focus: -1, panelOpen: false, searchQ: '', searchResults: [], popular: false });
-      this.fit();
+      this.enterView();
     }
 
     setState(patch, cb) {
@@ -239,7 +241,8 @@
           const t = e.touches[0];
           const dx = t.clientX - this.lastMX, dy = t.clientY - this.lastMY;
           if (Math.abs(t.clientX - this.touchStart.x) + Math.abs(t.clientY - this.touchStart.y) > 8) this.touchStart.moved = true;
-          this.view.x -= dx / this.view.k; this.view.y -= dy / this.view.k;
+          const [bxT, byT] = this.axisScales();
+          this.view.x -= dx / (bxT * this.view.k); this.view.y -= dy / (byT * this.view.k);
           this.lastMX = t.clientX; this.lastMY = t.clientY;
           this.tween = null; this.dirty = true;
         } else if (e.touches.length === 2 && this.pinch) {
@@ -263,19 +266,45 @@
       }, { passive: false });
     }
 
-    fit() {
-      const c = this.graph; if (!c) return;
+    // Per-axis world→screen scale so the fixed circular layout stretches into an ellipse
+    // matching the live container's aspect ratio (wide oval on desktop, tall oval on mobile
+    // portrait) instead of being letterboxed to whichever dimension is smaller. No clamp —
+    // full bleed, the ellipse always touches every edge of the container.
+    axisScales() {
+      const c = this.graph; if (!c) return [1, 1];
       const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
-      this.view = { x: 0, y: 0, k: Math.min(w / c.extent, h / c.extent) };
+      return [w / c.extent, h / c.extent];
+    }
+    fit() {
+      if (!this.graph) return;
+      this.view = { x: 0, y: 0, k: 1 };
       this.dirty = true;
     }
-    toScreen(x, y) { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; return [(x - this.view.x) * this.view.k + w / 2, (y - this.view.y) * this.view.k + h / 2]; }
-    toWorld(sx, sy) { const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight; return [(sx - w / 2) / this.view.k + this.view.x, (sy - h / 2) / this.view.k + this.view.y]; }
+    // Camera reset used for "the view just changed under you" moments (first load, lens
+    // switch) — starts zoomed past the sparse outer rim for an immersive drop-into-the-network
+    // feel, rather than the full "everything at once" overview `fit()` shows. The FIT button
+    // still calls fit() directly — it's the one explicit "zoom all the way out" affordance.
+    enterView() {
+      this.fit();
+      this.view.k = Constellation.IMMERSIVE_K;
+      this.dirty = true;
+    }
+    toScreen(x, y) {
+      const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+      const [bx, by] = this.axisScales();
+      return [(x - this.view.x) * bx * this.view.k + w / 2, (y - this.view.y) * by * this.view.k + h / 2];
+    }
+    toWorld(sx, sy) {
+      const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+      const [bx, by] = this.axisScales();
+      return [(sx - w / 2) / (bx * this.view.k) + this.view.x, (sy - h / 2) / (by * this.view.k) + this.view.y];
+    }
     zoomAt(mx, my, f) {
       const [wx, wy] = this.toWorld(mx, my);
       const k2 = Math.max(0.1, Math.min(10, this.view.k * f));
       const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
-      this.view.x = wx - (mx - w / 2) / k2; this.view.y = wy - (my - h / 2) / k2; this.view.k = k2;
+      const [bx, by] = this.axisScales();
+      this.view.x = wx - (mx - w / 2) / (bx * k2); this.view.y = wy - (my - h / 2) / (by * k2); this.view.k = k2;
       this.tween = null; this.dirty = true;
     }
     flyTo(x, y, k) { this.tween = { t0: performance.now(), dur: 550, from: { ...this.view }, to: { x, y, k } }; this.dirty = true; }
@@ -315,7 +344,11 @@
       if (this.dirty) { this.dirty = false; this.draw(); }
     };
 
-    nodeR(n) { return Math.max(2.8, Math.min(24, (2 + Math.sqrt(n.o + n.i) * 1.5) * Math.sqrt(this.view.k) * 1.35)); }
+    nodeR(n) {
+      const [bx, by] = this.axisScales();
+      const refK = Math.min(bx, by) * this.view.k;
+      return Math.max(2.8, Math.min(24, (2 + Math.sqrt(n.o + n.i) * 1.5) * Math.sqrt(refK) * 1.35));
+    }
     genreCol(n) { return n.f ? '#9c3d22' : '#2e8156'; }
 
     leafPositions(f) {
@@ -362,6 +395,8 @@
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = '#f7f5f0'; ctx.fillRect(0, 0, w, h);
       const k = this.view.k;
+      const [bx, by] = this.axisScales();
+      const refK = Math.min(bx, by) * k;
       const focus = this.state.focus >= 0 ? this.state.focus : this.hover;
       const hasFocus = focus >= 0;
       const N = c.G.nodes;
@@ -379,14 +414,14 @@
         ctx.textAlign = 'center';
         for (const ring of c.G.meta.rings) {
           if (ring.r === 0) continue;
-          const sr = ring.r * k;
-          ctx.beginPath(); ctx.arc(cx, cy, sr, 0, 7);
+          const srx = ring.r * bx * k, sry = ring.r * by * k;
+          ctx.beginPath(); ctx.ellipse(cx, cy, srx, sry, 0, 0, 7);
           ctx.strokeStyle = 'rgba(20,20,20,0.055)'; ctx.lineWidth = 1;
           ctx.setLineDash([3, 5]); ctx.stroke(); ctx.setLineDash([]);
-          if (k > 0.35 && !hasFocus) {
+          if (refK > 0.35 && !hasFocus) {
             ctx.font = '400 9px "IBM Plex Mono", monospace';
             ctx.fillStyle = 'rgba(20,20,20,0.30)';
-            ctx.fillText(ring.v + '+ CONNECTIONS', cx, cy - sr - 4);
+            ctx.fillText(ring.v + '+ CONNECTIONS', cx, cy - sry - 4);
           }
         }
       }
@@ -525,7 +560,7 @@
         // rim leaves fill only the gaps the important labels left (share placedR → no overlap)
         if (this.state.focus >= 0) {
           const lp2 = this.leafPositions(this.state.focus);
-          if (lp2.length <= 40 || k > 1.4) {
+          if (lp2.length <= 40 || refK > 1.4) {
             const lfs = mob ? 11 : 10.5;
             ctx.font = 'italic 400 ' + lfs + 'px "Instrument Serif", Georgia, serif';
             ctx.textAlign = 'left'; ctx.fillStyle = 'rgba(20,20,20,0.62)';
@@ -567,8 +602,8 @@
         const top = c.spotlight;
         if (top >= 0) drawLabel(top);
         // everything else ramps up from ~nothing at the default fit zoom as the user zooms in
-        const zoomBudget = k < 0.6 ? 0 : k < 0.9 ? 4 : k < 1.3 ? 10 : k < 1.8 ? 24 : Math.min(70, (w * h) / 60000 * 1.5);
-        const zoomRankCap = k < 0.6 ? 0 : k < 0.9 ? 12 : k < 1.3 ? 30 : k < 1.8 ? 60 : N.length;
+        const zoomBudget = refK < 0.6 ? 0 : refK < 0.9 ? 4 : refK < 1.3 ? 10 : refK < 1.8 ? 24 : Math.min(70, (w * h) / 60000 * 1.5);
+        const zoomRankCap = refK < 0.6 ? 0 : refK < 0.9 ? 12 : refK < 1.3 ? 30 : refK < 1.8 ? 60 : N.length;
         const budget = Math.round(zoomBudget * density);
         const rankCap = Math.round(zoomRankCap * density);
         let count = 0, rank = 0;
@@ -618,12 +653,12 @@
     // ---------------------------------------------------------------- hit testing / interaction
     pick(mx, my, touch) {
       const c = this.graph;
-      const [wx, wy] = this.toWorld(mx, my);
       let best = -1, bd = 1e9;
       for (let i = 0; i < c.G.nodes.length; i++) {
         const n = c.G.nodes[i];
-        const d = Math.hypot(n.x - wx, n.y - wy);
-        const tol = (this.nodeR(n) + (touch ? 20 : 8)) / this.view.k;
+        const [sx, sy] = this.toScreen(n.x, n.y);
+        const d = Math.hypot(sx - mx, sy - my);
+        const tol = this.nodeR(n) + (touch ? 20 : 8);
         if (d < tol && d < bd) { bd = d; best = i; }
       }
       return best;
@@ -635,7 +670,8 @@
       if (this.dragging) {
         const dx = e.clientX - this.lastMX, dy = e.clientY - this.lastMY;
         if (Math.abs(dx) + Math.abs(dy) > 2) this.dragMoved = true;
-        this.view.x -= dx / this.view.k; this.view.y -= dy / this.view.k;
+        const [bxM, byM] = this.axisScales();
+        this.view.x -= dx / (bxM * this.view.k); this.view.y -= dy / (byM * this.view.k);
         this.lastMX = e.clientX; this.lastMY = e.clientY;
         this.tween = null; this.dirty = true;
       } else {
@@ -669,14 +705,15 @@
       const minX = Math.min(...xs), maxX = Math.max(...xs), minY = Math.min(...ys), maxY = Math.max(...ys);
       const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
       const mob = this.state.isMobile;
+      const [bx, by] = this.axisScales();
       const padX = mob ? 28 : 90, padT = mob ? 66 : 76, padB = mob ? 235 : 110;
       const availW = Math.max(120, w - padX * 2), availH = Math.max(120, h - padT - padB);
       const bw = Math.max(maxX - minX, 120), bh = Math.max(maxY - minY, 120);
-      let k = Math.min(availW / bw, availH / bh);
-      k = Math.max(0.28, Math.min(mob ? 1.5 : 1.8, k));
+      let k = Math.min(availW / (bw * bx), availH / (bh * by));
+      k = Math.max(0.6, Math.min(mob ? 3 : 3.5, k));
       const cx = (minX + maxX) / 2, cy = (minY + maxY) / 2;
       const sx0 = padX + availW / 2, sy0 = padT + availH / 2;
-      this.flyTo(cx - (sx0 - w / 2) / k, cy - (sy0 - h / 2) / k, k);
+      this.flyTo(cx - (sx0 - w / 2) / (bx * k), cy - (sy0 - h / 2) / (by * k), k);
       this.dirty = true;
     }
 
