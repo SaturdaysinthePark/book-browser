@@ -66,7 +66,7 @@ Sense and Sensibility,Jane Austen,1811,Two sisters — the prudent Elinor and th
 The Adventures of Tom Sawyer,Mark Twain,1876,"A mischievous boy in a sleepy Mississippi town whitewashes fences, courts Becky Thatcher, witnesses a murder, and finds buried treasure."
 Anne of Green Gables,L. M. Montgomery,1908,"A talkative red-haired orphan is sent by mistake to elderly siblings on Prince Edward Island, and wins over a whole community."
 Mansfield Park,Jane Austen,1814,"Timid, poor Fanny Price grows up among wealthy relatives at Mansfield Park and holds to her principles as flirtation and scandal unsettle the household."
-The Sign of the Four,Arthur Conan Doyle,1890,Sherlock Holmes and Dr. Watson investigate a mysterious set of pearls and a hidden treasure tied to a secret pact among four convicts.
+The Sign of the Four,Arthur Conan Doyle,1890,"Sherlock Holmes investigates a stolen Indian treasure, a wooden-legged killer, and the mysterious pearls that arrive each year for Mary Morstan."
 The Hound of the Baskervilles,Arthur Conan Doyle,1902,"Holmes and Watson investigate a spectral hound said to haunt a moorland family, separating legend from a very human plot. The most famous of the Sherlock Holmes novels."
 Dracula,Bram Stoker,1897,An epistolary novel in which a group led by Professor Van Helsing hunts the vampire Count Dracula after he preys on their circle in England.
 The Woman in White,Wilkie Collins,1859,A sensation novel in which drawing-master Walter Hartright uncovers a conspiracy of stolen identity and fortune surrounding a mysterious woman dressed in white.
@@ -100,7 +100,7 @@ Jude the Obscure,Thomas Hardy,1895,"The stonemason Jude Fawley yearns for the un
 The Mayor of Casterbridge,Thomas Hardy,1886,"Michael Henchard, who in a drunken auction sells his wife and child, rises to become Mayor of Casterbridge before his past and his own temper bring him down."
 Kim,Rudyard Kipling,1901,An orphaned boy in British India travels the Grand Trunk Road as disciple to a Tibetan lama while being drawn into the espionage of the Great Game.
 A Room with a View,E. M. Forster,1908,"Young Lucy Honeychurch, awakened by a passionate encounter in Florence, must choose between the freethinking George Emerson and her conventional English fiancé Cecil Vyse."
-My Ántonia,Willa Cather,1918,"Narrator Jim Burden recalls his boyhood on the Nebraska prairie and his lifelong bond with Ántonia Shimerda, the spirited daughter of Bohemian immigrant homesteaders."
+My Ántonia,Willa Cather,1918,"Jim Burden looks back on his Nebraska prairie childhood and his enduring friendship with Ántonia Shimerda, a Bohemian immigrant's daughter who becomes the region's most memorable figure."
 The House of Mirth,Edith Wharton,1905,"Beautiful but impoverished socialite Lily Bart drifts through turn-of-the-century New York high society, her search for a wealthy marriage undone by debt, scandal, and her own scruples."
 The Red Badge of Courage,Stephen Crane,1895,"A young Union recruit flees his first Civil War battle, then wrestles with cowardice and the wish to prove himself. An impressionistic account of fear and courage under fire."
 Heart of Darkness,Joseph Conrad,1899,"The sailor Marlow recounts his journey up the Congo River to retrieve the enigmatic ivory agent Kurtz, confronting the brutality and moral emptiness of colonialism. A dark voyage into what men become far from restraint."
@@ -286,7 +286,7 @@ Lay Sermons,Thomas Henry Huxley,1870,Essays and addresses in which Huxley preach
 Le Morte d'Arthur,Thomas Malory,1485,"The rise and ruin of King Arthur's Round Table — Lancelot's love, the Grail quest, and the last battle in the west."
 Lenore,Gottfried August Burger,1774,"A grieving maiden curses God, and her dead lover returns at midnight to carry her on horseback to his grave."
 Les Chouans,Honoré de Balzac,1829,"A republican beauty is sent to seduce and betray a royalist rebel leader in war-torn Brittany, and falls in love instead."
-Les Misérables,Victor Hugo,1862,"Ex-convict Jean Valjean seeks redemption while the relentless Inspector Javert pursues him across decades of French upheaval. A sweeping epic of justice, mercy, and revolution."
+Les Misérables,Victor Hugo,1862,"Jean Valjean's decades-long flight from the relentless Inspector Javert intertwines with the fates of Fantine, her daughter Cosette, and the students manning the barricades of revolutionary Paris."
 Lettres a une Inconnue,Prosper Merimee,1873,"Mérimée's decades of witty, tender letters to a woman he never names, published after his death."
 Light in August,William Faulkner,1932,"In a Mississippi August, an orphan haunted by rumors of black blood collides with a pregnant girl walking north to find her lover."
 Light of Asia,Edwin Arnold,1879,"The life and awakening of Prince Gautama, who leaves his palace to become the Buddha, told in flowing verse."
@@ -1115,3 +1115,10 @@ The House of the Spirits,Isabel Allende,1982,"A multigenerational, magical-reali
 The Perks of Being a Wallflower,Stephen Chbosky,1999,"Told through a series of letters to an anonymous 'friend,' introverted freshman Charlie navigates his first year of high school, new friendships with seniors Sam and Patrick, first love, mental health struggles, and a repressed childhood trauma."
 Flights,Olga Tokarczuk,2007,"A fragmented novel-essay hybrid weaving together short fictional vignettes and essayistic digressions on travel, anatomy, and the preservation of the body — from a modern flight attendant to the real 17th-century anatomist Filip Verheyen and his amputated leg."
 A Brief History of Time,Stephen Hawking,1988,"Stephen Hawking surveys the origin and fate of the universe — the Big Bang, black holes, and the nature of time — for readers with no background in physics."
+Rob Roy,Walter Scott,1817,Frank Osbaldistone is sent to Scotland on family business and drawn into the Jacobite intrigues of the outlawed Highland clan chief Rob Roy MacGregor.
+The Extraordinary Adventures of Arsène Lupin,Maurice Leblanc,1907,"The gentleman-thief Arsène Lupin outwits police, rival criminals, and eventually Sherlock Holmes himself across a string of impossible heists and disappearances."
+"Thuvia, Maid of Mars",Edgar Rice Burroughs,1916,"On a Mars scarred by ancient wars, Prince Carthoris of Helium pursues the vanished princess Thuvia, entangled with an army of phantom bowmen and the mysterious hormads of Lothar."
+My Life,Richard Wagner,1911,"Richard Wagner recounts his childhood, early theatrical failures, and the friendships and intellectual influences that shaped his development as a composer, up through his years in Dresden and exile."
+The Blue Lagoon,H. De Vere Stacpoole,1908,"Shipwrecked as small children with only an old sailor for a guardian, Dick and Emmeline grow up alone on a Pacific island and slowly discover love with no notion that they're doing anything unusual."
+Henrietta Temple,Benjamin Disraeli,1837,"The impoverished aristocrat Ferdinand Armine falls instantly and ruinously in love with Henrietta Temple, then must choose between that passion and the wealthy cousin his family depends on him to marry."
+The Green Mummy,Fergus Hume,1908,An Egyptologist's murder over a stolen mummy case draws his fiancée's cousin into unraveling a conspiracy involving a cursed emerald and a vengeful priest.
