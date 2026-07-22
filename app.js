@@ -325,6 +325,71 @@
     window.removeEventListener('hashchange', this._onHash);
     window.removeEventListener('resize', this._onResize);
     clearTimeout(this._pulseTimer);
+    clearTimeout(this._flipCleanup);
+  };
+
+  // ---------- shuffle FLIP ----------
+  // A shuffle reorders/swaps the wall (see shuffleChips). To make the kept covers physically GLIDE
+  // to their new positions we use FLIP: snapshot each cover's screen box just before React commits
+  // the new order, then in componentDidUpdate invert (jump each cover back to its old box) and play
+  // (transition to its new box). New books (no prior box) scale + fade in. Being JS-driven, this
+  // re-runs on every shuffle — unlike the old CSS approach that only fired once.
+  P.getSnapshotBeforeUpdate = function (prevProps, prevState) {
+    if (this.state.route.page !== 'home' || this.state.chipSeed === prevState.chipSeed) return null;
+    var map = {};
+    var cells = document.querySelectorAll('[data-wall] > *');
+    for (var i = 0; i < cells.length; i++) {
+      var bk = cells[i].getAttribute('data-bk');
+      if (bk) map[bk] = cells[i].getBoundingClientRect();
+    }
+    return map;
+  };
+  P.componentDidUpdate = function (prevProps, prevState, snapshot) {
+    if (!snapshot) return;
+    if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var self = this;
+    var wall = document.querySelector('[data-wall]');
+    if (!wall) return;
+    var cells = [].slice.call(wall.children);
+    var bases = cells.map(function (el) { return el.style.transform || ''; });
+
+    // INVERT — jump each cover to where its book was (or shrink new books), with no transition.
+    cells.forEach(function (el, i) {
+      var old = snapshot[el.getAttribute('data-bk')];
+      var r = el.getBoundingClientRect();
+      var inner = el.querySelector('[data-hb]');
+      el.style.transition = 'none';
+      el.style.zIndex = '40';
+      if (old) {
+        var dx = old.left - r.left, dy = old.top - r.top;
+        el.style.transform = 'translate(' + dx.toFixed(1) + 'px,' + dy.toFixed(1) + 'px) ' + bases[i];
+      } else {
+        el.style.transform = 'scale(.35) ' + bases[i];
+        if (inner) inner.style.opacity = '0';
+      }
+    });
+
+    void wall.offsetWidth; // force reflow so the inverted state is committed before we play
+
+    // PLAY — transition each cover to its real position (staggered), fading new books in.
+    cells.forEach(function (el, i) {
+      var d = (self.hash('fx' + i) % 24) * 8; // 0–184ms stagger
+      var inner = el.querySelector('[data-hb]');
+      el.style.transition = 'transform .6s cubic-bezier(.2,.7,.2,1) ' + d + 'ms';
+      el.style.transform = bases[i];
+      if (inner) { inner.style.transition = 'opacity .4s ease ' + d + 'ms'; inner.style.opacity = ''; }
+    });
+
+    // CLEANUP — strip the inline props we set via raw .style (React never managed them, so it won't
+    // clear them; a leftover inline zIndex/opacity/transition would break the hover pop + idle pulse).
+    clearTimeout(this._flipCleanup);
+    this._flipCleanup = setTimeout(function () {
+      cells.forEach(function (el) {
+        el.style.transition = ''; el.style.zIndex = '';
+        var inner = el.querySelector('[data-hb]');
+        if (inner) inner.style.transition = '';
+      });
+    }, 1000);
   };
 
   // Idle home-wall spotlight: every ~8s, colour + bounce one random cover (an automatic
@@ -335,7 +400,7 @@
     var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (reduced) return;
     var tick = function () {
-      self._pulseTimer = setTimeout(tick, 8000);
+      self._pulseTimer = setTimeout(tick, 5000);
       // Skip while off-home, backgrounded, or when the user is actively hovering the wall
       // (hover always wins — don't pulse on top of what they're exploring).
       if (self.state.route.page !== 'home') return;
@@ -354,10 +419,10 @@
       var innerEl = el.querySelector('[data-hb]');
       el.setAttribute('data-pulse', '1');
       var clear = function () { el.removeAttribute('data-pulse'); clearTimeout(safety); if (innerEl) innerEl.removeEventListener('animationend', clear); };
-      var safety = setTimeout(clear, 1800);
+      var safety = setTimeout(clear, 2000);
       if (innerEl) innerEl.addEventListener('animationend', clear);
     };
-    this._pulseTimer = setTimeout(tick, 8000);
+    this._pulseTimer = setTimeout(tick, 5000);
   };
 
   P.slug = function (t) {
@@ -820,7 +885,23 @@
       coverWrap: { boxShadow: '10px 10px 0 rgba(20,20,20,.12)', maxWidth: m ? '180px' : 'none' },
       graphPanel: { border: '1.5px solid var(--ink)', borderRadius: '18px', background: 'var(--card)', padding: '18px 18px 10px', gridColumn: mid && !m ? '1 / -1' : 'auto', maxWidth: mid && !m ? '540px' : 'none' },
       statsCols: { display: 'grid', gridTemplateColumns: vw < 900 ? '1fr' : '1fr 1fr', gap: '44px 56px', alignItems: 'start' },
-      shuffleChips: function () { self.setState({ chipSeed: (self.state.chipSeed || 0) + 1 }); },
+      shuffleChips: function () {
+        // Reshuffle the wall too: keep ~75% of the covers (they glide to new spots via the FLIP in
+        // componentDidUpdate) and swap ~25% for fresh books, then reorder the whole list.
+        var ids = self._wallIds;
+        if (ids && ids.length) {
+          ids = ids.slice();
+          var n = ids.length, swapN = Math.max(1, Math.round(n * 0.25));
+          var have = {}; ids.forEach(function (id) { have[id] = 1; });
+          var pool = all.filter(function (b) { return !have[b.id]; });
+          var k, j;
+          for (k = 0; k < swapN && ids.length; k++) ids.splice(Math.floor(Math.random() * ids.length), 1);
+          for (k = 0; k < swapN && pool.length; k++) ids.push(pool.splice(Math.floor(Math.random() * pool.length), 1)[0].id);
+          for (k = ids.length - 1; k > 0; k--) { j = Math.floor(Math.random() * (k + 1)); var t = ids[k]; ids[k] = ids[j]; ids[j] = t; }
+          self._wallIds = ids;
+        }
+        self.setState({ chipSeed: (self.state.chipSeed || 0) + 1 });
+      },
       q: this.state.q,
       onQ: function (e) { self.setState({ q: e.target.value }); },
       onKey: function (e) { if (e.key === 'Enter') self.submitSearch(); if (e.key === 'Escape') self.setState({ suggestFor: null }); },
@@ -898,16 +979,23 @@
       plain: { count: 0, min: m ? 118 : 148, gap: '26px', pad: '20px', inset: '-30px', tier: 'l', overlap: null }
     }[wallMode];
     if (page === 'home') {
-      // Wall order (and thus which subset of the catalogue shows) is seeded by chipSeed so the
-      // hero's shuffle button reshuffles the covers too — a new seed => new order and new subset.
-      var wseed = this.state.chipSeed || 0;
-      var sorted = all.slice().sort(function (a, b2) { return self.hash(wseed + '~' + a.id) - self.hash(wseed + '~' + b2.id); });
-      var list = [];
+      // The wall is a persistent list of book ids (this._wallIds) so shuffles can KEEP most covers
+      // (they physically glide to new spots via the FLIP in componentDidUpdate) while swapping a
+      // slice for fresh books. Initial paint is the stable hash order (same as before).
       var target = wallCfg.count;
-      while (list.length < target && sorted.length) list = list.concat(sorted.slice(0, target - list.length));
-      // Alternating class re-triggers the flip-in animation on every shuffle (React reuses each
-      // grid node by position, so a changing className is what restarts the CSS animation).
-      var shufClass = wseed > 0 ? ('bj-shuffle-' + (wseed % 2 ? 'a' : 'b')) : '';
+      if (!this._wallIds) {
+        this._wallIds = all.slice().sort(function (a, b2) { return self.hash(a.id) - self.hash(b2.id); }).slice(0, target).map(function (b) { return b.id; });
+      }
+      // Adapt to viewport count changes (e.g. resize across the mobile breakpoint) without a reshuffle.
+      if (this._wallIds.length > target) {
+        this._wallIds = this._wallIds.slice(0, target);
+      } else if (this._wallIds.length < target) {
+        var have = {}; this._wallIds.forEach(function (id) { have[id] = 1; });
+        var extra = all.slice().sort(function (a, b2) { return self.hash(a.id) - self.hash(b2.id); })
+          .filter(function (b) { return !have[b.id]; }).slice(0, target - this._wallIds.length).map(function (b) { return b.id; });
+        this._wallIds = this._wallIds.concat(extra);
+      }
+      var list = this._wallIds.map(function (id) { return books[id]; }).filter(Boolean);
       vals.wallCovers = list.map(function (b, i) {
         var h1 = self.hash(b.id + i), h2 = self.hash(i + '/' + b.id);
         var g = self.genreOf(b);
@@ -919,10 +1007,6 @@
           backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden'
         };
         if (bc) inner['--bandc'] = bc;
-        // Per-cover stagger for the shuffle ripple (seeded so the cascade pattern varies each
-        // shuffle). Kept as a custom property, not inline animation-delay, so it can't perturb
-        // the idle-pulse animation (whose `animation` shorthand would otherwise reset the delay).
-        inner['--shuf-delay'] = (self.hash(wseed + 'sh' + i) % 40) * 10 + 'ms';
         var wrap = { position: 'relative', cursor: 'pointer', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' };
         if (wallMode === 'dense') {
           // Systematic zigzag: rotation direction + vertical offset flip every ~3
@@ -954,7 +1038,7 @@
         // cover's own border is dropped (no double edge); other modes keep it.
         var wallBorder = (wallMode === 'dense' || wallMode === 'light') ? 'none' : coverBorder;
         var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id); }; })(b.id);
-        return Object.assign({ wrap: wrap, inner: inner, go: go, shufClass: shufClass }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
+        return Object.assign({ wrap: wrap, inner: inner, go: go, id: b.id }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
       });
       vals.wallStyle = {
         position: 'absolute', zIndex: 0, isolation: 'isolate',

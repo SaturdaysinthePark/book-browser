@@ -21,27 +21,22 @@ input:focus{outline:none;}
    the hover state (genre colour + springy bounce) so the wall feels alive. A data attribute
    (not a class) is used because React manages the cover's className via style-hover — it would
    clobber an added class on re-render, but never touches an unknown data-* attribute. */
+/* Three diminishing up-hops with a left-right + rotate shake (plays on the inner, whose base
+   transform is none, so translate/scale/rotate compose cleanly). */
 @keyframes bjWallPulse{
-  0%{transform:translateY(0) scale(1);}
-  35%{transform:translateY(-10px) scale(1.12);}
-  62%{transform:translateY(-4px) scale(1.06);}
-  100%{transform:translateY(0) scale(1);}
+  0%  {transform:translate(0,0) scale(1) rotate(0);}
+  12% {transform:translate(-3px,-11px) scale(1.12) rotate(-2.5deg);}
+  24% {transform:translate(3px,0)     scale(1)    rotate(1.5deg);}
+  40% {transform:translate(-2px,-8px) scale(1.08) rotate(-2deg);}
+  54% {transform:translate(2px,0)     scale(1)    rotate(1.2deg);}
+  70% {transform:translate(-1px,-5px) scale(1.05) rotate(-1deg);}
+  84% {transform:translate(1px,0)     scale(1)    rotate(.5deg);}
+  100%{transform:translate(0,0)       scale(1)    rotate(0);}
 }
 [data-pulse]{z-index:80;}
-[data-pulse] [data-hb]{--hb:var(--bandc);animation:bjWallPulse 1.4s cubic-bezier(.3,1.6,.45,1);}
+[data-pulse] [data-hb]{--hb:var(--bandc);animation:bjWallPulse 1.6s cubic-bezier(.3,1.5,.5,1);}
 @media (prefers-reduced-motion:reduce){[data-pulse] [data-hb]{animation:none;}}
-/* Shuffle: the hero's shuffle button reseeds the wall; each reused cell flips/deals in its new
-   book, staggered by --shuf-delay for a ripple. Two identical classes (a/b) alternate per shuffle
-   so the className changes and the CSS animation re-triggers on every click. */
-@keyframes bjShuffleIn{
-  0%{opacity:0;transform:perspective(620px) rotateX(-30deg) translateY(14px) scale(.9);}
-  55%{opacity:1;}
-  100%{opacity:1;transform:perspective(620px) rotateX(0) translateY(0) scale(1);}
-}
-/* fill-mode: backwards (not both) — hold the start frame through the stagger delay so covers wait
-   hidden then flip in, but DON'T retain the end frame, which would override the :hover lift after. */
-.bj-shuffle-a,.bj-shuffle-b{animation:bjShuffleIn .5s cubic-bezier(.3,1.2,.5,1) backwards;animation-delay:var(--shuf-delay,0s);}
-@media (prefers-reduced-motion:reduce){.bj-shuffle-a,.bj-shuffle-b{animation:none;}}
+/* Shuffle motion is a JS-driven FLIP (see componentDidUpdate in app.js) — no CSS animation here. */
 button{color:inherit;}
 </style>
 <style>
@@ -217,8 +212,8 @@ html,body{height:100%;}
     <div data-screen-label="Home" style="position:relative;min-height:100dvh;overflow:hidden;">
       <div data-wall="1" style="{{ wallStyle }}">
         <sc-for list="{{ wallCovers }}" as="w" hint-placeholder-count="24">
-          <div onClick="{{ w.go }}" style="{{ w.wrap }}" style-hover="z-index:80;">
-            <div data-hb="1" class="{{ w.shufClass }}" style="{{ w.inner }}" style-hover="transform:translateY(-8px) scale(1.1);box-shadow:0 16px 34px rgba(20,20,20,.3);">
+          <div onClick="{{ w.go }}" data-bk="{{ w.id }}" style="{{ w.wrap }}" style-hover="z-index:80;">
+            <div data-hb="1" style="{{ w.inner }}" style-hover="transform:translateY(-8px) scale(1.1);box-shadow:0 16px 34px rgba(20,20,20,.3);">
               <div style="{{ w.cover }}">
                 <div style="{{ w.top }}"><div style="{{ w.blob }}"></div></div>
                 <div style="{{ w.mid }}">
