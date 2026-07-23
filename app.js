@@ -920,6 +920,45 @@
     return this._stats;
   };
 
+  // ---------- network tab: lazy-loaded engine ----------
+  // constellation-data.js (~1.2MB) + constellation-view.js are only needed on the #/network
+  // route, so they're not in index.html's static <script> list — they're fetched on first visit
+  // and cached (window.Constellation/window.BookGraph persist) for every visit after that.
+  P._loadConstellation = function (cb) {
+    if (window.Constellation && window.BookGraph) { cb(); return; }
+    if (this._cstlLoading) { this._cstlCallbacks.push(cb); return; }
+    this._cstlLoading = true;
+    this._cstlCallbacks = [cb];
+    var self = this;
+    var done = function () {
+      self._cstlLoading = false;
+      var cbs = self._cstlCallbacks; self._cstlCallbacks = [];
+      cbs.forEach(function (fn) { fn(); });
+    };
+    var dataScript = document.createElement('script');
+    dataScript.src = 'constellation-data.js';
+    dataScript.onload = function () {
+      var viewScript = document.createElement('script');
+      viewScript.src = 'constellation-view.js?v=16';
+      viewScript.onload = done;
+      document.body.appendChild(viewScript);
+    };
+    document.body.appendChild(dataScript);
+  };
+  P._mountConstellation = function (el) {
+    if (this._constellation) return;                       // guard double-instantiation
+    if (!window.Constellation || !window.BookGraph) return;
+    var self = this;
+    this._constellation = new window.Constellation({
+      root: el,
+      data: window.BookGraph,
+      bookUrlPattern: 'index.html#/{author}/{title}',
+      showRings: true, labelDensity: 1, ambientTours: true,
+      onOpenPage: function (key) { self.navigate({ page: 'book', id: key }, '#/' + key); }
+    });
+    window.__constellation = this._constellation; // debug / integration hook
+  };
+
   P.renderVals = function () {
     var self = this;
     var Pr = this.props;
@@ -1029,7 +1068,18 @@
       ? { display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '22px' }
       : { display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '30px' };
     vals.homeNavBtn = iconBtn(m ? 44 : 32, 0.4);
-    vals.hdrNavBtn = iconBtn(m ? 44 : 34, 0.6);
+    // Active-route indication: desktop text nav gets an underline + accent color, mobile icon
+    // nav gets full opacity + an ink border (matching its own hover treatment at rest).
+    var navBtnBase = { background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'IBM Plex Mono', monospace", fontSize: '11px', letterSpacing: '.13em', textTransform: 'uppercase', padding: '8px 10px' };
+    var navBtnActive = { textDecoration: 'underline', color: 'var(--accent)' };
+    vals.navBtnNetwork = vals.pgNetwork ? Object.assign({}, navBtnBase, navBtnActive) : navBtnBase;
+    vals.navBtnStats = vals.pgStats ? Object.assign({}, navBtnBase, navBtnActive) : navBtnBase;
+    vals.navBtnAbout = vals.pgAbout ? Object.assign({}, navBtnBase, navBtnActive) : navBtnBase;
+    var hdrNavBtnBase = iconBtn(m ? 44 : 34, 0.6);
+    var hdrNavBtnActive = { opacity: 1, borderColor: 'var(--ink)' };
+    vals.hdrNavBtnNetwork = vals.pgNetwork ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;
+    vals.hdrNavBtnStats = vals.pgStats ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;
+    vals.hdrNavBtnAbout = vals.pgAbout ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;
     // Mobile: hide secondary captions / truncate long titles so rows don't collide.
     vals.secCaption = m ? { display: 'none' } : { fontFamily: "'IBM Plex Mono', monospace", fontSize: '11.5px', opacity: 0.6 };
     vals.statTitle = m
@@ -1242,22 +1292,35 @@
     // every setState — which would otherwise destroy+reconstruct the engine each frame.
     vals.netHostRef = self._netHostRef || (self._netHostRef = function (el) {
       if (el) {
-        if (self._constellation) return;                       // guard double-instantiation
-        if (!window.Constellation || !window.BookGraph) return;
-        self._constellation = new window.Constellation({
-          root: el,
-          data: window.BookGraph,
-          bookUrlPattern: 'index.html#/{author}/{title}',
-          showRings: true, labelDensity: 1, ambientTours: true,
-          onOpenPage: function (key) { self.navigate({ page: 'book', id: key }, '#/' + key); }
+        self._netHostEl = el;
+        if (self._constellation) return; // already mounted
+        self._loadConstellation(function () {
+          if (self._netHostEl && self.state.route.page === 'network') self._mountConstellation(self._netHostEl);
         });
-        window.__constellation = self._constellation; // debug / integration hook
-      } else if (self._constellation) {
-        self._constellation.destroy();
-        self._constellation = null;
-        window.__constellation = null;
+      } else {
+        self._netHostEl = null;
+        if (self._constellation) {
+          self._constellation.destroy();
+          self._constellation = null;
+          window.__constellation = null;
+        }
       }
     });
+
+    // Per-route browser tab title (OG/social preview tags stay homepage-only by design —
+    // this only ever affects document.title, never anything a link-unfurler reads).
+    if (typeof document !== 'undefined') {
+      var titleMap = {
+        home: 'BookJumpr — Every book is a door to more books',
+        book: (vals.b_title || 'Book') + ' — BookJumpr',
+        author: (vals.a_name || 'Author') + ' — BookJumpr',
+        search: '“' + (route.q || '') + '” — Search — BookJumpr',
+        stats: 'Stats — BookJumpr',
+        network: 'Network — BookJumpr',
+        about: 'About — BookJumpr'
+      };
+      document.title = titleMap[page] || titleMap.home;
+    }
 
     return vals;
   };

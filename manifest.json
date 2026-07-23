@@ -1,0 +1,13 @@
+{
+  "name": "BookJumpr",
+  "short_name": "BookJumpr",
+  "description": "BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7f5f0",
+  "theme_color": "#f7f5f0",
+  "icons": [
+    { "src": "favicon.svg", "type": "image/svg+xml", "sizes": "any" },
+    { "src": "apple-touch-icon.png", "type": "image/png", "sizes": "180x180" }
+  ]
+}
