@@ -1119,30 +1119,37 @@
     // Mobile hero: 1 chip with the shuffle inline beside it, no "rabbit holes" label.
     vals.isMobile = m; vals.notMobile = !m;
     vals.chipsRow = m
-      ? { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '24px' }
+      ? { display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '8px', justifyContent: 'center', marginTop: '16px' }
       : { display: 'flex', flexWrap: 'wrap', gap: '10px', justifyContent: 'center', marginTop: '12px' };
+    // Mobile: center the hero card with slim, even gutters (no dead 40px band top/bottom).
+    // This was static inline HTML on index.html; bound here so the gutter can vary by breakpoint.
+    vals.heroCenter = {
+      position: 'relative', zIndex: 5, display: 'flex', alignItems: 'center',
+      justifyContent: 'center', minHeight: '100dvh', boxSizing: 'border-box',
+      pointerEvents: 'none', padding: m ? '14px 14px' : '40px 20px'
+    };
     // Mobile: trim the card's side padding so two suggestion pills + the shuffle fit on
     // one row (and the whole card reads tighter). Desktop keeps its fluid clamp padding.
     vals.heroCard = {
       pointerEvents: 'auto', background: 'var(--card)', border: '1.5px solid var(--ink)', borderRadius: '20px',
       boxShadow: '0 30px 70px rgba(20,20,20,.22)', maxWidth: '680px', width: '100%', textAlign: 'center', boxSizing: 'border-box',
-      padding: m ? '24px 18px 22px' : 'clamp(28px,5.5vw,52px) clamp(20px,6vw,60px) clamp(26px,4.5vw,44px)'
+      padding: m ? '20px 16px 18px' : 'clamp(28px,5.5vw,52px) clamp(20px,6vw,60px) clamp(26px,4.5vw,44px)'
     };
     // Mobile: tighten the hero — smaller arc/paragraph and reduced vertical gaps.
     vals.heroArc = m
       ? { display: 'flex', justifyContent: 'center', maxWidth: '300px', margin: '0 auto' }
       : { display: 'flex', justifyContent: 'center' };
     vals.heroH1 = m
-      ? { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(31px,7.5vw,54px)', lineHeight: 1.05, margin: '12px 0 10px' }
+      ? { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(31px,7.5vw,54px)', lineHeight: 1.05, margin: '10px 0 8px' }
       : { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(31px,7.5vw,54px)', lineHeight: 1.05, margin: '20px 0 12px' };
     vals.heroP = m
       ? { fontSize: '14.5px', lineHeight: 1.55, opacity: 0.75, maxWidth: '470px', margin: '0 auto' }
       : { fontSize: '15.5px', lineHeight: 1.6, opacity: 0.75, maxWidth: '470px', margin: '0 auto' };
     vals.heroSearchWrap = m
-      ? { position: 'relative', maxWidth: '520px', margin: '20px auto 0' }
+      ? { position: 'relative', maxWidth: '520px', margin: '16px auto 0' }
       : { position: 'relative', maxWidth: '520px', margin: '26px auto 0' };
     vals.homeIconsRow = m
-      ? { display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '22px' }
+      ? { display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '16px' }
       : { display: 'flex', gap: '10px', justifyContent: 'center', marginTop: '30px' };
     vals.homeNavBtn = iconBtn(m ? 44 : 32, 0.4);
     // Active-route indication: desktop text nav gets an underline + accent color, mobile icon
@@ -1185,7 +1192,7 @@
       : heroStyle === 'light wall' ? 'light'
       : 'dense';
     var wallCfg = {
-      dense: { count: m ? 110 : 180, min: m ? 88 : 110, gap: '0px', pad: '0', inset: '-46px -36px', tier: 's', overlap: '-15px -20px' },
+      dense: { count: m ? 150 : 180, min: m ? 72 : 110, gap: '0px', pad: '0', inset: '-46px -36px', tier: 's', overlap: '-15px -20px' },
       light: { count: m ? 68 : 104, min: m ? 104 : 128, gap: '0px', pad: '6px', inset: '-38px -28px', tier: 's', overlap: '-6px -8px' },
       scattered: { count: m ? 36 : 54, min: m ? 118 : 148, gap: '26px', pad: '20px', inset: '-30px', tier: 'l', overlap: null },
       plain: { count: 0, min: m ? 118 : 148, gap: '26px', pad: '20px', inset: '-30px', tier: 'l', overlap: null }
