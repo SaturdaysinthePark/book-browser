@@ -58,6 +58,53 @@ input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
 button{color:inherit;}
 </style>
 <style>
+/* About page — the "open book" that shows what a mention is (scoped .ob-*).
+   A real two-page opening of Kafka on the Shore where three other books are named;
+   each highlighted title is a live link (a "door") to that book's own page. The
+   procedural covers mirror app.js's triCover tri-band look — there are no image assets. */
+.ob{margin:24px 0 6px;}
+.ob-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);text-align:center;margin-bottom:18px;}
+.ob-stage{position:relative;}
+/* the open book: two facing pages sharing a gutter */
+.ob-book{position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;max-width:544px;margin:0 auto;background:var(--card);border:1.5px solid var(--ink);border-radius:5px;box-shadow:0 4px 0 rgba(20,20,20,.9);overflow:hidden;}
+.ob-page{padding:20px 18px 24px;position:relative;}
+.ob-page.l{border-right:1px solid rgba(20,20,20,.16);background:linear-gradient(270deg,rgba(20,20,20,.06),transparent 26px);}
+.ob-page.r{background:linear-gradient(90deg,rgba(20,20,20,.06),transparent 26px);}
+.ob-run{display:flex;justify-content:space-between;font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--mut);margin-bottom:14px;}
+.ob-prose{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.52;color:var(--ink);text-wrap:pretty;margin:0 0 7px;}
+.ob-prose:last-child{margin-bottom:0;}
+/* the highlight = a marker wash under the title; the title itself is a door */
+a.ob-mk{color:var(--ink);text-decoration:none;font-style:italic;background-image:linear-gradient(transparent 58%,rgba(156,61,34,.30) 0);background-repeat:no-repeat;background-size:100% 100%;padding:0 1.5px;-webkit-box-decoration-break:clone;box-decoration-break:clone;transition:color .2s ease,background-image .2s ease;}
+a.ob-mk:hover{color:var(--accent);background-image:linear-gradient(rgba(156,61,34,.30),rgba(156,61,34,.30));}
+/* connector down from the pages to the doors they open */
+.ob-link{width:1.5px;height:26px;background:var(--ink);opacity:.85;margin:0 auto;}
+.ob-doors-lbl{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);margin:3px 0 14px;}
+.ob-doors{display:flex;justify-content:center;gap:20px;flex-wrap:wrap;}
+a.ob-door{display:flex;flex-direction:column;align-items:center;gap:7px;width:76px;text-decoration:none;color:var(--ink);}
+a.ob-door .ob-cv{width:100%;transition:transform .18s ease;}
+a.ob-door:hover .ob-cv{transform:translateY(-4px);}
+.ob-door-t{font-family:'Instrument Serif',serif;font-size:13px;line-height:1.14;text-align:center;}
+.ob-door-a{font-family:'IBM Plex Mono',monospace;font-size:7.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--mut);text-align:center;}
+.ob-cap{max-width:440px;margin:22px auto 0;text-align:center;font-size:14.5px;line-height:1.6;color:var(--mut);text-wrap:pretty;}
+.ob-attr{text-align:center;font-family:'IBM Plex Mono',monospace;font-size:9px;letter-spacing:.08em;color:var(--mut);margin-top:12px;}
+/* procedural tri-band cover (mirrors app.js triCover): band / cream blob / title / author / band */
+.ob-cv{display:flex;flex-direction:column;aspect-ratio:2/3;background:#f2ecdd;border:1.5px solid var(--ink);overflow:hidden;box-sizing:border-box;}
+.ob-cv-b{background:var(--band,#c4682e);height:26%;flex:none;display:flex;align-items:center;justify-content:center;border-bottom:1.5px solid var(--ink);}
+.ob-cv-b.bot{height:24%;border-bottom:none;border-top:1.5px solid var(--ink);}
+.ob-cv-blob{width:40%;height:42%;background:#f2ecdd;border-radius:50% / 48%;}
+.ob-cv-m{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;padding:2px 4px;overflow:hidden;text-align:center;}
+.ob-cv-t{font-family:Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase;font-size:7px;line-height:1.12;color:var(--ink);}
+.ob-cv-a{font-family:'IBM Plex Mono',monospace;font-size:5px;letter-spacing:.04em;text-transform:uppercase;opacity:.7;color:var(--ink);}
+@media (max-width:560px){
+  .ob-book{grid-template-columns:1fr;max-width:100%;}
+  .ob-page.l{border-right:none;border-bottom:1px solid rgba(20,20,20,.16);background:none;}
+  .ob-page.r{background:none;}
+}
+@media (prefers-reduced-motion:reduce){
+  a.ob-mk,a.ob-door .ob-cv{transition:none;}
+}
+</style>
+<style>
 /* Standalone page shell (mirrors the design runtime's full-page CSS). */
 html,body{height:100%;}
 #app{min-height:100%;}
@@ -119,7 +166,7 @@ html,body{height:100%;}
 .bj-constellation .chip .strong .lbl{font-size:8.5px;letter-spacing:.12em;color:var(--accent);flex:none;}
 .bj-constellation .chip .strong .sn{font-family:'Instrument Serif',serif;font-style:italic;font-size:15px;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
 .bj-constellation .chip .btns{display:flex;gap:8px;margin-top:13px;}
-.bj-constellation .chip .btns button{padding:8px 14px;border:1.5px solid var(--ink);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;cursor:pointer;}
+.bj-constellation .chip .btns button{padding:8px 12px;border:1.5px solid var(--ink);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;cursor:pointer;white-space:nowrap;}
 .bj-constellation .chip .btns .details{background:var(--ink);color:var(--paper);}
 .bj-constellation .chip .btns .open{background:var(--card);color:var(--ink);}
 .bj-constellation .chip .btns .open:hover{background:var(--ink);color:var(--paper);}
@@ -204,20 +251,20 @@ html,body{height:100%;}
       </sc-if>
       <sc-if value="{{ navText }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;align-items:center;">
-          <button onClick="{{ goNetwork }}" style="{{ navBtnNetwork }}" style-hover="text-decoration:underline;color:var(--accent);">Network</button>
-          <button onClick="{{ goStats }}" style="{{ navBtnStats }}" style-hover="text-decoration:underline;color:var(--accent);">Stats</button>
-          <button onClick="{{ goAbout }}" style="{{ navBtnAbout }}" style-hover="text-decoration:underline;color:var(--accent);">About</button>
+          <button onClick="{{ goNetwork }}" style="{{ navBtnNetwork }}" style-hover="color:var(--accent);">Network</button>
+          <button onClick="{{ goStats }}" style="{{ navBtnStats }}" style-hover="color:var(--accent);">Stats</button>
+          <button onClick="{{ goAbout }}" style="{{ navBtnAbout }}" style-hover="color:var(--accent);">About</button>
         </div>
       </sc-if>
       <sc-if value="{{ navIcons }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;gap:2px;">
-          <button onClick="{{ goNetwork }}" title="Network" aria-label="Network" style="{{ hdrNavBtnNetwork }}" style-hover="opacity:1;border-color:var(--ink);">
+          <button onClick="{{ goNetwork }}" title="Network" aria-label="Network" style="{{ hdrNavBtnNetwork }}" style-hover="opacity:1;color:var(--accent);">
             <svg width="15" height="15" viewBox="0 0 16 16"><circle cx="3" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="8" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="13" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><line x1="4.2" y1="10.4" x2="6.9" y2="5.7" stroke="currentColor" stroke-width="1.5"></line><line x1="9.5" y1="5.4" x2="11.7" y2="9.6" stroke="currentColor" stroke-width="1.5"></line></svg>
           </button>
-          <button onClick="{{ goStats }}" title="Stats" aria-label="Stats" style="{{ hdrNavBtnStats }}" style-hover="opacity:1;border-color:var(--ink);">
+          <button onClick="{{ goStats }}" title="Stats" aria-label="Stats" style="{{ hdrNavBtnStats }}" style-hover="opacity:1;color:var(--accent);">
             <svg width="15" height="15" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" fill="currentColor"></rect><rect x="6.5" y="5" width="3" height="9" fill="currentColor"></rect><rect x="11" y="2" width="3" height="12" fill="currentColor"></rect></svg>
           </button>
-          <button onClick="{{ goAbout }}" title="About" aria-label="About" style="{{ hdrNavBtnAbout }}" style-hover="opacity:1;border-color:var(--ink);">
+          <button onClick="{{ goAbout }}" title="About" aria-label="About" style="{{ hdrNavBtnAbout }}" style-hover="opacity:1;color:var(--accent);">
             <svg width="15" height="15" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"></circle><text x="8" y="11" text-anchor="middle" font-size="8.5" font-family="Helvetica, Arial, sans-serif" font-weight="bold" fill="currentColor">?</text></svg>
           </button>
         </div>
@@ -321,7 +368,7 @@ html,body{height:100%;}
   </sc-if>
 
   <sc-if value="{{ pgBook }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="Book page" style="max-width:1240px;margin:0 auto;padding:52px 24px 90px;">
+    <div data-screen-label="Book page" style="max-width:1240px;margin:0 auto;{{ pagePad }}">
       <div style="{{ bookHero }}">
         <div style="{{ coverWrap }}">
           <div style="{{ b_t.cover }}">
@@ -423,7 +470,7 @@ html,body{height:100%;}
   </sc-if>
 
   <sc-if value="{{ pgAuthor }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="Author page" style="max-width:1240px;margin:0 auto;padding:52px 24px 90px;">
+    <div data-screen-label="Author page" style="max-width:1240px;margin:0 auto;{{ pagePad }}">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Author</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6vw,46px);line-height:1.06;margin:10px 0 8px;">{{ a_name }}</h1>
       <sc-if value="{{ a_found }}" hint-placeholder-val="{{ true }}">
@@ -454,7 +501,7 @@ html,body{height:100%;}
   </sc-if>
 
   <sc-if value="{{ pgSearch }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="Search results" style="max-width:820px;margin:0 auto;padding:52px 24px 90px;">
+    <div data-screen-label="Search results" style="max-width:820px;margin:0 auto;{{ pagePad }}">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Search</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,6vw,40px);margin:10px 0 6px;">&ldquo;{{ s_query }}&rdquo;</h1>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:30px;">{{ s_count }}</div>
@@ -488,22 +535,22 @@ html,body{height:100%;}
   </sc-if>
 
   <sc-if value="{{ pgStats }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="Stats" style="max-width:1100px;margin:0 auto;padding:52px 24px 90px;">
+    <div data-screen-label="Stats" style="max-width:1100px;margin:0 auto;{{ pagePad }}">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Stats</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,6vw,46px);margin:10px 0 8px;">The most name-dropped</h1>
       <p style="font-size:15px;opacity:.7;max-width:540px;margin:0 0 34px;">Which books keep showing up inside other books.</p>
       <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;">
         <div style="border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 22px;">
-          <div style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_books }}</div>
+          <div data-statnum style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_sources }}</div>
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:6px;">books indexed so far</div>
+        </div>
+        <div style="border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 22px;">
+          <div data-statnum style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_books }}</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:6px;">books in the network</div>
         </div>
         <div style="border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 22px;">
-          <div style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_links }}</div>
+          <div data-statnum style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_links }}</div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:6px;">mentions logged</div>
-        </div>
-        <div style="border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 22px;">
-          <div style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_sources }}</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:6px;">books indexed so far</div>
         </div>
       </div>
       <div style="{{ statsCols }}">
@@ -520,7 +567,7 @@ html,body{height:100%;}
                   <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;">&times;{{ tb.count }}</span>
                 </div>
                 <div style="height:6px;background:rgba(20,20,20,.08);border-radius:3px;margin:8px 0 0 34px;overflow:hidden;">
-                  <div style="{{ tb.bar }}"></div>
+                  <div data-statbar style="{{ tb.bar }}"></div>
                 </div>
               </button>
             </sc-for>
@@ -580,19 +627,67 @@ html,body{height:100%;}
   </sc-if>
 
   <sc-if value="{{ pgAbout }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="About" style="max-width:660px;margin:0 auto;padding:52px 24px 90px;">
+    <div data-screen-label="About" style="max-width:660px;margin:0 auto;{{ pagePad }}">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">About</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,6vw,46px);margin:10px 0 18px;">Books talk about books.</h1>
       <p style="font-size:16px;line-height:1.7;text-wrap:pretty;">A character picks a paperback off a shelf. A narrator quotes a novel they loved at fifteen. A biography lists what its subject read on a long voyage. BookJumpr collects those moments — <strong>explicit mentions of one book inside another</strong> — and turns them into a network you can wander.</p>
-      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:34px 0 10px;">What counts as a mention</h2>
+      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:34px 0 10px;">How this site came to be</h2>
+      <p style="font-size:16px;line-height:1.7;text-wrap:pretty;">I was reading <em>Kafka on the Shore</em> when I started noticing how the characters would mention other books, either as a reference point in their conversation, or that they read it, or alluding to it explicitly. Those titles began to leak into my own list.</p>
+      <p style="font-size:16px;line-height:1.7;text-wrap:pretty;">Then another thought came to mind: would I understand and connect with this character or book better if I had read this book he mentioned beforehand? Although it isn't <em>necessary</em> but it made me think that the author made a deliberate choice to have the character reference the specific book.</p>
+      <p style="font-size:16px;line-height:1.7;text-wrap:pretty;">BookJumpr grew out of these thoughts. Since then I&rsquo;ve kept a record of books mentioned in the main text of other books, across fiction and non-fiction. For this site, I also extract these mentions to populate the data set and graph.</p>
+
+      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:44px 0 10px;">What counts as a mention</h2>
       <p style="font-size:16px;line-height:1.7;text-wrap:pretty;">A book has to be named on the page: read, quoted, discussed, or dropped into conversation. Footnotes, bibliographies, and back-of-book references don&rsquo;t count. Neither do allusions a critic might spot — if the text doesn&rsquo;t say the title, it&rsquo;s not in.</p>
-      <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:26px;margin:34px 0 10px;">How the data works</h2>
-      <p style="font-size:16px;line-height:1.7;text-wrap:pretty;">The whole site is generated from two simple lists. One row per mention, one row per known book — every page, gallery, graph, and stat is derived from those.</p>
-      <div style="border:1.5px solid var(--ink);border-radius:14px;background:var(--card);padding:18px 22px;font-family:'IBM Plex Mono',monospace;font-size:12px;line-height:1.9;margin:14px 0;">
-        mentions.csv&nbsp;&nbsp;&rarr;&nbsp;&nbsp;source book, mentioned book, mentioned author<br>
-        books.csv&nbsp;&nbsp;&nbsp;&nbsp;&rarr;&nbsp;&nbsp;title, author, year, synopsis
-      </div>
-      <p style="font-size:16px;line-height:1.7;text-wrap:pretty;">Books without a row in <span style="font-family:'IBM Plex Mono',monospace;font-size:13.5px;">books.csv</span> still get a page — they just wait for a synopsis. Right now the network holds <strong>{{ st_sources }}</strong> indexed books and <strong>{{ st_links }}</strong> logged mentions.</p>
+
+      <!-- The open book: one real two-page opening of Kafka on the Shore. Three other
+           books are named across the spread; each highlighted title links to its own page. -->
+      <figure class="ob">
+        <div class="ob-eyebrow">What a mention looks like</div>
+        <div class="ob-stage">
+          <div class="ob-book">
+            <div class="ob-page l">
+              <div class="ob-run"><span>Kafka on the Shore</span><span>page ###</span></div>
+              <p class="ob-prose">Finally I decide on a multivolume set, with beautiful covers, of the Burton translation of <a class="ob-mk" href="#/anonymous/a-thousand-and-one-nights">The Arabian Nights</a>, pick out one volume, and take it back to the reading room. I&rsquo;ve been meaning to read this book.</p>
+            </div>
+            <div class="ob-page r">
+              <div class="ob-run"><span>###</span><span>Kafka on the Shore</span></div>
+              <p class="ob-prose">&ldquo;Which of his novels have you read since you came here?&rdquo;</p>
+              <p class="ob-prose">&ldquo;I finished <a class="ob-mk" href="#/natsume-soseki/the-miner">The Miner</a>, and now I&rsquo;m on <a class="ob-mk" href="#/natsume-soseki/poppies">Poppies</a>.&rdquo;</p>
+              <p class="ob-prose">&ldquo;<em>The Miner</em>, huh?&rdquo; Oshima says.</p>
+            </div>
+          </div>
+        </div>
+        <div class="ob-link"></div>
+        <div class="ob-doors-lbl">Named on these pages ↓</div>
+        <div class="ob-doors">
+          <a class="ob-door" href="#/anonymous/a-thousand-and-one-nights">
+            <span class="ob-cv" style="--band:#c4682e;">
+              <span class="ob-cv-b"><span class="ob-cv-blob"></span></span>
+              <span class="ob-cv-m"><span class="ob-cv-t">A Thousand and One Nights</span><span class="ob-cv-a">Anonymous</span></span>
+              <span class="ob-cv-b bot"></span>
+            </span>
+            <span class="ob-door-t">A Thousand and One Nights</span>
+            <span class="ob-door-a">Anonymous</span>
+          </a>
+          <a class="ob-door" href="#/natsume-soseki/the-miner">
+            <span class="ob-cv" style="--band:#c4682e;">
+              <span class="ob-cv-b"><span class="ob-cv-blob"></span></span>
+              <span class="ob-cv-m"><span class="ob-cv-t">The Miner</span><span class="ob-cv-a">Natsume S&#333;seki</span></span>
+              <span class="ob-cv-b bot"></span>
+            </span>
+            <span class="ob-door-t">The Miner</span>
+            <span class="ob-door-a">Natsume S&#333;seki</span>
+          </a>
+          <a class="ob-door" href="#/natsume-soseki/poppies">
+            <span class="ob-cv" style="--band:#c4682e;">
+              <span class="ob-cv-b"><span class="ob-cv-blob"></span></span>
+              <span class="ob-cv-m"><span class="ob-cv-t">Poppies</span><span class="ob-cv-a">Natsume S&#333;seki</span></span>
+              <span class="ob-cv-b bot"></span>
+            </span>
+            <span class="ob-door-t">Poppies</span>
+            <span class="ob-door-a">Natsume S&#333;seki</span>
+          </a>
+        </div>
     </div>
   </sc-if>
 

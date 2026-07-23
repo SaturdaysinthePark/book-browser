@@ -326,6 +326,8 @@
     window.removeEventListener('resize', this._onResize);
     clearTimeout(this._pulseTimer);
     clearTimeout(this._flipCleanup);
+    clearTimeout(this._statsBarCleanup);
+    (this._statsRafs || []).forEach(function (id) { cancelAnimationFrame(id); });
   };
 
   // ---------- shuffle FLIP ----------
@@ -345,6 +347,8 @@
     return map;
   };
   P.componentDidUpdate = function (prevProps, prevState, snapshot) {
+    // Stats page reveal: count-up numbers + growing bars, once, on entry into the screen.
+    if (this.state.route.page === 'stats' && prevState.route.page !== 'stats') this._animateStats();
     if (!snapshot) return;
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var self = this;
@@ -390,6 +394,50 @@
         if (inner) inner.style.transition = '';
       });
     }, 1000);
+  };
+
+  // Stats screen reveal. Numbers count up from 0; the "most mentioned books" bars grow out
+  // (staggered top-to-bottom). Runs imperatively — mirrors the FLIP idiom above (reflow +
+  // staggered CSS transition + reduced-motion guard + setTimeout cleanup). Reads each element's
+  // committed final state (React sets it before this fires), so no extra bindings are needed.
+  P._animateStats = function () {
+    if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+
+    // Count-up the three stat numbers.
+    (this._statsRafs || []).forEach(function (id) { cancelAnimationFrame(id); });
+    var rafs = this._statsRafs = [];
+    var nums = document.querySelectorAll('[data-statnum]');
+    var DUR = 900;
+    [].forEach.call(nums, function (el) {
+      var target = parseInt(el.textContent, 10);
+      if (!isFinite(target)) return;
+      var start = null;
+      var step = function (t) {
+        if (start === null) start = t;
+        var p = Math.min((t - start) / DUR, 1);
+        var e = 1 - Math.pow(1 - p, 3); // easeOutCubic
+        el.textContent = String(Math.round(target * e));
+        if (p < 1) rafs.push(requestAnimationFrame(step));
+        else el.textContent = String(target);
+      };
+      el.textContent = '0';
+      rafs.push(requestAnimationFrame(step));
+    });
+
+    // Grow the bar fills from 0 to their real width.
+    var bars = document.querySelectorAll('[data-statbar]');
+    [].forEach.call(bars, function (el, i) {
+      var target = el.style.width || '0%';
+      el.style.transition = 'none';
+      el.style.width = '0%';
+      void el.offsetWidth; // force reflow so the 0-width start is committed before we play
+      el.style.transition = 'width .7s cubic-bezier(.2,.7,.2,1) ' + (i * 55) + 'ms';
+      el.style.width = target;
+    });
+    clearTimeout(this._statsBarCleanup);
+    this._statsBarCleanup = setTimeout(function () {
+      [].forEach.call(bars, function (el) { el.style.transition = ''; });
+    }, 1400);
   };
 
   // Idle home-wall spotlight: every ~8s, colour + bounce one random cover (an automatic
@@ -939,7 +987,7 @@
     dataScript.src = 'constellation-data.js';
     dataScript.onload = function () {
       var viewScript = document.createElement('script');
-      viewScript.src = 'constellation-view.js?v=16';
+      viewScript.src = 'constellation-view.js?v=18';
       viewScript.onload = done;
       document.body.appendChild(viewScript);
     };
@@ -1070,18 +1118,26 @@
     vals.homeNavBtn = iconBtn(m ? 44 : 32, 0.4);
     // Active-route indication: desktop text nav gets an underline + accent color, mobile icon
     // nav gets full opacity + an ink border (matching its own hover treatment at rest).
-    var navBtnBase = { background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'IBM Plex Mono', monospace", fontSize: '11px', letterSpacing: '.13em', textTransform: 'uppercase', padding: '8px 10px' };
-    var navBtnActive = { textDecoration: 'underline', color: 'var(--accent)' };
+    var navBtnBase = { background: 'none', border: 'none', cursor: 'pointer', fontFamily: "'IBM Plex Mono', monospace", fontSize: '11px', letterSpacing: '.13em', textTransform: 'uppercase', padding: '8px 10px', color: 'var(--ink)' };
+    var navBtnActive = { color: 'var(--accent)' };
     vals.navBtnNetwork = vals.pgNetwork ? Object.assign({}, navBtnBase, navBtnActive) : navBtnBase;
     vals.navBtnStats = vals.pgStats ? Object.assign({}, navBtnBase, navBtnActive) : navBtnBase;
     vals.navBtnAbout = vals.pgAbout ? Object.assign({}, navBtnBase, navBtnActive) : navBtnBase;
-    var hdrNavBtnBase = iconBtn(m ? 44 : 34, 0.6);
-    var hdrNavBtnActive = { opacity: 1, borderColor: 'var(--ink)' };
+    // Active icon = full opacity + accent color (no fill/circle — matches the desktop text nav's
+    // own active treatment of underline+accent). Every key the active variant touches (opacity/
+    // color) already exists on the base object with a different value — never introduce a key here
+    // that's absent from the other branch, or React's style diffing will unset it instead of
+    // resetting it (that's what caused icons to get stuck with a visible border after a few clicks).
+    var hdrNavBtnBase = Object.assign({}, iconBtn(m ? 44 : 34, 0.6), { color: 'var(--ink)' });
+    var hdrNavBtnActive = { opacity: 1, color: 'var(--accent)' };
     vals.hdrNavBtnNetwork = vals.pgNetwork ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;
     vals.hdrNavBtnStats = vals.pgStats ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;
     vals.hdrNavBtnAbout = vals.pgAbout ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;
     // Mobile: hide secondary captions / truncate long titles so rows don't collide.
     vals.secCaption = m ? { display: 'none' } : { fontFamily: "'IBM Plex Mono', monospace", fontSize: '11.5px', opacity: 0.6 };
+    // Book/Author/Search/Stats/About all share this top padding — on mobile the fixed 52px left too
+    // much dead space between the sticky header and the page eyebrow, so it's trimmed there only.
+    vals.pagePad = 'padding:' + (m ? '28px' : '52px') + ' 24px 90px;';
     vals.statTitle = m
       ? { fontSize: '14.5px', fontWeight: 700, flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }
       : { fontSize: '14.5px', fontWeight: 700 };

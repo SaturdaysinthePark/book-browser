@@ -1100,9 +1100,18 @@
       const recvd = c.adjIn[f].reduce((s, e) => s + e[1], 0);
       const made = c.adjOut[f].reduce((s, e) => s + e[1], 0) + (leafIds.length || 0);
       const focSub = (fn.f ? 'FICTION' : 'NONFICTION') + (fn.yr ? ' · ' + fn.yr : '') + ' · ' + (recvd > 0 ? m(recvd) + ' received' : '') + (recvd > 0 && made > 0 ? ' · ' : '') + (made > 0 ? m(made) + ' made' : '');
+      // "Strongest" can't mean highest-weight edge — every mention pair is UNIQUE(source,target)
+      // in the DB, so every edge weight is always 1 (see tools/build-book-graph.mjs's header note).
+      // Instead, surface the most-connected neighbor network-wide (highest total in+out degree)
+      // among everything this book cites or is cited by — a real signal, not a fake "strength".
       let best = null;
-      for (const [j, w] of c.adjOut[f]) if (!best || w > best.w) best = { j, w };
-      if (!best) for (const [j, w] of c.adjIn[f]) if (!best || w > best.w) best = { j, w };
+      const neighborIds = new Set();
+      for (const [j] of c.adjOut[f]) neighborIds.add(j);
+      for (const [j] of c.adjIn[f]) neighborIds.add(j);
+      for (const j of neighborIds) {
+        const deg = (c.G.nodes[j].o || 0) + (c.G.nodes[j].i || 0);
+        if (!best || deg > best.deg) best = { j, deg };
+      }
       const strong = best ? { name: c.G.nodes[best.j].n, idx: best.j } : null;
       return { fn, focAuthor: fn.a || null, focSyn: fn.sy || null, focSub, focSections, strong };
     }
@@ -1164,11 +1173,11 @@
       let html = '<div class="top"><div class="name">' + esc(fn.n) + '</div><button class="x" data-act="close">✕</button></div>';
       if (d.focAuthor) html += '<div class="author">' + esc(d.focAuthor) + '</div>';
       html += '<div class="sub">' + esc(d.focSub) + '</div>';
-      if (d.strong) html += '<div class="strong" data-act="strong"><div class="lbl">STRONGEST LINK →</div><div class="sn">' + esc(d.strong.name) + '</div></div>';
+      if (d.strong) html += '<div class="strong" data-act="strong" title="The most-connected book among this one\'s links, by total mentions network-wide"><div class="lbl">MOST CONNECTED →</div><div class="sn">' + esc(d.strong.name) + '</div></div>';
       html += '<div class="btns"><button class="details" data-act="details">DETAILS</button>';
       html += '<button class="details" data-act="thread" title="Shift-click another star, or tap one now">THREAD ↔</button>';
       const url = this.bookUrl(fn);
-      if (url) html += '<button class="open" data-act="open">OPEN PAGE ↗</button>';
+      if (url) html += '<button class="open" data-act="open" title="Open its full page">OPEN ↗</button>';
       html += '</div>';
       chip.innerHTML = html;
       chip.querySelector('[data-act="close"]').onclick = () => this.clearFocus();
