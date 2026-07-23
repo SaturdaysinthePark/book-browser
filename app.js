@@ -326,8 +326,7 @@
     window.removeEventListener('resize', this._onResize);
     clearTimeout(this._pulseTimer);
     clearTimeout(this._flipCleanup);
-    clearTimeout(this._statsBarCleanup);
-    (this._statsRafs || []).forEach(function (id) { cancelAnimationFrame(id); });
+    this._teardownStatsReveal();
   };
 
   // ---------- shuffle FLIP ----------
@@ -347,8 +346,10 @@
     return map;
   };
   P.componentDidUpdate = function (prevProps, prevState, snapshot) {
-    // Stats page reveal: count-up numbers + growing bars, once, on entry into the screen.
-    if (this.state.route.page === 'stats' && prevState.route.page !== 'stats') this._animateStats();
+    // Stats page reveal: arm scroll-triggered count-up + bar-grow on entry, tear it down on exit.
+    var nowStats = this.state.route.page === 'stats', wasStats = prevState.route.page === 'stats';
+    if (nowStats && !wasStats) this._setupStatsReveal();
+    else if (!nowStats && wasStats) this._teardownStatsReveal();
     if (!snapshot) return;
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var self = this;
@@ -396,48 +397,76 @@
     }, 1000);
   };
 
-  // Stats screen reveal. Numbers count up from 0; the "most mentioned books" bars grow out
-  // (staggered top-to-bottom). Runs imperatively — mirrors the FLIP idiom above (reflow +
-  // staggered CSS transition + reduced-motion guard + setTimeout cleanup). Reads each element's
-  // committed final state (React sets it before this fires), so no extra bindings are needed.
-  P._animateStats = function () {
+  // Stats screen reveal. Each stat number counts up from 0 and each "most mentioned books" bar
+  // grows out — but only as the element scrolls into view, via IntersectionObserver, so items
+  // below the fold animate when you reach them (not all at once on page entry). Mirrors the FLIP
+  // idiom's mechanics (reflow + CSS transition + reduced-motion guard). On setup every target is
+  // pre-emptied (number→0, bar→0 width) and its final value stashed on the element, so nothing
+  // flashes its real value before it's revealed; each element animates once, then is unobserved.
+  P._setupStatsReveal = function () {
+    var self = this;
+    this._teardownStatsReveal();
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    // Count-up the three stat numbers.
-    (this._statsRafs || []).forEach(function (id) { cancelAnimationFrame(id); });
-    var rafs = this._statsRafs = [];
-    var nums = document.querySelectorAll('[data-statnum]');
-    var DUR = 900;
-    [].forEach.call(nums, function (el) {
-      var target = parseInt(el.textContent, 10);
+    // Stash each final value on a JS expando (_statTarget), NOT a data-* attribute — React strips
+    // unknown attributes on re-render, which would wipe a not-yet-revealed item's target; it never
+    // touches expando properties.
+    var els = [].slice.call(document.querySelectorAll('[data-statnum],[data-statbar]'));
+    els.forEach(function (el) {
+      if (el.hasAttribute('data-statnum')) {
+        var t = parseInt(el.textContent, 10);
+        if (isFinite(t)) { el._statTarget = t; el.textContent = '0'; }
+      } else {
+        el._statTarget = el.style.width || '0%';
+        el.style.transition = 'none';
+        el.style.width = '0%';
+      }
+    });
+
+    // No IntersectionObserver (old browser) → just reveal everything now.
+    if (typeof IntersectionObserver === 'undefined') {
+      els.forEach(function (el) { self._revealStat(el); });
+      return;
+    }
+    var io = this._statsObserver = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (!entry.isIntersecting) return;
+        io.unobserve(entry.target);
+        self._revealStat(entry.target);
+      });
+    }, { threshold: 0.35 });
+    els.forEach(function (el) { io.observe(el); });
+  };
+
+  P._revealStat = function (el) {
+    var self = this;
+    if (el.hasAttribute('data-statnum')) {                 // count-up
+      var target = el._statTarget;
       if (!isFinite(target)) return;
-      var start = null;
+      var start = null, DUR = 900;
       var step = function (t) {
         if (start === null) start = t;
         var p = Math.min((t - start) / DUR, 1);
-        var e = 1 - Math.pow(1 - p, 3); // easeOutCubic
-        el.textContent = String(Math.round(target * e));
-        if (p < 1) rafs.push(requestAnimationFrame(step));
+        el.textContent = String(Math.round(target * (1 - Math.pow(1 - p, 3)))); // easeOutCubic
+        if (p < 1) self._statsRafs.push(requestAnimationFrame(step));
         else el.textContent = String(target);
       };
-      el.textContent = '0';
-      rafs.push(requestAnimationFrame(step));
-    });
-
-    // Grow the bar fills from 0 to their real width.
-    var bars = document.querySelectorAll('[data-statbar]');
-    [].forEach.call(bars, function (el, i) {
-      var target = el.style.width || '0%';
-      el.style.transition = 'none';
-      el.style.width = '0%';
+      self._statsRafs.push(requestAnimationFrame(step));
+    } else {                                                // bar grow
+      var w = el._statTarget || '0%';
       void el.offsetWidth; // force reflow so the 0-width start is committed before we play
-      el.style.transition = 'width .7s cubic-bezier(.2,.7,.2,1) ' + (i * 55) + 'ms';
-      el.style.width = target;
-    });
-    clearTimeout(this._statsBarCleanup);
-    this._statsBarCleanup = setTimeout(function () {
-      [].forEach.call(bars, function (el) { el.style.transition = ''; });
-    }, 1400);
+      el.style.transition = 'width .7s cubic-bezier(.2,.7,.2,1)';
+      el.style.width = w;
+      self._statsTimeouts.push(setTimeout(function () { el.style.transition = ''; }, 900));
+    }
+  };
+
+  P._teardownStatsReveal = function () {
+    if (this._statsObserver) { this._statsObserver.disconnect(); this._statsObserver = null; }
+    (this._statsRafs || []).forEach(function (id) { cancelAnimationFrame(id); });
+    (this._statsTimeouts || []).forEach(clearTimeout);
+    this._statsRafs = [];
+    this._statsTimeouts = [];
   };
 
   // Idle home-wall spotlight: every ~8s, colour + bounce one random cover (an automatic
