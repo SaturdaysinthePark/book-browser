@@ -1058,6 +1058,19 @@
     var books = this.books || {};
     var all = this.all || [];
 
+    // The home page is a full-bleed dark cover wall. With viewport-fit=cover the page
+    // fills the whole screen (incl. the notch / home-indicator safe areas), so paint the
+    // document background AND the iOS Safari chrome tint (theme-color) ink there — otherwise
+    // the paper background and paper theme-color show as white bands top & bottom around the
+    // floating address bar. Every other page keeps the paper background.
+    if (typeof document !== 'undefined') {
+      var homeBg = page === 'home' ? '#141414' : '';
+      document.documentElement.style.background = homeBg;
+      if (document.body) document.body.style.background = homeBg;
+      var tcMeta = document.querySelector('meta[name="theme-color"]');
+      if (tcMeta) tcMeta.setAttribute('content', page === 'home' ? '#141414' : (warm ? '#f7f5f0' : '#ffffff'));
+    }
+
     var go = function (fn) { return function (e) { if (e && e.preventDefault) e.preventDefault(); fn(); }; };
     var vals = {
       pgHome: page === 'home', pgBook: page === 'book', pgSearch: page === 'search',
@@ -1257,24 +1270,12 @@
         var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id); }; })(b.id);
         return Object.assign({ wrap: wrap, inner: inner, go: go, id: b.id }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
       });
-      // The wall must cover the full mobile screen even as iOS Safari's address bar /
-      // toolbar changes the viewport height — 100dvh can leave the absolutely-positioned
-      // wall short of the top/bottom edges, exposing paper-coloured bands. On mobile keep
-      // the per-density horizontal bleed but push top/bottom far past the edges (clipped by
-      // the wrapper's overflow:hidden) so no gap can appear regardless of toolbar state.
-      var insetParts = String(wallCfg.inset).trim().split(/\s+/);
-      var hBleed = insetParts[1] || insetParts[0];   // horizontal component of the inset
       vals.wallStyle = {
-        position: 'absolute', zIndex: 0, isolation: 'isolate', display: 'grid',
+        position: 'absolute', zIndex: 0, isolation: 'isolate',
+        inset: wallCfg.inset, display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(' + wallCfg.min + 'px, 1fr))',
         gap: wallCfg.gap, padding: wallCfg.pad, alignContent: 'start'
       };
-      if (m) {
-        vals.wallStyle.top = '-160px'; vals.wallStyle.bottom = '-160px';
-        vals.wallStyle.left = hBleed; vals.wallStyle.right = hBleed;
-      } else {
-        vals.wallStyle.inset = wallCfg.inset;
-      }
       vals.wallFade = heroStyle === 'plain paper' ? {
         position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1,
         background: 'repeating-linear-gradient(90deg, transparent 0, transparent 88px, rgba(20,20,20,.05) 88px, rgba(20,20,20,.05) 89.5px)'

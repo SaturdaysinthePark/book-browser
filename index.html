@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BookJumpr — Every book is a door to more books</title>
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <meta name="description" content="BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one. Pick a book, browse its shelf, and jump.">
@@ -213,7 +213,7 @@ html,body{height:100%;}
 <div style="min-height:100dvh;">
 
   <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ false }}">
-  <div style="position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink);">
+  <div style="position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink);padding-top:env(safe-area-inset-top);">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:10px 20px;box-sizing:border-box;">
       <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;padding:0;">
         <svg width="36" height="21" viewBox="0 0 62 36" style="overflow:visible;">
@@ -713,6 +713,6 @@ html,body{height:100%;}
      loaded lazily by app.js (P._loadConstellation) only when the #/network route is first hit,
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
-<script src="app.js"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>
