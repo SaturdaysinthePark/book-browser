@@ -1257,12 +1257,24 @@
         var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id); }; })(b.id);
         return Object.assign({ wrap: wrap, inner: inner, go: go, id: b.id }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
       });
+      // The wall must cover the full mobile screen even as iOS Safari's address bar /
+      // toolbar changes the viewport height — 100dvh can leave the absolutely-positioned
+      // wall short of the top/bottom edges, exposing paper-coloured bands. On mobile keep
+      // the per-density horizontal bleed but push top/bottom far past the edges (clipped by
+      // the wrapper's overflow:hidden) so no gap can appear regardless of toolbar state.
+      var insetParts = String(wallCfg.inset).trim().split(/\s+/);
+      var hBleed = insetParts[1] || insetParts[0];   // horizontal component of the inset
       vals.wallStyle = {
-        position: 'absolute', zIndex: 0, isolation: 'isolate',
-        inset: wallCfg.inset, display: 'grid',
+        position: 'absolute', zIndex: 0, isolation: 'isolate', display: 'grid',
         gridTemplateColumns: 'repeat(auto-fill, minmax(' + wallCfg.min + 'px, 1fr))',
         gap: wallCfg.gap, padding: wallCfg.pad, alignContent: 'start'
       };
+      if (m) {
+        vals.wallStyle.top = '-160px'; vals.wallStyle.bottom = '-160px';
+        vals.wallStyle.left = hBleed; vals.wallStyle.right = hBleed;
+      } else {
+        vals.wallStyle.inset = wallCfg.inset;
+      }
       vals.wallFade = heroStyle === 'plain paper' ? {
         position: 'absolute', inset: 0, pointerEvents: 'none', zIndex: 1,
         background: 'repeating-linear-gradient(90deg, transparent 0, transparent 88px, rgba(20,20,20,.05) 88px, rgba(20,20,20,.05) 89.5px)'
