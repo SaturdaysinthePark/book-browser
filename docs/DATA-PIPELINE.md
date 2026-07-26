@@ -237,7 +237,49 @@ git add -A && git commit -m "Add Murakami references"
 
 ---
 
-## 8. Troubleshooting
+## 8. Bulk-adding popular public-domain titles from Project Gutenberg
+
+A common request is "find N popular books we haven't added yet and import them." This is
+higher-risk than a normal `paste it to Claude` add because it involves a dedup search step
+*before* the import, and because mention-mining only means something if it's grounded in
+the real text. Lessons learned the hard way (see project memory for full detail):
+
+- **Dedup-check against the full book list, not `data/books.csv`.** The CSV only contains
+  books with metadata (`has_meta=1`). A "stub" — a book that exists only because some other
+  book mentions it, with no synopsis yet — is invisible in the CSV but is already a real
+  entry in `bookjumpr-data.js`'s `NODES` object (and has a live page on the site). Checking
+  a candidate title against the CSV alone will produce false "absent" verdicts for any
+  popular classic that already got auto-created as a stub. Check the full `NODES` set (or
+  query `bookjumpr.db` directly) instead.
+- **A shared title with a different author is not a duplicate.** Books key on
+  `slug(author)/slug(title)`, so e.g. three different "Antigone"s (Sophocles, Alfieri,
+  Anouilh) or two different "The Art of War"s (Sun Tzu, Machiavelli) coexist fine as long
+  as each import includes the correct `author`. Don't skip a title just because something
+  with the same name already exists — check whether the *author* actually matches first.
+- **Synopsis and mentions must come from the real fetched text, never paraphrased from
+  general knowledge.** It's tempting (and much faster) to write a synopsis and guess at
+  mentions from familiarity with a classic book — but this has produced at least one
+  outright fabricated mention in practice. Always fetch the actual Gutenberg (or
+  archive.org, if not on Gutenberg) full text and read it before writing anything.
+- **No fixed year cutoff — Gutenberg's own hosting is the only bar.** Gutenberg won't host
+  a work still under US copyright, so there's no need to additionally pre-filter candidates
+  by publication year.
+- **Watch for two known recurring bugs after any batch that both creates new mentions and
+  touches an existing book's author field:**
+  1. An "prefer the fuller author name" backfill can silently change a book's stored
+     `author` (e.g. "Cicero" → "Marcus Tullius Cicero") without re-deriving its slug,
+     which desyncs the two and trips `bj doctor`'s identity-drift check. Fix: revert the
+     author field to whatever the existing slug implies.
+  2. The same real-world entity can get created twice under different author-name
+     spellings (e.g. "Lao Tzu" vs "Laozi" both for *Tao Te Ching*). Fix: pick the more-
+     linked one as canonical, re-point any mentions from the duplicate via `add-mention`
+     / a mentions-only import, then `bj -- remove-book` the orphaned duplicate.
+  Always run `npm run bj:build -- --check` after a batch and treat any doctor error as one
+  of these known classes before assuming something new is wrong.
+
+---
+
+## 9. Troubleshooting
 
 - **`ERR_UNKNOWN_BUILTIN_MODULE: node:sqlite`** — you ran a `tools/*.mjs` file directly
   without the flag. Use the npm scripts (`npm run bj -- …`), which add
