@@ -801,7 +801,7 @@ Candide,Voltaire,Hamlet,William Shakespeare
 Candide,Voltaire,Le Comte d'Essex,Thomas Corneille
 The Prisoner of Zenda,Anthony Hope,The Critic,Richard Brinsley Sheridan
 The Last of the Mohicans,James Fenimore Cooper,A Midsummer Night's Dream,William Shakespeare
-The Last of the Mohicans,James Fenimore Cooper,Much Ado About Nothing,William Shakespeare
+The Last of the Mohicans,James Fenimore Cooper,Much Ado about Nothing,William Shakespeare
 The Last of the Mohicans,James Fenimore Cooper,Henry V,William Shakespeare
 The Last of the Mohicans,James Fenimore Cooper,Henry VI,William Shakespeare
 The Last of the Mohicans,James Fenimore Cooper,The Merry Wives of Windsor,William Shakespeare
@@ -999,7 +999,7 @@ Typee,Herman Melville,Robinson Crusoe,Daniel Defoe
 "Bartleby, the Scrivener",Herman Melville,The Freedom of the Will,Jonathan Edwards
 "Bartleby, the Scrivener",Herman Melville,The Doctrine of Philosophical Necessity Illustrated,Joseph Priestley
 The Pioneers,James Fenimore Cooper,Timon of Athens,William Shakespeare
-The Pioneers,James Fenimore Cooper,Much Ado About Nothing,William Shakespeare
+The Pioneers,James Fenimore Cooper,Much Ado about Nothing,William Shakespeare
 The Pioneers,James Fenimore Cooper,Gertrude of Wyoming,Thomas Campbell
 The Pioneers,James Fenimore Cooper,"Pericles, Prince of Tyre",William Shakespeare
 The Pioneers,James Fenimore Cooper,The Merchant of Venice,William Shakespeare
@@ -1154,7 +1154,7 @@ Westward Ho!,Charles Kingsley,The Anatomy of Melancholy,Robert Burton
 Westward Ho!,Charles Kingsley,De Mundo,Aristotle
 Westward Ho!,Charles Kingsley,The History of the Nine Worthies,Anonymous
 Westward Ho!,Charles Kingsley,A View of the State of Ireland,Edmund Spenser
-Westward Ho!,Charles Kingsley,Much Ado About Nothing,William Shakespeare
+Westward Ho!,Charles Kingsley,Much Ado about Nothing,William Shakespeare
 Westward Ho!,Charles Kingsley,Palamon and Arcite,Anonymous
 Westward Ho!,Charles Kingsley,The Tempest,William Shakespeare
 Westward Ho!,Charles Kingsley,Sleeping Beauty,Anonymous
@@ -1798,7 +1798,7 @@ The Expedition of Humphry Clinker,Tobias Smollett,Odes,Horace
 The Adventures of Roderick Random,Tobias Smollett,Robinson Crusoe,Daniel Defoe
 The Adventures of Roderick Random,Tobias Smollett,Colonel Jack,Daniel Defoe
 The Adventures of Roderick Random,Tobias Smollett,Odes,Horace
-A Sentimental Journey,Laurence Sterne,Much Ado About Nothing,William Shakespeare
+A Sentimental Journey,Laurence Sterne,Much Ado about Nothing,William Shakespeare
 A Sentimental Journey,Laurence Sterne,Don Quixote,Miguel de Cervantes
 Travels with a Donkey in the Cévennes,Robert Louis Stevenson,Pastors of the Desert,Napoléon Peyrat
 Travels with a Donkey in the Cévennes,Robert Louis Stevenson,The Imitation of Christ,Thomas a Kempis
@@ -2083,7 +2083,7 @@ Scenes of Clerical Life,George Eliot,Memoir of Bishop Jebb,Anonymous
 Castle Rackrent,Maria Edgeworth,The Sorrows of Young Werther,Johann Wolfgang von Goethe
 Guy Mannering,Walter Scott,King Lear,William Shakespeare
 Guy Mannering,Walter Scott,As You Like It,William Shakespeare
-Guy Mannering,Walter Scott,Much Ado About Nothing,William Shakespeare
+Guy Mannering,Walter Scott,Much Ado about Nothing,William Shakespeare
 Guy Mannering,Walter Scott,Life of Johnson,James Boswell
 Guy Mannering,Walter Scott,Measure for Measure,William Shakespeare
 Guy Mannering,Walter Scott,Richard II,William Shakespeare
@@ -3179,7 +3179,6 @@ The Hero with a Thousand Faces,Joseph Campbell,The Kabbalah Unveiled,S.L. MacGre
 The Hero with a Thousand Faces,Joseph Campbell,The Cuchullin Saga in Irish Literature,Eleanor Hull
 The Hero with a Thousand Faces,Joseph Campbell,Antiquities of Mexico,"Edward King, Viscount Kingsborough"
 The Hero with a Thousand Faces,Joseph Campbell,African Genesis,Leo Frobenius
-The Hero with a Thousand Faces,Joseph Campbell,Tao Te Ching,Lao Tzu
 The Power of Myth,Joseph Campbell,Babbitt,Sinclair Lewis
 The Power of Myth,Joseph Campbell,The Divine Comedy,Dante Alighieri
 The Power of Myth,Joseph Campbell,Inferno,Dante Alighieri
@@ -4151,7 +4150,7 @@ The Borrower,Rebecca Makkai,Tuck Everlasting,Natalie Babbitt
 The Borrower,Rebecca Makkai,Uncle Vanya,Anton Chekhov
 The Borrower,Rebecca Makkai,Lord of the Flies,William Golding
 The Borrower,Rebecca Makkai,Misty of Chincoteague,Marguerite Henry
-The Borrower,Rebecca Makkai,Much Ado About Nothing,William Shakespeare
+The Borrower,Rebecca Makkai,Much Ado about Nothing,William Shakespeare
 The Borrower,Rebecca Makkai,Number the Stars,Lois Lowry
 The Borrower,Rebecca Makkai,Tales of a Fourth Grade Nothing,Judy Blume
 The Borrower,Rebecca Makkai,The Princess Bride,William Goldman
@@ -4345,7 +4344,7 @@ The Bully Pulpit,Doris Kearns Goodwin,La Follette's Autobiography,Robert M. La F
 The Bully Pulpit,Doris Kearns Goodwin,Dracula,Bram Stoker
 The Historian,Elizabeth Kostova,Dracula,Bram Stoker
 The Historian,Elizabeth Kostova,Great Expectations,Charles Dickens
-The Historian,Elizabeth Kostova,Much Ado About Nothing,William Shakespeare
+The Historian,Elizabeth Kostova,Much Ado about Nothing,William Shakespeare
 The Historian,Elizabeth Kostova,The Prince,Niccolò Machiavelli
 The Historian,Elizabeth Kostova,The Portrait of a Lady,Henry James
 The Historian,Elizabeth Kostova,The Rape of the Lock,Alexander Pope
@@ -4873,3 +4872,73 @@ The Wild Ass's Skin,Honoré de Balzac,Manfred,Byron
 The Wild Ass's Skin,Honoré de Balzac,Childe Harold's Pilgrimage,Byron
 The Wild Ass's Skin,Honoré de Balzac,Don Quixote,Miguel de Cervantes
 The Wild Ass's Skin,Honoré de Balzac,Tristram Shandy,Laurence Sterne
+Camille,Alexandre Dumas fils,Manon Lescaut,Abbé Prévost
+Vile Bodies,Evelyn Waugh,Othello,William Shakespeare
+Elmer Gantry,Sinclair Lewis,Les Misérables,Victor Hugo
+Elmer Gantry,Sinclair Lewis,The Scarlet Letter,Nathaniel Hawthorne
+Elmer Gantry,Sinclair Lewis,Idylls of the King,Alfred Tennyson
+Elmer Gantry,Sinclair Lewis,David Copperfield,Charles Dickens
+Elmer Gantry,Sinclair Lewis,Ethan Frome,Edith Wharton
+Elmer Gantry,Sinclair Lewis,Père Goriot,Honoré de Balzac
+Elmer Gantry,Sinclair Lewis,Tono-Bungay,H. G. Wells
+Cousin Bette,Honoré de Balzac,Manon Lescaut,Abbé Prévost
+Cousin Bette,Honoré de Balzac,Les Chouans,Honoré de Balzac
+Eugene Onegin,Alexander Pushkin,Clarissa,Samuel Richardson
+Ann Veronica,H. G. Wells,Tom Jones,Henry Fielding
+Ann Veronica,H. G. Wells,Romeo and Juliet,William Shakespeare
+The New Machiavelli,H. G. Wells,The Prince,Niccolò Machiavelli
+The New Machiavelli,H. G. Wells,Companions of Columbus,Washington Irving
+The New Machiavelli,H. G. Wells,Lives of the Queens of England,Agnes Strickland
+The New Machiavelli,H. G. Wells,Queechy,Susan Warner
+The New Machiavelli,H. G. Wells,"The Wide, Wide World",Susan Warner
+Clayhanger,Arnold Bennett,Lean Hard,Frances Ridley Havergal
+Elizabeth and Her German Garden,Elizabeth von Arnim,Frederick the Great,Thomas Carlyle
+Elizabeth and Her German Garden,Elizabeth von Arnim,Alice's Adventures in Wonderland,Lewis Carroll
+"Right Ho, Jeeves",P. G. Wodehouse,Othello,William Shakespeare
+To the Lighthouse,Virginia Woolf,Anna Karenina,Leo Tolstoy
+Orlando,Virginia Woolf,The Rape of the Lock,Alexander Pope
+Orlando,Virginia Woolf,Gulliver's Travels,Jonathan Swift
+Point Counter Point,Aldous Huxley,Pensées,Blaise Pascal
+Point Counter Point,Aldous Huxley,Peter Pan,J. M. Barrie
+A Lost Lady,Willa Cather,St. Elmo,Augusta J. Evans
+A Lost Lady,Willa Cather,Tom Jones,Henry Fielding
+A Lost Lady,Willa Cather,Wilhelm Meister,Johann Wolfgang von Goethe
+A Lost Lady,Willa Cather,Heroides,Ovid
+The Professor's House,Willa Cather,The Scarlet Letter,Nathaniel Hawthorne
+The Professor's House,Willa Cather,The Adventures of Tom Sawyer,Mark Twain
+The Social Contract,Jean-Jacques Rousseau,The Republic,Plato
+The Social Contract,Jean-Jacques Rousseau,Gorgias,Plato
+The Social Contract,Jean-Jacques Rousseau,The Spirit of the Laws,Montesquieu
+The Social Contract,Jean-Jacques Rousseau,Of the Laws of Ecclesiastical Polity,Richard Hooker
+The Social Contract,Jean-Jacques Rousseau,The Tenure of Kings and Magistrates,John Milton
+The Social Contract,Jean-Jacques Rousseau,Leviathan,Thomas Hobbes
+The Social Contract,Jean-Jacques Rousseau,Two Treatises of Government,John Locke
+The Social Contract,Jean-Jacques Rousseau,De Jure Belli ac Pacis,Hugo Grotius
+Stalky & Co.,Rudyard Kipling,Handley Cross,Robert Smith Surtees
+Stalky & Co.,Rudyard Kipling,Jorrocks' Jaunts and Jollities,Robert Smith Surtees
+Stalky & Co.,Rudyard Kipling,Fors Clavigera,John Ruskin
+Stalky & Co.,Rudyard Kipling,"Eric, or, Little by Little",Frederic W. Farrar
+Stalky & Co.,Rudyard Kipling,"St. Winifred's, or The World of School",Frederic W. Farrar
+Stalky & Co.,Rudyard Kipling,Men and Women,Robert Browning
+The Golden Bowl,Henry James,The Narrative of Arthur Gordon Pym,Edgar Allan Poe
+The Ambassadors,Henry James,Lewis Lambert,Honoré de Balzac
+Swann's Way,Marcel Proust,François le Champi,George Sand
+Swann's Way,Marcel Proust,La Mare au Diable,George Sand
+Swann's Way,Marcel Proust,La Petite Fadette,George Sand
+Swann's Way,Marcel Proust,Les Maîtres Sonneurs,George Sand
+Swann's Way,Marcel Proust,Indiana,George Sand
+Swann's Way,Marcel Proust,Notre Dame de Paris,Victor Hugo
+Swann's Way,Marcel Proust,Athalie,Jean Racine
+Swann's Way,Marcel Proust,Phèdre,Jean Racine
+Swann's Way,Marcel Proust,Le Cid,Pierre Corneille
+Within a Budding Grove,Marcel Proust,Cousin Bette,Honoré de Balzac
+Within a Budding Grove,Marcel Proust,Phèdre,Jean Racine
+The Guermantes Way,Marcel Proust,Phèdre,Jean Racine
+The Guermantes Way,Marcel Proust,The Three Musketeers,Alexandre Dumas
+The House of the Dead,Fyodor Dostoevsky,Taras Bulba,Nikolai Gogol
+First Love,Ivan Turgenev,The Robbers,Friedrich Schiller
+The Hero with a Thousand Faces,Joseph Campbell,Tao Te Ching,Laozi
+Crito,Plato,Iliad,Homer
+Dick Sand: A Captain at Fifteen,Jules Verne,Livingstone's Travels,David Livingstone
+The Analects,Confucius,The Book of Odes,Anonymous
+The City of God,Augustine of Hippo,De Republica,Cicero
