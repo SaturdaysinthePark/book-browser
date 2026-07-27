@@ -239,6 +239,10 @@ git add -A && git commit -m "Add Murakami references"
 
 ## 8. Bulk-adding popular public-domain titles from Project Gutenberg
 
+> A step-by-step invocable version of this section lives at
+> `.claude/skills/gutenberg-import/SKILL.md` — use it directly for "add N more Gutenberg
+> books" style tasks.
+
 A common request is "find N popular books we haven't added yet and import them." This is
 higher-risk than a normal `paste it to Claude` add because it involves a dedup search step
 *before* the import, and because mention-mining only means something if it's grounded in
