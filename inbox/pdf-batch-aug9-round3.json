@@ -1,0 +1,1953 @@
+{
+  "_readme": "Round 3 of 7 — big august 9th batch (in-copyright PDFs). Synopses grounded in real detect.mjs-extracted text; mentions curated from candidates.json per docs/detector.md exclusion rules; genres per tools/genres.mjs.",
+  "books": [
+    {
+      "title": "Good Night, Mr. Wodehouse",
+      "author": "Faith Sullivan",
+      "year": 2015,
+      "synopsis": "Set in the small Minnesota town of Harvester from the early 1900s through the 1940s, the novel follows Nell Stillman through marriage, widowhood, and raising her son Hilly, with the comic novels of P. G. Wodehouse serving as a recurring source of comfort and escape through her hardships.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Grimus",
+      "author": "Salman Rushdie",
+      "year": 1975,
+      "synopsis": "Flapping Eagle, a Native American man granted immortality by a mysterious elixir, wanders the earth for centuries before following his equally immortal sister's trail to Calf Island, a fantastical, dimension-bending land ruled by the reclusive, godlike Grimus, whose power over reality and the island's inhabitants Flapping Eagle must ultimately confront.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Guns, Germs, and Steel: The Fates of Human Societies",
+      "author": "Jared Diamond",
+      "year": 1997,
+      "synopsis": "Diamond argues that the divergent historical trajectories of societies on different continents stem from geographic and environmental factors: the availability of domesticable plants and animals and continental axis orientation, which gave some regions a head start in food production leading to denser populations, epidemic diseases, writing, technology, and centralized political organization. The book traces this argument from the Cajamarca encounter between Pizarro and Atahuallpa through the origins of farming, livestock-borne germs, writing, and technology, then applies the framework to Polynesia, China, Eurasia, and Africa.",
+      "genre": "HISTORY"
+    },
+    {
+      "title": "Homo Deus: A Brief History of Tomorrow",
+      "author": "Yuval Noah Harari",
+      "year": 2016,
+      "synopsis": "Harari argues that having largely tamed famine, plague, and war, humankind's next projects will be pursuing immortality, bliss, and divine-like power, tracing how the humanist belief in individual free will and inner experience may be superseded by dataism, biotechnology, and artificial intelligence.",
+      "genre": "PHILOSOPHY"
+    },
+    {
+      "title": "How to Get Filthy Rich in Rising Asia",
+      "author": "Mohsin Hamid",
+      "year": 2013,
+      "synopsis": "A satirical self-help book narrated in second person that tracks an unnamed protagonist's rise from rural poverty in an unnamed South Asian country to wealth through bottled water and real-estate ventures, tracing his moves to the city, his education, work, romance with 'the pretty girl,' entanglements with violence and bureaucracy, and eventual old age and death.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "If Beale Street Could Talk",
+      "author": "James Baldwin",
+      "year": 1974,
+      "synopsis": "Nineteen-year-old Tish Rivers narrates her efforts, alongside her family, to prove the innocence of her fiance Fonny Hunt, jailed in New York on a rape charge he did not commit, while she carries their child.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "In Cold Blood",
+      "author": "Truman Capote",
+      "year": 1965,
+      "synopsis": "A nonfiction account of the November 1959 murder of the Clutter family in Holcomb, Kansas, reconstructing the crime, the investigation, and the capture, trial, and execution of killers Perry Smith and Dick Hickock through interviews with townspeople, investigators, and the killers themselves.",
+      "genre": "CRIME & MYSTERY"
+    },
+    {
+      "title": "Interface",
+      "author": "Stephen Bury",
+      "year": 1994,
+      "synopsis": "After a stroke, Illinois governor William Cozzano is secretly fitted with a brain implant that lets political operatives feed him poll-tested responses in real time as he runs a manipulated presidential campaign.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Into the War",
+      "author": "Italo Calvino",
+      "year": 1954,
+      "synopsis": "Three autobiographical narratives set in San Remo in 1940, following the teenage narrator and his fellow Avanguardisti through Italy's entry into the Second World War, a stint helping evacuees in occupied Menton, and nights spent on anti-aircraft duty.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Italo Calvino",
+      "author": "Martin McLaughlin",
+      "year": 1998,
+      "synopsis": "A critical study tracing Calvino's career book by book, from the early short stories and The Path to the Spiders' Nests through the Our Ancestors trilogy, the Cosmicomic stories, Invisible Cities, and If on a Winter's Night a Traveller, situating each work within its literary influences and intertexts.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Jazz",
+      "author": "Toni Morrison",
+      "year": 1992,
+      "synopsis": "In 1926 Harlem, cosmetics salesman Joe Trace shoots his young lover Dorcas after she leaves him for someone else, and at the girl's funeral his wife Violet slashes the corpse's face with a knife.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Jurassic Park",
+      "author": "Michael Crichton",
+      "year": 1990,
+      "synopsis": "Paleontologist Alan Grant and a small group of scientists are invited to inspect billionaire John Hammond's island resort, where dinosaurs have been cloned from ancient DNA, just before the park's security systems fail and the animals get loose.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Letting Go",
+      "author": "Philip Roth",
+      "year": 1962,
+      "synopsis": "Gabe Wallach, a young academic in 1950s Chicago and New York, becomes entangled in the troubled marriage of his friends Paul and Libby Herz while avoiding commitments of his own.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Literary Life: A Second Memoir",
+      "author": "Larry McMurtry",
+      "year": 2009,
+      "synopsis": "McMurtry recounts his development as a novelist and man of letters, from his early influences and the writing of his first books through decades of reading, teaching, and the movie adaptations of his fiction.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Moth Smoke",
+      "author": "Mohsin Hamid",
+      "year": 2000,
+      "synopsis": "After losing his bank job in Lahore, Daru Shezad slides into drug use, petty crime, and an affair with Mumtaz, the wife of his wealthy best friend Ozi.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Mother Mary Comes to Me",
+      "author": "Arundhati Roy",
+      "year": 2025,
+      "synopsis": "Arundhati Roy's memoir traces her fraught, intense bond with her mother Mary Roy, a strong-willed school founder in Kerala, from a chaotic childhood in Ayemenem and Kottayam through Roy's own path into architecture, screenwriting, activism, and the writing of The God of Small Things and The Ministry of Utmost Happiness. The book closes with Roy reflecting on her mother's death and imagining her still walking the shoreline of memory.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Mr Palomar",
+      "author": "Italo Calvino",
+      "year": 1983,
+      "synopsis": "A middle-aged man named Mr Palomar attempts to observe the world with total precision, fixing his attention in turn on a single wave, a gecko catching insects, a flock of starlings over Rome, a cheese shop, a zoo, and the ruins of Tula, each observation spiraling into meditation on knowledge, meaning, and his own place in things. The book closes with Palomar setting out to describe every instant of his life so as to postpone death, and dying in that same moment.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Murder on the Orient Express",
+      "author": "Agatha Christie",
+      "year": 1934,
+      "synopsis": "When the Orient Express is stalled by snow in the Balkans, wealthy American passenger Ratchett is found stabbed to death in his locked compartment, and detective Hercule Poirot, who is aboard the same train, questions the twelve other passengers in the coach to determine who among them killed him.",
+      "genre": "CRIME & MYSTERY"
+    },
+    {
+      "title": "My Name Is Red",
+      "author": "Orhan Pamuk",
+      "year": 1998,
+      "synopsis": "In 16th-century Istanbul, miniaturist and illuminator Enishte Effendi is commissioned to secretly illustrate a book for the Sultan in the Frankish style, and when one of the workshop's master miniaturists is found murdered, the narration passes between multiple voices — including the corpse, the murderer, Enishte's daughter Shekure, her suitor Black, and the miniaturists Master Osman, Butterfly, Stork, and Olive — as they piece together who among the illustrators is the killer.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Nemesis",
+      "author": "Philip Roth",
+      "year": 2010,
+      "synopsis": "Set in Newark in the summer of 1944, the novel follows playground director Bucky Cantor as a polio epidemic spreads through his Jewish neighborhood, forcing him to weigh his duty to the children under his care against an offer to join his fiancée Marcia at a Pocono Mountains summer camp, Indian Hill. The narrative moves between the fear and death on the Chancellor Avenue playground and camp life at Indian Hill, including Indian Night ceremonies and a climactic javelin-throwing scene.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Nights of Plague",
+      "author": "Orhan Pamuk",
+      "year": 2021,
+      "synopsis": "Presented as a historian's edition of Princess Pakize's letters, the novel follows the Ottoman-era plague outbreak of 1901 on the fictional Mediterranean island of Mingheria, where Doctor Nuri and Princess Pakize navigate quarantine measures, the murder of the Sultan's Royal Chemist Bonkowski Pasha, and the political unraveling that leads to Mingheria's revolution and declared independence under Commander Kâmil.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "On James Baldwin",
+      "author": "Colm Tóibín",
+      "year": 2024,
+      "synopsis": "Colm Tóibín weaves his own history of reading James Baldwin, beginning with Go Tell It on the Mountain at eighteen, into a critical and biographical account of Baldwin's fiction, essays, and public life — his novels, his years in Paris and Harlem, his friendships and rivalries with writers like Richard Wright and Norman Mailer, and his civil-rights-era encounters with figures such as Robert Kennedy and Malcolm X.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "On Literature",
+      "author": "Umberto Eco",
+      "year": 2002,
+      "synopsis": "A collection of Eco's occasional essays and lectures on literature, ranging from Dante's Paradiso and Aristotle's Poetics to his own novels, tracing the social functions of literature, the practice of intertextual irony, and his personal debts to writers like Borges.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "One Flew Over the Cuckoo's Nest",
+      "author": "Ken Kesey",
+      "year": 1962,
+      "synopsis": "Narrated by Chief Bromden, a large half-Indian patient who feigns deafness and muteness on a psychiatric ward run by the controlling Big Nurse (Ratched), the novel follows Randle McMurphy, a brash new patient who challenges her authority through card games, a deep-sea fishing trip, and a late-night party, provoking escalating retaliation including electroshock and lobotomy.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Our Gang",
+      "author": "Philip Roth",
+      "year": 1971,
+      "synopsis": "A satirical send-up of a Nixon-like president called Tricky Dixon, told through interviews, press conferences, and dialogue: he defends his stance on 'sanctity of human life' while dodging on Vietnam and Cambodia, gets ambushed by advisers deciding whom to blame for domestic unrest, is implicated in the disappearance of baseball player Curt Flood, and is eventually assassinated and sent to Hell, where he runs for office against Satan.",
+      "genre": "HUMOR & COMEDY"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Life on the Mississippi",
+      "author": "Mark Twain",
+      "note": "She held up Twain's Life on the Mississippi.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "A Gentleman of Leisure",
+      "author": "P. G. Wodehouse",
+      "note": "Unwrapping the package, Nell held up three books —Mike, A Gentleman of Leisure, and The Prince and Betty.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The Prince and Betty",
+      "author": "P. G. Wodehouse",
+      "note": "Unwrapping the package, Nell held up three books —Mike, A Gentleman of Leisure, and The Prince and Betty.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Mike",
+      "author": "P. G. Wodehouse",
+      "note": "Unwrapping the package, Nell held up three books —Mike, A Gentleman of Leisure, and The Prince and Betty.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The Magic Mountain",
+      "author": "Thomas Mann",
+      "note": "She thought of Thomas Mann's The Magic Mountain, set in a tuberculosis sanatorium.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Anne of Green Gables",
+      "author": "L. M. Montgomery",
+      "note": "A copy of Anne of Green Gables she'd found at Bender's Second Hand was her excuse.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Little Lord Fauntleroy",
+      "author": "Frances Hodgson Burnett",
+      "note": "Eudora had been reading aloud from Little Lord Fauntleroy.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "My Man Jeeves",
+      "author": "P. G. Wodehouse",
+      "note": "I will order you a copy of My Man Jeeves, and hope that it brings you a little cheer.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "note": "Nell waited up, now reading Pride and Prejudice, a loan from Juliet Lundeen.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "A Farewell to Arms",
+      "author": "Ernest Hemingway",
+      "note": "She checked out A Farewell to Arms and began reading while her little girl was in the children's room.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Eight Cousins",
+      "author": "Louisa May Alcott",
+      "note": "Nell set aside the colander of string beans and listened as he read to Hilly from Eight Cousins.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Just So Stories",
+      "author": "Rudyard Kipling",
+      "note": "On his next visit, Larry brought one of his childhood books, the Just So Stories.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Sense and Sensibility",
+      "author": "Jane Austen",
+      "note": "Nell opened the copy of Sense and Sensibility she'd come across in Bender's Second Hand.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Tess of the d'Urbervilles",
+      "author": "Thomas Hardy",
+      "note": "She'd thought at first to bring Tess of the D'Urbervilles, but knew Thomas Hardy was too dark for her mood.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The American",
+      "author": "Henry James",
+      "note": "\"I'm reading The American,\" she continued.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The Code of the Woosters",
+      "author": "P. G. Wodehouse",
+      "note": "Picking up The Code of the Woosters, she settled into her armchair.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "note": "I recall you mentioned India because of The Jungle Book.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The Mill on the Floss",
+      "author": "George Eliot",
+      "note": "\"And you?\" \"The Mill on the Floss.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The Railway Children",
+      "author": "E. Nesbit",
+      "note": "He was reading The Railway Children, a book Juliet had given him.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Love Among the Chickens",
+      "author": "P. G. Wodehouse",
+      "note": "Nell spied a book on a high shelf titled Love Among the Chickens, by someone named P.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Psmith in the City",
+      "author": "P. G. Wodehouse",
+      "note": "Lark opened her Psmith in the City to the last page and read silently.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Jill the Reckless",
+      "author": "P. G. Wodehouse",
+      "note": "Nell sat reading Jill the Reckless by the light of the new floor lamp.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "The Man with Two Left Feet",
+      "author": "P. G. Wodehouse",
+      "note": "Wodehouse's The Man With Two Left Feet, turning the pages to a favorite short story titled \"The Mixer.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Shadows on the Rock",
+      "author": "Willa Cather",
+      "note": "Eudora date-stamped Willa Cather's Shadows on the Rock and handed it across the library desk.",
+      "confidence": "high"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Beautiful Stories About Children",
+      "author": "Charles Dickens",
+      "note": "\"Beautiful Stories About Children by Charles Dickens,\" Nell read.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Our Town",
+      "author": "Thornton Wilder",
+      "note": "Nell was curious about Drew Davis, the teacher directing the girl in Our Town.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Good Night, Mr. Wodehouse",
+      "mentioned": "Main Street",
+      "author": "Sinclair Lewis",
+      "note": "One by one, they emptied Main Street.",
+      "confidence": "low"
+    },
+    {
+      "source": "Grimus",
+      "mentioned": "The Conference of the Birds",
+      "author": "Farid ud-Din Attar",
+      "note": "Epigraph, credited as \"FARID-UD-DIN 'ATTAR, The Conference of the Birds, trans. Fitzgerald\": \"Come, you lost atoms, to your Centre draw...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Grimus",
+      "mentioned": "Four Quartets",
+      "author": "T. S. Eliot",
+      "note": "Epigraph credited to T. S. Eliot: \"Go, go, go, said the bird; human kind / Cannot bear very much reality.\" (also named directly in the acknowledgments as \"The Four Quartets, T. S. Eliot: Collected Poems 1909-1962\")",
+      "confidence": "high"
+    },
+    {
+      "source": "Grimus",
+      "mentioned": "Crow",
+      "author": "Ted Hughes",
+      "note": "Epigraph credited \"(TED HUGHES, \"Crow's Playmates\")\", with the source collection named in the acknowledgments: \"from 'Crow's Playmates,' Ted Hughes: Crow\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Guns, Germs, and Steel: The Fates of Human Societies",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "Just make a few changes, and you have the famous first sentence of Tolstoy's great novel Anna Karenina: \"Happy families are all alike; every unhappy family is unhappy in its own way.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Guns, Germs, and Steel: The Fates of Human Societies",
+      "mentioned": "On the Origin of Species",
+      "author": "Charles Darwin",
+      "note": "That's why Darwin, in his great book On the Origin of Species, didn't start with an account of natural selection.",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Collected Fictions (story \"A Problem\")",
+      "author": "Jorge Luis Borges",
+      "note": "\"The narrating self is the star of Jorge Luis Borges's story 'A Problem'. The story deals with Don Quixote, the eponymous hero of Miguel Cervantes's famous novel.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "\"The story deals with Don Quixote, the eponymous hero of Miguel Cervantes's famous novel.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "On the Origin of Species",
+      "author": "Charles Darwin",
+      "note": "\"this seemingly medieval idea became binding Catholic dogma only in 1870, eleven years after Charles Darwin published On the Origin of Species\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Das Kapital",
+      "author": "Karl Marx",
+      "note": "\"he would probably urge his few remaining disciples to devote less time to reading Das Kapital and more time to studying the Internet and the human genome\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Ulysses",
+      "author": "James Joyce",
+      "note": "\"Some people believe that Joyce's Ulysses represents the apogee of this modern focus on the inner life...in 260,000 words Joyce describes a single day in the life of the Dubliners Stephen Dedalus\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "All Quiet on the Western Front",
+      "author": "Erich Maria Remarque",
+      "note": "\"War novels such as All Quiet on the Western Front and war films such as Platoon begin with a young and naïve recruit\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "King Lear",
+      "author": "William Shakespeare",
+      "note": "\"According to Dataism, King Lear and the flu virus are just two patterns of data flow that can be analysed using the same basic concepts and tools.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "note": "\"How much pain and sorrow would have been avoided if instead of drinking poison, Romeo and Juliet could just take a pill or wear a helmet that would have redirected their star-crossed love\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "The Wizard of Oz",
+      "author": "L. Frank Baum",
+      "note": "\"This is what the Tin Man does in The Wizard of Oz. He walks along the yellow brick road with Dorothy and her friends, hoping that when they get to Oz, the great wizard will give him a heart\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Mein Kampf",
+      "author": "Adolf Hitler",
+      "note": "\"In Mein Kampf, he tells how shortly after his unit reached the front line, the soldiers' initial enthusiasm turned into fear\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "The Epic of Gilgamesh",
+      "author": "Anonymous",
+      "note": "\"The Mesopotamian Gilgamesh epic recounts that when the gods sent a great deluge to destroy the world, almost all humans and animals perished.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Émile, or On Education",
+      "author": "Jean-Jacques Rousseau",
+      "note": "\"Jean-Jacques Rousseau summed it all up in his novel Émile, the eighteenth-century bible of feeling.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Comes the Fiery Night: 2,000 Haiku by Man and Machine",
+      "author": "David Cope",
+      "note": "\"In 2011 Cope published Comes the Fiery Night: 2,000 Haiku by Man and Machine. Of the 2,000 haikus in the book, some are written by Annie, and the rest by organic poets.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Homo Deus: A Brief History of Tomorrow",
+      "mentioned": "Guerilla Open Access Manifesto",
+      "author": "Aaron Swartz",
+      "note": "\"In 2008 he published the 'Guerilla Open Access Manifesto' that demanded a free and unlimited flow of information.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "In Cold Blood",
+      "mentioned": "Elegy Written in a Country Churchyard",
+      "author": "Thomas Gray",
+      "note": "Andrews' farewell message turned out to be the ninth stanza of Gray's 'Elegy Written in a Country Churchyard': The boasts of heraldry, the pomp of pow'r...",
+      "confidence": "high"
+    },
+    {
+      "source": "In Cold Blood",
+      "mentioned": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "note": "Lowell Lee was locked in his bedroom reading the last chapter of The Brothers Karamazov.",
+      "confidence": "high"
+    },
+    {
+      "source": "In Cold Blood",
+      "mentioned": "The Adventures of Tom Sawyer",
+      "author": "Mark Twain",
+      "note": "Kenyon was in my sophomore English class, and I'd directed Nancy in the 'Tom Sawyer' play.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "note": "mixing Hemingway's For Whom the Bell Tolls and Stevenson's Treasure Island (I, 1196; The Path, 20).",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "For Whom the Bell Tolls",
+      "author": "Ernest Hemingway",
+      "note": "for his first novel he had explicitly tried to mingle For Whom the Bell Tolls with Treasure Island",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "The Garden of Forking Paths",
+      "author": "Jorge Luis Borges",
+      "note": "Both of these passages allude to the title of Borges' The Garden of Forking Paths and its thematics of ramified time",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "note": "Flannery sets out to obtain inspiration by transcribing the opening passage from a classic novel, such as Dostoevsky's Crime and Punishment",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Utopia",
+      "author": "Thomas More",
+      "note": "Invisible Cities (1972) rewrites Marco Polo's travels recounted in Il milione as well as More's Utopia",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Candide",
+      "author": "Voltaire",
+      "note": "Consisting of thirty chapters, like one of its literary models and intertexts, Voltaire's Candide, it recounts the life of the protagonist Cosima",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Clarissa",
+      "author": "Samuel Richardson",
+      "note": "a vast range of allusions to contemporary texts from Lesage's picaresque novel Gil Blas to Richardson's Clarissa and Fielding's Jonathan Wild.",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Gil Blas",
+      "author": "Alain-Rene Lesage",
+      "note": "a vast range of allusions to contemporary texts from Lesage's picaresque novel Gil Blas to Richardson's Clarissa",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "or the play within the play of Hamlet, or Don Quixote reading Don Quixote, is that if fictional characters can become readers or spectators...",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "The End of the Tether",
+      "author": "Joseph Conrad",
+      "note": "the name is also determined by that of the protagonist of Conrad's The End of the Tether, Captain Whalley",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Wuthering Heights",
+      "author": "Emily Bronte",
+      "note": "a passage in which The Ancient Mariner seems to meet Wuthering Heights (the Italian title of Bronte's novel, Cime tempestose, is echoed in 'Tempesta solare')",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "The Rime of the Ancient Mariner",
+      "author": "Samuel Taylor Coleridge",
+      "note": "a passage in which The Ancient Mariner seems to meet Wuthering Heights",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "La Chartreuse de Parme",
+      "author": "Stendhal",
+      "note": "a first sentence that deliberately recalls the first sentence of another favourite intertext, Stendhal's La Chartreuse de Parme",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Metamorphoses",
+      "author": "Ovid",
+      "note": "the central city Baucis recalls the myth of Baucis and Philemon, which is also the central tale of Ovid's Metamorphoses",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Orlando Furioso",
+      "author": "Ludovico Ariosto",
+      "note": "Calvino says of Ariosto's Orlando furioso and of Fenoglio's Una questione privata",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "note": "a text that stands as a modern, secular version of Defoe's Robinson Crusoe, a favourite text with Calvino's Marxist mentor Vittorini",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "The Waste Land",
+      "author": "T. S. Eliot",
+      "note": "the intertextual allusion to Eliot's The Waste Land (lines 43-59) being made explicit by the reference to 'the distinguished Lloyds employee'",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "War and Peace",
+      "author": "Leo Tolstoy",
+      "note": "The appearance, in the penultimate chapter, of a character such as Prince Andrej Bolkonsky, from Tolstoy's War and Peace (another favourite text of Calvino)",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Inferno",
+      "author": "Dante Alighieri",
+      "note": "Dante's Inferno, like the first sections in Palomar, is largely visual",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "The Castle of Crossed Destinies",
+      "author": "Italo Calvino",
+      "note": "The Castle of Crossed Destinies (1973) reworks Ariosto's Orlando furioso along with major myths of Western literature",
+      "confidence": "medium"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Lord Jim",
+      "author": "Joseph Conrad",
+      "note": "the description of the ominous calm preceding the storm is indebted to Conrad's depiction there of the tranquil sea and of Lord Jim's feelings of serenity",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "Heart of Darkness",
+      "author": "Joseph Conrad",
+      "note": "Les Fleurs du mal and Heart of Darkness are cited, as well as Sade's Justine and Freud's interpretation",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "note": "he had spent hours listening to an old convict reading The Count of Monte Cristo out loud and had enjoyed that very much",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "In the South Seas",
+      "author": "Robert Louis Stevenson",
+      "note": "a passage describing the decadent leper colony on Molokai in Stevenson's In the South Seas resides behind Calvino's invented leper colony",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "King Lear",
+      "author": "William Shakespeare",
+      "note": "A minimalist account of King Lear even conveys some of the force of his famous speech in the storm",
+      "confidence": "high"
+    },
+    {
+      "source": "Italo Calvino",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "the preface to The Odyssey (also 1981, but whose origins go back to the mid-1970s)",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "Marjorie Morningstar",
+      "author": "Herman Wouk",
+      "note": "\"Leonard, I'll lend you Marjorie Morningstar.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "To His Coy Mistress",
+      "author": "Andrew Marvell",
+      "note": "She liked \"To His Coy Mistress\" and she loved \"Ode to a Nightingale,\" \"Ode to Melancholy,\" too.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "Ode to a Nightingale",
+      "author": "John Keats",
+      "note": "She liked \"To His Coy Mistress\" and she loved \"Ode to a Nightingale,\" \"Ode to Melancholy,\" too.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "Ode on Melancholy",
+      "author": "John Keats",
+      "note": "She liked \"To His Coy Mistress\" and she loved \"Ode to a Nightingale,\" \"Ode to Melancholy,\" too.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "Tender Is the Night",
+      "author": "F. Scott Fitzgerald",
+      "note": "She wrote on the pad: Already with thee! Tender is the night. She liked Tender Is the Night, which, of course, wasn't a poem.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "The Sound and the Fury",
+      "author": "William Faulkner",
+      "note": "Of course I read The Sound and the Fury in college, and Light in August, but I've been planning to read all of Faulkner.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "Light in August",
+      "author": "William Faulkner",
+      "note": "Of course I read The Sound and the Fury in college, and Light in August, but I've been planning to read all of Faulkner.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "The Princess Casamassima",
+      "author": "Henry James",
+      "note": "I was working a little late one night—reading The Princess Casamassima in my office—and when I came out to the Midway, there was my car being pushed away.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "The Portrait of a Lady",
+      "author": "Henry James",
+      "note": "I was reading Portrait of a Lady, and it was into its pages that I slid the envelopes and its single sheet of barely legible prose.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "The Turn of the Screw",
+      "author": "Henry James",
+      "note": "\"Neither of us know anything really outside the Edmund Wilson one—\" she said, \"the ghost story.\" \"Turn of the Screw,\" I said.",
+      "confidence": "high"
+    },
+    {
+      "source": "Letting Go",
+      "mentioned": "The Tempest",
+      "author": "William Shakespeare",
+      "note": "\"And what do you feel like instead?\" \"A—the girl in The Tempest. What's her name?\" ... \"Prospero's daughter—\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Sun Also Rises",
+      "author": "Ernest Hemingway",
+      "note": "From the American tent I admire the workaday but forceful prose of Theodore Dreiser, and of course the brilliance and economy of Ernest Hemingway's The Sun Also Rises.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Diaries and Letters",
+      "author": "Harold Nicolson",
+      "note": "I once enjoyed Harold Nicolson's Journals, but doubt I'll look at them again.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Daisy Miller",
+      "author": "Henry James",
+      "note": "He had always wanted to make \"Daisy Miller,\" the famous Henry James short story, and his three hits gave him the power to make most anything he wanted.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Studies in Classic American Literature",
+      "author": "D. H. Lawrence",
+      "note": "Lawrence's Studies in Classic American Literature.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Lady, or the Tiger?",
+      "author": "Frank R. Stockton",
+      "note": "Stockton's \"The Lady, or the Tiger?\" Such masters as Hemingway, Faulkner, Sherwood Anderson, Katherine Anne Porter, or distant giants such as Chekhov...",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Melmoth the Wanderer",
+      "author": "Charles Maturin",
+      "note": "a copy of Melmoth the Wanderer, in the attractive three-volume Bentley reprint, a book that proved much easier to sell than to read.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "On the Road",
+      "author": "Jack Kerouac",
+      "note": "Jack Kerouac I never met, and I regret that, because I think his one really good novel, On the Road, marked the real end of New Critical dominance.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Crossing to Safety",
+      "author": "Wallace Stegner",
+      "note": "These are both excellent novels, though, personally, I have a slight preference for Crossing to Safety.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "A Moveable Feast",
+      "author": "Ernest Hemingway",
+      "note": "I felt something like Hemingway mentioned feeling in A Moveable Feast, when, in Spain, he wrote two stories in one day.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Angle of Repose",
+      "author": "Wallace Stegner",
+      "note": "I started at the end of his fiction, Crossing to Safety, and then moved back to Angle of Repose, which won the Pulitzer Prize.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "City of Night",
+      "author": "John Rechy",
+      "note": "This would have been, I think, before John's first novel, City of Night, was published.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "From Here to Eternity",
+      "author": "James Jones",
+      "note": "the single most vicious letter I have ever read was the letter Hemingway wrote Scribners when they asked him to give a blurb to From Here to Eternity.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "On Photography",
+      "author": "Susan Sontag",
+      "note": "If I had to choose two of her books to take with me to the proverbial desert island they would be Where the Stress Falls and At the Same Time, with On Photography a close third.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Sometimes a Great Notion",
+      "author": "Ken Kesey",
+      "note": "I am one of the minority who think the second book, Sometimes a Great Notion, is a better book than Cuckoo's Nest.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Craft of Fiction",
+      "author": "Percy Lubbock",
+      "note": "When I began to write novels the most admired work of theory, where prose fiction was concerned, was probably Percy Lubbock's The Craft of Fiction.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Satanic Verses",
+      "author": "Salman Rushdie",
+      "note": "the Iranian cleric the Ayatollah Khomeini shocked or at least startled the literary world by issuing his famous fatwa calling for the death of Salman Rushdie.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Unquiet Grave",
+      "author": "Cyril Connolly",
+      "note": "His aphoristic The Unquiet Grave is mandarin but his novel The Rock Pool and most of his reviewing, some of it very fine, is not.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "ABC of Reading",
+      "author": "Ezra Pound",
+      "note": "From my beginner's library I retain one book, a copy of Ezra Pound's ABC of Reading, which I acquired just before I abandoned the library.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Alexandria Quartet",
+      "author": "Lawrence Durrell",
+      "note": "Lawrence Durrell's Alexandria Quartet was probably the first to really grab me, perhaps because of the huge success of the first book, Justine.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Anatomy of Criticism",
+      "author": "Northrop Frye",
+      "note": "Northrop Frye's Anatomy of Criticism, the most important critical book published during my academic years.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Aspects of the Novel",
+      "author": "E. M. Forster",
+      "note": "Forster's Aspects of the Novel, as well as the highly colored didactic work of Georg Lukács and others.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "Sword of Honour",
+      "author": "Evelyn Waugh",
+      "note": "Waugh's Sword of Honor trilogy is a fine example of prose that gets the job done.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Great Tradition",
+      "author": "F. R. Leavis",
+      "note": "Leavis's The Great Tradition, and his wife, Q.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Making of Americans",
+      "author": "Gertrude Stein",
+      "note": "the masterwork of incremental repetition, if there is one, is Gertrude Stein's The Making of Americans.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "We Pointed Them North",
+      "author": "E. C. \"Teddy Blue\" Abbott",
+      "note": "It had to be northern Montana because of the book that inspired it, the cowboy-rancher Teddy Blue Abbott's We Pointed Them North.",
+      "confidence": "high"
+    },
+    {
+      "source": "Literary Life: A Second Memoir",
+      "mentioned": "The Summing Up",
+      "author": "W. Somerset Maugham",
+      "note": "his valedictory statement is to be found in a lovely book called The Summing Up, which, in my youth, I read many times.",
+      "confidence": "high"
+    },
+    {
+      "source": "Moth Smoke",
+      "mentioned": "Kim",
+      "author": "Rudyard Kipling",
+      "note": "\"He's had a colorful past. Kind of like Kim.\" \"Kipling's Kim?\" I nod.",
+      "confidence": "high"
+    },
+    {
+      "source": "Moth Smoke",
+      "mentioned": "A Farewell to Arms",
+      "author": "Ernest Hemingway",
+      "note": "When they gave me the baby, I thought of A Farewell to Arms, because it did look like a skinned rabbit with a wrinkled old man's face.",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "The God of Small Things",
+      "author": "Arundhati Roy",
+      "note": "That's what I said at the front of my first novel, The God of Small Things, which I dedicated to her.",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "The Ministry of Utmost Happiness",
+      "author": "Arundhati Roy",
+      "note": "How else can it be that like the characters in my second novel, The Ministry of Utmost Happiness, I, too, am now the caretaker of a sort of grave...",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "Mister Johnson",
+      "author": "Joyce Cary",
+      "note": "He said the story was loosely based on a novel set in colonial Nigeria called Mister Johnson by Joyce Cary and that I was on no account to read it because he didn't want me to be influenced by it.",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "Ways of Seeing",
+      "author": "John Berger",
+      "note": "So many of us had grown up reading his Ways of Seeing.",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "My Story",
+      "author": "Kamala Das",
+      "note": "Kamala Das had shocked Kerala with her book My Story, published in 1973, which was candid and unapologetic about sexual intimacy.",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "The Satanic Verses",
+      "author": "Salman Rushdie",
+      "note": "the Congress government had banned Salman Rushdie's novel The Satanic Verses and reversed a progressive Supreme Court judgment...",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "Wuthering Heights",
+      "author": "Emily Bronte",
+      "note": "I showed her a picture of Heathcliff lying on Cathy's grave from an old illustrated edition of Wuthering Heights.",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "Ulysses",
+      "author": "James Joyce",
+      "note": "Isaac's sentences purloined from Joyce's Ulysses – 'Bel-luomo rises from the bed of his wife's lover's wife, the kerchiefed housewife is astir' – streaked like comets across my reading sky.",
+      "confidence": "high"
+    },
+    {
+      "source": "Mother Mary Comes to Me",
+      "mentioned": "The Garden of the Finzi-Continis",
+      "author": "Giorgio Bassani",
+      "note": "I often think of sending him a copy of Giorgio Bassani's The Garden of the Finzi-Continis.",
+      "confidence": "high"
+    },
+    {
+      "source": "Murder on the Orient Express",
+      "mentioned": "Dickens",
+      "author": "Charles Dickens",
+      "note": "\"A name of good omen,\" said Poirot. \"I read my Dickens. M. Harris, he will not arrive.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "Shahnameh (Book of Kings)",
+      "author": "Ferdowsi",
+      "note": "\"Alexander cradling the dying Darius from Firdusi's Book of Kings…\"",
+      "confidence": "high"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "Gulistan (The Rosegarden)",
+      "author": "Saadi",
+      "note": "\"...the account of the teacher who falls in love with his handsome student from Sadi's Rosegarden…\"",
+      "confidence": "high"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "Makhzan al-Asrar (Treasury of Secrets)",
+      "author": "Nizami Ganjavi",
+      "note": "\"...the contest of doctors from Nizami's Treasury of Secrets…\"",
+      "confidence": "high"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "Masnavi",
+      "author": "Rumi",
+      "note": "\"A cheap rendition of the terrible account of the cuckold who catches his wife and her lover in a pear tree, from Rumi's Masnawi,\" he said.",
+      "confidence": "high"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "Gifts of Intimacy",
+      "author": "Jami",
+      "note": "\"In Lami'i Chelebi's Turkish translation of the Persian poet Jami's Gifts of Intimacy, which addresses the stories of the saints...\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "The Revival of Religious Science",
+      "author": "Al-Ghazali",
+      "note": "\"...I'd appropriated these ominous images from the section on the ills of marriage in Gazzali's The Revival of Religious Science...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "Khusrau and Shirin",
+      "author": "Nizami Ganjavi",
+      "note": "\"...the renowned master Sheikh Ali Tabrizi had illustrated a magnificent version of Hüsrev and Shirin.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "My Name Is Red",
+      "mentioned": "Layla and Majnun",
+      "author": "Nizami Ganjavi",
+      "note": "\"...he entered the library like a common thief, opened the volume of Leyla and Mejnun...\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Nemesis",
+      "mentioned": "Manual of the Woodcraft Indians",
+      "author": "Ernest Thompson Seton",
+      "note": "\"This too,\" and he handed him a second and thinner book, Manual of the Woodcraft Indians.",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "Leviathan",
+      "author": "Thomas Hobbes",
+      "note": "hauled him straight to prison...where they caught him reading a book (Hobbes's Leviathan) in the garden",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "The Mysteries of Paris",
+      "author": "Eugène Sue",
+      "note": "did not appreciate melodramatic coincidences in his detective novels (such as in Eugène Sue's The Mysteries of Paris)",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "Sherlock Holmes stories",
+      "author": "Arthur Conan Doyle",
+      "note": "But what did Abdul Hamid mean by the phrase \"like Sherlock Holmes\"?",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "The Adventure of the Engineer's Thumb",
+      "author": "Arthur Conan Doyle",
+      "note": "the translator...also translated the Sherlock Holmes story (\"The Adventure of the Engineer's Thumb\")...and the Sultan had begun following its author Arthur Conan Doyle too",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "note": "Princess Pakize has managed to solve the mystery of a murder...just by reading The Count of Monte Cristo!",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "War and Peace",
+      "author": "Leo Tolstoy",
+      "note": "epigraph: —LEO TOLSTOY, War and Peace, translated by Louise and Aylmer Maude",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "The Betrothed",
+      "author": "Alessandro Manzoni",
+      "note": "epigraph: —ALESSANDRO MANZONI, The Betrothed",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "note": "The famous French novel's immoral, unstable heroine Madame Bovary also committed suicide in the same manner",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "The Three Musketeers",
+      "author": "Alexandre Dumas",
+      "note": "The Three Musketeers had been screened at the Majestic Cinema in Arkaz this winter, but that my mother...deemed it not appropriate for my age",
+      "confidence": "high"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "Oedipus Rex",
+      "author": "Sophocles",
+      "note": "the bearded lead actor of a Greek theater troupe who had come to Arkaz for a production of Oedipus Rex",
+      "confidence": "medium"
+    },
+    {
+      "source": "Nights of Plague",
+      "mentioned": "Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "note": "living on hills and mountains and in forests, a little like Robinson Crusoe",
+      "confidence": "medium"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Go Tell It on the Mountain",
+      "author": "James Baldwin",
+      "note": "I read James Baldwin's Go Tell It on the Mountain just after my eighteenth birthday",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Giovanni's Room",
+      "author": "James Baldwin",
+      "note": "James Baldwin's second novel Giovanni's Room, published in 1956, was, like Forster's Maurice, written in a time when homosexuality was not merely forbidden...",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Maurice",
+      "author": "E. M. Forster",
+      "note": "like Forster's Maurice, written in a time when homosexuality was not merely forbidden or disapproved of, but also strangely invisible",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Notes of a Native Son",
+      "author": "James Baldwin",
+      "note": "he brought, he wrote in \"Notes of a Native Son,\" \"a special attitude\" to lofty company",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "De Profundis",
+      "author": "Oscar Wilde",
+      "note": "Oscar Wilde's De Profundis was written under strange circumstances",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Another Country",
+      "author": "James Baldwin",
+      "note": "In his review of James Baldwin's third novel, Another Country, Lionel Trilling asked...",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "A Question of Identity",
+      "author": "James Baldwin",
+      "note": "In his essay \"A Question of Identity,\" written in 1954, James Baldwin wrote about the Paris that would inspire Giovanni's Room",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Everybody's Protest Novel",
+      "author": "James Baldwin",
+      "note": "the following year Baldwin published an essay in Zero called \"Everybody's Protest Novel\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Secret Sharer",
+      "author": "Joseph Conrad",
+      "note": "Joseph Conrad created his doubled characters in \"The Secret Sharer\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Ulysses",
+      "author": "James Joyce",
+      "note": "When Leopold Bloom in James Joyce's Ulysses is asked what a nation is, he replies...",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Sonny's Blues",
+      "author": "James Baldwin",
+      "note": "One story is called \"Going to Meet the Man,\" and the other is \"Sonny's Blues.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Alas, Poor Richard",
+      "author": "James Baldwin",
+      "note": "as Baldwin wrote in his essay \"Alas Poor Richard,\" \"and I could not possibly have been more wrong\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Black Like Me",
+      "author": "John Howard Griffin",
+      "note": "It was called Black Like Me, written by a progressive journalist, John Howard Griffin",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Man of All Work",
+      "author": "Richard Wright",
+      "note": "We are back in the world of Richard Wright's story \"Man of All Work\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Ambassadors",
+      "author": "Henry James",
+      "note": "Henry James's novel The Ambassadors, for example, published in 1903, is set in a Paris that allows the middle-aged Lambert Strether to live as though for the first time",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Schooner Flight",
+      "author": "Derek Walcott",
+      "note": "In Derek Walcott's poem \"The Schooner Flight,\" his protagonist is \"either nobody, or I'm a nation\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Choosing a Mast",
+      "author": "Roy Campbell",
+      "note": "One of the other set of lines my mother would say out loud comes from the South African poet Roy Campbell: This mast, new-shaved, through whom I rive the ropes...",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "High Tide in Harlem",
+      "author": "Richard Wright",
+      "note": "In 1938 Richard Wright wrote \"High Tide in Harlem,\" an article about Joe Louis, for the left-wing magazine New Masses",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Rockpile",
+      "author": "James Baldwin",
+      "note": "\"The Rockpile.\" In Going to Meet the Man",
+      "confidence": "medium"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Who Set You Flowin'?: The African-American Migration Novel",
+      "author": "Farah Jasmine Griffin",
+      "note": "In her book Who Set You Flowin': The African-American Migration Novel, Farah Jasmine Griffin writes about the shifts of style in the novel",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Black Boy",
+      "author": "Richard Wright",
+      "note": "This passage by Wright appears in the \"restored edition\" of Black Boy: I was leaving the South to fling myself into an unknown...",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Soul on Ice",
+      "author": "Eldridge Cleaver",
+      "note": "Cleaver, in his book Soul on Ice, published in 1968, had no difficulty identifying the problem",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Audacity of Hope",
+      "author": "Barack Obama",
+      "note": "Later, in his book The Audacity of Hope, he describes his wife Michelle's admission on a flight back from Kenya to Chicago",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Dreams from My Father",
+      "author": "Barack Obama",
+      "note": "In Dreams from My Father, Barack Obama described finding religion in Chicago, hearing about the history of the Black church in America",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Fire Next Time",
+      "author": "James Baldwin",
+      "note": "Two years later, he published two long essays in a book with the title The Fire Next Time",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Return of Eva Peron",
+      "author": "V. S. Naipaul",
+      "note": "Naipaul's long essay on the dictatorship in Argentina, \"The Return of Eva Peron\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Sun Also Rises",
+      "author": "Ernest Hemingway",
+      "note": "The opening chapters of Hemingway's novel The Sun Also Rises, published in 1926, also take place in Paris",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Black No More",
+      "author": "George S. Schuyler",
+      "note": "Black No More, by the African American writer and journalist George S. Schuyler",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Blue Nights",
+      "author": "Joan Didion",
+      "note": "listed alongside Salvador and The Year of Magical Thinking as Didion works discussed",
+      "confidence": "medium"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Native Son",
+      "author": "Richard Wright",
+      "note": "Baldwin focuses his attention on Richard Wright's novel Native Son and the protagonist Bigger Thomas",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Salvador",
+      "author": "Joan Didion",
+      "note": "And Joan Didion's book Salvador might have been helped by more research",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Golden Bowl",
+      "author": "Henry James",
+      "note": "Giovanni's Room, like Henry James's late novel The Golden Bowl, inhabits fictional space that is heavily circumscribed",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Jolly Corner",
+      "author": "Henry James",
+      "note": "Henry James created his divided figures in \"The Private Life\" and \"The Jolly Corner\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Evidence of Things Not Seen",
+      "author": "James Baldwin",
+      "note": "Baldwin's book on the child murders that occurred between 1979 and 1981 in Atlanta, Evidence of Things Not Seen, is slack and rambling",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Advertisements for Myself",
+      "author": "Norman Mailer",
+      "note": "Mailer's Advertisements for Myself and Marilyn: A Biography are not quite readable now, their egotism bloated and out of control",
+      "confidence": "medium"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Going to Meet the Man",
+      "author": "James Baldwin",
+      "note": "One story is called \"Going to Meet the Man,\" and the other is \"Sonny's Blues\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Outing",
+      "author": "James Baldwin",
+      "note": "Baldwin's first dramatization of homosexuality occurs in his story \"The Outing,\" published in 1951",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Stone Face",
+      "author": "William Gardner Smith",
+      "note": "The Stone Face, William Gardner Smith's novel, looks like a panorama beside Baldwin's tiny canvas",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Cuchulain Comforted",
+      "author": "W. B. Yeats",
+      "note": "Yeats wrote a poem called \"Cuchulain Comforted,\" which began with a series of statements free of metaphor",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "As Much Truth as One Can Bear",
+      "author": "James Baldwin",
+      "note": "In \"As Much Truth as One Can Bear,\" a New York Times Book Review article from January 14, 1962... Baldwin wrote about private loneliness",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Notes for a Hypothetical Novel",
+      "author": "James Baldwin",
+      "note": "In an essay written in 1960 called \"Notes for a Hypothetical Novel,\" Baldwin mused on the White people he met in downtown New York",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Harlem Ghetto",
+      "author": "James Baldwin",
+      "note": "In 1948 when Baldwin published the essay \"The Harlem Ghetto\" in Commentary, his earliest piece for a national magazine",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Lost Art of Letter Writing",
+      "author": "Eavan Boland",
+      "note": "Eavan Boland published a poem in the New Yorker called \"The Lost Art of Letter Writing.\" It was about Irish emigrants writing home",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The White Problem",
+      "author": "James Baldwin",
+      "note": "In an essay called \"The White Problem,\" published in 1964, Baldwin sneered at the icons of White America",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "To France",
+      "author": "Countee Cullen",
+      "note": "Cullen... wrote a poem \"To France\" in which he made clear the sense of freedom that he felt there",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Tradition and the Individual Talent",
+      "author": "T. S. Eliot",
+      "note": "In his essay \"Tradition and the Individual Talent,\" T. S. Eliot...",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "This Morning, This Evening, So Soon",
+      "author": "James Baldwin",
+      "note": "In a story published in 1960, \"This Morning, This Evening, So Soon,\" James Baldwin wrote about the relationship between Harriet... and the narrator",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "To the Western World",
+      "author": "Louis Simpson",
+      "note": "Or the four final lines of Louis Simpson's \"To the Western World\": In this America, this wilderness...",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "American Hunger",
+      "author": "Richard Wright",
+      "note": "In his second autobiography American Hunger, Richard Wright wrote even more forcefully about the disillusion",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Lift Every Voice and Sing",
+      "author": "James Weldon Johnson",
+      "note": "With his brother, he wrote \"Lift Every Voice and Sing,\" which became an anthem for Black Americans",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "I Chose Exile",
+      "author": "Richard Wright",
+      "note": "In an unpublished 1951 essay, \"I Chose Exile,\" Richard Wright wrote: \"To live in Paris is to allow one's sensibilities to be nourished by physical beauty\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "For Whom the Bell Tolls",
+      "author": "Ernest Hemingway",
+      "note": "his reputation began to be unassailable at the very instant that his work began that decline from which it never recovered—at about the time of For Whom the Bell Tolls",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Riverside Drive",
+      "author": "Louis Simpson",
+      "note": "In 1962, Simpson, who was born in Jamaica in 1923, published a novel called Riverside Drive, which used elements of his own life",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Black Manhattan",
+      "author": "James Weldon Johnson",
+      "note": "In 1930, when Baldwin was six, James Weldon Johnson published his book Black Manhattan",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Armies of the Night",
+      "author": "Norman Mailer",
+      "note": "Norman Mailer's Armies of the Night and his Miami and the Siege of Chicago, both works of imaginative and original political reporting, may equal his best novel, The Executioner's Song",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Miami and the Siege of Chicago",
+      "author": "Norman Mailer",
+      "note": "Norman Mailer's Armies of the Night and his Miami and the Siege of Chicago, both works of imaginative and original political reporting",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Executioner's Song",
+      "author": "Norman Mailer",
+      "note": "may equal his best novel, The Executioner's Song",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "Nobody Knows My Name",
+      "author": "James Baldwin",
+      "note": "In the essay \"Nobody Knows My Name: A Letter from the South,\" Baldwin notes that, as he was preparing to set out, he was cautioned by a friend",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "The Year of Magical Thinking",
+      "author": "Joan Didion",
+      "note": "listed among Didion's works discussed alongside Salvador and Blue Nights",
+      "confidence": "medium"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "A Portrait of the Artist as a Young Man",
+      "author": "James Joyce",
+      "note": "Even the religion in James Joyce's A Portrait of the Artist as a Young Man seemed remote",
+      "confidence": "high"
+    },
+    {
+      "source": "On James Baldwin",
+      "mentioned": "\"Or Does It Explode?\": Black Harlem in the Great Depression",
+      "author": "Cheryl Greenberg",
+      "note": "In Or Does It Explode?, Cheryl Greenberg wrote: \"By the end of the night 697 plate glass windows in some 300 business establishments were shattered\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Finnegans Wake",
+      "author": "James Joyce",
+      "note": "cited as a work that influenced scientists' imagination of the universe",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Poetics",
+      "author": "Aristotle",
+      "note": "discussed at length as the foundational text of Western literary theory",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Betrothed",
+      "author": "Alessandro Manzoni",
+      "note": "\"Manzoni's The Betrothed was also a best seller\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Ulysses",
+      "author": "James Joyce",
+      "note": "discussed as based on Aristotle's Rhetoric and analyzed repeatedly",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Doctor Faustus",
+      "author": "Thomas Mann",
+      "note": "\"the model of Mann's Doctor Faustus was fundamental\" to The Name of the Rose",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Being and Time",
+      "author": "Martin Heidegger",
+      "note": "compared to The Waste Land's dating",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Faust",
+      "author": "Johann Wolfgang von Goethe",
+      "note": "referenced as translated by a character",
+      "confidence": "medium"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Ficciones",
+      "author": "Jorge Luis Borges",
+      "note": "\"In 1955 Borges's Ficciones came out in Italy\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Name of the Rose",
+      "author": "Umberto Eco",
+      "note": "discussed extensively as Eco's own novel, including its library and Borges influence",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Raven",
+      "author": "Edgar Allan Poe",
+      "note": "analyzed via Poe's Philosophy of Composition",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Tlön, Uqbar, Orbis Tertius",
+      "author": "Jorge Luis Borges",
+      "note": "discussed regarding Borges and the Rosicrucians",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Aleph",
+      "author": "Jorge Luis Borges",
+      "note": "\"the poetics of The Aleph, that magic object...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Flatland",
+      "author": "Edwin A. Abbott",
+      "note": "quoted at length as an example",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Ethics",
+      "author": "Baruch Spinoza",
+      "note": "discussed as an example of finding a story in a plotless text",
+      "confidence": "medium"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Divine Comedy",
+      "author": "Dante Alighieri",
+      "note": "discussed extensively, including as e-book reading example",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "discussed as an example of e-book reading and Pierre Menard's rewriting",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Island of the Day Before",
+      "author": "Umberto Eco",
+      "note": "Eco's own novel, discussed for its coups-de-scène modeled on Dumas",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "note": "cited alongside Little Red Riding-Hood and Ulysses as fictional individuals",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "note": "discussed as an example of naive vs. critical reading",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Waste Land",
+      "author": "T. S. Eliot",
+      "note": "discussed and dated relative to Heidegger's Being and Time",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Death and the Compass",
+      "author": "Jorge Luis Borges",
+      "note": "\"I cannot rule out the possibility that... I was influenced by the plot of his 'Death and the Compass'\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "In the Penal Colony",
+      "author": "Franz Kafka",
+      "note": "discussed regarding detail and suggestion in narrative technique",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "On the Sublime",
+      "author": "Longinus (Pseudo-Longinus)",
+      "note": "discussed as continuing Aristotle's lesson on poetic effect",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Communist Manifesto",
+      "author": "Karl Marx and Friedrich Engels",
+      "note": "essay written for its 150th anniversary, analyzing its literary style",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Picture of Dorian Gray",
+      "author": "Oscar Wilde",
+      "note": "\"Let us reread The Picture of Dorian Gray\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "War and Peace",
+      "author": "Leo Tolstoy",
+      "note": "discussed as an example of reading suspense despite knowing the outcome",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Around the World in Eighty Days",
+      "author": "Jules Verne",
+      "note": "referenced regarding the international date line",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Gargantua and Pantagruel",
+      "author": "François Rabelais",
+      "note": "Eco recalls reading an abbreviated version as a child",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Oedipus Rex",
+      "author": "Sophocles",
+      "note": "cited alongside Aquinas's definition of beauty",
+      "confidence": "medium"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Mysteries of Paris",
+      "author": "Eugène Sue",
+      "note": "discussed with the character Rudolph of Gerolstein migrating from it",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "\"'Anna Karenina commits suicide' will remain true for eternity\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Importance of Being Earnest",
+      "author": "Oscar Wilde",
+      "note": "quoted directly for its aphorisms",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Moby-Dick",
+      "author": "Herman Melville",
+      "note": "discussed as an example of literary lessons resisting simplification",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Billy Budd",
+      "author": "Herman Melville",
+      "note": "\"Billy Budd hanged\" cited as an eternal literary fact",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "note": "the ending is quoted and discussed as a possible stopgap",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Three Musketeers",
+      "author": "Alexandre Dumas",
+      "note": "its opening lines are quoted and analyzed",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Tristram Shandy",
+      "author": "Laurence Sterne",
+      "note": "cited for its digressive staircase scene spanning three chapters",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Critique of Pure Reason",
+      "author": "Immanuel Kant",
+      "note": "contrasted with Kant's Critique of Judgment on aesthetics",
+      "confidence": "medium"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Mein Kampf",
+      "author": "Adolf Hitler",
+      "note": "used as an example in a discussion of the paradox of material implication",
+      "confidence": "medium"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Foucault's Pendulum",
+      "author": "Umberto Eco",
+      "note": "discussed extensively, including its Rosicrucian research and character Casaubon",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Baudolino",
+      "author": "Umberto Eco",
+      "note": "mentioned as written in Winword, and its origins traced to an earlier lecture on forgeries",
+      "confidence": "medium"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Order of Things",
+      "author": "Michel Foucault",
+      "note": "\"I had read The Order of Things when it came out in 1966\"",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Bouvard et Pécuchet",
+      "author": "Gustave Flaubert",
+      "note": "Eco says he thought a lot about Flaubert's book while writing Foucault's Pendulum",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Magic Mountain",
+      "author": "Thomas Mann",
+      "note": "critics saw an allusion to its Naphta-Settembrini dialogues in The Name of the Rose",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "The Book of Kells",
+      "author": "Anonymous (medieval Irish manuscript)",
+      "note": "discussed at length in connection with Joyce's Finnegans Wake",
+      "confidence": "high"
+    },
+    {
+      "source": "On Literature",
+      "mentioned": "Corpus Hermeticum",
+      "author": "Anonymous",
+      "note": "referenced regarding the character name Casaubon in Foucault's Pendulum",
+      "confidence": "medium"
+    },
+    {
+      "source": "Our Gang",
+      "mentioned": "A Voyage to the Houyhnhnms (Gulliver's Travels)",
+      "author": "Jonathan Swift",
+      "note": "Epigraph: \"—Jonathan Swift, A Voyage to the Houyhnhnms, 1726\" followed by the passage on lying and false representation.",
+      "confidence": "high"
+    },
+    {
+      "source": "Our Gang",
+      "mentioned": "Politics and the English Language",
+      "author": "George Orwell",
+      "note": "Epigraph: \"—George Orwell, 'Politics and the English Language,' 1946\" followed by the quoted passage on political language and lies.",
+      "confidence": "high"
+    }
+  ]
+}
