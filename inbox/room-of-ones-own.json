@@ -1,0 +1,21 @@
+{
+  "_readme": "A Room of One's Own — sourced from gutenberg.ca (Woolf died 1941; PD in Canada since 1991, and PD in the US as of 2025 under the 95-year rule since it was published 1929).",
+  "books": [
+    { "title": "A Room of One's Own", "author": "Virginia Woolf", "year": 1929,
+      "synopsis": "Invited to lecture on women and fiction, Woolf argues that a woman needs money and a room of her own to write at all, tracing the silencing of women's genius from Shakespeare's imagined sister to the present.",
+      "genre": "POLITICS & WORLD" }
+  ],
+  "mentions": [
+    { "source": "A Room of One's Own", "mentioned": "Lycidas", "author": "John Milton" },
+    { "source": "A Room of One's Own", "mentioned": "The History of Henry Esmond", "author": "William Makepeace Thackeray" },
+    { "source": "A Room of One's Own", "mentioned": "King Lear", "author": "William Shakespeare" },
+    { "source": "A Room of One's Own", "mentioned": "Antony and Cleopatra", "author": "William Shakespeare" },
+    { "source": "A Room of One's Own", "mentioned": "The French Revolution: A History", "author": "Thomas Carlyle" },
+    { "source": "A Room of One's Own", "mentioned": "Madame Bovary", "author": "Gustave Flaubert" },
+    { "source": "A Room of One's Own", "mentioned": "The Golden Bough", "author": "James George Frazer" },
+    { "source": "A Room of One's Own", "mentioned": "History of England", "author": "G. M. Trevelyan" },
+    { "source": "A Room of One's Own", "mentioned": "Emily Davies and Girton College", "author": "Barbara Stephen" },
+    { "source": "A Room of One's Own", "mentioned": "The Cause", "author": "Ray Strachey" },
+    { "source": "A Room of One's Own", "mentioned": "The Journal of a Tour to the Hebrides", "author": "James Boswell" }
+  ]
+}

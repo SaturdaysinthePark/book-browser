@@ -1,0 +1,32 @@
+{
+  "_readme": "Task A: enrich 12 existing stub identities with metadata. Task B: 8 genuinely new books, two of which (Antigone/Sophocles, The Art of War/Sun Tzu) intentionally share a title with a pre-existing different-author entry and rely on the author field to disambiguate into a distinct identity.",
+  "books": [
+    { "title": "As You Like It", "author": "William Shakespeare", "year": 1599, "synopsis": "Banished to the Forest of Arden, Rosalind disguises herself as a boy and coaches the lovesick Orlando in wooing her — herself.", "genre": "DRAMA & PLAYS" },
+    { "title": "The Merchant of Venice", "author": "William Shakespeare", "year": 1596, "synopsis": "Antonio borrows from the moneylender Shylock on a bond of a pound of flesh to help his friend Bassanio woo Portia, who saves him in court disguised as a lawyer.", "genre": "DRAMA & PLAYS" },
+    { "title": "Antony and Cleopatra", "author": "William Shakespeare", "year": 1607, "synopsis": "The Roman general Antony's infatuation with Egypt's queen pulls him from duty and Octavius Caesar's favor, ending in war, defeat, and the lovers' shared suicide.", "genre": "DRAMA & PLAYS" },
+    { "title": "Much Ado about Nothing", "author": "William Shakespeare", "year": 1599, "synopsis": "Benedick and Beatrice are tricked into confessing a love they'd sworn off, while a slander nearly wrecks the wedding of Claudio and Hero.", "genre": "DRAMA & PLAYS" },
+    { "title": "The Tempest", "author": "William Shakespeare", "year": 1611, "synopsis": "The exiled sorcerer-duke Prospero wrecks his usurping brother's ship on his enchanted island, commanding the spirit Ariel and the monstrous Caliban to orchestrate his revenge and reconciliation.", "genre": "DRAMA & PLAYS" },
+    { "title": "Twelfth Night", "author": "William Shakespeare", "year": 1602, "synopsis": "Shipwrecked Viola disguises herself as a boy to serve Duke Orsino, falls for him herself, and is mistakenly wooed by the lady Olivia — while the steward Malvolio is gulled into public humiliation.", "genre": "DRAMA & PLAYS" },
+    { "title": "Crito", "author": "Plato", "year": 0, "synopsis": "Awaiting execution in his Athens prison cell, Socrates refuses his wealthy friend Crito's offer of an escape, arguing that a citizen who has enjoyed a state's laws his whole life has no right to break them now.", "genre": "PHILOSOPHY" },
+    { "title": "Gorgias", "author": "Plato", "year": 0, "synopsis": "Socrates corners the celebrated rhetorician Gorgias and his followers into admitting that oratory divorced from justice is mere flattery, and that suffering wrong is better than committing it.", "genre": "PHILOSOPHY" },
+    { "title": "In Search of the Castaways", "author": "Jules Verne", "year": 1868, "synopsis": "A water-damaged message found in a shark leads Lord Glenarvan's expedition around the entire 37th parallel — through the Andes, the Argentine pampas, and the Australian bush — hunting a shipwrecked captain.", "genre": "ADVENTURE & TRAVEL" },
+    { "title": "The City of God", "author": "Augustine of Hippo", "year": 426, "synopsis": "Written after Rome's sack by the Goths, Augustine answers pagans blaming Christianity for the disaster by dismantling Roman religion and history and contrasting the earthly city with the eternal one.", "genre": "PHILOSOPHY" },
+    { "title": "Bhagavad Gita", "author": "Anonymous", "year": 0, "synopsis": "On the battlefield of Kurukshetra, the warrior Arjuna's crisis of conscience over killing his own kinsmen prompts the god Krishna to expound duty, the soul's immortality, and paths to liberation.", "genre": "PHILOSOPHY" },
+    { "title": "Tao Te Ching", "author": "Laozi", "year": 0, "synopsis": "Eighty-one terse verses on the Tao teach effortless action, humility, and rule through non-interference rather than force.", "genre": "PHILOSOPHY" },
+
+    { "title": "Antigone", "author": "Sophocles", "year": -441, "synopsis": "Defying King Creon's decree that her rebel brother Polynices lie unburied, Antigone buries him and is sealed alive in a tomb, setting off a chain of suicides that breaks Creon's house.", "genre": "DRAMA & PLAYS" },
+    { "title": "The Persians", "author": "Aeschylus", "year": -472, "synopsis": "At the Persian court, news arrives of Xerxes' catastrophic naval defeat at Salamis, and the ghost of the dead king Darius rises to warn against the hubris that caused it.", "genre": "DRAMA & PLAYS" },
+    { "title": "Meno", "author": "Plato", "year": 0, "synopsis": "Meno asks Socrates whether virtue can be taught; Socrates instead demonstrates, by walking an untutored slave boy through a geometry problem, that learning is really recollection of truths the soul already holds.", "genre": "PHILOSOPHY" },
+    { "title": "The Romance of Tristan and Iseult", "author": "Joseph Bédier", "year": 1900, "synopsis": "Tristan wins the Irish princess Iseult as a bride for his uncle King Mark, but a love potion drunk by accident binds the two of them instead, dooming them to a secret passion that ends only in death.", "genre": "FANTASY" },
+    { "title": "Dick Sand: A Captain at Fifteen", "author": "Jules Verne", "year": 1878, "synopsis": "When a whaling ship's officers are lost at sea, its fifteen-year-old apprentice takes command, only for a treacherous cook to secretly steer them off course into captivity in equatorial Africa.", "genre": "ADVENTURE & TRAVEL" },
+    { "title": "The Analects", "author": "Confucius", "year": 0, "synopsis": "Fragmentary sayings and dialogues of Confucius and his disciples, compiled after his death, on virtue, ritual propriety, and good government.", "genre": "PHILOSOPHY" },
+    { "title": "The Art of War", "author": "Sun Tzu", "year": -500, "synopsis": "A terse military treatise on deception, terrain, and calculation, arguing that the greatest general wins the war before it is ever fought.", "genre": "POLITICS & WORLD" },
+    { "title": "The Dhammapada", "author": "Anonymous", "year": 0, "synopsis": "A collection of aphoristic verses attributed to the Buddha's own sayings, on mastering the mind and escaping suffering through right conduct.", "genre": "PHILOSOPHY" }
+  ],
+  "mentions": [
+    { "source": "Crito", "mentioned": "Iliad", "author": "Homer" },
+    { "source": "Dick Sand: A Captain at Fifteen", "mentioned": "Livingstone's Travels", "author": "David Livingstone" },
+    { "source": "The City of God", "mentioned": "De Republica", "author": "Marcus Tullius Cicero" },
+    { "source": "The Analects", "mentioned": "The Book of Odes", "author": "Anonymous" }
+  ]
+}

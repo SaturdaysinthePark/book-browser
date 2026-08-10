@@ -1,0 +1,35 @@
+{
+  "books": [
+    { "title": "Phineas Redux", "author": "Anthony Trollope", "year": 1874, "synopsis": "Phineas Finn returns to Parliament only to be framed for the murder of his rival Mr. Bonteen, and Trollope turns the back half of his Palliser series into a courtroom drama, with Madame Max Goesler racing to dig up the evidence that saves Phineas from the gallows.", "genre": "FICTION" },
+    { "title": "The Duke's Children", "author": "Anthony Trollope", "year": 1880, "synopsis": "Widowed Duke of Omnium Plantagenet Palliser tries to steer his three grown children away from marriages and habits he can't control: son Silverbridge switches political parties, wrecks money on a crooked racehorse partnership, and falls for an American commoner, Isabel Boncassen; daughter Mary refuses every suitor but the penniless Frank Tregear; and Gerald gambles his way out of Cambridge. The Duke's resistance crumbles chapter by chapter until he gives his blessing to the matches he once forbade.", "genre": "FICTION" },
+    { "title": "Demos", "author": "George Gissing", "year": 1886, "synopsis": "A working-class London radical unexpectedly inherits a Midlands ironmaster's fortune and land, and tries to build a socialist industrial community on it while his own vanity, an unhappy marriage of convenience, and old class loyalties corrode the project from within; his sudden violent death hands the estate back to the dispossessed gentry heir, who quietly undoes the socialist scheme and wins the woman his rival had married for status.", "genre": "FICTION" },
+    { "title": "Born in Exile", "author": "George Gissing", "year": 1892, "synopsis": "A brilliant, poor young scientist fakes a religious conversion to court a clergyman's daughter and buy his way into respectable society, but his hidden contempt for the faith he's performing eats at him until the deception collapses and strips him of the life he engineered. He drifts abroad in disgrace and dies alone, far from home.", "genre": "FICTION" },
+    { "title": "The Black Robe", "author": "Wilkie Collins", "year": 1881, "synopsis": "Wealthy, guilt-haunted Lewis Romayne kills a man in a duel and becomes the target of Father Benwell, a Jesuit who schemes to steer Romayne's fortune and his troubled marriage to Stella Eyrecourt toward the Church. Benwell's manipulations, built on a hidden connection between Stella and the dead man's widow, drive Romayne from his wife and child into the priesthood, wrecking the marriage he swore to protect.", "genre": "FICTION" },
+    { "title": "Hereward the Wake", "author": "Charles Kingsley", "year": 1866, "synopsis": "Hereward, exiled for his wild youth, fights as a mercenary across Flanders and Ireland before storming home when the Normans conquer England. He rallies Saxon outlaws in the Fens around Ely for a doomed guerrilla war against William the Conqueror, and ends his life broken and half-forgotten, a last relic of the England that vanished with Harold at Hastings.", "genre": "ADVENTURE & TRAVEL" }
+  ],
+  "mentions": [
+    { "source": "Phineas Redux", "mentioned": "Hamlet", "author": "William Shakespeare" },
+    { "source": "Phineas Redux", "mentioned": "Macbeth", "author": "William Shakespeare" },
+    { "source": "Phineas Redux", "mentioned": "Othello", "author": "William Shakespeare" },
+    { "source": "Phineas Redux", "mentioned": "Eugene Aram", "author": "Edward Bulwer-Lytton" },
+    { "source": "The Duke's Children", "mentioned": "The Pilgrim's Progress", "author": "John Bunyan" },
+    { "source": "The Duke's Children", "mentioned": "Irish Melodies", "author": "Thomas Moore" },
+    { "source": "Demos", "mentioned": "Das Kapital", "author": "Karl Marx" },
+    { "source": "Demos", "mentioned": "Vita Nuova", "author": "Dante Alighieri" },
+    { "source": "Born in Exile", "mentioned": "The World before the Deluge", "author": "Louis Figuier" },
+    { "source": "Born in Exile", "mentioned": "The Origin of Species", "author": "Charles Darwin" },
+    { "source": "Born in Exile", "mentioned": "Bridgewater Treatise", "author": "William Buckland" },
+    { "source": "Born in Exile", "mentioned": "The Soul, Her Sorrows and Her Aspirations", "author": "Francis William Newman" },
+    { "source": "Born in Exile", "mentioned": "A Monograph of the British Fossil Brachiopoda", "author": "Thomas Davidson" },
+    { "source": "Hereward the Wake", "mentioned": "The Aeneid", "author": "Virgil" },
+    { "source": "Hereward the Wake", "mentioned": "King Lear", "author": "William Shakespeare" }
+  ],
+  "genres": [
+    { "title": "Phineas Redux", "genre": "FICTION" },
+    { "title": "The Duke's Children", "genre": "FICTION" },
+    { "title": "Demos", "genre": "FICTION" },
+    { "title": "Born in Exile", "genre": "FICTION" },
+    { "title": "The Black Robe", "genre": "FICTION" },
+    { "title": "Hereward the Wake", "genre": "ADVENTURE & TRAVEL" }
+  ]
+}

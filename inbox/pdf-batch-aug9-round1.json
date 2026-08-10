@@ -1,0 +1,1456 @@
+{
+  "_readme": "Round 1 of 7 — big august 9th batch (in-copyright PDFs). 24 of 25 books processed; Atomic Habits excluded (PDF extraction yielded only ~5K chars, insufficient to ground a synopsis — flagged for retry). Synopses grounded in real detect.mjs-extracted text; mentions curated from candidates.json per docs/detector.md exclusion rules; genres per tools/genres.mjs.",
+  "books": [
+    {
+      "title": "1776",
+      "author": "David McCullough",
+      "year": 2005,
+      "synopsis": "Narrative history of the year 1776, following George Washington and the Continental Army from the siege of Boston through the disastrous defense of New York, the retreat across New Jersey, and the crossing of the Delaware to the counterstrokes at Trenton and Princeton.",
+      "genre": "HISTORY"
+    },
+    {
+      "title": "21 Lessons for the 21st Century",
+      "author": "Yuval Noah Harari",
+      "year": 2018,
+      "synopsis": "A collection of essays on how technological disruption, biotechnology, and artificial intelligence are undermining the political and religious stories that structured twentieth-century life, covering topics from work and data to nationalism, immigration, terrorism, and post-truth politics.",
+      "genre": "PHILOSOPHY"
+    },
+    {
+      "title": "A Little Life",
+      "author": "Hanya Yanagihara",
+      "year": 2015,
+      "synopsis": "Four college friends—Willem, JB, Malcolm, and Jude—build careers and share an apartment in New York, and the novel widens over decades into the backstory of Jude St. Francis, a lawyer whose ruined legs, scarred body, and secret cutting trace back to abuse by Brother Luke at a monastery and years of exploitation before he was taken in by his law professor Harold.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "A Mercy",
+      "author": "Toni Morrison",
+      "year": 2008,
+      "synopsis": "In 1680s colonial Virginia, the trader Jacob Vaark takes in Florens, an enslaved girl offered to him by her mother in payment of a debt, to join the household of women bound to his remote farm. Told in shifting first-person voices, the novel traces how Jacob's death from smallpox and the fragile bonds among these women unravel the household, while Florens searches for the free black blacksmith she loves.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "A People's History of the United States",
+      "author": "Howard Zinn",
+      "year": 1980,
+      "synopsis": "A narrative history of the United States running from Columbus's 1492 landing through the 2000 election, told deliberately from the standpoint of Arawaks, indentured servants and slaves, industrial workers, immigrants, women, and dissenters rather than the 'Founding Fathers,' generals, and presidents who usually anchor textbook accounts.",
+      "genre": "HISTORY"
+    },
+    {
+      "title": "A Raisin in the Sun",
+      "author": "Lorraine Hansberry",
+      "year": 1959,
+      "synopsis": "The Younger family in 1950s Chicago clashes over what to do with a $10,000 life-insurance check, as son Walter's dream of a liquor-store investment collides with his mother's plan to buy a house in the white neighborhood of Clybourne Park.",
+      "genre": "DRAMA & PLAYS"
+    },
+    {
+      "title": "A Short History of Nearly Everything",
+      "author": "Bill Bryson",
+      "year": 2003,
+      "synopsis": "Bryson traces how scientists pieced together the history of the universe, the Earth, and life itself, from Darwin's On the Origin of Species through geology, chemistry, and paleontology, dwelling on the eccentric, often overlooked people who made the discoveries.",
+      "genre": "MISC"
+    },
+    {
+      "title": "A Thousand Splendid Suns",
+      "author": "Khaled Hosseini",
+      "year": 2007,
+      "synopsis": "Mariam, an illegitimate girl married off to the abusive shoemaker Rasheed, and Laila, a younger neighbor forced into the same marriage after losing her family and her love Tariq to war, forge a fierce bond as they endure decades of violence and upheaval in Kabul.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "A Walk to Remember",
+      "author": "Nicholas Sparks",
+      "year": 1999,
+      "synopsis": "In 1958 Beaufort, North Carolina, minister's daughter Jamie Sullivan draws reluctant high school senior Landon Carter into her Christmas play and her Bible readings, and he falls for her as she conceals that she is dying of leukemia.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "A Man Called Ove",
+      "author": "Fredrik Backman",
+      "year": 2012,
+      "synopsis": "Ove, a rigid fifty-nine-year-old widower obsessed with rules and his Saab, keeps having his repeated suicide attempts interrupted by a pregnant new neighbor, her family, and a stray cat that gradually pull him back into life.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "author": "Bill Bryson",
+      "year": 1998,
+      "synopsis": "A middle-aged travel writer resolves to hike all 2,100-plus miles of the Appalachian Trail from Georgia to Maine with his out-of-shape, recovering-alcoholic old friend Katz, and the two stumble through blizzards, bears, exhaustion, and the trail's oddball hikers and towns while never quite making it the whole way.",
+      "genre": "ADVENTURE & TRAVEL"
+    },
+    {
+      "title": "Alias Grace",
+      "author": "Margaret Atwood",
+      "year": 1996,
+      "synopsis": "A convicted servant-girl in 1850s Canada, imprisoned since sixteen for the axe-murder of her employer and his housekeeper-mistress, is interviewed by a young doctor probing her patchy, contradictory memories of the killings while she recalls her immigrant childhood and the fatal household she worked in before the crime.",
+      "genre": "CRIME & MYSTERY"
+    },
+    {
+      "title": "All the Light We Cannot See",
+      "author": "Anthony Doerr",
+      "year": 2014,
+      "synopsis": "A blind French girl hides in her great-uncle's house in besieged Saint-Malo with a legendary cursed diamond, while a German orphan boy conscripted into the Wehrmacht for his gift with radios is sent to hunt the Resistance transmission she depends on, their paths converging as Allied bombs fall on the walled city in August 1944.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "All the Pretty Horses",
+      "author": "Cormac McCarthy",
+      "year": 1992,
+      "synopsis": "After his grandfather's death and the loss of the family ranch, teenage John Grady Cole leaves West Texas on horseback with his friend Rawlins, crossing into Mexico where a runaway boy named Blevins draws them into trouble with the rurales and John Grady falls for the daughter of a wealthy hacienda owner.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "American Pastoral",
+      "author": "Philip Roth",
+      "year": 1997,
+      "synopsis": "Narrator Nathan Zuckerman reconstructs the life of Seymour 'Swede' Levov, the golden athlete of Weequahic's Jewish community who inherits his father's Newark glove factory and builds a seemingly ideal life, only to have it shattered when his stuttering teenage daughter Merry bombs the local general store and post office in protest of the Vietnam War, killing a man and vanishing underground.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Anathem",
+      "author": "Neal Stephenson",
+      "year": 2008,
+      "synopsis": "On the planet Arbre, a young monk-like scholar cloistered in a walled mathematical community is drawn out into the wider world when an alien starship enters orbit, forcing the secular authorities and the sequestered orders of philosophers to confront a threat neither can handle alone.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "And Then There Were None",
+      "author": "Agatha Christie",
+      "year": 1939,
+      "synopsis": "Ten strangers, each secretly guilty of a death they've escaped punishment for, are lured to an isolated island off the Devon coast, where an unseen accuser broadcasts their crimes and murders them one by one in the pattern of an old nursery rhyme.",
+      "genre": "CRIME & MYSTERY"
+    },
+    {
+      "title": "Angela's Ashes",
+      "author": "Frank McCourt",
+      "year": 1996,
+      "synopsis": "A memoir of a childhood spent in Depression-era Brooklyn and then Limerick, Ireland, where poverty, a drunken father, dead infant siblings, and a devoutly Catholic upbringing shape a boy's slow, resourceful climb toward escaping back to America.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Angels & Demons",
+      "author": "Dan Brown",
+      "year": 2000,
+      "synopsis": "After a CERN physicist is branded with an ambigram and murdered, Harvard symbologist Robert Langdon and physicist Vittoria Vetra race across Rome to stop the resurrected Illuminati from detonating stolen antimatter beneath the Vatican during a papal conclave.",
+      "genre": "CRIME & MYSTERY"
+    },
+    {
+      "title": "Another Country",
+      "author": "James Baldwin",
+      "year": 1962,
+      "synopsis": "A Black jazz musician in New York self-destructs through an abusive affair with a white woman and jumps off the George Washington Bridge, and his death exposes the tangled, interracial, and bisexual relationships among the friends and sister he leaves behind in Greenwich Village and beyond.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Astrophysics for People in a Hurry",
+      "author": "Neil deGrasse Tyson",
+      "year": 2017,
+      "synopsis": "A concise tour through modern astrophysics, from the Big Bang and the formation of matter through dark matter, dark energy, the electromagnetic spectrum, and the planets of the solar system, closing with reflections on humanity's cosmic perspective.",
+      "genre": "MISC"
+    },
+    {
+      "title": "Atonement",
+      "author": "Ian McEwan",
+      "year": 2001,
+      "synopsis": "In the summer of 1935, thirteen-year-old Briony Tallis misinterprets an encounter between her sister Cecilia and the housekeeper's son Robbie Turner, then falsely accuses Robbie of a crime, sending him to prison and later to war, a lie whose consequences Briony spends the rest of her life trying to atone for as a novelist rewriting the truth.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Books: A Memoir",
+      "author": "Larry McMurtry",
+      "year": 2008,
+      "synopsis": "The novelist-turned-antiquarian-bookseller traces his life from a bookless Texas ranch childhood through decades of scouting, buying, and dealing rare books at his Georgetown and Archer City shops, Booked Up.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "The Baron in the Trees",
+      "author": "Italo Calvino",
+      "year": 1957,
+      "synopsis": "After a childhood quarrel with his father, young Cosimo Piovasco di Rondò climbs into the trees of his family's Ligurian estate and vows never to set foot on the ground again, living out the rest of his life aloft while hunting, reading Enlightenment texts, corresponding with Diderot, falling for a girl named Viola, and getting drawn into the political upheavals of his era from among the branches.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "1776",
+      "mentioned": "Common Sense",
+      "author": "Thomas Paine",
+      "note": "This he attributed in good part to the pamphlet Common Sense, published earlier in the year, the author of which, Thomas Paine, was as yet unknown.",
+      "confidence": "high"
+    },
+    {
+      "source": "1776",
+      "mentioned": "Henry V",
+      "author": "William Shakespeare",
+      "note": "Graydon could never recall that night without thinking of the scene in Shakespeare's Henry V of the long night wait before the Battle of Agincourt",
+      "confidence": "high"
+    },
+    {
+      "source": "1776",
+      "mentioned": "The Expedition of Humphrey Clinker",
+      "author": "Tobias Smollett",
+      "note": "In a popular English novel of the day, The Expedition of Humphrey Clinker, Tobias Smollett wrote...",
+      "confidence": "high"
+    },
+    {
+      "source": "1776",
+      "mentioned": "An Essay Concerning Human Understanding",
+      "author": "John Locke",
+      "note": "Nathanael read Caesar and Horace in English translation, Swift, Pope, and Locke's Essay Concerning Human Understanding.",
+      "confidence": "high"
+    },
+    {
+      "source": "1776",
+      "mentioned": "Memoirs Concerning the Art of War",
+      "author": "Maurice de Saxe",
+      "note": "the first of all qualities [of a general] is courage, he read in the Memoirs Concerning the Art of War by Marshal Maurice de Saxe",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "On the Origin of Species",
+      "author": "Charles Darwin",
+      "note": "Otto von Bismarck allegedly remarked (having read Darwin's On the Origin of Species)...",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "Nineteen Eighty-Four",
+      "author": "George Orwell",
+      "note": "There is therefore no need for a secret police... à la Orwell's Nineteen Eighty-Four.",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare",
+      "note": "William Shakespeare wrote his version of The Lion King, better known as Hamlet.",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "The Communist Manifesto",
+      "author": "Karl Marx and Friedrich Engels",
+      "note": "The Communist Manifesto opens by proclaiming that: The history of all hitherto existing society is the history of class struggles.",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "Brave New World",
+      "author": "Aldous Huxley",
+      "note": "Huxley addresses this question directly in the novel's climactic moment: the dialogue between Mustapha Mond...and John the Savage.",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "just like other great works of fiction, such as Don Quixote, War and Peace and Harry Potter",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "War and Peace",
+      "author": "Leo Tolstoy",
+      "note": "just like other great works of fiction, such as Don Quixote, War and Peace and Harry Potter",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "Harry Potter",
+      "author": "J.K. Rowling",
+      "note": "some people may be offended by my comparison of the Bible with Harry Potter...",
+      "confidence": "high"
+    },
+    {
+      "source": "21 Lessons for the 21st Century",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "Global politics thus follows the Anna Karenina principle: successful states are all alike, but every failed state fails in its own way.",
+      "confidence": "medium"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "he had been preparing to shoot The Odyssey and was rereading it and The Iliad, neither of which he had looked at since he was a freshman in college",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Iliad",
+      "author": "Homer",
+      "note": "he had been preparing to shoot The Odyssey and was rereading it and The Iliad...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "Common Sense",
+      "author": "Thomas Paine",
+      "note": "he slips away and wedges the disc...between two books—a battered copy of Common Sense and a frayed edition of White Noise—on a low shelf",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "White Noise",
+      "author": "Don DeLillo",
+      "note": "between two books—a battered copy of Common Sense and a frayed edition of White Noise—on a low shelf",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "Dubliners",
+      "author": "James Joyce",
+      "note": "finally he chose a copy of Dubliners: it was thin enough for him to grip, pliable enough to crack against a face",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "Emma",
+      "author": "Jane Austen",
+      "note": "He found a copy of Emma, which he had been reading in class at the college before he ran away",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "Great Expectations",
+      "author": "Charles Dickens",
+      "note": "With Brother Michael, he read Great Expectations...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Bostonians",
+      "author": "Henry James",
+      "note": "Brother Matthew had an original clothbound edition of The Bostonians...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Hobbit",
+      "author": "J. R. R. Tolkien",
+      "note": "Harold read The Hobbit to him, which he had never read...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Leopard",
+      "author": "Giuseppe Tomasi di Lampedusa",
+      "note": "including a copy of The Leopard on whose flyleaf was scrawled: 'Property of Laurence V.'",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Wizard of Oz",
+      "author": "L. Frank Baum",
+      "note": "a third-grade book report, written in Willem's careful cursive, on The Wizard of Oz",
+      "confidence": "medium"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Tempest",
+      "author": "William Shakespeare",
+      "note": "watching as she sketched designs for a production of The Tempest...",
+      "confidence": "medium"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "The Glass Menagerie",
+      "author": "Tennessee Williams",
+      "note": "His senior year, he got a role in the school's production of The Glass Menagerie",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "Uncle Vanya",
+      "author": "Anton Chekhov",
+      "note": "he'd start shooting his first project since he returned from Sri Lanka, an adaptation of Uncle Vanya",
+      "confidence": "high"
+    },
+    {
+      "source": "A Little Life",
+      "mentioned": "A Bright Room Called Day",
+      "author": "Tony Kushner",
+      "note": "he had once almost, almost booked the second lead in the Public Theater production of A Bright Room Called Day",
+      "confidence": "medium"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Looking Backward",
+      "author": "Edward Bellamy",
+      "note": "when he read Edward Bellamy's Looking Backward, it deeply affected him",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Feminine Mystique",
+      "author": "Betty Friedan",
+      "note": "A pioneering, early book, strong and influential, was Betty Friedan's The Feminine Mystique.",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Promise of American Life",
+      "author": "Herbert Croly",
+      "note": "a manifesto of the new Progressivism appeared—a book called The Promise of American Life by Herbert Croly",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Red Badge of Courage",
+      "author": "Stephen Crane",
+      "note": "could not adequately be described except in a novel like Stephen Crane's The Red Badge of Courage",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Wealth Against Commonwealth",
+      "author": "Henry Demarest Lloyd",
+      "note": "Books written by Populist leaders, such as Henry Demarest Lloyd's Wealth Against Commonwealth...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Coin's Financial School",
+      "author": "William Hope Harvey",
+      "note": "and William Harvey Coin's Financial School, were widely read",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Civil Disobedience",
+      "author": "Henry David Thoreau",
+      "note": "printed as an essay, 'Civil Disobedience': It is not desirable to cultivate a respect for the law...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Fathers and Children",
+      "author": "Michael Rogin",
+      "note": "We find these in Michael Rogin's Fathers and Children",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Johnny Got His Gun",
+      "author": "Dalton Trumbo",
+      "note": "write a powerful and chilling antiwar novel...Johnny Got His Gun",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Catch-22",
+      "author": "Joseph Heller",
+      "note": "Joseph Heller's Catch-22, and Norman Mailer's The Naked and the Dead, captured this GI anger",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Common Sense",
+      "author": "Thomas Paine",
+      "note": "Tom Paine's Common Sense, which appeared in early 1776 and became the most popular pamphlet",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Hard Times",
+      "author": "Charles Dickens",
+      "note": "I was reminded of the character in Dickens' Hard Times, the pedant Gradgrind",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Naked and the Dead",
+      "author": "Norman Mailer",
+      "note": "Norman Mailer's The Naked and the Dead, captured this GI anger against the army 'brass'",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Commentaries on the Laws of England",
+      "author": "William Blackstone",
+      "note": "learned their law in the era of Blackstone's Commentaries...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "From Here to Eternity",
+      "author": "James Jones",
+      "note": "James Jones's From Here to Eternity, Joseph Heller's Catch-22...captured this GI anger",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The People of the Abyss",
+      "author": "Jack London",
+      "note": "One of the influences on Upton Sinclair's thinking was a book, People of the Abyss, by Jack London",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Black Boy",
+      "author": "Richard Wright",
+      "note": "His autobiography of 1937, Black Boy, gave endless insights",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Progress and Poverty",
+      "author": "Henry George",
+      "note": "His book Progress and Poverty argued that the basis of wealth was land",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Jungle",
+      "author": "Upton Sinclair",
+      "note": "Upton Sinclair's novel The Jungle, published in 1906, brought the conditions in the meatpacking plants of Chicago to...attention",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "All Quiet on the Western Front",
+      "author": "Erich Maria Remarque",
+      "note": "as Erich Maria Remarque wrote in his great novel...the official dispatches announced 'All Quiet on the Western Front'",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Victors' Justice: The Tokyo War Crimes Trial",
+      "author": "Richard H. Minear",
+      "note": "Richard Minear (Victors' Justice) sums up Pal's view of the embargoes on scrap iron and oil",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Grapes of Wrath",
+      "author": "John Steinbeck",
+      "note": "John Steinbeck, in his novel of the depression, The Grapes of Wrath, describes what happened",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Iron Heel",
+      "author": "Jack London",
+      "note": "In 1906, he wrote his novel The Iron Heel, with its warning of a fascist America",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Power Elite",
+      "author": "C. Wright Mills",
+      "note": "Wright Mills, in his book of the fifties, The Power Elite, counted the military as part of the top elite",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Souls of Black Folk",
+      "author": "W. E. B. Du Bois",
+      "note": "had just written and published his poetic, powerful book The Souls of Black Folk",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Uncle Remus",
+      "author": "Joel Chandler Harris",
+      "note": "Joel Chandler Harris, in his Uncle Remus stories, would have Uncle Remus say...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "A Farewell to Arms",
+      "author": "Ernest Hemingway",
+      "note": "Ernest Hemingway would write A Farewell to Arms.",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Babbitt",
+      "author": "Sinclair Lewis",
+      "note": "Sinclair Lewis captured the false sense of prosperity...in his novel Babbitt",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Iola Leroy; or, Shadows Uplifted",
+      "author": "Frances Ellen Watkins Harper",
+      "note": "she wrote the first novel published by a black woman: Iola Leroy or Shadows Uplifted",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Reflections on the Revolution in France",
+      "author": "Edmund Burke",
+      "note": "Edmund Burke, who had written in his Reflections on the Revolution in France that 'a woman is but an animal...'",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Hamlet",
+      "author": "William Faulkner",
+      "note": "William Faulkner, in his novel The Hamlet, described the man on whom southern farmers depended",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Sisterhood Is Powerful",
+      "author": "Robin Morgan",
+      "note": "In the book Sisterhood Is Powerful, an important collection of women's writing around 1970, an article by Lucinda Cisler...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "American Negro Slavery",
+      "author": "Ulrich Bonnell Phillips",
+      "note": "Ulrich Phillips, a southerner whose American Negro Slavery is a classic study, wrote...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "America's Working Women",
+      "author": "Rosalyn Baxandall",
+      "note": "The authors of America's Working Women (Baxandall, Gordon, and Reverby) describe the situation",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Communist Manifesto",
+      "author": "Karl Marx and Friedrich Engels",
+      "note": "four years before Marx and Engels's Communist Manifesto appeared, the Awl wrote...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Our Bodies, Ourselves",
+      "author": "Boston Women's Health Book Collective",
+      "note": "a book assembled by eleven women in the Boston Women's Health Book Collective called Our Bodies, Ourselves",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Age of Jackson",
+      "author": "Arthur Schlesinger, Jr.",
+      "note": "The Age of Jackson by Arthur Schlesinger...do not mention Jackson's Indian policy",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "The Jacksonian Persuasion",
+      "author": "Marvin Meyers",
+      "note": "The Jacksonian Persuasion by Marvin Meyers...do not mention Jackson's Indian policy",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Woman and the New Race",
+      "author": "Margaret Sanger",
+      "note": "Sanger had written in Woman and the New Race: 'No woman can call herself free who does not own and control her own body.'",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Columbus: His Enterprise",
+      "author": "Hans Koning",
+      "note": "As Hans Koning sums it up in his book Columbus: His Enterprise...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Domestic Manners of the Americans",
+      "author": "Frances Trollope",
+      "note": "Frances Trollope, an Englishwoman, in her book Domestic Manners of the Americans, wrote...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Education and the Rise of the Corporate State",
+      "author": "Joel Spring",
+      "note": "Joel Spring, in his book Education and the Rise of the Corporate State, says...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "American Slavery, American Freedom",
+      "author": "Edmund S. Morgan",
+      "note": "Edmund Morgan writes, in his history of early Virginia, American Slavery, American Freedom",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Time on the Cross",
+      "author": "Robert Fogel and Stanley Engerman",
+      "note": "One recent book on slavery (Robert Fogel and Stanley Engerman, Time on the Cross) looks at whippings...",
+      "confidence": "high"
+    },
+    {
+      "source": "A People's History of the United States",
+      "mentioned": "Against Our Will",
+      "author": "Susan Brownmiller",
+      "note": "A book by Susan Brownmiller, Against Our Will, was widely read",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "On the Origin of Species",
+      "author": "Charles Darwin",
+      "note": "in 1859, in On the Origin of Species, Charles Darwin announced that the geological processes...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "The Descent of Man",
+      "author": "Charles Darwin",
+      "note": "The Descent of Man was altogether a more controversial book than the Origin...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "The Double Helix",
+      "author": "James D. Watson",
+      "note": "As Watson cheerfully...remarked in his autobiographical book The Double Helix...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "Principles of Geology",
+      "author": "Charles Lyell",
+      "note": "It was just at this time that he produced The Principles of Geology, published in three volumes between 1830 and 1833",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "The Map That Changed the World",
+      "author": "Simon Winchester",
+      "note": "The story is comprehensively covered in Simon Winchester's book The Map That Changed the World.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "Brave New World",
+      "author": "Aldous Huxley",
+      "note": "Huxley...used his ideas on genetic manipulation of humans as the basis for the plot of Brave New World.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "Point Counter Point",
+      "author": "Aldous Huxley",
+      "note": "Huxley...parodied him...as the scientist Edward Tantamount in the novel Point Counter Point.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "Frankenstein",
+      "author": "Mary Shelley",
+      "note": "a notion Mary Shelley exploited to full effect in her novel Frankenstein",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "Longitude",
+      "author": "Dava Sobel",
+      "note": "In Dava Sobel's popular book Longitude, Maskelyne is presented as a ninny and villain...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Short History of Nearly Everything",
+      "mentioned": "Wonderful Life",
+      "author": "Stephen Jay Gould",
+      "note": "Gould's Wonderful Life was published in 1989 to general critical acclaim...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Thousand Splendid Suns",
+      "mentioned": "Layla and Majnun",
+      "author": "Nizami Ganjavi",
+      "note": "Rasheed had playfully said, 'If it isn't Laili and Majnoon,' referring to the star-crossed lovers of Nezami's popular twelfth-century romantic poem",
+      "confidence": "medium"
+    },
+    {
+      "source": "A Walk to Remember",
+      "mentioned": "A Christmas Carol",
+      "author": "Charles Dickens",
+      "note": "he wrote this play called The Christmas Angel, because he didn't want to keep on performing that old Charles Dickens classic A Christmas Carol",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk to Remember",
+      "mentioned": "Julius Caesar",
+      "author": "William Shakespeare",
+      "note": "the only thing I could think about was that scene from Julius Caesar where Brutus stabs him in the back",
+      "confidence": "high"
+    },
+    {
+      "source": "A Man Called Ove",
+      "mentioned": "The Old Man and the Sea",
+      "author": "Ernest Hemingway",
+      "note": "The ones she liked, such as The Old Man and the Sea, she'd read so many times that she'd lost count.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Moby-Dick",
+      "author": "Herman Melville",
+      "note": "Herman Melville, living on a farm called Arrowhead on its western side, stared at it from his study window while he wrote Moby-Dick",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Into the Mountains",
+      "author": "Maggie Stier and Ron McAdow",
+      "note": "according to Maggie Stier and Ron McAdow in their excellent Into the Mountains, a history of New England's peaks",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "The Lost Continent",
+      "author": "Bill Bryson",
+      "note": "I had read about it in a wonderful book called The Lost Continent",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Neither Here nor There",
+      "author": "Bill Bryson",
+      "note": "Those of you...who have read Neither Here nor There will recall Katz as my traveling companion around Europe",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Deliverance",
+      "author": "James Dickey",
+      "note": "The word that clings to every hiker's thoughts in north Georgia is Deliverance, the 1970 novel by James Dickey",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Bear Attacks: Their Causes and Avoidance",
+      "author": "Stephen Herrero",
+      "note": "I noticed a volume called Bear Attacks: Their Causes and Avoidance, opened it up at random...",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Natural Acts",
+      "author": "David Quammen",
+      "note": "Consider a small story related by David Quammen in his book Natural Acts",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Delaware Diary",
+      "author": "Frank Dale",
+      "note": "as Frank Dale notes in his excellent book Delaware Diary, there was a flood that even now is remembered as 'the Big One.'",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "In Suspect Terrain",
+      "author": "John McPhee",
+      "note": "as John McPhee notes in In Suspect Terrain, the endearingly named Pithole City went from a population of zero to 15,000",
+      "confidence": "high"
+    },
+    {
+      "source": "A Walk in the Woods: Rediscovering America on the Appalachian Trail",
+      "mentioned": "Meditations at 10,000 Feet",
+      "author": "James Trefil",
+      "note": "In Meditations at 10,000 Feet, writer and geologist James Trefil calculates...",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "Life in the Clearings",
+      "author": "Susanna Moodie",
+      "note": "I first encountered the story of Grace Marks through Susanna Moodie's Life in the Clearings (1853)",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "The Lady of the Lake",
+      "author": "Sir Walter Scott",
+      "note": "She'd taken a copy of The Lady of the Lake by Sir Walter Scott out of the library",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "Oliver Twist",
+      "author": "Charles Dickens",
+      "note": "has stated publicly that she is very fond of Charles Dickens, and in especial of Oliver Twist.",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "The Scarlet Letter",
+      "author": "Nathaniel Hawthorne",
+      "note": "He is surprised to find a clergyman reading Hawthorne...especially after The Scarlet Letter...",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "The Ring and the Book",
+      "author": "Robert Browning",
+      "note": "epigraph — Robert Browning, The Ring and the Book, 1869.",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "The Book of Household Management",
+      "author": "Isabella Beeton",
+      "note": "epigraph — Isabella Beeton, Beeton's Book of Household Management, 1859-61.",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "The Angel in the House",
+      "author": "Coventry Patmore",
+      "note": "epigraph — Coventry Patmore, The Angel in the House, 1854.",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "The Earthly Paradise",
+      "author": "William Morris",
+      "note": "epigraph — William Morris, The Earthly Paradise, 1868.",
+      "confidence": "high"
+    },
+    {
+      "source": "Alias Grace",
+      "mentioned": "Maud",
+      "author": "Alfred, Lord Tennyson",
+      "note": "epigraph — Alfred, Lord Tennyson, Maud, 1855.",
+      "confidence": "high"
+    },
+    {
+      "source": "All the Light We Cannot See",
+      "mentioned": "Twenty Thousand Leagues Under the Sea",
+      "author": "Jules Verne",
+      "note": "She reads the first half of Twenty Thousand Leagues Under the Sea so many times, she practically memorizes it.",
+      "confidence": "high"
+    },
+    {
+      "source": "All the Light We Cannot See",
+      "mentioned": "Around the World in Eighty Days",
+      "author": "Jules Verne",
+      "note": "She has read Around the World in Eighty Days until the Braille is soft and fraying.",
+      "confidence": "high"
+    },
+    {
+      "source": "All the Light We Cannot See",
+      "mentioned": "The Three Musketeers",
+      "author": "Alexandre Dumas",
+      "note": "for this year's birthday, her father has bought her an even fatter book: Dumas's The Three Musketeers.",
+      "confidence": "high"
+    },
+    {
+      "source": "All the Light We Cannot See",
+      "mentioned": "The Birds of America",
+      "author": "John James Audubon",
+      "note": "In the corner of her great-uncle's study, amid a tumult of books, he finds a copy of Birds of America.",
+      "confidence": "high"
+    },
+    {
+      "source": "All the Light We Cannot See",
+      "mentioned": "The Voyage of the Beagle",
+      "author": "Charles Darwin",
+      "note": "he does have Darwin, he says, and reads to her from The Voyage of the Beagle...",
+      "confidence": "high"
+    },
+    {
+      "source": "All the Light We Cannot See",
+      "mentioned": "The Principles of Mechanics",
+      "author": "Heinrich Hertz",
+      "note": "Werner's mind drifts; he is thinking about the book in his lap, The Principles of Mechanics by Heinrich Hertz.",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "The Kid from Tomkinsville",
+      "author": "John R. Tunis",
+      "note": "I came to that book and to other of Tunis's baseball books—Iron Duke, The Duke Decides, Champion's Choice, Keystone Kids, Rookie of the Year",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "Iron Duke",
+      "author": "John R. Tunis",
+      "note": "other of Tunis's baseball books—Iron Duke, The Duke Decides, Champion's Choice, Keystone Kids, Rookie of the Year",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "The Duke Decides",
+      "author": "John R. Tunis",
+      "note": "other of Tunis's baseball books—Iron Duke, The Duke Decides, Champion's Choice, Keystone Kids, Rookie of the Year",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "Keystone Kids",
+      "author": "John R. Tunis",
+      "note": "other of Tunis's baseball books—Iron Duke, The Duke Decides, Champion's Choice, Keystone Kids, Rookie of the Year",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "Rookie of the Year",
+      "author": "John R. Tunis",
+      "note": "other of Tunis's baseball books—Iron Duke, The Duke Decides, Champion's Choice, Keystone Kids, Rookie of the Year",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "The Communist Manifesto",
+      "author": "Karl Marx and Friedrich Engels",
+      "note": "There was a copy of The Communist Manifesto.",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "The Death of Ivan Ilyich",
+      "author": "Leo Tolstoy",
+      "note": "Ivan Ilych's life, writes Tolstoy, summarizing, right at the outset, his judgment of the presiding judge",
+      "confidence": "high"
+    },
+    {
+      "source": "American Pastoral",
+      "mentioned": "The Red Badge of Courage",
+      "author": "Stephen Crane",
+      "note": "On Red Badge of Courage.",
+      "confidence": "high"
+    },
+    {
+      "source": "Angels & Demons",
+      "mentioned": "Paradise Lost",
+      "author": "John Milton",
+      "note": "The poem is signed John Milton. The influential English poet who wrote Paradise Lost...",
+      "confidence": "medium"
+    },
+    {
+      "source": "Angela's Ashes",
+      "mentioned": "The Deserted Village",
+      "author": "Oliver Goldsmith",
+      "note": "In seventh class he hands out a small book, a poem that goes on for pages and pages, The Deserted Village, by Oliver Goldsmith.",
+      "confidence": "high"
+    },
+    {
+      "source": "Angela's Ashes",
+      "mentioned": "Gulliver's Travels",
+      "author": "Jonathan Swift",
+      "note": "There's a book over there on the table, Gulliver's Travels.",
+      "confidence": "high"
+    },
+    {
+      "source": "Angela's Ashes",
+      "mentioned": "A Modest Proposal",
+      "author": "Jonathan Swift",
+      "note": "Look in the back for another thing, A Modest Proposal. Read that to me.",
+      "confidence": "high"
+    },
+    {
+      "source": "Angela's Ashes",
+      "mentioned": "Tom Brown's School-Days",
+      "author": "Thomas Hughes",
+      "note": "She brings me a book called Tom Brown's School-Days, which is hard to read",
+      "confidence": "high"
+    },
+    {
+      "source": "Angela's Ashes",
+      "mentioned": "Jail Journal",
+      "author": "John Mitchel",
+      "note": "Dad lets me read his favorite book, John Mitchel's Jail Journal...",
+      "confidence": "high"
+    },
+    {
+      "source": "Angela's Ashes",
+      "mentioned": "Butler's Lives of the Saints",
+      "author": "Alban Butler",
+      "note": "There are four big books, Butler's Lives of the Saints.",
+      "confidence": "high"
+    },
+    {
+      "source": "Another Country",
+      "mentioned": "The Possessed",
+      "author": "Fyodor Dostoevsky",
+      "note": "They've got some wild idea out there of making a movie version of The Possessed—The Dostoievski novel",
+      "confidence": "high"
+    },
+    {
+      "source": "Another Country",
+      "mentioned": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "note": "It's even been compared to Crime and Punishment—because they both have such a simple story line",
+      "confidence": "high"
+    },
+    {
+      "source": "Another Country",
+      "mentioned": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "note": "'It'd be the biggest battle since the Civil War.' 'Or since Romeo and Juliet,' Belle suggested.",
+      "confidence": "high"
+    },
+    {
+      "source": "Another Country",
+      "mentioned": "Death in Venice",
+      "author": "Thomas Mann",
+      "note": "I can't be sure that one fine day, I won't get all hung up on some boy—like that cat in Death In Venice.",
+      "confidence": "high"
+    },
+    {
+      "source": "Another Country",
+      "mentioned": "Victory",
+      "author": "Joseph Conrad",
+      "note": "Book Two epigraph — CONRAD, Victory",
+      "confidence": "high"
+    },
+    {
+      "source": "Another Country",
+      "mentioned": "Sonnet LXV",
+      "author": "William Shakespeare",
+      "note": "Book Three epigraph — SHAKESPEARE, Sonnet LXV",
+      "confidence": "high"
+    },
+    {
+      "source": "Astrophysics for People in a Hurry",
+      "mentioned": "Finnegans Wake",
+      "author": "James Joyce",
+      "note": "physicist Murray Gell-Mann drew the name 'quark' from a line in James Joyce's Finnegans Wake: 'Three quarks for Muster Mark!'",
+      "confidence": "high"
+    },
+    {
+      "source": "Atonement",
+      "mentioned": "Northanger Abbey",
+      "author": "Jane Austen",
+      "note": "Epigraph — Jane Austen, Northanger Abbey",
+      "confidence": "high"
+    },
+    {
+      "source": "Atonement",
+      "mentioned": "Clarissa",
+      "author": "Samuel Richardson",
+      "note": "as she read her way through Richardson's Clarissa.",
+      "confidence": "high"
+    },
+    {
+      "source": "Atonement",
+      "mentioned": "The Waves",
+      "author": "Virginia Woolf",
+      "note": "She had read Virginia Woolf's The Waves three times and thought that a great transformation was being worked in human nature itself...",
+      "confidence": "high"
+    },
+    {
+      "source": "Atonement",
+      "mentioned": "A Shropshire Lad",
+      "author": "A. E. Housman",
+      "note": "Beyond the compass were his copies of Auden's Poems and Housman's A Shropshire Lad.",
+      "confidence": "high"
+    },
+    {
+      "source": "Atonement",
+      "mentioned": "Paradise Lost",
+      "author": "John Milton",
+      "note": "it surely proved the case of Paradise Lost in reverse—the heroine became more loathsome as her death-fixated virtue was revealed.",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Tent Life in Siberia",
+      "author": "George Kennan",
+      "note": "the book that introduced me to the pleasures of inspired travel writing was called Tent Life in Siberia, by George Kennan",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Ulysses",
+      "author": "James Joyce",
+      "note": "Probably its most daring act was to publish several installments of James Joyce's Ulysses",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Seven Pillars of Wisdom",
+      "author": "T. E. Lawrence",
+      "note": "Lawrence's Seven Pillars of Wisdom, a fifty-thousand-dollar book these days",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Go Tell It on the Mountain",
+      "author": "James Baldwin",
+      "note": "I got a nice copy of James Baldwin's Go Tell It on the Mountain",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Nicholas and Alexandra",
+      "author": "Robert K. Massie",
+      "note": "Robert Massie's Nicholas and Alexandra, and I have been reading about the two world wars ever since",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Guns of August",
+      "author": "Barbara Tuchman",
+      "note": "Barbara Tuchman's The Guns of August and Robert Massie's Nicholas and Alexandra",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Big Sleep",
+      "author": "Raymond Chandler",
+      "note": "There's a bookshop in Raymond Chandler's The Big Sleep, and it is also in the movie",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Sun Also Rises",
+      "author": "Ernest Hemingway",
+      "note": "the famous 'stoppped' on page 81, line 26, of Hemingway's The Sun Also Rises",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Lonesome Dove",
+      "author": "Larry McMurtry",
+      "note": "the ultimate source of Gus and Call, in Lonesome Dove",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Last Picture Show",
+      "author": "Larry McMurtry",
+      "note": "a novelist whose books make excellent movies—Hud, The Last Picture Show, Terms of Endearment, Lonesome Dove",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "note": "For big-ticket books such as The Maltese Falcon, The Great Gatsby, or The Sound and the Fury",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Terms of Endearment",
+      "author": "Larry McMurtry",
+      "note": "a novelist whose books make excellent movies—Hud, The Last Picture Show, Terms of Endearment, Lonesome Dove",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Sound and the Fury",
+      "author": "William Faulkner",
+      "note": "For big-ticket books such as The Maltese Falcon, The Great Gatsby, or The Sound and the Fury",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "On the Road",
+      "author": "Jack Kerouac",
+      "note": "the novel by John Clellon Holmes that preceded On the Road in the chronology of Beatdom",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "note": "I've never been able to read either Robinson Crusoe or—the real source of both books—Alexander Selkirk's account",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Anatomy of Melancholy",
+      "author": "Robert Burton",
+      "note": "I paid Ted Brown $7.50 for a nice copy of The Anatomy of Melancholy",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "note": "Encouraged, I finally did buy a book, Madame Bovary",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Moby-Dick",
+      "author": "Herman Melville",
+      "note": "I picked up a hefty book called The Whale, our old friend Moby-Dick under its English title",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Gone With the Wind",
+      "author": "Margaret Mitchell",
+      "note": "I read the longest book in it, Gone With the Wind",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Life on the Mississippi",
+      "author": "Mark Twain",
+      "note": "We had a very nice copy of Life on the Mississippi",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "84 Charing Cross Road",
+      "author": "Helene Hanff",
+      "note": "A general reader named Helen Hanff tapped these sentiments in 84 Charing Cross Road",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Eminent Victorians",
+      "author": "Lytton Strachey",
+      "note": "its author went on to write Eminent Victorians",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "I did read, early on, some simplified version of Don Quixote, which I could tell...was a different order of book",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Jude the Obscure",
+      "author": "Thomas Hardy",
+      "note": "bitterness over the treatment of Jude the Obscure caused him to leave fiction and turn to poetry",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Anne of Green Gables",
+      "author": "L. M. Montgomery",
+      "note": "The much-collected classic Anne of Green Gables",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Maltese Falcon",
+      "author": "Dashiell Hammett",
+      "note": "For big-ticket books such as The Maltese Falcon, The Great Gatsby, or The Sound and the Fury",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "They Shoot Horses, Don't They?",
+      "author": "Horace McCoy",
+      "note": "a brilliant copy of Horace McCoy's They Shoot Horses, Don't They?—the famous novel about the marathon dances",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Let Us Now Praise Famous Men",
+      "author": "James Agee",
+      "note": "First on my list was Let Us Now Praise Famous Men, by James Agee with pictures by Walker Evans",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Principia Mathematica",
+      "author": "Isaac Newton",
+      "note": "we've handled only two indubitably great books: Isaac Newton's Principia mathematica and Goya's Los Desastres de la guerra",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "My Ears Are Bent",
+      "author": "Joseph Mitchell",
+      "note": "it was a legendary New Yorker book: Joseph Mitchell's My Ears Are Bent: his early journalism",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Taste and Technique in Book-Collecting",
+      "author": "John Carter",
+      "note": "My favorite of these was John Carter's Taste and Technique in Book-Collecting",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The House of Rothschild",
+      "author": "Niall Ferguson",
+      "note": "of which Niall Ferguson's The House of Rothschild is so far the most comprehensive",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Homage to Mistress Bradstreet",
+      "author": "John Berryman",
+      "note": "was herself the subject of a fine tribute: 'Homage to Mistress Bradstreet,' by John Berryman",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Love and Death in the American Novel",
+      "author": "Leslie Fiedler",
+      "note": "the critic Leslie Fiedler certainly read it and sprang from it into his Love and Death in the American Novel",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Seduction of the Innocent",
+      "author": "Fredric Wertham",
+      "note": "Dr. Wertham...called his well-documented attack on the comic book industry Seduction of the Innocent (1954)",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Cup of Gold",
+      "author": "John Steinbeck",
+      "note": "A customer wanted us to secure for him a copy of Cup of Gold, John Steinbeck's first book, a biography of the pirate Henry Morgan",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "The Portable Faulkner",
+      "author": "William Faulkner",
+      "note": "including Faulkner's copy of The Portable Faulkner, in which Faulkner had written in mild rebuke that Cowley had deprived him",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Foreign Devils on the Silk Road",
+      "author": "Peter Hopkirk",
+      "note": "The best known of his seven books is probably the first one, Foreign Devils on the Silk Road",
+      "confidence": "high"
+    },
+    {
+      "source": "Books: A Memoir",
+      "mentioned": "Enemies of Promise",
+      "author": "Cyril Connolly",
+      "note": "I'm using the term Cyril Connolly adopted years ago in Enemies of Promise",
+      "confidence": "high"
+    },
+    {
+      "source": "The Baron in the Trees",
+      "mentioned": "Gil Blas",
+      "author": "Alain-René Lesage",
+      "note": "there he was reading Lesage's Gil Blas, holding his book in one hand and his gun in the other.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Baron in the Trees",
+      "mentioned": "Clarissa",
+      "author": "Samuel Richardson",
+      "note": "I was just reading Clarissa.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Baron in the Trees",
+      "mentioned": "La Pucelle",
+      "author": "Voltaire",
+      "note": "one or two of them secretly asked Father Sulpicio to get Cosimo to lend them La Pucelle",
+      "confidence": "high"
+    },
+    {
+      "source": "The Baron in the Trees",
+      "mentioned": "Encyclopédie",
+      "author": "Denis Diderot and Jean le Rond d'Alembert",
+      "note": "On the strongest of these bookcases were ranged the tomes of Diderot and D'Alembert's Encyclopaedia",
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "_readme": "In-narrative book mentions mined by actually fetching and reading the Project Gutenberg plain-text files for the 30-book batch. 4 of the 30 titles (To the Lighthouse, Orlando, As I Lay Dying, Point Counter Point) are NOT available on gutenberg.org (search returns no records) so no text was read for them and no mentions were extracted from them. Front-matter/editorial/translator-preface hits and idiom-style character comparisons (e.g. 'worthy of Tartuffe', 'a Don Quixote') were excluded as non-narrative or non-literal per project convention.",
+  "mentions": [
+    { "source": "Camille", "mentioned": "Manon Lescaut", "author": "Abbé Prévost" },
+    { "source": "Vile Bodies", "mentioned": "Othello", "author": "William Shakespeare" },
+    { "source": "Elmer Gantry", "mentioned": "Les Misérables", "author": "Victor Hugo" },
+    { "source": "Elmer Gantry", "mentioned": "The Scarlet Letter", "author": "Nathaniel Hawthorne" },
+    { "source": "Elmer Gantry", "mentioned": "Idylls of the King", "author": "Alfred Tennyson" },
+    { "source": "Elmer Gantry", "mentioned": "David Copperfield", "author": "Charles Dickens" },
+    { "source": "Elmer Gantry", "mentioned": "Ethan Frome", "author": "Edith Wharton" },
+    { "source": "Elmer Gantry", "mentioned": "Père Goriot", "author": "Honoré de Balzac" },
+    { "source": "Elmer Gantry", "mentioned": "Tono-Bungay", "author": "H. G. Wells" },
+    { "source": "Cousin Bette", "mentioned": "Manon Lescaut", "author": "Abbé Prévost" },
+    { "source": "Cousin Bette", "mentioned": "Les Chouans", "author": "Honoré de Balzac" },
+    { "source": "Eugene Onegin", "mentioned": "Clarissa", "author": "Samuel Richardson" }
+  ]
+}

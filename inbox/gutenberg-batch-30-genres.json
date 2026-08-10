@@ -1,0 +1,23 @@
+{
+  "_readme": "Genre fill-in for the gutenberg-batch-30 import — books that already had synopses but no genre assigned.",
+  "genres": [
+    { "title": "Mrs. Dalloway", "author": "Virginia Woolf", "genre": "FICTION" },
+    { "title": "To the Lighthouse", "author": "Virginia Woolf", "genre": "FICTION" },
+    { "title": "Orlando", "author": "Virginia Woolf", "genre": "FICTION" },
+    { "title": "An American Tragedy", "author": "Theodore Dreiser", "genre": "FICTION" },
+    { "title": "As I Lay Dying", "author": "William Faulkner", "genre": "FICTION" },
+    { "title": "Elmer Gantry", "author": "Sinclair Lewis", "genre": "FICTION" },
+    { "title": "Vile Bodies", "author": "Evelyn Waugh", "genre": "HUMOR & COMEDY" },
+    { "title": "Point Counter Point", "author": "Aldous Huxley", "genre": "FICTION" },
+    { "title": "La Reine Margot", "author": "Alexandre Dumas", "genre": "ADVENTURE & TRAVEL" },
+    { "title": "Camille", "author": "Alexandre Dumas fils", "genre": "FICTION" },
+    { "title": "Pot-Bouille", "author": "Émile Zola", "genre": "FICTION" },
+    { "title": "Au Bonheur des Dames", "author": "Émile Zola", "genre": "FICTION" },
+    { "title": "The Belly of Paris", "author": "Émile Zola", "genre": "FICTION" },
+    { "title": "The Debacle", "author": "Émile Zola", "genre": "FICTION" },
+    { "title": "The Overcoat", "author": "Nikolai Gogol", "genre": "FICTION" },
+    { "title": "The Gambler", "author": "Fyodor Dostoevsky", "genre": "FICTION" },
+    { "title": "The Cherry Orchard", "author": "Anton Chekhov", "genre": "DRAMA & PLAYS" },
+    { "title": "The Queen of Spades", "author": "Alexander Pushkin", "genre": "CRIME & MYSTERY" }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "_readme": "A Moveable Feast and The Plague turned out to be metadata-less stubs, not fully-populated entries as initially assumed. Filling in synopsis/genre now from the real fetched text already reviewed for the main pdf-batch-07-26-group import.",
+  "books": [
+    { "title": "A Moveable Feast", "author": "Ernest Hemingway", "year": 1964, "synopsis": "Hemingway recalls his poor, hungry early years in 1920s Paris — writing in cafés, sparring with Gertrude Stein and Ford Madox Ford, and watching a reckless, talented Fitzgerald begin to unravel — in a posthumously published memoir of the Lost Generation.", "genre": "BIOGRAPHY & MEMOIR" },
+    { "title": "The Plague", "author": "Albert Camus", "year": 1947, "synopsis": "A doctor in the Algerian city of Oran leads the fight against a rat-borne epidemic that seals the city's gates, an existentialist parable of absurdity, solidarity, and the will to keep struggling against a fate you cannot beat.", "genre": "FICTION" }
+  ]
+}

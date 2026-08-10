@@ -1,0 +1,40 @@
+{
+  "_readme": "Fills in synopsis/genre for high-value existing stubs, sourced from real fetched Gutenberg text. Skipped: Ulysses (Tennyson poem, not locatable on Gutenberg), Finnegans Wake (not on Gutenberg, in copyright), The Magic Mountain (only German original on Gutenberg, no English translation hosted).",
+  "books": [
+    { "title": "Rip Van Winkle", "author": "Washington Irving", "year": 1819,
+      "synopsis": "A henpecked Dutch villager drinks with ghostly bowlers in the Catskill Mountains and wakes twenty years later to find his wife dead, his village transformed, and the American Revolution already history." },
+    { "title": "Essays", "author": "Robert Louis Stevenson", "year": 1881,
+      "synopsis": "Stevenson's personal essays roam from courtship and marriage to idling and old age, arguing for a life lived with zest and honesty rather than caution." },
+    { "title": "Essays", "author": "Francis Bacon", "year": 1625,
+      "synopsis": "Bacon's terse, aphoristic essays dispense worldly counsel on truth, ambition, love, and statecraft, seasoning practical wisdom with quotations from classical authors." },
+    { "title": "King John", "author": "William Shakespeare", "year": 1596,
+      "synopsis": "King John schemes to hold his crown against a French-backed rival claimant and the Pope's excommunication, and orders his young nephew Arthur's death to secure it, unraveling his own reign in guilt and rebellion." },
+    { "title": "Henry IV", "author": "William Shakespeare", "year": 1597,
+      "synopsis": "King Henry IV faces a rebel coalition while his wayward son Prince Hal carouses with the disreputable Falstaff, until Hal redeems himself by defeating the rebel Hotspur in single combat." },
+    { "title": "Phèdre", "author": "Jean Racine", "year": 1677,
+      "synopsis": "Queen Phaedra, consumed by an incestuous passion for her stepson Hippolytus, falsely accuses him of assaulting her once her husband Theseus returns, destroying them both." },
+    { "title": "The Golden Bough", "author": "James George Frazer", "year": 1890,
+      "synopsis": "Frazer surveys myth, magic, and ritual across cultures and history, tracing the priest-king of Nemi's sacred grove out into a vast comparative theory of how religion evolves from magic toward science." },
+    { "title": "The Anatomy of Melancholy", "author": "Robert Burton", "year": 1621,
+      "synopsis": "Burton anatomizes melancholy in exhaustive, digressive detail — its causes, symptoms, and cures — folding centuries of classical and contemporary learning into a work as strange as it is scholarly." },
+    { "title": "Sleeping Beauty", "author": "Anonymous", "year": 1697,
+      "synopsis": "A princess cursed at birth to die by a spindle is doomed instead to a hundred-year sleep, waking only when a prince's arrival finally breaches the thorned wood grown up around her castle." },
+    { "title": "Richard II", "author": "William Shakespeare", "year": 1595,
+      "synopsis": "King Richard II seizes the banished Bolingbroke's inheritance, driving him to return with an army, depose Richard, and take the crown himself, leaving Richard to a prison cell and murder." },
+    { "title": "Troilus and Cressida", "author": "William Shakespeare", "year": 1602,
+      "synopsis": "Amid the endless siege of Troy, the lovers Troilus and Cressida pledge fidelity only for Cressida to be traded to the Greek camp and drift to a new lover, while Achilles sulks and Hector falls." },
+    { "title": "Metamorphoses", "author": "Ovid", "year": -8,
+      "synopsis": "Ovid strings together the mythology of transformation, from the world's creation through Jove's loves, Actaeon's death, and Daedalus's flight, in a sprawling verse chain of gods and mortals remade." },
+    { "title": "Confessions", "author": "Jean-Jacques Rousseau", "year": 1782,
+      "synopsis": "Rousseau bares his own life without flattery, from a stolen ribbon in his youth to his scandalous loves and quarrels, in a founding work of unguarded autobiographical confession." },
+    { "title": "Poetics", "author": "Aristotle", "year": -335,
+      "synopsis": "Aristotle dissects tragedy and epic poetry into their working parts — plot, character, and catharsis — grounding his theory in close readings of Homer and Sophocles." },
+    { "title": "In Search of Lost Time", "author": "Marcel Proust", "year": 1913,
+      "synopsis": "Proust's seven-volume novel follows an unnamed narrator's involuntary memories — most famously a madeleine dipped in tea — through the loves, society, and art of belle-époque and wartime France." }
+  ],
+  "mentions": [
+    { "source": "Poetics", "mentioned": "Iliad", "author": "Homer" },
+    { "source": "Poetics", "mentioned": "Odyssey", "author": "Homer" },
+    { "source": "Poetics", "mentioned": "Oedipus Rex", "author": "Sophocles" }
+  ]
+}

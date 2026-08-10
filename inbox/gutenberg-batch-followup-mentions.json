@@ -1,0 +1,10 @@
+{
+  "_readme": "Follow-up mentions pass for 4 books whose real text wasn't fetched in the original import (To the Lighthouse, Orlando, As I Lay Dying, Point Counter Point). Sourced from real full text via archive.org scans, not paraphrase. As I Lay Dying yielded zero qualifying mentions after full-text search.",
+  "mentions": [
+    { "source": "To the Lighthouse", "mentioned": "Anna Karenina", "author": "Leo Tolstoy" },
+    { "source": "Orlando", "mentioned": "The Rape of the Lock", "author": "Alexander Pope" },
+    { "source": "Orlando", "mentioned": "Gulliver's Travels", "author": "Jonathan Swift" },
+    { "source": "Point Counter Point", "mentioned": "Pensées", "author": "Blaise Pascal" },
+    { "source": "Point Counter Point", "mentioned": "Peter Pan", "author": "J. M. Barrie" }
+  ]
+}

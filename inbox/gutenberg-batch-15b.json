@@ -1,0 +1,42 @@
+{
+  "_readme": "Batch of 13 (2 of the original 15 — Capital Vol. 1 and A Room of One's Own — are not on gutenberg.org and were skipped, not fabricated).",
+  "books": [
+    { "title": "The Waste Land", "author": "T. S. Eliot", "year": 1922, "synopsis": "A fractured, five-part modernist poem moves through a spiritually barren postwar landscape — tarot readings, a sterile Thames, a drowned sailor — toward a closing invocation of Hindu wisdom and peace.", "genre": "POETRY & EPICS" },
+    { "title": "Death Comes for the Archbishop", "author": "Willa Cather", "year": 1927, "synopsis": "A French priest is appointed the first bishop of the New Mexico territory and spends decades building the church across a vast, unforgiving frontier alongside his devoted friend and fellow missionary.", "genre": "FICTION" },
+    { "title": "A Lost Lady", "author": "Willa Cather", "year": 1923, "synopsis": "A young man's idolatry of a charming railroad captain's wife curdles into disillusionment as her husband's fortune collapses and her secret affairs come to light.", "genre": "FICTION" },
+    { "title": "The Professor's House", "author": "Willa Cather", "year": 1925, "synopsis": "A historian nearing retirement retreats into his cramped old study, unable to let go of his life's work or the memory of a brilliant former student whose invention has enriched — and unsettled — his family.", "genre": "FICTION" },
+    { "title": "Discourse on Method", "author": "René Descartes", "year": 1637, "synopsis": "Descartes recounts abandoning inherited learning for a systematic method of doubt, arriving at his own existence as the one certainty from which reason can rebuild all knowledge.", "genre": "PHILOSOPHY" },
+    { "title": "The Social Contract", "author": "Jean-Jacques Rousseau", "year": 1762, "synopsis": "Rousseau argues that legitimate political authority rests only on the consent of the governed, reconciling individual freedom with civic obligation through the collective 'general will.'", "genre": "PHILOSOPHY" },
+    { "title": "Barrack-Room Ballads", "author": "Rudyard Kipling", "year": 1892, "synopsis": "Dialect verses give voice to the ordinary British soldier's swagger, homesickness, and fatalism across the far-flung outposts of empire.", "genre": "POETRY & EPICS" },
+    { "title": "Stalky & Co.", "author": "Rudyard Kipling", "year": 1899, "synopsis": "Three cunning English schoolboys scheme, prank, and outmaneuver their masters at a seaside boarding school, turning every punishment into an opportunity for the next plot.", "genre": "FICTION" },
+    { "title": "The Golden Bowl", "author": "Henry James", "year": 1904, "synopsis": "An Italian prince's marriage to a wealthy American heiress is complicated by the arrival of her father's new wife, a woman from the prince's own past, in James's intricate late study of marriage and betrayal.", "genre": "FICTION" },
+    { "title": "The Ambassadors", "author": "Henry James", "year": 1903, "synopsis": "A middle-aged American is sent to Paris to bring home a wealthy widow's wayward son, only to find himself seduced by the very European sophistication he was meant to rescue him from.", "genre": "FICTION" },
+    { "title": "The Awkward Age", "author": "Henry James", "year": 1899, "synopsis": "A young woman's coming-of-age forces her mother's sophisticated London drawing-room circle to confront how much of their frank talk a girl on the edge of adulthood should be allowed to hear.", "genre": "FICTION" },
+    { "title": "The Sacred Fount", "author": "Henry James", "year": 1901, "synopsis": "A house-party guest becomes obsessed with a theory that one lover can secretly drain another's youth and wit, and pursues the idea past all evidence and reason.", "genre": "FICTION" },
+    { "title": "Civil Disobedience", "author": "Henry David Thoreau", "year": 1849, "synopsis": "Thoreau argues that individual conscience outranks civil law, and defends his refusal to pay taxes to a government that upholds slavery and wages an unjust war.", "genre": "POLITICS & WORLD" }
+  ],
+  "mentions": [
+    { "source": "A Lost Lady", "mentioned": "St. Elmo", "author": "Augusta J. Evans" },
+    { "source": "A Lost Lady", "mentioned": "Tom Jones", "author": "Henry Fielding" },
+    { "source": "A Lost Lady", "mentioned": "Wilhelm Meister", "author": "Johann Wolfgang von Goethe" },
+    { "source": "A Lost Lady", "mentioned": "Heroides", "author": "Ovid" },
+    { "source": "The Professor's House", "mentioned": "The Scarlet Letter", "author": "Nathaniel Hawthorne" },
+    { "source": "The Professor's House", "mentioned": "The Adventures of Tom Sawyer", "author": "Mark Twain" },
+    { "source": "The Social Contract", "mentioned": "The Republic", "author": "Plato" },
+    { "source": "The Social Contract", "mentioned": "Gorgias", "author": "Plato" },
+    { "source": "The Social Contract", "mentioned": "The Spirit of the Laws", "author": "Montesquieu" },
+    { "source": "The Social Contract", "mentioned": "Of the Laws of Ecclesiastical Polity", "author": "Richard Hooker" },
+    { "source": "The Social Contract", "mentioned": "The Tenure of Kings and Magistrates", "author": "John Milton" },
+    { "source": "The Social Contract", "mentioned": "Leviathan", "author": "Thomas Hobbes" },
+    { "source": "The Social Contract", "mentioned": "Two Treatises of Government", "author": "John Locke" },
+    { "source": "The Social Contract", "mentioned": "De Jure Belli ac Pacis", "author": "Hugo Grotius" },
+    { "source": "Stalky & Co.", "mentioned": "Handley Cross", "author": "Robert Smith Surtees" },
+    { "source": "Stalky & Co.", "mentioned": "Jorrocks' Jaunts and Jollities", "author": "Robert Smith Surtees" },
+    { "source": "Stalky & Co.", "mentioned": "Fors Clavigera", "author": "John Ruskin" },
+    { "source": "Stalky & Co.", "mentioned": "Eric, or, Little by Little", "author": "Frederic W. Farrar" },
+    { "source": "Stalky & Co.", "mentioned": "St. Winifred's, or The World of School", "author": "Frederic W. Farrar" },
+    { "source": "Stalky & Co.", "mentioned": "Men and Women", "author": "Robert Browning" },
+    { "source": "The Golden Bowl", "mentioned": "The Narrative of Arthur Gordon Pym", "author": "Edgar Allan Poe" },
+    { "source": "The Ambassadors", "mentioned": "Lewis Lambert", "author": "Honoré de Balzac" }
+  ]
+}

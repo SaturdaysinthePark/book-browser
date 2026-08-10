@@ -1,0 +1,28 @@
+{
+  "_readme": "Third Gutenberg batch (items 31-40 of the import plan). All texts fetched and read from gutenberg.org before writing synopses/mentions.",
+  "books": [
+    { "title": "Ann Veronica", "author": "H. G. Wells", "year": 1909, "synopsis": "A restless young woman defies her controlling father to attend a forbidden dance and pursue scientific study in London, then leaves home outright for an independent life of suffragette activism, romance, and self-invention.", "genre": "FICTION" },
+    { "title": "The New Machiavelli", "author": "H. G. Wells", "year": 1911, "synopsis": "A rising British politician's illicit love affair detonates his Parliamentary career, and in exile on the Italian Riviera he writes a bitter memoir of how desire wrecked his ambition to become a modern Machiavelli.", "genre": "FICTION" },
+    { "title": "Clayhanger", "author": "Arnold Bennett", "year": 1910, "synopsis": "Edwin Clayhanger leaves school dreading a confrontation with his formidable father Darius, a self-made printer in the industrial Five Towns, and is pressed into the family business just as his own ambitions begin to stir.", "genre": "FICTION" },
+    { "title": "The Card", "author": "Arnold Bennett", "year": 1911, "synopsis": "Denry Machin, an audacious young clerk in provincial Bursley, crashes a countess's ball and parlays the resulting fame into rent-collecting schemes, moneylending, and increasingly outrageous acts of generosity that make him the town's beloved rogue.", "genre": "HUMOR & COMEDY" },
+    { "title": "Elizabeth and Her German Garden", "author": "Elizabeth von Arnim", "year": 1898, "synopsis": "An English wife chronicles a year of transforming a neglected estate in rural Germany into her private paradise, sparring wryly with an exasperated husband, eccentric visitors, and the crushing propriety of provincial society.", "genre": "HUMOR & COMEDY" },
+    { "title": "Right Ho, Jeeves", "author": "P. G. Wodehouse", "year": 1934, "synopsis": "Bertie Wooster's meddling to pair up his shy friend Gussie Fink-Nottle with a sentimental young woman, and to patch up his cousin's broken engagement, spirals into drunken newt-fancier speeches and general chaos that only Jeeves can untangle.", "genre": "HUMOR & COMEDY" },
+    { "title": "The Inimitable Jeeves", "author": "P. G. Wodehouse", "year": 1923, "synopsis": "Bertie Wooster's lovelorn friend Bingo Little falls for a fresh woman every few weeks, and Jeeves engineers one improbable rescue after another to keep Bingo's romances and Bertie's own entanglements from ending in disaster.", "genre": "HUMOR & COMEDY" },
+    { "title": "Psmith, Journalist", "author": "P. G. Wodehouse", "year": 1915, "synopsis": "While an editor is away, the imperturbable Psmith and reporter Billy Windsor turn a genteel New York magazine into a crusading exposé of slum tenements, drawing threats from the gangster landlord profiting off the squalor.", "genre": "HUMOR & COMEDY" },
+    { "title": "Something Fresh", "author": "P. G. Wodehouse", "year": 1915, "synopsis": "A struggling writer and a spirited young woman get swept into Blandings Castle's chaos when a bumbling young lord's old love letters, a stolen Egyptian scarab, and a houseful of scheming guests collide.", "genre": "HUMOR & COMEDY" },
+    { "title": "The Wrong Box", "author": "Robert Louis Stevenson and Lloyd Osbourne", "year": 1889, "synopsis": "When his uncle dies in a railway accident, Morris Finsbury buries the body and schemes to hide the death and claim a lucrative tontine, but the wrong corpse ends up shipped to London in a packing case, touching off a farce of mistaken identity.", "genre": "HUMOR & COMEDY" }
+  ],
+  "mentions": [
+    { "source": "Ann Veronica", "mentioned": "Tom Jones", "author": "Henry Fielding" },
+    { "source": "Ann Veronica", "mentioned": "Romeo and Juliet", "author": "William Shakespeare" },
+    { "source": "The New Machiavelli", "mentioned": "The Prince", "author": "Niccolò Machiavelli" },
+    { "source": "The New Machiavelli", "mentioned": "Companions of Columbus", "author": "Washington Irving" },
+    { "source": "The New Machiavelli", "mentioned": "Lives of the Queens of England", "author": "Agnes Strickland" },
+    { "source": "The New Machiavelli", "mentioned": "Queechy", "author": "Susan Warner" },
+    { "source": "The New Machiavelli", "mentioned": "The Wide, Wide World", "author": "Susan Warner" },
+    { "source": "Clayhanger", "mentioned": "Lean Hard", "author": "Frances Ridley Havergal" },
+    { "source": "Elizabeth and Her German Garden", "mentioned": "Frederick the Great", "author": "Thomas Carlyle" },
+    { "source": "Elizabeth and Her German Garden", "mentioned": "Alice's Adventures in Wonderland", "author": "Lewis Carroll" },
+    { "source": "Right Ho, Jeeves", "mentioned": "Othello", "author": "William Shakespeare" }
+  ]
+}

@@ -1,0 +1,27 @@
+{
+  "_readme": "Partial round-8 batch — only 3 of 20 requested titles could be fetched and verified before Gutenberg.org became persistently unreachable this session (repeated 504 timeouts on both /ebooks/search/ and /cache/epub/ endpoints, confirmed genuine via retries with backoff, not a one-off). The remaining 17 were NOT added — no synopsis/mentions were fabricated for them.",
+  "books": [
+    {
+      "title": "Rosmersholm",
+      "author": "Henrik Ibsen",
+      "year": 1886,
+      "synopsis": "Back at his family estate, the ex-clergyman John Rosmer has quietly abandoned his old faith and politics under the influence of his late wife's companion Rebecca West, whose real hold on the house is darker than it looks. When his brother-in-law forces a reckoning, Rosmer and Rebecca walk out together to the footbridge over the millrace and do not return.",
+      "genre": "DRAMA & PLAYS"
+    },
+    {
+      "title": "The Master Builder",
+      "author": "Henrik Ibsen",
+      "year": 1892,
+      "synopsis": "Aging architect Halvard Solness, who has spent his career keeping younger rivals down and is haunted by the fire that built his fortune, is confronted by a strange young woman who demands he make good on a promise from her childhood: to climb as high as he builds. He climbs the tower on his newest house and falls to his death.",
+      "genre": "DRAMA & PLAYS"
+    },
+    {
+      "title": "Opticks",
+      "author": "Isaac Newton",
+      "year": 1704,
+      "synopsis": "Newton lays out his experiments splitting sunlight through prisms to prove white light is a mixture of distinct colors, then builds a full theory of reflection, refraction, and the colors of thin films and diffraction from those results.",
+      "genre": "ESSAYS & JOURNALISM"
+    }
+  ],
+  "mentions": []
+}
