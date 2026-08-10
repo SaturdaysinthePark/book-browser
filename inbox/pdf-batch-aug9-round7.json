@@ -1,0 +1,931 @@
+{
+  "_readme": "Round 7 of 7 (final) — big august 9th batch (in-copyright PDFs). Synopses grounded in real detect.mjs-extracted text; mentions curated from candidates.json per docs/detector.md exclusion rules; genres per tools/genres.mjs. Three PDFs across the whole batch could not be processed (no extractable text, and no PDF rendering tool available in this sandbox to fall back on): Atomic Habits (James Clear), The Algebra of Infinite Justice (Arundhati Roy), and the-pathans.pdf (unidentified — filename has no title/author, likely a scanned image PDF).",
+  "books": [
+    {
+      "title": "White Fragility: Why It's So Hard for White People to Talk About Racism",
+      "author": "Robin DiAngelo",
+      "year": 2018,
+      "synopsis": "DiAngelo argues that most white Americans are so racially insulated from discomfort about race that even mild challenges to that comfort—like being called out for a racist remark—trigger a defensive reaction she calls white fragility, and she traces how this dynamic protects the racial status quo. Drawing on decades of running diversity trainings, she dissects moves like color-blindness and color-celebration claims that let white people position themselves as exempt from racism.",
+      "genre": "POLITICS & WORLD"
+    },
+    {
+      "title": "Words Are My Matter",
+      "author": "Ursula K. Le Guin",
+      "year": 2016,
+      "synopsis": "A collection of talks, essays, introductions, and book reviews (mostly from 2000-2016) in which Le Guin discusses genre, fantasy, science fiction, gender, aging, and the craft of writing, and reviews and introduces the work of writers including H. G. Wells, José Saramago, Italo Calvino, and Margaret Atwood.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "Zen and the Art of Motorcycle Maintenance",
+      "author": "Robert M. Pirsig",
+      "year": 1974,
+      "synopsis": "A narrator and his son Chris ride a motorcycle from Minnesota toward the West Coast with friends, alternating road observations and practical talk about motorcycle repair with the narrator's recovered memories of his former self, Phaedrus, a philosophy teacher whose obsessive pursuit of a definition of Quality led him through Kant, Aristotle, and Poincare toward a breakdown and electroshock treatment.",
+      "genre": "PHILOSOPHY"
+    },
+    {
+      "title": "Zodiac: An Eco-Thriller",
+      "author": "Neal Stephenson",
+      "year": 1988,
+      "synopsis": "Boston-based rogue environmental activist and industrial chemist Sangamon Taylor tracks toxic dumping by corporations like Basco, using sewer outfalls, illegal sampling, and stunts staged from a Zodiac inflatable boat, before uncovering a genetically engineered organism plot tied to Basco executive Alvin Pleshy. The story climaxes in a violent confrontation on Boston Harbor with Pleshy and Biotronics president Laughlin, leaving Sangamon's friend Boone badly wounded.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Atmosphere: A Love Story",
+      "author": "Taylor Jenkins Reid",
+      "year": 2025,
+      "synopsis": "Joan Goodwin, a physics teacher turned NASA astronaut candidate in the early 1980s, trains alongside fellow astronauts Vanessa Ford, Griff, Lydia Danes, and Hank Redmond in Houston while raising her young niece Frances, and falls in love with Vanessa; a present-day frame set on December 29, 1984 follows a shuttle mission in crisis after Griff and others are endangered during a spacewalk and reentry.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "t zero",
+      "author": "Italo Calvino",
+      "year": 1967,
+      "synopsis": "A collection of speculative first-person monologues narrated largely by the cosmic being Qfwfq, ranging from the Moon's origin and the first birds to cellular mitosis and reproduction, and culminating in a story where the narrator becomes a character trapped in the Chateau d'If alongside Abbe Faria, watching Alexandre Dumas assemble the branching draft possibilities of the novel The Count of Monte Cristo.",
+      "genre": "SCI-FI"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "White Fragility: Why It's So Hard for White People to Talk About Racism",
+      "mentioned": "Between the World and Me",
+      "author": "Ta-Nehisi Coates",
+      "note": "You must always remember that the sociology, the history, the economics, the graphs, the charts, the regressions all land, with great violence, upon the body. —Ta-Nehisi Coates, Between the World and Me (chapter epigraph)",
+      "confidence": "high"
+    },
+    {
+      "source": "White Fragility: Why It's So Hard for White People to Talk About Racism",
+      "mentioned": "The Case for Reparations",
+      "author": "Ta-Nehisi Coates",
+      "note": "In Ta-Nehisi Coates's essay \"The Case for Reparations,\" he makes a similar point",
+      "confidence": "high"
+    },
+    {
+      "source": "White Fragility: Why It's So Hard for White People to Talk About Racism",
+      "mentioned": "Racism Without Racists: Color-Blind Racism and the Persistence of Racial Inequality in America",
+      "author": "Eduardo Bonilla-Silva",
+      "note": "Sociologist Eduardo Bonilla-Silva captures this dynamic in the title of his book Racism Without Racists",
+      "confidence": "high"
+    },
+    {
+      "source": "White Fragility: Why It's So Hard for White People to Talk About Racism",
+      "mentioned": "The Racial Contract",
+      "author": "Charles W. Mills",
+      "note": "In his book The Racial Contract, Charles W. Mills argues that the racial contract is a tacit and sometimes explicit agreement among members of the peoples of Europe...",
+      "confidence": "high"
+    },
+    {
+      "source": "White Fragility: Why It's So Hard for White People to Talk About Racism",
+      "mentioned": "Killers of the Dream",
+      "author": "Lillian Smith",
+      "note": "These ceremonials in honor of white supremacy... —LILLIAN SMITH, Killers of the Dream (1949) (epigraph)",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Brave New World",
+      "author": "Aldous Huxley",
+      "note": "Huxley's Bad Trip: An introduction to the Folio Society edition of Aldous Huxley's Brave New World, 2013.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Dispossessed",
+      "author": "Ursula K. Le Guin",
+      "note": "Le Guin's The Dispossessed, edited by Laurence Davis and Peter Stillman, Lexington Books, 2005.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "Fiction, for Borges, thus includes history, journalism, biography, memoir, Cervantes' Don Quixote, Pierre Menard's Don Quixote...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Blindness",
+      "author": "José Saramago",
+      "note": "My friend the poet Naomi Replansky wrote me that she was reading a great novel, Blindness, by José Saramago.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Sword in the Stone",
+      "author": "T. H. White",
+      "note": "White's The Sword in the Stone, the first book of The Once and Future King.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "People of the Book",
+      "author": "Geraldine Brooks",
+      "note": "As soon as I knew it was the story of a book saved from the destruction of a library, I wanted to read Geraldine Brooks's People of the Book.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Among Others",
+      "author": "Jo Walton",
+      "note": "Jo Walton, Among Others.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Bone Clocks",
+      "author": "David Mitchell",
+      "note": "David Mitchell, The Bone Clocks.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The First Men in the Moon",
+      "author": "H. G. Wells",
+      "note": "the early scientific romances... The Time Machine, The War of the Worlds, The First Men in the Moon, and The Island of Doctor Moreau.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Year of the Flood",
+      "author": "Margaret Atwood",
+      "note": "Margaret Atwood, The Year of the Flood.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Island of Doctor Moreau",
+      "author": "H. G. Wells",
+      "note": "...The First Men in the Moon, and The Island of Doctor Moreau.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Sea Lady",
+      "author": "Margaret Drabble",
+      "note": "Margaret Drabble, The Sea Lady.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Flight Behavior",
+      "author": "Barbara Kingsolver",
+      "note": "Barbara Kingsolver, Flight Behavior.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Solaris",
+      "author": "Stanisław Lem",
+      "note": "In his perceptive afterword to the 1970 American edition of Solaris, Darko Suvin...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Buddha in the Attic",
+      "author": "Julie Otsuka",
+      "note": "Julie Otsuka, The Buddha in the Attic.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Cask of Amontillado",
+      "author": "Edgar Allan Poe",
+      "note": "A piece we might think we know almost too well, such as \"The Cask of Amontillado,\"...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Lord of the Rings",
+      "author": "J. R. R. Tolkien",
+      "note": "...such as Little Dorrit, War and Peace, To the Lighthouse, or The Lord of the Rings...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "To the Lighthouse",
+      "author": "Virginia Woolf",
+      "note": "...such as Little Dorrit, War and Peace, To the Lighthouse, or The Lord of the Rings...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Country of the Pointed Firs",
+      "author": "Sarah Orne Jewett",
+      "note": "Elizabeth Gaskell's Cranford and Sarah Orne Jewett's Country of the Pointed Firs are both about a single town and a few strong characters.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Little Dorrit",
+      "author": "Charles Dickens",
+      "note": "...such as Little Dorrit, War and Peace, To the Lighthouse, or The Lord of the Rings...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Stone Mattress",
+      "author": "Margaret Atwood",
+      "note": "Margaret Atwood, Stone Mattress.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Enchantress of Florence",
+      "author": "Salman Rushdie",
+      "note": "Salman Rushdie, The Enchantress of Florence.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Voyage of the Beagle",
+      "author": "Charles Darwin",
+      "note": "...you could have read The Decline and Fall of the Roman Empire, The Voyage of the Beagle...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Tlön, Uqbar, Orbis Tertius",
+      "author": "Jorge Luis Borges",
+      "note": "...as the end of the story \"Tlön, Uqbar, Orbis Tertius\" suggests, we are now living there.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "War and Peace",
+      "author": "Leo Tolstoy",
+      "note": "...such as Little Dorrit, War and Peace, To the Lighthouse, or The Lord of the Rings...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Invisible Cities",
+      "author": "Italo Calvino",
+      "note": "Calvino's Invisible Cities derives in this same way from an idea, a notion...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Aleph",
+      "author": "Jorge Luis Borges",
+      "note": "...as surely it should, not only modern astrophysics but Xeno's paradox, Borges's Aleph, and the Mad Hatter's tea party.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Candide",
+      "author": "Voltaire",
+      "note": "A favorite Enlightenment vehicle, the conte lends itself to satire and comedy; Voltaire's Candide is a masterpiece of the type.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Cranford",
+      "author": "Elizabeth Gaskell",
+      "note": "Elizabeth Gaskell's Cranford and Sarah Orne Jewett's Country of the Pointed Firs are both about a single town and a few strong characters.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Green Mansions",
+      "author": "W. H. Hudson",
+      "note": "When I was thirteen that song in Hudson's Green Mansions held all romance in it...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "His Dark Materials",
+      "author": "Philip Pullman",
+      "note": "Philip Pullman's His Dark Materials trilogy is a long, richly imagined, and deeply incoherent work...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Metamorphosis",
+      "author": "Franz Kafka",
+      "note": "I can't imagine Saramago writing \"Metamorphosis\" any more than I can imagine Kafka writing a love story.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Mistress Masham's Repose",
+      "author": "T. H. White",
+      "note": "White's Mistress Masham's Repose; according to them it involves not moving your tongue while squealing through the back of your nose.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Oxford Nursery Rhyme Book",
+      "author": "Iona and Peter Opie",
+      "note": "I read it first in The Oxford Nursery Rhyme Book, by Iona and Peter Opie...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Through the Looking-Glass",
+      "author": "Lewis Carroll",
+      "note": "Lewis Carroll's Through the Looking-Glass begins with cats.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Waterless Mountain",
+      "author": "Laura Adams Armer",
+      "note": "...the children's book Waterless Mountain, by Laura Adams Armer, with its tender picture of a young soul...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Time Machine",
+      "author": "H. G. Wells",
+      "note": "The Time Machine was published in 1895, and has never been out of print.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Man in the High Castle",
+      "author": "Philip K. Dick",
+      "note": "The Man in the High Castle was published at the end of 1962...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Kingdom Come",
+      "author": "J. G. Ballard",
+      "note": "Ballard's motive in writing Kingdom Come may have been much akin to Saramago's in The Cave...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Oryx and Crake",
+      "author": "Margaret Atwood",
+      "note": "To my mind, The Handmaid's Tale, Oryx and Crake, and The Year of the Flood all exemplify one of the things science fiction does...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "note": "For instance, Pride and Prejudice is, to me, an absolutely beautiful work of art.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Baltasar and Blimunda",
+      "author": "José Saramago",
+      "note": "...the first of these, Baltasar and Blimunda, was an international success...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Black Beauty",
+      "author": "Anna Sewell",
+      "note": "...the twelve-year-old weeping as she reads Black Beauty?",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Harry Potter and the Philosopher's Stone",
+      "author": "J. K. Rowling",
+      "note": "This was liberally proved when the first Harry Potter book came out and literary reviewers ran around shrieking about its incredible originality.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Once and Future King",
+      "author": "T. H. White",
+      "note": "White's The Sword in the Stone, the first book of The Once and Future King.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "A Christmas Carol",
+      "author": "Charles Dickens",
+      "note": "The Odyssey, Don Quixote, Pride and Prejudice, A Christmas Carol, The Lord of the Rings, Honey in the Horn, The Jump-Off Creek: none of those stories is factual.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "note": "Even in America many of us give our children imaginative books to read—Alice in Wonderland, Charlotte's Web.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "All the Names",
+      "author": "José Saramago",
+      "note": "...soon after that, All the Names, perhaps the most Kafkaesque of his novels, with its satire of a monstrous bureaucracy.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Angle of Repose",
+      "author": "Wallace Stegner",
+      "note": "He took the setting, characters, and story of his novel Angle of Repose from her autobiography...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Cosmicomics",
+      "author": "Italo Calvino",
+      "note": "It's a compendium of the volume Cosmicomics (published in English in 1968)...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Do Androids Dream of Electric Sheep?",
+      "author": "Philip K. Dick",
+      "note": "The 1982 film Blade Runner, nominally based on Dick's 1968 novel Do Androids Dream of Electric Sheep?...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Doctor Zhivago",
+      "author": "Boris Pasternak",
+      "note": "Fifty years ago this September, Boris Pasternak's novel Doctor Zhivago came out here in English.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Flush",
+      "author": "Virginia Woolf",
+      "note": "In her novel Flush, Woolf gets inside a dog's mind...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Ivanhoe",
+      "author": "Walter Scott",
+      "note": "I like knowing that a hard-bitten Wyoming cowboy carried a copy of Ivanhoe in his saddlebag for thirty years...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Life of Pi",
+      "author": "Yann Martel",
+      "note": "In Martel's best-selling Life of Pi, the author-within-the-story tells us that he went to India...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Lolly Willowes",
+      "author": "Sylvia Townsend Warner",
+      "note": "Her first novel, Lolly Willowes, reprinted from time to time, is a dazzling display of the extraordinary wit and tough-mindedness of her fantasy...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Nineteen Eighty-Four",
+      "author": "George Orwell",
+      "note": "He wrote to George Orwell when Nineteen Eighty-Four was published, generously praising it...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Orlando",
+      "author": "Virginia Woolf",
+      "note": "I was seventeen when I read Orlando.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Roadside Picnic",
+      "author": "Arkady and Boris Strugatsky",
+      "note": "Roadside Picnic is a \"first contact\" story with a difference.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Tehanu",
+      "author": "Ursula K. Le Guin",
+      "note": "Here is a character in my novel Tehanu expressing her belief in gendered knowledge.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Catcher in the Rye",
+      "author": "J. D. Salinger",
+      "note": "Identification with the child's point of view all too often leads to the whining falsities of The Catcher in the Rye...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Double",
+      "author": "José Saramago",
+      "note": "A reader who shares that fascination will find this (and later The Double) a treasure.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Invisible Man",
+      "author": "H. G. Wells",
+      "note": "The Time Machine, The First Men in the Moon, The War of the Worlds, The Invisible Man, The Island of Doctor Moreau—these are what the name H. G. Wells means to most people.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Notebook",
+      "author": "José Saramago",
+      "note": "Saramago will tell us what the book is about—though when he wrote this in The Notebook he wasn't talking about his novel, but about the world he saw in May 2009.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "The Odyssey, Don Quixote, Pride and Prejudice, A Christmas Carol, The Lord of the Rings, Honey in the Horn, The Jump-Off Creek: none of those stories is factual.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Princess and the Goblin",
+      "author": "George MacDonald",
+      "note": "The Princess and the Goblin is an old book now, but it was written for young readers.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Thorn Birds",
+      "author": "Colleen McCullough",
+      "note": "The New York Times obituary of Colleen McCullough, author of The Thorn Birds, included the same tasteful and relevant information.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Tono-Bungay",
+      "author": "H. G. Wells",
+      "note": "Even such a realistic novel of commonplace contemporary life as Tono-Bungay includes a haunting, terribly prescient vision of radioactivity...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Ulysses",
+      "author": "James Joyce",
+      "note": "Where was her copy of Ulysses?",
+      "confidence": "low"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Vanity Fair",
+      "author": "William Makepeace Thackeray",
+      "note": "That scene, ending in the death of an old man, carries a shock like the last sentence of the Waterloo chapter in Vanity Fair.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "We Are All Completely Beside Ourselves",
+      "author": "Karen Joy Fowler",
+      "note": "Karen Fowler's novel We Are All Completely Beside Ourselves (shortlisted for the 2015 Man Booker Prize) handled the relationship of ape and human realistically...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "When the Sleeper Wakes",
+      "author": "H. G. Wells",
+      "note": "He also wrote what may be the first genuine dystopia, When the Sleeper Wakes...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Crazy Weather",
+      "author": "Charles L. McNichols",
+      "note": "...and Charles McNichols's Crazy Weather, an introduction written for Harry Kirchner of Pharos Books.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Story of Doctor Dolittle",
+      "author": "Hugh Lofting",
+      "note": "Three of the great works of children's literature and animal literature are Hugh Lofting's Doctor Dolittle, Rudyard Kipling's Jungle Books...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Dorset Stories",
+      "author": "Sylvia Townsend Warner",
+      "note": "The only one I changed substantially (mostly to update it) is the review of Sylvia Townsend Warner's Dorset Stories.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "note": "Three of the great works of children's literature and animal literature are Hugh Lofting's Doctor Dolittle, Rudyard Kipling's Jungle Books, and T....",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Jump-Off Creek",
+      "author": "Molly Gloss",
+      "note": "Davis's Honey in the Horn and Molly Gloss's The Jump-Off Creek have an implacable honesty about Western place and character.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Life Amongst the Modocs",
+      "author": "Joaquin Miller",
+      "note": "...and Joaquin Miller's Life Amongst the Modocs, which Dan Crommie lent me.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Miss Marjoribanks",
+      "author": "Margaret Oliphant",
+      "note": "Oliphant's work was wholly forgotten but for one novel, Miss Marjoribanks, not her best, mentioned by historians of literature but not kept in print.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Uncle Tom's Cabin",
+      "author": "Harriet Beecher Stowe",
+      "note": "The two great American novels of the oppressed, Uncle Tom's Cabin and The Grapes of Wrath, are saved from that minatory coldness by the authors' passion for justice...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Grapes of Wrath",
+      "author": "John Steinbeck",
+      "note": "The two great American novels of the oppressed, Uncle Tom's Cabin and The Grapes of Wrath, are saved from that minatory coldness...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Death at La Fenice",
+      "author": "Donna Leon",
+      "note": "...I reread the first, Death at La Fenice, curious to see if there was a great difference.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Honey in the Horn",
+      "author": "H. L. Davis",
+      "note": "A Very Good American Novel: H. L. Davis's Honey in the Horn.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "A Secret Vice",
+      "author": "J. R. R. Tolkien",
+      "note": "Tolkien's essay \"A Secret Vice.\" It is a splendid and often very funny description, explanation, and defense of the creation of fictive languages.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Machine Stops",
+      "author": "E. M. Forster",
+      "note": "Forster had written the amazing visionary story \"The Machine Stops,\" which Huxley surely knew.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Hav",
+      "author": "Jan Morris",
+      "note": "Jan Morris, Hav.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Moral Disorder",
+      "author": "Margaret Atwood",
+      "note": "Margaret Atwood, Moral Disorder.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Suffer the Little Children",
+      "author": "Donna Leon",
+      "note": "Donna Leon, Suffer the Little Children.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "On Such a Full Sea",
+      "author": "Chang-Rae Lee",
+      "note": "Chang-Rae Lee, On Such a Full Sea.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Cleft",
+      "author": "Doris Lessing",
+      "note": "Doris Lessing, The Cleft.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Monsieur Pain",
+      "author": "Roberto Bolaño",
+      "note": "Roberto Bolaño, Monsieur Pain.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Stone Raft",
+      "author": "José Saramago",
+      "note": "My course of reading—The Late Ricardo Reyes (also published as The Year of the Death of Ricardo Reis), The Stone Raft, The Cave, and several other books...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Year of the Death of Ricardo Reis",
+      "author": "José Saramago",
+      "note": "...The Late Ricardo Reyes (also published as The Year of the Death of Ricardo Reis), The Stone Raft, The Cave, and several other books...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Cave",
+      "author": "José Saramago",
+      "note": "...The Stone Raft, The Cave, and several other books (of which more later)—was entirely successful.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Country of the Blind",
+      "author": "H. G. Wells",
+      "note": "In 1939, in his discussion of his revision of what is probably his finest story, \"The Country of the Blind,\" he wrote that he had lost his tolerance for the idea story...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Three Moments of an Explosion",
+      "author": "China Miéville",
+      "note": "China Miéville, Three Moments of an Explosion.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Embassytown",
+      "author": "China Miéville",
+      "note": "China Miéville: Embassytown",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Boneland",
+      "author": "Alan Garner",
+      "note": "Alan Garner: Boneland",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Benediction",
+      "author": "Kent Haruf",
+      "note": "Kent Haruf, Benediction.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Our Souls at Night",
+      "author": "Kent Haruf",
+      "note": "...Kent Haruf, Our Souls at Night. Written in 2016.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The True Deceiver",
+      "author": "Tove Jansson",
+      "note": "Tove Jansson, The True Deceiver.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Stone Gods",
+      "author": "Jeanette Winterson",
+      "note": "Jeanette Winterson, Stone Gods.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "The Post-Office Girl",
+      "author": "Stefan Zweig",
+      "note": "Stefan Zweig, The Post Office Girl.",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Two Years, Eight Months, and Twenty-Eight Nights",
+      "author": "Salman Rushdie",
+      "note": "His new novel, Two Years, Eight Months, and Twenty-Eight Nights, assures us that reality has been crumbling more colossally than ever lately...",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Skylight",
+      "author": "José Saramago",
+      "note": "José Saramago: Skylight",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "Raised from the Ground",
+      "author": "José Saramago",
+      "note": "José Saramago: Raised from the Ground",
+      "confidence": "high"
+    },
+    {
+      "source": "Words Are My Matter",
+      "mentioned": "When the Killing's Done",
+      "author": "T. C. Boyle",
+      "note": "T. C. Boyle: When the Killing's Done",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "The Greeks",
+      "author": "H. D. F. Kitto",
+      "note": "Kitto's The Greeks, a blue and white paperback which he has bought for fifty cents, and he has reached a passage that describes the very soul of the Homeric hero",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "Walden",
+      "author": "Henry David Thoreau",
+      "note": "A copy of Thoreau's Walden... which Chris has never heard and which can be read a hundred times without exhaustion.",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "Critique of Pure Reason",
+      "author": "Immanuel Kant",
+      "note": "The bulk of Kant's Critique of Pure Reason is concerned with how this a priori knowledge is acquired and how it is employed.",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "Phaedrus",
+      "author": "Plato",
+      "note": "In the Professor of Philosophy's absence, another Platonic dialogue had been assigned. Its title was Phaedrus, which meant nothing to our Phaedrus since he didn't call himself by that name.",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "The Iliad",
+      "author": "Homer",
+      "note": "The Iliad is the story of the siege of Troy, which will fall in the dust, and of its defenders who will be killed in battle.",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "Chilton's Motorcycle Troubleshooting Guide",
+      "author": "Ocee Rich",
+      "note": "This is Chilton's Motorcycle Troubleshooting Guide written by Ocee Rich and sold by Sears, Roebuck.",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "The Meeting of East and West",
+      "author": "F. S. C. Northrop",
+      "note": "The philosophy book, which is called The Meeting of East and West, by F. S. C. Northrop, suggests that greater cognizance be made of the undifferentiated aesthetic continuum from which the theoretic arises.",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "Tao Te Ching",
+      "author": "Lao Tzu",
+      "note": "It was the 2,400-year-old Tao Te Ching of Lao Tzu.",
+      "confidence": "high"
+    },
+    {
+      "source": "Zen and the Art of Motorcycle Maintenance",
+      "mentioned": "Audels Automotive Guide",
+      "author": "Audel",
+      "note": "In addition, a general shop manual such as Audel's Automotive Guide fills in the gaps.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Zodiac: An Eco-Thriller",
+      "mentioned": "The Tragedy of the Commons",
+      "author": "Garrett Hardin",
+      "note": "\"You ever read The Tragedy of the Commons?\" \"Environmental piece, I know that.\" \"Any property that's open to common use gets destroyed.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Atmosphere: A Love Story",
+      "mentioned": "The Awakening",
+      "author": "Kate Chopin",
+      "note": "rereading The Awakening, listening to Joni Mitchell and Kate Bush",
+      "confidence": "high"
+    },
+    {
+      "source": "t zero",
+      "mentioned": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "note": "Let us call Alexandre Dumas the writer who must deliver to his publisher as soon as possible a novel in twelve volumes entitled The Count of Monte Cristo.",
+      "confidence": "high"
+    },
+    {
+      "source": "t zero",
+      "mentioned": "Theory of Automata",
+      "author": "John von Neumann",
+      "note": "John von Neumann, Theory of Automata (in Collected Works, Vol. 5)",
+      "confidence": "high"
+    },
+    {
+      "source": "t zero",
+      "mentioned": "The Double Helix",
+      "author": "James D. Watson",
+      "note": "James D. Watson, The Double Helix: A Personal Account of the Discovery of the Structure of DNA, Chap. 26",
+      "confidence": "high"
+    }
+  ]
+}
