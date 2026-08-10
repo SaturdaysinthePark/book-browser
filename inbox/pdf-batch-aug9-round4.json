@@ -1,0 +1,1197 @@
+{
+  "_readme": "Round 4 of 7 — big august 9th batch (in-copyright PDFs). 24 of 25 books processed; The Algebra of Infinite Justice (Arundhati Roy) excluded — PDF appears to be scanned/image-only, no extractable text layer, flagged for retry. Synopses grounded in real detect.mjs-extracted text; mentions curated from candidates.json per docs/detector.md exclusion rules; genres per tools/genres.mjs.",
+  "books": [
+    {
+      "title": "Outer Dark",
+      "author": "Cormac McCarthy",
+      "year": 1968,
+      "synopsis": "In backwoods Appalachia, Culla Holme fathers a child with his sister Rinthy and abandons it in the woods, telling her it died; when she discovers the truth and sets off searching for the baby and the tinker who took it, Culla wanders separately through a landscape of hangings, a turpentine camp, and a marauding trio of drifters who eventually murder the child before Culla's eyes.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Pachinko",
+      "author": "Min Jin Lee",
+      "year": 2017,
+      "synopsis": "A multigenerational saga following a Korean family, beginning with Sunja, a fisherman's daughter in Japanese-occupied Korea who bears a child out of wedlock, as they emigrate to Osaka and struggle across decades as ethnic Korean outsiders in Japan, with sons Noa and Mozasu taking divergent paths through education and the pachinko business.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Paradise",
+      "author": "Toni Morrison",
+      "year": 1997,
+      "synopsis": "A group of armed men from the all-Black town of Ruby, Oklahoma raid a nearby former convent to kill or drive out the women sheltering there, and the novel moves between the men's rationalizations, voiced partly through Reverend Richard Misner's doubts about the town's hardening insularity, and the convent women's interwoven backstories, closing on an ocean vision of a woman named Piedade singing to a rescued companion.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Patrimony: A True Story",
+      "author": "Philip Roth",
+      "year": 1991,
+      "synopsis": "Philip Roth recounts the final two years of his elderly father Herman Roth's life in Elizabeth, New Jersey, from the 1989 diagnosis of a brain tumor through a decision against surgery, a swallowing crisis, and his death, interwoven with Newark childhood stories, the family shaving mug, and Roth's own emergency heart bypass during the same period.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "People of the Book",
+      "author": "Geraldine Brooks",
+      "year": 2008,
+      "synopsis": "Book conservator Hanna Heath is brought to Sarajevo to examine and stabilize the illuminated Sarajevo Haggadah after it is rescued from the museum, and the physical clues she finds in its binding and stains, an insect wing, wine stains, salt, a white hair, trigger interleaved historical narratives tracing the manuscript's path back through Vienna, Venice, Tarragona, and fifteenth-century Seville.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "A Promised Land",
+      "author": "Barack Obama",
+      "year": 2020,
+      "synopsis": "Obama's memoir of his early political rise and first term as president, covering the 2008 campaign, the financial crisis, the fight for healthcare reform, and decisions like the raid on bin Laden, told through detailed behind-the-scenes accounts of White House deliberations.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Reading Like a Writer",
+      "author": "Francine Prose",
+      "year": 2006,
+      "synopsis": "A close-reading guide for writers and readers that works word by word, sentence by sentence, and paragraph by paragraph through passages from classic and contemporary fiction to show how great prose actually functions, drawing constantly on named authors from Chekhov to Nabokov.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "Reamde",
+      "author": "Neal Stephenson",
+      "year": 2011,
+      "synopsis": "A sprawling techno-thriller that follows a MMORPG-spawned ransomware virus called REAMDE as it drags a games executive, his niece, Russian mobsters, and Islamist militants into a globe-spanning chase across British Columbia, China, and the Philippines.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Rich Dad Poor Dad for Teens: The Secrets About Money",
+      "author": "Robert T. Kiyosaki",
+      "year": 2004,
+      "synopsis": "An adaptation of Kiyosaki's financial-education framework for a teen audience, using the contrasting lessons of his own 'rich dad' and 'poor dad' to argue for financial literacy, asset ownership, and entrepreneurship over conventional schooling and salaried work.",
+      "genre": "BUSINESS & ECONOMICS"
+    },
+    {
+      "title": "Rich People Problems",
+      "author": "Kevin Kwan",
+      "year": 2017,
+      "synopsis": "The final novel of the Crazy Rich Asians trilogy, centered on the Singaporean Young/Shang family's scramble over the deathbed and inheritance of matriarch Su Yi, mixing satire of ultra-wealthy excess with Nick and Rachel's efforts to reconcile with his estranged family.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "SPQR: A History of Ancient Rome",
+      "author": "Mary Beard",
+      "year": 2015,
+      "synopsis": "Mary Beard traces Roman history from the legendary founding by Romulus and the semi-mythical kings through the political crises of the Republic, opening with Cicero's suppression of the Catiline conspiracy, and on through the rise of the emperors and the Roman world beyond the city, ending around 212 CE.",
+      "genre": "HISTORY"
+    },
+    {
+      "title": "Sapiens: A Brief History of Humankind",
+      "author": "Yuval Noah Harari",
+      "year": 2014,
+      "synopsis": "Harari surveys the history of Homo sapiens from the Cognitive Revolution through the Agricultural Revolution, the unification of humankind under empires, money, and religion, and the Scientific Revolution, closing with speculation about the species' technological future.",
+      "genre": "HISTORY"
+    },
+    {
+      "title": "Secret Son",
+      "author": "Laila Lalami",
+      "year": 2009,
+      "synopsis": "Raised by his mother in a one-room house in the slums of Casablanca, Youssef El Mekki discovers that the father he believed dead is alive and wealthy, moves into his new family's world of privilege, and then, after a reversal of fortune sends him back to the streets, is drawn into a fringe Islamist organization known as the Party.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Seveneves",
+      "author": "Neal Stephenson",
+      "year": 2015,
+      "synopsis": "When the moon inexplicably blows apart, humanity has roughly two years before the fragments will bombard Earth and scour it lifeless, forcing a scramble to build a Cloud Ark of orbiting habitats around the space station Izzy; the story later jumps five thousand years to the descendants of seven survivors who have rebuilt a society in a habitat ring.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Shalimar the Clown",
+      "author": "Salman Rushdie",
+      "year": 2005,
+      "synopsis": "In the Kashmiri village of Pachigam, the clown and tightrope walker Shalimar marries the dancer Boonyi, whose affair with the American ambassador Max Ophuls sets off a chain of betrayal and revenge that turns Shalimar into an assassin and eventually entangles Max's daughter Kashmira in Los Angeles.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Shame",
+      "author": "Salman Rushdie",
+      "year": 1983,
+      "synopsis": "In the border town of Q. and later in the corridors of power of a thinly veiled Pakistan, the fates of General Raza Hyder, the Prime Minister Iskander Harappa, and Hyder's shame-driven daughter Sufiya Zinobia entangle with Omar Khayyam Shakil, a man born to three mother-sisters and raised without shame himself.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Shoe Dog: A Memoir by the Creator of Nike",
+      "author": "Phil Knight",
+      "year": 2016,
+      "synopsis": "Phil Knight recounts building Blue Ribbon into Nike, from an early-morning run through Oregon that opens the book, through importing Onitsuka running shoes from Japan, scouting factories, and fighting through cash crises, lawsuits, and boardroom betrayals to grow the company.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Snow",
+      "author": "Orhan Pamuk",
+      "year": 2002,
+      "synopsis": "The poet Ka travels to the snowbound Turkish city of Kars to investigate a wave of suicides among religious girls forbidden to wear headscarves, and gets swept into local political intrigue, a theatrical coup staged by the actor Sunay Zaim, and his own tangled love for Ipek and reunion with the revolutionary Fazil.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Snow Crash",
+      "author": "Neal Stephenson",
+      "year": 1992,
+      "synopsis": "In a balkanized near-future America run by corporate Burbclaves, pizza-delivery driver and part-time hacker the Deliverator and skateboard courier Y.T. get drawn into the spread of a mind-altering drug/virus called Snow Crash that threatens users in both the real world and the virtual Metaverse.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Stardust",
+      "author": "Neil Gaiman",
+      "year": 1999,
+      "synopsis": "Tristran Thorn, a young man from the village of Wall bordering the magical land of Faerie, crosses the wall to retrieve a fallen star to win his heart's desire, only to find the star is a living, injured young woman with her own dangers to escape.",
+      "genre": "FANTASY"
+    },
+    {
+      "title": "Stella Maris",
+      "author": "Cormac McCarthy",
+      "year": 2022,
+      "synopsis": "A twenty-year-old doctoral candidate in mathematics checks herself into a psychiatric hospice in Black River Falls, Wisconsin, in 1972 carrying forty thousand dollars in cash, and her recorded sessions with a psychiatrist range across grief for her dead father and brother, her plans to disappear into the Romanian mountains, and long dialogues on Gödel, Spengler, and the foundations of mathematics.",
+      "genre": "PHILOSOPHY"
+    },
+    {
+      "title": "Sula",
+      "author": "Toni Morrison",
+      "year": 1973,
+      "synopsis": "In the Bottom, a Black hill community above Medallion, Ohio, two girls, Nel and Sula, grow up inseparable before Sula leaves town for a decade of college and drifting; when she returns, her defiance of the community's moral codes, including sleeping with Nel's husband, turns her into the town's living embodiment of evil even as the novel traces the Peace and Wright family households across the decades.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Suttree",
+      "author": "Cormac McCarthy",
+      "year": 1979,
+      "synopsis": "Cornelius Suttree, who has abandoned a life of privilege, lives alone on a houseboat on the Tennessee River in Knoxville around 1950, fishing for a living and moving through a demimonde of prostitutes, junkmen, drunks, and petty criminals like Gene Harrogate, in a sequence of episodes marked by arrests, illness, and sudden violent death.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Terminal Man",
+      "author": "Michael Crichton",
+      "year": 1972,
+      "synopsis": "Harry Benson, a computer scientist who suffers blackout seizures and violent rages after a car accident left him with psychomotor epilepsy, undergoes an experimental operation at a Los Angeles hospital to implant a computer that delivers electrical stimulation to his brain to suppress his attacks; when the implant instead teaches him to trigger his own pleasurable seizures, he escapes the hospital and goes on a killing spree while doctors and police try to track him down.",
+      "genre": "SCI-FI"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "Patrimony: A True Story",
+      "mentioned": "This Way for the Gas, Ladies and Gentlemen",
+      "author": "Tadeusz Borowski",
+      "note": "\"my Hunter literature class had just been reading a book about Auschwitz—Tadeusz Borowski's This Way for the Gas, Ladies and Gentlemen\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Patrimony: A True Story",
+      "mentioned": "Into That Darkness",
+      "author": "Gitta Sereny",
+      "note": "\"and another about Treblinka—Gitta Sereny's Into That Darkness\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Patrimony: A True Story",
+      "mentioned": "Survival in Auschwitz",
+      "author": "Primo Levi",
+      "note": "\"made me think of that chapter in Survival in Auschwitz in which Primo Levi describes the forbidden bartering and bargaining among the prisoners\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Patrimony: A True Story",
+      "mentioned": "The Facts",
+      "author": "Philip Roth",
+      "note": "\"The piece, which, as 'Safe at Home,' became the opening chapter of The Facts, described my Newark neighborhood...\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Pachinko",
+      "mentioned": "Imagined Communities",
+      "author": "Benedict Anderson",
+      "note": "Epigraph opening Book III: \"I propose the following definition of the nation: it is an imagined political community...\" —Benedict Anderson",
+      "confidence": "high"
+    },
+    {
+      "source": "Pachinko",
+      "mentioned": "David Copperfield",
+      "author": "Charles Dickens",
+      "note": "\"my favorite is the first one he gave me, David Copperfield. I admire David.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Pachinko",
+      "mentioned": "Middlemarch",
+      "author": "George Eliot",
+      "note": "\"Adam Bede was not as exciting or developed as Middlemarch\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Pachinko",
+      "mentioned": "Adam Bede",
+      "author": "George Eliot",
+      "note": "\"Adam Bede is a bore. I almost died reading that thing.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Pachinko",
+      "mentioned": "Silas Marner",
+      "author": "George Eliot",
+      "note": "\"Silas Marner is barely tolerable.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Pachinko",
+      "mentioned": "Daniel Deronda",
+      "author": "George Eliot",
+      "note": "\"an extensive psychological portrait of the heroine in Daniel Deronda, the self-centered Gwendolen Harleth\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Pachinko",
+      "mentioned": "The Sorrows of Young Werther",
+      "author": "Johann Wolfgang von Goethe",
+      "note": "\"His favorite was Goethe; he must have read The Sorrows of Young Werther at least half a dozen times.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "People of the Book",
+      "mentioned": "Winnie-the-Pooh",
+      "author": "A. A. Milne",
+      "note": "\"From the familiar illustrations, I could tell it was a translation of Winnie-the-Pooh.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "People of the Book",
+      "mentioned": "The Zohar",
+      "author": "Moses de León (traditional attribution)",
+      "note": "\"Ruti had been immersed in the study of the Zohar, the Book of Splendor.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "A Promised Land",
+      "mentioned": "The Second Coming",
+      "author": "W. B. Yeats",
+      "note": "Between Republican attacks and Democratic complaints, I was reminded of the Yeats poem \"The Second Coming\": My supporters lacked all conviction, while my opponents were full of passionate intensity.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Promised Land",
+      "mentioned": "The Old Man and the Sea",
+      "author": "Ernest Hemingway",
+      "note": "At times, I felt like the fisherman in Hemingway's The Old Man and the Sea, sharks gnawing at my catch as I tried to tow it to shore.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Promised Land",
+      "mentioned": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "note": "Ever practical, she did suggest I might want to focus on my class assignments before digging into Crime and Punishment.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Promised Land",
+      "mentioned": "Team of Rivals",
+      "author": "Doris Kearns Goodwin",
+      "note": "I had been influenced by Doris Kearns Goodwin's book Team of Rivals and was self-consciously mimicking Lincoln by placing a former political opponent in my cabinet.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Promised Land",
+      "mentioned": "What to Expect When You're Expecting",
+      "author": "Heidi Murkoff",
+      "note": "attending Lamaze classes, trying to figure out how to assemble a crib, reading the book What to Expect When You're Expecting with pen in hand to underline key passages.",
+      "confidence": "high"
+    },
+    {
+      "source": "A Promised Land",
+      "mentioned": "A Problem from Hell: America and the Age of Genocide",
+      "author": "Samantha Power",
+      "note": "I'd met Samantha while I was in the Senate, after I read her Pulitzer Prize-winning book, \"A Problem from Hell\": America and the Age of Genocide.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Dead",
+      "author": "James Joyce",
+      "note": "Among the most well known cadenced sentences are those that end James Joyce's \"The Dead.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "First Love",
+      "author": "Samuel Beckett",
+      "note": "Alternately, we can read Samuel Beckett's \"First Love,\" in which we learn almost no physical details about the narrator.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "On Being Ill",
+      "author": "Virginia Woolf",
+      "note": "Finally, let's look at one of the most complex and virtuosic sentences in all of literature, which appears at the opening of Virginia Woolf's \"On Being Ill.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Drinking Coffee Elsewhere",
+      "author": "ZZ Packer",
+      "note": "If a character's going to light a cigarette, or almost light a cigarette, it should mean something, as it does in this scene from ZZ Packer's Drinking Coffee Elsewhere.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Elements of Style",
+      "author": "William Strunk Jr. and E. B. White",
+      "note": "For help with this specialized etiquette, I'd recommend a grammar manual such as Strunk and White's The Elements of Style.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Wise Blood",
+      "author": "Flannery O'Connor",
+      "note": "The opening pages of Flannery O'Connor's Wise Blood shift perspective every few sentences.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Angels",
+      "author": "Denis Johnson",
+      "note": "The initial paragraphs of another first novel, Denis Johnson's Angels, also convey a series of subtle shifts.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Franny and Zooey",
+      "author": "J. D. Salinger",
+      "note": "In Salinger's Franny and Zooey, Bessie Glass's bathrobe not only describes her personality and her entire way of life.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Lolita",
+      "author": "Vladimir Nabokov",
+      "note": "Nor are we entirely persuaded that, in Nabokov's Lolita, Humbert Humbert is transcribing verbatim the speech of Miss Pratt.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Pamela",
+      "author": "Samuel Richardson",
+      "note": "Such works are actually closer to the epistolary form in which a number of the very earliest novels, such as Samuel Richardson's Pamela, were written.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Sentimental Education",
+      "author": "Gustave Flaubert",
+      "note": "Something similar happens in the first chapter of Gustave Flaubert's Sentimental Education.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Recognitions",
+      "author": "William Gaddis",
+      "note": "the wild party that winds through so many pages of William Gaddis's The Recognitions.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Red and the Black",
+      "author": "Stendhal",
+      "note": "Like many of Balzac's provincial novels, Stendhal's The Red and the Black begins by introducing the reader to the topography of the town.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "A Moveable Feast",
+      "author": "Ernest Hemingway",
+      "note": "Finally, before we leave the subject of sentences, let's return once more to Hemingway, and to the passage from his memoir.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Bartleby the Scrivener",
+      "author": "Herman Melville",
+      "note": "In Melville's \"Bartleby the Scrivener,\" nearly all of Bartleby's demurrals and refusals are given separate paragraphs.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Everything That Rises Must Converge",
+      "author": "Flannery O'Connor",
+      "note": "consider the detail of Julian's mother's hat in Flannery O'Connor's Everything That Rises Must Converge.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Big Sur",
+      "author": "Jack Kerouac",
+      "note": "The story was told to me by a friend whose life in art mostly involved telling versions of his true life story... discussion follows a passage compared with Kerouac's Big Sur.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Pedro Paramo",
+      "author": "Juan Rulfo",
+      "note": "Reprinted by permission of Farrar, Straus and Giroux, LLC; Juan Rulfo, Pedro Paramo, discussed in the text as an example of narration.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Bleak House",
+      "author": "Charles Dickens",
+      "note": "discussed among examples of writers who convince readers of the realities of landscape and nature in their fiction.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Cousin Bette",
+      "author": "Honoré de Balzac",
+      "note": "The first paragraphs of Balzac's Cousin Bette function, to extend the cinematic metaphor, as a succession of tracking shots.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Resurrection",
+      "author": "Leo Tolstoy",
+      "note": "observe how much is conveyed by the moment in Tolstoy's Resurrection when a society woman, conscious that she is aging, reflects.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Corrections",
+      "author": "Jonathan Franzen",
+      "note": "This paragraph from Jonathan Franzen's The Corrections begins in what appears to be an omniscient third person.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Death of Ivan Ilych",
+      "author": "Leo Tolstoy",
+      "note": "Tolstoy's The Death of Ivan Ilych works its terrifying magic by bringing us in steadily closer to its protagonist.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Things They Carried",
+      "author": "Tim O'Brien",
+      "note": "The haunting, dirgelike force of Tim O'Brien's The Things They Carried is created by the repetition of the words necessity, carried.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "Having read the ballroom scene in Anna Karenina, or the wild party that winds through so many pages of William Gaddis's The Recognitions.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky",
+      "note": "In the second chapter of Crime and Punishment, Raskolnikov enters the tavern in which he first meets Marmeladov.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "note": "Madame Bovary begins from the perspective of a classmate of Emma Bovary's future husband, a narrator who is never heard from again.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Dead Souls",
+      "author": "Nikolai Gogol",
+      "note": "a lengthy roll call of eccentrics and oddballs (a man who loses his nose only to see it walking toward him down the street) discussed with reference to Gogol's Dead Souls.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "On Love",
+      "author": "Stendhal",
+      "note": "regarded as a bore, what are the chances that a group of gentlemen will gather before a fire to exchange the detailed histories of their love affairs, as they do in Stendhal's On Love.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Autumn of the Patriarch",
+      "author": "Gabriel García Márquez",
+      "note": "Reading García Márquez, you can almost feel him struggling against the desire to construct the endless paragraph, discussed with reference to The Autumn of the Patriarch.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Kreutzer Sonata",
+      "author": "Leo Tolstoy",
+      "note": "it seems far less likely that one passenger would tell another (as happens in Tolstoy's \"The Kreutzer Sonata\").",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Turn of the Screw",
+      "author": "Henry James",
+      "note": "Something similar occurs in The Turn of the Screw, another psychological thriller whose readers need all the help they can get.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "note": "But why should I have cared how anyone else was writing, or living, when I had Wuthering Heights as a model of how to write and of how to live.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "A Perfect Spy",
+      "author": "John le Carré",
+      "note": "John Le Carré's A Perfect Spy begins: In the small hours of a blustery October morning in a south Devon coastal town.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "American Pastoral",
+      "author": "Philip Roth",
+      "note": "This paragraph from American Pastoral encapsulates the meditation that lies at the center of the book.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Gone with the Wind",
+      "author": "Margaret Mitchell",
+      "note": "I read more widely, more indiscriminately, and mostly with an interest in how far a book could take me from my life, discussing childhood reading of Gone With the Wind.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "note": "I liked novels with plucky heroines like Pippi Longstocking, the astringent Jane Eyre, and the daughters in Little Women.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Love in the Time of Cholera",
+      "author": "Gabriel García Márquez",
+      "note": "I remember how long it took me to get through the last hundred pages of Gabriel García Márquez's Love in the Time of Cholera.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "One Hundred Years of Solitude",
+      "author": "Gabriel García Márquez",
+      "note": "The first paragraph of Gabriel García Márquez's One Hundred Years of Solitude goes on for a page and a half.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Pippi Longstocking",
+      "author": "Astrid Lindgren",
+      "note": "I liked novels with plucky heroines like Pippi Longstocking, the astringent Jane Eyre, and the daughters in Little Women.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Revolutionary Road",
+      "author": "Richard Yates",
+      "note": "Here, in the opening paragraph of Revolutionary Road, he warns us that the amateur theatrical performance in the novel's first chapter will end badly.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Sense and Sensibility",
+      "author": "Jane Austen",
+      "note": "So, in Sense and Sensibility, Jane Austen speedily and almost offhandedly dispatches Mr. Dashwood.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Enormous Room",
+      "author": "E. E. Cummings",
+      "note": "Gertrude Stein who had been much impressed by The Enormous Room said that Cummings did not copy, he was the natural heir of the New England tradition.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Professor",
+      "author": "Charlotte Brontë",
+      "note": "The tale concerns a linguist known only as \"the Professor,\" who travels into the North African desert in search of exotic languages.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "A Ship Made of Paper",
+      "author": "Scott Spencer",
+      "note": "An equivalent amount of meaning is packed into every line of the following two scenes from Scott Spencer's A Ship Made of Paper.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Man Who Loved Children",
+      "author": "Christina Stead",
+      "note": "there are several notable literary examples of people ranting to children, most notably, in Harold Brodkey's story \"S.L.\" and Christina Stead's The Man Who Loved Children.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Hope Against Hope",
+      "author": "Nadezhda Mandelstam",
+      "note": "In her memoir, Hope Against Hope, Nadezhda Mandelstam describes how her husband, Osip, and his friend and fellow poet, Anna Akhmatova.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The House in Paris",
+      "author": "Elizabeth Bowen",
+      "note": "Henrietta, the little girl in Elizabeth Bowen's The House in Paris, carries a stuffed toy monkey.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Moby-Dick",
+      "author": "Herman Melville",
+      "note": "details of landscape and nature (the facts of marine and whale biology in Moby Dick) discussed among examples of authenticating detail.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Earthquake in Chile",
+      "author": "Heinrich von Kleist",
+      "note": "let's look at the opening of Heinrich von Kleist's story \"The Earthquake in Chile\": In Santiago, the capital of the kingdom of Chile.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Access to the Children",
+      "author": "William Trevor",
+      "note": "At the opening of William Trevor's story \"Access to the Children,\" its protagonist, Malcolmson, arrives at an apartment house.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Goodbye, My Brother",
+      "author": "John Cheever",
+      "note": "a cross between an incantation, a lamentation, and the sort of sermon... appears at the end of John Cheever's \"Goodbye, My Brother.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "We Didn't",
+      "author": "Stuart Dybek",
+      "note": "Stuart Dybek's \"We Didn't\" is written in the first-person plural: the \"we\" of its subject is the narrator and his first true love.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Edison, New Jersey",
+      "author": "Junot Díaz",
+      "note": "the anxious hesitation of the customers in Junot Diaz's story \"Edison, New Jersey,\" which concerns some boys who work delivering card and pool tables.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Le Divorce",
+      "author": "Diane Johnson",
+      "note": "Phillip Carver, in turn, could hardly sound more unlike Isabel Walker, the plucky, intelligent, simultaneously astute and innocent narrator of Diane Johnson's Le Divorce.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Daughters of the Late Colonel",
+      "author": "Katherine Mansfield",
+      "note": "Such is the case with the opening of Katherine Mansfield's \"The Daughters of the Late Colonel\": The week after was one of the busiest weeks of their lives.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "My First Goose",
+      "author": "Isaac Babel",
+      "note": "Something similar occurs in the opening of \"My First Goose,\" though here the faint notes of discord and unease begin from the very first sentence.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "The Marquise of O",
+      "author": "Heinrich von Kleist",
+      "note": "Martin Greenberg (translator) and Thomas Mann (preface), The Marquise of O—and Other Stories, listed among the recommended books.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "A Distant Episode",
+      "author": "Paul Bowles",
+      "note": "I always feel a little guilty asking students to read Bowles's \"A Distant Episode,\" the literary equivalent of a kick in the head.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "Bright Lights, Big City",
+      "author": "Jay McInerney",
+      "note": "perhaps partly thanks to the success of Jay McInerney's novel Bright Lights, Big City, there was a brief vogue for writing in the second person.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reading Like a Writer",
+      "mentioned": "In the Ravine",
+      "author": "Anton Chekhov",
+      "note": "And it was about this same time that I first read \"In the Ravine,\" in which we don't realize that the peasant girl Lipa is our heroine until almost halfway through.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reamde",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "\"You know Don Quixote?\" Csongor had finally asked, after thinking about it for so long that Seamus had nearly fallen asleep on his feet.",
+      "confidence": "high"
+    },
+    {
+      "source": "Reamde",
+      "mentioned": "Self-Reliance",
+      "author": "Ralph Waldo Emerson",
+      "note": "\"I guess I started with Emerson's essay 'On Self-Reliance' and just followed the trail from there,\" he said.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Rich Dad Poor Dad for Teens: The Secrets About Money",
+      "mentioned": "The Richest Man in Babylon",
+      "author": "George S. Clason",
+      "note": "The Richest Man in Babylon, by George Classen, is where the statement \"pay yourself first\" comes from.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich Dad Poor Dad for Teens: The Secrets About Money",
+      "mentioned": "The 16% Solution",
+      "author": "Joel S. Moskowitz",
+      "note": "For example, it was in the bookstore that I found the book The 16 Percent Solution, by Joel Moskowitz.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich Dad Poor Dad for Teens: The Secrets About Money",
+      "mentioned": "Think and Grow Rich",
+      "author": "Napoleon Hill",
+      "note": "There is a great book called Think and Grow Rich.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich Dad Poor Dad for Teens: The Secrets About Money",
+      "mentioned": "The Retirement Myth",
+      "author": "Craig S. Karpel",
+      "note": "In his book The Retirement Myth, Craig S. [Karpel] discusses ineffective pensions.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Rich Dad Poor Dad for Teens: The Secrets About Money",
+      "mentioned": "Beating the Street",
+      "author": "Peter Lynch",
+      "note": "As for stocks, I like Peter Lynch's book Beating the Street for his formula for selecting stocks that grow in value.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich Dad Poor Dad for Teens: The Secrets About Money",
+      "mentioned": "The Road Not Taken",
+      "author": "Robert Frost",
+      "note": "Although I love many of his poems, my favorite is The Road Not Taken.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "China Rich Girlfriend",
+      "author": "Kevin Kwan",
+      "note": "If you read China Rich Girlfriend, you'd already know what a pontianak is.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "Love Story",
+      "author": "Erich Segal",
+      "note": "\"It's sort of like a modern-day retelling of Love Story.\" \"Oh no.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "Matilda",
+      "author": "Roald Dahl",
+      "note": "I thought he said he was in the middle of reading Matilda.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "Siddhartha",
+      "author": "Hermann Hesse",
+      "note": "\"I'm reading Siddhartha now.\" \"Ah, Hesse.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "The Hunger Games",
+      "author": "Suzanne Collins",
+      "note": "\"The Hunger Games isn't about vampires.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "War and Peace",
+      "author": "Leo Tolstoy",
+      "note": "Epigraph attributed as: —LEO TOLSTOY, WAR AND PEACE.",
+      "confidence": "high"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "Far Eastern Tales",
+      "author": "W. Somerset Maugham",
+      "note": "Somerset Maugham's Far Eastern Tales.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "Debrett's",
+      "author": "Debrett's",
+      "note": "I don't know which edition of Debrett's Yolanda Amanjiwo is reading, but she was absolutely incorrect.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "A Clockwork Orange",
+      "author": "Anthony Burgess",
+      "note": "\"You might as well have put on A Clockwork Orange for them.\" \"I'm a bad father, Astrid.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Rich People Problems",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "\"That still doesn't give you any excuse to be Anna Karenina!\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "SPQR: A History of Ancient Rome",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "brought the renowned Odysseus and echoes of Homer's Odyssey into the story by suggesting that Rome's real founding father was a man called Romus",
+      "confidence": "high"
+    },
+    {
+      "source": "SPQR: A History of Ancient Rome",
+      "mentioned": "The Iliad",
+      "author": "Homer",
+      "note": "the mythical war between Greeks and Trojans that is the backdrop of Homer's Iliad",
+      "confidence": "high"
+    },
+    {
+      "source": "SPQR: A History of Ancient Rome",
+      "mentioned": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "note": "Scott Fitzgerald's The Great Gatsby was Trimalchio at West Egg",
+      "confidence": "high"
+    },
+    {
+      "source": "SPQR: A History of Ancient Rome",
+      "mentioned": "Julius Caesar",
+      "author": "William Shakespeare",
+      "note": "this is the festival that the opening scene of Shakespeare's Julius Caesar re-creates",
+      "confidence": "high"
+    },
+    {
+      "source": "SPQR: A History of Ancient Rome",
+      "mentioned": "Coriolanus",
+      "author": "William Shakespeare",
+      "note": "Gaius Marcius Coriolanus, by contrast, who inspired Shakespeare's Coriolanus",
+      "confidence": "high"
+    },
+    {
+      "source": "SPQR: A History of Ancient Rome",
+      "mentioned": "Aesop's Fables",
+      "author": "Aesop",
+      "note": "still gives his name to many modern collections of them (Aesop's Fables)",
+      "confidence": "medium"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Das Kapital",
+      "author": "Karl Marx",
+      "note": "Communism too has its holy scripts and prophetic books, such as Marx's Das Kapital, which foretold that history would soon end",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Nineteen Eighty-Four",
+      "author": "George Orwell",
+      "note": "Huxley's vision of the future is far more troubling than George Orwell's Nineteen Eighty-Four",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Pygmalion",
+      "author": "George Bernard Shaw",
+      "note": "In George Bernard Shaw's Pygmalion, Henry Higgins doesn't need to establish an intimate acquaintance with Eliza Doolittle",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "Miguel de Cervantes, the author of Don Quixote, wrote a tragedy called The Siege of Numantia",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Brave New World",
+      "author": "Aldous Huxley",
+      "note": "In Aldous Huxley's dystopian novel Brave New World, published in 1932",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Frankenstein",
+      "author": "Mary Shelley",
+      "note": "In 1818 Mary Shelley published Frankenstein, the story of a scientist who creates an artificial being that goes out of control",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "The Wealth of Nations",
+      "author": "Adam Smith",
+      "note": "In 1776 the Scottish economist Adam Smith published The Wealth of Nations, probably the most important economics manifesto of all time",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Mein Kampf",
+      "author": "Adolf Hitler",
+      "note": "Then follows a quotation from Mein Kampf: 'The person who attempts to fight the iron logic of nature...'",
+      "confidence": "high"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Jurassic Park",
+      "author": "Michael Crichton",
+      "note": "And not just dinosaurs, as in Jurassic Park",
+      "confidence": "medium"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Harry Potter",
+      "author": "J.K. Rowling",
+      "note": "Harry Potter is a good example",
+      "confidence": "medium"
+    },
+    {
+      "source": "Sapiens: A Brief History of Humankind",
+      "mentioned": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "note": "from the adventures of Alice in Wonderland to the paradoxes of quantum physics",
+      "confidence": "medium"
+    },
+    {
+      "source": "Secret Son",
+      "mentioned": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "note": "He took his copy of The Great Gatsby out of his briefcase and, in an accent that... sounded perfectly American, asked, 'I assume you've all read the book'",
+      "confidence": "high"
+    },
+    {
+      "source": "Secret Son",
+      "mentioned": "The Secret Agent",
+      "author": "Joseph Conrad",
+      "note": "chapter epigraph: JOSEPH CONRAD, The Secret Agent",
+      "confidence": "high"
+    },
+    {
+      "source": "Shalimar the Clown",
+      "mentioned": "The Country Without a Post Office",
+      "author": "Agha Shahid Ali",
+      "note": "opening epigraph, attributed AGHA SHAHID ALI, The Country Without a Post Office",
+      "confidence": "high"
+    },
+    {
+      "source": "Shalimar the Clown",
+      "mentioned": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "note": "opening epigraph, 'A plague on both your houses.' —MERCUTIO, IN Romeo and Juliet, BY WILLIAM SHAKESPEARE",
+      "confidence": "high"
+    },
+    {
+      "source": "Shalimar the Clown",
+      "mentioned": "Das Narrenschiff",
+      "author": "Sebastian Brant",
+      "note": "the fifteenth-century Strasbourg author of Stultifera Navis, or Das Narrenschiff (1494), a satire of...",
+      "confidence": "high"
+    },
+    {
+      "source": "Shame",
+      "mentioned": "The Prince",
+      "author": "Niccolò Machiavelli",
+      "note": "'\"Of those who have attained the position of prince by villainy,\"' Iskander's voice whispered in his ear, 'Il Principe, chapter eight.'",
+      "confidence": "high"
+    },
+    {
+      "source": "Shame",
+      "mentioned": "Julius Caesar",
+      "author": "William Shakespeare",
+      "note": "They told me the story of a recent attempt to stage Julius Caesar at the University of P.",
+      "confidence": "high"
+    },
+    {
+      "source": "Shame",
+      "mentioned": "The Suicide",
+      "author": "Nikolai Erdman",
+      "note": "From The Suicide, a play by the Russian writer Nikolai Erdman: 'Only the dead can say what the living are thinking.'",
+      "confidence": "high"
+    },
+    {
+      "source": "Shame",
+      "mentioned": "Danton's Death",
+      "author": "Georg Büchner",
+      "note": "Danton is on a London stage, not really Danton at all but an actor speaking the lines of Georg Büchner in English translation",
+      "confidence": "high"
+    },
+    {
+      "source": "Shame",
+      "mentioned": "Beauty and the Beast",
+      "author": "Jeanne-Marie Leprince de Beaumont",
+      "note": "the classic fable Beauty and the Beast is simply the story of an arranged marriage",
+      "confidence": "medium"
+    },
+    {
+      "source": "Shoe Dog: A Memoir by the Creator of Nike",
+      "mentioned": "Kubla Khan",
+      "author": "Samuel Taylor Coleridge",
+      "note": "I felt like Coleridge, writing \"Kubla Khan\" in an opium daze.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Shoe Dog: A Memoir by the Creator of Nike",
+      "mentioned": "A Moveable Feast",
+      "author": "Ernest Hemingway",
+      "note": "Hemingway himself wrote most of A Moveable Feast while gazing at a statue of Marshal Ney, Napoléon's favorite commander.",
+      "confidence": "high"
+    },
+    {
+      "source": "Shoe Dog: A Memoir by the Creator of Nike",
+      "mentioned": "The Book of Five Rings",
+      "author": "Miyamoto Musashi",
+      "note": "famous for his portrayal of Miyamoto Musashi, the epic samurai duelist and author of a timeless manual on combat and inner strength, The Book of Five Rings",
+      "confidence": "high"
+    },
+    {
+      "source": "Shoe Dog: A Memoir by the Creator of Nike",
+      "mentioned": "The Godfather",
+      "author": "Mario Puzo",
+      "note": "He was a shoe dog, for sure, but a shoe dog straight out of The Godfather.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Snow",
+      "mentioned": "The Spanish Tragedy",
+      "author": "Thomas Kyd",
+      "note": "the drama originally inspired by Thomas Kyd's The Spanish Tragedy but which in its final form showed many other influences",
+      "confidence": "high"
+    },
+    {
+      "source": "Snow",
+      "mentioned": "Kubla Khan",
+      "author": "Samuel Taylor Coleridge",
+      "note": "Anyone who knows anything about English poetry will remember the note at the start of Coleridge's \"Kubla Khan.\" It explains how the work is a \"fragment of a poem, from a vision during a dream\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Snow",
+      "mentioned": "First Love",
+      "author": "Ivan Turgenev",
+      "note": "Turgut Bey reached shamefacedly into his pocket and pulled out a new edition of First Love, the Turgenev novel he'd translated from the French while he was in prison.",
+      "confidence": "high"
+    },
+    {
+      "source": "Snow",
+      "mentioned": "Under Western Eyes",
+      "author": "Joseph Conrad",
+      "note": "Epigraph credited: \"—Joseph Conrad, Under Western Eyes\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Snow",
+      "mentioned": "Bishop Blougram's Apology",
+      "author": "Robert Browning",
+      "note": "Epigraph credited: \"—Robert Browning, 'Bishop Blougram's Apology'\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Snow",
+      "mentioned": "The Museum of Innocence",
+      "author": "Orhan Pamuk",
+      "note": "I had told him about The Museum of Innocence, an idea I was still keeping from everyone",
+      "confidence": "medium"
+    },
+    {
+      "source": "Stardust",
+      "mentioned": "Song (\"Go, and catch a falling star\")",
+      "author": "John Donne",
+      "note": "Epigraph credited: \"—John Donne, 1572–1631\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Stardust",
+      "mentioned": "Kubla Khan",
+      "author": "Samuel Taylor Coleridge",
+      "note": "Tristran gained great renown by reciting from memory Coleridge's \"Kubla Khan,\" the Twenty-Third Psalm, the \"Quality of Mercy\" speech from The Merchant of Venice",
+      "confidence": "high"
+    },
+    {
+      "source": "Stardust",
+      "mentioned": "The Merchant of Venice",
+      "author": "William Shakespeare",
+      "note": "the \"Quality of Mercy\" speech from The Merchant of Venice",
+      "confidence": "high"
+    },
+    {
+      "source": "Stella Maris",
+      "mentioned": "The Decline of the West",
+      "author": "Oswald Spengler",
+      "note": "We got to talking about math and he told me that what first got him interested in the subject was the second chapter of Spengler's Decline of the West.",
+      "confidence": "high"
+    },
+    {
+      "source": "Stella Maris",
+      "mentioned": "Bhagavad Gita",
+      "author": "Anonymous",
+      "note": "And supposedly Oppenheimer quoted from the Bhagavad Gita but I think the Sanskrit word for Time came out Death or maybe the other way around.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Stella Maris",
+      "mentioned": "An Essay Towards a New Theory of Vision",
+      "author": "George Berkeley",
+      "note": "But I sat in the floor and I read A New Theory of Vision.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Sula",
+      "mentioned": "Amazing Grace",
+      "author": "John Newton",
+      "note": "hymn sung in the novel's dialogue exchange: \"'Amazing Grace.' 'You sold your life for twenty-three dollars a month.'\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Sula",
+      "mentioned": "Nearer, My God, to Thee",
+      "author": "Sarah Flower Adams",
+      "note": "The Junior Choir, dressed in white, sang \"Nearer My God to Thee\" and \"Precious Memories.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Suttree",
+      "mentioned": "The Book of Mormon",
+      "author": "Joseph Smith",
+      "note": "he bought a candy bar and he sat alone on a bench in the empty waiting room ... reading from a black leatherette copy of the Book of Mormon he found in a pamphlet rack.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Suttree",
+      "mentioned": "Tom Swift and His Motorcycle",
+      "author": "Victor Appleton",
+      "note": "He read Tom Swift and His Motorcycle and he read The Black Brotherhood and he read Mildred at Home.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Terminal Man",
+      "mentioned": "The Human Use of Human Beings: Cybernetics and Society",
+      "author": "Norbert Wiener",
+      "note": "The Human Use of Human Beings: Cybernetics and Society.",
+      "confidence": "high"
+    }
+  ]
+}
