@@ -1,0 +1,1316 @@
+{
+  "_readme": "Round 2 of 7 — big august 9th batch (in-copyright PDFs). Synopses grounded in real detect.mjs-extracted text; mentions curated from candidates.json per docs/detector.md exclusion rules; genres per tools/genres.mjs. Cosmos (Carl Sagan) and Everyman (Philip Roth) are distinct works from same-titled pre-existing DB entries by different authors.",
+  "books": [
+    {
+      "title": "Carrie",
+      "author": "Stephen King",
+      "year": 1974,
+      "synopsis": "Carrie White, a bullied high-school outcast raised by a fanatically religious mother, discovers she has telekinetic powers after her first period triggers a humiliating locker-room hazing; when a prom-night prank goes wrong she turns her power on the town of Chamberlain, Maine. The novel is assembled from Carrie's own narrative interwoven with fictional news clippings, letters, and excerpts from a post-disaster commission report and memoirs by survivors like Susan Snell.",
+      "genre": "HORROR"
+    },
+    {
+      "title": "Caste: The Origins of Our Discontents",
+      "author": "Isabel Wilkerson",
+      "year": 2020,
+      "synopsis": "Wilkerson argues that a rigid, largely unspoken caste system, not simply racism, structures American life, and traces its architecture through eight shared pillars found also in the Indian caste system and Nazi Germany's race laws. The book moves between historical case studies (Nazi officials studying American segregation statutes, a schoolteacher's blue-eyed/brown-eyed classroom experiment) and analysis of contemporary events like the police killing of Freddie Gray.",
+      "genre": "POLITICS & WORLD"
+    },
+    {
+      "title": "Child of God",
+      "author": "Cormac McCarthy",
+      "year": 1973,
+      "synopsis": "Lester Ballard, dispossessed of his family's Tennessee farm and increasingly shunned by his community, descends into squatting in caves, scavenging, and eventually necrophilia and murder, narrated in spare prose interspersed with the recollections of local townspeople.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "China Rich Girlfriend",
+      "author": "Kevin Kwan",
+      "year": 2015,
+      "synopsis": "As Rachel Chu prepares to marry Nick Young, she learns the identity of her long-lost biological father, a mainland Chinese billionaire, and is pulled into the rivalries, scandals, and extravagant spending of Shanghai and Hong Kong's ultra-wealthy alongside Nick's cousin Astrid and the social-climbing Kitty Pong. A running thread involves Kitty's new sister-in-law Colette assigning her a strict etiquette and literary reading curriculum to remake her into old-money society.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Cities of the Plain",
+      "author": "Cormac McCarthy",
+      "year": 1998,
+      "synopsis": "Cowboys John Grady Cole and Billy Parham, now working a New Mexico ranch near the Texas border in the early 1950s, cross into Juárez where John Grady falls for a young epileptic prostitute named Magdalena, setting the pair against a violent pimp. The novel closes the Border Trilogy begun in All the Pretty Horses and The Crossing.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Common Reader: Second Series",
+      "author": "Virginia Woolf",
+      "year": 1932,
+      "synopsis": "A collection of essays, most first published in periodicals like the Times Literary Supplement and The Nation, in which Woolf writes about English writers and books from the Elizabethans through her own contemporaries, discussing figures such as Sidney, Donne, Defoe, Sterne, Swift, Chesterfield, De Quincey, Cowper, Hazlitt, the Brontes' circle, Elizabeth Barrett Browning, George Gissing, George Meredith, Christina Rossetti, and Thomas Hardy, and closing with an essay on how one should read a book.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "Congo",
+      "author": "Michael Crichton",
+      "year": 1980,
+      "synopsis": "In 1979 a corporate-funded expedition led by geologist Karen Ross, primatologist Peter Elliot, his sign-language-trained gorilla Amy, and mercenary guide Charles Munro races into the Zairean rain forest to find a lost city called Zinj and its fabled diamond deposits, following the trail of a previous expedition wiped out by a mysterious force.",
+      "genre": "ADVENTURE & TRAVEL"
+    },
+    {
+      "title": "Contact",
+      "author": "Carl Sagan",
+      "year": 1985,
+      "synopsis": "Radio astronomer Ellie Arroway leads the SETI-derived Project Argus team that detects and decodes an extraterrestrial signal from Vega, a discovery that leads to construction of an enigmatic interstellar Machine and to Ellie's own journey through it, forcing her and the world to reckon with the boundaries between science, faith, and the numinous.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Cosmos",
+      "author": "Carl Sagan",
+      "year": 1980,
+      "synopsis": "A sweeping popular-science tour of the universe and the history of science, tracing astronomy and cosmology from ancient Ionia and the Library of Alexandria through Kepler, Newton, and Einstein to modern space exploration, while weaving in reflections on the scientific method, the search for extraterrestrial life, and the dangers of nuclear war.",
+      "genre": "MISC"
+    },
+    {
+      "title": "Crazy Rich Asians",
+      "author": "Kevin Kwan",
+      "year": 2013,
+      "synopsis": "When American-born Chinese economics professor Rachel Chu travels to Singapore with her boyfriend Nick Young to attend his best friend's wedding, she discovers he belongs to one of Asia's wealthiest, most status-obsessed families, and must navigate the opulence, gossip, and disapproval of his mother Eleanor and the extended Young-Shang-T'sien clan.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Daisy Jones & The Six",
+      "author": "Taylor Jenkins Reid",
+      "year": 2019,
+      "synopsis": "An oral-history-style novel that reconstructs, through interwoven first-person interview testimony from band members, family, and industry figures, the rise of 1970s rock band Daisy Jones & The Six and the affair, addiction, and creative tensions between singer Daisy Jones and bandleader Billy Dunne that led to the group's abrupt on-stage breakup in Chicago in 1979.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Death on the Nile",
+      "author": "Agatha Christie",
+      "year": 1937,
+      "synopsis": "Heiress Linnet Ridgeway marries Simon Doyle, the former fiancé of her friend Jacqueline de Bellefort, and the newlyweds find Jacqueline pursuing them on their Egyptian honeymoon aboard a Nile steamer; when Linnet is shot dead in her cabin, Hercule Poirot investigates the passengers to find the killer.",
+      "genre": "CRIME & MYSTERY"
+    },
+    {
+      "title": "Death's End",
+      "author": "Cixin Liu",
+      "year": 2010,
+      "synopsis": "Half a century after the Doomsday Battle, aerospace engineer Cheng Xin wakes from hibernation into the Deterrence Era, in which the threat of mutually-assured destruction between Earth and the Trisolaran invaders has kept an uneasy peace; she inherits the \"Swordholder\" role controlling humanity's broadcast deterrent, and the narrative follows her choices (and the coded fairy tales sent by Yun Tianming) across the fall of deterrence, humanity's exile to Australia and later the Bunker and Broadcast Eras, and on toward the fate of the solar system.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Deception",
+      "author": "Philip Roth",
+      "year": 1990,
+      "synopsis": "A novel told almost entirely in overheard dialogue between a writer named Philip and his English mistress in London, moving between their pillow talk, arguments about jealousy and fidelity, and his account of researching a biography of the reclusive writer Lonoff whose widow blocked him at every turn; the book ends with the lover confronting him after reading his manuscript about their affair.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Difficult Loves",
+      "author": "Italo Calvino",
+      "year": 1970,
+      "synopsis": "A collection of short stories grouped by period (Riviera Stories, Wartime Stories, Postwar Stories, and Stories of Love and Loneliness), moving between prewar Ligurian coastal boyhood scenes, wartime partisan skirmishes and Allied-occupation port life, and later solitary character studies — a soldier, a bather, a clerk, a reader, a poet — each caught in a single charged encounter or moment of near-connection, rendered through closely observed physical and sensory detail.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Do Androids Dream of Electric Sheep?",
+      "author": "Philip K. Dick",
+      "year": 1968,
+      "synopsis": "Bounty hunter Rick Deckard, whose wife Iran dials her moods on a Penfield mood organ and who keeps a fake electric sheep because a real animal is beyond his means, is assigned to retire a group of escaped Nexus-6 androids, including Rachael Rosen, Roy and Irmgard Baty, and opera singer Luba Luft, whose deaths leave him shaken and questioning what separates him from them.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "East, West",
+      "author": "Salman Rushdie",
+      "year": 1994,
+      "synopsis": "A three-part story collection moving between the subcontinent and the West, retelling Hamlet's gravedigger Yorick as a jester in old Denmark, following Christopher Columbus's years of courting Queen Isabella for patronage, and tracing immigrant friendships and marriages such as those of Chekov and Zulu and the porter Mecir.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Ender's Game",
+      "author": "Orson Scott Card",
+      "year": 1985,
+      "synopsis": "Child prodigy Ender Wiggin is pushed through Battle School's zero-gravity war games, eventually commanding the newly formed Dragon Army of green recruits, before being maneuvered into commanding the fleet that destroys the alien buggers, after which he travels the stars with his sister Valentine as a Speaker for the Dead.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Everyman",
+      "author": "Philip Roth",
+      "year": 2006,
+      "synopsis": "Opening at the graveside funeral of an unnamed former advertising art director, the novel moves back through his childhood hernia surgery, three marriages, his estranged sons and devoted daughter Nancy, art classes at the Starfish Beach retirement community, and a string of worsening cardiac operations that finally kill him on the table.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Exit Ghost",
+      "author": "Philip Roth",
+      "year": 2007,
+      "synopsis": "After eleven years of rural seclusion, the aging, incontinent, impotent writer Nathan Zuckerman travels to Manhattan for a medical procedure, gets drawn into young biographer Richard Kliman's effort to expose a scandal about Zuckerman's late mentor E.I. Lonoff, and is overtaken by a futile infatuation with a much younger writer, Jamie Logan.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Exit West",
+      "author": "Mohsin Hamid",
+      "year": 2017,
+      "synopsis": "In an unnamed city sliding into civil war, Saeed and Nadia fall into a relationship and eventually pass through one of the mysterious doors that have begun appearing worldwide, doors that deposit refugees instantly in Mykonos, London, and finally San Francisco, while their bond slowly erodes as they remake themselves in each new place.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Fire from Heaven",
+      "author": "Mary Renault",
+      "year": 1969,
+      "synopsis": "A childhood-to-adolescence portrait of Alexander the Great growing up in the Macedonian court of his father Philip and his volatile mother Olympias, tutored by Aristotle at Mieza and bound to his lifelong companion Hephaistion, ending as Philip is assassinated and the young Alexander claims the throne.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Funeral Games",
+      "author": "Mary Renault",
+      "year": 1981,
+      "synopsis": "After Alexander the Great's death in Babylon, his generals Perdikkas, Ptolemy, Eumenes, Antigonos, and the rest tear his empire apart in years of shifting alliances, murders, and civil war, while his mother Olympias, his widow Roxane, and his half-witted half-brother Philip Arridaios become pawns and casualties of the succession struggle.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Fury",
+      "author": "Salman Rushdie",
+      "year": 2001,
+      "synopsis": "Malik Solanka, a retired Cambridge historian of ideas and dollmaker who has fled London for New York, tries to escape a rage he cannot explain while his creation Little Brain becomes a global media phenomenon and he is drawn into the affairs of Neela Mahendra and a revolution brewing on the fictional islands of Lilliput-Blefuscu.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "God Help the Child",
+      "author": "Toni Morrison",
+      "year": 2015,
+      "synopsis": "Bride, a dark-skinned woman rejected in childhood by her light-skinned mother Sweetness for the color of her own skin, builds a glamorous cosmetics-executive life for herself in adulthood, but it begins to unravel after her lover Booker leaves her and she sets out to find him, uncovering both his and her own buried childhood wounds along the way.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "Carrie",
+      "mentioned": "The Raven",
+      "author": "Edgar Allan Poe",
+      "note": "A bust of Pallas, used in some ancient dramatic version of Poe's \"The Raven,\" stared at Billy with blind, floating eyes from atop a rusting bedspring.",
+      "confidence": "high"
+    },
+    {
+      "source": "Caste: The Origins of Our Discontents",
+      "mentioned": "An American Dilemma",
+      "author": "Gunnar Myrdal",
+      "note": "In 1944, the Swedish social economist Gunnar Myrdal and a team of the most talented researchers in the country produced a 2,800-page, two-volume work that is still considered perhaps the most comprehensive study of race in America, An American Dilemma.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Snobs",
+      "author": "Julian Fellowes",
+      "note": "The books are to be read in the following order: Snobs by Julian Fellowes...",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "The Piano Teacher",
+      "author": "Janice Y. K. Lee",
+      "note": "The Piano Teacher by Janice Y. K. Lee, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "People Like Us",
+      "author": "Dominick Dunne",
+      "note": "People Like Us by Dominick Dunne, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "The Power of Style",
+      "author": "Annette Tapert and Diana Edkins",
+      "note": "The Power of Style by Annette Tapert and Diana Edkins (this is out of print; I will lend you my copy).",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Pride and Avarice",
+      "author": "Nicholas Coleridge",
+      "note": "Pride and Avarice by Nicholas Coleridge, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "The Soong Dynasty",
+      "author": "Sterling Seagrave",
+      "note": "The Soong Dynasty by Sterling Seagrave, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Freedom",
+      "author": "Jonathan Franzen",
+      "note": "Freedom by Jonathan Franzen, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "D.V.",
+      "author": "Diana Vreeland",
+      "note": "D. V. by Diana Vreeland, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "A Princess Remembers: The Memoirs of the Maharani of Jaipur",
+      "author": "Gayatri Devi",
+      "note": "A Princess Remembers: The Memoirs of the Maharani of Jaipur by Gayatri Devi, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Pride and Prejudice",
+      "author": "Jane Austen",
+      "note": "Jane Austen—complete works beginning with Pride and Prejudice.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "The Custom of the Country",
+      "author": "Edith Wharton",
+      "note": "Edith Wharton—The Custom of the Country, The Age of Innocence, The Buccaneers, The House of Mirth (must be read in strict order).",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "The Age of Innocence",
+      "author": "Edith Wharton",
+      "note": "Edith Wharton—The Custom of the Country, The Age of Innocence, The Buccaneers, The House of Mirth (must be read in strict order).",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "The Buccaneers",
+      "author": "Edith Wharton",
+      "note": "Edith Wharton—The Custom of the Country, The Age of Innocence, The Buccaneers, The House of Mirth (must be read in strict order).",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "The House of Mirth",
+      "author": "Edith Wharton",
+      "note": "Edith Wharton—The Custom of the Country, The Age of Innocence, The Buccaneers, The House of Mirth (must be read in strict order).",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Vanity Fair",
+      "author": "William Makepeace Thackeray",
+      "note": "Vanity Fair by William Makepeace Thackeray, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "Anna Karenina by Leo Tolstoy, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Brideshead Revisited",
+      "author": "Evelyn Waugh",
+      "note": "Brideshead Revisited by Evelyn Waugh, from Kitty's assigned reading list.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Can You Forgive Her?",
+      "author": "Anthony Trollope",
+      "note": "Anthony Trollope—all the books in the Palliser series, beginning with Can You Forgive Her?",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "Lean In",
+      "author": "Sheryl Sandberg",
+      "note": "I noticed many magazines but not a single book in your entire house, with the exception of a Chinese-language translation of Sheryl Sandberg's Lean In found in one of the maid's bedrooms.",
+      "confidence": "high"
+    },
+    {
+      "source": "China Rich Girlfriend",
+      "mentioned": "A Storm of Swords",
+      "author": "George R.R. Martin",
+      "note": "Actually, everyone knows that Tommen Baratheon, age seven, is the youngest man to sit on the Iron Throne. (See George R. R. Martin's A Storm of Swords.)",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Arcadia",
+      "author": "Philip Sidney",
+      "note": "Essay titled \"The Countess of Pembroke's Arcadia\"; Woolf writes at length on the romance, e.g. \"In the Arcadia, as in some luminous globe, all the seeds of English fiction lie latent.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "note": "Whole essay titled \"Robinson Crusoe\" devoted to the novel.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Letters (Dorothy Osborne)",
+      "author": "Dorothy Osborne",
+      "note": "Essay titled \"Dorothy Osborne's 'Letters'\" discussing her correspondence at length.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Journal to Stella",
+      "author": "Jonathan Swift",
+      "note": "Essay titled \"Swift's 'Journal to Stella'\" discusses the work throughout.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "A Sentimental Journey",
+      "author": "Laurence Sterne",
+      "note": "Essay on Sterne discusses \"that narrative of a little tour in France which he called A Sentimental Journey.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Tristram Shandy",
+      "author": "Laurence Sterne",
+      "note": "\"Tristram Shandy, though it is Sterne's first novel, was written at a time when many have written their twentieth...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Letters to His Son",
+      "author": "Lord Chesterfield",
+      "note": "Essay titled \"Lord Chesterfield's Letters to His Son\" discusses the collection.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Aurora Leigh",
+      "author": "Elizabeth Barrett Browning",
+      "note": "Whole essay titled \"'Aurora Leigh'\" analyzing the verse-novel, e.g. \"we cannot read the first twenty pages of Aurora Leigh...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Goblin Market",
+      "author": "Christina Rossetti",
+      "note": "Discussed via Saintsbury's analysis: \"examines Goblin Market, and reports that The metre of the principal poem...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Holy Sonnets and Divine Poems",
+      "author": "John Donne",
+      "note": "\"Thus, finally, we reach the last section of the book, the Holy Sonnets and Divine Poems.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "An Anatomy of the World / Of the Progress of the Soul",
+      "author": "John Donne",
+      "note": "\"...or in celebration of Elizabeth Drury (An Anatomie of the World and the Progresse of the Soul), we are made to reflect...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Jane Eyre",
+      "author": "Charlotte Bronte",
+      "note": "\"Jane Eyre, Vanity Fair, David Copperfield, Richard Feverel all trod fast on each other's heels between the years 1847 and 1860.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Vanity Fair",
+      "author": "William Makepeace Thackeray",
+      "note": "Listed alongside Jane Eyre, David Copperfield, Richard Feverel as novels of the period.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "David Copperfield",
+      "author": "Charles Dickens",
+      "note": "Listed alongside Jane Eyre, Vanity Fair, Richard Feverel.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Ordeal of Richard Feverel",
+      "author": "George Meredith",
+      "note": "Listed alongside Jane Eyre, Vanity Fair, David Copperfield as \"Richard Feverel.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Egoist",
+      "author": "George Meredith",
+      "note": "\"The Egoist at once modifies our theory that Meredith is pre-eminently the master of great scenes.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Demos",
+      "author": "George Gissing",
+      "note": "\"...we feel that we are filling in a design which we began to trace out when we read Demos and New Grub Street and The Nether World.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "New Grub Street",
+      "author": "George Gissing",
+      "note": "Named alongside Demos and The Nether World as novels Woolf discusses.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Nether World",
+      "author": "George Gissing",
+      "note": "Named alongside Demos and New Grub Street as novels Woolf discusses.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Desperate Remedies",
+      "author": "Thomas Hardy",
+      "note": "\"In the year 1871 he was a man of thirty-one; he had written a novel, Desperate Remedies, but he was by no means an assured craftsman.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Under the Greenwood Tree",
+      "author": "Thomas Hardy",
+      "note": "\"But the year after, when Under the Greenwood Tree appeared, it was clear that much of the effort of 'feeling for a method' had been overcome.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Far from the Madding Crowd",
+      "author": "Thomas Hardy",
+      "note": "Grouped with The Woodlanders, The Return of the Native, and The Mayor of Casterbridge as key Hardy novels.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Woodlanders",
+      "author": "Thomas Hardy",
+      "note": "Grouped with Far from the Madding Crowd, The Return of the Native, and The Mayor of Casterbridge.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Return of the Native",
+      "author": "Thomas Hardy",
+      "note": "\"There they hang in the mind the shapes of the books we have read...Robinson Crusoe, Emma, The Return of the Native.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Mayor of Casterbridge",
+      "author": "Thomas Hardy",
+      "note": "\"...and above all, in The Mayor of Casterbridge, we have Hardy's impression of life as it came to him without conscious ordering.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Jude the Obscure",
+      "author": "Thomas Hardy",
+      "note": "\"Thus when Jude the Obscure appears or a new volume of Proust, the newspapers are flooded with protests.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Emma",
+      "author": "Jane Austen",
+      "note": "\"There they hang in the mind the shapes of the books we have read solidified by the judgments we have passed on them--Robinson Crusoe, Emma, The Return of the Native.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "John Gilpin",
+      "author": "William Cowper",
+      "note": "\"...told him, just as he was sinking into one of his fits of melancholy, the story of John Gilpin, so that he leapt out of bed, shaking with laughter.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Task",
+      "author": "William Cowper",
+      "note": "\"It is this that makes passages in The Task like clear windows let into the prosaic fabric of the rest.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Love for Love",
+      "author": "William Congreve",
+      "note": "\"The famous passages about reading Love for Love and drinking coffee from a silver pot, and reading La Nouvelle Heloise and eating a cold chicken, are known to all...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Julie, ou la Nouvelle Heloise",
+      "author": "Jean-Jacques Rousseau",
+      "note": "\"...and reading La Nouvelle Heloise and eating a cold chicken, are known to all...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Paradise Lost",
+      "author": "John Milton",
+      "note": "\"...and it is as impossible to imagine that a Duke could be a great novelist as that Paradise Lost could be written by a man behind a counter.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Rasselas",
+      "author": "Samuel Johnson",
+      "note": "\"Directly she read Rasselas, enlarged and swollen sentences formed on the tip of her childish pen in the manner of Dr.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Angel in the House",
+      "author": "Coventry Patmore",
+      "note": "\"Coventry Patmore's 'Angel in the House' and Clough's 'Bothie' were both attempts of the same kind and preceded Aurora Leigh by some years.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Bothie of Tober-na-Vuolich",
+      "author": "Arthur Hugh Clough",
+      "note": "Named alongside Patmore's \"Angel in the House\" as a precursor to Aurora Leigh.",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Prelude",
+      "author": "William Wordsworth",
+      "note": "\"...this must be compared with Lear, with Phedre, with The Prelude; or if not with these, with whatever is the best or seems to us to be the best in its own kind.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Phedre",
+      "author": "Jean Racine",
+      "note": "\"...this must be compared with Lear, with Phedre, with The Prelude...\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "King Lear",
+      "author": "William Shakespeare",
+      "note": "\"Listen, it will say, what shall we call this? And it will read us perhaps Lear and then perhaps the Agamemnon...\" and again \"this must be compared with Lear, with Phedre, with The Prelude.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Agamemnon",
+      "author": "Aeschylus",
+      "note": "\"...it will read us perhaps Lear and then perhaps the Agamemnon in order to bring out that common quality.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Aspects of the Novel",
+      "author": "E. M. Forster",
+      "note": "\"...[Forster in his Aspects of the Novel] is not the great name he was twenty years ago.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Life of Christina Rossetti",
+      "author": "Mary F. Sandars",
+      "note": "\"No sooner have we opened the pages of Miss Sandars's careful and competent book (Life of Christina Rossetti, by Mary F...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "Euphues",
+      "author": "John Lyly",
+      "note": "\"Some of Spenser might have been on his shelves; and Sidney's Arcadia; and the Paradise of Dainty Devices, and Lyly's Euphues.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Common Reader: Second Series",
+      "mentioned": "The Paradise of Dainty Devices",
+      "author": "Richard Edwards (ed.)",
+      "note": "\"Some of Spenser might have been on his shelves; and Sidney's Arcadia; and the Paradise of Dainty Devices, and Lyly's Euphues.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Congo",
+      "mentioned": "The Interpretation of Dreams",
+      "author": "Sigmund Freud",
+      "note": "Narrative aside: \"Only after the expedition was concluded and Elliot had returned to Berkeley did he find the explanation to this perplexing event—in Freud's Interpretation of Dreams, first published in 1887.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Metamorphoses",
+      "author": "Ovid",
+      "note": "\"he would declaim to the astonished onlookers from Book 6 of Ovid's Metamorphoses: Monarch of Violence, rolling on clouds...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Ode on a Grecian Urn",
+      "author": "John Keats",
+      "note": "Chapter epigraph: \"—JOHN KEATS 'Ode on a Grecian Urn' (1820)\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Religio Medici",
+      "author": "Thomas Browne",
+      "note": "Chapter epigraph: \"—THOMAS BROWNE 'On Dreams' Religio Medici (1642)\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Songs of Experience",
+      "author": "William Blake",
+      "note": "Chapter epigraph: \"—WILLIAM BLAKE Songs of Experience 'The Fly,' Stanzas 1-3 (1795)\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Leaves of Grass",
+      "author": "Walt Whitman",
+      "note": "Chapter epigraph: \"—WALT WHITMAN Leaves of Grass 'Song of the Open Road' (1855)\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Poems",
+      "author": "Ralph Waldo Emerson",
+      "note": "Chapter epigraph: \"—RALPH WALDO EMERSON 'Merlin,' Poems (1847)\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "The Politics",
+      "author": "Aristotle",
+      "note": "Chapter epigraph: \"—ARISTOTLE The Politics Book 2, Chapter 5\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "De Natura Deorum",
+      "author": "Cicero",
+      "note": "Chapter epigraph: \"—CICERO De Natura Deorum, I, 1\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Confessions",
+      "author": "Augustine",
+      "note": "Chapter epigraph: \"—AUGUSTINE Confessions, II, 3\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "The City of God",
+      "author": "Augustine",
+      "note": "Chapter epigraph: \"—AUGUSTINE The City of God, VIII, 22\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Skeptical Essays",
+      "author": "Bertrand Russell",
+      "note": "Chapter epigraph: \"—BERTRAND RUSSELL Skeptical Essays, I (1928)\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Cinna",
+      "author": "Pierre Corneille",
+      "note": "Chapter epigraph: \"—PIERRE CORNEILLE Cinna (1640), Act IV, Scene II\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "note": "Chapter epigraph: \"—WILLIAM SHAKESPEARE Romeo and Juliet\" (\"Oh, speak again, bright angel...\")",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "The Idea of the Holy",
+      "author": "Rudolf Otto",
+      "note": "\"somebody named Rudolph Otto in a 1923 book, The Idea of the Holy. He believed that humans were predisposed to detect and revere the numinous... He called it the misterium tremendum.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Poems (poem no. 1741)",
+      "author": "Emily Dickinson",
+      "note": "Chapter epigraph: \"—EMILY DICKINSON Poem Number 1741\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Contact",
+      "mentioned": "Encyclopaedia Britannica",
+      "author": "Anonymous",
+      "note": "\"there's this couple lying naked in bed reading the Encyclopaedia Britannica to each other\"; later she reaches for \"Volume 16 of an old Encyclopaedia Britannica Macropaedia, titled 'Rubens to Somalia'\" and reads the article \"Sacred or Holy.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Elements of Geometry",
+      "author": "Euclid",
+      "note": "So he found a copy of Euclid's Elements of Geometry, and began to read.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Natural Questions",
+      "author": "Seneca",
+      "note": "Chapter epigraph: \"Our universe is a sorry little affair unless it has in it something for every age to investigate... —Seneca, Natural Questions, Book 7\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Tao Te Ching",
+      "author": "Laozi",
+      "note": "Twelve lines from Lao Tzu, Tao Te Ching, translated by D. C. Lau, quoted as a chapter epigraph.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "The Origin of Species",
+      "author": "Charles Darwin",
+      "note": "Chapter epigraph: \"...endless forms most beautiful and most wonderful have been, and are being, evolved. —Charles Darwin, The Origin of Species, 1859\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "De Stella Nova",
+      "author": "Johannes Kepler",
+      "note": "Kepler published in 1606 a book called De Stella Nova, \"On the New Star,\" in which he wonders if a supernova is the result of some random concatenation of atoms in the heavens.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Popol Vuh",
+      "author": "Anonymous (Quiche Maya)",
+      "note": "Quoted as chapter epigraph: \"...Are they not by nature simple creatures of our making? Must they also be gods?\" —The Popol Vuh of the Quiche Maya",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Somnium",
+      "author": "Johannes Kepler",
+      "note": "Kepler wrote one of the first works of science fiction... It was called the Somnium, \"The Dream.\" He imagined a journey to the Moon.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "The War of the Worlds",
+      "author": "H. G. Wells",
+      "note": "These opening lines of H. G. Wells' 1897 science fiction classic The War of the Worlds maintain their haunting power to this day.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Oedipus Rex",
+      "author": "Sophocles",
+      "note": "We do know that of the 123 plays of Sophocles in the Library, only seven survived. One of those seven is Oedipus Rex.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "The Chronology of Ancient Kingdoms Amended",
+      "author": "Isaac Newton",
+      "note": "In his last, posthumous work, \"The Chronology of Ancient Kingdoms Amended,\" we find repeated astronomical calibrations of historical events; an architectural reconstruction of the Temple of Solomon...",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Systema Saturnium",
+      "author": "Christiaan Huygens",
+      "note": "A detail from Christiaan Huygens' Systema Saturnium, published in 1659, showing his explanation of the changing appearance of the rings of Saturn.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "The Last Temptation of Christ",
+      "author": "Nikos Kazantzakis",
+      "note": "Chapter IV epigraph: \"The doors of heaven and hell are adjacent and identical. —Nikos Kazantzakis, The Last Temptation of Christ\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "note": "Consider a possibly typical group of Earth beings at the tea party from Alice in Wonderland.",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "The Tale of the Heike",
+      "author": "Anonymous",
+      "note": "What happened next is told in The Tale of the Heike: \"The Emperor was seven years old that year but looked much older...\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Automata",
+      "author": "Heron of Alexandria",
+      "note": "Heron of Alexandria, inventor of gear trains and steam engines and the author of Automata, the first book on robots.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare",
+      "note": "It is a little as if the only surviving works of a man named William Shakespeare were Coriolanus and A Winter's Tale, but we had heard that he had written... Hamlet, Macbeth, Julius Caesar, King Lear, Romeo and Juliet.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Macbeth",
+      "author": "William Shakespeare",
+      "note": "Same passage listing Shakespeare's lost-analogy plays: Hamlet, Macbeth, Julius Caesar, King Lear, Romeo and Juliet.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Julius Caesar",
+      "author": "William Shakespeare",
+      "note": "Same passage listing Shakespeare's lost-analogy plays: Hamlet, Macbeth, Julius Caesar, King Lear, Romeo and Juliet.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "King Lear",
+      "author": "William Shakespeare",
+      "note": "Same passage listing Shakespeare's lost-analogy plays: Hamlet, Macbeth, Julius Caesar, King Lear, Romeo and Juliet.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "note": "Same passage listing Shakespeare's lost-analogy plays: Hamlet, Macbeth, Julius Caesar, King Lear, Romeo and Juliet.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Cosmos",
+      "mentioned": "Bhagavad Gita",
+      "author": "Anonymous",
+      "note": "Quote from the Bhagavad Gita cited via Lawrence and Oppenheimer, used in the book's discussion of Oppenheimer and nuclear weapons.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Crazy Rich Asians",
+      "mentioned": "Jane Eyre",
+      "author": "Charlotte Bronte",
+      "note": "Wye Mun jokes 'I told you Jane Ear would come down sooner or later,' and his son Peik Wing corrects him: 'Jane Eyre was the nanny, Papa, not the woman who—'",
+      "confidence": "high"
+    },
+    {
+      "source": "Crazy Rich Asians",
+      "mentioned": "Billy Budd",
+      "author": "Herman Melville",
+      "note": "Nick browses a mahogany bookcase of nautical-themed titles: 'Lieutenant Hornblower. Islands in the Stream. Billy Budd.'",
+      "confidence": "high"
+    },
+    {
+      "source": "Crazy Rich Asians",
+      "mentioned": "Islands in the Stream",
+      "author": "Ernest Hemingway",
+      "note": "Same bookcase scene: 'Lieutenant Hornblower. Islands in the Stream. Billy Budd. All nautical-themed titles.'",
+      "confidence": "high"
+    },
+    {
+      "source": "Crazy Rich Asians",
+      "mentioned": "August",
+      "author": "Knut Hamsun",
+      "note": "From the same shelf, Nick picks out 'a volume by Knut Hamsun that he had never heard of, August, and settled into one of the overstuffed club chairs' to read.",
+      "confidence": "high"
+    },
+    {
+      "source": "Daisy Jones & The Six",
+      "mentioned": "Valley of the Dolls",
+      "author": "Jacqueline Susann",
+      "note": "I took the diploma out of its case and I folded it up and I used it, like a bookmark, in my copy of Valley of the Dolls.",
+      "confidence": "high"
+    },
+    {
+      "source": "Death on the Nile",
+      "mentioned": "Erewhon",
+      "author": "Samuel Butler",
+      "note": "There was a sprinkling of communistic literature, a good many snapshots, Samuel Butler's Erewhon and a cheap edition of Pepys' Diary.",
+      "confidence": "high"
+    },
+    {
+      "source": "Death on the Nile",
+      "mentioned": "Diary",
+      "author": "Samuel Pepys",
+      "note": "There was a sprinkling of communistic literature, a good many snapshots, Samuel Butler's Erewhon and a cheap edition of Pepys' Diary.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Death's End",
+      "mentioned": "A Descent into the Maelstrom",
+      "author": "Edgar Allan Poe",
+      "note": "Poe wrote a story about Mosken—'A Descent into the Maelstrom.' I read it when I was younger.",
+      "confidence": "high"
+    },
+    {
+      "source": "Death's End",
+      "mentioned": "Gone with the Wind",
+      "author": "Margaret Mitchell",
+      "note": "Remember what Scarlett's father told her in Gone With the Wind?",
+      "confidence": "high"
+    },
+    {
+      "source": "Death's End",
+      "mentioned": "The Judgment",
+      "author": "Franz Kafka",
+      "note": "He thought of \"The Judgment\" by Franz Kafka, in which a father curses his son and sentences him to death.",
+      "confidence": "high"
+    },
+    {
+      "source": "Death's End",
+      "mentioned": "Classic of Poetry",
+      "author": "traditional, compiled c. 11th-7th century BC",
+      "note": "\"That's the Classic of Poetry, from a millennium before the time of Christ,\" Luo Ji said.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "Letter to His Father",
+      "author": "Franz Kafka",
+      "note": "I remember those A students all reading Kafka's Letter to His Father and explaining exactly how \"Metamorphosis\" and The Trial derived from his relationship to his father.",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "The Metamorphosis",
+      "author": "Franz Kafka",
+      "note": "I remember those A students all reading Kafka's Letter to His Father and explaining exactly how \"Metamorphosis\" and The Trial derived from his relationship to his father.",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "The Trial",
+      "author": "Franz Kafka",
+      "note": "I remember those A students all reading Kafka's Letter to His Father and explaining exactly how \"Metamorphosis\" and The Trial derived from his relationship to his father.",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "If Tolstoy had imagined himself in love with Anna Karenina, had Hardy imagined himself in an affair with Tess",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "You've read the Odyssey.",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "The Blood of the Walsungs",
+      "author": "Thomas Mann",
+      "note": "I wanted to carry on endlessly about \"The Blood of the Walsungs\" and \"Michael Kohlhaas\" and \"In the Ravine.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "Michael Kohlhaas",
+      "author": "Heinrich von Kleist",
+      "note": "I wanted to carry on endlessly about \"The Blood of the Walsungs\" and \"Michael Kohlhaas\" and \"In the Ravine.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "In the Ravine",
+      "author": "Anton Chekhov",
+      "note": "I wanted to carry on endlessly about \"The Blood of the Walsungs\" and \"Michael Kohlhaas\" and \"In the Ravine.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "White Nights: The Story of a Prisoner in Russia",
+      "author": "Menachem Begin",
+      "note": "Books: Heine's Jewish Comedy by Prawer, The Jew as Pariah by Hannah Arendt, White Nights by Menachem Begin – on and on.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "The Jew as Pariah",
+      "author": "Hannah Arendt",
+      "note": "Books: Heine's Jewish Comedy by Prawer, The Jew as Pariah by Hannah Arendt, White Nights by Menachem Begin – on and on.",
+      "confidence": "high"
+    },
+    {
+      "source": "Deception",
+      "mentioned": "Heine's Jewish Comedy",
+      "author": "S. S. Prawer",
+      "note": "Books: Heine's Jewish Comedy by Prawer, The Jew as Pariah by Hannah Arendt, White Nights by Menachem Begin – on and on.",
+      "confidence": "medium"
+    },
+    {
+      "source": "East, West",
+      "mentioned": "The Lord of the Rings",
+      "author": "J.R.R. Tolkien",
+      "note": "'Do you like Tolkien?' ... 'J.R.R. Tolkien,' said Zulu. 'The Lord of the Rings.'",
+      "confidence": "high"
+    },
+    {
+      "source": "East, West",
+      "mentioned": "Finnegans Wake",
+      "author": "James Joyce",
+      "note": "to please her I ploughed my way through Finnegans Wake twice",
+      "confidence": "high"
+    },
+    {
+      "source": "East, West",
+      "mentioned": "Beelzebub's Tales to His Grandson",
+      "author": "G.I. Gurdjieff",
+      "note": "G.I. Gurdjieff, author of Beelzebub's Tales and guru to, among others, Aldous Huxley, Katherine Mansfield and J.B. Priestley",
+      "confidence": "high"
+    },
+    {
+      "source": "East, West",
+      "mentioned": "Paul et Virginie",
+      "author": "Bernardin de Saint-Pierre",
+      "note": "as she called Bernardin de St Pierre's Paul et Virginie; and insisted that I read it",
+      "confidence": "high"
+    },
+    {
+      "source": "East, West",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare",
+      "note": "in the Hamlet of William Shakespeare, the morbid prince seems unaware of his own father's real name",
+      "confidence": "high"
+    },
+    {
+      "source": "East, West",
+      "mentioned": "Gesta Danorum",
+      "author": "Saxo Grammaticus",
+      "note": "contradicted by no less an authority than Saxo-Grammaticus's History of the Danes!",
+      "confidence": "high"
+    },
+    {
+      "source": "Exit Ghost",
+      "mentioned": "The Shadow-Line",
+      "author": "Joseph Conrad",
+      "note": "Unlängst habe ich zum ersten Mal seit fünfzig Jahren wieder Joseph Conrad gelesen, zuletzt Die Schattenlinie",
+      "confidence": "high"
+    },
+    {
+      "source": "Exit Ghost",
+      "mentioned": "Rip Van Winkle",
+      "author": "Washington Irving",
+      "note": "fühlte ich mich für einen Augenblick wie Rip Van Winkle, der zwanzig Jahre geschlafen hatte",
+      "confidence": "high"
+    },
+    {
+      "source": "Exit Ghost",
+      "mentioned": "Lady Chatterley's Lover",
+      "author": "D.H. Lawrence",
+      "note": "ER Hat Lady Chatterley Ihnen gefallen? SIE Lawrence gefiel mir sehr.",
+      "confidence": "high"
+    },
+    {
+      "source": "Exit Ghost",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "Anna Karenina habe ich mit Fünfzehn gelesen.",
+      "confidence": "high"
+    },
+    {
+      "source": "Exit Ghost",
+      "mentioned": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "note": "Sturmhöhe. Ach, Sturmhöhe habe ich geliebt.",
+      "confidence": "high"
+    },
+    {
+      "source": "Exit Ghost",
+      "mentioned": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "note": "Ich bin durch Jane Eyre darauf gekommen.",
+      "confidence": "high"
+    },
+    {
+      "source": "Exit Ghost",
+      "mentioned": "Little Gidding",
+      "author": "T.S. Eliot",
+      "note": "erinnerte mich, dass diese Worte in Eliots »Little Gidding« vorkommen",
+      "confidence": "high"
+    },
+    {
+      "source": "Everyman",
+      "mentioned": "Ode to a Nightingale",
+      "author": "John Keats",
+      "note": "epigraph: 'Here, where men sit and hear each other groan...' —JOHN KEATS, \"Ode to a Nightingale\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Everyman",
+      "mentioned": "The Swiss Family Robinson",
+      "author": "Johann David Wyss",
+      "note": "he began to read The Swiss Family Robinson.",
+      "confidence": "high"
+    },
+    {
+      "source": "Everyman",
+      "mentioned": "Treasure Island",
+      "author": "Robert Louis Stevenson",
+      "note": "Then he tried Treasure Island.",
+      "confidence": "high"
+    },
+    {
+      "source": "Everyman",
+      "mentioned": "Kim",
+      "author": "Rudyard Kipling",
+      "note": "Then Kim.",
+      "confidence": "high"
+    },
+    {
+      "source": "Everyman",
+      "mentioned": "The Canterbury Tales",
+      "author": "Geoffrey Chaucer",
+      "note": "reciting from memory for him, unostentatiously and in flawless Middle English, the prologue to The Canterbury Tales",
+      "confidence": "high"
+    },
+    {
+      "source": "Fire from Heaven",
+      "mentioned": "Iliad",
+      "author": "Homer",
+      "note": "Phoinix had given Achilles his own Iliad, a secret from Timanthes... At the top sat the leather scroll-case of the Iliad.",
+      "confidence": "high"
+    },
+    {
+      "source": "Fire from Heaven",
+      "mentioned": "The Education of Cyrus (Cyropaedia)",
+      "author": "Xenophon",
+      "note": "They were reading Xenophon's The Upbringing of Kyros, which, next to Homer, was just then Alexander's favourite book.",
+      "confidence": "high"
+    },
+    {
+      "source": "Fire from Heaven",
+      "mentioned": "Heracles (The Madness of Heracles)",
+      "author": "Euripides",
+      "note": "The play had been The Madness of Herakles, Hephaistion wondered, after, how he could have missed the omen.",
+      "confidence": "high"
+    },
+    {
+      "source": "Funeral Games",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "Reaching the Odyssey, he came upon Odysseus' visit to the land of shades... 'Achilleus, no man before has been more blessed than you...' So I spoke, and he in turn said to me in answer...",
+      "confidence": "high"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "Peter Pan",
+      "author": "J. M. Barrie",
+      "note": "In Asmaan's revisionist reading of Peter Pan, Captain Hook escaped the crocodile every time.",
+      "confidence": "high"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "Arms and the Man",
+      "author": "George Bernard Shaw",
+      "note": "He reminded Solanka of Sergius, the stiff-backed officer in Shaw's Arms and the Man.",
+      "confidence": "high"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "Candide",
+      "author": "Voltaire",
+      "note": "'Expect nothing, don't you know,' Dubdub told them, leftist radicals and beaded hairies alike, waving a crumbling copy of Candide.",
+      "confidence": "high"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "Finnegans Wake",
+      "author": "James Joyce",
+      "note": "made him plow his way twice through Finnegans Wake.",
+      "confidence": "high"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "The Jungle Book",
+      "author": "Rudyard Kipling",
+      "note": "cheap rip-offs of Baloo and Kaa from The Jungle Book, unadulterated American accents all over Sherwood Forest.",
+      "confidence": "high"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "Bartleby, the Scrivener",
+      "author": "Herman Melville",
+      "note": "we may use our own world's models here, for the sake of easy comparison—Bartleby the Scrivener, who preferred not to.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "The Castle",
+      "author": "Franz Kafka",
+      "note": "Please, no obscurely menacing countryhouse sagas: Brideshead in the style of The Castle.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "The Nigger of the Narcissus",
+      "author": "Joseph Conrad",
+      "note": "You know, like in The Nigger of the Narcissus.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "Rip Van Winkle",
+      "author": "Washington Irving",
+      "note": "'Does nobody here know poor Rip van Winkle?' we ask plaintively, and nobody, any longer, does.",
+      "confidence": "medium"
+    },
+    {
+      "source": "Fury",
+      "mentioned": "Winnie-the-Pooh",
+      "author": "A. A. Milne",
+      "note": "A third tree was the home of Winnie-the-Pooh.",
+      "confidence": "medium"
+    },
+    {
+      "source": "God Help the Child",
+      "mentioned": "The Name of the Rose",
+      "author": "Umberto Eco",
+      "note": "he visited the library often to read or reread books he had ignored or misunderstood while at university. The Name of the Rose, for one, and Remembering Slavery...",
+      "confidence": "high"
+    },
+    {
+      "source": "God Help the Child",
+      "mentioned": "Remembering Slavery",
+      "author": "Ira Berlin, Marc Favreau, and Steven F. Miller (eds.)",
+      "note": "The Name of the Rose, for one, and Remembering Slavery, a collection that so moved him he composed some mediocre, sentimental music to commemorate the narratives.",
+      "confidence": "medium"
+    },
+    {
+      "source": "God Help the Child",
+      "mentioned": "Moby-Dick",
+      "author": "Herman Melville",
+      "note": "He read Herman Melville, and let Pip break his heart, reminding him of Adam alone, abandoned, swallowed by waves of casual evil.",
+      "confidence": "high"
+    },
+    {
+      "source": "God Help the Child",
+      "mentioned": "Narrative of the Life of Frederick Douglass",
+      "author": "Frederick Douglass",
+      "note": "he read Frederick Douglass's autobiography again, relishing for the first time the eloquence that both hid and displayed his hatred.",
+      "confidence": "high"
+    },
+    {
+      "source": "God Help the Child",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "Until I was in prison I'd never read The Odyssey or Jane Austen.",
+      "confidence": "high"
+    }
+  ]
+}
