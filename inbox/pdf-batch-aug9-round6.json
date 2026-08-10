@@ -1,0 +1,1442 @@
+{
+  "_readme": "Round 6 of 7 — big august 9th batch (in-copyright PDFs). Synopses grounded in real detect.mjs-extracted text; mentions curated from candidates.json per docs/detector.md exclusion rules; genres per tools/genres.mjs. The Persian Boy backfills a pre-existing metadata-less stub.",
+  "books": [
+    {
+      "title": "The Naive and the Sentimental Novelist",
+      "author": "Orhan Pamuk",
+      "year": 2010,
+      "synopsis": "Pamuk's Charles Eliot Norton Lectures at Harvard on what happens in the minds of writers and readers of novels, examining the visual imagination, character, plot, and the elusive 'center' of a novel through his own fiction and classics from Tolstoy to Proust.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "The Nature of Alexander",
+      "author": "Mary Renault",
+      "year": 1975,
+      "synopsis": "Mary Renault's account of Alexander the Great's life and campaigns, opening with his funeral cortege in Babylon and tracing his conquests through Macedon, Persia, and India using ancient sources such as Arrian, Plutarch, and Diodorus.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "The Orchard Keeper",
+      "author": "Cormac McCarthy",
+      "year": 1965,
+      "synopsis": "Set in a remote Tennessee community between the two world wars, the novel follows the boy John Wesley Rattner, the bootlegger Marion Sylder who unknowingly killed the boy's father, and old Uncle Ather, whose lives converge around an abandoned orchard.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Other Americans",
+      "author": "Laila Lalami",
+      "year": 2019,
+      "synopsis": "After her father is fatally struck by a hit-and-run driver outside the family's Mojave Desert diner, Nora Guerraoui returns home and, alongside Detective Coleman and her old classmate Jeremy, works through the investigation while confronting her Moroccan immigrant family's history.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Pachinko Parlour",
+      "author": "Elisa Shua Dusapin",
+      "year": 2018,
+      "synopsis": "A young Franco-Korean woman spends a summer in Tokyo tutoring a Japanese girl named Mieko in French while staying with her aging Korean grandparents, who fled to Japan during the Korean War and never returned, and repeatedly puts off a planned visit to the pachinko parlour they run.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Passenger",
+      "author": "Cormac McCarthy",
+      "year": 2022,
+      "synopsis": "A salvage diver in 1980s New Orleans investigates a sunken jet with a passenger missing from the wreckage while his memory of his dead sister, a mathematician who took her own life, keeps intruding as long dialogues with a flippered hallucination called the Thalidomide Kid.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Persian Boy",
+      "author": "Mary Renault",
+      "year": 1972,
+      "synopsis": "A Persian boy named Bagoas, castrated and sold as a slave after his family's ruin, becomes a favorite in King Darius's court and then Alexander the Great's companion, narrating Alexander's conquests and death from inside the royal tent.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Praise Singer",
+      "author": "Mary Renault",
+      "year": 1978,
+      "synopsis": "The poet Simonides, in old age at the Sicilian court, looks back over his life as a singer trained under the bard Kleobis, his years in tyrant Athens under Pisistratos and his sons, and the murder of Hipparchos by Harmodios and Aristogeiton.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Prophet's Hair",
+      "author": "Salman Rushdie",
+      "year": 1994,
+      "synopsis": "A relic believed to be a hair from the Prophet Muhammad's beard is stolen in Srinagar and passes through the hands of a moneylender who is transformed into a tyrant, then a professional burglar hired to steal it back, with maiming and ruin following everyone it touches.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Red-Haired Woman",
+      "author": "Orhan Pamuk",
+      "year": 2016,
+      "synopsis": "A teenage apprentice well-digger named Cem, working outside Istanbul under master well-digger Mahmut, falls for an older woman known as the Red-Haired Woman, and a violent accident at the well entangles his life for decades with the myths of Oedipus and of Rostam and Sohrab.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Road to San Giovanni",
+      "author": "Italo Calvino",
+      "year": 1990,
+      "synopsis": "Five autobiographical essays in which Calvino reconstructs his father's conviction that their farmland above San Remo was the true world and the town below a mere appendix, revisits his obsessive youth as a moviegoer absorbing 1930s Hollywood stars scene by scene, and recalls his time as a partisan fighter and the mechanics of memory itself.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "The Seven Husbands of Evelyn Hugo",
+      "author": "Taylor Jenkins Reid",
+      "year": 2017,
+      "synopsis": "Magazine writer Monique Grant is summoned by reclusive Hollywood legend Evelyn Hugo to ghostwrite her life story, which Hugo recounts husband by husband, from her escape out of Hell's Kitchen to her decades-long hidden relationship with producer Harry Cameron.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Strange Library",
+      "author": "Haruki Murakami",
+      "year": 2005,
+      "synopsis": "A boy who visits the library to look up how the Ottoman Empire collected taxes is led down into a basement labyrinth where an old man imprisons him to memorize books before eating his brain, and he plots escape with the help of a sheep man and a voiceless girl.",
+      "genre": "FANTASY"
+    },
+    {
+      "title": "The Testaments",
+      "author": "Margaret Atwood",
+      "year": 2019,
+      "synopsis": "Fifteen years after the events of The Handmaid's Tale, the regime of Gilead is narrated through the interwoven testimonies of Aunt Lydia, who keeps a secret manuscript hidden inside a hollowed-out copy of Cardinal Newman's Apologia Pro Vita Sua in the Ardua Hall archive, and two younger women, Agnes and Daisy, whose paths converge toward the regime's downfall.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "The Three-Body Problem",
+      "author": "Cixin Liu",
+      "year": 2008,
+      "synopsis": "Beginning when astrophysicist Ye Wenjie, working at a secret Cultural Revolution-era radio base, makes contact with an alien civilization, the novel follows nanomaterials researcher Wang Miao as he investigates a wave of scientist suicides and the virtual-reality game Three Body, which encodes the plight of the Trisolaran civilization.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "The Uses of Literature",
+      "author": "Italo Calvino",
+      "year": 1980,
+      "synopsis": "A collection of Calvino's essays and lectures, spanning theoretical pieces on cybernetics, structuralism, and \"levels of reality\" in fiction alongside close readings of specific classics — the Odyssey, Ovid's Metamorphoses, Ariosto's Orlando Furioso, Stendhal's Charterhouse of Parma, Manzoni's The Betrothed, Balzac's city fiction, Voltaire's Candide, and Cyrano de Bergerac's lunar fantasy — plus shorter pieces on Fourier, Marianne Moore, Pliny, and Roland Barthes.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "The White Castle",
+      "author": "Orhan Pamuk",
+      "year": 1985,
+      "synopsis": "A frame narrative presents a manuscript found by a modern editor: the first-person account of a young Italian scholar captured by pirates and enslaved in seventeenth-century Istanbul, given as a gift to \"Hoja,\" an Ottoman scholar who so physically resembles him that the two become entangled in an obsessive intellectual and psychological rivalry. Together they serve the sultan as astrologers/scientists and design a giant siege weapon used in a military campaign against a fortress, while their identities increasingly blur and swap.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Dream Hotel",
+      "author": "Laila Lalami",
+      "year": 2025,
+      "synopsis": "In a near-future America, Sara Hussein is held at \"Madison,\" a retention center (a converted elementary school run by private contractor Safe-X) after being flagged by a predictive-policing \"risk score\" system tied to a neural implant called the Dreamsaver that monitors her dreams; the book follows her daily life among fellow retainees and her strained correspondence with her husband and children, as she and others push back against the facility's surveillance and precrime detention regime.",
+      "genre": "SCI-FI"
+    },
+    {
+      "title": "Tomorrow, and Tomorrow, and Tomorrow",
+      "author": "Gabrielle Zevin",
+      "year": 2022,
+      "synopsis": "In late-1990s/2000s Cambridge and Los Angeles, childhood acquaintances Sam Masur and Sadie Green reunite as young adults and, together with Sam's roommate Marx, found a video game studio, building acclaimed titles while navigating Sam's chronic pain from a foot injury/amputation, professional rivalry, and a decades-long entangled friendship.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Truman",
+      "author": "David McCullough",
+      "year": 1992,
+      "synopsis": "This biography of Harry S. Truman covers his boyhood and youth in Independence, Missouri, his World War I artillery service in France, his rise through Kansas City's Pendergast political machine, his vice presidency and accession to the presidency on Roosevelt's death, and his presidency through the atomic bomb decision, the Marshall Plan, the 1948 campaign, the Korean War and firing of MacArthur, into his retirement in Independence and death, drawing on his diaries, letters, and interviews with associates.",
+      "genre": "BIOGRAPHY & MEMOIR"
+    },
+    {
+      "title": "Under the Jaguar Sun",
+      "author": "Italo Calvino",
+      "year": 1988,
+      "synopsis": "Three linked stories, left unfinished at Calvino's death, meant to explore the five senses: a couple touring Oaxaca's convents and ruins whose relationship becomes entangled with the region's cuisine and colonial history; a deposed king reduced to paranoid listening from his throne room; and a man obsessed with tracking a lost lover through scent alone.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Victory City",
+      "author": "Salman Rushdie",
+      "year": 2023,
+      "synopsis": "A blind poet-prophetess, Pampa Kampana, lives two hundred and forty-seven years and narrates the rise and fall of the empire of Bisnaga, which she conjures from a handful of magic seeds and populates by whispering invented life stories into her subjects' ears, spanning generations of kings, wars, and dynastic betrayal.",
+      "genre": "FANTASY"
+    },
+    {
+      "title": "Walking with the Comrades",
+      "author": "Arundhati Roy",
+      "year": 2011,
+      "synopsis": "Reportage essays from Roy's weeks traveling with Maoist guerrillas in the forests of central India, describing the Janatana Sarkar's armed cadres, women commanders like Comrade Niti who carries an AK on her shoulder, and the war between the Indian state and adivasi insurgents in Chhattisgarh's Dandakaranya region.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "Water for Elephants",
+      "author": "Sara Gruen",
+      "year": 2006,
+      "synopsis": "An elderly Jacob Jankowski recalls his youth as a veterinary student who joins the Benzini Brothers traveling circus during the Great Depression, working the menagerie under the volatile boss August, falling for August's wife Marlena, and caring for the elephant Rosie amid the show's harsh, itinerant world.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "When She Was Good",
+      "author": "Philip Roth",
+      "year": 1966,
+      "synopsis": "In the small Midwestern town of Liberty Center, Lucy Nelson grows up hardened by her father's alcoholism and her family's failures, setting her will against them and later against her husband Roy Bassart, whom she marries despite secretly despising him.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Confessions",
+      "author": "Jean-Jacques Rousseau",
+      "note": "We recalled the passage in Book 11 of Rousseau's Confessions, where Rousseau complained about reactions to his novel Julie",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Betrothed",
+      "author": "Alessandro Manzoni",
+      "note": "as in The Betrothed, by Alessandro Manzoni",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "In the book he wrote on Cervantes' Don Quixote, Spanish thinker and philosopher José Ortega y Gasset says",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Ars Poetica",
+      "author": "Horace",
+      "note": "from Horace's Ars Poetica, whenever one evokes the kinship between words and images",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Ulysses",
+      "author": "James Joyce",
+      "note": "In Tolstoy's War and Peace and James Joyce's Ulysses, two novels in which we quite often feel the presence of shared objective time",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Bartleby, the Scrivener",
+      "author": "Herman Melville",
+      "note": "in a foreword he wrote for Melville's Bartleby the Scrivener, Borges describes how the reader gradually reaches the heart of Moby-Dick",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Physics",
+      "author": "Aristotle",
+      "note": "In my novel The Museum of Innocence, drawing on Aristotle's Physics, I tried to establish a relationship between these indivisible points",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Sentimental Education",
+      "author": "Gustave Flaubert",
+      "note": "In my youth, I trained myself by reading such books (Flaubert's Sentimental Education, Mann's Magic Mountain)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "The great literary novels—such as Anna Karenina, In Search of Lost Time, The Magic Mountain, and The Waves",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Moby-Dick",
+      "author": "Herman Melville",
+      "note": "from Don Quixote or even The Tale of Genji, to Robinson Crusoe, Moby-Dick, and the literature of today",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "War and Peace",
+      "author": "Leo Tolstoy",
+      "note": "At the end of War and Peace, Tolstoy added an essay discussing the role of the individual in history",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "In Search of Lost Time",
+      "author": "Marcel Proust",
+      "note": "The great literary novels—such as Anna Karenina, In Search of Lost Time, The Magic Mountain, and The Waves",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "note": "from Don Quixote or even The Tale of Genji, to Robinson Crusoe, Moby-Dick, and the literature of today",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Kubla Khan",
+      "author": "Samuel Taylor Coleridge",
+      "note": "clearly expressed in the 1816 preface to his poem 'Kubla Khan'",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Magic Mountain",
+      "author": "Thomas Mann",
+      "note": "The great literary novels—such as Anna Karenina, In Search of Lost Time, The Magic Mountain, and The Waves",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Raven",
+      "author": "Edgar Allan Poe",
+      "note": "explains in his essay 'The Philosophy of Composition' that he wrote his poem 'The Raven'",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Metamorphosis",
+      "author": "Franz Kafka",
+      "note": "Kafka's Metamorphosis is a good example",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Oliver Twist",
+      "author": "Charles Dickens",
+      "note": "an unforgettable hero like Tom Jones, Ivan Karamazov, Madame Bovary, Père Goriot, Anna Karenina, or Oliver Twist",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Tale of Genji",
+      "author": "Murasaki Shikibu",
+      "note": "from Don Quixote or even The Tale of Genji, to Robinson Crusoe, Moby-Dick",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Tom Jones",
+      "author": "Henry Fielding",
+      "note": "an unforgettable hero like Tom Jones, Ivan Karamazov, Madame Bovary, Père Goriot, Anna Karenina, or Oliver Twist",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Aunt Julia and the Scriptwriter",
+      "author": "Mario Vargas Llosa",
+      "note": "Mario Vargas-Llosa's Aunt Julia and the Scriptwriter (1977)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Invisible Cities",
+      "author": "Italo Calvino",
+      "note": "Italo Calvino's Invisible Cities (1973) and If on a Winter's Night a Traveler (1979)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Nana",
+      "author": "Émile Zola",
+      "note": "in Zola's Nana, when a horse race is depicted, we watch it from an outside perspective",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Pale Fire",
+      "author": "Vladimir Nabokov",
+      "note": "Vladimir Nabokov's Pale Fire (1962), Julio Cortázar's Hopscotch (1963)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Blind Owl",
+      "author": "Sadegh Hedayat",
+      "note": "Sadegh Hedayat's The Blind Owl, Junichiro Tanizaki's Naomi",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Master and Margarita",
+      "author": "Mikhail Bulgakov",
+      "note": "Here I am thinking of Mikhail Bulgakov's The Master and Margarita",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Museum of Innocence",
+      "author": "Orhan Pamuk",
+      "note": "In 2008, I published in Turkey a novel entitled The Museum of Innocence",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "My Name Is Red",
+      "author": "Orhan Pamuk",
+      "note": "His novel My Name Is Red won the 2003 IMPAC Dublin Literary Award",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Demons",
+      "author": "Fyodor Dostoevsky",
+      "note": "in the suicide scene in The Devils—there may be no explicit image on the page",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "note": "an unforgettable hero like Tom Jones, Ivan Karamazov, Madame Bovary, Père Goriot, Anna Karenina",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Red and the Black",
+      "author": "Stendhal",
+      "note": "the type of landscape Stendhal presents in the opening pages of The Red and the Black",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Waves",
+      "author": "Virginia Woolf",
+      "note": "Virginia Woolf's novel The Waves uses the same impressionist technique of juxtaposition",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Murder on the Orient Express",
+      "author": "Agatha Christie",
+      "note": "Murder on the Orient Express (because its center is too obvious) and Finnegans Wake",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Finnegans Wake",
+      "author": "James Joyce",
+      "note": "Finnegans Wake (because for a reader like me, there is almost no hope of finding in it a center)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Old Masters",
+      "author": "Thomas Bernhard",
+      "note": "Thomas Bernhard wrote a novel entitled Old Masters that subtly plays on this desire",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "note": "Reading and discussing The Brothers Karamazov, that truly great novel",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Miser",
+      "author": "Molière",
+      "note": "the protagonist of his play The Miser is always the same",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Rime of the Ancient Mariner",
+      "author": "Samuel Taylor Coleridge",
+      "note": "for instance, in The Rime of the Ancient Mariner—he is a poet who, rather than telling a story, paints",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Tristram Shandy",
+      "author": "Laurence Sterne",
+      "note": "digressions and detours from the supposed subject, in the style of Tristram Shandy",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Biographia Literaria",
+      "author": "Samuel Taylor Coleridge",
+      "note": "see, for example, the fourth chapter of his Biographia Literaria",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "If on a Winter's Night a Traveler",
+      "author": "Italo Calvino",
+      "note": "Italo Calvino's Invisible Cities (1973) and If on a Winter's Night a Traveler (1979)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Life: A User's Manual",
+      "author": "Georges Perec",
+      "note": "Georges Perec's Life: A User's Manual (1978)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Unbearable Lightness of Being",
+      "author": "Milan Kundera",
+      "note": "Milan Kundera's Unbearable Lightness of Being (1984)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "A History of the World in 10½ Chapters",
+      "author": "Julian Barnes",
+      "note": "and Julian Barnes's History of the World in 10½ Chapters",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "In a Free State",
+      "author": "V. S. Naipaul",
+      "note": "Naipaul's In a Free State (1971)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Les Misérables",
+      "author": "Victor Hugo",
+      "note": "chance meetings on city streets (as in Victor Hugo's Les Misérables)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "A Sentimental Journey",
+      "author": "Laurence Sterne",
+      "note": "Schiller borrowed from English, inspired by Laurence Sterne's Sentimental Journey",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Three Trapped Tigers",
+      "author": "Guillermo Cabrera Infante",
+      "note": "Guillermo Cabrera Infante's Three Trapped Tigers (1967)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Hopscotch",
+      "author": "Julio Cortázar",
+      "note": "Julio Cortázar's Hopscotch (1963), Guillermo Cabrera Infante's Three Trapped Tigers",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Wild Palms",
+      "author": "William Faulkner",
+      "note": "Faulkner's novel The Wild Palms is actually composed of a pair of stories",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Cevdet Bey and Sons",
+      "author": "Orhan Pamuk",
+      "note": "Yet in my first novel, Cevdet Bey and Sons, I had created a hero who explicitly takes Rastignac as his role model",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "One Thousand and One Nights",
+      "author": "Anonymous",
+      "note": "the Arabian Nights (the Thousand and One Nights) and In Search of Lost Time",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Père Goriot",
+      "author": "Honoré de Balzac",
+      "note": "which Flaubert published thirty-five years after Balzac wrote Le Père Goriot",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Golden Bowl",
+      "author": "Henry James",
+      "note": "In his preface to The Golden Bowl, he explains how he decided which minor character he would choose",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Buddenbrooks",
+      "author": "Thomas Mann",
+      "note": "conservatively followed the template of nineteenth-century realist novels such as Buddenbrooks or Anna Karenina",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Shahnameh",
+      "author": "Ferdowsi",
+      "note": "the author of the great Persian epic Shahnameh, which I read over and over while writing the novel My Name Is Red",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Laocoön",
+      "author": "Gotthold Ephraim Lessing",
+      "note": "was formulated, via analytical logic, by the German dramatist and critic Gotthold Ephraim Lessing in his book Laocoön (1766)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Snow",
+      "author": "Orhan Pamuk",
+      "note": "Ka, the poet protagonist of my novel Snow, wrote his poems under the Coleridge-Schiller influence",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Charterhouse of Parma",
+      "author": "Stendhal",
+      "note": "In The Charterhouse of Parma, Stendhal compares such talk to a gunshot in the middle of a concert",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Black Book",
+      "author": "Orhan Pamuk",
+      "note": "I wrote about such a reader, an ardent admirer of Proust, in the chapter entitled 'Love Stories on a Snowy Evening' in The Black Book",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Philosophy of Composition",
+      "author": "Edgar Allan Poe",
+      "note": "explains in his essay 'The Philosophy of Composition' that he wrote his poem 'The Raven'",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "Narrate or Describe?",
+      "author": "György Lukács",
+      "note": "In his essay 'Narrate or Describe?' Hungarian critic György Lukács made a clear distinction",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Shield of Achilles",
+      "author": "W. H. Auden",
+      "note": "Auden wrote a poem entitled 'The Shield of Achilles,' recasting the ekphrasis",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "On Naive and Sentimental Poetry",
+      "author": "Friedrich Schiller",
+      "note": "Friedrich Schiller was the first to propose this distinction, in his famous essay 'Über naive und sentimentalische Dichtung'",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Words",
+      "author": "Jean-Paul Sartre",
+      "note": "Jean-Paul Sartre, in his autobiography Les Mots, or The Words, poetically captures the resemblance",
+      "confidence": "high"
+    },
+    {
+      "source": "The Naive and the Sentimental Novelist",
+      "mentioned": "The Time Regulation Institute",
+      "author": "Ahmet Hamdi Tanpınar",
+      "note": "Ahmet Hamdi Tanpınar's The Time Regulation Institute (Saatleri Ayarlama Enstitüsü)",
+      "confidence": "high"
+    },
+    {
+      "source": "The Nature of Alexander",
+      "mentioned": "Cyropaedia",
+      "author": "Xenophon",
+      "note": "The most picturesque subplot of Xenophon's Cyropaedia is the story of Cyrus and the Lady of Susa",
+      "confidence": "high"
+    },
+    {
+      "source": "The Nature of Alexander",
+      "mentioned": "Iliad",
+      "author": "Homer",
+      "note": "a specially precious casket was taken by Alexander to house his copy of the Iliad, edited for him by Aristotle when he was a boy",
+      "confidence": "high"
+    },
+    {
+      "source": "The Nature of Alexander",
+      "mentioned": "Julius Caesar",
+      "author": "William Shakespeare",
+      "note": "this must have been as traumatic as a flogging from Julius Caesar",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Nature of Alexander",
+      "mentioned": "Henry V",
+      "author": "William Shakespeare",
+      "note": "When the Dauphin sent Henry V a bat and ball in scorn of his youth, he must have chosen his ill-judged gift",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Other Americans",
+      "mentioned": "Rapunzel",
+      "author": "Brothers Grimm",
+      "note": "Nielsen to hear her read from 'Rapunzel,' but nobody wanted to sit next to me",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Other Americans",
+      "mentioned": "Harry Potter",
+      "author": "J. K. Rowling",
+      "note": "I devoured the Harry Potter books; she'd given up on them after the first two",
+      "confidence": "high"
+    },
+    {
+      "source": "The Other Americans",
+      "mentioned": "The Fire Next Time",
+      "author": "James Baldwin",
+      "note": "I couldn't give up her copy of The Fire Next Time on my bedside table, the margins filled with notes",
+      "confidence": "high"
+    },
+    {
+      "source": "The Other Americans",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "before confronting a class of bored prep-school kids making their way through The Odyssey",
+      "confidence": "high"
+    },
+    {
+      "source": "The Other Americans",
+      "mentioned": "Memory of Fire",
+      "author": "Eduardo Galeano",
+      "note": "seeing me curled up in an armchair with a copy of Memory of Fire, came right up to me and introduced himself",
+      "confidence": "high"
+    },
+    {
+      "source": "The Pachinko Parlour",
+      "mentioned": "Heidi",
+      "author": "Johanna Spyri",
+      "note": "'Have you read Heidi?' she asks... 'Johanna Spyri suffered from depression... She couldn't write the book until after she'd brought up her children'",
+      "confidence": "high"
+    },
+    {
+      "source": "The Pachinko Parlour",
+      "mentioned": "Ernest & Célestine",
+      "author": "Gabrielle Vincent",
+      "note": "when I did start reading by myself I'd lost interest in Ernest and Célestine",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Passenger",
+      "mentioned": "Leviathan",
+      "author": "Thomas Hobbes",
+      "note": "He went back to his bunk and got out a paperback copy of Hobbes's Leviathan.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Passenger",
+      "mentioned": "The Principles of Quantum Mechanics",
+      "author": "P. A. M. Dirac",
+      "note": "He stood up and reached down Dirac's Principles of Quantum Mechanics, fourth edition.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Passenger",
+      "mentioned": "Finnegans Wake",
+      "author": "James Joyce",
+      "note": "In the end Murray called the particles quarks—after a line in Joyce's Finnegans Wake, referring to cottage cheese.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Persian Boy",
+      "mentioned": "Iliad",
+      "author": "Homer",
+      "note": "\"So you've never read the Iliad?\" ... \"If Kallisthenes is above bringing you Homer, I am not.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Persian Boy",
+      "mentioned": "The Myrmidons",
+      "author": "Aeschylus",
+      "note": "Only one of them stays with me, The Myrmidons, which Thettalos had done before for Alexander; it's about Achilles, and Patroklos' death.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Red-Haired Woman",
+      "mentioned": "Oedipus the King",
+      "author": "Sophocles",
+      "note": "I was startled to see the title Oedipus the King across its yellow cover... I'd first read Oedipus's story in synopsis.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Red-Haired Woman",
+      "mentioned": "Shahnameh",
+      "author": "Ferdowsi",
+      "note": "The name Sohrab didn't come from my monologue, but from Ferdowsi's thousand-year-old Shahnameh.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Red-Haired Woman",
+      "mentioned": "The Brothers Karamazov",
+      "author": "Fyodor Dostoevsky",
+      "note": "Once, I thought I'd pick up a new translation of The Brothers Karamazov as a birthday gift for my fiancée.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Red-Haired Woman",
+      "mentioned": "The Idiot",
+      "author": "Fyodor Dostoevsky",
+      "note": "I decided, after reading the unsettling essay on the spot, to buy her a copy of The Idiot instead.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Red-Haired Woman",
+      "mentioned": "Masnavi",
+      "author": "Rumi",
+      "note": "Trying to appeal to the widest audience possible, I picked speeches from Rumi's Masnavi and old Sufi stories and fables.",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Life and Fate",
+      "author": "Vasily Grossman",
+      "note": "Epigraph: \"OBERSTURMBANNFUHRER LISS TO OLD BOLSHEVIK MOSTOVSKOY, VASILY GROSSMAN, LIFE AND FATE\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "The Tombs of Atuan",
+      "author": "Ursula K. Le Guin",
+      "note": "Epigraph: \"Freedom is a heavy load...\" —URSULA K. LE GUIN, THE TOMBS OF ATUAN",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Daniel Deronda",
+      "author": "George Eliot",
+      "note": "Epigraph: \"Every woman is supposed to have the same set of motives...\" —GEORGE ELIOT, DANIEL DERONDA",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Apologia Pro Vita Sua",
+      "author": "John Henry Newman",
+      "note": "\"I took my nascent manuscript out of its hiding place, a hollow rectangle cut inside one of our X-rated books: Cardinal Newman's Apologia Pro Vita Sua: A Defence of One's Life.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Aesop's Fables",
+      "author": "Aesop",
+      "note": "\"As a child I'd read a book called Aesop's Fables. I'd got it from the school library... In this book was a story I have often meditated upon.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Inferno",
+      "author": "Dante Alighieri",
+      "note": "\"He has several highly valuable editions that I envy: Dore's Inferno, Dali's Alice's Adventures in Wonderland, Picasso's Lysistrata.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Alice's Adventures in Wonderland",
+      "author": "Lewis Carroll",
+      "note": "\"He has several highly valuable editions that I envy: Dore's Inferno, Dali's Alice's Adventures in Wonderland, Picasso's Lysistrata.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Lysistrata",
+      "author": "Aristophanes",
+      "note": "\"He has several highly valuable editions that I envy: Dore's Inferno, Dali's Alice's Adventures in Wonderland, Picasso's Lysistrata.\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Jane Eyre",
+      "author": "Charlotte Bronte",
+      "note": "\"On my private shelves I've arranged my personal selection of proscribed books... Jane Eyre, Anna Karenina, Tess of the d'Urbervilles, Paradise Lost, Lives of Girls and Women—what a moral panic each one of them would cause if set loose among the Supplicants!\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "\"On my private shelves I've arranged my personal selection of proscribed books... Jane Eyre, Anna Karenina, Tess of the d'Urbervilles, Paradise Lost, Lives of Girls and Women\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Tess of the d'Urbervilles",
+      "author": "Thomas Hardy",
+      "note": "\"On my private shelves I've arranged my personal selection of proscribed books... Jane Eyre, Anna Karenina, Tess of the d'Urbervilles, Paradise Lost, Lives of Girls and Women\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Paradise Lost",
+      "author": "John Milton",
+      "note": "\"On my private shelves I've arranged my personal selection of proscribed books... Jane Eyre, Anna Karenina, Tess of the d'Urbervilles, Paradise Lost, Lives of Girls and Women\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Testaments",
+      "mentioned": "Lives of Girls and Women",
+      "author": "Alice Munro",
+      "note": "\"On my private shelves I've arranged my personal selection of proscribed books... Jane Eyre, Anna Karenina, Tess of the d'Urbervilles, Paradise Lost, Lives of Girls and Women\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Three-Body Problem",
+      "mentioned": "Silent Spring",
+      "author": "Rachel Carson",
+      "note": "\"Silent Spring, she read on the cover, by Rachel Carson. 'Where did you get this?'... 'This was published in 1962 and was very influential in the West.'\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Three-Body Problem",
+      "mentioned": "A Study in Scarlet",
+      "author": "Arthur Conan Doyle",
+      "note": "\"My teacher took out a book, The Collected Cases of Sherlock Holmes. He turned to one story— 'A Study in Scarlet,' I think.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Three-Body Problem",
+      "mentioned": "Animal Liberation",
+      "author": "Peter Singer",
+      "note": "\"A pile of books, most of which dealt with biology, sat on his bed. Ye noticed a copy of Peter Singer's Animal Liberation.\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Betrothed",
+      "author": "Alessandro Manzoni",
+      "note": "Calvino devotes a full essay (\"Manzoni's The Betrothed: The Novel of Ratios of Power\") to analyzing the novel's characters and power structures",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Candide",
+      "author": "Voltaire",
+      "note": "Essay \"Candide: An Essay in Velocity,\" written as preface to an Italian edition illustrated by Paul Klee",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Natural History",
+      "author": "Pliny the Elder",
+      "note": "Preface to an Italian translation; Calvino discusses Pliny's prose style and his survey of the animal world in Book VIII",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Ferragus",
+      "author": "Honoré de Balzac",
+      "note": "Introduction to an Italian translation of Balzac's Ferragus discussed in \"The City as Protagonist in Balzac\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Metamorphoses",
+      "author": "Ovid",
+      "note": "Discussed at length in \"Ovid and Universal Contiguity\" as aiming to represent all that is worth telling of what has been passed down by literature",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Capital",
+      "author": "Karl Marx",
+      "note": "Cited as an example of books of revolutionary propaedeutics, from Marx's Capital to the manuals on guerrilla warfare",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Orlando Innamorato",
+      "author": "Matteo Maria Boiardo",
+      "note": "Noted as the unfinished poem that Orlando Furioso presents itself as continuing",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Demons",
+      "author": "Fyodor Dostoevsky",
+      "note": "\"If I read Turgenev's Fathers and Sons or Dostoyevsky's The Possessed, I cannot help thinking how the characters have continued to be reincarnated\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Fathers and Sons",
+      "author": "Ivan Turgenev",
+      "note": "Paired with Dostoyevsky's The Possessed in the same passage about recurring character types",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Nose",
+      "author": "Nikolai Gogol",
+      "note": "Grouped with Alice in Wonderland and Kafka's Metamorphoses as fantasy that unravels a logic with rules",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Alice in Wonderland",
+      "author": "Lewis Carroll",
+      "note": "Cited in the same passage as an example of fantasy readers' pleasure in unraveling internal logic",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Fables of La Fontaine",
+      "author": "Jean de La Fontaine",
+      "note": "Calvino mentions not knowing Marianne Moore's translation of the Fables but suspecting it would be illuminating",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Charterhouse of Parma",
+      "author": "Stendhal",
+      "note": "Subject of the essay \"Guide to The Charterhouse of Parma for the Use of New Readers\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "Discussed repeatedly, including as a philosophical novel and via the device of the fictional Arab chronicler Cid Hamet Benengeli",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "note": "Discussed as a work in which Flaubert excludes the language and visions of his other novels",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Odyssey",
+      "author": "Homer",
+      "note": "Subject of the essay \"Within the Odyssey,\" discussing the narrator and the poem's mythic layers",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Orlando Furioso",
+      "author": "Ludovico Ariosto",
+      "note": "Subject of \"The Structure of Orlando Furioso,\" analyzed at length including the enchanted-palace episode with Atlante and Astolfo",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Arabian Nights",
+      "author": "traditional (trans. Richard Francis Burton referenced)",
+      "note": "Discussed as the framework tale of Shahryar and Scheherazade, exemplifying nested storytelling",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Robinson Crusoe",
+      "author": "Daniel Defoe",
+      "note": "Called a philosophical novel without knowing it, and discussed as the basis for Michel Tournier's Vendredi",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Lucien Leuwen",
+      "author": "Stendhal",
+      "note": "Calvino quotes Stendhal's marginal note in the manuscript about the best sporting dog and the hunter's gun",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Baron in the Trees",
+      "author": "Italo Calvino",
+      "note": "Calvino refers to his own earlier novel, describing its protagonist as a kind of Don Quixote of the Philosophy of the Enlightenment",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Italian Chronicles",
+      "author": "Stendhal",
+      "note": "Noted as where Stendhal recounted the Renaissance story he researched in libraries",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "La Duchesse de Langeais",
+      "author": "Honoré de Balzac",
+      "note": "Its second chapter is described as providing a sociological study of the aristocracy of the Faubourg Saint-Germain",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "La Fille aux yeux d'or",
+      "author": "Honoré de Balzac",
+      "note": "Mentioned in the same passage as La Duchesse de Langeais as part of the same story cycle",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Manon Lescaut",
+      "author": "Abbé Prévost",
+      "note": "Discussed alongside La Nouvelle Héloïse as eighteenth-century novels criticized in a passage Calvino quotes",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "La Nouvelle Héloïse",
+      "author": "Jean-Jacques Rousseau",
+      "note": "Cited alongside Manon Lescaut as an eighteenth-century novel discussed in the same critical passage",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Count of Monte Cristo",
+      "author": "Alexandre Dumas",
+      "note": "Analyzed as drawn from a supernovel that contains all possible variants of the life story of Edmond Dantès",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Prince",
+      "author": "Niccolò Machiavelli",
+      "note": "Balzac is quoted as having said The Charterhouse of Parma was like The Prince of a new Machiavelli",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Anatomy of Criticism",
+      "author": "Northrop Frye",
+      "note": "Subject of the essay \"Literature as Projection of Desire,\" which reviews and responds to Frye's book at length",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Great Expectations",
+      "author": "Charles Dickens",
+      "note": "Cited as the masterpiece in which Dickens handles the reappearance of a convict father",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Oliver Twist",
+      "author": "Charles Dickens",
+      "note": "Mentioned in discussing Dickens's illustrators, noting Cruikshank's falling-out with Dickens came after this book",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Tristram Shandy",
+      "author": "Laurence Sterne",
+      "note": "Cited as an example of autobiography as exploration of origins, where the narrator dwells on his antecedents",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Dialectic of Enlightenment",
+      "author": "Max Horkheimer and Theodor Adorno",
+      "note": "Identified as the original text upon which this criticism is based, published some decades earlier",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "The Other World, or States and Empires of the Moon",
+      "author": "Cyrano de Bergerac",
+      "note": "Quoted directly and discussed in the essay \"Cyrano on the Moon\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Antony and Cleopatra",
+      "author": "William Shakespeare",
+      "note": "Discussed via Cleopatra's imagining of her fate before her suicide in the last act",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "La Comédie humaine",
+      "author": "Honoré de Balzac",
+      "note": "Referenced as the cycle across whose volumes the figure of Vautrin recurs in various guises",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "La Tentation de Saint Antoine",
+      "author": "Gustave Flaubert",
+      "note": "Contrasted with Madame Bovary as representing a different, excluded side of Flaubert's writing",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Salammbô",
+      "author": "Gustave Flaubert",
+      "note": "Cited in the same passage as La Tentation de Saint Antoine as part of Flaubert's excluded other voice",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "S/Z",
+      "author": "Roland Barthes",
+      "note": "Cited by Calvino (\"Roland Barthes, S/Z\") in discussing Barthes's structuralist analysis",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Les Mots et les choses",
+      "author": "Michel Foucault",
+      "note": "Compared to Manzoni's description of Don Ferrante's library as a catalogue of Renaissance letters",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Vendredi ou les limbes du Pacifique",
+      "author": "Michel Tournier",
+      "note": "Discussed as a reworking of Robinson Crusoe dense with references to the human sciences, which had come out in France a few months earlier",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Cent Mille Milliards de poèmes",
+      "author": "Raymond Queneau",
+      "note": "Described as not so much a book as the rudimentary model of a machine for making sonnets, each one different from the last",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "La Chambre claire",
+      "author": "Roland Barthes",
+      "note": "Calvino describes reading Barthes's last book a few weeks before his death, struck by its pages on being photographed",
+      "confidence": "high"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Introduction à la littérature fantastique",
+      "author": "Tzvetan Todorov",
+      "note": "Cited as the book whose publication prompted the symposium contribution \"Definitions of Territories: Fantasy\"",
+      "confidence": "medium"
+    },
+    {
+      "source": "The Uses of Literature",
+      "mentioned": "Gerusalemme liberata",
+      "author": "Torquato Tasso",
+      "note": "Noted as bandied about in convivial disputes in Don Rodrigo's house as a code of chivalric rules",
+      "confidence": "medium"
+    },
+    {
+      "source": "The White Castle",
+      "mentioned": "Book of Travels (Seyahatname)",
+      "author": "Evliya Çelebi",
+      "note": "In the fictional editor's preface, speculating on the manuscript author's sources: \"He may have merely read the travel journals of Evliya Chelebi, whom he said he knew.\"",
+      "confidence": "low"
+    },
+    {
+      "source": "The Dream Hotel",
+      "mentioned": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "note": "\"Sara pulls out Jane Eyre from the shelf and reads until a seat at one of the computer stations opens up\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Dream Hotel",
+      "mentioned": "Kindred",
+      "author": "Octavia E. Butler",
+      "note": "\"'Have you read Kindred?' 'Nope,' Eisley replies\"",
+      "confidence": "high"
+    },
+    {
+      "source": "The Dream Hotel",
+      "mentioned": "The Metamorphosis and Other Stories",
+      "author": "Franz Kafka",
+      "note": "An item Sara is offered in a trade among retainees — \"a battered copy of The Metamorphosis and Other Stories\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "The Iliad",
+      "author": "Homer",
+      "note": "A player asks an NPC \"What's your favorite part of The Iliad?\" and the NPC recites lines describing Andromache",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "The Odyssey",
+      "author": "Homer",
+      "note": "Marx suggests they reread \"The Odyssey and The Call of the Wild and Call It Courage\"; later a scene is described as straight out of The Odyssey",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "The Call of the Wild",
+      "author": "Jack London",
+      "note": "Named alongside The Odyssey as a book Marx suggests rereading",
+      "confidence": "medium"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "Call It Courage",
+      "author": "Armstrong Sperry",
+      "note": "Named alongside The Odyssey and The Call of the Wild as a book Marx suggests rereading",
+      "confidence": "medium"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "A Brief History of Time",
+      "author": "Stephen Hawking",
+      "note": "A character \"would pick up A Brief History of Time, and fondly pat its cover\"",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "The Phantom Tollbooth",
+      "author": "Norton Juster",
+      "note": "A character has already finished reading The Phantom Tollbooth for the second time, which was the only book she'd brought with her that day",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "Walden",
+      "author": "Henry David Thoreau",
+      "note": "Described as a book people did not wish to devote free time to reading by candlelight",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "I Am a Strange Loop",
+      "author": "Douglas Hofstadter",
+      "note": "Per the author's acknowledgments, this is the book about consciousness Sadie references regarding an AI version of deceased loved ones",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "The White Album",
+      "author": "Joan Didion",
+      "note": "Marx reads Joan Didion's White Album in a waiting room and later pretends to have left it there",
+      "confidence": "high"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "King Lear",
+      "author": "William Shakespeare",
+      "note": "Listed as a school production (\"Junior year: King Lear, Twelfth Night\")",
+      "confidence": "medium"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "Twelfth Night",
+      "author": "William Shakespeare",
+      "note": "Listed as a school production, and later referenced as a play being staged (contrasted with The Tempest)",
+      "confidence": "medium"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "Macbeth",
+      "author": "William Shakespeare",
+      "note": "A character says he's always wanted to play Macbeth; discussion of casting Banquo/Richard Burbage in a stage production",
+      "confidence": "medium"
+    },
+    {
+      "source": "Tomorrow, and Tomorrow, and Tomorrow",
+      "mentioned": "The Tempest",
+      "author": "William Shakespeare",
+      "note": "A director wished she was directing The Tempest instead of Twelfth Night",
+      "confidence": "medium"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Locksley Hall",
+      "author": "Alfred Tennyson",
+      "note": "As a young man Harry copied down and saved the lines of this favorite poem, describing airships and wonders to come",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Autobiography",
+      "author": "Benjamin Franklin",
+      "note": "\"Harry liked Mark Twain and Franklin's Autobiography,\" read during long afternoons in the town library",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Don Quixote",
+      "author": "Miguel de Cervantes",
+      "note": "Listed among the books kept in Truman's small bookcase in his later-life reading corner",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "David Copperfield",
+      "author": "Charles Dickens",
+      "note": "\"I have been reading David Copperfield,\" and its line is used as a chapter epigraph",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Commentaries on the Gallic War",
+      "author": "Julius Caesar",
+      "note": "Harry built a wooden model of Caesar's bridge over the Rhine \"as described in Caesar's Commentaries\" during his Latin studies",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "The Prince",
+      "author": "Niccolò Machiavelli",
+      "note": "In his diary at Blois, Truman writes that Catherine de Médicis and the Medici family believed in government by deviation as set out in The Prince by Machiavelli",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "The Merchant of Venice",
+      "author": "William Shakespeare",
+      "note": "Harry wrote a senior-year school essay on the play, discussing Antonio and Shylock as an ideal man",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Cannery Row",
+      "author": "John Steinbeck",
+      "note": "Acheson wrote that a fellow senator reminded him of the madam in John Steinbeck's Cannery Row",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "The Reason Why",
+      "author": "Cecil Woodham-Smith",
+      "note": "Acheson sent Truman a copy during his convalescence, an account of the disastrous Charge of the Light Brigade",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "The Naked and the Dead",
+      "author": "Norman Mailer",
+      "note": "Named among the best-selling books of 1948 in a passage surveying the era's culture",
+      "confidence": "high"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Roosevelt and Hopkins",
+      "author": "Robert E. Sherwood",
+      "note": "Named in the same 1948 best-seller passage",
+      "confidence": "medium"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Crusade in Europe",
+      "author": "Dwight D. Eisenhower",
+      "note": "Named in the same 1948 best-seller passage, described as Eisenhower's account of the war",
+      "confidence": "medium"
+    },
+    {
+      "source": "Truman",
+      "mentioned": "Sexual Behavior in the Human Male",
+      "author": "Alfred Kinsey",
+      "note": "Named in the same 1948 best-seller passage, whose statistical revelations concerning male promiscuity caused a sensation",
+      "confidence": "medium"
+    },
+    {
+      "source": "Water for Elephants",
+      "mentioned": "Othello",
+      "author": "William Shakespeare",
+      "note": "I'm lounging on my bedroll reading Othello and Walter is on his cot reading Wordsworth.",
+      "confidence": "high"
+    },
+    {
+      "source": "When She Was Good",
+      "mentioned": "The Story of a Soul",
+      "author": "Saint Thérèse of Lisieux",
+      "note": "Kitty had a little book with a blue cover called The Story of a Soul, in which Saint Teresa herself had written down all the wonderful things she had ever thought or said.",
+      "confidence": "high"
+    }
+  ]
+}
