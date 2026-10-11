@@ -1332,18 +1332,20 @@
   };
   // ?v=next: the connected experience — book pages are the fan + panel, the network page is the
   // star map, and you zoom between them.
+  // ?v=lab: everything in ?v=next, plus Canon / Timeline / Fame views on the network page (lab.js).
   P._vNext = function () {
-    if (this._vn === undefined) { var v = null; try { v = new URLSearchParams(location.search).get('v'); } catch (e) {} this._vn = v === 'next'; }
+    if (this._vn === undefined) { var v = null; try { v = new URLSearchParams(location.search).get('v'); } catch (e) {} this._vn = v === 'next' || v === 'lab'; this._vl = v === 'lab'; }
     return this._vn;
   };
+  P._vLab = function () { this._vNext(); return this._vl; };
   P._netExplorer = function () { var m = this._netMode(); return m === 'explorer' || m === 'plus'; };
   P._xPlus = function () { return this._netMode() === 'plus'; };
   P._xLive = function () { return this._xPlus() || this._vNext(); };   // living fan + star map layers
-  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xLive() || (window.BJAtlas && window.BookJumprStars))); };
+  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xLive() || (window.BJAtlas && window.BookJumprStars)) && (!this._vLab() || window.__BJ.labReady)); };
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=3', 'explorer.js?v=3'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=3', 'explorer.js?v=4'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1380,7 +1382,8 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=3', 'stars-data.js?v=2', 'explorer.js?v=3'] : ['network-regions.js?v=1', 'explorer.js?v=3'];
+    var srcs = this._xLive() ? ['atlas.js?v=3', 'stars-data.js?v=2', 'explorer.js?v=4'] : ['network-regions.js?v=1', 'explorer.js?v=4'];
+    if (this._vLab()) srcs.push('lab.js?v=1');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {
@@ -1961,10 +1964,10 @@
       if (!this._xReady()) { this._loadExplorer(); vals.bookNext = vals.starMap = h('div', { className: 'bjx-loading' }, 'Opening…'); }
       else {
         vals.bookNext = vals.pgBookNext ? (books[route.id] ? this.bookNext(books[route.id]) : h('div', { className: 'bjx-empty' }, this.state.ready ? 'That book isn’t in the network yet.' : 'Opening the stacks…')) : null;
-        vals.starMap = vals.pgStars ? this.starMap(route.focus) : null;
+        vals.starMap = vals.pgStars ? (this._vLab() && this.labMap ? this.labMap(route.focus) : this.starMap(route.focus)) : null;
       }
     } else vals.bookNext = vals.starMap = null;
-    vals.vSwitch = this._vNext();
+    vals.vSwitch = this._vNext(); vals.vName = this._vLab() ? 'Lab' : 'Next';
     vals.vToClassic = function (e) { if (e) e.preventDefault(); location.href = location.pathname + location.hash; };
     if (vals.pgExplorer) {
       this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));

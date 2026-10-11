@@ -390,6 +390,7 @@
     var bk = r.page === 'book' ? r.id : null;
     if (bk !== this._xLastBook) { this._xLastBook = bk; if (this.state.xGenre || this.state.xHover) this.setState({ xGenre: null, xHover: null }); }
     if (this._bkpEl) this._bkpQueue();
+    if (this._labSync) this._labSync();
     var f = this._xCur(), mi = this._xMini;
     if (mi) { var cur = mi.focus >= 0 ? mi.keys[mi.focus] : null; if (cur !== f) mi.setFocus(f); }
     var sm = this._stars;
@@ -644,36 +645,42 @@
       if (f) m.setFocus(f, false);
     });
   };
-  P.starMap = function (focus) {
-    var self = this, st = this.state, books = this.books, sel = focus && books[focus] ? books[focus] : null;
-    var q = st.xFq || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
+  // The selected book's card on a map view (stars, and the lab views): cover, counts, Open, Clear.
+  P.mapCard = function (sel, o) {
+    var self = this, yl = this.yearLabel(sel.year), g = this.xGenreLabel(this.xGenreKey(sel.id));
+    o = o || {};
+    return h('div', { className: 'bjx-fcard' },
+      h('div', { className: 'bjx-fcv' }, this.cover(sel)),
+      h('div', { className: 'bjx-fmeta' },
+        h('div', { className: 'eyebrow' }, o.eyebrow || (g === 'Unsorted' || g === 'Other' ? 'Selected' : g)),
+        h('h3', null, sel.title),
+        h('div', { className: 'by' }, [sel.author, yl].filter(Boolean).join('  ·  ')),
+        h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
+        h('div', { className: 'bjx-act' },
+          h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'),
+          h('button', { className: 'pill', onClick: function () { self.mapFocus(null); } }, 'Clear'))));
+  };
+  // "Find a book…" for the map views; picking one selects it (mapFocus).
+  P.mapSearch = function () {
+    var self = this, q = this.state.xFq || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
     var find = function (id) { self.setState({ xFq: '' }); self.mapFocus(id); };
+    return h('div', { className: 'atlas-q' },
+      h('input', { className: 'atlas-input', placeholder: 'Find a book…', value: q, 'aria-label': 'Find a book on the map',
+        onChange: function (e) { self.setState({ xFq: e.target.value }); },
+        onKeyDown: function (e) { if (e.key === 'Enter' && sugg[0]) find(sugg[0].id); if (e.key === 'Escape') self.setState({ xFq: '' }); } }),
+      sugg.length ? h('div', { className: 'sg-pop atlas-sg' }, sugg.map(function (x) {
+        return h('button', { key: x.id, onMouseDown: function (e) { e.preventDefault(); find(x.id); } },
+          h('span', { className: 'sg-cv' }, self.cover(x)), h('span', { className: 'sg-t' }, h('span', { className: 't' }, x.title), h('span', { className: 'a' }, x.author || '')));
+      })) : null);
+  };
+  P.starMap = function (focus) {
+    var self = this, books = this.books, sel = focus && books[focus] ? books[focus] : null;
     var m = function () { return self._stars; };
-    var card = null;
-    if (sel) {
-      var yl = this.yearLabel(sel.year);
-      card = h('div', { className: 'bjx-fcard' },
-        h('div', { className: 'bjx-fcv' }, this.cover(sel)),
-        h('div', { className: 'bjx-fmeta' },
-          h('div', { className: 'eyebrow' }, this.xGenreLabel(this.xGenreKey(sel.id)) === 'Unsorted' ? 'Selected' : this.xGenreLabel(this.xGenreKey(sel.id))),
-          h('h3', null, sel.title),
-          h('div', { className: 'by' }, [sel.author, yl].filter(Boolean).join('  ·  ')),
-          h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
-          h('div', { className: 'bjx-act' },
-            h('button', { className: 'pill solid', onClick: function () { self.xOpenBook(sel.id); } }, 'Open →'),
-            h('button', { className: 'pill', onClick: function () { self.mapFocus(null); } }, 'Clear'))));
-    }
+    var card = sel ? this.mapCard(sel) : null;
     return h('div', { className: 'bjx-full bjx-stars' },
       h('div', { className: 'bjx-full-map', ref: this._starsRef() }),
       h('div', { className: 'bjx-fbar' },
-        h('div', { className: 'atlas-q' },
-          h('input', { className: 'atlas-input', placeholder: 'Find a book…', value: q, 'aria-label': 'Find a book on the map',
-            onChange: function (e) { self.setState({ xFq: e.target.value }); },
-            onKeyDown: function (e) { if (e.key === 'Enter' && sugg[0]) find(sugg[0].id); if (e.key === 'Escape') self.setState({ xFq: '' }); } }),
-          sugg.length ? h('div', { className: 'sg-pop atlas-sg' }, sugg.map(function (x) {
-            return h('button', { key: x.id, onMouseDown: function (e) { e.preventDefault(); find(x.id); } },
-              h('span', { className: 'sg-cv' }, self.cover(x)), h('span', { className: 'sg-t' }, h('span', { className: 't' }, x.title), h('span', { className: 'a' }, x.author || '')));
-          })) : null),
+        this.mapSearch(),
         h('div', { className: 'atlas-zoom' },
           h('button', { onClick: function () { if (m()) m().zoomBy(1 / 1.4); }, 'aria-label': 'Zoom out' }, '−'),
           h('button', { onClick: function () { if (m()) m().zoomBy(1.4); }, 'aria-label': 'Zoom in' }, '+'),
@@ -749,7 +756,8 @@
     id = id || this._xCur();
     if (!id || !this.books[id]) return;
     var self = this, route = { page: 'network', focus: id }, hash = '#/network/' + id;
-    if (reducedMotion() || document.hidden || !window.ReactDOM || !document.querySelector('.bjx-fan') || this._xMorphing) { this.navigate(route, hash); return; }
+    if (this._vLab && this._vLab() && this._labView() !== 'stars') { this.navigate(route, hash, document.querySelector('.bjx-hcv, .bkp-cv0')); return; }   // lab views: the cover glides in
+    if (reducedMotion() || document.hidden || !window.ReactDOM || !document.querySelector('.bjx-fan, .bkp-shelves') || this._xMorphing) { this.navigate(route, hash); return; }
     var items = this._xPillSnap(), L = this._xMorphLayer();
     var chips = items.map(function (it) { var c = self._xChip(L, it); Object.assign(c.style, box(it.r)); return c; });
     this._xMorphing = true;

@@ -116,6 +116,21 @@ the references and prompt patterns behind the decisions.
     - Hubs label their 30 best-connected neighbours.
   - **Continents are now one disc each:** sub-communities are wedges of a single sunflower. Unknown-genre books sit toward the rim and are drawn lighter, and names are anchored just above the actual dots.
 
+- **Lab views (`?v=lab`): leading with the books people know.**
+  - The data explains the overwhelm:
+    - 71% of the 4,910 books have exactly one link;
+    - only 192 are mentioned 5+ times, and 66 are mentioned 10+ times.
+  - The lab variant keeps everything in `?v=next` and adds three views of the ~240 most-mentioned books and biggest name-droppers, drawn as covers (size = popularity, pan/zoom/pinch):
+    - **Canon:** one island per genre, the most mentioned in the middle, islands packed so genres that mention each other sit together.
+    - **Timeline:** left to right through time on a warped scale, in genre lanes. A crowded year fans out sideways. Faint arcs show every link among these books, and selecting one highlights its arcs back in time.
+    - **Fame:** right = mentioned by more books, up = mentions more books, both on log scales. Books that mention nothing sit in their own band. Quadrants: the canon, name-droppers, hubs, footnotes.
+  - In every view:
+    - selecting a cover shows its links and the map card;
+    - **Open →** morphs the cover into the book page;
+    - "Zoom out" from a book page glides its cover back into the view;
+    - a book outside the set is pinned in as "you are here".
+  - The choice of view is remembered for the session; "Stars" is the genre star map.
+
 ## Next steps (not done)
 
 - Colour or cluster the network by community (`analysis/communities.json`). Consider WebGL points if real phones still struggle.

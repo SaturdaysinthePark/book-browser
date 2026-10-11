@@ -27,6 +27,7 @@ vendored locally and the data loads via a classic script rather than an ES modul
 | `app.js` | The application: a small template compiler + the ported component logic + React mount |
 | `explorer.js` | The network **Explorer** (`?net=v2`): fan-to-fan navigation built on the book page's neighbourhood — lazy-loaded |
 | `network-regions.js` | "Reading neighbourhoods" for the Explorer's entry — **generated** by `npm run bj:regions` (Louvain) |
+| `lab.js` | The `?v=lab` network views — **Canon**, **Timeline**, **Fame** (popular books as covers, pan/zoom) — lazy-loaded |
 | `atlas.js` | Canvas star-map renderer: the **Atlas** (`?net=v3`) and the Explorer+ mini-map / full view — lazy-loaded |
 | `atlas-data.js` | Atlas layout (books grouped by Louvain community) — **generated** by `npm run bj:atlas` |
 | `stars-data.js` | Star-map layout: every book in its genre "continent" (`?v=next`, Explorer+) — **generated** by `npm run bj:stars` |
@@ -59,6 +60,9 @@ vendored locally and the data loads via a classic script rather than an ES modul
 - **`?v=next`** — the connected experience under test: a book page *is* the fan (+ panel, + every mention as
   quote cards); "Zoom out" morphs the fan into the star map of every book (genre continents), and a star's
   "Open →" morphs back into its fan. Without the flag the site is unchanged; the pill bottom-left flips to Classic.
+- **`?v=lab`** — `?v=next` plus three popularity-first network views to compare (switch at the top right):
+  **Canon** (the ~240 most-mentioned books + biggest name-droppers as covers, in genre islands), **Timeline**
+  (by year, in genre lanes, arcs reaching back to what each mentions) and **Fame** (mentioned-by × mentions, log axes).
 - **About** — how the dataset works
 
 Routing is hash-based and author-first: a book lives at `#/<author>/<title>` (e.g.
