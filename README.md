@@ -29,7 +29,7 @@ vendored locally and the data loads via a classic script rather than an ES modul
 | `network-regions.js` | "Reading neighbourhoods" for the Explorer's entry — **generated** by `npm run bj:regions` (Louvain) |
 | `atlas.js` | Canvas star-map renderer: the **Atlas** (`?net=v3`) and the Explorer+ mini-map / full view — lazy-loaded |
 | `atlas-data.js` | Atlas layout (books grouped by Louvain community) — **generated** by `npm run bj:atlas` |
-| `stars-data.js` | Explorer+ star layout (same communities, loose organic constellations) — **generated** by `npm run bj:stars` |
+| `stars-data.js` | Star-map layout: every book in its genre "continent" (`?v=next`, Explorer+) — **generated** by `npm run bj:stars` |
 | `home.js` | The interactive home-wall engine (endless shelf / infinite canvas / shelf rows) — imperative, transforms only |
 | `bookjumpr-data.js` | The dataset the site loads — **generated** from the database by `npm run bj:build` (don't hand-edit) |
 | `bookjumpr-notes.js` | Mention quotes/context, lazy-loaded on book pages — **generated** by `npm run bj:build` |
@@ -56,6 +56,9 @@ vendored locally and the data loads via a classic script rather than an ES modul
   `?net=v2` swaps it for the **Explorer**: one book in the middle, its mentions fanning out, jump from fan to fan.
   `?net=v3` is the **Atlas** (the whole map grouped into neighbourhoods); `?net=v4` is **Explorer+**: the Explorer
   with flowing lines, genre chips and a genre-coloured star map of every book (mini-map → full screen).
+- **`?v=next`** — the connected experience under test: a book page *is* the fan (+ panel, + every mention as
+  quote cards); "Zoom out" morphs the fan into the star map of every book (genre continents), and a star's
+  "Open →" morphs back into its fan. Without the flag the site is unchanged; the pill bottom-left flips to Classic.
 - **About** — how the dataset works
 
 Routing is hash-based and author-first: a book lives at `#/<author>/<title>` (e.g.

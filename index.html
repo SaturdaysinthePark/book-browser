@@ -577,6 +577,53 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   .bjx-full{animation:none;}
 }
 
+/* ?v=next: book page = fan + panel + lists; network = star map; morphs between them */
+.bkn-page .bjx-top{justify-content:space-between;}
+.bkn-zoom{margin-left:auto;border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink);cursor:pointer;box-shadow:0 3px 0 rgba(20,20,20,.9);transition:transform .25s var(--ease-spring),box-shadow .2s;}
+.bkn-zoom:hover{transform:translateY(-2px);box-shadow:0 5px 0 rgba(20,20,20,.9);}
+.bkn-zoom:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(20,20,20,.9);}
+.bkn .bjx-hmeta h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;line-height:1.05;margin:6px 0 6px;text-wrap:balance;}
+.bkn .bjx-hmeta .lnk{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(20,20,20,.3);text-underline-offset:3px;}
+.bkn .bjx-hmeta .lnk:hover{color:var(--accent);}
+.bkn-lists{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:56px;padding-top:24px;border-top:1.5px solid var(--ink);}
+.bkn-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.bkn-h h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;margin:0;}
+.bkn-h .count{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:2px 9px;border-radius:999px;color:var(--paper);}
+.bkn-h .count.out{background:var(--accent);}.bkn-h .count.in{background:var(--inbound);}
+.bkn-h .cap{width:100%;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);}
+.bkn-cards{display:flex;flex-direction:column;}
+.bkn-card{display:flex;gap:14px;padding:12px 10px;margin:0 -10px;border-radius:12px;border-top:1px solid rgba(20,20,20,.1);transition:background .15s;}
+.bkn-card:first-child{border-top:none;}
+.bkn-card.is-hot{background:rgba(20,20,20,.05);}
+.bkn-col.out .bkn-card.is-hot{box-shadow:inset 3px 0 0 var(--accent);}.bkn-col.in .bkn-card.is-hot{box-shadow:inset 3px 0 0 var(--inbound);}
+.bkn-cv{flex:none;width:52px;padding:0;border:none;background:none;cursor:pointer;align-self:flex-start;}
+.bkn-body{min-width:0;flex:1;}
+.bkn-t{display:block;text-align:left;background:none;border:none;padding:0;cursor:pointer;font-family:'Instrument Serif',serif;font-size:19px;line-height:1.12;color:var(--ink);}
+.bkn-t:hover{color:var(--accent);}
+.bkn-a{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:rgba(20,20,20,.6);margin-top:3px;}
+.bkn-a .mut{color:var(--ink);}
+.bkn-card .mc-q{margin-top:7px;-webkit-line-clamp:3;}
+.bkn-card .mc-q.quote{font-size:15px;}
+.bkn-card .mc-q.ctx{font-size:12.5px;}
+.bkn-col .pill.more{margin-top:12px;}
+.bjx-stage.arriving .bjx-pill,.bjx-stage.arriving .bjx-center,.bjx-stage.arriving .bjx-dot{visibility:hidden;}
+.bjx-morph{position:fixed;inset:0;z-index:95;pointer-events:none;}
+.bjx-msnap{position:fixed;}
+.bjx-mchip{position:fixed;box-sizing:border-box;display:flex;align-items:center;padding:0 10px;overflow:hidden;white-space:nowrap;border:1.4px solid rgba(20,20,20,.85);border-radius:999px;background:#fdfcfa;
+  font:12px 'IBM Plex Mono',monospace;font-style:normal;color:var(--ink);}
+.bjx-mchip.c{background:var(--ink);color:var(--paper);font:italic 22px 'Instrument Serif',serif;justify-content:center;}
+.stars-page .bjx-full{position:fixed;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:5;animation:none;}
+.stars-page .bjx-flegend{bottom:calc(60px + env(safe-area-inset-bottom));}
+@media (max-width:999px){.bkn-lists{grid-template-columns:1fr;gap:28px;}}
+@media (max-width:759px){
+  .bkn-page .bjx-top{gap:10px;}
+  .bkn-zoom{padding:6px 12px;font-size:10.5px;}
+  .stars-page .bjx-fcard{bottom:calc(12px + env(safe-area-inset-bottom));}
+  .v-switch{left:auto;right:10px;padding:2px 3px 2px 9px;font-size:9px;opacity:.85;}
+  .v-switch a{padding:4px 7px;}
+  .stars-page ~ .v-switch{display:none;}
+}
+
 /* Map / Explorer switcher (only with ?net=) */
 .net-switch{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 12px;background:rgba(29,27,24,.9);border:1px solid rgba(242,236,221,.3);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,221,.7);}
 .net-switch a{color:#f2ecdd;text-decoration:none;padding:5px 9px;border-radius:999px;}
@@ -1181,6 +1228,15 @@ html,body{height:100%;}
     </div>
   </sc-if>
 
+  <sc-if value="{{ pgBookNext }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Book page" class="bjx bkn">{{ bookNext }}</div>
+  </sc-if>
+  <sc-if value="{{ pgStars }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Network" class="bjx stars-page">{{ starMap }}</div>
+  </sc-if>
+  <sc-if value="{{ vSwitch }}" hint-placeholder-val="{{ false }}">
+    <div class="net-switch v-switch">View <a href="#" onClick="{{ vToClassic }}">Classic</a><a class="on">Next</a></div>
+  </sc-if>
   <sc-if value="{{ pgExplorer }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Network explorer" class="bjx">{{ explorer }}</div>
   </sc-if>

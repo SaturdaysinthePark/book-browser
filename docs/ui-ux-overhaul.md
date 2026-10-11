@@ -96,6 +96,14 @@ the references and prompt patterns behind the decisions.
   - The stars come from `npm run bj:stars` (`build-atlas.mjs --organic`): the same communities with seeded jitter and tighter gaps, and no circles or names.
   - None of the motion runs under reduced motion; the ambient loop pauses when the canvas is off screen.
 
+- **The connected experience (`?v=next`).** After testing Explorer+, the fan became the book page and the map became the zoomed-out view of the same thing:
+  - **Book page** (`#/<author>/<title>`) = the fan in the middle (flowing lines, genre chips, spark on each hop), the panel (mini-map, cover, author link, synopsis, path finder) and every mention below as compact quote cards in two columns, "Mentions" and "Mentioned by". The genre chip filters the cards too, and hovering a card lights its pill.
+  - **Network page** (`#/network`) = the star map: every book in its genre continent, named in its genre colour. Click a star to see its flowing in/out lines and a card.
+  - **Zoom out**: the fan's pills fly to their stars and shrink into dots while the map fades in around them. **Open →** (or double-clicking a star) runs it in reverse, so the star's neighbours fly into the new fan's pills.
+  - "Places to start" and the "your hops" line are gone.
+  - **Genre continents** (`npm run bj:stars`, `tools/build-stars.mjs`): each book sits in its genre's area. The 41% without a genre join the genre most of their linked books have, but still draw grey. Inside a continent, books that mention each other cluster (Louvain on that genre's subgraph), and related genres border each other.
+  - Reduced motion, the back button and deep links swap with no morph.
+
 ## Next steps (not done)
 
 - Colour or cluster the network by community (`analysis/communities.json`). Consider WebGL points if real phones still struggle.

@@ -1190,7 +1190,10 @@
     return R('div', { className: 'ng', key: b.id + (showAll ? ':all' : '') },
       R('svg', { className: 'ng-svg', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, style: { maxWidth: '100%' } }, kids));
   };
-  P.openNetwork = function (id) { this.navigate({ page: 'network', focus: id }, '#/network/' + id); };
+  P.openNetwork = function (id) {
+    if (this._vNext() && this.xZoomOut) { this.xZoomOut(id); return; }
+    this.navigate({ page: 'network', focus: id }, '#/network/' + id);
+  };
 
   // ---------- mention notes (lazy: bookjumpr-notes.js) ----------
   P._loadNotes = function () {
@@ -1316,22 +1319,31 @@
 
   // ---------- network variants: the constellation map (default) or the Explorer (?net=v2) ----------
   // 'map' (default) · 'explorer' (?net=v2) · 'atlas' (?net=v3) · 'plus' (?net=v4, Explorer+)
+  // · 'stars' (?v=next: the network page is the genre star map)
   P._netMode = function () {
     if (this._netV === undefined) {
       var v = null;
       try { v = new URLSearchParams(location.search).get('net'); } catch (e) {}
       this._netCompare = v != null && v !== '';
-      this._netV = v === 'v2' || v === 'explorer' ? 'explorer' : v === 'v3' || v === 'atlas' ? 'atlas' : v === 'v4' || v === 'plus' ? 'plus' : 'map';
+      this._netV = v === 'v2' || v === 'explorer' ? 'explorer' : v === 'v3' || v === 'atlas' ? 'atlas' : v === 'v4' || v === 'plus' ? 'plus'
+        : !this._netCompare && this._vNext() ? 'stars' : 'map';
     }
     return this._netV;
   };
+  // ?v=next: the connected experience — book pages are the fan + panel, the network page is the
+  // star map, and you zoom between them.
+  P._vNext = function () {
+    if (this._vn === undefined) { var v = null; try { v = new URLSearchParams(location.search).get('v'); } catch (e) {} this._vn = v === 'next'; }
+    return this._vn;
+  };
   P._netExplorer = function () { var m = this._netMode(); return m === 'explorer' || m === 'plus'; };
   P._xPlus = function () { return this._netMode() === 'plus'; };
-  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xPlus() || (window.BJAtlas && window.BookJumprStars))); };
+  P._xLive = function () { return this._xPlus() || this._vNext(); };   // living fan + star map layers
+  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xLive() || (window.BJAtlas && window.BookJumprStars))); };
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=2', 'explorer.js?v=2'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=3', 'explorer.js?v=3'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1368,7 +1380,7 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xPlus() ? ['atlas.js?v=2', 'stars-data.js?v=1', 'explorer.js?v=2'] : ['network-regions.js?v=1', 'explorer.js?v=2'];
+    var srcs = this._xLive() ? ['atlas.js?v=3', 'stars-data.js?v=2', 'explorer.js?v=3'] : ['network-regions.js?v=1', 'explorer.js?v=3'];
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {
@@ -1541,10 +1553,10 @@
 
     var go = function (fn) { return function (e) { if (e && e.preventDefault) e.preventDefault(); fn(); }; };
     var vals = {
-      pgHome: page === 'home' && !hv, pgHomeX: !!hv, pgBook: page === 'book', pgSearch: page === 'search',
+      pgHome: page === 'home' && !hv, pgHomeX: !!hv, pgBook: page === 'book' && !this._vNext(), pgBookNext: page === 'book' && this._vNext(), pgSearch: page === 'search',
       pgStats: page === 'stats', pgNetwork: page === 'network', pgAbout: page === 'about',
       pgNetMap: page === 'network' && this._netMode() === 'map', pgExplorer: page === 'network' && this._netExplorer(),
-      pgAtlas: page === 'network' && this._netMode() === 'atlas',
+      pgAtlas: page === 'network' && this._netMode() === 'atlas', pgStars: page === 'network' && this._netMode() === 'stars',
       pgAuthor: page === 'author',
       goHome: go(function () { self.navigate({ page: 'home' }, '#/'); }),
       goStats: go(function () { self.navigate({ page: 'stats' }, '#/stats'); }),
@@ -1832,7 +1844,7 @@
         vals.showAllOut = function () { self.setState({ allOut: b.id }); };
         vals.showAllIn = function () { self.setState({ allIn: b.id }); };
         var ngW = Math.max(280, Math.min(vw, 1240) - 48 - (vw > 900 ? 15 : 0));
-        vals.neighborhood = this.neighborhood(b, ngW, this.state.ngAll === true && this.state.ngFor === b.id);
+        vals.neighborhood = this._vNext() ? null : this.neighborhood(b, ngW, this.state.ngAll === true && this.state.ngFor === b.id);
         var nIn = b.in.filter(function (id) { return b.out.indexOf(id) === -1; }).length, nBoth = b.out.filter(function (id) { return b.in.indexOf(id) !== -1; }).length;
         vals.ngCaption = (b.out.length + nIn) ? (b.out.length + nIn) + ' books one jump away' + (nBoth ? ' · ' + nBoth + ' mention each other' : '') : '';
         vals.openNetwork = function () { self.openNetwork(b.id); };
@@ -1943,6 +1955,17 @@
       this._loadAtlas();
       vals.atlasUi = this.atlasUi(route.focus);
     } else vals.atlasUi = null;
+    // ?v=next: the book page (fan + panel + lists) and the star-map network page
+    if (vals.pgBookNext || vals.pgStars) {
+      this._loadNotes();
+      if (!this._xReady()) { this._loadExplorer(); vals.bookNext = vals.starMap = h('div', { className: 'bjx-loading' }, 'Opening…'); }
+      else {
+        vals.bookNext = vals.pgBookNext ? (books[route.id] ? this.bookNext(books[route.id]) : h('div', { className: 'bjx-empty' }, this.state.ready ? 'That book isn’t in the network yet.' : 'Opening the stacks…')) : null;
+        vals.starMap = vals.pgStars ? this.starMap(route.focus) : null;
+      }
+    } else vals.bookNext = vals.starMap = null;
+    vals.vSwitch = this._vNext();
+    vals.vToClassic = function (e) { if (e) e.preventDefault(); location.href = location.pathname + location.hash; };
     if (vals.pgExplorer) {
       this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       this._loadNotes();

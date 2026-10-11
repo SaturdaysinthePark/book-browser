@@ -17,7 +17,7 @@
     "admin": "node --experimental-sqlite --no-warnings tools/admin-server.mjs",
     "bj:regions": "node --no-warnings tools/build-regions.mjs",
     "bj:atlas": "node --no-warnings tools/build-atlas.mjs",
-    "bj:stars": "node --no-warnings tools/build-atlas.mjs --organic"
+    "bj:stars": "node --no-warnings tools/build-stars.mjs"
   },
   "engines": {
     "node": ">=22.5"

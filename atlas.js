@@ -52,10 +52,11 @@
     }
     // Options (all default to the Atlas v3 behaviour):
     //   regions:false  no neighbourhood circles / names   colorOf(key)  per-book colour (e.g. genre)
-    //   trail()        keys hopped through, drawn as a constellation line
+    //   regionCircles:false  names only (genre continents)  regionColor(region)  colour for its name
     //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
     //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
     this.showRegions = o.regions !== false;
+    this.regionCircles = o.regionCircles !== false;
     this.mini = !!o.mini;
     if (o.colorOf) { this.col = []; for (i = 0; i < this.N; i++) this.col.push(o.colorOf(this.keys[i])); }
     if (o.twinkle) {
@@ -91,8 +92,9 @@
   P.sy = function (y) { return (y - this.cam.y) * this.cam.k + this.H / 2; };
   // On phones the panel is a bottom sheet over the map; frame things in the visible area above it.
   P._inset = function () { return this.o.bottomInset ? Math.min(this.H * 0.6, this.o.bottomInset() || 0) : 0; };
+  P._insetTop = function () { return this.o.topInset ? Math.min(this.H * 0.3, this.o.topInset() || 0) : 0; };
   P._lookAt = function (x, y, k, anim) {   // put world (x,y) in the middle of the visible area
-    var ins = this._inset();
+    var ins = this._inset() - this._insetTop();
     this.flyTo(x, y + (ins / 2) / Math.max(this.minK || 0.05, Math.min(6, k)), k, anim);
   };
   P.fit = function (anim) {
@@ -130,7 +132,7 @@
       var i = ids[j];
       minX = Math.min(minX, this.wx[i]); maxX = Math.max(maxX, this.wx[i]); minY = Math.min(minY, this.wy[i]); maxY = Math.max(maxY, this.wy[i]);
     }
-    var narrow = this.W < 640, padX = narrow ? 40 : 120, padY = narrow ? 50 : 90, ins = this._inset();
+    var narrow = this.W < 640, padX = narrow ? 40 : 120, padY = narrow ? 50 : 90, ins = this._inset() + this._insetTop();
     var k = Math.min((this.W - padX * 2) / Math.max(80, maxX - minX), (this.H - ins - padY * 2) / Math.max(80, maxY - minY));
     k = Math.min(k, 2.4);
     this._lookAt((minX + maxX) / 2, (minY + maxY) / 2, k, anim);
@@ -218,7 +220,7 @@
     var r, R, sx, sy, sr, i;
 
     // regions
-    for (r = 0; this.showRegions && r < this.regions.length; r++) {
+    for (r = 0; this.showRegions && this.regionCircles && r < this.regions.length; r++) {
       R = this.regions[r]; sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k;
       if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
       var col = R.name ? PAL[r % PAL.length] : '#8a8474';
@@ -244,24 +246,6 @@
       if (rad > 3.2) { c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.55)'; c.stroke(); }
     }
     c.globalAlpha = 1;
-
-    // your hops so far, as a constellation line across the stars
-    var trail = this.o.trail ? this.o.trail() : null;
-    if (trail && trail.length > 1) {
-      var pts = [];
-      for (var ti = 0; ti < trail.length; ti++) { var tix = this.idx[trail[ti]]; if (tix != null) pts.push(tix); }
-      // solid ink with a paper halo, so it reads apart from the (dashed, coloured) mention lines
-      c.beginPath();
-      for (ti = 0; ti < pts.length; ti++) { var px2 = this.sx(this.wx[pts[ti]]), py2 = this.sy(this.wy[pts[ti]]); if (ti) c.lineTo(px2, py2); else c.moveTo(px2, py2); }
-      c.lineJoin = 'round'; c.globalAlpha = 0.9;
-      c.strokeStyle = PAPER; c.lineWidth = this.mini ? 3.6 : 5; c.stroke();
-      c.strokeStyle = INK; c.lineWidth = this.mini ? 1.3 : 1.8; c.stroke();
-      for (ti = 0; ti < pts.length; ti++) {
-        c.beginPath(); c.arc(this.sx(this.wx[pts[ti]]), this.sy(this.wy[pts[ti]]), this.mini ? 2.4 : 3.6, 0, 6.2832);
-        c.fillStyle = PAPER; c.fill(); c.lineWidth = this.mini ? 1.2 : 1.6; c.strokeStyle = INK; c.stroke();
-      }
-      c.globalAlpha = 1;
-    }
 
     // connections of the hovered (unfocused) book or the focused book
     var hub = focus >= 0 ? focus : hover;
@@ -347,7 +331,7 @@
       var nm = R.name.replace(/^Around /, ''), tw2 = c.measureText(nm).width;   // the panel keeps "Around …"; the map just names the hub
       if (!tryPlace(sx - tw2 / 2 - 4, sy - fs, tw2 + 8, fs + 6)) continue;
       c.fillStyle = 'rgba(247,245,240,0.85)'; c.fillRect(sx - tw2 / 2 - 4, sy - fs + 1, tw2 + 8, fs + 4);
-      c.fillStyle = INK; c.fillText(nm, sx, sy);
+      c.fillStyle = this.o.regionColor ? this.o.regionColor(R) : INK; c.fillText(nm, sx, sy);
       if (sr > 120) {
         c.font = '10px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.55)';
         var au = (R.authors || []).join(' · '); var aw = c.measureText(au).width;
