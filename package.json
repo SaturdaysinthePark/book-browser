@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
-  "description": "BookJumpr — the network of books mentioned inside other books. Static site + SQLite data pipeline.",
+  "description": "BookJumpr \u2014 the network of books mentioned inside other books. Static site + SQLite data pipeline.",
   "scripts": {
     "bj": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs",
     "bj:seed": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs seed --verify",
@@ -14,7 +14,8 @@
     "bj:graph": "node --experimental-sqlite --no-warnings tools/build-book-graph.mjs",
     "bj:detect": "node --no-warnings tools/detect.mjs",
     "serve": "python3 -m http.server 8917",
-    "admin": "node --experimental-sqlite --no-warnings tools/admin-server.mjs"
+    "admin": "node --experimental-sqlite --no-warnings tools/admin-server.mjs",
+    "bj:regions": "node --no-warnings tools/build-regions.mjs"
   },
   "engines": {
     "node": ">=22.5"

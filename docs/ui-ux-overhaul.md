@@ -76,6 +76,17 @@ the references and prompt patterns behind the decisions.
 - **Glowing network graph.** "Force layout in a worker (Barnes-Hut), additive blending so dense clusters self-brighten, node size by degree, Louvain communities for colour." Communities already exist in `analysis/communities.json` and are a natural next step for the network view.
 - **Staged prompting.** Build layout, then motion, then particles, one layer per prompt. Name the stack and constraints first (including `prefers-reduced-motion`).
 
+## Follow-ups after first review
+
+- **Home hide list.** `HOME_HIDE` in `app.js` lists hate propaganda, explicit erotica and dated race/eugenics texts. It keeps them off the home walls, the shelf rows and the suggestion chips. They stay in search, on book pages and in the network.
+- **Network Explorer (`?net=v2`).** It takes the book page's neighbourhood fan, which reviewers found the clearest view, and makes it the whole network experience:
+  - one book sits in the middle;
+  - click any pill to jump, and the pill morphs into the centre while the book you came from slides into the new fan;
+  - hovering a pill shows how the two books connect, with the mention quote;
+  - a jump trail and a "Find a path to…" tool;
+  - the entry screen offers search, quick picks, "Surprise me" and Louvain "reading neighbourhoods" (`npm run bj:regions`).
+  - The constellation map stays the default; `?net=map` switches back.
+
 ## Next steps (not done)
 
 - Colour or cluster the network by community (`analysis/communities.json`). Consider WebGL points if real phones still struggle.

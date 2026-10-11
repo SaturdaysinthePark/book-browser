@@ -318,7 +318,8 @@
 
   var BookJumpr = function (props) {
     React.Component.call(this, props);
-    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false };
+    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false,
+      xHover: null, xAll: null, xQ: '', xPathOpen: false, xPathQ: '', xPathTo: null };
     // Data is available synchronously via the vendored global, so build it up front.
     this.buildData(DATA.NODES || {}, DATA.MENTIONS || []);
     this.state.ready = true;
@@ -331,6 +332,8 @@
   BookJumpr.prototype = Object.create(React.Component.prototype);
   BookJumpr.prototype.constructor = BookJumpr;
   var P = BookJumpr.prototype;
+  // Lazily loaded modules (explorer.js) extend the component through this handle.
+  window.__BJ = { P: P, h: h };
 
   P.componentDidMount = function () {
     var self = this;
@@ -937,9 +940,12 @@
   // page cross-fades, and if `fromEl` (the clicked card / wall cover) holds a cover, that cover
   // morphs into the book-page hero cover (both carry view-transition-name: bj-cover — the hero
   // via .vt-hero, the source via an inline name set just for this one transition).
-  P._transition = function (update, fromEl) {
+  // `post` runs right after the new DOM is committed (inside the transition), for callers that name
+  // elements of the new page — the Explorer uses it to name the book you came from (see xJump).
+  P._transition = function (update, fromEl, post) {
     var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (!document.startViewTransition || reduced || document.hidden) { update(); return; }
+    var clearNames = function () { [].forEach.call(document.querySelectorAll('[data-vtn]'), function (el) { el.style.viewTransitionName = ''; el.removeAttribute('data-vtn'); }); };
+    if (!document.startViewTransition || reduced || document.hidden) { clearNames(); update(); return; }
     var root = document.documentElement;
     var src = fromEl && fromEl.querySelector ? (fromEl.matches && fromEl.matches('.cv') ? fromEl : fromEl.querySelector('.cv')) : null;
     if (src) { root.classList.add('vt-swap'); src.style.viewTransitionName = 'bj-cover'; }
@@ -948,19 +954,23 @@
     try {
       vt = document.startViewTransition(function () {
         if (src) src.style.viewTransitionName = '';
+        // The old frame is captured by now: drop temporary names before React commits, since React
+        // reuses DOM nodes (e.g. a trail button) that would otherwise carry a name into the new page.
+        clearNames();
         root.classList.remove('vt-swap');
         ReactDOM.flushSync(update);
+        if (post) post();
       });
-    } catch (e) { update(); return; }
-    vt.finished.then(function () { root.classList.remove('vt-cover'); }, function () { root.classList.remove('vt-cover', 'vt-swap'); });
+    } catch (e) { clearNames(); update(); return; }
+    vt.finished.then(function () { root.classList.remove('vt-cover'); clearNames(); }, function () { root.classList.remove('vt-cover', 'vt-swap'); clearNames(); });
   };
-  P.navigate = function (route, hash, fromEl) {
+  P.navigate = function (route, hash, fromEl, post) {
     var self = this;
     this._pushTrail(route);
     this._transition(function () {
       self.setState({ route: route, q: '', suggestFor: null });
       window.scrollTo(0, 0);
-    }, fromEl);
+    }, fromEl, post);
     this._silent = true;
     location.hash = hash;
     setTimeout(function () { self._silent = false; }, 0);
@@ -1038,7 +1048,12 @@
     while (lo < hi) { var mid = (lo + hi + 1) >> 1; if (this._measure(txt.slice(0, mid) + '…', font) <= max) lo = mid; else hi = mid - 1; }
     return txt.slice(0, Math.max(1, lo)).replace(/[\s,:;.-]+$/, '') + '…';
   };
-  P.neighborhood = function (b, W, showAll) {
+  // Fan layout shared by the book-page neighbourhood (SVG) and the network Explorer (HTML pills):
+  // mentioned-by on the left, mentions (and mutual mentions, first) on the right, or a tree when
+  // narrow. Options: cap (max pills per side), font/cfont/ph/row/gap (scale), extra(it) (extra pill
+  // width for a cover or count). Returns geometry only; callers render it.
+  P.fanLayout = function (b, W, o) {
+    o = o || {};
     var self = this, books = this.books;
     var deg = function (id) { var x = books[id]; return x.in.length + x.out.length; };
     var inSet = {}, outSet = {};
@@ -1048,9 +1063,10 @@
       .sort(function (x, y) { return (x.k === 'both' ? -1e6 : 0) - (y.k === 'both' ? -1e6 : 0) || deg(y.id) - deg(x.id); });
     var left = b.in.filter(function (id) { return !outSet[id]; }).map(function (id) { return { id: id, k: 'in' }; })
       .sort(function (x, y) { return deg(y.id) - deg(x.id); });
-    if (!right.length && !left.length) return h('div', { className: 'ng-empty' }, 'No connections logged yet — this one is waiting for its first door.');
-    var narrow = W < 560;
-    var cap = showAll ? 60 : narrow ? 5 : 9;
+    if (!right.length && !left.length) return { empty: true };
+    var narrow = W < (o.narrowAt || 560);
+    var cap = o.cap != null ? o.cap : narrow ? 5 : 9;
+    var extra = o.extra || function () { return 0; };
     var clip = function (list) {
       if (list.length <= cap) return list;
       var shown = list.slice(0, cap - 1);
@@ -1058,8 +1074,8 @@
       return shown;
     };
     var L = clip(left), Rt = clip(right);
-    var FONT = "10.5px 'IBM Plex Mono', monospace", CFONT = "italic 16px 'Instrument Serif', serif";
-    var PH = 21, ROW = narrow ? 28 : 27;
+    var FONT = o.font || "10.5px 'IBM Plex Mono', monospace", CFONT = o.cfont || "italic 16px 'Instrument Serif', serif";
+    var PH = o.ph || 21, ROW = o.row || (narrow ? 28 : 27), CH = o.ch || 30;
     var items = [], i = 0, H, cx, cy, center;
     var mkLabel = function (it) { return it.more ? '+' + it.more + ' more' : books[it.id].title; };
 
@@ -1067,11 +1083,11 @@
       var n = Math.max(L.length, Rt.length, 1);
       H = Math.max(170, n * ROW + 56);
       cx = W / 2; cy = H / 2 + 8;
-      var G = Math.max(84, Math.min(W * 0.13, 170));
+      var G = o.gap ? o.gap(W) : Math.max(84, Math.min(W * 0.13, 170));
       var cMax = 2 * G - 36;
       var ct = self._fit(b.title, CFONT, cMax);
       var cw = Math.min(cMax, self._measure(ct, CFONT)) + 26;
-      center = { x: cx - cw / 2, y: cy - 15, w: cw, h: 30, t: ct, tx: cx, ty: cy + 5, anchor: 'middle' };
+      center = { x: cx - cw / 2, y: cy - CH / 2, w: cw, h: CH, t: ct, tx: cx, ty: cy + 5, anchor: 'middle' };
       var place = function (list, side) {
         var m = list.length;
         list.forEach(function (it, j) {
@@ -1079,8 +1095,9 @@
           var t = m > 1 ? (y - cy) / (H / 2) : 0;
           var x = cx + side * (G + 34 * (1 - t * t));
           var avail = side > 0 ? W - (x + 12) - 6 : x - 12 - 6;
-          var txt = self._fit(mkLabel(it), FONT, Math.max(40, avail - 18));
-          var tw = self._measure(txt, FONT) + 18;
+          var ex = extra(it);
+          var txt = self._fit(mkLabel(it), FONT, Math.max(40, avail - 18 - ex));
+          var tw = self._measure(txt, FONT) + 18 + ex;
           var sx = cx + side * cw / 2, sy = cy;
           var c1 = sx + side * 46, c2 = x - side * 46;
           var d = it.k === 'in'
@@ -1100,14 +1117,15 @@
       cx = trunk; cy = cyy;
       var ct2 = self._fit(b.title, CFONT, W - 60);
       var cw2 = self._measure(ct2, CFONT) + 26;
-      center = { x: 4, y: cy - 15, w: cw2, h: 30, t: ct2, tx: 17, ty: cy + 5, anchor: 'start' };
+      center = { x: 4, y: cy - CH / 2, w: cw2, h: CH, t: ct2, tx: 17, ty: cy + 5, anchor: 'start' };
       var placeV = function (list, top) {
         list.forEach(function (it, j) {
-          var y = top ? y0 + 6 + j * ROW + 12 : cy + 30 + j * ROW + 4;
+          var y = top ? y0 + 6 + j * ROW + 12 : cy + CH + j * ROW + 4;
           var x = dotX + (top ? (list.length - 1 - j) : j) * 1.2;
-          var txt = self._fit(mkLabel(it), FONT, W - x - 34);
-          var tw = self._measure(txt, FONT) + 18;
-          var sy = top ? cy - 15 : cy + 15, sx = trunk + 6;
+          var ex = extra(it);
+          var txt = self._fit(mkLabel(it), FONT, W - x - 34 - ex);
+          var tw = self._measure(txt, FONT) + 18 + ex;
+          var sy = top ? cy - CH / 2 : cy + CH / 2, sx = trunk + 6;
           var d = top
             ? 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + ' C' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + (sy - 3)
             : 'M' + sx + ' ' + sy + ' C' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + y.toFixed(1) + ' ' + (x - 3).toFixed(1) + ' ' + y.toFixed(1);
@@ -1116,6 +1134,14 @@
       };
       placeV(L, true); placeV(Rt, false);
     }
+    return { narrow: narrow, H: H, cx: cx, cy: cy, G: G, center: center, items: items, L: L, Rt: Rt, PH: PH, ROW: ROW };
+  };
+
+  P.neighborhood = function (b, W, showAll) {
+    var self = this, books = this.books;
+    var lay = this.fanLayout(b, W, { cap: showAll ? 60 : null });
+    if (lay.empty) return h('div', { className: 'ng-empty' }, 'No connections logged yet — this one is waiting for its first door.');
+    var narrow = lay.narrow, H = lay.H, cx = lay.cx, cy = lay.cy, G = lay.G, center = lay.center, items = lay.items, L = lay.L, Rt = lay.Rt, PH = lay.PH, ROW = lay.ROW;
 
     var R = h;
     var arrow = function (id, col) {
@@ -1190,6 +1216,13 @@
 
   // ---------- jump trail (session history of books visited) ----------
   P._pushTrail = function (route) {
+    // Explorer jumps keep their own trail (in memory for the session).
+    if (route && route.page === 'network' && route.focus && this.books[route.focus]) {
+      var xt = (this._xTrail || []).filter(function (id) { return id !== route.focus; });
+      xt.push(route.focus);
+      this._xTrail = xt.slice(-10);
+      return;
+    }
     if (!route || route.page !== 'book' || !this.books[route.id]) return;
     var t = this._trail;
     if (!t) { try { t = JSON.parse(sessionStorage.getItem('bj-trail') || '[]'); } catch (e) { t = []; } }
@@ -1272,6 +1305,28 @@
     window.__constellation = this._constellation; // debug / integration hook
     var fk = this.state.route.focus;
     if (fk && this._constellation.focusKey) { this._cstFocused = fk; this._constellation.focusKey(fk); }
+  };
+
+  // ---------- network variants: the constellation map (default) or the Explorer (?net=v2) ----------
+  P._netExplorer = function () {
+    if (this._netV === undefined) {
+      var v = null;
+      try { v = new URLSearchParams(location.search).get('net'); } catch (e) {}
+      this._netCompare = v != null && v !== '';
+      this._netV = v === 'v2' || v === 'explorer';
+    }
+    return this._netV;
+  };
+  P._loadExplorer = function () {
+    if ((window.__BJ && window.__BJ.explorerReady) || this._xLoading) return;
+    this._xLoading = true;
+    var self = this, left = 2;
+    var done = function () { if (--left === 0) self.forceUpdate(); };
+    ['network-regions.js?v=1', 'explorer.js?v=1'].forEach(function (src) {
+      var sc = document.createElement('script');
+      sc.src = src; sc.onload = done; sc.onerror = done;
+      document.body.appendChild(sc);
+    });
   };
 
   // ---------- interactive home walls (?home=a|b|c; engine in home.js) ----------
@@ -1396,6 +1451,7 @@
     var vals = {
       pgHome: page === 'home' && !hv, pgHomeX: !!hv, pgBook: page === 'book', pgSearch: page === 'search',
       pgStats: page === 'stats', pgNetwork: page === 'network', pgAbout: page === 'about',
+      pgNetMap: page === 'network' && !this._netExplorer(), pgExplorer: page === 'network' && this._netExplorer(),
       pgAuthor: page === 'author',
       goHome: go(function () { self.navigate({ page: 'home' }, '#/'); }),
       goStats: go(function () { self.navigate({ page: 'stats' }, '#/stats'); }),
@@ -1775,6 +1831,18 @@
         }
       }
     });
+
+    // network: the Explorer variant (lazy) + the Map/Explorer switcher when ?net= is set
+    vals.netCompare = page === 'network' && !!this._netCompare;
+    var nf = route.focus ? '/' + route.focus : '';
+    vals.netSwMap = '?net=map#/network' + nf; vals.netSwX = '?net=v2#/network' + nf;
+    vals.netSwMapCls = vals.pgNetMap ? 'on' : ''; vals.netSwXCls = vals.pgExplorer ? 'on' : '';
+    if (vals.pgExplorer) {
+      this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
+      this._loadNotes();
+      if (window.__BJ.explorerReady) vals.explorer = this.explorer(route.focus);
+      else { this._loadExplorer(); vals.explorer = h('div', { className: 'bjx-loading' }, 'Opening the explorer…'); }
+    } else vals.explorer = null;
 
     // Per-route browser tab title (OG/social preview tags stay homepage-only by design —
     // this only ever affects document.title, never anything a link-unfurler reads).

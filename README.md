@@ -25,6 +25,8 @@ vendored locally and the data loads via a classic script rather than an ES modul
 | --- | --- |
 | `index.html` | Page shell + global styles + the original template markup (embedded as `<script id="bj-template">`) |
 | `app.js` | The application: a small template compiler + the ported component logic + React mount |
+| `explorer.js` | The network **Explorer** (`?net=v2`): fan-to-fan navigation built on the book page's neighbourhood — lazy-loaded |
+| `network-regions.js` | "Reading neighbourhoods" for the Explorer's entry — **generated** by `npm run bj:regions` (Louvain) |
 | `home.js` | The interactive home-wall engine (endless shelf / infinite canvas / shelf rows) — imperative, transforms only |
 | `bookjumpr-data.js` | The dataset the site loads — **generated** from the database by `npm run bj:build` (don't hand-edit) |
 | `bookjumpr-notes.js` | Mention quotes/context, lazy-loaded on book pages — **generated** by `npm run bj:build` |
@@ -48,6 +50,7 @@ vendored locally and the data loads via a classic script rather than an ES modul
 - **Search** — ranked results (with an as-you-type suggestion dropdown)
 - **Stats** — the most name-dropped books and authors
 - **Network** — a force-directed graph of the whole web of mentions (drag / hover / zoom)
+  `?net=v2` swaps it for the **Explorer**: one book in the middle, its mentions fanning out, jump from fan to fan.
 - **About** — how the dataset works
 
 Routing is hash-based and author-first: a book lives at `#/<author>/<title>` (e.g.
