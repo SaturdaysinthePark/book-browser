@@ -267,6 +267,114 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 }
 </style>
 <style>
+/* ---------- Book page ---------- */
+.bk .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);}
+.bk-hero{display:grid;grid-template-columns:210px minmax(0,1fr);grid-template-areas:"cv head" "cv body";column-gap:48px;align-items:start;}
+.bk-cv{grid-area:cv;filter:drop-shadow(10px 10px 0 rgba(20,20,20,.12));}
+.bk-head{grid-area:head;align-self:end;}
+.bk-body{grid-area:body;}
+.bk-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,5.4vw,52px);line-height:1.04;margin:10px 0 10px;text-wrap:balance;}
+.bk-by{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(20,20,20,.7);}
+.bk .lnk{background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
+.bk .lnk:hover{color:var(--accent);}
+.bk-syn{font-size:16.5px;line-height:1.65;max-width:620px;margin:18px 0 24px;text-wrap:pretty;}
+.bk-jumps{display:flex;gap:10px;flex-wrap:wrap;}
+.bk .pill{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:9px 16px;font-size:12.5px;cursor:pointer;font-family:'IBM Plex Mono',monospace;color:var(--ink);transition:background .15s,color .15s;}
+.bk .pill:hover{background:var(--ink);color:var(--paper);}
+.bk .pill.ghost{border-color:transparent;background:none;text-decoration:underline;text-underline-offset:3px;padding-left:6px;}
+.bk .pill.ghost:hover{color:var(--accent);background:none;}
+.bk .pill.more{margin:26px auto 0;display:flex;}
+.bk .dot{display:inline-block;width:8px;height:8px;border-radius:50%;}
+.bk .dot.out{background:var(--accent);}
+.bk .dot.in{background:var(--inbound);}
+.bk .sec-h{display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;}
+.bk .sec-h h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;margin:0;}
+.bk .sec-h .cap{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(20,20,20,.6);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bk .sec-h .count{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;border:1.5px solid var(--ink);border-radius:999px;padding:3px 11px;display:flex;align-items:center;gap:6px;}
+.bk .sec-h .count::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.bk .sec-h .count.in::before{background:var(--inbound);}
+.bk-ng{margin-top:64px;}
+.bk-sec{margin-top:64px;}
+.bk .empty{border:1.5px dashed var(--ink);border-radius:16px;padding:30px;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;}
+
+/* jump trail */
+.trail{display:flex;align-items:center;gap:0;margin:-18px 0 30px;overflow-x:auto;scrollbar-width:none;}
+.trail::-webkit-scrollbar{display:none;}
+.trail .lbl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-right:12px;white-space:nowrap;}
+.trail button{flex:none;width:26px;padding:0;border:none;background:none;cursor:pointer;transition:transform .25s var(--ease-spring);}
+.trail button:hover{transform:translateY(-3px);}
+.trail button.cur{width:30px;}
+.trail .hop{flex:none;width:26px;height:14px;}
+.trail .hop path{fill:none;stroke:var(--ink);stroke-width:1.3;stroke-dasharray:2 2.6;opacity:.6;}
+
+/* mention cards */
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:8px 36px;margin-top:10px;}
+.mc{display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(20,20,20,.12);}
+.mc-cv{flex:none;width:84px;padding:0;border:none;background:none;cursor:pointer;}
+.mc-body{flex:1;min-width:0;}
+.mc-t{display:block;text-align:left;background:none;border:none;padding:0;cursor:pointer;font-family:'Instrument Serif',serif;font-size:22px;line-height:1.12;color:var(--ink);}
+.mc-t:hover{color:var(--accent);}
+.mc-a{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(20,20,20,.6);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mc-sub{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:9px;}
+.mc-q{margin:11px 0 0;cursor:pointer;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;text-wrap:pretty;}
+.mc-q.open{-webkit-line-clamp:unset;display:block;}
+.mc-q.quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:16.5px;line-height:1.38;padding-left:12px;border-left:2px solid var(--accent);color:rgba(20,20,20,.86);}
+.mc-q.ctx{font-size:13.5px;line-height:1.5;color:rgba(20,20,20,.68);}
+.mc-q mark{background:linear-gradient(transparent 62%,rgba(156,61,34,.24) 0);color:inherit;padding:0 1px;}
+.mc-q.wait{height:14px;width:60%;border-radius:4px;background:linear-gradient(90deg,rgba(20,20,20,.06),rgba(20,20,20,.12),rgba(20,20,20,.06));background-size:200% 100%;animation:mcShim 1.2s linear infinite;}
+@keyframes mcShim{to{background-position:-200% 0;}}
+@supports (animation-timeline: view()){
+  .rv{animation:rvIn linear both;animation-timeline:view();animation-range:entry 0% entry 60%;}
+  @keyframes rvIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+}
+
+/* neighborhood fan */
+.ng{position:relative;margin-top:14px;}
+.ng svg{display:block;overflow:visible;}
+.ng-it{cursor:pointer;transition:opacity .2s ease;}
+.ng-svg:has(.ng-it:hover) .ng-it:not(:hover),.ng-svg:has(.ng-it:focus-visible) .ng-it:not(:focus-visible){opacity:.22;}
+.ng-it:focus{outline:none;}
+.ng-it:focus-visible .ng-pill{stroke:var(--accent);stroke-width:2.2;}
+.ng-e{fill:none;stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;animation:ngDraw .7s var(--ease-out) forwards;animation-delay:calc(var(--i) * 35ms + 80ms);}
+.ng-e.out{stroke:var(--accent);}
+.ng-e.in{stroke:var(--inbound);}
+.ng-e.both{stroke:var(--ink);}
+.ng-it:hover .ng-e{stroke-width:2.4;}
+.ng-lab{opacity:0;animation:ngIn .45s var(--ease-out) forwards;animation-delay:calc(var(--i) * 35ms + 280ms);}
+.ng-pill{fill:var(--card);stroke:var(--ink);stroke-width:1.2;}
+.ng-it:hover .ng-pill{fill:var(--ink);}
+.ng-it:hover .ng-txt{fill:var(--paper);}
+.ng-txt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;fill:var(--ink);}
+.ng-dot{stroke:var(--ink);stroke-width:1.2;}
+.ng-more .ng-pill{stroke-dasharray:3 3;}
+.ng-c rect{fill:var(--ink);}
+.ng-c text{font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;fill:var(--paper);}
+.ng-c{cursor:pointer;}
+.ng-c:hover rect{fill:var(--accent);}
+.ng-head{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;fill:var(--mut);}
+.ng-empty{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mut);padding:24px 0;}
+@keyframes ngDraw{to{stroke-dashoffset:0;}}
+@keyframes ngIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){.ng-e{animation:none;stroke-dashoffset:0;}.ng-lab{animation:none;opacity:1;}.rv{animation:none !important;}}
+
+@media (max-width:1099px){.bk-hero{grid-template-columns:180px minmax(0,1fr);column-gap:36px;}}
+@media (max-width:639px){
+  .bk-hero{grid-template-columns:104px minmax(0,1fr);grid-template-areas:"cv head" "body body";column-gap:18px;}
+  .bk-h1{font-size:30px;margin:6px 0 6px;}
+  .bk-by{font-size:11.5px;}
+  .bk-syn{font-size:15.5px;margin:18px 0 18px;}
+  .bk-cv{filter:drop-shadow(6px 6px 0 rgba(20,20,20,.12));}
+  .bk .sec-h h2{font-size:27px;}
+  .bk .sec-h .cap{display:none;}
+  .bk-ng,.bk-sec{margin-top:46px;}
+  .mc{gap:14px;padding:14px 0;}
+  .mc-cv{width:68px;}
+  .mc-t{font-size:20px;}
+  .mc-q.quote{font-size:15.5px;}
+  .trail{margin:-10px 0 22px;}
+}
+</style>
+<style>
 /* Standalone page shell (mirrors the design runtime's full-page CSS). */
 html,body{height:100%;}
 #app{min-height:100%;}
@@ -613,83 +721,93 @@ html,body{height:100%;}
   </sc-if>
 
   <sc-if value="{{ pgBook }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="Book page" style="max-width:1240px;margin:0 auto;{{ pagePad }}">
-      <div style="{{ bookHero }}">
-        <div style="{{ coverWrap }}">
-          {{ b_cv }}
-        </div>
-        <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Book</div>
-          <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6vw,46px);line-height:1.06;margin:10px 0 10px;">{{ b_title }}</h1>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;opacity:.7;">
-            <sc-if value="{{ hasAuthor }}" hint-placeholder-val="{{ true }}">by <button onClick="{{ b_authorGo }}" style="background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px;" style-hover="color:var(--accent);">{{ b_author }}</button>{{ b_yearSuffix }}</sc-if>
+    <div data-screen-label="Book page" class="bk" style="max-width:1240px;margin:0 auto;{{ pagePad }}">
+      {{ trail }}
+      <div class="bk-hero">
+        <div class="bk-cv">{{ b_cv }}</div>
+        <div class="bk-head">
+          <div class="eyebrow">Book{{ b_genreLabel }}</div>
+          <h1 class="bk-h1">{{ b_title }}</h1>
+          <div class="bk-by">
+            <sc-if value="{{ hasAuthor }}" hint-placeholder-val="{{ true }}">by <button onClick="{{ b_authorGo }}" class="lnk">{{ b_author }}</button>{{ b_yearSuffix }}</sc-if>
             <sc-if value="{{ noAuthor }}" hint-placeholder-val="{{ false }}">{{ b_byline }}</sc-if>
           </div>
-          <p style="font-size:16px;line-height:1.65;max-width:560px;margin:18px 0 26px;text-wrap:pretty;">{{ b_synopsis }}</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <button onClick="{{ jumpOut }}" style="border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:9px 18px;font-size:13px;cursor:pointer;font-family:'IBM Plex Mono',monospace;" style-hover="background:var(--ink);color:var(--paper);">↓ mentions {{ cntOut }}</button>
-            <button onClick="{{ jumpIn }}" style="border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:9px 18px;font-size:13px;cursor:pointer;font-family:'IBM Plex Mono',monospace;" style-hover="background:var(--ink);color:var(--paper);">↓ mentioned by {{ cntIn }}</button>
-          </div>
         </div>
-        <div style="{{ graphPanel }}">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">The neighborhood</div>
-          {{ miniGraph }}
-          <div style="display:flex;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;padding:6px 2px 8px;">
-            <span>— mentions</span>
-            <span>&#183;&#183;&#183; mentioned by</span>
+        <div class="bk-body">
+          <p class="bk-syn">{{ b_synopsis }}</p>
+          <div class="bk-jumps">
+            <button onClick="{{ jumpOut }}" class="pill"><i class="dot out"></i>mentions {{ cntOut }}</button>
+            <button onClick="{{ jumpIn }}" class="pill"><i class="dot in"></i>mentioned by {{ cntIn }}</button>
+            <button onClick="{{ openNetwork }}" class="pill ghost">see it in the network ↗</button>
           </div>
         </div>
       </div>
 
-      <div id="mentions-out" style="margin-top:76px;">
-        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;">
-          <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;margin:0;">Mentions</h2>
-          <span style="{{ secCaption }}">books found inside {{ b_title }}</span>
-          <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;border:1.5px solid var(--ink);border-radius:999px;padding:3px 11px;">{{ cntOut }}</span>
+      <section class="bk-ng">
+        <div class="sec-h">
+          <h2>The neighborhood</h2>
+          <span class="cap">{{ ngCaption }}</span>
+        </div>
+        {{ neighborhood }}
+      </section>
+
+      <section id="mentions-out" class="bk-sec">
+        <div class="sec-h">
+          <h2>Mentions</h2>
+          <span class="cap">books found inside {{ b_title }}</span>
+          <span class="count out">{{ cntOut }}</span>
         </div>
         <sc-if value="{{ hasOut }}" hint-placeholder-val="{{ true }}">
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;margin-top:28px;align-items:start;">
-            <sc-for list="{{ cardsOut }}" as="m" hint-placeholder-count="5">
-              <button onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
-                <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(-1deg);">
-                  {{ m.cv }}
+          <div class="mc-grid">
+            <sc-for list="{{ cardsOut }}" as="m" hint-placeholder-count="3">
+              <article class="mc rv">
+                <button onClick="{{ m.go }}" class="mc-cv" data-tilt="1" aria-label="{{ m.title }}">{{ m.cv }}</button>
+                <div class="mc-body">
+                  <button onClick="{{ m.go }}" class="mc-t">{{ m.title }}</button>
+                  <div class="mc-a">{{ m.author }}</div>
+                  {{ m.note }}
+                  <div class="mc-sub">{{ m.sub }}</div>
                 </div>
-                <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.author }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;">{{ m.sub }}</div>
-              </button>
+              </article>
             </sc-for>
           </div>
+          <sc-if value="{{ moreOut }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ showAllOut }}" class="pill more">Show all {{ cntOut }}</button>
+          </sc-if>
         </sc-if>
         <sc-if value="{{ noOut }}" hint-placeholder-val="{{ false }}">
-          <div style="border:1.5px dashed var(--ink);border-radius:16px;padding:34px;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;">Nothing on the shelf. {{ b_title }} doesn&rsquo;t name-drop a single book — or nobody has logged one yet.</div>
+          <div class="empty">Nothing on the shelf. {{ b_title }} doesn&rsquo;t name-drop a single book — or nobody has logged one yet.</div>
         </sc-if>
-      </div>
+      </section>
 
-      <div id="mentions-in" style="margin-top:64px;">
-        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;">
-          <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;margin:0;">Mentioned by</h2>
-          <span style="{{ secCaption }}">books that reference {{ b_title }}</span>
-          <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;border:1.5px solid var(--ink);border-radius:999px;padding:3px 11px;">{{ cntIn }}</span>
+      <section id="mentions-in" class="bk-sec">
+        <div class="sec-h">
+          <h2>Mentioned by</h2>
+          <span class="cap">books that reference {{ b_title }}</span>
+          <span class="count in">{{ cntIn }}</span>
         </div>
         <sc-if value="{{ hasIn }}" hint-placeholder-val="{{ false }}">
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;margin-top:28px;align-items:start;">
+          <div class="mc-grid">
             <sc-for list="{{ cardsIn }}" as="m" hint-placeholder-count="2">
-              <button onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
-                <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(1deg);">
-                  {{ m.cv }}
+              <article class="mc rv">
+                <button onClick="{{ m.go }}" class="mc-cv" data-tilt="1" aria-label="{{ m.title }}">{{ m.cv }}</button>
+                <div class="mc-body">
+                  <button onClick="{{ m.go }}" class="mc-t">{{ m.title }}</button>
+                  <div class="mc-a">{{ m.author }}</div>
+                  {{ m.note }}
+                  <div class="mc-sub">{{ m.sub }}</div>
                 </div>
-                <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.author }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;">{{ m.sub }}</div>
-              </button>
+              </article>
             </sc-for>
           </div>
+          <sc-if value="{{ moreIn }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ showAllIn }}" class="pill more">Show all {{ cntIn }}</button>
+          </sc-if>
         </sc-if>
         <sc-if value="{{ noIn }}" hint-placeholder-val="{{ false }}">
-          <div style="border:1.5px dashed var(--ink);border-radius:16px;padding:34px;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;">No book has name-dropped {{ b_title }} yet. Give it time — the canon is slow.</div>
+          <div class="empty">No book has name-dropped {{ b_title }} yet. Give it time — the canon is slow.</div>
         </sc-if>
-      </div>
+      </section>
     </div>
   </sc-if>
 

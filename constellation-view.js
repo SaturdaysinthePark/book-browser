@@ -133,6 +133,7 @@
     }
 
     destroy() {
+      this.destroyed = true;
       cancelAnimationFrame(this.raf);
       if (this.ro) this.ro.disconnect();
       window.removeEventListener('keydown', this.keyH);
@@ -981,6 +982,20 @@
       const sx0 = padX + availW / 2, sy0 = padT + availH / 2;
       this.flyTo(cx - (sx0 - w / 2) / (bx * k), cy - (sy0 - h / 2) / (by * k), k);
       this.dirty = true;
+    }
+
+    // Deep link (#/network/<key>): focus a book by its site key once layout is ready. A rim
+    // "leaf" (cited by a single hub) focuses the hub that cites it, so its bloom shows.
+    focusKey(key) {
+      const run = () => {
+        const c = this.graph; if (!c || this.destroyed) return;
+        const N = c.G.nodes;
+        for (let i = 0; i < N.length; i++) if (N[i].key === key) { this.focusNode(i); return; }
+        for (const [hub, ids] of Object.entries(c.G.leavesFor || {})) {
+          for (const li of ids) { const lf = c.G.leaves[li]; if (lf && lf.key === key) { this.focusNode(+hub); return; } }
+        }
+      };
+      requestAnimationFrame(() => requestAnimationFrame(run));
     }
 
     // ---------------------------------------------------------------- A↔B storyline (undirected)

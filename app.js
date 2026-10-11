@@ -306,6 +306,7 @@
     this.state.vw = typeof window !== 'undefined' ? window.innerWidth : 1280;
     if (typeof location !== 'undefined' && location.hash && location.hash.length > 2) {
       this.state.route = this._routeFromHash();
+      this._pushTrail(this.state.route);
     }
   };
   BookJumpr.prototype = Object.create(React.Component.prototype);
@@ -321,6 +322,7 @@
     if (location.hash && location.hash.length > 2) this.applyHash();
     this._startWallPulse();
     this._startTilt();
+    if (this.state.route.page === 'book') this._loadNotes();
   };
   P.componentWillUnmount = function () {
     window.removeEventListener('hashchange', this._onHash);
@@ -351,6 +353,10 @@
     var nowStats = this.state.route.page === 'stats', wasStats = prevState.route.page === 'stats';
     if (nowStats && !wasStats) this._setupStatsReveal();
     else if (!nowStats && wasStats) this._teardownStatsReveal();
+    if (this.state.route.page === 'book') this._loadNotes();
+    // Network deep link (#/network/<book>): focus that book once the engine is up.
+    var cst = this._constellation, fk = this.state.route.page === 'network' && this.state.route.focus;
+    if (cst && fk && this._cstFocused !== fk && cst.focusKey) { this._cstFocused = fk; cst.focusKey(fk); }
     if (!snapshot) return;
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var self = this;
@@ -872,6 +878,7 @@
     if (hh.indexOf('search/') === 0) return { page: 'search', q: hh.slice(7) };
     if (hh === 'stats') return { page: 'stats' };
     if (hh === 'network') return { page: 'network' };
+    if (hh.indexOf('network/') === 0) return { page: 'network', focus: hh.slice(8) };
     if (hh === 'about') return { page: 'about' };
     if (hh.indexOf('book/') === 0) return { page: 'book', id: hh.slice(5) }; // legacy alias
     if (hh.indexOf('/') !== -1) return { page: 'book', id: hh };            // <author>/<title>
@@ -900,6 +907,7 @@
   };
   P.navigate = function (route, hash, fromEl) {
     var self = this;
+    this._pushTrail(route);
     this._transition(function () {
       self.setState({ route: route, q: '', suggestFor: null });
       window.scrollTo(0, 0);
@@ -910,9 +918,10 @@
   };
   P.applyHash = function () {
     if (this._silent) return;
-    var self = this;
+    var self = this, route = this._routeFromHash();
+    this._pushTrail(route);
     this._transition(function () {
-      self.setState({ route: self._routeFromHash(), suggestFor: null });
+      self.setState({ route: route, suggestFor: null });
       window.scrollTo(0, 0);
     });
   };
@@ -963,60 +972,194 @@
     return parts.join(' · ') || 'quiet one';
   };
 
-  // ---------- mini ego graph ----------
-  P.miniGraph = function (b) {
-    var R = React.createElement;
-    var self = this;
-    var W = 300, H = 260, cx = W / 2, cy = H / 2;
-    var outN = b.out.map(function (id) { return { id: id, kind: 'out' }; });
-    var inN = b.in.map(function (id) { return { id: id, kind: 'in' }; }).filter(function (n) { return b.out.indexOf(n.id) === -1; });
-    var nodes = outN.concat(inN);
-    var extra = Math.max(0, nodes.length - 12);
-    nodes = nodes.slice(0, 12);
-    var n = nodes.length || 1;
-    var pts = nodes.map(function (nd, i) {
-      var ang = -Math.PI / 2 + (i * 2 * Math.PI) / n;
-      return Object.assign({}, nd, { x: cx + Math.cos(ang) * 108, y: cy + Math.sin(ang) * 92 });
+  // ---------- the neighborhood (book-page ego graph) ----------
+  // A full-width fan in ONE coordinate system (an SVG laid out for the real container width, so
+  // nodes and edges can never drift apart). Wide: "mentioned by" fans in from the left, "mentions"
+  // fan out to the right, mutual mentions sit right with a two-way ink edge. Narrow (<560px): a
+  // tree — mentioned-by above the book, mentions below — so labels get the full width. Labels are
+  // measured (canvas) and truncated to fit; edges draw in, labels rise in, hovering one dims the rest.
+  P._measure = function (txt, font) {
+    var c = this._mctx || (this._mctx = document.createElement('canvas').getContext('2d'));
+    c.font = font;
+    return c.measureText(txt).width;
+  };
+  P._fit = function (txt, font, max) {
+    if (this._measure(txt, font) <= max) return txt;
+    var lo = 0, hi = txt.length;
+    while (lo < hi) { var mid = (lo + hi + 1) >> 1; if (this._measure(txt.slice(0, mid) + '…', font) <= max) lo = mid; else hi = mid - 1; }
+    return txt.slice(0, Math.max(1, lo)).replace(/[\s,:;.-]+$/, '') + '…';
+  };
+  P.neighborhood = function (b, W, showAll) {
+    var self = this, books = this.books;
+    var deg = function (id) { var x = books[id]; return x.in.length + x.out.length; };
+    var inSet = {}, outSet = {};
+    b.in.forEach(function (id) { inSet[id] = 1; });
+    b.out.forEach(function (id) { outSet[id] = 1; });
+    var right = b.out.map(function (id) { return { id: id, k: inSet[id] ? 'both' : 'out' }; })
+      .sort(function (x, y) { return (x.k === 'both' ? -1e6 : 0) - (y.k === 'both' ? -1e6 : 0) || deg(y.id) - deg(x.id); });
+    var left = b.in.filter(function (id) { return !outSet[id]; }).map(function (id) { return { id: id, k: 'in' }; })
+      .sort(function (x, y) { return deg(y.id) - deg(x.id); });
+    if (!right.length && !left.length) return h('div', { className: 'ng-empty' }, 'No connections logged yet — this one is waiting for its first door.');
+    var narrow = W < 560;
+    var cap = showAll ? 60 : narrow ? 5 : 9;
+    var clip = function (list) {
+      if (list.length <= cap) return list;
+      var shown = list.slice(0, cap - 1);
+      shown.push({ more: list.length - (cap - 1) });
+      return shown;
+    };
+    var L = clip(left), Rt = clip(right);
+    var FONT = "10.5px 'IBM Plex Mono', monospace", CFONT = "italic 16px 'Instrument Serif', serif";
+    var PH = 21, ROW = narrow ? 28 : 27;
+    var items = [], i = 0, H, cx, cy, center;
+    var mkLabel = function (it) { return it.more ? '+' + it.more + ' more' : books[it.id].title; };
+
+    if (!narrow) {
+      var n = Math.max(L.length, Rt.length, 1);
+      H = Math.max(170, n * ROW + 56);
+      cx = W / 2; cy = H / 2 + 8;
+      var G = Math.max(84, Math.min(W * 0.13, 170));
+      var cMax = 2 * G - 36;
+      var ct = self._fit(b.title, CFONT, cMax);
+      var cw = Math.min(cMax, self._measure(ct, CFONT)) + 26;
+      center = { x: cx - cw / 2, y: cy - 15, w: cw, h: 30, t: ct, tx: cx, ty: cy + 5, anchor: 'middle' };
+      var place = function (list, side) {
+        var m = list.length;
+        list.forEach(function (it, j) {
+          var y = cy + (j - (m - 1) / 2) * ROW;
+          var t = m > 1 ? (y - cy) / (H / 2) : 0;
+          var x = cx + side * (G + 34 * (1 - t * t));
+          var avail = side > 0 ? W - (x + 12) - 6 : x - 12 - 6;
+          var txt = self._fit(mkLabel(it), FONT, Math.max(40, avail - 18));
+          var tw = self._measure(txt, FONT) + 18;
+          var sx = cx + side * cw / 2, sy = cy;
+          var c1 = sx + side * 46, c2 = x - side * 46;
+          var d = it.k === 'in'
+            ? 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + ' C' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + c1.toFixed(1) + ' ' + sy + ' ' + (sx - 3).toFixed(1) + ' ' + sy
+            : 'M' + sx.toFixed(1) + ' ' + sy + ' C' + c1.toFixed(1) + ' ' + sy + ' ' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + (x - side * 3).toFixed(1) + ' ' + y.toFixed(1);
+          items.push({ it: it, x: x, y: y, d: it.more ? null : d, txt: txt,
+            px: side > 0 ? x + 10 : x - 10 - tw, tw: tw, tx: side > 0 ? x + 19 : x - 19, anchor: side > 0 ? 'start' : 'end', i: i++ });
+        });
+      };
+      place(L, -1); place(Rt, 1);
+    } else {
+      // Tree: header row, mentioned-by rows, the book, mentions rows.
+      var trunk = 16, dotX = 44, y0 = 18;
+      var rowsTop = L.length, rowsBot = Rt.length;
+      var cyy = y0 + (rowsTop ? rowsTop * ROW + 12 : 0) + 16;
+      H = cyy + 16 + (rowsBot ? rowsBot * ROW + 12 : 0) + 8;
+      cx = trunk; cy = cyy;
+      var ct2 = self._fit(b.title, CFONT, W - 60);
+      var cw2 = self._measure(ct2, CFONT) + 26;
+      center = { x: 4, y: cy - 15, w: cw2, h: 30, t: ct2, tx: 17, ty: cy + 5, anchor: 'start' };
+      var placeV = function (list, top) {
+        list.forEach(function (it, j) {
+          var y = top ? y0 + 6 + j * ROW + 12 : cy + 30 + j * ROW + 4;
+          var x = dotX + (top ? (list.length - 1 - j) : j) * 1.2;
+          var txt = self._fit(mkLabel(it), FONT, W - x - 34);
+          var tw = self._measure(txt, FONT) + 18;
+          var sy = top ? cy - 15 : cy + 15, sx = trunk + 6;
+          var d = top
+            ? 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + ' C' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + (sy - 3)
+            : 'M' + sx + ' ' + sy + ' C' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + y.toFixed(1) + ' ' + (x - 3).toFixed(1) + ' ' + y.toFixed(1);
+          items.push({ it: it, x: x, y: y, d: it.more ? null : d, txt: txt, px: x + 10, tw: tw, tx: x + 19, anchor: 'start', i: i++ });
+        });
+      };
+      placeV(L, true); placeV(Rt, false);
+    }
+
+    var R = h;
+    var arrow = function (id, col) {
+      return R('marker', { id: id, viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 6.5, markerHeight: 6.5, orient: 'auto-start-reverse' },
+        R('path', { d: 'M0 1 L9 5 L0 9 z', fill: col }));
+    };
+    var defs = R('defs', { key: 'defs' }, arrow('ngA-out', '#9c3d22'), arrow('ngA-in', '#2f5590'), arrow('ngA-both', '#141414'));
+    var kids = [defs];
+    items.forEach(function (n) {
+      var it = n.it, k = it.k || 'more';
+      var go = it.more ? function () { self.setState({ ngAll: true, ngFor: b.id }); } : function (e) { self.goBook(it.id); };
+      var gProps = {
+        key: (it.id || 'more') + ':' + n.i, className: 'ng-it' + (it.more ? ' ng-more' : ''), style: { '--i': n.i },
+        onClick: go, tabIndex: 0, role: 'link', 'aria-label': it.more ? 'Show ' + it.more + ' more' : books[it.id].title,
+        onKeyDown: function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(e); } }
+      };
+      var dotFill = k === 'out' ? '#9c3d22' : k === 'in' ? '#2f5590' : k === 'both' ? '#141414' : 'var(--card)';
+      gProps.children = [
+        n.d ? R('path', { key: 'e', className: 'ng-e ' + k, d: n.d, pathLength: 1,
+          markerEnd: k === 'both' || k === 'out' || k === 'in' ? 'url(#ngA-' + k + ')' : null,
+          markerStart: k === 'both' ? 'url(#ngA-both)' : null }) : null,
+        R('g', { key: 'l', className: 'ng-lab' },
+          it.more ? null : R('circle', { className: 'ng-dot', cx: n.x, cy: n.y, r: 4.2, fill: dotFill }),
+          R('rect', { className: 'ng-pill', x: n.px, y: n.y - PH / 2, width: n.tw, height: PH, rx: PH / 2 }),
+          R('text', { className: 'ng-txt', x: n.anchor === 'start' ? n.px + 9 : n.px + n.tw - 9, y: n.y + 3.6, textAnchor: n.anchor }, n.txt),
+          it.more ? null : R('title', null, books[it.id].title + (books[it.id].author ? ' — ' + books[it.id].author : '')))
+      ];
+      kids.push(R('g', gProps, gProps.children));
     });
-    var lines = pts.map(function (p, i) {
-      return R('line', {
-        key: i, x1: cx, y1: cy, x2: p.x, y2: p.y,
-        stroke: 'var(--ink)', strokeWidth: 1.2, opacity: 0.55,
-        strokeDasharray: p.kind === 'in' ? '2 4' : 'none'
-      });
+    if (!narrow) {
+      var hy = Math.max(12, cy - (Math.max(L.length, Rt.length) - 1) / 2 * ROW - 20);
+      if (L.length) kids.push(R('text', { key: 'hl', className: 'ng-head', x: cx - G - 34, y: hy, textAnchor: 'end' }, '← mentioned by'));
+      if (Rt.length) kids.push(R('text', { key: 'hr', className: 'ng-head', x: cx + G + 34, y: hy }, 'mentions →'));
+    }
+    kids.push(R('g', { key: 'c', className: 'ng-c', onClick: function () { self.openNetwork(b.id); }, role: 'link', tabIndex: 0, 'aria-label': 'See ' + b.title + ' in the network' },
+      R('rect', { x: center.x, y: center.y, width: center.w, height: center.h, rx: 15 }),
+      R('text', { x: center.anchor === 'middle' ? center.tx : center.x + 13, y: center.ty, textAnchor: center.anchor }, center.t),
+      R('title', null, 'See ' + b.title + ' in the full network')));
+    return R('div', { className: 'ng', key: b.id + (showAll ? ':all' : '') },
+      R('svg', { className: 'ng-svg', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, style: { maxWidth: '100%' } }, kids));
+  };
+  P.openNetwork = function (id) { this.navigate({ page: 'network', focus: id }, '#/network/' + id); };
+
+  // ---------- mention notes (lazy: bookjumpr-notes.js) ----------
+  P._loadNotes = function () {
+    if (this._notes || this._notesLoading) return;
+    this._notesLoading = true;
+    var self = this, sc = document.createElement('script');
+    sc.src = 'bookjumpr-notes.js?v=1';
+    sc.onload = function () {
+      var N = window.BookJumprNotes, M = DATA.MENTIONS || [], map = {};
+      if (N && N.COUNT === M.length) N.NOTES.forEach(function (r) { var m = M[r[0]]; if (m) map[m[0] + '|' + m[1]] = r[1]; });
+      self._notes = map;
+      self.forceUpdate();
+    };
+    sc.onerror = function () { self._notes = {}; self.forceUpdate(); };
+    document.body.appendChild(sc);
+  };
+  // A note as a React node: quotes (anything quoted) render as a pull-quote, paraphrase as a caption;
+  // the mentioned book's title is marked wherever it appears.
+  P.noteEl = function (src, ment) {
+    if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
+    var note = this._notes[src + '|' + ment];
+    if (!note) return null;
+    var t = this.books[ment].title, short = t.split(/[:(]/)[0].trim();
+    var esc = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
+    var parts = note.split(new RegExp('(' + esc(t) + (short.length > 3 && short !== t ? '|' + esc(short) : '') + ')', 'i'));
+    var kids = parts.map(function (p, i) { return i % 2 ? h('mark', { key: i }, p) : p; });
+    var quote = /["“”‘’']/.test(note.slice(0, 3)) || /[“”]/.test(note) || (note.match(/"/g) || []).length >= 2;
+    return h('p', { className: 'mc-q ' + (quote ? 'quote' : 'ctx'), title: 'Click to expand', onClick: function (e) { e.currentTarget.classList.toggle('open'); } }, kids);
+  };
+
+  // ---------- jump trail (session history of books visited) ----------
+  P._pushTrail = function (route) {
+    if (!route || route.page !== 'book' || !this.books[route.id]) return;
+    var t = this._trail;
+    if (!t) { try { t = JSON.parse(sessionStorage.getItem('bj-trail') || '[]'); } catch (e) { t = []; } }
+    t = t.filter(function (id) { return id !== route.id; });
+    t.push(route.id);
+    if (t.length > 9) t = t.slice(-9);
+    this._trail = t;
+    try { sessionStorage.setItem('bj-trail', JSON.stringify(t)); } catch (e) {}
+  };
+  P.trailEl = function (curId) {
+    var self = this, t = (this._trail || []).filter(function (id) { return self.books[id]; });
+    if (t.length < 2) return null;
+    var kids = [h('span', { key: 'l', className: 'lbl' }, 'Your jumps')];
+    t.forEach(function (id, i) {
+      if (i) kids.push(h('svg', { key: 'h' + i, className: 'hop', viewBox: '0 0 26 14' }, h('path', { d: 'M2 12 Q13 -2 24 12' })));
+      kids.push(h('button', { key: id, className: id === curId ? 'cur' : '', title: self.books[id].title, 'aria-label': self.books[id].title,
+        onClick: function (e) { if (id !== curId) self.goBook(id, e.currentTarget); } }, self.cover(self.books[id])));
     });
-    var nodeEls = pts.map(function (p, i) {
-      var bk = self.books[p.id];
-      var label = bk.title.length > 20 ? bk.title.slice(0, 19).replace(/\s+$/, '') + '…' : bk.title;
-      return R('button', {
-        key: 'n' + i,
-        onClick: function () { self.goBook(p.id); },
-        title: bk.title,
-        style: {
-          position: 'absolute', left: p.x, top: p.y, transform: 'translate(-50%,-50%)',
-          background: 'var(--card)', border: '1.5px solid var(--ink)', borderRadius: 999,
-          padding: '3px 8px', fontSize: 9.5, fontFamily: "'IBM Plex Mono', monospace",
-          cursor: 'pointer', maxWidth: 110, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'
-        }
-      }, label);
-    });
-    var center = R('div', {
-      style: {
-        position: 'absolute', left: cx, top: cy, transform: 'translate(-50%,-50%)',
-        background: 'var(--ink)', color: 'var(--paper)', borderRadius: 999,
-        padding: '5px 11px', fontSize: 10, fontFamily: "'IBM Plex Mono', monospace",
-        maxWidth: 130, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'
-      }
-    }, b.title);
-    var more = extra ? R('div', {
-      style: { position: 'absolute', right: 6, bottom: 4, fontSize: 9.5, fontFamily: "'IBM Plex Mono', monospace", opacity: 0.55 }
-    }, '+' + extra + ' more') : null;
-    var empty = n === 0 || (nodes.length === 0) ? R('div', {
-      style: { position: 'absolute', left: 0, right: 0, top: '70%', textAlign: 'center', fontSize: 10.5, fontFamily: "'IBM Plex Mono', monospace", opacity: 0.55 }
-    }, 'no connections yet') : null;
-    return R('div', { style: { position: 'relative', width: '100%', height: H } },
-      R('svg', { width: '100%', height: H, viewBox: '0 0 ' + W + ' ' + H, style: { position: 'absolute', inset: 0 }, preserveAspectRatio: 'xMidYMid meet' }, lines),
-      pts.length ? nodeEls : empty, center, more);
+    return h('nav', { className: 'trail', 'aria-label': 'Books you jumped through' }, kids);
   };
 
   // ---------- stats ----------
@@ -1078,6 +1221,8 @@
       onOpenPage: function (key) { self.navigate({ page: 'book', id: key }, '#/' + key); }
     });
     window.__constellation = this._constellation; // debug / integration hook
+    var fk = this.state.route.focus;
+    if (fk && this._constellation.focusKey) { this._cstFocused = fk; this._constellation.focusKey(fk); }
   };
 
   // ---------- interactive home walls (?home=a|b|c; engine in home.js) ----------
@@ -1459,21 +1604,37 @@
         vals.cntOut = b.out.length; vals.cntIn = b.in.length;
         vals.hasOut = b.out.length > 0; vals.noOut = b.out.length === 0;
         vals.hasIn = b.in.length > 0; vals.noIn = b.in.length === 0;
-        var card = function (id) {
+        var CARD_CAP = 24;
+        var card = function (id, src, ment) {
           var bk = books[id];
-          var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block' };
-          return { cv: self.cover(bk), btnStyle: btnStyle, title: bk.title, author: bk.author || 'author unknown', sub: self.subFor(bk), go: function (e) { self.goBook(id, e && e.currentTarget); } };
+          var yl2 = self.yearLabel(bk.year);
+          return { cv: self.cover(bk), title: bk.title, author: (bk.author || 'author unknown') + (yl2 ? '  ·  ' + yl2 : ''), sub: self.subFor(bk),
+            note: self.noteEl(src, ment), go: function (e) { self.goBook(id, e && e.currentTarget); } };
         };
-        vals.cardsOut = b.out.map(card);
-        vals.cardsIn = b.in.map(card);
-        vals.miniGraph = this.miniGraph(b);
+        var byDeg = function (x, y) { return (books[y].in.length + books[y].out.length) - (books[x].in.length + books[x].out.length); };
+        var outIds = b.out.slice().sort(byDeg), inIds = b.in.slice().sort(byDeg);
+        var allOut = this.state.allOut === b.id, allIn = this.state.allIn === b.id;
+        vals.cardsOut = (allOut ? outIds : outIds.slice(0, CARD_CAP)).map(function (id) { return card(id, b.id, id); });
+        vals.cardsIn = (allIn ? inIds : inIds.slice(0, CARD_CAP)).map(function (id) { return card(id, id, b.id); });
+        vals.moreOut = !allOut && outIds.length > CARD_CAP; vals.moreIn = !allIn && inIds.length > CARD_CAP;
+        vals.showAllOut = function () { self.setState({ allOut: b.id }); };
+        vals.showAllIn = function () { self.setState({ allIn: b.id }); };
+        var ngW = Math.max(280, Math.min(vw, 1240) - 48 - (vw > 900 ? 15 : 0));
+        vals.neighborhood = this.neighborhood(b, ngW, this.state.ngAll === true && this.state.ngFor === b.id);
+        var nIn = b.in.filter(function (id) { return b.out.indexOf(id) === -1; }).length, nBoth = b.out.filter(function (id) { return b.in.indexOf(id) !== -1; }).length;
+        vals.ngCaption = (b.out.length + nIn) ? (b.out.length + nIn) + ' books one jump away' + (nBoth ? ' · ' + nBoth + ' mention each other' : '') : '';
+        vals.openNetwork = function () { self.openNetwork(b.id); };
+        vals.trail = this.trailEl(b.id);
+        var gb = this.genreOf(b);
+        vals.b_genreLabel = gb.name === 'MISC' ? '' : '  ·  ' + gb.name.toLowerCase();
         var jump = function (sel) { return function () { var el = document.getElementById(sel); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }; };
         vals.jumpOut = jump('mentions-out'); vals.jumpIn = jump('mentions-in');
       } else {
         vals.b_title = this.state.ready ? 'Book not found' : 'Opening the stacks…'; vals.b_byline = ''; vals.hasAuthor = false; vals.noAuthor = true; vals.b_author = ''; vals.b_authorGo = function () {}; vals.b_yearSuffix = ''; vals.b_synopsis = this.state.ready ? 'That book isn’t in the network yet.' : 'One moment.';
         vals.b_cv = this.cover({ id: 'x', title: '?', author: '' }, 'vt-hero');
         vals.cntOut = 0; vals.cntIn = 0; vals.hasOut = false; vals.hasIn = false; vals.noOut = true; vals.noIn = true;
-        vals.cardsOut = []; vals.cardsIn = []; vals.miniGraph = null; vals.jumpOut = function () {}; vals.jumpIn = function () {};
+        vals.cardsOut = []; vals.cardsIn = []; vals.neighborhood = null; vals.jumpOut = function () {}; vals.jumpIn = function () {};
+        vals.trail = null; vals.ngCaption = ''; vals.openNetwork = function () {}; vals.b_genreLabel = ''; vals.moreOut = vals.moreIn = false;
       }
     }
 
@@ -1546,6 +1707,7 @@
         if (self._constellation) {
           self._constellation.destroy();
           self._constellation = null;
+          self._cstFocused = null;
           window.__constellation = null;
         }
       }
