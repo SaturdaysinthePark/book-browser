@@ -322,6 +322,8 @@
     if (location.hash && location.hash.length > 2) this.applyHash();
     this._startWallPulse();
     this._startTilt();
+    this._startHeaderAutohide();
+    this._settleSmil();
     if (this.state.route.page === 'book') this._loadNotes();
   };
   P.componentWillUnmount = function () {
@@ -354,6 +356,7 @@
     if (nowStats && !wasStats) this._setupStatsReveal();
     else if (!nowStats && wasStats) this._teardownStatsReveal();
     if (this.state.route.page === 'book') this._loadNotes();
+    if (prevState.route !== this.state.route) { this._settleSmil(); var hd = document.querySelector('.bj-hdr'); if (hd) hd.classList.remove('hdr-hide'); }
     // Network deep link (#/network/<book>): focus that book once the engine is up.
     var cst = this._constellation, fk = this.state.route.page === 'network' && this.state.route.focus;
     if (cst && fk && this._cstFocused !== fk && cst.focusKey) { this._cstFocused = fk; cst.focusKey(fk); }
@@ -532,6 +535,30 @@
     };
     document.addEventListener('pointermove', function (e) { ev = e; if (!raf) raf = requestAnimationFrame(apply); }, { passive: true });
     document.addEventListener('pointerleave', function () { if (cur) reset(cur); cur = null; });
+  };
+
+  // Sticky header hides while you scroll down a long page and returns on any scroll up — on a
+  // phone it's two rows tall, so this gives the content most of the screen back.
+  P._startHeaderAutohide = function () {
+    var last = window.scrollY, acc = 0;
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY, d = y - last; last = y;
+      var hdr = document.querySelector('.bj-hdr');
+      if (!hdr) return;
+      acc = (d > 0) === (acc > 0) ? acc + d : d;
+      if (y < 90 || acc < -24) hdr.classList.remove('hdr-hide');
+      else if (acc > 36 && !hdr.contains(document.activeElement)) hdr.classList.add('hdr-hide');
+    }, { passive: true });
+  };
+  // SMIL (the logo / hero jump-arc) ignores prefers-reduced-motion, so under reduced motion jump
+  // every SVG timeline to its drawn end state and freeze it.
+  P._settleSmil = function () {
+    if (typeof matchMedia === 'undefined' || !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var svgs = document.querySelectorAll('svg');
+    for (var i = 0; i < svgs.length; i++) {
+      var sv = svgs[i];
+      if (sv.pauseAnimations && sv.querySelector('animate,animateMotion') && !sv._settled) { sv._settled = true; try { sv.setCurrentTime(3.45); sv.pauseAnimations(); } catch (e) {} }
+    }
   };
 
   P.slug = function (t) {
@@ -1230,8 +1257,10 @@
     if (this._hv !== undefined) return this._hv;
     var v = null;
     try { v = new URLSearchParams(location.search).get('home'); } catch (e) {}
-    this._hvCompare = v != null;                 // any ?home= shows the variant switcher
+    this._hvCompare = v != null && v !== '';     // an explicit ?home= shows the variant switcher
     try { this._wallDark = new URLSearchParams(location.search).get('wall') === 'dark'; } catch (e) {}
+    // Variant A ("endless shelf") is the default home; ?home=classic restores the static wall.
+    if (v == null || v === '') v = 'a';
     this._hv = (v === 'a' || v === 'b' || v === 'c') && window.BJHomeWall ? v : null;
     return this._hv;
   };
@@ -1385,8 +1414,14 @@
         self.setState({ chipSeed: (self.state.chipSeed || 0) + 1 });
       },
       q: this.state.q,
-      onQ: function (e) { self.setState({ q: e.target.value }); },
-      onKey: function (e) { if (e.key === 'Enter') self.submitSearch(); if (e.key === 'Escape') self.setState({ suggestFor: null }); },
+      onQ: function (e) { self.setState({ q: e.target.value, sugIdx: -1 }); },
+      onKey: function (e) {
+        var n = (self._sugg || []).length, i = self.state.sugIdx == null ? -1 : self.state.sugIdx;
+        if (e.key === 'ArrowDown' && n) { e.preventDefault(); self.setState({ sugIdx: (i + 1) % n }); return; }
+        if (e.key === 'ArrowUp' && n) { e.preventDefault(); self.setState({ sugIdx: i <= 0 ? n - 1 : i - 1 }); return; }
+        if (e.key === 'Enter') { if (i >= 0 && i < n) self.goBook(self._sugg[i].id); else self.submitSearch(); }
+        if (e.key === 'Escape') self.setState({ suggestFor: null, sugIdx: -1 });
+      },
       onFocusHome: function () { self.setState({ suggestFor: 'home' }); },
       onFocusHeader: function () { self.setState({ suggestFor: 'header' }); },
       onBlur: function () { setTimeout(function () { self.setState({ suggestFor: null }); }, 120); },
@@ -1471,7 +1506,13 @@
 
     // suggestions
     var sugg = this.state.suggestFor && this.state.q.trim() ? this.matches(this.state.q).slice(0, 7) : [];
-    vals.suggestions = sugg.map(function (b) { return { title: b.title, sub: self.subFor(b), go: function () { self.goBook(b.id); } }; });
+    this._sugg = sugg;
+    var sIdx = this.state.sugIdx == null ? -1 : this.state.sugIdx;
+    vals.suggestions = sugg.map(function (b, i) {
+      return { title: b.title, author: b.author || '', sub: self.subFor(b), cv: self.cover(b), cls: i === sIdx ? 'on' : '',
+        hover: function () { if (self.state.sugIdx !== i) self.setState({ sugIdx: i }); },
+        go: function () { self.goBook(b.id); } };
+    });
     vals.showHomeSuggest = this.state.suggestFor === 'home' && sugg.length > 0;
     vals.showHeaderSuggest = this.state.suggestFor === 'header' && sugg.length > 0;
 
@@ -1575,7 +1616,7 @@
       vals.hxExpand = function () { self.setState({ hxCompact: false }); if (self._hw) self._hw.resetEngage(); };
       vals.onFocusHx = function () { self.setState({ suggestFor: 'home', hxTyping: true, hxCompact: m && hv !== 'c' ? true : self.state.hxCompact }); };
       vals.onBlurHx = function () { setTimeout(function () { self.setState({ suggestFor: null, hxTyping: false }); }, 120); };
-      vals.hxSw0 = ''; vals.hxSwA = hv === 'a' ? 'on' : ''; vals.hxSwB = hv === 'b' ? 'on' : ''; vals.hxSwC = hv === 'c' ? 'on' : '';
+      vals.hxShowSwitch = !!this._hvCompare; vals.hxSw0 = ''; vals.hxSwA = hv === 'a' ? 'on' : ''; vals.hxSwB = hv === 'b' ? 'on' : ''; vals.hxSwC = hv === 'c' ? 'on' : '';
     }
     vals.hxCompare = page === 'home' && !hv && !!this._hvCompare;
     // Stable refs (created once) so React only fires them on real mount/unmount of the home wall.

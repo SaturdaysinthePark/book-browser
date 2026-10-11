@@ -25,7 +25,9 @@ vendored locally and the data loads via a classic script rather than an ES modul
 | --- | --- |
 | `index.html` | Page shell + global styles + the original template markup (embedded as `<script id="bj-template">`) |
 | `app.js` | The application: a small template compiler + the ported component logic + React mount |
+| `home.js` | The interactive home-wall engine (endless shelf / infinite canvas / shelf rows) — imperative, transforms only |
 | `bookjumpr-data.js` | The dataset the site loads — **generated** from the database by `npm run bj:build` (don't hand-edit) |
+| `bookjumpr-notes.js` | Mention quotes/context, lazy-loaded on book pages — **generated** by `npm run bj:build` |
 | `bookjumpr.db` | SQLite database — the **source of truth** for books & mentions |
 | `tools/` | The data pipeline (CLI, build, validation, admin server) |
 | `admin.html` | Local point-and-click admin UI (served by `npm run admin`) |
@@ -38,7 +40,9 @@ vendored locally and the data loads via a classic script rather than an ES modul
 
 ## Screens
 
-- **Home** — a dense procedural wall of book covers behind an animated hero + search
+- **Home** — an endless, scrollable wall of covers on doodled graph paper behind the hero + search
+  (`?home=a` default · `?home=b` 2D canvas · `?home=c` shelf rows · `?home=classic` the static wall;
+  `?wall=dark` for the charcoal wall). See `docs/ui-ux-overhaul.md`.
 - **Book** — cover, synopsis, an ego-graph of its "neighborhood", and grids of the
   books it *mentions* and the books that *mention* it
 - **Search** — ranked results (with an as-you-type suggestion dropdown)

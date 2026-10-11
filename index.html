@@ -208,15 +208,28 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-logo{flex:none;display:flex;align-items:center;gap:8px;width:0;opacity:0;overflow:hidden;padding:0;border:none;background:none;cursor:pointer;transition:width .55s var(--ease-out),opacity .3s ease;color:var(--ink);}
 .hx-logo span{font-family:'Instrument Serif',serif;font-size:21px;white-space:nowrap;}
 .hx-search{position:relative;flex:1;min-width:0;}
+/* search suggestions (header, classic home, walls): mini cover + title/author + counts; keyboard nav */
+.sg-pop{transition:opacity .18s var(--ease-out),transform .18s var(--ease-out);}
+@starting-style{.sg-pop{opacity:0;transform:translateY(-6px);}}
+.hx-b.is-compact:not(.is-typing) .sg-pop{transform-origin:bottom;}
+.sg-pop button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:8px 16px;border-bottom:1px solid rgba(20,20,20,.08);color:var(--ink);font-family:inherit;}
+.sg-pop button:last-child{border-bottom:none;}
+.sg-pop button.on,.sg-pop button:hover{background:var(--ink);color:var(--paper);}
+.sg-pop button.on .a,.sg-pop button:hover .a{color:rgba(247,245,240,.7);}
+.sg-cv{flex:none;width:26px;}
+.sg-t{flex:1;min-width:0;display:flex;flex-direction:column;}
+.sg-pop .t{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sg-pop .a{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;}
+.sg-pop .s{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;white-space:nowrap;flex:none;}
+@media (max-width:639px){.sg-pop .s{display:none;}}
+/* auto-hiding sticky header (scroll down hides, scroll up reveals) */
+.bj-hdr{transition:transform .3s var(--ease-out);}
+.bj-hdr.hdr-hide{transform:translateY(-100%);}
 .hx-search input{width:100%;height:54px;border:1.5px solid var(--ink);border-radius:999px;padding:0 54px 0 24px;font-size:16px;background:var(--paper);color:var(--ink);font-family:inherit;box-sizing:border-box;box-shadow:0 4px 0 rgba(20,20,20,.9);transition:height .55s var(--ease-out),box-shadow .3s;-webkit-user-select:text;user-select:text;}
 .hx-shuf{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:999px;border:1.5px solid transparent;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.55;color:var(--ink);transition:opacity .2s,border-color .2s,transform .4s var(--ease-spring);}
 .hx-shuf:hover{opacity:1;border-color:var(--ink);}
 .hx-shuf:active{transform:translateY(-50%) rotate(180deg);}
 .hx-sugg{position:absolute;top:calc(100% + 10px);left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;z-index:20;text-align:left;}
-.hx-sugg button{display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:11px 18px;border-bottom:1px solid rgba(20,20,20,.08);color:var(--ink);}
-.hx-sugg button:hover{background:var(--ink);color:var(--paper);}
-.hx-sugg .t{font-family:'Instrument Serif',serif;font-size:17px;}
-.hx-sugg .s{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;margin-left:auto;white-space:nowrap;}
 .hx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;}
 .hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
 .hx-chips button:hover{background:var(--ink);color:var(--paper);}
@@ -537,12 +550,9 @@ html,body{height:100%;}
         <div style="{{ hdrSearchWrap }}">
           <input value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" onFocus="{{ onFocusHeader }}" onBlur="{{ onBlur }}" placeholder="Search a book…" style="{{ hdrInput }}"></input>
           <sc-if value="{{ showHeaderSuggest }}" hint-placeholder-val="{{ false }}">
-            <div style="position:absolute;top:46px;right:0;width:min(340px, calc(100vw - 40px));background:var(--card);border:1.5px solid var(--ink);border-radius:14px;box-shadow:0 18px 40px rgba(20,20,20,.18);overflow:hidden;z-index:80;">
+            <div class="sg-pop" style="position:absolute;top:46px;right:0;width:min(380px, calc(100vw - 40px));background:var(--card);border:1.5px solid var(--ink);border-radius:14px;box-shadow:0 18px 40px rgba(20,20,20,.18);overflow:hidden;z-index:80;">
               <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="0">
-                <button onMouseDown="{{ s.go }}" style="display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:11px 16px;border-bottom:1px solid rgba(20,20,20,.08);" style-hover="background:var(--ink);color:var(--paper);">
-                  <span style="font-family:'Instrument Serif',serif;font-size:16px;">{{ s.title }}</span>
-                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;margin-left:auto;white-space:nowrap;">{{ s.sub }}</span>
-                </button>
+                <button onMouseDown="{{ s.go }}" onMouseEnter="{{ s.hover }}" class="{{ s.cls }}"><span class="sg-cv">{{ s.cv }}</span><span class="sg-t"><span class="t">{{ s.title }}</span><span class="a">{{ s.author }}</span></span><span class="s">{{ s.sub }}</span></button>
               </sc-for>
             </div>
           </sc-if>
@@ -619,12 +629,9 @@ html,body{height:100%;}
           <div style="{{ heroSearchWrap }}">
             <input value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" onFocus="{{ onFocusHome }}" onBlur="{{ onBlur }}" placeholder="{{ homePlaceholder }}" style="width:100%;height:56px;border:1.5px solid var(--ink);border-radius:999px;padding:0 26px;font-size:16.5px;background:var(--paper);color:var(--ink);font-family:inherit;box-sizing:border-box;box-shadow:0 4px 0 rgba(20,20,20,.9);"></input>
             <sc-if value="{{ showHomeSuggest }}" hint-placeholder-val="{{ false }}">
-              <div style="position:absolute;top:64px;left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(20,20,20,.2);overflow:hidden;z-index:80;text-align:left;">
+              <div class="sg-pop" style="position:absolute;top:64px;left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(20,20,20,.2);overflow:hidden;z-index:80;text-align:left;">
                 <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="0">
-                  <button onMouseDown="{{ s.go }}" style="display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:12px 20px;border-bottom:1px solid rgba(20,20,20,.08);" style-hover="background:var(--ink);color:var(--paper);">
-                    <span style="font-family:'Instrument Serif',serif;font-size:17px;">{{ s.title }}</span>
-                    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;margin-left:auto;white-space:nowrap;">{{ s.sub }}</span>
-                  </button>
+                  <button onMouseDown="{{ s.go }}" onMouseEnter="{{ s.hover }}" class="{{ s.cls }}"><span class="sg-cv">{{ s.cv }}</span><span class="sg-t"><span class="t">{{ s.title }}</span><span class="a">{{ s.author }}</span></span><span class="s">{{ s.sub }}</span></button>
                 </sc-for>
               </div>
             </sc-if>
@@ -702,9 +709,9 @@ html,body{height:100%;}
                   <svg width="16" height="16" viewBox="0 0 16 16"><path d="M1.5 4.5 H5 L11 11.5 H13" fill="none" stroke="currentColor" stroke-width="1.6"></path><path d="M1.5 11.5 H5 L11 4.5 H13" fill="none" stroke="currentColor" stroke-width="1.6"></path><polygon points="12.4,2.4 16,4.5 12.4,6.6" fill="currentColor"></polygon><polygon points="12.4,9.4 16,11.5 12.4,13.6" fill="currentColor"></polygon></svg>
                 </button>
                 <sc-if value="{{ showHomeSuggest }}" hint-placeholder-val="{{ false }}">
-                  <div class="hx-sugg" data-hx-sugg="1">
+                  <div class="hx-sugg sg-pop" data-hx-sugg="1">
                     <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="0">
-                      <button onMouseDown="{{ s.go }}"><span class="t">{{ s.title }}</span><span class="s">{{ s.sub }}</span></button>
+                      <button onMouseDown="{{ s.go }}" onMouseEnter="{{ s.hover }}" class="{{ s.cls }}"><span class="sg-cv">{{ s.cv }}</span><span class="sg-t"><span class="t">{{ s.title }}</span><span class="a">{{ s.author }}</span></span><span class="s">{{ s.sub }}</span></button>
                     </sc-for>
                   </div>
                 </sc-if>
@@ -727,9 +734,11 @@ html,body{height:100%;}
         <button onClick="{{ goAbout }}" title="About" aria-label="About"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"></circle><text x="8" y="11" text-anchor="middle" font-size="8.5" font-family="Helvetica, Arial, sans-serif" font-weight="bold" fill="currentColor">?</text></svg></button>
       </div>
       <div class="hx-hint"><i></i>{{ hxHint }}</div>
-      <div class="hx-switch" data-nodrag="1">Home
-        <a href="?home=classic#/" class="{{ hxSw0 }}">Classic</a><a href="?home=a#/" class="{{ hxSwA }}">A</a><a href="?home=b#/" class="{{ hxSwB }}">B</a><a href="?home=c#/" class="{{ hxSwC }}">C</a>
-      </div>
+      <sc-if value="{{ hxShowSwitch }}" hint-placeholder-val="{{ false }}">
+        <div class="hx-switch" data-nodrag="1">Home
+          <a href="?home=classic#/" class="{{ hxSw0 }}">Classic</a><a href="?home=a#/" class="{{ hxSwA }}">A</a><a href="?home=b#/" class="{{ hxSwB }}">B</a><a href="?home=c#/" class="{{ hxSwC }}">C</a>
+        </div>
+      </sc-if>
     </div>
   </sc-if>
 
