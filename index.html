@@ -155,6 +155,118 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 }
 </style>
 <style>
+/* ---------- Interactive home walls (?home=a|b|c) — engine in home.js ----------
+   .hx is a fixed, app-like canvas: the wall (stage) scrolls/drags, the hero stays put.
+   Engine-driven flags are data-* attributes (React never clobbers them); React owns the classes. */
+.hx{position:fixed;inset:0;overflow:hidden;background:var(--wall);--wall:#2e2a25;--wall-rgb:46,42,37;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
+.hx-stage{position:absolute;inset:0;cursor:grab;}
+.hx[data-drag] .hx-stage{cursor:grabbing;}
+.hw-layer{position:absolute;inset:0;}
+.hw-slot{position:absolute;left:0;top:0;width:var(--cw);will-change:transform;--lit:0;}
+.hw-slot .cv{transition:none;}
+.hw-card{border-radius:3px;box-shadow:0 0 0 1px rgba(242,236,221,.16),0 12px 26px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.3);transition:transform .32s var(--ease-spring),box-shadow .3s var(--ease-out);cursor:pointer;}
+.hw-slot.is-hot{z-index:4;}
+.hw-slot.is-hot .hw-card{transform:translateY(-8px) scale(1.07);box-shadow:0 0 0 1px rgba(242,236,221,.2),0 26px 44px rgba(0,0,0,.55),0 4px 8px rgba(0,0,0,.3);}
+.hw-reseed .hw-layer{animation:hwReseed .5s var(--ease-out);}
+@keyframes hwReseed{0%{opacity:.35;filter:blur(2px);}100%{opacity:1;filter:none;}}
+.hw-arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;}
+.hw-arcs path{fill:none;stroke:#f2ecdd;stroke-width:1.6;stroke-dasharray:2 5;stroke-linecap:round;opacity:.85;}
+.hw-arcs circle{fill:#f2ecdd;}
+.hw-label{position:absolute;left:14px;top:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#f2ecdd;background:rgba(29,27,24,.9);padding:4px 10px;border-radius:999px;border:1px solid rgba(242,236,221,.25);white-space:nowrap;z-index:5;pointer-events:none;}
+.hx-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 46% 50% at 50% 50%,rgba(var(--wall-rgb),.78),rgba(var(--wall-rgb),.4) 55%,rgba(var(--wall-rgb),0) 85%);transition:opacity .6s var(--ease-out);}
+.hx.is-compact .hx-vignette{opacity:0;}
+.hx-c .hx-vignette{display:none;}
+.hx-c .hx-card{box-shadow:0 0 0 6px var(--wall),0 30px 60px rgba(0,0,0,.5);}
+/* ?wall=paper — the light variant: ink covers on a paper table */
+.hx.wall-paper{--wall:#e7e0d1;--wall-rgb:231,224,209;}
+.hx.wall-paper .hw-card{box-shadow:0 10px 22px rgba(60,40,20,.26),0 1px 3px rgba(0,0,0,.2);}
+.hx.wall-paper .hw-slot.is-hot .hw-card{box-shadow:0 24px 40px rgba(60,40,20,.34),0 3px 6px rgba(0,0,0,.2);}
+.hx.wall-paper .hw-arcs path{stroke:var(--ink);}
+.hx.wall-paper .hw-arcs circle{fill:var(--ink);}
+
+/* hero card (A/B): centred; compacts to a slim search bar once you start moving the wall */
+.hx-hero{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,calc(100% - 28px));z-index:6;pointer-events:none;
+  transition:top .6s var(--ease-out),transform .6s var(--ease-out),width .6s var(--ease-out);}
+.hx-card{pointer-events:auto;background:var(--card);border:1.5px solid var(--ink);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+  padding:clamp(22px,4vw,40px) clamp(18px,5vw,48px) clamp(20px,3.6vw,34px);text-align:center;box-sizing:border-box;transition:padding .6s var(--ease-out),border-radius .6s var(--ease-out);}
+.hx-x{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease-out),opacity .35s ease,margin .55s var(--ease-out);}
+.hx-x > div{min-height:0;overflow:hidden;}
+.hx-arc{display:flex;justify-content:center;max-width:420px;margin:0 auto;}
+.hx-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6.4vw,52px);line-height:1.04;margin:14px 0 10px;letter-spacing:-.005em;}
+.hx-p{font-size:15px;line-height:1.55;color:rgba(20,20,20,.72);max-width:440px;margin:0 auto;text-wrap:pretty;}
+.hx-bar{display:flex;align-items:center;gap:8px;margin-top:22px;transition:margin .55s var(--ease-out);}
+.hx-logo{flex:none;display:flex;align-items:center;gap:8px;width:0;opacity:0;overflow:hidden;padding:0;border:none;background:none;cursor:pointer;transition:width .55s var(--ease-out),opacity .3s ease;color:var(--ink);}
+.hx-logo span{font-family:'Instrument Serif',serif;font-size:21px;white-space:nowrap;}
+.hx-search{position:relative;flex:1;min-width:0;}
+.hx-search input{width:100%;height:54px;border:1.5px solid var(--ink);border-radius:999px;padding:0 54px 0 24px;font-size:16px;background:var(--paper);color:var(--ink);font-family:inherit;box-sizing:border-box;box-shadow:0 4px 0 rgba(20,20,20,.9);transition:height .55s var(--ease-out),box-shadow .3s;-webkit-user-select:text;user-select:text;}
+.hx-shuf{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:999px;border:1.5px solid transparent;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.55;color:var(--ink);transition:opacity .2s,border-color .2s,transform .4s var(--ease-spring);}
+.hx-shuf:hover{opacity:1;border-color:var(--ink);}
+.hx-shuf:active{transform:translateY(-50%) rotate(180deg);}
+.hx-sugg{position:absolute;top:calc(100% + 10px);left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;z-index:20;text-align:left;}
+.hx-sugg button{display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:11px 18px;border-bottom:1px solid rgba(20,20,20,.08);color:var(--ink);}
+.hx-sugg button:hover{background:var(--ink);color:var(--paper);}
+.hx-sugg .t{font-family:'Instrument Serif',serif;font-size:17px;}
+.hx-sugg .s{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;margin-left:auto;white-space:nowrap;}
+.hx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;}
+.hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
+.hx-chips button:hover{background:var(--ink);color:var(--paper);}
+.hx-chips .lbl{width:100%;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;}
+
+.hx.is-compact .hx-x{grid-template-rows:0fr;opacity:0;}
+.hx.is-compact .hx-card{padding:7px;border-radius:999px;}
+.hx.is-compact .hx-bar{margin-top:0;}
+.hx.is-compact .hx-logo{width:150px;opacity:1;padding-left:10px;}
+.hx.is-compact .hx-search input{height:46px;box-shadow:0 3px 0 rgba(20,20,20,.9);}
+.hx-a.is-compact .hx-hero{top:calc(14px + env(safe-area-inset-top));transform:translate(-50%,0);width:min(640px,calc(100% - 24px));}
+.hx-b.is-compact .hx-hero{top:calc(100% - 14px - env(safe-area-inset-bottom));transform:translate(-50%,-100%);width:min(640px,calc(100% - 24px));}
+.hx-b.is-compact .hx-sugg{top:auto;bottom:calc(100% + 10px);}
+.hx-b.is-compact.is-typing .hx-hero{top:calc(14px + env(safe-area-inset-top));transform:translate(-50%,0);}
+.hx-b.is-compact.is-typing .hx-sugg{top:calc(100% + 10px);bottom:auto;}
+
+/* C: the hero is a full-width band between the shelf rows */
+.hx-c .hx-hero{left:0;width:100%;transform:translateY(-50%);}
+.hx-c .hx-card{border-radius:0;border-left:none;border-right:none;padding:26px max(24px,calc((100% - 1080px) / 2));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:10px 48px;align-items:center;text-align:left;}
+.hx-c .hx-arc{display:none;}
+.hx-c .hx-h1{margin:0;font-size:clamp(30px,4.4vw,48px);}
+.hx-c .hx-p{margin:8px 0 0;max-width:none;font-size:14px;}
+.hx-c .hx-bar{margin-top:0;}
+.hx-c .hx-chips{justify-content:flex-start;padding-top:12px;}
+.hx-c .hx-chips .lbl{display:none;}
+
+.hx-nav{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:7;display:flex;gap:2px;padding:3px;background:rgba(253,252,250,.94);border:1.5px solid var(--ink);border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.6);}
+.hx-nav button{width:38px;height:38px;border-radius:999px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);opacity:.65;}
+.hx-nav button:hover{opacity:1;background:var(--ink);color:var(--paper);}
+.hx-switch{position:absolute;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:7;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 12px;background:rgba(29,27,24,.88);border:1px solid rgba(242,236,221,.3);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,221,.7);}
+.hx-switch a{color:#f2ecdd;text-decoration:none;padding:5px 9px;border-radius:999px;}
+.hx-switch a:hover{background:rgba(242,236,221,.15);color:#fff;}
+.hx-switch a.on{background:#f2ecdd;color:var(--ink);}
+.hx-hint{position:absolute;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:5;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#f2ecdd;background:rgba(29,27,24,.88);border:1px solid rgba(242,236,221,.25);padding:7px 14px 7px 12px;border-radius:999px;pointer-events:none;transition:opacity .6s ease;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.hx-hint i{display:block;width:1.5px;height:16px;background:currentColor;animation:hxHint 1.6s var(--ease-in-out) infinite;}
+@keyframes hxHint{0%,100%{transform:translateY(-3px);opacity:.4;}50%{transform:translateY(3px);opacity:1;}}
+.hx.is-engaged .hx-hint{opacity:0;}
+
+@media (max-width:639px){
+  .hx-card{border-radius:20px;}
+  .hx-h1{font-size:34px;margin:8px 0 6px;}
+  .hx-p{font-size:14px;}
+  .hx-bar{margin-top:14px;}
+  .hx-search input{height:50px;}
+  .hx.is-compact .hx-logo{width:40px;padding-left:4px;}
+  .hx.is-compact .hx-logo span{display:none;}
+  .hx-a .hx-nav{top:auto;bottom:calc(14px + env(safe-area-inset-bottom));}
+  .hx-a .hx-hint,.hx-c .hx-hint{bottom:calc(70px + env(safe-area-inset-bottom));}
+  .hx-b .hx-hint{bottom:calc(70px + env(safe-area-inset-bottom));}
+  .hx-c .hx-card{display:block;padding:18px 16px;}
+  .hx-c .hx-h1{font-size:30px;}
+  .hx-c .hx-p{display:none;}
+  .hx-c .hx-bar{margin-top:12px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .hx-hero,.hx-card,.hx-x,.hx-bar,.hx-logo,.hx-search input,.hw-card,.hx-vignette{transition:none;}
+  .hx-hint i,.hw-reseed .hw-layer{animation:none;}
+}
+</style>
+<style>
 /* Standalone page shell (mirrors the design runtime's full-page CSS). */
 html,body{height:100%;}
 #app{min-height:100%;}
@@ -351,6 +463,11 @@ html,body{height:100%;}
         </sc-for>
       </div>
       <div style="{{ wallFade }}"></div>
+      <sc-if value="{{ hxCompare }}" hint-placeholder-val="{{ false }}">
+        <div class="hx-switch" style="position:fixed;z-index:20;">Home
+          <a href="?home=classic#/" class="on">Classic</a><a href="?home=a#/">A</a><a href="?home=b#/">B</a><a href="?home=c#/">C</a>
+        </div>
+      </sc-if>
       <div style="{{ heroCenter }}">
         <div style="{{ heroCard }}">
           <div style="{{ heroArc }}">
@@ -421,6 +538,76 @@ html,body{height:100%;}
             </button>
           </div>
         </div>
+      </div>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ pgHomeX }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Home" class="{{ hxClass }}" ref="{{ hxRootRef }}">
+      <div class="hx-stage" ref="{{ hxStageRef }}" aria-hidden="true"></div>
+      <div class="hx-vignette"></div>
+      <div class="hx-hero" data-hx-band="1">
+        <div class="hx-card">
+          <div class="hx-x"><div>
+            <div class="hx-arc">
+              <svg viewBox="0 0 300 44" style="width:100%;height:auto;display:block;overflow:visible;">
+                <path id="bj-hx-arc" d="M4 38 Q77 -20 150 38 Q192 2 235 38 Q264 16 292 38" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="2.4 3"></path>
+                <path d="M4 38 Q77 -20 150 38 Q192 2 235 38 Q264 16 292 38" fill="none" stroke="var(--card)" stroke-width="4.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0">
+                  <animate attributeName="stroke-dashoffset" values="0;-50;-80;-100;-100" keyTimes="0;0.275;0.44;0.55;1" begin="0.6s" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0 0 1 1"></animate>
+                </path>
+                <circle cx="4" cy="38" r="2.1" fill="var(--ink)"></circle>
+                <g opacity="0">
+                  <rect x="-4.5" y="-6.5" width="9" height="13" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"></rect>
+                  <line x1="-2" y1="-6.5" x2="-2" y2="6.5" stroke="var(--ink)" stroke-width="1.2"></line>
+                  <animate attributeName="opacity" values="0;1" begin="0.6s" dur="0.01s" fill="freeze"></animate>
+                  <animateMotion begin="0.6s" dur="5s" repeatCount="indefinite" rotate="auto" calcMode="spline" keyPoints="0;0.5;0.8;1;1" keyTimes="0;0.275;0.44;0.55;1" keySplines="0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0 0 1 1">
+                    <mpath href="#bj-hx-arc"></mpath>
+                  </animateMotion>
+                </g>
+              </svg>
+            </div>
+            <h1 class="hx-h1">Every book is a door<br>to more books.</h1>
+            <p class="hx-p">{{ hxIntro }}</p>
+          </div></div>
+          <div>
+            <div class="hx-bar">
+              <button class="hx-logo" onClick="{{ hxExpand }}" aria-label="Show intro" title="Back to the intro">
+                <svg width="36" height="21" viewBox="0 0 62 36" style="overflow:visible;flex:none;"><path d="M4 30 Q 30 -8 58 23" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3.4"></path><circle cx="4" cy="30" r="2.4" fill="currentColor"></circle><g transform="translate(57 22) rotate(38)"><rect x="-4" y="-5.8" width="8" height="11.6" fill="var(--card)" stroke="currentColor" stroke-width="1.9"></rect></g></svg>
+                <span>BookJumpr</span>
+              </button>
+              <div class="hx-search">
+                <input value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" onFocus="{{ onFocusHx }}" onBlur="{{ onBlurHx }}" placeholder="{{ homePlaceholder }}" aria-label="Search a book"></input>
+                <button class="hx-shuf" onClick="{{ shuffleChips }}" title="Shuffle the shelves" aria-label="Shuffle the shelves">
+                  <svg width="16" height="16" viewBox="0 0 16 16"><path d="M1.5 4.5 H5 L11 11.5 H13" fill="none" stroke="currentColor" stroke-width="1.6"></path><path d="M1.5 11.5 H5 L11 4.5 H13" fill="none" stroke="currentColor" stroke-width="1.6"></path><polygon points="12.4,2.4 16,4.5 12.4,6.6" fill="currentColor"></polygon><polygon points="12.4,9.4 16,11.5 12.4,13.6" fill="currentColor"></polygon></svg>
+                </button>
+                <sc-if value="{{ showHomeSuggest }}" hint-placeholder-val="{{ false }}">
+                  <div class="hx-sugg" data-hx-sugg="1">
+                    <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="0">
+                      <button onMouseDown="{{ s.go }}"><span class="t">{{ s.title }}</span><span class="s">{{ s.sub }}</span></button>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+            <div class="hx-x"><div>
+              <div class="hx-chips">
+                <span class="lbl">Rabbit holes to fall into</span>
+                <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
+                  <button onClick="{{ ch.go }}">{{ ch.label }}</button>
+                </sc-for>
+              </div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+      <div class="hx-nav">
+        <button onClick="{{ goNetwork }}" title="Network" aria-label="Network"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="3" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="8" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="13" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><line x1="4.2" y1="10.4" x2="6.9" y2="5.7" stroke="currentColor" stroke-width="1.5"></line><line x1="9.5" y1="5.4" x2="11.7" y2="9.6" stroke="currentColor" stroke-width="1.5"></line></svg></button>
+        <button onClick="{{ goStats }}" title="Stats" aria-label="Stats"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" fill="currentColor"></rect><rect x="6.5" y="5" width="3" height="9" fill="currentColor"></rect><rect x="11" y="2" width="3" height="12" fill="currentColor"></rect></svg></button>
+        <button onClick="{{ goAbout }}" title="About" aria-label="About"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"></circle><text x="8" y="11" text-anchor="middle" font-size="8.5" font-family="Helvetica, Arial, sans-serif" font-weight="bold" fill="currentColor">?</text></svg></button>
+      </div>
+      <div class="hx-hint"><i></i>{{ hxHint }}</div>
+      <div class="hx-switch" data-nodrag="1">Home
+        <a href="?home=classic#/" class="{{ hxSw0 }}">Classic</a><a href="?home=a#/" class="{{ hxSwA }}">A</a><a href="?home=b#/" class="{{ hxSwB }}">B</a><a href="?home=c#/" class="{{ hxSwC }}">C</a>
       </div>
     </div>
   </sc-if>
@@ -736,6 +923,7 @@ html,body{height:100%;}
      loaded lazily by app.js (P._loadConstellation) only when the #/network route is first hit,
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
+<script src="home.js?v=1"></script>
 <script src="app.js?v=2"></script>
 </body>
 </html>

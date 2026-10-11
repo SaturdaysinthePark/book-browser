@@ -299,7 +299,7 @@
 
   var BookJumpr = function (props) {
     React.Component.call(this, props);
-    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0 };
+    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false };
     // Data is available synchronously via the vendored global, so build it up front.
     this.buildData(DATA.NODES || {}, DATA.MENTIONS || []);
     this.state.ready = true;
@@ -1080,6 +1080,89 @@
     window.__constellation = this._constellation; // debug / integration hook
   };
 
+  // ---------- interactive home walls (?home=a|b|c; engine in home.js) ----------
+  P._homeVariant = function () {
+    if (this._hv !== undefined) return this._hv;
+    var v = null;
+    try { v = new URLSearchParams(location.search).get('home'); } catch (e) {}
+    this._hvCompare = v != null;                 // any ?home= shows the variant switcher
+    try { this._wallPaper = new URLSearchParams(location.search).get('wall') === 'paper'; } catch (e) {}
+    this._hv = (v === 'a' || v === 'b' || v === 'c') && window.BJHomeWall ? v : null;
+    return this._hv;
+  };
+  // A deep, varied pool for the walls: the same curated selection the classic wall uses
+  // (popular + connected, 80/20 fiction, author/genre caps), randomised per visit.
+  P._hxPool = function () {
+    if (this._hxPoolIds) return this._hxPoolIds;
+    var n = Math.min(720, this._ensureWallPool().length);
+    this._hxPoolIds = this._selectWall(n, null, null, true);
+    return this._hxPoolIds;
+  };
+  // B: order the pool by a depth-first walk of the mention graph, so books sit near the books
+  // they mention / are mentioned by — the 2D wall then has real neighbours to draw arcs to.
+  P._hxSeq = function () {
+    if (this._hxSeqIds) return this._hxSeqIds;
+    var self = this, pool = this._hxPool(), inPool = {}, rank = {}, seen = {}, out = [];
+    pool.forEach(function (id, i) { inPool[id] = 1; rank[id] = i; });
+    pool.forEach(function (start) {
+      var stack = [start];
+      while (stack.length) {
+        var id = stack.pop();
+        if (seen[id]) continue;
+        seen[id] = 1; out.push(id);
+        var b = self.books[id];
+        var nb = b.out.concat(b.in).filter(function (x) { return inPool[x] && !seen[x]; });
+        nb.sort(function (x, y) { return rank[y] - rank[x]; });
+        for (var i = 0; i < nb.length; i++) stack.push(nb[i]);
+      }
+    });
+    this._hxSeqIds = out;
+    return out;
+  };
+  // C: themed shelves. A couple of fixed leaderboards, one "found inside" shelf drawn from a
+  // big name-dropper, and genre shelves — reshuffled (order + source) on every shuffle.
+  P._hxRows = function (seed) {
+    var self = this, all = this.all;
+    var deg = function (b) { return b.in.length + b.out.length; };
+    var top = function (list, key, n) { return list.slice().sort(function (a, b) { return key(b) - key(a) || (a.title < b.title ? -1 : 1); }).slice(0, n).map(function (b) { return b.id; }); };
+    var rnd = function (k) { return self.hash(seed + ':' + k); };
+    var rows = [
+      { label: 'Most name-dropped', ids: top(all, function (b) { return b.in.length; }, 48) },
+      { label: 'The great name-droppers', ids: top(all, function (b) { return b.out.length; }, 48) }
+    ];
+    var sources = all.filter(function (b) { return b.out.length >= 18; }).sort(function (a, b) { return rnd(a.id) - rnd(b.id); });
+    sources.slice(0, 2).forEach(function (src) {
+      rows.push({ label: 'Found inside ' + src.title, ids: src.out.slice().sort(function (a, b) { return deg(self.books[b]) - deg(self.books[a]); }).slice(0, 48) });
+    });
+    var genres = [['Poetry & epics', ['POETRY & EPICS']], ['Philosophy', ['PHILOSOPHY']], ['Drama & plays', ['DRAMA & PLAYS']],
+      ['Sci-fi & fantasy', ['SCI-FI', 'FANTASY']], ['Crime & mystery', ['CRIME & MYSTERY']], ['History', ['HISTORY']],
+      ['Lives & memoirs', ['BIOGRAPHY & MEMOIR']], ['Essays & journalism', ['ESSAYS & JOURNALISM']], ['Adventure & travel', ['ADVENTURE & TRAVEL']]];
+    genres.sort(function (a, b) { return rnd(a[0]) - rnd(b[0]); });
+    genres.forEach(function (g) {
+      var ids = top(all.filter(function (b) { return b.genre && g[1].indexOf(String(b.genre).toUpperCase()) !== -1 && deg(b) > 0; }), deg, 48);
+      if (ids.length >= 12) rows.push({ label: g[0], ids: ids });
+    });
+    // Interleave so neighbouring shelves differ in kind.
+    var lead = rows.slice(0, 4), rest = rows.slice(4), outRows = [];
+    while (lead.length || rest.length) { if (lead.length) outRows.push(lead.shift()); if (rest.length) outRows.push(rest.shift()); }
+    return outRows;
+  };
+  P._mountHomeWall = function () {
+    if (this._hw || !this._hxStageEl || !this._hxRootEl || !window.BJHomeWall) return;
+    var self = this, v = this._homeVariant();
+    if (this.state.hxCompact || this.state.hxEngaged) this.setState({ hxCompact: false, hxEngaged: false });
+    var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._hw = new window.BJHomeWall({
+      root: this._hxStageEl, scope: this._hxRootEl, variant: v, reduced: reduced,
+      pool: this._hxPool(), seq: v === 'b' ? this._hxSeq() : null,
+      rows: v === 'c' ? this._hxRows(this.state.chipSeed || 0) : null,
+      html: function (id) { return self.coverHTML(self.books[id]); },
+      neighbors: function (id) { var b = self.books[id]; return b ? b.out.concat(b.in) : []; },
+      onOpen: function (id, el) { self.goBook(id, el); },
+      onEngage: function () { self.setState({ hxEngaged: true, hxCompact: v !== 'c' }); }
+    });
+  };
+
   P.renderVals = function () {
     var self = this;
     var Pr = this.props;
@@ -1104,17 +1187,18 @@
     // document background AND the iOS Safari chrome tint (theme-color) ink there — otherwise
     // the paper background and paper theme-color show as white bands top & bottom around the
     // floating address bar. Every other page keeps the paper background.
+    var hv = page === 'home' ? this._homeVariant() : null;
     if (typeof document !== 'undefined') {
-      var homeBg = page === 'home' ? '#141414' : '';
+      var homeBg = page === 'home' ? (hv ? (this._wallPaper ? '#e7e0d1' : '#2e2a25') : '#141414') : '';
       document.documentElement.style.background = homeBg;
       if (document.body) document.body.style.background = homeBg;
       var tcMeta = document.querySelector('meta[name="theme-color"]');
-      if (tcMeta) tcMeta.setAttribute('content', page === 'home' ? '#141414' : (warm ? '#f7f5f0' : '#ffffff'));
+      if (tcMeta) tcMeta.setAttribute('content', page === 'home' ? homeBg : (warm ? '#f7f5f0' : '#ffffff'));
     }
 
     var go = function (fn) { return function (e) { if (e && e.preventDefault) e.preventDefault(); fn(); }; };
     var vals = {
-      pgHome: page === 'home', pgBook: page === 'book', pgSearch: page === 'search',
+      pgHome: page === 'home' && !hv, pgHomeX: !!hv, pgBook: page === 'book', pgSearch: page === 'search',
       pgStats: page === 'stats', pgNetwork: page === 'network', pgAbout: page === 'about',
       pgAuthor: page === 'author',
       goHome: go(function () { self.navigate({ page: 'home' }, '#/'); }),
@@ -1133,6 +1217,12 @@
       graphPanel: { border: '1.5px solid var(--ink)', borderRadius: '18px', background: 'var(--card)', padding: '18px 18px 10px', gridColumn: mid && !m ? '1 / -1' : 'auto', maxWidth: mid && !m ? '540px' : 'none' },
       statsCols: { display: 'grid', gridTemplateColumns: vw < 900 ? '1fr' : '1fr 1fr', gap: '44px 56px', alignItems: 'start' },
       shuffleChips: function () {
+        if (hv) {
+          var seedX = (self.state.chipSeed || 0) + 1;
+          if (self._hw) self._hw.shuffle(hv === 'c' ? self._hxRows(seedX) : null);
+          self.setState({ chipSeed: seedX });
+          return;
+        }
         // Reshuffle the wall: keep ~75% of the covers (they glide to new spots via the FLIP in
         // componentDidUpdate) and swap ~25% for fresh books drawn from the SAME curated pool
         // (so eligibility, the 80/20 fiction mix and variety caps still hold), then reorder.
@@ -1326,6 +1416,29 @@
       var picks = pool.slice().sort(function (a, b2) { return self.hash(seed + '~' + a.id) - self.hash(seed + '~' + b2.id); }).slice(0, chipN);
       vals.chips = picks.map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
     } else { vals.wallCovers = []; vals.chips = []; vals.wallStyle = {}; vals.wallFade = {}; }
+    if (hv) {
+      var seedC = this.state.chipSeed || 0, nChips = m ? 2 : hv === 'c' ? 3 : 4, maxC = m ? 16 : 22;
+      var pp = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(Boolean));
+      vals.chips = pp.filter(function (b) { return b.title.length <= maxC; })
+        .sort(function (a, b2) { return self.hash(seedC + '~' + a.id) - self.hash(seedC + '~' + b2.id); }).slice(0, nChips)
+        .map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
+      var st = this.state;
+      vals.hxClass = 'hx hx-' + hv + (this._wallPaper ? ' wall-paper' : '') + (st.hxCompact && hv !== 'c' ? ' is-compact' : '') + (st.hxEngaged ? ' is-engaged' : '') + (st.hxTyping ? ' is-typing' : '');
+      vals.hxIntro = m ? 'The books mentioned inside other books — pick one and jump.'
+        : 'BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one.';
+      vals.hxHint = hv === 'b' ? (m ? 'Drag anywhere' : 'Drag or scroll anywhere') : hv === 'c' ? 'Scroll to spin the shelves' : 'Scroll the shelves';
+      vals.hxExpand = function () { self.setState({ hxCompact: false }); if (self._hw) self._hw.resetEngage(); };
+      vals.onFocusHx = function () { self.setState({ suggestFor: 'home', hxTyping: true, hxCompact: m && hv !== 'c' ? true : self.state.hxCompact }); };
+      vals.onBlurHx = function () { setTimeout(function () { self.setState({ suggestFor: null, hxTyping: false }); }, 120); };
+      vals.hxSw0 = ''; vals.hxSwA = hv === 'a' ? 'on' : ''; vals.hxSwB = hv === 'b' ? 'on' : ''; vals.hxSwC = hv === 'c' ? 'on' : '';
+    }
+    vals.hxCompare = page === 'home' && !hv && !!this._hvCompare;
+    // Stable refs (created once) so React only fires them on real mount/unmount of the home wall.
+    vals.hxRootRef = this._hxRootRefFn || (this._hxRootRefFn = function (el) { self._hxRootEl = el; if (el) self._mountHomeWall(); });
+    vals.hxStageRef = this._hxStageRefFn || (this._hxStageRefFn = function (el) {
+      if (el) { self._hxStageEl = el; self._mountHomeWall(); }
+      else { self._hxStageEl = null; if (self._hw) { self._hw.destroy(); self._hw = null; } }
+    });
 
     // book page
     if (page === 'book') {
