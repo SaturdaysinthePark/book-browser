@@ -1,0 +1,415 @@
+/*
+ * BookJumpr — network "Atlas" (#/network with ?net=v3).
+ *
+ * A calmer whole-network map. Books are grouped into reading neighbourhoods (Louvain regions,
+ * laid out offline by tools/build-atlas.mjs: hubs in the middle of each region, related regions
+ * near each other). At rest the map shows only regions and dots — no lines, no ambient motion,
+ * and labels only where there is room (region names when zoomed out, hub titles as you zoom in).
+ * Hover a book to see its mentions; click to focus it: everything else dims, its connections draw
+ * in (rust = it mentions, blue = mentioned by) and every neighbour is labelled. The panel beside
+ * the map is React (app.js reuses the Explorer's panel).
+ *
+ * Canvas 2D, redrawn only when something changes. window.BJAtlas; app.js mounts it via a ref.
+ */
+(function () {
+  'use strict';
+  var PAL = ['#c4682e', '#2f5590', '#3f7d7d', '#7d4a66', '#8a5a3a', '#2e8156', '#a34a9c', '#8c6d24', '#c33d2e', '#4a3b52'];
+  var OUT = '#9c3d22', IN = '#2f5590', INK = '#141414', PAPER = '#f7f5f0';
+  var SERIF = "'Instrument Serif', Georgia, serif", MONO = "'IBM Plex Mono', monospace";
+  var hexA = function (hex, a) {
+    var n = parseInt(hex.slice(1), 16);
+    return 'rgba(' + (n >> 16) + ',' + ((n >> 8) & 255) + ',' + (n & 255) + ',' + a + ')';
+  };
+
+  function Atlas(o) {
+    this.o = o;
+    this.host = o.root;
+    this.reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var D = o.data;
+    this.regions = D.regions;
+    this.N = D.nodes.length;
+    this.keys = []; this.wx = new Float32Array(this.N); this.wy = new Float32Array(this.N);
+    this.reg = new Int32Array(this.N); this.deg = new Float32Array(this.N);
+    this.idx = {};
+    var ext = 0, i;
+    for (i = 0; i < this.N; i++) {
+      var nd = D.nodes[i];
+      this.keys.push(nd[0]); this.wx[i] = nd[1]; this.wy[i] = nd[2]; this.reg[i] = nd[3]; this.deg[i] = nd[4];
+      this.idx[nd[0]] = i;
+      ext = Math.max(ext, Math.abs(nd[1]) + 10, Math.abs(nd[2]) + 10);
+    }
+    this.extent = ext;
+    // label priority: most connected first
+    this.order = [];
+    for (i = 0; i < this.N; i++) this.order.push(i);
+    var dg = this.deg;
+    this.order.sort(function (a, b) { return dg[b] - dg[a]; });
+    // spatial grid in world units for picking
+    this.cell = 40; this.grid = {};
+    for (i = 0; i < this.N; i++) {
+      var gk = Math.floor(this.wx[i] / this.cell) + ',' + Math.floor(this.wy[i] / this.cell);
+      (this.grid[gk] || (this.grid[gk] = [])).push(i);
+    }
+    this.canvas = document.createElement('canvas');
+    this.canvas.className = 'atlas-canvas';
+    this.host.appendChild(this.canvas);
+    this.ctx = this.canvas.getContext('2d');
+    this.cam = { x: 0, y: 0, k: 1 };
+    this.focus = -1; this.hover = -1; this.nb = null;
+    this._bind();
+    var self = this;
+    this.ro = new ResizeObserver(function () { self._resize(); });
+    this.ro.observe(this.host);
+    this._resize();
+    this.fit(false);
+  }
+  var P = Atlas.prototype;
+
+  // ---- camera ------------------------------------------------------------------------------
+  P._resize = function () {
+    var r = this.host.getBoundingClientRect();
+    this.W = Math.max(1, r.width); this.H = Math.max(1, r.height);
+    this.dpr = Math.min(2, window.devicePixelRatio || 1);
+    this.canvas.width = Math.round(this.W * this.dpr); this.canvas.height = Math.round(this.H * this.dpr);
+    this.canvas.style.width = this.W + 'px'; this.canvas.style.height = this.H + 'px';
+    this.draw();
+  };
+  P.sx = function (x) { return (x - this.cam.x) * this.cam.k + this.W / 2; };
+  P.sy = function (y) { return (y - this.cam.y) * this.cam.k + this.H / 2; };
+  // On phones the panel is a bottom sheet over the map; frame things in the visible area above it.
+  P._inset = function () { return this.o.bottomInset ? Math.min(this.H * 0.6, this.o.bottomInset() || 0) : 0; };
+  P._lookAt = function (x, y, k, anim) {   // put world (x,y) in the middle of the visible area
+    var ins = this._inset();
+    this.flyTo(x, y + (ins / 2) / Math.max(this.minK || 0.05, Math.min(6, k)), k, anim);
+  };
+  P.fit = function (anim) {
+    var ins = this._inset();
+    var k = Math.min(this.W, this.H - ins) * 0.94 / (2 * this.extent);
+    this.minK = k * 0.7;
+    this._lookAt(0, 0, k, anim);
+  };
+  P.flyTo = function (x, y, k, anim) {
+    var self = this;
+    k = Math.max(this.minK || 0.05, Math.min(6, k));
+    cancelAnimationFrame(this._tw);
+    if (anim === false || this.reduced) { this.cam = { x: x, y: y, k: k }; this.draw(); return; }
+    var from = { x: this.cam.x, y: this.cam.y, k: this.cam.k }, t0 = performance.now(), dur = 560;
+    var step = function (t) {
+      var p = Math.min(1, (t - t0) / dur), e = 1 - Math.pow(1 - p, 3);
+      // zoom interpolated in log space so it doesn't lurch
+      self.cam = { x: from.x + (x - from.x) * e, y: from.y + (y - from.y) * e, k: Math.exp(Math.log(from.k) + (Math.log(k) - Math.log(from.k)) * e) };
+      self.draw();
+      if (p < 1) self._tw = requestAnimationFrame(step);
+    };
+    this._tw = requestAnimationFrame(step);
+  };
+  P.zoomBy = function (f, mx, my) {
+    if (mx == null) { mx = this.W / 2; my = this.H / 2; }
+    var wx = (mx - this.W / 2) / this.cam.k + this.cam.x, wy = (my - this.H / 2) / this.cam.k + this.cam.y;
+    var k = Math.max(this.minK || 0.05, Math.min(6, this.cam.k * f));
+    this.cam = { k: k, x: wx - (mx - this.W / 2) / k, y: wy - (my - this.H / 2) / k };
+    this.draw();
+  };
+  // Frame a set of nodes, leaving room for the panel on the right (desktop).
+  P.frame = function (ids, anim) {
+    var minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
+    for (var j = 0; j < ids.length; j++) {
+      var i = ids[j];
+      minX = Math.min(minX, this.wx[i]); maxX = Math.max(maxX, this.wx[i]); minY = Math.min(minY, this.wy[i]); maxY = Math.max(maxY, this.wy[i]);
+    }
+    var narrow = this.W < 640, padX = narrow ? 40 : 120, padY = narrow ? 50 : 90, ins = this._inset();
+    var k = Math.min((this.W - padX * 2) / Math.max(80, maxX - minX), (this.H - ins - padY * 2) / Math.max(80, maxY - minY));
+    k = Math.min(k, 2.4);
+    this._lookAt((minX + maxX) / 2, (minY + maxY) / 2, k, anim);
+  };
+  P.flyToRegion = function (ri) {
+    var r = this.regions[ri];
+    if (!r) return;
+    this._lookAt(r.x, r.y, Math.min(this.W, this.H - this._inset()) * 0.42 / r.r);
+  };
+
+  // ---- focus / hover ---------------------------------------------------------------------
+  P.setFocus = function (key, anim) {
+    var i = key != null && this.idx[key] != null ? this.idx[key] : -1;
+    this.focus = i;
+    this.nb = null;
+    if (i >= 0) {
+      var n = this.o.neighbors(key), self = this, set = {}, ids = [i];
+      n.out.forEach(function (k) { var j = self.idx[k]; if (j != null) { set[j] = set[j] ? 'both' : 'out'; } });
+      n.in.forEach(function (k) { var j = self.idx[k]; if (j != null) { set[j] = set[j] === 'out' ? 'both' : 'in'; } });
+      for (var j in set) ids.push(+j);
+      this.nb = set;
+      this.t0 = performance.now();
+      this.frame(ids, anim);
+      this._animateIn();
+    }
+    this.draw();
+  };
+  P._animateIn = function () {
+    if (this.reduced) return;
+    var self = this;
+    cancelAnimationFrame(this._ai);
+    var step = function () { self.draw(); if (performance.now() - self.t0 < 700) self._ai = requestAnimationFrame(step); };
+    this._ai = requestAnimationFrame(step);
+  };
+
+  P.pick = function (mx, my, tol) {
+    var wx = (mx - this.W / 2) / this.cam.k + this.cam.x, wy = (my - this.H / 2) / this.cam.k + this.cam.y;
+    var rad = (tol + 9) / this.cam.k, c = this.cell, best = -1, bd = 1e9;
+    for (var gx = Math.floor((wx - rad) / c); gx <= Math.floor((wx + rad) / c); gx++) {
+      for (var gy = Math.floor((wy - rad) / c); gy <= Math.floor((wy + rad) / c); gy++) {
+        var list = this.grid[gx + ',' + gy];
+        if (!list) continue;
+        for (var j = 0; j < list.length; j++) {
+          var i = list[j], d = Math.hypot(this.wx[i] - wx, this.wy[i] - wy) * this.cam.k;
+          if (d < this._r(i) + tol && d < bd) { bd = d; best = i; }
+        }
+      }
+    }
+    return best;
+  };
+  P.regionAt = function (mx, my) {
+    var wx = (mx - this.W / 2) / this.cam.k + this.cam.x, wy = (my - this.H / 2) / this.cam.k + this.cam.y;
+    for (var r = 0; r < this.regions.length; r++) {
+      var R = this.regions[r];
+      if (Math.hypot(R.x - wx, R.y - wy) < R.r) return r;
+    }
+    return -1;
+  };
+
+  // dot radius: grows gently with connections and with zoom
+  P._r = function (i) {
+    var z = Math.sqrt(Math.max(0.15, this.cam.k));
+    return Math.max(1.3, Math.min(11, (0.9 + Math.sqrt(this.deg[i]) * 0.55) * z * 1.6));
+  };
+
+  // ---- drawing ---------------------------------------------------------------------------
+  P.draw = function () {
+    var self = this;
+    if (this._raf) return;
+    this._raf = requestAnimationFrame(function () { self._raf = 0; self._draw(); });
+  };
+  P._draw = function () {
+    var c = this.ctx, W = this.W, H = this.H, k = this.cam.k;
+    c.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
+    c.fillStyle = PAPER; c.fillRect(0, 0, W, H);
+    var focus = this.focus, nb = this.nb, hover = this.hover;
+    var ip = focus >= 0 && !this.reduced ? Math.min(1, (performance.now() - (this.t0 || 0)) / 600) : 1;
+    var ease = 1 - Math.pow(1 - ip, 3);
+    var placed = [];
+    var tryPlace = function (x, y, w, h) {
+      for (var q = 0; q < placed.length; q++) { var p = placed[q]; if (x < p[0] + p[2] && x + w > p[0] && y < p[1] + p[3] && y + h > p[1]) return false; }
+      placed.push([x, y, w, h]); return true;
+    };
+    var r, R, sx, sy, sr, i;
+
+    // regions
+    for (r = 0; r < this.regions.length; r++) {
+      R = this.regions[r]; sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k;
+      if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
+      var col = R.name ? PAL[r % PAL.length] : '#8a8474';
+      c.globalAlpha = focus >= 0 ? 0.35 : 1;
+      c.beginPath(); c.arc(sx, sy, sr, 0, 6.2832);
+      c.fillStyle = hexA(col, R.name ? 0.07 : 0.03); c.fill();
+      c.setLineDash([3, 5]); c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.14)'; c.stroke(); c.setLineDash([]);
+    }
+    c.globalAlpha = 1;
+
+    // dots
+    for (i = 0; i < this.N; i++) {
+      sx = this.sx(this.wx[i]); sy = this.sy(this.wy[i]);
+      if (sx < -12 || sx > W + 12 || sy < -12 || sy > H + 12) continue;
+      R = this.regions[this.reg[i]];
+      var rad = this._r(i), on = focus < 0 || i === focus || (nb && nb[i]);
+      c.globalAlpha = on ? 1 : 0.13;
+      c.beginPath(); c.arc(sx, sy, rad, 0, 6.2832);
+      c.fillStyle = R.name ? hexA(PAL[this.reg[i] % PAL.length], 0.8) : 'rgba(110,104,92,0.6)';
+      c.fill();
+      if (rad > 3.2) { c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.55)'; c.stroke(); }
+    }
+    c.globalAlpha = 1;
+
+    // connections of the hovered (unfocused) book or the focused book
+    var hub = focus >= 0 ? focus : hover;
+    var edgesOf = hub >= 0 ? (focus >= 0 ? nb : this._nbOf(hover)) : null;
+    if (edgesOf) {
+      var hx = this.sx(this.wx[hub]), hy = this.sy(this.wy[hub]);
+      for (var js in edgesOf) {
+        var j = +js, kind = edgesOf[js];
+        var tx = this.sx(this.wx[j]), ty = this.sy(this.wy[j]);
+        var mx = (hx + tx) / 2, my = (hy + ty) / 2, dx = tx - hx, dy = ty - hy;
+        var cx2 = mx - dy * 0.18, cy2 = my + dx * 0.18;
+        var hot = j === hover && focus >= 0;
+        c.strokeStyle = kind === 'out' ? OUT : kind === 'in' ? IN : INK;
+        c.globalAlpha = focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.25 : 0.75) : 0.45;
+        c.lineWidth = hot ? 2.6 : focus >= 0 ? 1.4 : 1;
+        c.beginPath(); c.moveTo(hx, hy);
+        // draw-in: grow along the curve during the focus reveal
+        var steps = 18, upto = Math.max(1, Math.round(steps * ease));
+        for (var s = 1; s <= upto; s++) {
+          var t = s / steps, a1 = 1 - t;
+          c.lineTo(a1 * a1 * hx + 2 * a1 * t * cx2 + t * t * tx, a1 * a1 * hy + 2 * a1 * t * cy2 + t * t * ty);
+        }
+        c.stroke();
+      }
+      c.globalAlpha = 1;
+    }
+
+    // focus ring + hover ring
+    if (focus >= 0) this._ring(focus, INK, 3.5);
+    if (hover >= 0 && hover !== focus) this._ring(hover, INK, 2.5);
+
+    // labels: focused book, its neighbours (by connections), then hubs/regions with whatever room is left
+    c.textBaseline = 'alphabetic';
+    var labelNode = function (self2, i2, size, weight, color, bg) {
+      var tl = self2.o.title(self2.keys[i2]); if (!tl) return;
+      if (tl.length > 34) tl = tl.slice(0, 32) + '…';
+      c.font = 'italic ' + weight + ' ' + size + 'px ' + SERIF;
+      var tw = c.measureText(tl).width, x0 = self2.sx(self2.wx[i2]), y0 = self2.sy(self2.wy[i2]) - self2._r(i2) - 5;
+      if (x0 < -40 || x0 > W + 40 || y0 < -10 || y0 > H + 20) return;
+      if (!tryPlace(x0 - tw / 2 - 4, y0 - size, tw + 8, size + 5)) return;
+      c.fillStyle = bg; c.fillRect(x0 - tw / 2 - 3, y0 - size + 1, tw + 6, size + 3);
+      c.fillStyle = color; c.textAlign = 'center'; c.fillText(tl, x0, y0);
+    };
+    if (focus >= 0) {
+      labelNode(this, focus, 19, 700, INK, 'rgba(247,245,240,0.92)');
+      if (ip > 0.6) {
+        var list = [];
+        for (var q in nb) list.push(+q);
+        var dg = this.deg;
+        list.sort(function (a, b) { return (b === hover) - (a === hover) || dg[b] - dg[a]; });
+        for (var li = 0; li < list.length; li++) {
+          var kk = nb[list[li]];
+          labelNode(this, list[li], list[li] === hover ? 15 : 12.5, 600, kk === 'out' ? OUT : kk === 'in' ? IN : INK, 'rgba(247,245,240,0.88)');
+        }
+      }
+    } else if (hover >= 0) {
+      labelNode(this, hover, 16, 700, INK, 'rgba(247,245,240,0.92)');
+    }
+    // region names (zoomed out) — big regions first
+    c.textAlign = 'center';
+    for (r = 0; r < this.regions.length; r++) {
+      R = this.regions[r];
+      if (!R.name) continue;
+      sr = R.r * k;
+      if (sr < 34 || (focus >= 0)) continue;
+      sx = this.sx(R.x); sy = this.sy(R.y) - sr - 6;
+      if (sx < -100 || sx > W + 100 || sy < 0 || sy > H + 20) continue;
+      var fs = Math.max(13, Math.min(22, sr / 7));
+      c.font = fs + 'px ' + SERIF;
+      var nm = R.name.replace(/^Around /, ''), tw2 = c.measureText(nm).width;   // the panel keeps "Around …"; the map just names the hub
+      if (!tryPlace(sx - tw2 / 2 - 4, sy - fs, tw2 + 8, fs + 6)) continue;
+      c.fillStyle = 'rgba(247,245,240,0.85)'; c.fillRect(sx - tw2 / 2 - 4, sy - fs + 1, tw2 + 8, fs + 4);
+      c.fillStyle = INK; c.fillText(nm, sx, sy);
+      if (sr > 120) {
+        c.font = '10px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.55)';
+        var au = (R.authors || []).join(' · '); var aw = c.measureText(au).width;
+        if (au && tryPlace(sx - aw / 2, sy + 4, aw, 12)) c.fillText(au, sx, sy + 14);
+      }
+    }
+    // hub titles once zoomed in enough to read them
+    if (focus < 0 && k > 0.55) {
+      var budget = k > 1.6 ? 120 : k > 1 ? 60 : 24, shown = 0;
+      for (var oi = 0; oi < this.order.length && shown < budget; oi++) {
+        var ni = this.order[oi];
+        if (this.deg[ni] < 3 && k < 1.6) break;
+        var before = placed.length;
+        labelNode(this, ni, k > 1.6 ? 13 : 12, 600, 'rgba(20,20,20,0.82)', 'rgba(247,245,240,0.85)');
+        if (placed.length > before) shown++;
+      }
+    }
+  };
+  P._ring = function (i, col, pad) {
+    var c = this.ctx;
+    c.beginPath(); c.arc(this.sx(this.wx[i]), this.sy(this.wy[i]), this._r(i) + pad, 0, 6.2832);
+    c.lineWidth = 1.8; c.strokeStyle = col; c.globalAlpha = 1; c.stroke();
+  };
+  P._nbOf = function (i) {
+    if (this._nbCache && this._nbCache.i === i) return this._nbCache.set;
+    var n = this.o.neighbors(this.keys[i]), self = this, set = {};
+    n.out.forEach(function (k) { var j = self.idx[k]; if (j != null) set[j] = set[j] ? 'both' : 'out'; });
+    n.in.forEach(function (k) { var j = self.idx[k]; if (j != null) set[j] = set[j] === 'out' ? 'both' : 'in'; });
+    this._nbCache = { i: i, set: set };
+    return set;
+  };
+
+  // ---- input -----------------------------------------------------------------------------
+  P._bind = function () {
+    var self = this, cv = this.canvas, pts = {}, down = null;
+    cv.style.touchAction = 'none';
+    var local = function (e) { var r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
+    this._onWheel = function (e) {
+      e.preventDefault();
+      var p = local(e);
+      self.zoomBy(Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0018)), p[0], p[1]);
+    };
+    this._onDown = function (e) {
+      cv.setPointerCapture(e.pointerId);
+      pts[e.pointerId] = local(e);
+      var ids = Object.keys(pts);
+      if (ids.length === 1) down = { p: local(e), cam: { x: self.cam.x, y: self.cam.y }, t: performance.now(), moved: false, touch: e.pointerType !== 'mouse' };
+      else { down = null; self._pinch = { d: self._pd(pts), k: self.cam.k }; }
+    };
+    this._onMove = function (e) {
+      var p = local(e);
+      if (pts[e.pointerId]) pts[e.pointerId] = p;
+      var ids = Object.keys(pts);
+      if (ids.length >= 2 && self._pinch) {
+        var a = pts[ids[0]], b = pts[ids[1]];
+        self.zoomBy(self._pinch.k * self._pd(pts) / self._pinch.d / self.cam.k, (a[0] + b[0]) / 2, (a[1] + b[1]) / 2);
+        return;
+      }
+      if (down) {
+        var dx = p[0] - down.p[0], dy = p[1] - down.p[1];
+        if (Math.abs(dx) + Math.abs(dy) > 5) down.moved = true;
+        if (down.moved) { self.cam.x = down.cam.x - dx / self.cam.k; self.cam.y = down.cam.y - dy / self.cam.k; self.host.setAttribute('data-drag', '1'); self.draw(); }
+        return;
+      }
+      if (e.pointerType === 'mouse') {
+        var hv = self.pick(p[0], p[1], 4);
+        if (hv !== self.hover) {
+          self.hover = hv; cv.style.cursor = hv >= 0 ? 'pointer' : 'grab';
+          if (self.o.onHover) self.o.onHover(hv >= 0 ? self.keys[hv] : null);
+          self.draw();
+        }
+      }
+    };
+    this._onUp = function (e) {
+      delete pts[e.pointerId];
+      if (Object.keys(pts).length < 2) self._pinch = null;
+      self.host.removeAttribute('data-drag');
+      if (!down) return;
+      var d = down; down = null;
+      if (d.moved || performance.now() - d.t > 600) return;
+      var p = local(e), ri = self.regionAt(p[0], p[1]);
+      // Overview: while a neighbourhood is still small on screen, a click inside it zooms into it —
+      // only a direct hit on a dot (no slop) selects a book. Zoomed in, normal forgiving picking.
+      var small = ri >= 0 && self.focus < 0 && self.regions[ri].r * self.cam.k < Math.min(self.W, self.H) * 0.3;
+      var hit = self.pick(p[0], p[1], small ? 0 : d.touch ? 16 : 5);
+      if (hit >= 0) { self.o.onFocus(self.keys[hit]); return; }
+      if (self.focus >= 0) { self.o.onFocus(null); return; }   // empty space steps back out of a focus
+      if (small) self.flyToRegion(ri);
+    };
+    this._onLeave = function () { if (self.hover >= 0) { self.hover = -1; if (self.o.onHover) self.o.onHover(null); self.draw(); } };
+    this._onKey = function (e) {
+      if (e.key === 'Escape' && self.focus >= 0) self.o.onFocus(null);
+    };
+    cv.addEventListener('wheel', this._onWheel, { passive: false });
+    cv.addEventListener('pointerdown', this._onDown);
+    cv.addEventListener('pointermove', this._onMove);
+    cv.addEventListener('pointerup', this._onUp);
+    cv.addEventListener('pointercancel', this._onUp);
+    cv.addEventListener('pointerleave', this._onLeave);
+    window.addEventListener('keydown', this._onKey);
+  };
+  P._pd = function (pts) { var ids = Object.keys(pts), a = pts[ids[0]], b = pts[ids[1]]; return Math.hypot(a[0] - b[0], a[1] - b[1]) || 1; };
+
+  P.destroy = function () {
+    cancelAnimationFrame(this._raf); cancelAnimationFrame(this._tw); cancelAnimationFrame(this._ai);
+    if (this.ro) this.ro.disconnect();
+    window.removeEventListener('keydown', this._onKey);
+    this.host.textContent = '';
+  };
+
+  window.BJAtlas = Atlas;
+})();

@@ -15,7 +15,8 @@
     "bj:detect": "node --no-warnings tools/detect.mjs",
     "serve": "python3 -m http.server 8917",
     "admin": "node --experimental-sqlite --no-warnings tools/admin-server.mjs",
-    "bj:regions": "node --no-warnings tools/build-regions.mjs"
+    "bj:regions": "node --no-warnings tools/build-regions.mjs",
+    "bj:atlas": "node --no-warnings tools/build-atlas.mjs"
   },
   "engines": {
     "node": ">=22.5"

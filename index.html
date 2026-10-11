@@ -517,6 +517,50 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .net-switch a{color:#f2ecdd;text-decoration:none;padding:5px 9px;border-radius:999px;}
 .net-switch a.on{background:#f2ecdd;color:var(--ink);}
 
+/* ---------- Network Atlas (?net=v3; atlas.js) — calm grouped map + the Explorer's panel ---------- */
+.atlas{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 400px;height:calc(100dvh - var(--hdr-h));min-height:0;overflow:hidden;}
+.atlas-map{position:relative;min-width:0;height:100%;cursor:grab;}
+.atlas-map[data-drag]{cursor:grabbing;}
+.atlas-canvas{position:absolute;inset:0;display:block;}
+.atlas-panel{min-height:0;height:100%;}
+.atlas-panel .bjx-side{position:relative;top:auto;height:100%;min-height:0;max-height:none;}
+.atlas-bar{position:absolute;top:14px;left:14px;z-index:5;display:flex;gap:10px;align-items:flex-start;max-width:calc(100% - 428px);}
+.atlas-q{position:relative;width:min(340px,60vw);}
+.atlas-input{width:100%;box-sizing:border-box;height:44px;border:1.5px solid var(--ink);border-radius:999px;padding:0 18px;font-size:15px;background:var(--card);color:var(--ink);font-family:inherit;box-shadow:0 3px 0 rgba(20,20,20,.9);}
+.atlas-sg{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--card);border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;z-index:30;box-shadow:0 18px 40px rgba(20,20,20,.18);}
+.atlas-zoom{display:flex;border:1.5px solid var(--ink);border-radius:999px;background:var(--card);box-shadow:0 3px 0 rgba(20,20,20,.9);overflow:hidden;}
+.atlas-zoom button{height:41px;min-width:40px;border:none;background:none;font-family:'IBM Plex Mono',monospace;font-size:16px;cursor:pointer;color:var(--ink);padding:0 10px;}
+.atlas-zoom button+button{border-left:1px solid rgba(20,20,20,.15);}
+.atlas-zoom .fit{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;}
+.atlas-zoom button:hover{background:var(--ink);color:var(--paper);}
+.atlas-legend{position:absolute;right:414px;bottom:14px;z-index:5;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;max-width:calc(100% - 428px);
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(20,20,20,.65);background:rgba(247,245,240,.92);border:1px solid rgba(20,20,20,.12);border-radius:12px;padding:7px 12px;}
+.atlas-legend span{display:inline-flex;align-items:center;gap:7px;}
+.atlas-legend .blob{display:inline-block;width:14px;height:14px;border-radius:50%;background:rgba(196,104,46,.12);border:1px dashed rgba(20,20,20,.3);}
+.atlas-legend .ln{display:inline-block;width:20px;height:2px;}
+.atlas-legend .ln.out{background:#9c3d22;}.atlas-legend .ln.in{background:#2f5590;}
+.atlas-legend .hint{color:var(--mut);}
+.atlas-intro h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.1;margin:0;text-wrap:balance;}
+.atlas-regs{display:flex;flex-direction:column;}
+.atlas-regs button{display:flex;align-items:center;gap:10px;padding:9px 2px;border:none;border-bottom:1px solid rgba(20,20,20,.1);background:none;cursor:pointer;text-align:left;color:var(--ink);font-family:inherit;}
+.atlas-regs button:hover .nm{color:var(--accent);}
+.atlas-regs .sw{flex:none;width:12px;height:12px;border-radius:50%;opacity:.75;}
+.atlas-regs .nm{flex:1;min-width:0;font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.atlas-regs .sz{flex:none;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);}
+@media (max-width:999px){
+  .atlas{grid-template-columns:minmax(0,1fr);}
+  .atlas-bar,.atlas-legend{max-width:calc(100% - 28px);}
+  .atlas-panel{position:absolute;left:0;right:0;bottom:0;height:auto;max-height:46%;z-index:8;overflow:auto;border-top:1.5px solid var(--ink);border-radius:18px 18px 0 0;background:var(--card);box-shadow:0 -10px 30px rgba(20,20,20,.12);}
+  .atlas-panel:not(.has-focus){max-height:30%;}
+  .atlas-panel .bjx-side{height:auto;border:none;padding:16px 16px 28px;}
+  .atlas-legend{bottom:auto;top:66px;right:auto;left:14px;}
+  .atlas-legend .hint{display:none;}
+}
+@media (max-width:639px){
+  .atlas-q{width:calc(100vw - 196px);}
+  .atlas-intro h2{font-size:22px;}
+}
+
 ::view-transition-group(bjx-c),::view-transition-group(bjx-p){animation-duration:.5s;animation-timing-function:var(--ease-out);z-index:60;}
 
 @media (max-width:999px){
@@ -1075,9 +1119,15 @@ html,body{height:100%;}
   <sc-if value="{{ pgExplorer }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Network explorer" class="bjx">{{ explorer }}</div>
   </sc-if>
+  <sc-if value="{{ pgAtlas }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Network atlas" class="atlas bjx">
+      <div class="atlas-map" ref="{{ atlasHostRef }}"></div>
+      {{ atlasUi }}
+    </div>
+  </sc-if>
   <sc-if value="{{ netCompare }}" hint-placeholder-val="{{ false }}">
     <div class="net-switch">Network
-      <a href="{{ netSwMap }}" class="{{ netSwMapCls }}">Map</a><a href="{{ netSwX }}" class="{{ netSwXCls }}">Explorer</a>
+      <a href="{{ netSwMap }}" class="{{ netSwMapCls }}">Map</a><a href="{{ netSwX }}" class="{{ netSwXCls }}">Explorer</a><a href="{{ netSwA }}" class="{{ netSwACls }}">Atlas</a>
     </div>
   </sc-if>
   <sc-if value="{{ pgNetMap }}" hint-placeholder-val="{{ false }}">

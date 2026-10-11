@@ -382,6 +382,12 @@
     // Network deep link (#/network/<book>): focus that book once the engine is up.
     var cst = this._constellation, fk = this.state.route.page === 'network' && this.state.route.focus;
     if (cst && fk && this._cstFocused !== fk && cst.focusKey) { this._cstFocused = fk; cst.focusKey(fk); }
+    // Atlas: keep the map's focus in step with the route (search, path chips, back button).
+    var at = this._atlas;
+    if (at && this.state.route.page === 'network') {
+      var af = this.state.route.focus || null, cur = at.focus >= 0 ? at.keys[at.focus] : null;
+      if (af !== cur) at.setFocus(af);
+    }
     if (!snapshot) return;
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var self = this;
@@ -1308,14 +1314,52 @@
   };
 
   // ---------- network variants: the constellation map (default) or the Explorer (?net=v2) ----------
-  P._netExplorer = function () {
+  // 'map' (default) · 'explorer' (?net=v2) · 'atlas' (?net=v3)
+  P._netMode = function () {
     if (this._netV === undefined) {
       var v = null;
       try { v = new URLSearchParams(location.search).get('net'); } catch (e) {}
       this._netCompare = v != null && v !== '';
-      this._netV = v === 'v2' || v === 'explorer';
+      this._netV = v === 'v2' || v === 'explorer' ? 'explorer' : v === 'v3' || v === 'atlas' ? 'atlas' : 'map';
     }
     return this._netV;
+  };
+  P._netExplorer = function () { return this._netMode() === 'explorer'; };
+  P._loadAtlas = function () {
+    if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
+    this._aLoading = true;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=1', 'explorer.js?v=1'], left = srcs.length;
+    var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
+    srcs.forEach(function (src) {
+      var sc = document.createElement('script');
+      sc.src = src; sc.onload = done; sc.onerror = done;
+      document.body.appendChild(sc);
+    });
+  };
+  P._mountAtlas = function () {
+    if (this._atlas || !this._atlasEl || !window.BJAtlas || !window.BookJumprAtlas) return;
+    var self = this;
+    this._atlas = new window.BJAtlas({
+      root: this._atlasEl, data: window.BookJumprAtlas,
+      title: function (k) { var b = self.books[k]; return b ? b.title : ''; },
+      neighbors: function (k) { var b = self.books[k]; return b ? { out: b.out, in: b.in } : { out: [], in: [] }; },
+      onFocus: function (k) { self.mapFocus(k); },
+      bottomInset: function () { var el = window.innerWidth < 1000 && document.querySelector('.atlas-panel'); return el ? el.getBoundingClientRect().height : 0; },
+      onHover: function (k) { if (self.state.xHover !== k) self.setState({ xHover: k }); }
+    });
+    window.__atlas = this._atlas;
+    var f = this.state.route.focus;
+    if (f) this._atlas.setFocus(f, false);
+  };
+  // Atlas focus changes update the URL and panel without a page cross-fade (the map stays put).
+  P.mapFocus = function (id) {
+    var route = id ? { page: 'network', focus: id } : { page: 'network' };
+    this._pushTrail(route);
+    this.setState({ route: route, xHover: null, xPathOpen: false, xPathTo: null, xPathQ: '' });
+    this._silent = true;
+    location.hash = id ? '#/network/' + id : '#/network';
+    var self = this;
+    setTimeout(function () { self._silent = false; }, 0);
   };
   P._loadExplorer = function () {
     if ((window.__BJ && window.__BJ.explorerReady) || this._xLoading) return;
@@ -1414,6 +1458,49 @@
     });
   };
 
+  // Atlas overlay: toolbar (search, zoom, fit), legend, and the side panel — the Explorer's panel
+  // for a focused book, otherwise a short intro with the biggest neighbourhoods.
+  P.atlasUi = function (focus) {
+    var self = this, st = this.state, b = focus && this.books[focus], at = this._atlas;
+    var q = st.aQ || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
+    var pick = function (id) { self.setState({ aQ: '' }); self.mapFocus(id); };
+    var bar = h('div', { key: 'bar', className: 'atlas-bar' },
+      h('div', { className: 'atlas-q' },
+        h('input', { className: 'atlas-input', placeholder: 'Find a book on the map…', value: q, 'aria-label': 'Find a book',
+          onChange: function (e) { self.setState({ aQ: e.target.value }); },
+          onKeyDown: function (e) { if (e.key === 'Enter' && sugg[0]) pick(sugg[0].id); if (e.key === 'Escape') self.setState({ aQ: '' }); } }),
+        sugg.length ? h('div', { className: 'sg-pop atlas-sg' }, sugg.map(function (m) {
+          return h('button', { key: m.id, onMouseDown: function (e) { e.preventDefault(); pick(m.id); } },
+            h('span', { className: 'sg-cv' }, self.cover(m)), h('span', { className: 'sg-t' }, h('span', { className: 't' }, m.title), h('span', { className: 'a' }, m.author || '')),
+            h('span', { className: 's' }, self.subFor(m)));
+        })) : null),
+      h('div', { className: 'atlas-zoom' },
+        h('button', { onClick: function () { if (self._atlas) self._atlas.zoomBy(1 / 1.4); }, 'aria-label': 'Zoom out' }, '−'),
+        h('button', { onClick: function () { if (self._atlas) self._atlas.zoomBy(1.4); }, 'aria-label': 'Zoom in' }, '+'),
+        h('button', { className: 'fit', onClick: function () { if (self._atlas) self._atlas.fit(true); } }, 'Fit')));
+    var legend = h('div', { key: 'lg', className: 'atlas-legend' },
+      h('span', null, h('i', { className: 'blob' }), 'neighbourhood'),
+      h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln in' }), 'mentioned by'),
+      h('span', { className: 'hint' }, b ? 'Esc or click empty space to step back' : 'Click a neighbourhood to zoom, a book to see its links'));
+    var panel;
+    if (b && this.explorerPanel) panel = this.explorerPanel(b);
+    else {
+      var regs = ((window.BookJumprAtlas && window.BookJumprAtlas.regions) || []).map(function (r, i) { return { r: r, i: i }; })
+        .filter(function (x) { return x.r.name && self._homeOk(x.r.hub); }).slice(0, 12);
+      panel = h('aside', { className: 'bjx-side atlas-intro' },
+        h('div', { className: 'eyebrow' }, 'Network · Atlas'),
+        h('h2', null, 'Every book on one map, grouped by the books they keep mentioning.'),
+        h('p', { className: 'bjx-syn' }, 'Each tinted circle is a reading neighbourhood; its most-connected books sit in the middle. Lines only appear for the book you point at.'),
+        h('div', { className: 'eyebrow' }, 'Biggest neighbourhoods'),
+        h('div', { className: 'atlas-regs' }, regs.map(function (x) {
+          return h('button', { key: x.i, onClick: function () { if (self._atlas) self._atlas.flyToRegion(x.i); } },
+            h('span', { className: 'sw', style: { background: ['#c4682e', '#2f5590', '#3f7d7d', '#7d4a66', '#8a5a3a', '#2e8156', '#a34a9c', '#8c6d24', '#c33d2e', '#4a3b52'][x.i % 10] } }),
+            h('span', { className: 'nm' }, x.r.name), h('span', { className: 'sz' }, x.r.size));
+        })));
+    }
+    return [bar, legend, h('div', { key: 'pn', className: 'atlas-panel' + (b ? ' has-focus' : '') }, panel)];
+  };
+
   P.renderVals = function () {
     var self = this;
     var Pr = this.props;
@@ -1451,7 +1538,8 @@
     var vals = {
       pgHome: page === 'home' && !hv, pgHomeX: !!hv, pgBook: page === 'book', pgSearch: page === 'search',
       pgStats: page === 'stats', pgNetwork: page === 'network', pgAbout: page === 'about',
-      pgNetMap: page === 'network' && !this._netExplorer(), pgExplorer: page === 'network' && this._netExplorer(),
+      pgNetMap: page === 'network' && this._netMode() === 'map', pgExplorer: page === 'network' && this._netMode() === 'explorer',
+      pgAtlas: page === 'network' && this._netMode() === 'atlas',
       pgAuthor: page === 'author',
       goHome: go(function () { self.navigate({ page: 'home' }, '#/'); }),
       goStats: go(function () { self.navigate({ page: 'stats' }, '#/stats'); }),
@@ -1837,6 +1925,17 @@
     var nf = route.focus ? '/' + route.focus : '';
     vals.netSwMap = '?net=map#/network' + nf; vals.netSwX = '?net=v2#/network' + nf;
     vals.netSwMapCls = vals.pgNetMap ? 'on' : ''; vals.netSwXCls = vals.pgExplorer ? 'on' : '';
+    vals.netSwA = '?net=v3#/network' + nf; vals.netSwACls = vals.pgAtlas ? 'on' : '';
+    vals.atlasHostRef = this._atlasRefFn || (this._atlasRefFn = function (el) {
+      if (el) { self._atlasEl = el; self._mountAtlas(); }
+      else { self._atlasEl = null; if (self._atlas) { self._atlas.destroy(); self._atlas = null; window.__atlas = null; } }
+    });
+    if (vals.pgAtlas) {
+      this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
+      this._loadNotes();
+      this._loadAtlas();
+      vals.atlasUi = this.atlasUi(route.focus);
+    } else vals.atlasUi = null;
     if (vals.pgExplorer) {
       this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       this._loadNotes();

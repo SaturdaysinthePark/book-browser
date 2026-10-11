@@ -24,6 +24,7 @@
   // came from (now a neighbour in the new fan) receives "bjx-p", so it slides into its new spot.
   P.xJump = function (id, fromEl) {
     if (!id || !this.books[id]) return;
+    if (this._netMode && this._netMode() === 'atlas') { this.mapFocus(id); return; }   // the Atlas moves its camera instead
     var self = this, prev = this.state.route.page === 'network' ? this.state.route.focus : null;
     if (prev === id) return;
     var cur = document.querySelector('.bjx-center');
@@ -133,7 +134,7 @@
     kids.push(h('div', { key: 'head', className: 'bjx-head' },
       h('div', { className: 'bjx-hcv' }, this.cover(b)),
       h('div', { className: 'bjx-hmeta' },
-        h('div', { className: 'eyebrow' }, 'In the middle'),
+        h('div', { className: 'eyebrow' }, this._netMode && this._netMode() === 'atlas' ? 'Selected book' : 'In the middle'),
         h('h2', null, b.title),
         h('div', { className: 'by' }, [b.author, yl].filter(Boolean).join('  ·  ')),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + b.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + b.in.length))));
