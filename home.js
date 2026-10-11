@@ -35,6 +35,44 @@
   };
   var SVGNS = 'http://www.w3.org/2000/svg';
 
+  // Backdrop doodles: one hand-drawn 520px tile (jump arcs with a little book, stars, open books,
+  // quote marks, spirals, arrows, an ex-libris stamp…) repeated behind the covers on its own
+  // parallax layer above a graph-paper grid. Built once per ink colour as an SVG data URI.
+  var DOODLE_W = 520, DOODLE_SZ = 420;   // drawn at 520, painted at 420 (denser)
+  var doodleTile = function (ink, accent) {
+    var st = 'fill="none" stroke="' + ink + '" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"';
+    var ac = 'fill="none" stroke="' + accent + '" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"';
+    var book = function (x, y, r) {   // the logo's little book, tilted
+      return '<g transform="translate(' + x + ' ' + y + ') rotate(' + r + ')"><rect x="-5" y="-7" width="10" height="14" ' + st + '/><path d="M-2.4 -7 V7" ' + st + '/></g>';
+    };
+    var star = function (x, y, s) {
+      return '<path transform="translate(' + x + ' ' + y + ') scale(' + s + ')" d="M0 -9 C1 -3 3 -1 9 0 C3 1 1 3 0 9 C-1 3 -3 1 -9 0 C-3 -1 -1 -3 0 -9 Z" ' + st + '/>';
+    };
+    var openBook = function (x, y, r) {
+      return '<g transform="translate(' + x + ' ' + y + ') rotate(' + r + ')"><path d="M0 -6 C-5 -10 -13 -10 -18 -8 V9 C-13 7 -5 7 0 11 C5 7 13 7 18 9 V-8 C13 -10 5 -10 0 -6 Z M0 -6 V11" ' + st + '/><path d="M-14 -3 C-10 -4 -6 -3 -4 -1 M-14 2 C-10 1 -6 2 -4 4 M14 -3 C10 -4 6 -3 4 -1" ' + st + '/></g>';
+    };
+    var svg = '<svg xmlns="http://www.w3.org/2000/svg" width="520" height="520" viewBox="0 0 520 520">'
+      // dotted jump arcs (the BookJumpr motif) ending in a tilted book
+      + '<path d="M28 132 Q86 52 150 118 Q182 80 214 112" ' + st + ' stroke-dasharray="2 6"/>' + '<circle cx="28" cy="132" r="2.4" fill="' + ink + '"/>' + book(222, 104, 38)
+      + '<path d="M300 452 Q360 386 418 440" ' + ac + ' stroke-dasharray="2 6"/>' + '<circle cx="300" cy="452" r="2.4" fill="' + accent + '"/>' + book(426, 432, 44)
+      + star(420, 70, 1) + star(96, 300, 0.7) + star(250, 250, 0.55) + star(486, 300, 0.8)
+      + openBook(360, 190, -8) + openBook(140, 430, 6)
+      // quote marks
+      + '<path d="M44 220 c-6 4 -8 10 -4 15 c4 3 9 0 8 -5 c-1 -4 -6 -4 -6 -4 M58 220 c-6 4 -8 10 -4 15 c4 3 9 0 8 -5 c-1 -4 -6 -4 -6 -4" ' + st + '/>'
+      // spiral
+      + '<path d="M300 92 c3 -4 9 -1 8 4 c-1 7 -11 8 -14 1 c-4 -9 5 -18 15 -15 c12 4 13 20 2 26" ' + st + '/>'
+      // curly arrow
+      + '<path d="M212 352 c18 -26 46 -20 40 -2 c-5 14 -24 6 -12 -12 c10 -14 30 -16 44 -8" ' + st + '/><path d="M282 324 l3 7 l-7 3" ' + st + '/>'
+      // ex-libris stamp
+      + '<g transform="translate(470 172) rotate(-12)"><rect x="-26" y="-17" width="52" height="34" rx="4" ' + st + ' stroke-dasharray="3 3"/><path d="M-15 -4 H15 M-15 4 H8" ' + st + '/></g>'
+      // dot trio + squiggle + tiny bookmark ribbon
+      + '<circle cx="372" cy="300" r="1.8" fill="' + ink + '"/><circle cx="382" cy="304" r="1.8" fill="' + ink + '"/><circle cx="392" cy="300" r="1.8" fill="' + ink + '"/>'
+      + '<path d="M40 486 q8 -10 16 0 t16 0 t16 0 t16 0" ' + st + '/>'
+      + '<path d="M196 30 v22 l6 -5 l6 5 v-22 z" ' + ac + '/>'
+      + '</svg>';
+    return 'url("data:image/svg+xml,' + encodeURIComponent(svg) + '")';
+  };
+
   function HomeWall(o) {
     this.o = o;
     this.root = o.root;                         // the stage (React-owned, otherwise childless)
@@ -51,6 +89,14 @@
     this.engaged = 0;             // accumulated user-driven travel (px) → onEngage once past a threshold
     this.drift = this.reduced ? 0 : 1;
     this.rows = o.rows || [];
+    // Parallax backdrop: a graph-paper grid far back (0.3×) and a doodle layer nearer (0.6×). Each is
+    // one oversized element translated by (offset mod tile), so the backdrop is pure compositing.
+    var dark = !!o.dark;
+    var g = document.createElement('div'); g.className = 'hw-bg hw-grid';
+    var d = document.createElement('div'); d.className = 'hw-bg hw-doodles';
+    d.style.backgroundImage = doodleTile(dark ? 'rgba(242,236,221,.55)' : 'rgba(20,20,20,.55)', dark ? 'rgba(214,120,80,.7)' : 'rgba(156,61,34,.75)');
+    this.root.appendChild(g); this.root.appendChild(d);
+    this.bgs = [{ el: g, k: 0.3, tile: 160, tf: '' }, { el: d, k: 0.6, tile: DOODLE_SZ, tf: '' }];
     this.layer = document.createElement('div');
     this.layer.className = 'hw-layer';
     this.root.appendChild(this.layer);
@@ -73,7 +119,8 @@
     var mobile = W < 640;
     var cw = this.v === 'c' ? (mobile ? 78 : W < 1100 ? 96 : 108) : (mobile ? 88 : W < 1100 ? 112 : 124);
     var ch = Math.round(cw * 1.5);
-    var gx = mobile ? 12 : 18, gy = mobile ? 14 : 20;
+    // A leaves wider gutters so the doodled graph paper behind can breathe.
+    var gx = this.v === 'a' ? (mobile ? 20 : 42) : (mobile ? 12 : 18), gy = this.v === 'a' ? (mobile ? 22 : 36) : (mobile ? 14 : 20);
     this.cw = cw; this.ch = ch;
     this.cellW = cw + gx; this.pitch = ch + gy;
     this.root.style.setProperty('--cw', cw + 'px');
@@ -219,6 +266,17 @@
     }
   };
 
+  P._backdrop = function () {
+    for (var i = 0; i < this.bgs.length; i++) {
+      var b = this.bgs[i], T = b.tile;
+      // C's rows move sideways, so its backdrop drifts with the scroll instead (vertical, slow).
+      var ox = this.v === 'b' ? this.pos.x * b.k : 0;
+      var oy = this.pos.y * b.k;
+      var tf = 'translate3d(' + (-mod(ox, T)).toFixed(1) + 'px,' + (-mod(oy, T)).toFixed(1) + 'px,0)';
+      if (tf !== b.tf) { b.el.style.transform = tf; b.tf = tf; }
+    }
+  };
+
   // Spotlight: ease each visible cover's --lit toward its target (pointer distance on desktop,
   // scroll-energy × centre band on touch; hovered + B-neighbour covers are fully lit).
   P._spot = function (k) {
@@ -348,6 +406,7 @@
     if (this.activity < 0.01) this.activity = 0;
     if (this.target.x === this.pos.x && this.target.y === this.pos.y && !this.vel.x && !this.vel.y) this._userMoving = false;
     this._render();
+    this._backdrop();
     this._setHot(this._hitTest());
     var lighting = this._spot(this.reduced ? 1 : 1 - Math.pow(1 - 0.22, dt));
     this._drawArcs();

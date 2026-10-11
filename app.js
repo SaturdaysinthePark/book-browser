@@ -1231,7 +1231,7 @@
     var v = null;
     try { v = new URLSearchParams(location.search).get('home'); } catch (e) {}
     this._hvCompare = v != null;                 // any ?home= shows the variant switcher
-    try { this._wallPaper = new URLSearchParams(location.search).get('wall') === 'paper'; } catch (e) {}
+    try { this._wallDark = new URLSearchParams(location.search).get('wall') === 'dark'; } catch (e) {}
     this._hv = (v === 'a' || v === 'b' || v === 'c') && window.BJHomeWall ? v : null;
     return this._hv;
   };
@@ -1298,7 +1298,7 @@
     if (this.state.hxCompact || this.state.hxEngaged) this.setState({ hxCompact: false, hxEngaged: false });
     var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     this._hw = new window.BJHomeWall({
-      root: this._hxStageEl, scope: this._hxRootEl, variant: v, reduced: reduced,
+      root: this._hxStageEl, scope: this._hxRootEl, variant: v, reduced: reduced, dark: !!this._wallDark,
       pool: this._hxPool(), seq: v === 'b' ? this._hxSeq() : null,
       rows: v === 'c' ? this._hxRows(this.state.chipSeed || 0) : null,
       html: function (id) { return self.coverHTML(self.books[id]); },
@@ -1334,7 +1334,7 @@
     // floating address bar. Every other page keeps the paper background.
     var hv = page === 'home' ? this._homeVariant() : null;
     if (typeof document !== 'undefined') {
-      var homeBg = page === 'home' ? (hv ? (this._wallPaper ? '#e7e0d1' : '#2e2a25') : '#141414') : '';
+      var homeBg = page === 'home' ? (hv ? (this._wallDark ? '#2e2a25' : '#ede6d6') : '#141414') : '';
       document.documentElement.style.background = homeBg;
       if (document.body) document.body.style.background = homeBg;
       var tcMeta = document.querySelector('meta[name="theme-color"]');
@@ -1568,7 +1568,7 @@
         .sort(function (a, b2) { return self.hash(seedC + '~' + a.id) - self.hash(seedC + '~' + b2.id); }).slice(0, nChips)
         .map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
       var st = this.state;
-      vals.hxClass = 'hx hx-' + hv + (this._wallPaper ? ' wall-paper' : '') + (st.hxCompact && hv !== 'c' ? ' is-compact' : '') + (st.hxEngaged ? ' is-engaged' : '') + (st.hxTyping ? ' is-typing' : '');
+      vals.hxClass = 'hx hx-' + hv + (this._wallDark ? ' wall-dark' : '') + (st.hxCompact && hv !== 'c' ? ' is-compact' : '') + (st.hxEngaged ? ' is-engaged' : '') + (st.hxTyping ? ' is-typing' : '');
       vals.hxIntro = m ? 'The books mentioned inside other books — pick one and jump.'
         : 'BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one.';
       vals.hxHint = hv === 'b' ? (m ? 'Drag anywhere' : 'Drag or scroll anywhere') : hv === 'c' ? 'Scroll to spin the shelves' : 'Scroll the shelves';

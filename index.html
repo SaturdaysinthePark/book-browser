@@ -158,10 +158,19 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 /* ---------- Interactive home walls (?home=a|b|c) — engine in home.js ----------
    .hx is a fixed, app-like canvas: the wall (stage) scrolls/drags, the hero stays put.
    Engine-driven flags are data-* attributes (React never clobbers them); React owns the classes. */
-.hx{position:fixed;inset:0;overflow:hidden;background:var(--wall);--wall:#2e2a25;--wall-rgb:46,42,37;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
+.hx{position:fixed;inset:0;overflow:hidden;background:var(--wall);--wall:#ede6d6;--wall-rgb:237,230,214;--grid-rgb:62,96,130;--shade-rgb:90,70,40;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
 .hx-stage{position:absolute;inset:0;cursor:grab;}
 .hx[data-drag] .hx-stage{cursor:grabbing;}
 .hw-layer{position:absolute;inset:0;}
+/* backdrop: graph paper (far) + doodles (near), each oversized by one tile and translated by home.js */
+.hw-bg{position:absolute;left:0;top:0;right:-520px;bottom:-520px;pointer-events:none;will-change:transform;}
+.hw-grid{right:-160px;bottom:-160px;
+  background-image:linear-gradient(rgba(var(--grid-rgb),.16) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--grid-rgb),.16) 1px,transparent 1px),
+    linear-gradient(rgba(var(--grid-rgb),.07) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--grid-rgb),.07) 1px,transparent 1px);
+  background-size:160px 160px,160px 160px,32px 32px,32px 32px;}
+.hw-doodles{right:-420px;bottom:-420px;background-size:420px 420px;}
+/* depth: a soft tray shadow at the edges so the paper reads as a surface the covers sit above */
+.hx-stage::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 120px rgba(var(--shade-rgb),.22);}
 .hw-slot{position:absolute;left:0;top:0;width:var(--cw);will-change:transform;--lit:0;}
 .hw-slot .cv{transition:none;}
 .hw-card{border-radius:3px;box-shadow:0 0 0 1px rgba(242,236,221,.16),0 12px 26px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.3);transition:transform .32s var(--ease-spring),box-shadow .3s var(--ease-out);cursor:pointer;}
@@ -177,12 +186,13 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx.is-compact .hx-vignette{opacity:0;}
 .hx-c .hx-vignette{display:none;}
 .hx-c .hx-card{box-shadow:0 0 0 6px var(--wall),0 30px 60px rgba(0,0,0,.5);}
-/* ?wall=paper — the light variant: ink covers on a paper table */
-.hx.wall-paper{--wall:#e7e0d1;--wall-rgb:231,224,209;}
-.hx.wall-paper .hw-card{box-shadow:0 10px 22px rgba(60,40,20,.26),0 1px 3px rgba(0,0,0,.2);}
-.hx.wall-paper .hw-slot.is-hot .hw-card{box-shadow:0 24px 40px rgba(60,40,20,.34),0 3px 6px rgba(0,0,0,.2);}
-.hx.wall-paper .hw-arcs path{stroke:var(--ink);}
-.hx.wall-paper .hw-arcs circle{fill:var(--ink);}
+/* default: ink covers on graph paper. ?wall=dark — the charcoal wall with cream doodles */
+.hx:not(.wall-dark) .hw-card{box-shadow:0 14px 26px rgba(70,50,25,.24),0 2px 5px rgba(40,30,15,.22);}
+.hx:not(.wall-dark) .hw-slot.is-hot .hw-card{box-shadow:0 28px 46px rgba(70,50,25,.32),0 4px 8px rgba(40,30,15,.2);}
+.hx:not(.wall-dark) .hw-arcs path{stroke:var(--accent);opacity:.9;}
+.hx:not(.wall-dark) .hw-arcs circle{fill:var(--accent);}
+.hx.wall-dark{--wall:#2e2a25;--wall-rgb:46,42,37;--grid-rgb:242,236,221;--shade-rgb:0,0,0;}
+.hx.wall-dark .hw-grid{opacity:.55;}
 
 /* hero card (A/B): centred; compacts to a slim search bar once you start moving the wall */
 .hx-hero{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,calc(100% - 28px));z-index:6;pointer-events:none;
@@ -251,6 +261,9 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   .hx-p{font-size:14px;}
   .hx-bar{margin-top:14px;}
   .hx-search input{height:50px;}
+  .hx-arc{max-width:230px;}
+  .hx-chips{padding-top:12px;}
+  .hx-chips .lbl{display:none;}
   .hx.is-compact .hx-logo{width:40px;padding-left:4px;}
   .hx.is-compact .hx-logo span{display:none;}
   .hx-a .hx-nav{top:auto;bottom:calc(14px + env(safe-area-inset-bottom));}
