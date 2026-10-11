@@ -183,22 +183,31 @@ const blend = () => {
 };
 
 // ---- fame ----
+// Axes: log(1 + n / C), C < 1, a log scale whose low end is stretched (0, 1, 2 get room; most books
+// live there). Books that share the same (mentions, mentioned-by) counts fill their whole cell as an
+// even sunflower (the most connected in the middle), so a cell of 2,700 books spreads out instead of
+// piling into a blob. A zero count is the chart's edge: its cell only extends inward.
 const fame = () => {
-  const W = 1700, H = 1150, maxIn = Math.max(...din), maxOut = Math.max(...dout);
-  const lx = (v) => Math.log(1 + v) / Math.log(1 + maxOut), ly = (v) => Math.log(1 + v) / Math.log(1 + maxIn);
+  const W = 2400, H = 1600, C = 0.2, maxIn = Math.max(...din), maxOut = Math.max(...dout);
+  const lx = (v) => Math.log(1 + v / C) / Math.log(1 + maxOut / C), ly = (v) => Math.log(1 + v / C) / Math.log(1 + maxIn / C);
   const X = (v) => 90 + (W - 160) * lx(v), Y = (v) => H - 90 - (H - 160) * ly(v);
-  const xy = new Float64Array(2 * N);
-  for (let i = 0; i < N; i++) {
-    const rnd = mulberry32(hashOf(keys[i]));
-    const sxp = X(dout[i] + 0.5) - X(dout[i]), syp = Y(din[i]) - Y(din[i] + 0.5);   // half a step in each direction
-    // round (gaussian) clouds rather than boxes, clipped to the cell
-    const g1 = Math.sqrt(-2 * Math.log(1 - rnd())), th = rnd() * Math.PI * 2;
-    // a count of 0 is the edge of the chart: nudge those inward only, never across the axis
-    var jx = Math.max(-1, Math.min(1, g1 * Math.cos(th) * 0.38)), jy = Math.max(-1, Math.min(1, g1 * Math.sin(th) * 0.38));
-    if (dout[i] === 0) jx = Math.abs(jx);
-    if (din[i] === 0) jy = Math.abs(jy);
-    xy[2 * i] = X(dout[i]) + jx * sxp;
-    xy[2 * i + 1] = Y(din[i]) - jy * syp;
+  const xy = new Float64Array(2 * N), cells = new Map();
+  for (let i = 0; i < N; i++) { const ck = dout[i] + ',' + din[i]; (cells.get(ck) || cells.set(ck, []).get(ck)).push(i); }
+  for (const [ck, list] of cells) {
+    const [o, n] = ck.split(',').map(Number);
+    // half-widths of the cell (to the midpoint with each neighbouring count); 0 = one-sided
+    // (a zero cell is one-sided, so it may use most of the gap up to the 1s)
+    const rx = o ? (X(o + 0.5) - X(o - 0.5)) / 2 : (X(1) - X(0)) * 0.7, ry = n ? (Y(n - 0.5) - Y(n + 0.5)) / 2 : (Y(0) - Y(1)) * 0.7;
+    list.sort((a, b) => deg[b] - deg[a] || (keys[a] < keys[b] ? -1 : 1));
+    const m = list.length, fill = Math.min(0.92, 0.35 + 0.12 * Math.log10(1 + m));   // lone books stay near the exact value
+    list.forEach((i, j) => {
+      const t = m > 1 ? Math.sqrt((j + 0.5) / m) : 0, th = j * GOLDEN;
+      let dx = Math.cos(th) * t, dy = Math.sin(th) * t;
+      if (!o) dx = Math.abs(dx);   // fold zero counts inward
+      if (!n) dy = Math.abs(dy);
+      xy[2 * i] = X(o) + dx * rx * fill;
+      xy[2 * i + 1] = Y(n) - dy * ry * fill;
+    });
   }
   const ticks = [0, 1, 2, 5, 10, 20, 50, 100, 200];   // 1-2-5 series: near-even steps on a log(1+n) axis
   const axes = {
@@ -207,9 +216,9 @@ const fame = () => {
     ty: ticks.filter((v) => v <= maxIn * 1.2).map((v) => ({ y: round(Y(v)), t: String(v) })),
     xt: 'mentions more books →', yt: '↑ mentioned by more books',
     caps: [
-      { x: X(0) - 20, y: -22, t: '↖ The canon', s: 'mentioned a lot, names little' },
+      { x: X(0) - 20, y: -48, t: '↖ The canon', s: 'mentioned a lot, names little' },
       { x: W - 250, y: Y(0) + 130, t: 'Name-droppers ↘', s: 'names a lot, rarely mentioned' },
-      { x: W - 160, y: -22, t: 'Hubs ↗', s: 'both' },
+      { x: W - 160, y: -48, t: 'Hubs ↗', s: 'both' },
       { x: X(0) - 20, y: Y(0) + 130, t: '↙ Footnotes', s: 'one mention, names nothing' }
     ]
   };
