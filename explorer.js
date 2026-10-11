@@ -40,7 +40,7 @@
     this.setState({ xHover: null, xPathOpen: false, xPathTo: null, xPathQ: '', xGenre: null });
     this.navigate(next ? { page: 'book', id: id } : { page: 'network', focus: id }, next ? '#/' + id : '#/network/' + id, null, function () {
       if (!prev) return;
-      var el = document.querySelector('.bjx-pill[data-id="' + CSS.escape(prev) + '"]');
+      var el = document.querySelector('.bjx-pill[data-id="' + CSS.escape(prev) + '"], .bkp-cv[data-id="' + CSS.escape(prev) + '"]');
       if (el) { el.style.viewTransitionName = 'bjx-p'; el.setAttribute('data-vtn', '1'); }
     });
     if (prev && this._xLive()) setTimeout(function () { self.xSpark(prev); }, 480);
@@ -49,7 +49,8 @@
   // Explorer+: a spark runs along the edge between the book you came from and the new centre.
   P.xSpark = function (from) {
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var fan = document.querySelector('.bjx-fan'), g = fan && fan.querySelector('.bjx-eg[data-id="' + CSS.escape(from) + '"] .ng-e');
+    var fan = document.querySelector('.bjx-fan, .bkp-shelves'), q = CSS.escape(from);
+    var g = fan && fan.querySelector('.bjx-eg[data-id="' + q + '"] .ng-e, .bkp-eg[data-id="' + q + '"] .ng-e');
     if (!g || !g.animate) return;
     // Edges are drawn in the mention's direction; the spark always travels from the old book inward.
     var inward = g.classList.contains('in'), sp = document.createElement('i');
@@ -199,9 +200,9 @@
     kids.push(h('div', { key: 'act', className: 'bjx-act' },
       next ? h('button', { className: 'pill solid', onClick: function () { self.xZoomOut(b.id); } }, 'Zoom out to the map ⤢')
         : h('button', { className: 'pill solid', onClick: function (e) { self.goBook(b.id); } }, 'Open book page'),
-      h('button', { className: 'pill', onClick: function () { self.setState({ xPathOpen: !st.xPathOpen, xPathTo: null, xPathQ: '' }); } }, st.xPathOpen ? 'Close path finder' : 'Find a path to…')));
+      next ? null : h('button', { className: 'pill', onClick: function () { self.setState({ xPathOpen: !st.xPathOpen, xPathTo: null, xPathQ: '' }); } }, st.xPathOpen ? 'Close path finder' : 'Find a path to…')));
 
-    if (st.xPathOpen) {
+    if (st.xPathOpen && !next) {
       var pk = [];
       pk.push(h('input', { key: 'in', className: 'bjx-input', placeholder: 'Another book…', value: st.xPathQ || '', autoFocus: true,
         onChange: function (e) { self.setState({ xPathQ: e.target.value, xPathTo: null }); } }));
@@ -325,7 +326,7 @@
   P._xStarOpts = function (extra) {
     var self = this, o = {
       data: window.BookJumprStars, regions: false, flow: true, twinkle: true,
-      colorOf: function (k) { return self.books[k] ? self.xGenreColor(self.xGenreKey(k)) : MISC_DOT; },
+      colorOf: function (k) { var g = self.books[k] ? self.xGenreKey(k) : 'MISC'; return g === 'MISC' ? 'rgba(179,173,159,0.6)' : self.xGenreColor(g); },
       title: function (k) { var b = self.books[k]; return b ? b.title : ''; },
       neighbors: function (k) { var b = self.books[k]; return b ? { out: b.out, in: b.in } : { out: [], in: [] }; }
     };
@@ -337,7 +338,7 @@
     return this._xMiniFn || (this._xMiniFn = function (el) {
       if (self._xMini) { self._xMini.destroy(); self._xMini = null; }
       if (!el || !window.BJAtlas || !window.BookJumprStars) return;
-      self._xMini = new window.BJAtlas(self._xStarOpts({ root: el, mini: true, onClick: function () { self.xOpenFull(); } }));
+      self._xMini = new window.BJAtlas(self._xStarOpts({ root: el, mini: true, onClick: function () { if (self._vNext()) self.xZoomOut(); else self.xOpenFull(); } }));
       var f = self._xCur();
       if (f) self._xMini.setFocus(f, false);
     });
@@ -387,7 +388,8 @@
     if (this.state.xFull && r.page !== 'network') this.setState({ xFull: false, xSel: null });
     // a new book (from anywhere: home, search, back button) starts unfiltered
     var bk = r.page === 'book' ? r.id : null;
-    if (bk !== this._xLastBook) { this._xLastBook = bk; if (this.state.xGenre) this.setState({ xGenre: null }); }
+    if (bk !== this._xLastBook) { this._xLastBook = bk; if (this.state.xGenre || this.state.xHover) this.setState({ xGenre: null, xHover: null }); }
+    if (this._bkpEl) this._bkpQueue();
     var f = this._xCur(), mi = this._xMini;
     if (mi) { var cur = mi.focus >= 0 ? mi.keys[mi.focus] : null; if (cur !== f) mi.setFocus(f); }
     var sm = this._stars;
@@ -452,21 +454,137 @@
   // into the star map; the map's "Open →" morphs a star's neighbourhood back into its fan.
   P.bookNext = function (b) {
     var self = this, st = this.state, vw = st.vw || window.innerWidth, vh = window.innerHeight;
+    if (vw < 760) return this.bookNextPhone(b);
     var wide = vw >= 1000, W = wide ? vw - 400 - 64 : vw - 32;
-    return h('div', { className: 'bjx-page bjx-plus bkn-page' + (wide ? ' wide' : '') },
-      h('div', { className: 'bjx-main' },
-        h('div', { className: 'bjx-top' }, this.explorerTrail(b.id),
-          h('button', { className: 'bkn-zoom', onClick: function () { self.xZoomOut(b.id); } }, 'Zoom out to the map ⤢')),
-        this.explorerGenres(b),
-        h('div', { className: 'bjx-stage' + (st.xArriving ? ' arriving' : '') }, this.explorerFan(b, Math.max(300, W), vh - 56 - 150)),
-        h('div', { className: 'bjx-legend' }, h('span', null, h('i', { className: 'ln in' }), 'mentioned by'), h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln both' }), 'mention each other'), h('span', { className: 'cnt' }, '+12 = books one more jump away')),
-        this.bookLists(b)),
-      this.explorerPanel(b));
+    var main = h('div', { key: 'main', className: 'bjx-main' },
+      h('div', { className: 'bjx-top' }, this.explorerTrail(b.id),
+        h('button', { className: 'bkn-zoom', onClick: function () { self.xZoomOut(b.id); } }, 'Zoom out to the map ⤢')),
+      h('div', { className: 'bjx-stage' + (st.xArriving ? ' arriving' : '') }, this.explorerFan(b, Math.max(300, W), vh - 56 - 110)),
+      h('div', { className: 'bjx-legend' }, h('span', null, h('i', { className: 'ln in' }), 'mentioned by'), h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln both' }), 'mention each other'), h('span', { className: 'cnt' }, '+12 = books one more jump away')),
+      this.bookLists(b),
+      this.classicLink());
+    var panel = h(React.Fragment, { key: 'panel' }, this.explorerPanel(b));
+    // narrower screens: the book (panel) comes first, so it anchors the page
+    return h('div', { className: 'bjx-page bjx-plus bkn-page' + (wide ? ' wide' : ' stacked') }, wide ? [main, panel] : [panel, main]);
+  };
+  P.classicLink = function () {
+    return h('p', { key: 'classic', className: 'bkn-classic' }, h('a', { href: location.pathname + location.hash, onClick: function (e) { e.preventDefault(); location.href = location.pathname + location.hash; } }, 'Switch to the classic view'));
+  };
+
+  // Phone: a slim book header with a map thumbnail, the fan as two shelves of covers (swipe
+  // sideways) with lines flowing into the book, a sheet for the tapped cover, then tabs.
+  P.bookNextPhone = function (b) {
+    var self = this, st = this.state, yl = this.yearLabel(b.year), gl = this.genreOf(b).name, hot = st.xHover && this.books[st.xHover] && (b.out.indexOf(st.xHover) !== -1 || b.in.indexOf(st.xHover) !== -1) ? this.books[st.xHover] : null;
+    var hasAu = b.author && b.author !== 'Anonymous', synOpen = st.bkSyn === b.id;
+    var kids = [];
+    kids.push(h('div', { key: 'head', className: 'bkp-head' },
+      h('div', { className: 'bkp-cv0' }, this.cover(b, 'vt-hero')),
+      h('div', { className: 'bkp-meta' },
+        h('div', { className: 'eyebrow' }, 'Book' + (gl === 'MISC' ? '' : ' · ' + this.xGenreLabel(gl).toLowerCase())),
+        h('h1', null, b.title),
+        h('div', { className: 'by' }, hasAu ? h('button', { className: 'lnk', onClick: function () { self.goAuthor(self.authorSlug(b.author)); } }, b.author) : (b.author || ''), yl ? (b.author ? '  ·  ' : '') + yl : ''),
+        h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), b.out.length, h('i', { className: 'dot in' }), b.in.length)),
+      h('div', { className: 'bkp-map', role: 'button', tabIndex: 0, 'aria-label': 'Zoom out to the star map', onKeyDown: function (e) { if (e.key === 'Enter') self.xZoomOut(b.id); } },
+        h('div', { className: 'bkp-map-c', ref: this._xMiniRef() }),
+        h('span', { className: 'bkp-map-l' }, 'Zoom out ⤢'))));
+    if (b.synopsis) kids.push(h('p', { key: 'syn', className: 'bkp-syn' + (synOpen ? ' open' : ''), onClick: function () { self.setState({ bkSyn: synOpen ? null : b.id }); } }, b.synopsis));
+    kids.push(this.coverShelves(b));
+    if (hot) {
+      var isOut = b.out.indexOf(hot.id) !== -1, isIn = b.in.indexOf(hot.id) !== -1, hy = this.yearLabel(hot.year);
+      kids.push(h('div', { key: 'sheet', className: 'bkp-sheet' },
+        h('div', { className: 'bkp-sheet-h' },
+          h('div', { className: 'bkp-sheet-t' }, h('div', { className: 'eyebrow ' + (isOut && isIn ? '' : isOut ? 'out' : 'in') }, isOut && isIn ? 'They mention each other' : isOut ? b.title + ' mentions' : 'Mentions ' + b.title),
+            h('div', { className: 't' }, hot.title), h('div', { className: 'a' }, [hot.author, hy].filter(Boolean).join('  ·  '))),
+          h('button', { className: 'pill solid', onClick: function () { self.xJump(hot.id, document.querySelector('.bkp-cv[data-id="' + CSS.escape(hot.id) + '"]')); } }, 'Jump →')),
+        isOut ? this.noteEl(b.id, hot.id) : this.noteEl(hot.id, b.id)));
+    } else kids.push(h('p', { key: 'tip', className: 'bkp-tip' }, 'Tap a cover to see how it connects · swipe the shelves for more'));
+    kids.push(this.bookLists(b));
+    kids.push(this.classicLink());
+    return h('div', { className: 'bjx-page bjx-plus bkp-page' }, kids);
+  };
+
+  P.coverShelves = function (b) {
+    var self = this, st = this.state, books = this.books, CAP = 30;
+    var deg = function (id) { return books[id].in.length + books[id].out.length; };
+    var top = b.in.filter(function (id) { return books[id] && b.out.indexOf(id) === -1; }).sort(function (x, y) { return deg(y) - deg(x); });
+    var bot = b.out.filter(function (id) { return books[id]; }).sort(function (x, y) { return (b.in.indexOf(y) !== -1) - (b.in.indexOf(x) !== -1) || deg(y) - deg(x); });
+    var row = function (ids, side) {
+      var items = ids.slice(0, CAP).map(function (id, i) {
+        var k = side === 'in' ? 'in' : b.in.indexOf(id) !== -1 ? 'both' : 'out';
+        return h('button', { key: id, className: 'bkp-cv k-' + k + (st.xHover === id ? ' is-hot' : ''), 'data-id': id, 'data-k': k, style: { '--i': i },
+          'aria-label': books[id].title, title: books[id].title,
+          onClick: function (e) { if (self.state.xHover === id) self.xJump(id, e.currentTarget); else self.setState({ xHover: id }); } },
+          self.cover(books[id]), k === 'both' ? h('span', { className: 'mut' }, '⇄') : null);
+      });
+      if (ids.length > CAP) items.push(h('button', { key: 'more', className: 'bkp-more', onClick: function () {
+        self.setState({ bkTab: { id: b.id, side: side === 'in' ? 'in' : 'out' } });
+        setTimeout(function () { var el = document.querySelector('.bkn-tabs'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }, 30);
+      } }, '+' + (ids.length - CAP), h('br'), 'in the list ↓'));
+      if (!ids.length) items.push(h('span', { key: 'none', className: 'bkp-none' }, side === 'in' ? 'No book mentions it yet' : 'It doesn’t mention any books yet'));
+      return h('div', { key: 'r' + side, className: 'bkp-row ' + side, onScroll: function () { self._bkpQueue(); } }, items);
+    };
+    return h('div', { key: 'shelves:' + b.id, className: 'bkp-shelves' + (st.xArriving ? ' arriving' : '') + (st.xHover ? ' has-hot' : ''), ref: this._bkpRef() },
+      h('svg', { className: 'bkp-lines', 'aria-hidden': true }),
+      h('div', { className: 'bkp-lab in' }, h('i', { className: 'dot in' }), 'Mentioned by ' + top.length),
+      row(top, 'in'),
+      h('div', { className: 'bkp-mid' }, h('div', { className: 'bjx-center' }, b.title)),
+      row(bot, 'out'),
+      h('div', { className: 'bkp-lab out' }, h('i', { className: 'dot out' }), 'Mentions ' + b.out.length));
+  };
+  // The shelves' lines are drawn imperatively (they follow the covers as the rows scroll).
+  P._bkpRef = function () {
+    var self = this;
+    return this._bkpFn || (this._bkpFn = function (el) {
+      self._bkpEl = el; self._bkpPaths = null;
+      if (el) { self._bkpDraw(); if (!self._bkpRs) { self._bkpRs = function () { self._bkpQueue(); }; window.addEventListener('resize', self._bkpRs); } }
+    });
+  };
+  P._bkpQueue = function () {
+    var self = this;
+    if (this._bkpRaf) return;
+    this._bkpRaf = requestAnimationFrame(function () { self._bkpRaf = 0; self._bkpDraw(); });
+  };
+  P._bkpDraw = function () {
+    var el = this._bkpEl;
+    if (!el || !el.isConnected) return;
+    var svg = el.querySelector('svg.bkp-lines'), cen = el.querySelector('.bjx-center');
+    if (!svg || !cen) return;
+    var R = el.getBoundingClientRect(), W = R.width, H = R.height, NS = 'http://www.w3.org/2000/svg';
+    svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    var bookId = this._xCur();
+    if (!this._bkpPaths || this._bkpFor !== bookId || !svg.firstChild) {
+      var mk = function (id, col) { return '<marker id="' + id + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" fill="' + col + '"/></marker>'; };
+      svg.innerHTML = '<defs>' + mk('bkpA-in', '#2f5590') + mk('bkpA-out', '#9c3d22') + mk('bkpA-both', '#141414') + '</defs>';
+      this._bkpPaths = {}; this._bkpFor = bookId;
+    }
+    var c = cen.getBoundingClientRect(), cx = c.left - R.left + c.width / 2, ctop = c.top - R.top, cbot = c.bottom - R.top;
+    var paths = this._bkpPaths, hot = this.state.xHover, n = 0;
+    [].forEach.call(el.querySelectorAll('.bkp-cv[data-id]'), function (cv) {
+      var id = cv.getAttribute('data-id'), k = cv.getAttribute('data-k'), r = cv.getBoundingClientRect();
+      var x = r.left - R.left + r.width / 2, vis = x > -6 && x < W + 6;
+      var g = paths[id];
+      if (!g) {
+        g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'bkp-eg'); g.setAttribute('data-id', id);
+        var e = document.createElementNS(NS, 'path'); e.setAttribute('class', 'ng-e ' + k); e.setAttribute('pathLength', '1'); e.style.setProperty('--i', n);
+        e.setAttribute('marker-end', 'url(#bkpA-' + k + ')'); if (k === 'both') e.setAttribute('marker-start', 'url(#bkpA-both)');
+        g.appendChild(e);
+        if (k !== 'both') { var f = document.createElementNS(NS, 'path'); f.setAttribute('class', 'ng-flow ' + k); f.style.setProperty('--i', n); g.appendChild(f); }
+        svg.appendChild(g); paths[id] = g;
+      }
+      n++;
+      g.style.display = vis ? '' : 'none';
+      if (!vis) return;
+      var ex = cx + Math.max(-40, Math.min(40, (x - cx) * 0.14)), d;
+      if (k === 'in') { var y0 = r.bottom - R.top + 3; d = 'M' + x.toFixed(1) + ' ' + y0.toFixed(1) + ' C' + x.toFixed(1) + ' ' + (y0 + 44).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + (ctop - 46).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + (ctop - 3).toFixed(1); }
+      else { var y1 = r.top - R.top - 3; d = 'M' + ex.toFixed(1) + ' ' + (cbot + 3).toFixed(1) + ' C' + ex.toFixed(1) + ' ' + (cbot + 40).toFixed(1) + ' ' + x.toFixed(1) + ' ' + (y1 - 40).toFixed(1) + ' ' + x.toFixed(1) + ' ' + y1.toFixed(1); }
+      for (var q = 0; q < g.childNodes.length; q++) g.childNodes[q].setAttribute('d', d);
+      g.setAttribute('class', 'bkp-eg' + (id === hot ? ' is-hot' : ''));
+    });
   };
 
   P.bookLists = function (b) {
-    var self = this, st = this.state, books = this.books, g = st.xGenre, CAP = 12;
-    var keep = function (id) { return books[id] && (!g || self.xGenreKey(id) === g); };
+    var self = this, st = this.state, books = this.books, vw = st.vw || window.innerWidth, tabs = vw < 1000, CAP = tabs ? 20 : 12;
+    var keep = function (id) { return !!books[id]; };
     var byDeg = function (x, y) { return (books[y].in.length + books[y].out.length) - (books[x].in.length + books[x].out.length); };
     var col = function (side) {
       var out = side === 'out', ids = (out ? b.out : b.in).filter(keep).sort(byDeg);
@@ -475,25 +593,34 @@
         var bk = books[id], yl = self.yearLabel(bk.year), hot = st.xHover === id;
         var mutual = out ? b.in.indexOf(id) !== -1 : b.out.indexOf(id) !== -1;
         return h('article', { key: id, className: 'bkn-card' + (hot ? ' is-hot' : ''),
-          onMouseEnter: function () { if (self.state.xHover !== id) self.setState({ xHover: id }); },
-          onMouseLeave: function () { if (self.state.xHover === id) self.setState({ xHover: null }); } },
+          onMouseEnter: tabs ? null : function () { if (self.state.xHover !== id) self.setState({ xHover: id }); },
+          onMouseLeave: tabs ? null : function () { if (self.state.xHover === id) self.setState({ xHover: null }); } },
           h('button', { className: 'bkn-cv', 'aria-label': bk.title, onClick: function (e) { self.xJump(id, e.currentTarget); } }, self.cover(bk)),
           h('div', { className: 'bkn-body' },
-            h('button', { className: 'bkn-t', onFocus: function () { self.setState({ xHover: id }); },
+            h('button', { className: 'bkn-t', onFocus: tabs ? null : function () { self.setState({ xHover: id }); },
               onClick: function (e) { self.xJump(id, e.currentTarget.closest('.bkn-card').querySelector('.bkn-cv')); } }, bk.title),
             h('div', { className: 'bkn-a' }, (bk.author || 'author unknown') + (yl ? '  ·  ' + yl : ''), mutual ? h('span', { className: 'mut', title: 'they mention each other' }, ' ⇄') : null),
             out ? self.noteEl(b.id, id) : self.noteEl(id, b.id)));
       });
       return h('section', { key: side, className: 'bkn-col ' + side },
-        h('div', { className: 'bkn-h' },
-          h('h2', null, out ? 'Mentions' : 'Mentioned by'),
-          h('span', { className: 'count ' + side }, ids.length),
-          h('span', { className: 'cap' }, (g ? self.xGenreLabel(g).toLowerCase() + ' · ' : '') + (out ? 'found inside ' : 'that reference ') + b.title)),
+        tabs ? h('div', { className: 'bkn-cap' }, out ? 'Books found inside ' + b.title : 'Books that reference ' + b.title)
+          : h('div', { className: 'bkn-h' },
+            h('h2', null, out ? 'Mentions' : 'Mentioned by'),
+            h('span', { className: 'count ' + side }, ids.length),
+            h('span', { className: 'cap' }, (out ? 'found inside ' : 'that reference ') + b.title)),
         cards.length ? h('div', { className: 'bkn-cards' }, cards)
-          : h('p', { className: 'bjx-note' }, g ? 'None in this genre.' : out ? 'Nothing logged inside this one yet.' : 'No book has name-dropped it yet.'),
+          : h('p', { className: 'bjx-note' }, out ? 'Nothing logged inside this one yet.' : 'No book has name-dropped it yet.'),
         ids.length > shown.length ? h('button', { className: 'pill more', onClick: function () { self.setState(out ? { allOut: b.id } : { allIn: b.id }); } }, 'Show all ' + ids.length) : null);
     };
-    return h('div', { className: 'bkn-lists' }, col('out'), col('in'));
+    if (!tabs) return h('div', { key: 'lists', className: 'bkn-lists' }, col('out'), col('in'));
+    var side = st.bkTab && st.bkTab.id === b.id ? st.bkTab.side : b.in.length > b.out.length ? 'in' : 'out';
+    var tab = function (sd, label, n) {
+      return h('button', { key: sd, role: 'tab', 'aria-selected': side === sd ? 'true' : 'false', className: 'bkn-tab ' + sd + (side === sd ? ' on' : ''),
+        onClick: function () { self.setState({ bkTab: { id: b.id, side: sd } }); } }, label, h('span', { className: 'n' }, n));
+    };
+    return h('div', { key: 'lists', className: 'bkn-lists tabbed' },
+      h('div', { className: 'bkn-tabs', role: 'tablist' }, tab('out', 'Mentions', b.out.length), tab('in', 'Mentioned by', b.in.length)),
+      col(side));
   };
 
   // ---- ?v=next: the network page is the star map ---------------------------------------------
@@ -522,7 +649,6 @@
     var q = st.xFq || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
     var find = function (id) { self.setState({ xFq: '' }); self.mapFocus(id); };
     var m = function () { return self._stars; };
-    var conts = ((window.BookJumprStars && window.BookJumprStars.regions) || []).filter(function (r) { return r.size >= 20; });
     var card = null;
     if (sel) {
       var yl = this.yearLabel(sel.year);
@@ -540,7 +666,6 @@
     return h('div', { className: 'bjx-full bjx-stars' },
       h('div', { className: 'bjx-full-map', ref: this._starsRef() }),
       h('div', { className: 'bjx-fbar' },
-        h('div', { className: 'bjx-ftitle' }, h('span', { className: 'eyebrow' }, 'Every book, by genre'), h('span', { className: 'sub' }, 'click a star to see its links · open it to explore')),
         h('div', { className: 'atlas-q' },
           h('input', { className: 'atlas-input', placeholder: 'Find a book…', value: q, 'aria-label': 'Find a book on the map',
             onChange: function (e) { self.setState({ xFq: e.target.value }); },
@@ -553,12 +678,10 @@
           h('button', { onClick: function () { if (m()) m().zoomBy(1 / 1.4); }, 'aria-label': 'Zoom out' }, '−'),
           h('button', { onClick: function () { if (m()) m().zoomBy(1.4); }, 'aria-label': 'Zoom in' }, '+'),
           h('button', { className: 'fit', onClick: function () { if (m()) m().fit(true); } }, 'Fit'))),
-      h('div', { className: 'bjx-flegend' },
-        conts.map(function (r) { return h('span', { key: r.genre }, h('i', { className: 'sw', style: { background: self.xGenreColor(r.genre) } }), r.name); }),
-        h('span', { key: 'o' }, h('i', { className: 'sw', style: { background: MISC_DOT } }), 'genre unknown'),
-        h('span', { key: 'lo' }, h('i', { className: 'ln out' }), 'mentions'),
-        h('span', { key: 'li' }, h('i', { className: 'ln in' }), 'mentioned by'),
-        h('span', { key: 'h', className: 'hint' }, sel ? 'Open → (or double-click) to explore it · Esc to clear' : 'Click a genre to zoom in, a star to see its links')),
+      h('div', { className: 'bjx-fkey' }, sel
+        ? [h('span', { key: 'lo' }, h('i', { className: 'ln out' }), 'mentions'), h('span', { key: 'li' }, h('i', { className: 'ln in' }), 'mentioned by'),
+          h('span', { key: 'u' }, h('i', { className: 'sw', style: { background: MISC_DOT } }), 'genre unknown'), h('span', { key: 'h', className: 'hint' }, 'Esc to clear')]
+        : h('span', { className: 'hint' }, 'Scroll or pinch to zoom · click a star')),
       card);
   };
 
@@ -569,7 +692,18 @@
   P._xMorphLayer = function () { var L = document.createElement('div'); L.className = 'bjx-morph'; document.body.appendChild(L); return L; };
   // Where the fan's pills sit on screen (layout boxes: ignores their entrance transform).
   P._xPillSnap = function () {
-    var self = this, out = [], fan = document.querySelector('.bjx-fan');
+    var self = this, out = [], shelves = document.querySelector('.bkp-shelves');
+    if (shelves) {   // phone: the centre pill and every cover that's on screen
+      var sr = shelves.getBoundingClientRect(), cc = shelves.querySelector('.bjx-center');
+      if (cc) out.push({ id: this._xCur(), r: cc.getBoundingClientRect(), center: true, t: cc.textContent });
+      [].forEach.call(shelves.querySelectorAll('.bkp-cv[data-id]'), function (el) {
+        var r = el.getBoundingClientRect(), id = el.getAttribute('data-id');
+        if (!self.books[id] || r.right < sr.left || r.left > sr.right || r.bottom < 0 || r.top > window.innerHeight) return;
+        out.push({ id: id, r: { left: r.left, top: r.top, width: r.width, height: r.height }, cover: true, t: '' });
+      });
+      return out;
+    }
+    var fan = document.querySelector('.bjx-fan');
     if (!fan) return out;
     var fr = fan.getBoundingClientRect();
     var at = function (el) { return { left: fr.left + el.offsetLeft, top: fr.top + el.offsetTop, width: el.offsetWidth, height: el.offsetHeight }; };
@@ -595,7 +729,7 @@
   };
   P._xChip = function (L, it) {
     var e = document.createElement('i');
-    e.className = 'bjx-mchip' + (it.center ? ' c' : '');
+    e.className = 'bjx-mchip' + (it.center ? ' c' : '') + (it.cover ? ' cvr' : '');
     e.textContent = it.t || '';
     L.appendChild(e);
     return e;
@@ -631,7 +765,7 @@
       var to = self._xStarPt(m, it.id), c = chips[j], col = self.xGenreColor(self.xGenreKey(it.id));
       if (!to) { c.animate([{ opacity: 1 }, { opacity: 0, transform: 'scale(.7)' }], { duration: 280, fill: 'forwards' }); return; }
       c.animate([
-        Object.assign({ borderRadius: '999px', color: it.center ? 'rgba(247,245,240,1)' : 'rgba(20,20,20,1)', backgroundColor: it.center ? '#141414' : '#fdfcfa', borderWidth: '1.4px' }, box(it.r)),
+        Object.assign({ borderRadius: it.cover ? '3px' : '999px', color: it.center ? 'rgba(247,245,240,1)' : 'rgba(20,20,20,1)', backgroundColor: it.center ? '#141414' : it.cover ? col : '#fdfcfa', borderWidth: '1.4px' }, box(it.r)),
         { color: 'rgba(20,20,20,0)', offset: 0.3 },
         Object.assign({ borderRadius: '50%', color: 'rgba(20,20,20,0)', backgroundColor: col, borderWidth: '1px' }, box(to))
       ], { duration: D, delay: Math.min(j, 24) * 10, easing: EASE, fill: 'forwards' });
@@ -666,7 +800,7 @@
     items.forEach(function (it, j) {
       var c = self._xChip(L, it), from = pts[it.id], col = self.xGenreColor(self.xGenreKey(it.id));
       Object.assign(c.style, box(it.r));
-      var end = Object.assign({ borderRadius: '999px', color: it.center ? 'rgba(247,245,240,1)' : 'rgba(20,20,20,1)', backgroundColor: it.center ? '#141414' : '#fdfcfa', borderWidth: '1.4px' }, box(it.r));
+      var end = Object.assign({ borderRadius: it.cover ? '3px' : '999px', color: it.center ? 'rgba(247,245,240,1)' : 'rgba(20,20,20,1)', backgroundColor: it.center ? '#141414' : it.cover ? col : '#fdfcfa', borderWidth: '1.4px' }, box(it.r));
       if (!from) { c.animate([{ opacity: 0, transform: 'scale(.85)' }, { opacity: 1, transform: 'none' }], { duration: 360, delay: 280, easing: EASE, fill: 'both' }); return; }
       c.animate([
         Object.assign({ borderRadius: '50%', color: 'rgba(20,20,20,0)', backgroundColor: col, borderWidth: '1px' }, box(from)),

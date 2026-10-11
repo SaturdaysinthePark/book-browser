@@ -52,7 +52,8 @@
     }
     // Options (all default to the Atlas v3 behaviour):
     //   regions:false  no neighbourhood circles / names   colorOf(key)  per-book colour (e.g. genre)
-    //   regionCircles:false  names only (genre continents)  regionColor(region)  colour for its name
+    //   regionCircles:false  continents: names only (anchored at lx/ly, kept while a book is focused),
+    //                        with a soft tint in regionColor(region) under the dots
     //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
     //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
     this.showRegions = o.regions !== false;
@@ -220,6 +221,13 @@
     var r, R, sx, sy, sr, i;
 
     // regions
+    for (r = 0; this.showRegions && !this.regionCircles && this.o.regionColor && r < this.regions.length; r++) {
+      R = this.regions[r]; sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k * 1.08;
+      if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
+      var tc = this.o.regionColor(R), gr = c.createRadialGradient(sx, sy, 0, sx, sy, sr);
+      gr.addColorStop(0, hexA(tc, 0.075)); gr.addColorStop(0.7, hexA(tc, 0.04)); gr.addColorStop(1, hexA(tc, 0));
+      c.fillStyle = gr; c.beginPath(); c.arc(sx, sy, sr, 0, 6.2832); c.fill();
+    }
     for (r = 0; this.showRegions && this.regionCircles && r < this.regions.length; r++) {
       R = this.regions[r]; sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k;
       if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
@@ -237,7 +245,7 @@
       if (sx < -12 || sx > W + 12 || sy < -12 || sy > H + 12) continue;
       R = this.regions[this.reg[i]];
       var rad = this._r(i), on = focus < 0 || i === focus || (nb && nb[i]);
-      var a = on ? 1 : (this.mini ? 0.22 : this.col ? 0.24 : 0.13);
+      var a = on ? 1 : (this.mini ? 0.22 : this.col ? 0.3 : 0.13);
       if (this.tw && this.tw[i] && !this.reduced) a *= 0.55 + 0.45 * Math.sin(now * this.tw[i] + i);
       c.globalAlpha = a;
       c.beginPath(); c.arc(sx, sy, rad, 0, 6.2832);
@@ -299,7 +307,7 @@
       c.fillStyle = color; c.textAlign = 'center'; c.fillText(tl, x0, y0);
     };
     if (this.mini) {
-      if (focus >= 0) labelNode(this, focus, 12, 700, INK, 'rgba(247,245,240,0.9)');
+      if (focus >= 0 && W >= 180) labelNode(this, focus, 12, 700, INK, 'rgba(247,245,240,0.9)');   // thumbnails stay unlabelled
       return;
     }
     if (focus >= 0) {
@@ -309,6 +317,7 @@
         for (var q in nb) list.push(+q);
         var dg = this.deg;
         list.sort(function (a, b) { return (b === hover) - (a === hover) || dg[b] - dg[a]; });
+        if (list.length > 40) list = list.slice(0, 30);   // big hubs: the 30 best-connected (hovered first)
         for (var li = 0; li < list.length; li++) {
           var kk = nb[list[li]];
           labelNode(this, list[li], list[li] === hover ? 15 : 12.5, 600, kk === 'out' ? OUT : kk === 'in' ? IN : INK, 'rgba(247,245,240,0.88)');
@@ -323,15 +332,19 @@
       R = this.regions[r];
       if (!R.name) continue;
       sr = R.r * k;
-      if (sr < 34 || (focus >= 0)) continue;
-      sx = this.sx(R.x); sy = this.sy(R.y) - sr - 6;
+      var cont = !this.regionCircles;
+      if (sr < 34 || (focus >= 0 && !cont)) continue;
+      sx = this.sx(R.lx != null ? R.lx : R.x); sy = R.ly != null ? this.sy(R.ly) - 9 : this.sy(R.y) - sr - 6;
       if (sx < -100 || sx > W + 100 || sy < 0 || sy > H + 20) continue;
       var fs = Math.max(13, Math.min(22, sr / 7));
       c.font = fs + 'px ' + SERIF;
       var nm = R.name.replace(/^Around /, ''), tw2 = c.measureText(nm).width;   // the panel keeps "Around …"; the map just names the hub
       if (!tryPlace(sx - tw2 / 2 - 4, sy - fs, tw2 + 8, fs + 6)) continue;
-      c.fillStyle = 'rgba(247,245,240,0.85)'; c.fillRect(sx - tw2 / 2 - 4, sy - fs + 1, tw2 + 8, fs + 4);
+      c.globalAlpha = cont && focus >= 0 ? 0.55 : 1;
+      if (!cont) { c.fillStyle = 'rgba(247,245,240,0.85)'; c.fillRect(sx - tw2 / 2 - 4, sy - fs + 1, tw2 + 8, fs + 4); }
+      if (cont) { c.lineJoin = 'round'; c.lineWidth = 4; c.strokeStyle = 'rgba(247,245,240,0.9)'; c.strokeText(nm, sx, sy); }
       c.fillStyle = this.o.regionColor ? this.o.regionColor(R) : INK; c.fillText(nm, sx, sy);
+      c.globalAlpha = 1;
       if (sr > 120) {
         c.font = '10px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.55)';
         var au = (R.authors || []).join(' · '); var aw = c.measureText(au).width;

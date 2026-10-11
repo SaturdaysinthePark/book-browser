@@ -7,13 +7,13 @@
 //      graph, a few passes); anything still unknown lands in a small "Unsorted" continent. The
 //      book's own (unknown) genre is not changed — the map still draws it grey.
 //   2. Inside a continent, books that mention each other sit together: Louvain on the continent's
-//      own subgraph, each sub-community a sunflower (hubs in the middle, seeded jitter), packed.
+//      own subgraph, each sub-community a wedge of one sunflower disc (hubs toward the middle).
 //   3. Continents are packed as circles: springs pull genres that mention each other together,
 //      collisions keep them apart, then a collision-only settle so none overlap.
 //
 // Output: stars-data.js →
 //   window.BookJumprStars = { nodes: [[key, x, y, continentIdx, degree], …],
-//                             regions: [{ x, y, r, name, genre, size, hub }] }
+//                             regions: [{ x, y, r, lx, ly, name, genre, size, hub }] }  (lx/ly: name anchor)
 //
 // Run:  npm run bj:stars
 
@@ -23,7 +23,7 @@ import { dirname, join, resolve } from 'node:path';
 import { loadData, mulberry32, buildLevel, louvain } from './cluster-communities.mjs';
 
 const ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
-const SPACING = 12.5, JITTER = 0.3, SUB_GAP = 9, GAP = 34, SMALL_SUB = 5;
+const SPACING = 12.5, JITTER = 0.25, GAP = 40, SMALL_SUB = 5;
 const GOLDEN = Math.PI * (3 - Math.sqrt(5));
 const GENRES = ['FICTION', 'POETRY & EPICS', 'DRAMA & PLAYS', 'CRIME & MYSTERY', 'SCI-FI', 'FANTASY', 'HORROR', 'ADVENTURE & TRAVEL',
   'HISTORY', 'BIOGRAPHY & MEMOIR', 'PHILOSOPHY', 'PSYCHOLOGY', 'POLITICS & WORLD', 'BUSINESS & ECONOMICS', 'ESSAYS & JOURNALISM',
@@ -105,20 +105,15 @@ function pack(R, links, gap, seed) {
   for (let g = 0; g < G; g++) { px[g] -= cx; py[g] -= cy; ext = Math.max(ext, Math.hypot(px[g], py[g]) + R[g]); }
   return { px, py, ext };
 }
-const sunflower = (ids, rng, out) => {
-  ids.sort((a, b) => dg(b) - dg(a) || (keyOf[a] < keyOf[b] ? -1 : 1));
-  ids.forEach((i, j) => {
-    const rr = SPACING * Math.sqrt(j + (j ? 0.6 : 0)), th = j * GOLDEN;
-    const jx = j ? (rng() * 2 - 1) * JITTER * SPACING : 0, jy = j ? (rng() * 2 - 1) * JITTER * SPACING : 0;
-    out.set(i, [Math.cos(th) * rr + jx, Math.sin(th) * rr + jy]);
-  });
-  return SPACING * Math.sqrt(ids.length + 0.6) + 4;
-};
 
-// ---- 2. inside each continent: sub-communities as small sunflowers, packed ----
+// ---- 2. inside each continent: one disc, its sub-communities as wedges ----
+// A single sunflower per continent; its slots are split by angle into contiguous sectors, one per
+// Louvain sub-community (sized to it). Inside a sector, the most connected books take the slots
+// nearest the centre, so every continent reads as one round shape with related books together.
+// Books without a genre of their own sort after known ones of equal degree, toward the rim.
 const names = [...new Set(cont)].sort((a, b) => cont.filter((x) => x === b).length - cont.filter((x) => x === a).length);
 const local = new Map();          // i -> [x, y] relative to its continent centre
-const contR = [], contSize = [], contHub = [];
+const contR = [], contSize = [], contHub = [], contTop = [];
 const rng = mulberry32(11);
 names.forEach((g, gi) => {
   const members = []; for (let i = 0; i < n; i++) if (cont[i] === g) members.push(i);
@@ -129,20 +124,30 @@ names.forEach((g, gi) => {
   const by = new Map();
   members.forEach((i, j) => { const c = comm[j]; if (!by.has(c)) by.set(c, []); by.get(c).push(i); });
   let subs = [...by.values()], rest = [];
-  subs = subs.filter((s) => { if (s.length < SMALL_SUB) { rest.push(...s); return false; } return true; });
+  subs = subs.filter((sub) => { if (sub.length < SMALL_SUB) { rest.push(...sub); return false; } return true; });
   if (rest.length) subs.push(rest);
-  const subOf = new Map(); subs.forEach((s, si) => s.forEach((i) => subOf.set(i, si)));
-  const pos = new Map(), R = subs.map((s) => sunflower(s, rng, pos));
-  const cross = new Map();
-  for (const [a, b] of pairs) {
-    if (!subOf.has(a) || !subOf.has(b)) continue;
-    const sa = subOf.get(a), sb = subOf.get(b); if (sa === sb) continue;
-    const k = sa < sb ? sa + ',' + sb : sb + ',' + sa; cross.set(k, (cross.get(k) || 0) + 1);
+  subs.sort((a, b) => b.length - a.length);
+  const N = members.length, slots = [];
+  for (let j = 0; j < N; j++) {
+    const r = SPACING * Math.sqrt(j + (j ? 0.6 : 0)), th = (j * GOLDEN) % (Math.PI * 2);
+    slots.push({ r, th });
   }
-  const links = [...cross.entries()].map(([k, w]) => { const [a, b] = k.split(',').map(Number); return [a, b, w]; });
-  const P = subs.length > 1 ? pack(R, links, SUB_GAP, 5 + gi) : { px: [0], py: [0], ext: R[0] };
-  for (const [i, [x, y]] of pos) { const s = subOf.get(i); local.set(i, [P.px[s] + x, P.py[s] + y]); }
-  contR.push(P.ext + 6); contSize.push(members.length);
+  slots.sort((a, b) => a.th - b.th);
+  const rank = (i) => dg(i) - (own[i] ? 0 : 0.5);
+  let k = 0;
+  for (const sub of subs) {
+    const bucket = slots.slice(k, k + sub.length).sort((a, b) => a.r - b.r); k += sub.length;
+    sub.sort((a, b) => rank(b) - rank(a) || (keyOf[a] < keyOf[b] ? -1 : 1));
+    sub.forEach((i, j) => {
+      const sl = bucket[j], jr = sl.r ? (rng() * 2 - 1) * JITTER * SPACING : 0, jt = sl.r ? (rng() * 2 - 1) * JITTER * SPACING / Math.max(sl.r, SPACING) : 0;
+      local.set(i, [Math.cos(sl.th + jt) * (sl.r + jr), Math.sin(sl.th + jt) * (sl.r + jr)]);
+    });
+  }
+  const R = SPACING * Math.sqrt(N + 0.6) + 6;
+  // name anchor: the top edge of the dots near the middle (4th percentile of y within ±40% r)
+  const ys = members.map((i) => local.get(i)).filter(([x]) => Math.abs(x) < R * 0.4).map(([, y]) => y).sort((a, b) => a - b);
+  contTop.push(ys.length ? ys[Math.floor(ys.length * 0.04)] : -R);
+  contR.push(R); contSize.push(N);
   contHub.push(members.slice().sort((a, b) => dg(b) - dg(a))[0]);
 });
 
@@ -156,8 +161,16 @@ for (const [a, b] of pairs) {
 const linksG = [...crossG.entries()].map(([k, w]) => { const [a, b] = k.split(',').map(Number); return [a, b, w / 10]; });
 const C = pack(contR, linksG, GAP, 7);
 
+// centre the whole map on its bounding box (the packer centres on mass), so "Fit" is balanced
+{
+  let x0 = 1e9, x1 = -1e9, y0 = 1e9, y1 = -1e9;
+  names.forEach((g, gi) => { x0 = Math.min(x0, C.px[gi] - contR[gi]); x1 = Math.max(x1, C.px[gi] + contR[gi]); y0 = Math.min(y0, C.py[gi] - contR[gi]); y1 = Math.max(y1, C.py[gi] + contR[gi]); });
+  const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
+  names.forEach((g, gi) => { C.px[gi] -= mx; C.py[gi] -= my; });
+}
 const round = (v) => Math.round(v * 10) / 10;
-const regions = names.map((g, gi) => ({ x: round(C.px[gi]), y: round(C.py[gi]), r: round(contR[gi]), name: LABEL[g] || g, genre: g, size: contSize[gi], hub: keyOf[contHub[gi]] }));
+const regions = names.map((g, gi) => ({ x: round(C.px[gi]), y: round(C.py[gi]), r: round(contR[gi]), lx: round(C.px[gi]), ly: round(C.py[gi] + contTop[gi]),
+  name: LABEL[g] || g, genre: g, size: contSize[gi], hub: keyOf[contHub[gi]] }));
 const nodes = [];
 for (let i = 0; i < n; i++) { const gi = gIdx.get(cont[i]), [x, y] = local.get(i); nodes.push([keyOf[i], round(C.px[gi] + x), round(C.py[gi] + y), gi, dg(i)]); }
 // sanity: continents must not overlap

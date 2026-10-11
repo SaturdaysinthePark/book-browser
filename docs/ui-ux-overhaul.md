@@ -104,6 +104,18 @@ the references and prompt patterns behind the decisions.
   - **Genre continents** (`npm run bj:stars`, `tools/build-stars.mjs`): each book sits in its genre's area. The 41% without a genre join the genre most of their linked books have, but still draw grey. Inside a continent, books that mention each other cluster (Louvain on that genre's subgraph), and related genres border each other.
   - Reduced motion, the back button and deep links swap with no morph.
 
+- **`?v=next`, round 2 (after phone testing).**
+  - **Book page on phones** is built for portrait:
+    - a slim header (small cover, title, author link, counts) with a map thumbnail that zooms out;
+    - a 2-line synopsis that expands;
+    - the fan as two swipeable **cover shelves** ("Mentioned by" above, "Mentions" below), with flowing lines into the book that follow the covers as you swipe. Tapping a cover opens a sheet with the quote and "Jump →";
+    - **tabs** for the two lists, so a long "Mentions" list no longer buries "Mentioned by".
+  - On tablets the book panel comes first. Everywhere, the genre chips and "Find a path to…" are gone, and the floating Classic/Next pill is desktop-only (the page ends with a "Switch to the classic view" link).
+  - **Map:** no title block and no big legend, just continent names and a one-line key when a book is selected.
+    - Continents get a soft tint, and their names stay visible (dimmed) while a book is selected, so you keep your bearings.
+    - Hubs label their 30 best-connected neighbours.
+  - **Continents are now one disc each:** sub-communities are wedges of a single sunflower. Unknown-genre books sit toward the rim and are drawn lighter, and names are anchored just above the actual dots.
+
 ## Next steps (not done)
 
 - Colour or cluster the network by community (`analysis/communities.json`). Consider WebGL points if real phones still struggle.
