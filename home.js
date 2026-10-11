@@ -342,20 +342,31 @@
     }
   };
 
+  // Neighbour arcs (B): dotted curves that leave the hovered cover's edge and land on the edge of
+  // each connected cover on screen, with a dot sitting on that cover's border.
   P._drawArcs = function () {
     if (!this.arcs) return;
     var s = this.hot, nb = this._nbSet, out = '';
+    // Point where the ray from a box's centre toward (tx,ty) leaves the box (plus a small gap).
+    var edge = function (cx, cy, hw, hh, tx, ty) {
+      var dx = tx - cx, dy = ty - cy;
+      if (!dx && !dy) return [cx, cy];
+      var k = Math.min(dx ? hw / Math.abs(dx) : Infinity, dy ? hh / Math.abs(dy) : Infinity);
+      return [cx + dx * k, cy + dy * k];
+    };
     if (s && nb) {
-      var ax = s.x + this.cw / 2, ay = s.y + this.ch / 2, n = 0;
+      var hw = this.cw / 2, hh = this.ch / 2, f = 1.07;   // the hovered cover is lifted 8px and scaled 1.07
+      var ax = s.x + hw, ay = s.y + hh - 8, n = 0;
       for (var i = 0; i < this.slots.length && n < 14; i++) {
         var t = this.slots[i];
         if (t === s || !nb[t.bk]) continue;
-        var bx = t.x + this.cw / 2, by = t.y + this.ch / 2;
+        var bx = t.x + hw, by = t.y + hh;
         if (bx < -40 || bx > this.W + 40 || by < -40 || by > this.H + 40) continue;
         var mx = (ax + bx) / 2, my = (ay + by) / 2, dx = bx - ax, dy = by - ay;
         var cx = mx - dy * 0.22, cy = my + dx * 0.22 - 30;
-        out += '<path d="M' + ax.toFixed(1) + ' ' + ay.toFixed(1) + ' Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + bx.toFixed(1) + ' ' + by.toFixed(1) + '"/>'
-          + '<circle cx="' + bx.toFixed(1) + '" cy="' + by.toFixed(1) + '" r="4"/>';
+        var p0 = edge(ax, ay, hw * f + 4, hh * f + 4, cx, cy), p1 = edge(bx, by, hw + 1, hh + 1, cx, cy);
+        out += '<path d="M' + p0[0].toFixed(1) + ' ' + p0[1].toFixed(1) + ' Q' + cx.toFixed(1) + ' ' + cy.toFixed(1) + ' ' + p1[0].toFixed(1) + ' ' + p1[1].toFixed(1) + '"/>'
+          + '<circle cx="' + p1[0].toFixed(1) + '" cy="' + p1[1].toFixed(1) + '" r="4.5"/>';
         n++;
       }
     }
