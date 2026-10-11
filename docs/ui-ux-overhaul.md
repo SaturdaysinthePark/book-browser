@@ -87,6 +87,15 @@ the references and prompt patterns behind the decisions.
   - the entry screen offers search, quick picks, "Surprise me" and Louvain "reading neighbourhoods" (`npm run bj:regions`).
   - The constellation map stays the default; `?net=map` switches back.
 
+- **Network Atlas (`?net=v3`).** The whole network on one canvas, grouped into Louvain neighbourhoods (`npm run bj:atlas`); click to focus a book. Testers found it beautiful but the "Around Hamlet" groupings arbitrary and the circles too strict.
+- **Explorer+ (`?net=v4`).** It leans into the Explorer and borrows the map's best parts as supporting layers:
+  - the fan comes alive: dashes flow along each line in the mention's direction (in toward the centre, out away from it; mutual stays still), the centre pill has a slow heartbeat, and a spark runs along the edge you just hopped;
+  - genre instead of neighbourhoods: genre chips over the fan act as both a legend and a filter (both sides are filtered before layout, so big fans shrink), and the entry's "Places to start" uses the themed shelves from the home wall;
+  - the panel opens with a living mini-map ("Where you are"): every book as a star in its genre colour, your hops drawn across it in ink, and the camera glides to each new neighbourhood;
+  - clicking it opens a full-screen star map with zoom, pan, pinch, search, a legend, flowing in/out lines for the selected star, and "Hop here" (or double-click) to jump the fan there. Esc closes it.
+  - The stars come from `npm run bj:stars` (`build-atlas.mjs --organic`): the same communities with seeded jitter and tighter gaps, and no circles or names.
+  - None of the motion runs under reduced motion; the ambient loop pauses when the canvas is off screen.
+
 ## Next steps (not done)
 
 - Colour or cluster the network by community (`analysis/communities.json`). Consider WebGL points if real phones still struggle.

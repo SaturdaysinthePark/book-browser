@@ -388,6 +388,7 @@
       var af = this.state.route.focus || null, cur = at.focus >= 0 ? at.keys[at.focus] : null;
       if (af !== cur) at.setFocus(af);
     }
+    if (this._xStarSync) this._xStarSync();   // Explorer+ mini-map follows the hops
     if (!snapshot) return;
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var self = this;
@@ -1314,21 +1315,23 @@
   };
 
   // ---------- network variants: the constellation map (default) or the Explorer (?net=v2) ----------
-  // 'map' (default) · 'explorer' (?net=v2) · 'atlas' (?net=v3)
+  // 'map' (default) · 'explorer' (?net=v2) · 'atlas' (?net=v3) · 'plus' (?net=v4, Explorer+)
   P._netMode = function () {
     if (this._netV === undefined) {
       var v = null;
       try { v = new URLSearchParams(location.search).get('net'); } catch (e) {}
       this._netCompare = v != null && v !== '';
-      this._netV = v === 'v2' || v === 'explorer' ? 'explorer' : v === 'v3' || v === 'atlas' ? 'atlas' : 'map';
+      this._netV = v === 'v2' || v === 'explorer' ? 'explorer' : v === 'v3' || v === 'atlas' ? 'atlas' : v === 'v4' || v === 'plus' ? 'plus' : 'map';
     }
     return this._netV;
   };
-  P._netExplorer = function () { return this._netMode() === 'explorer'; };
+  P._netExplorer = function () { var m = this._netMode(); return m === 'explorer' || m === 'plus'; };
+  P._xPlus = function () { return this._netMode() === 'plus'; };
+  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xPlus() || (window.BJAtlas && window.BookJumprStars))); };
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=1', 'explorer.js?v=1'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=2', 'explorer.js?v=2'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1362,11 +1365,13 @@
     setTimeout(function () { self._silent = false; }, 0);
   };
   P._loadExplorer = function () {
-    if ((window.__BJ && window.__BJ.explorerReady) || this._xLoading) return;
+    if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
-    var self = this, left = 2;
+    // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
+    var srcs = this._xPlus() ? ['atlas.js?v=2', 'stars-data.js?v=1', 'explorer.js?v=2'] : ['network-regions.js?v=1', 'explorer.js?v=2'];
+    var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
-    ['network-regions.js?v=1', 'explorer.js?v=1'].forEach(function (src) {
+    srcs.forEach(function (src) {
       var sc = document.createElement('script');
       sc.src = src; sc.onload = done; sc.onerror = done;
       document.body.appendChild(sc);
@@ -1538,7 +1543,7 @@
     var vals = {
       pgHome: page === 'home' && !hv, pgHomeX: !!hv, pgBook: page === 'book', pgSearch: page === 'search',
       pgStats: page === 'stats', pgNetwork: page === 'network', pgAbout: page === 'about',
-      pgNetMap: page === 'network' && this._netMode() === 'map', pgExplorer: page === 'network' && this._netMode() === 'explorer',
+      pgNetMap: page === 'network' && this._netMode() === 'map', pgExplorer: page === 'network' && this._netExplorer(),
       pgAtlas: page === 'network' && this._netMode() === 'atlas',
       pgAuthor: page === 'author',
       goHome: go(function () { self.navigate({ page: 'home' }, '#/'); }),
@@ -1926,6 +1931,8 @@
     vals.netSwMap = '?net=map#/network' + nf; vals.netSwX = '?net=v2#/network' + nf;
     vals.netSwMapCls = vals.pgNetMap ? 'on' : ''; vals.netSwXCls = vals.pgExplorer ? 'on' : '';
     vals.netSwA = '?net=v3#/network' + nf; vals.netSwACls = vals.pgAtlas ? 'on' : '';
+    vals.netSwP = '?net=v4#/network' + nf; vals.netSwPCls = this._netMode() === 'plus' && page === 'network' ? 'on' : '';
+    if (vals.netSwXCls && vals.netSwPCls) vals.netSwXCls = '';
     vals.atlasHostRef = this._atlasRefFn || (this._atlasRefFn = function (el) {
       if (el) { self._atlasEl = el; self._mountAtlas(); }
       else { self._atlasEl = null; if (self._atlas) { self._atlas.destroy(); self._atlas = null; window.__atlas = null; } }
@@ -1939,7 +1946,7 @@
     if (vals.pgExplorer) {
       this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       this._loadNotes();
-      if (window.__BJ.explorerReady) vals.explorer = this.explorer(route.focus);
+      if (this._xReady()) vals.explorer = this.explorer(route.focus);
       else { this._loadExplorer(); vals.explorer = h('div', { className: 'bjx-loading' }, 'Opening the explorer…'); }
     } else vals.explorer = null;
 

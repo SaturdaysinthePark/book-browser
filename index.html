@@ -512,6 +512,71 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .bjx-region .au{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(20,20,20,.65);}
 .bjx-region .sz{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);margin-top:2px;}
 
+/* Explorer+ (?net=v4): living fan, genre chips, star map */
+.bjx-plus .ng-flow{fill:none;stroke:var(--card);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:3 11;opacity:0;pointer-events:none;
+  animation:ngShow .4s ease forwards,bjxFlow 1.15s linear infinite;animation-delay:calc(var(--i) * 30ms + 760ms),0s;}
+.bjx-plus .bjx-eg.is-hot .ng-flow{stroke-width:3;stroke-dasharray:4 9;animation-duration:.4s,.55s;}
+@keyframes bjxFlow{from{stroke-dashoffset:14;}to{stroke-dashoffset:0;}}
+.bjx-plus .bjx-eg.is-hot .ng-flow{animation-name:ngShow,bjxFlowHot;}
+@keyframes bjxFlowHot{from{stroke-dashoffset:13;}to{stroke-dashoffset:0;}}
+.bjx-plus .bjx-center{animation:bjxBeat 3.6s ease-out 1s infinite;}
+@keyframes bjxBeat{0%{box-shadow:0 0 0 0 rgba(156,61,34,.42),0 0 0 0 rgba(20,20,20,.16);}
+  14%{box-shadow:0 0 0 9px rgba(156,61,34,0),0 0 0 3px rgba(20,20,20,.12);}
+  26%{box-shadow:0 0 0 0 rgba(156,61,34,0),0 0 0 16px rgba(20,20,20,0);}100%{box-shadow:0 0 0 0 rgba(156,61,34,0),0 0 0 0 rgba(20,20,20,0);}}
+.bjx-spark{position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;pointer-events:none;offset-rotate:0deg;offset-anchor:50% 50%;z-index:3;
+  background:#fff6e8;box-shadow:0 0 0 2px var(--accent),0 0 14px 4px rgba(156,61,34,.55);}
+.bjx-spark.in{box-shadow:0 0 0 2px var(--inbound),0 0 14px 4px rgba(47,85,144,.55);}
+.bjx-spark.both{box-shadow:0 0 0 2px var(--ink),0 0 14px 4px rgba(20,20,20,.35);}
+.bjx-genres{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px;}
+.bjx-gchip{display:inline-flex;align-items:center;gap:6px;border:1.3px solid rgba(20,20,20,.35);background:var(--card);border-radius:999px;padding:4px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,transform .25s var(--ease-spring);}
+.bjx-gchip:hover{border-color:var(--ink);transform:translateY(-1px);}
+.bjx-gchip.on{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.bjx-gchip .n{color:var(--mut);}.bjx-gchip.on .n{color:rgba(247,245,240,.65);}
+.bjx .sw{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(20,20,20,.25);}
+.bjx-starts .nm{display:flex;align-items:center;gap:8px;}
+.bjx-chips .stars{border-style:dashed;}
+.bjx-mini{display:flex;flex-direction:column;gap:8px;margin-bottom:-4px;}
+.bjx-mini-h{display:flex;align-items:center;justify-content:space-between;}
+.bjx-mini-open{border:none;background:none;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);}
+.bjx-mini-open:hover{color:var(--accent);}
+.bjx-mini-map{position:relative;height:190px;border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--paper);cursor:pointer;transition:box-shadow .2s,transform .3s var(--ease-spring);}
+.bjx-mini-map:hover,.bjx-mini-map:focus-visible{box-shadow:0 4px 0 rgba(20,20,20,.9);transform:translateY(-2px);outline:none;}
+.bjx-mini-map canvas,.bjx-full-map canvas{display:block;}
+.bjx-full{position:fixed;inset:0;z-index:90;background:var(--paper);animation:bjxFullIn .32s var(--ease-out);}
+@keyframes bjxFullIn{from{opacity:0;transform:scale(.985);}to{opacity:1;transform:none;}}
+.bjx-full-map{position:absolute;inset:0;}
+.bjx-fbar{position:absolute;left:16px;right:16px;top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;pointer-events:none;}
+.bjx-fbar > *{pointer-events:auto;}
+.bjx-ftitle{display:flex;flex-direction:column;gap:2px;background:rgba(247,245,240,.88);padding:6px 10px;border-radius:10px;}
+.bjx-ftitle .sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);}
+.bjx-fbar .atlas-q{flex:1;width:auto;max-width:420px;min-width:200px;}
+.bjx-fclose{margin-left:auto;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);background:var(--card);font-size:16px;cursor:pointer;color:var(--ink);box-shadow:0 3px 0 rgba(20,20,20,.9);}
+.bjx-fclose:hover{background:var(--ink);color:var(--paper);}
+.bjx-flegend{position:absolute;left:16px;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:6px 14px;max-width:min(560px,calc(100% - 32px));
+  font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(20,20,20,.75);background:rgba(247,245,240,.9);padding:8px 12px;border-radius:12px;pointer-events:none;}
+.bjx-flegend span{display:inline-flex;align-items:center;gap:6px;}
+.bjx-flegend .ln{display:inline-block;width:20px;border-top:2px dashed;}.bjx-flegend .ln.out{color:var(--accent);}.bjx-flegend .ln.in{color:var(--inbound);}
+.bjx-flegend .ln.tr{border:none;height:2px;background:var(--ink);}
+.bjx-flegend .hint{width:100%;color:var(--mut);}
+.bjx-fcard{position:absolute;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:360px;max-width:calc(100% - 32px);box-sizing:border-box;display:flex;gap:14px;
+  background:var(--card);border:1.5px solid var(--ink);border-radius:16px;padding:14px;box-shadow:0 5px 0 rgba(20,20,20,.9);animation:cstlFade .2s ease;}
+.bjx-fcv{flex:none;width:64px;}
+.bjx-fmeta{min-width:0;display:flex;flex-direction:column;gap:4px;}
+.bjx-fmeta h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;line-height:1.05;margin:2px 0;}
+.bjx-fmeta .by{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(20,20,20,.7);}
+.bjx-fmeta .cnt{font-family:'IBM Plex Mono',monospace;font-size:10px;display:flex;align-items:center;flex-wrap:wrap;margin:4px 0 6px;}
+@media (max-width:759px){
+  .bjx-ftitle{display:none;}
+  .bjx-fbar .atlas-q{min-width:0;}
+  .bjx-flegend{display:none;}
+  .bjx-fcard{left:12px;right:12px;width:auto;max-width:none;bottom:calc(12px + env(safe-area-inset-bottom));}
+}
+@media (prefers-reduced-motion:reduce){
+  .bjx-plus .ng-flow{display:none;}
+  .bjx-plus .bjx-center{animation:none;}
+  .bjx-full{animation:none;}
+}
+
 /* Map / Explorer switcher (only with ?net=) */
 .net-switch{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 12px;background:rgba(29,27,24,.9);border:1px solid rgba(242,236,221,.3);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,221,.7);}
 .net-switch a{color:#f2ecdd;text-decoration:none;padding:5px 9px;border-radius:999px;}
@@ -1127,7 +1192,7 @@ html,body{height:100%;}
   </sc-if>
   <sc-if value="{{ netCompare }}" hint-placeholder-val="{{ false }}">
     <div class="net-switch">Network
-      <a href="{{ netSwMap }}" class="{{ netSwMapCls }}">Map</a><a href="{{ netSwX }}" class="{{ netSwXCls }}">Explorer</a><a href="{{ netSwA }}" class="{{ netSwACls }}">Atlas</a>
+      <a href="{{ netSwMap }}" class="{{ netSwMapCls }}">Map</a><a href="{{ netSwX }}" class="{{ netSwXCls }}">Explorer</a><a href="{{ netSwA }}" class="{{ netSwACls }}">Atlas</a><a href="{{ netSwP }}" class="{{ netSwPCls }}">Explorer+</a>
     </div>
   </sc-if>
   <sc-if value="{{ pgNetMap }}" hint-placeholder-val="{{ false }}">

@@ -10,6 +10,12 @@
  * Loaded lazily by app.js; it extends the BookJumpr component prototype (window.__BJ.P) with
  * render helpers, so it shares the app's data, covers (coverHTML), fan layout (fanLayout),
  * mention notes (noteEl), search (matches) and routing (navigate).
+ *
+ * Explorer+ (?net=v4) is the same page with a few living layers on top: the fan's lines flow in
+ * the mention's direction and the centre has a slow heartbeat; a spark runs along the edge you
+ * just hopped; genre chips filter (and label) big fans; the panel opens with a mini star map of
+ * the whole network (genre-coloured, your hops drawn across it) that expands to a full-screen
+ * view. The star map is atlas.js with its Explorer+ options, over stars-data.js.
  */
 (function () {
   'use strict';
@@ -30,12 +36,45 @@
     var cur = document.querySelector('.bjx-center');
     if (fromEl && fromEl.style) { fromEl.style.viewTransitionName = 'bjx-c'; fromEl.setAttribute('data-vtn', '1'); }
     if (cur && prev) { cur.style.viewTransitionName = 'bjx-p'; cur.setAttribute('data-vtn', '1'); }
-    this.setState({ xHover: null, xPathOpen: false, xPathTo: null, xPathQ: '' });
+    this.setState({ xHover: null, xPathOpen: false, xPathTo: null, xPathQ: '', xGenre: null });
     this.navigate({ page: 'network', focus: id }, '#/network/' + id, null, function () {
       if (!prev) return;
       var el = document.querySelector('.bjx-pill[data-id="' + CSS.escape(prev) + '"]');
       if (el) { el.style.viewTransitionName = 'bjx-p'; el.setAttribute('data-vtn', '1'); }
     });
+    if (prev && this._xPlus && this._xPlus()) setTimeout(function () { self.xSpark(prev); }, 480);
+  };
+
+  // Explorer+: a spark runs along the edge between the book you came from and the new centre.
+  P.xSpark = function (from) {
+    if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var fan = document.querySelector('.bjx-fan'), g = fan && fan.querySelector('.bjx-eg[data-id="' + CSS.escape(from) + '"] .ng-e');
+    if (!g || !g.animate) return;
+    // Edges are drawn in the mention's direction; the spark always travels from the old book inward.
+    var inward = g.classList.contains('in'), sp = document.createElement('i');
+    sp.className = 'bjx-spark ' + (inward ? 'in' : g.classList.contains('out') ? 'out' : 'both');
+    sp.style.offsetPath = 'path("' + g.getAttribute('d') + '")';
+    fan.appendChild(sp);
+    var a = sp.animate([{ offsetDistance: inward ? '0%' : '100%', opacity: 0 }, { opacity: 1, offset: 0.15 }, { opacity: 1, offset: 0.85 }, { offsetDistance: inward ? '100%' : '0%', opacity: 0 }],
+      { duration: 760, easing: 'cubic-bezier(.45,0,.25,1)' });
+    a.onfinish = a.oncancel = function () { sp.remove(); };
+  };
+
+  // ---- genre (Explorer+) -----------------------------------------------------------------
+  var GENRE_LABEL = { 'FICTION': 'Fiction', 'POETRY & EPICS': 'Poetry & epics', 'DRAMA & PLAYS': 'Drama', 'CRIME & MYSTERY': 'Crime & mystery',
+    'SCI-FI': 'Sci-fi', 'FANTASY': 'Fantasy', 'HORROR': 'Horror', 'ADVENTURE & TRAVEL': 'Adventure & travel', 'HISTORY': 'History',
+    'BIOGRAPHY & MEMOIR': 'Lives & memoirs', 'PHILOSOPHY': 'Philosophy', 'PSYCHOLOGY': 'Psychology', 'POLITICS & WORLD': 'Politics',
+    'BUSINESS & ECONOMICS': 'Business', 'ESSAYS & JOURNALISM': 'Essays', 'HUMOR & COMEDY': 'Humour', 'FOOD & COOKING': 'Food', 'MISC': 'Other' };
+  var MISC_DOT = '#b3ad9f';
+  P.xGenreKey = function (id) { return this.genreOf(this.books[id]).name; };
+  P.xGenreLabel = function (name) { return GENRE_LABEL[name] || name; };
+  P.xGenreColor = function (name) { return name === 'MISC' ? MISC_DOT : (this.genreByName(name) || this.GEN3[17]).color; };
+  // Genres among a book's neighbours, biggest first (Other last).
+  P.xGenres = function (b) {
+    var self = this, cnt = {}, seen = {};
+    b.out.concat(b.in).forEach(function (id) { if (seen[id] || !self.books[id]) return; seen[id] = 1; var g = self.xGenreKey(id); cnt[g] = (cnt[g] || 0) + 1; });
+    return Object.keys(cnt).map(function (g) { return { g: g, n: cnt[g] }; })
+      .sort(function (x, y) { return (x.g === 'MISC') - (y.g === 'MISC') || y.n - x.n; });
   };
 
   // Shortest undirected chain of mentions between two books (BFS).
@@ -63,7 +102,11 @@
 
   // ---- the fan ---------------------------------------------------------------------------
   P.explorerFan = function (b, W, availH) {
-    var self = this, books = this.books, st = this.state;
+    var self = this, books = this.books, st = this.state, plus = this._xPlus && this._xPlus();
+    if (plus && st.xGenre) {   // genre chip: both sides narrowed before layout (mutual pairs stay mutual)
+      var keep = function (id) { return self.xGenreKey(id) === st.xGenre; };
+      b = { id: b.id, title: b.title, out: b.out.filter(keep), in: b.in.filter(keep) };
+    }
     var FONT = "12px 'IBM Plex Mono', monospace";
     var narrow = W < 560;
     var extra = function (it) {
@@ -87,9 +130,11 @@
     lay.items.forEach(function (n) {
       var it = n.it, k = it.k || 'more', id = it.id, isHot = id && id === hot;
       // each edge sits in its own group so hover-dimming (group opacity) composes with the draw-in fade
-      if (n.d) svgKids.push(h('g', { key: 'e' + n.i, className: 'bjx-eg' + (isHot ? ' is-hot' : '') },
+      // Explorer+: a second dashed path streams along the line in the mention's direction (mutual stays still)
+      if (n.d) svgKids.push(h('g', { key: 'e' + n.i, 'data-id': id, className: 'bjx-eg' + (isHot ? ' is-hot' : '') },
         h('path', { className: 'ng-e ' + k + (isHot ? ' is-hot' : ''), d: n.d, pathLength: 1, style: { '--i': n.i },
-          markerEnd: 'url(#bjxA-' + k + ')', markerStart: k === 'both' ? 'url(#bjxA-both)' : null })));
+          markerEnd: 'url(#bjxA-' + k + ')', markerStart: k === 'both' ? 'url(#bjxA-both)' : null }),
+        plus && k !== 'both' ? h('path', { className: 'ng-flow ' + k, d: n.d, style: { '--i': n.i } }) : null));
       if (!it.more) svgKids.push(h('circle', { key: 'c' + n.i, className: 'bjx-dot ' + k, cx: n.x, cy: n.y, r: 4.6, style: { '--i': n.i } }));
       // Hovered neighbour: faint stubs hint at where it leads next.
       if (isHot) {
@@ -131,6 +176,13 @@
     var self = this, books = this.books, st = this.state, hot = st.xHover && books[st.xHover] ? books[st.xHover] : null;
     var kids = [];
     var yl = this.yearLabel(b.year);
+    if (this._xPlus && this._xPlus()) {
+      kids.push(h('div', { key: 'mini', className: 'bjx-mini' },
+        h('div', { className: 'bjx-mini-h' }, h('span', { className: 'eyebrow' }, 'Where you are'),
+          h('button', { className: 'bjx-mini-open', onClick: function () { self.xOpenFull(); } }, 'Full map ↗')),
+        h('div', { className: 'bjx-mini-map', ref: this._xMiniRef(), role: 'button', tabIndex: 0, 'aria-label': 'Open the full star map',
+          onKeyDown: function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); self.xOpenFull(); } } })));
+    }
     kids.push(h('div', { key: 'head', className: 'bjx-head' },
       h('div', { className: 'bjx-hcv' }, this.cover(b)),
       h('div', { className: 'bjx-hmeta' },
@@ -207,9 +259,9 @@
     var pick = function (id, el) { self.setState({ xQ: '' }); self.xJump(id, el); };
     var pp = (this._popPool || []).slice(0, 8);
     var regions = (window.BookJumprRegions && window.BookJumprRegions.regions) || [];
-    var pool = this._ensureWallPool();
+    var pool = this._ensureWallPool(), plus = this._xPlus && this._xPlus();
     return h('div', { className: 'bjx-entry' },
-      h('div', { className: 'eyebrow' }, 'Network · Explorer'),
+      h('div', { className: 'eyebrow' }, plus ? 'Network · Explorer+' : 'Network · Explorer'),
       h('h1', null, 'Start from a book, then follow the mentions.'),
       h('p', { className: 'lede' }, (this.state.vw || 1024) < 560
         ? 'Each book opens its neighbourhood: the books that mention it above, the books it mentions below. Tap any of them to jump.'
@@ -225,8 +277,9 @@
         })) : null),
       h('div', { className: 'bjx-chips' },
         pp.map(function (b) { return h('button', { key: b.id, onClick: function (e) { pick(b.id, e.currentTarget); } }, b.title); }),
-        h('button', { key: 'rnd', className: 'rnd', onClick: function (e) { var c = pool[Math.floor(Math.random() * Math.min(300, pool.length))]; if (c) pick(c.id, e.currentTarget); } }, '↯ Surprise me')),
-      regions.length ? h('section', { className: 'bjx-regions' },
+        h('button', { key: 'rnd', className: 'rnd', onClick: function (e) { var c = pool[Math.floor(Math.random() * Math.min(300, pool.length))]; if (c) pick(c.id, e.currentTarget); } }, '↯ Surprise me'),
+        plus ? h('button', { key: 'stars', className: 'stars', onClick: function () { self.xOpenFull(); } }, '✦ See every book as a star') : null),
+      plus ? this.explorerStarts() : regions.length ? h('section', { className: 'bjx-regions' },
         h('div', { className: 'sec-h' }, h('h2', null, 'Reading neighbourhoods'), h('span', { className: 'cap' }, 'clusters of books that keep mentioning each other')),
         h('div', { className: 'bjx-rgrid' }, regions.map(function (r, i) {
           var hubs = r.hubKeys.filter(function (k) { return books[k] && self._homeOk(k); });
@@ -239,21 +292,178 @@
         }))) : null);
   };
 
+  // Explorer+ entry: places to start — the same shelves the themed home wall uses (most
+  // name-dropped, great name-droppers, found inside…, genre shelves), each opening on its top book.
+  P.explorerStarts = function () {
+    var self = this, books = this.books, rows = this._hxRows(0);
+    return h('section', { className: 'bjx-regions bjx-starts' },
+      h('div', { className: 'sec-h' }, h('h2', null, 'Places to start'), h('span', { className: 'cap' }, 'pick a shelf — you start at its most connected book')),
+      h('div', { className: 'bjx-rgrid' }, rows.map(function (r, i) {
+        var ids = r.ids.filter(function (k) { return books[k]; });
+        if (!ids.length) return null;
+        var top = books[ids[0]];
+        var g = r.label.indexOf('Found inside') === 0 || r.label.indexOf('Most') === 0 || r.label.indexOf('The great') === 0 ? null : self.genreOf(books[ids[0]]).name;
+        return h('button', { key: i, className: 'bjx-region', onClick: function (e) { self.setState({ xQ: '' }); self.xJump(top.id, e.currentTarget); } },
+          h('div', { className: 'covers' }, ids.slice(0, 5).map(function (k) { return h('span', { key: k }, self.cover(books[k])); })),
+          h('div', { className: 'nm' }, g ? h('i', { className: 'sw', style: { background: self.xGenreColor(g) } }) : null, r.label),
+          h('div', { className: 'au' }, 'starts at ' + top.title),
+          h('div', { className: 'sz' }, ids.length + (ids.length === 48 ? '+' : '') + ' books'));
+      })));
+  };
+
+  // ---- star map (Explorer+): mini-map in the panel, full-screen view ------------------------
+  P._xStarOpts = function (extra) {
+    var self = this, o = {
+      data: window.BookJumprStars, regions: false, flow: true, twinkle: true,
+      colorOf: function (k) { return self.books[k] ? self.xGenreColor(self.xGenreKey(k)) : MISC_DOT; },
+      trail: function () { return self._xTrail || []; },
+      title: function (k) { var b = self.books[k]; return b ? b.title : ''; },
+      neighbors: function (k) { var b = self.books[k]; return b ? { out: b.out, in: b.in } : { out: [], in: [] }; }
+    };
+    for (var k in extra) o[k] = extra[k];
+    return o;
+  };
+  P._xMiniRef = function () {
+    var self = this;
+    return this._xMiniFn || (this._xMiniFn = function (el) {
+      if (self._xMini) { self._xMini.destroy(); self._xMini = null; }
+      if (!el || !window.BJAtlas || !window.BookJumprStars) return;
+      self._xMini = new window.BJAtlas(self._xStarOpts({ root: el, mini: true, onClick: function () { self.xOpenFull(); } }));
+      var f = self.state.route.focus;
+      if (f) self._xMini.setFocus(f, false);
+    });
+  };
+  P.xOpenFull = function () {
+    var f = this.state.route.page === 'network' ? this.state.route.focus : null;
+    this.setState({ xFull: true, xSel: f || null, xFq: '' });
+  };
+  P.xCloseFull = function () { this.setState({ xFull: false, xSel: null, xFq: '' }); };
+  P.xHopFromFull = function (id) {
+    this.setState({ xFull: false, xSel: null, xFq: '' });
+    if (id && id !== this.state.route.focus) this.xJump(id, null);
+  };
+  P._xFullRef = function () {
+    var self = this;
+    return this._xFullFn || (this._xFullFn = function (el) {
+      if (self._xFullMap) { self._xFullMap.destroy(); self._xFullMap = null; window.__xfull = null; }
+      if (self._xFullKey) { window.removeEventListener('keydown', self._xFullKey); self._xFullKey = null; }
+      if (!el || !window.BJAtlas || !window.BookJumprStars) return;
+      var m = self._xFullMap = window.__xfull = new window.BJAtlas(self._xStarOpts({
+        root: el,
+        onFocus: function (k) { self.setState({ xSel: k }); m.setFocus(k); },
+        bottomInset: function () { var c = window.innerWidth < 760 && document.querySelector('.bjx-fcard'); return c ? c.getBoundingClientRect().height + 16 : 0; }
+      }));
+      el.addEventListener('dblclick', function (e) {
+        var r = el.getBoundingClientRect(), i = m.pick(e.clientX - r.left, e.clientY - r.top, 6);
+        if (i >= 0) self.xHopFromFull(m.keys[i]);
+      });
+      self._xFullKey = function (e) {
+        if (e.key !== 'Escape') return;
+        if (e.target && e.target.tagName === 'INPUT' && self.state.xFq) self.setState({ xFq: '' });
+        else self.xCloseFull();
+      };
+      window.addEventListener('keydown', self._xFullKey);
+      var f = self.state.xSel;
+      if (f) m.setFocus(f, false);
+    });
+  };
+  // Keep the star maps in step with the route / selection (called from componentDidUpdate).
+  P._xStarSync = function () {
+    if (this.state.xFull && this.state.route.page !== 'network') this.setState({ xFull: false, xSel: null });
+    var f = this.state.route.page === 'network' ? this.state.route.focus || null : null;
+    var mi = this._xMini;
+    if (!mi) return;
+    var cur = mi.focus >= 0 ? mi.keys[mi.focus] : null, tn = (this._xTrail || []).join();
+    if (cur !== f) mi.setFocus(f);
+    else if (tn !== this._xMiniTrail) mi.draw();   // trail cleared / changed without a hop
+    this._xMiniTrail = tn;
+  };
+  P.explorerFull = function () {
+    var self = this, st = this.state, books = this.books, sel = st.xSel && books[st.xSel] ? books[st.xSel] : null;
+    var q = st.xFq || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
+    var find = function (id) { self.setState({ xFq: '', xSel: id }); if (self._xFullMap) self._xFullMap.setFocus(id); };
+    var m = function () { return self._xFullMap; };
+    // genre legend: the most common genres across the network
+    if (!this._xGenTop) {
+      var cnt = {};
+      (window.BookJumprStars.nodes || []).forEach(function (nd) { if (books[nd[0]]) { var g = self.xGenreKey(nd[0]); cnt[g] = (cnt[g] || 0) + 1; } });
+      this._xGenTop = Object.keys(cnt).filter(function (g) { return g !== 'MISC'; }).sort(function (a, b) { return cnt[b] - cnt[a]; }).slice(0, 9);
+    }
+    var card = null;
+    if (sel) {
+      var yl = this.yearLabel(sel.year);
+      card = h('div', { className: 'bjx-fcard' },
+        h('div', { className: 'bjx-fcv' }, this.cover(sel)),
+        h('div', { className: 'bjx-fmeta' },
+          h('div', { className: 'eyebrow' }, sel.id === st.route.focus ? 'You are here' : 'Selected star'),
+          h('h3', null, sel.title),
+          h('div', { className: 'by' }, [sel.author, yl].filter(Boolean).join('  ·  ')),
+          h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
+          h('div', { className: 'bjx-act' },
+            sel.id === st.route.focus
+              ? h('button', { className: 'pill solid', onClick: function () { self.xCloseFull(); } }, 'Back to its fan')
+              : h('button', { className: 'pill solid', onClick: function () { self.xHopFromFull(sel.id); } }, 'Hop here →'),
+            h('button', { className: 'pill', onClick: function () { self.setState({ xFull: false }); self.goBook(sel.id); } }, 'Book page'))));
+    }
+    return h('div', { key: 'xfull', className: 'bjx-full', role: 'dialog', 'aria-modal': 'true', 'aria-label': 'Star map of every book' },
+      h('div', { className: 'bjx-full-map', ref: this._xFullRef() }),
+      h('div', { className: 'bjx-fbar' },
+        h('div', { className: 'bjx-ftitle' }, h('span', { className: 'eyebrow' }, 'Every book, as stars'), h('span', { className: 'sub' }, 'coloured by genre · your hops in ink')),
+        h('div', { className: 'atlas-q' },
+          h('input', { className: 'atlas-input', placeholder: 'Find a star…', value: q, 'aria-label': 'Find a book on the star map',
+            onChange: function (e) { self.setState({ xFq: e.target.value }); },
+            onKeyDown: function (e) { if (e.key === 'Enter' && sugg[0]) find(sugg[0].id); } }),
+          sugg.length ? h('div', { className: 'sg-pop atlas-sg' }, sugg.map(function (x) {
+            return h('button', { key: x.id, onMouseDown: function (e) { e.preventDefault(); find(x.id); } },
+              h('span', { className: 'sg-cv' }, self.cover(x)), h('span', { className: 'sg-t' }, h('span', { className: 't' }, x.title), h('span', { className: 'a' }, x.author || '')));
+          })) : null),
+        h('div', { className: 'atlas-zoom' },
+          h('button', { onClick: function () { if (m()) m().zoomBy(1 / 1.4); }, 'aria-label': 'Zoom out' }, '−'),
+          h('button', { onClick: function () { if (m()) m().zoomBy(1.4); }, 'aria-label': 'Zoom in' }, '+'),
+          h('button', { className: 'fit', onClick: function () { if (m()) m().fit(true); } }, 'Fit')),
+        h('button', { className: 'bjx-fclose', onClick: function () { self.xCloseFull(); }, 'aria-label': 'Close the star map' }, '✕')),
+      h('div', { className: 'bjx-flegend' },
+        this._xGenTop.map(function (g) { return h('span', { key: g }, h('i', { className: 'sw', style: { background: self.xGenreColor(g) } }), self.xGenreLabel(g)); }),
+        h('span', { key: 'o' }, h('i', { className: 'sw', style: { background: MISC_DOT } }), 'Genre unknown'),
+        h('span', { key: 'lo' }, h('i', { className: 'ln out' }), 'mentions'),
+        h('span', { key: 'li' }, h('i', { className: 'ln in' }), 'mentioned by'),
+        h('span', { key: 't', className: 'tr' }, h('i', { className: 'ln tr' }), 'your hops'),
+        h('span', { key: 'h', className: 'hint' }, sel ? 'Double-click a star to hop · Esc to close' : 'Click a star to see its links · Esc to close')),
+      card);
+  };
+
   // ---- page ------------------------------------------------------------------------------
+  // Explorer+: genre chips over the fan — a legend of what's here, and a filter for big fans.
+  P.explorerGenres = function (b) {
+    var self = this, st = this.state, gs = this.xGenres(b);
+    if (gs.length < 2) return null;
+    var chip = function (g, label, n, on) {
+      return h('button', { key: g || 'all', className: 'bjx-gchip' + (on ? ' on' : ''), 'aria-pressed': on ? 'true' : 'false',
+        onClick: function () { self.setState({ xGenre: g, xAll: null, xHover: null }); } },
+        g ? h('i', { className: 'sw', style: { background: self.xGenreColor(g) } }) : null, label, n != null ? h('span', { className: 'n' }, n) : null);
+    };
+    var kids = [chip(null, 'All', b.out.length + b.in.filter(function (x) { return b.out.indexOf(x) === -1; }).length, !st.xGenre)];
+    gs.slice(0, 7).forEach(function (x) { kids.push(chip(x.g, self.xGenreLabel(x.g), x.n, st.xGenre === x.g)); });
+    if (st.xGenre && !gs.slice(0, 7).some(function (x) { return x.g === st.xGenre; })) kids.push(chip(st.xGenre, self.xGenreLabel(st.xGenre), null, true));
+    return h('div', { className: 'bjx-genres', role: 'group', 'aria-label': 'Filter by genre' }, kids);
+  };
+
   P.explorer = function (focus) {
-    var b = focus && this.books[focus];
-    if (!b) return this.explorerEntry();
+    var b = focus && this.books[focus], plus = this._xPlus && this._xPlus();
+    var full = plus && this.state.xFull ? this.explorerFull() : null;
+    if (!b) return plus ? h(React.Fragment, null, this.explorerEntry(), full) : this.explorerEntry();
     var vw = this.state.vw || window.innerWidth, vh = window.innerHeight;
     var wide = vw >= 1000, W = wide ? vw - 400 - 64 : vw - 32;
-    var availH = vh - 56 - 90;
-    return h('div', { className: 'bjx-page' + (wide ? ' wide' : '') },
+    var availH = vh - 56 - 90 - (plus ? 44 : 0);
+    return h('div', { className: 'bjx-page' + (wide ? ' wide' : '') + (plus ? ' bjx-plus' : '') },
       h('div', { className: 'bjx-main' },
         h('div', { className: 'bjx-top' },
           h('button', { className: 'bjx-back', onClick: function () { location.hash = '#/network'; } }, '← All starting points'),
           this.explorerTrail(b.id)),
+        plus ? this.explorerGenres(b) : null,
         h('div', { className: 'bjx-stage' }, this.explorerFan(b, Math.max(300, W), availH)),
         h('div', { className: 'bjx-legend' }, h('span', null, h('i', { className: 'ln in' }), 'mentioned by'), h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln both' }), 'mention each other'), h('span', { className: 'cnt' }, '+12 = books one more jump away'))),
-      this.explorerPanel(b));
+      this.explorerPanel(b), full);
   };
 
   window.__BJ.explorerReady = true;

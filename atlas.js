@@ -50,6 +50,18 @@
       var gk = Math.floor(this.wx[i] / this.cell) + ',' + Math.floor(this.wy[i] / this.cell);
       (this.grid[gk] || (this.grid[gk] = [])).push(i);
     }
+    // Options (all default to the Atlas v3 behaviour):
+    //   regions:false  no neighbourhood circles / names   colorOf(key)  per-book colour (e.g. genre)
+    //   trail()        keys hopped through, drawn as a constellation line
+    //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
+    //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
+    this.showRegions = o.regions !== false;
+    this.mini = !!o.mini;
+    if (o.colorOf) { this.col = []; for (i = 0; i < this.N; i++) this.col.push(o.colorOf(this.keys[i])); }
+    if (o.twinkle) {
+      this.tw = new Float32Array(this.N);   // 0 = steady; otherwise a phase (about 1 star in 7)
+      for (i = 0; i < this.N; i++) { var hsh = Math.sin(i * 12.9898) * 43758.5453; hsh -= Math.floor(hsh); this.tw[i] = hsh < 0.15 ? 0.5 + hsh * 40 : 0; }
+    }
     this.canvas = document.createElement('canvas');
     this.canvas.className = 'atlas-canvas';
     this.host.appendChild(this.canvas);
@@ -62,6 +74,7 @@
     this.ro.observe(this.host);
     this._resize();
     this.fit(false);
+    this._startTick();
   }
   var P = Atlas.prototype;
 
@@ -180,6 +193,7 @@
   // dot radius: grows gently with connections and with zoom
   P._r = function (i) {
     var z = Math.sqrt(Math.max(0.15, this.cam.k));
+    if (this.mini) return Math.max(0.9, Math.min(5, (0.7 + Math.sqrt(this.deg[i]) * 0.35) * z * 1.4));
     return Math.max(1.3, Math.min(11, (0.9 + Math.sqrt(this.deg[i]) * 0.55) * z * 1.6));
   };
 
@@ -193,7 +207,7 @@
     var c = this.ctx, W = this.W, H = this.H, k = this.cam.k;
     c.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     c.fillStyle = PAPER; c.fillRect(0, 0, W, H);
-    var focus = this.focus, nb = this.nb, hover = this.hover;
+    var focus = this.focus, nb = this.nb, hover = this.hover, now = performance.now() / 1000;
     var ip = focus >= 0 && !this.reduced ? Math.min(1, (performance.now() - (this.t0 || 0)) / 600) : 1;
     var ease = 1 - Math.pow(1 - ip, 3);
     var placed = [];
@@ -204,7 +218,7 @@
     var r, R, sx, sy, sr, i;
 
     // regions
-    for (r = 0; r < this.regions.length; r++) {
+    for (r = 0; this.showRegions && r < this.regions.length; r++) {
       R = this.regions[r]; sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k;
       if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
       var col = R.name ? PAL[r % PAL.length] : '#8a8474';
@@ -221,19 +235,41 @@
       if (sx < -12 || sx > W + 12 || sy < -12 || sy > H + 12) continue;
       R = this.regions[this.reg[i]];
       var rad = this._r(i), on = focus < 0 || i === focus || (nb && nb[i]);
-      c.globalAlpha = on ? 1 : 0.13;
+      var a = on ? 1 : (this.mini ? 0.22 : this.col ? 0.24 : 0.13);
+      if (this.tw && this.tw[i] && !this.reduced) a *= 0.55 + 0.45 * Math.sin(now * this.tw[i] + i);
+      c.globalAlpha = a;
       c.beginPath(); c.arc(sx, sy, rad, 0, 6.2832);
-      c.fillStyle = R.name ? hexA(PAL[this.reg[i] % PAL.length], 0.8) : 'rgba(110,104,92,0.6)';
+      c.fillStyle = this.col ? this.col[i] : R.name ? hexA(PAL[this.reg[i] % PAL.length], 0.8) : 'rgba(110,104,92,0.6)';
       c.fill();
       if (rad > 3.2) { c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.55)'; c.stroke(); }
     }
     c.globalAlpha = 1;
+
+    // your hops so far, as a constellation line across the stars
+    var trail = this.o.trail ? this.o.trail() : null;
+    if (trail && trail.length > 1) {
+      var pts = [];
+      for (var ti = 0; ti < trail.length; ti++) { var tix = this.idx[trail[ti]]; if (tix != null) pts.push(tix); }
+      // solid ink with a paper halo, so it reads apart from the (dashed, coloured) mention lines
+      c.beginPath();
+      for (ti = 0; ti < pts.length; ti++) { var px2 = this.sx(this.wx[pts[ti]]), py2 = this.sy(this.wy[pts[ti]]); if (ti) c.lineTo(px2, py2); else c.moveTo(px2, py2); }
+      c.lineJoin = 'round'; c.globalAlpha = 0.9;
+      c.strokeStyle = PAPER; c.lineWidth = this.mini ? 3.6 : 5; c.stroke();
+      c.strokeStyle = INK; c.lineWidth = this.mini ? 1.3 : 1.8; c.stroke();
+      for (ti = 0; ti < pts.length; ti++) {
+        c.beginPath(); c.arc(this.sx(this.wx[pts[ti]]), this.sy(this.wy[pts[ti]]), this.mini ? 2.4 : 3.6, 0, 6.2832);
+        c.fillStyle = PAPER; c.fill(); c.lineWidth = this.mini ? 1.2 : 1.6; c.strokeStyle = INK; c.stroke();
+      }
+      c.globalAlpha = 1;
+    }
 
     // connections of the hovered (unfocused) book or the focused book
     var hub = focus >= 0 ? focus : hover;
     var edgesOf = hub >= 0 ? (focus >= 0 ? nb : this._nbOf(hover)) : null;
     if (edgesOf) {
       var hx = this.sx(this.wx[hub]), hy = this.sy(this.wy[hub]);
+      var ne = 0; for (var cnt in edgesOf) ne++;
+      var thin = this.o.flow ? Math.max(0.4, Math.min(1, 36 / ne)) : 1;   // big hubs: quieter lines
       for (var js in edgesOf) {
         var j = +js, kind = edgesOf[js];
         var tx = this.sx(this.wx[j]), ty = this.sy(this.wy[j]);
@@ -241,16 +277,23 @@
         var cx2 = mx - dy * 0.18, cy2 = my + dx * 0.18;
         var hot = j === hover && focus >= 0;
         c.strokeStyle = kind === 'out' ? OUT : kind === 'in' ? IN : INK;
-        c.globalAlpha = focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.25 : 0.75) : 0.45;
+        c.globalAlpha = (focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.25 : 0.75) : 0.45) * (hot ? 1 : thin);
         c.lineWidth = hot ? 2.6 : focus >= 0 ? 1.4 : 1;
-        c.beginPath(); c.moveTo(hx, hy);
+        // Flow (after the reveal): dashes travel in the mention's direction — out from the book for
+        // books it mentions, in toward it for books that mention it. Mutual stays solid.
+        var flowing = this.o.flow && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
+        var rev = flowing && kind === 'in';
+        if (flowing) { c.setLineDash([6, 7]); c.lineDashOffset = -((now * 26) % 13); }
+        c.beginPath();
         // draw-in: grow along the curve during the focus reveal
         var steps = 18, upto = Math.max(1, Math.round(steps * ease));
-        for (var s = 1; s <= upto; s++) {
-          var t = s / steps, a1 = 1 - t;
-          c.lineTo(a1 * a1 * hx + 2 * a1 * t * cx2 + t * t * tx, a1 * a1 * hy + 2 * a1 * t * cy2 + t * t * ty);
+        for (var s = 0; s <= upto; s++) {
+          var t = rev ? 1 - s / steps : s / steps, a1 = 1 - t;
+          var qx = a1 * a1 * hx + 2 * a1 * t * cx2 + t * t * tx, qy = a1 * a1 * hy + 2 * a1 * t * cy2 + t * t * ty;
+          if (s) c.lineTo(qx, qy); else c.moveTo(qx, qy);
         }
         c.stroke();
+        if (flowing) c.setLineDash([]);
       }
       c.globalAlpha = 1;
     }
@@ -271,6 +314,10 @@
       c.fillStyle = bg; c.fillRect(x0 - tw / 2 - 3, y0 - size + 1, tw + 6, size + 3);
       c.fillStyle = color; c.textAlign = 'center'; c.fillText(tl, x0, y0);
     };
+    if (this.mini) {
+      if (focus >= 0) labelNode(this, focus, 12, 700, INK, 'rgba(247,245,240,0.9)');
+      return;
+    }
     if (focus >= 0) {
       labelNode(this, focus, 19, 700, INK, 'rgba(247,245,240,0.92)');
       if (ip > 0.6) {
@@ -288,7 +335,7 @@
     }
     // region names (zoomed out) — big regions first
     c.textAlign = 'center';
-    for (r = 0; r < this.regions.length; r++) {
+    for (r = 0; this.showRegions && r < this.regions.length; r++) {
       R = this.regions[r];
       if (!R.name) continue;
       sr = R.r * k;
@@ -334,8 +381,38 @@
   };
 
   // ---- input -----------------------------------------------------------------------------
+  // One light loop for ambient motion: flowing focus lines (~30fps) and twinkle (~15fps). It only
+  // runs while the canvas is on screen, the tab is visible and motion is allowed.
+  P._startTick = function () {
+    if (this.reduced || (!this.o.flow && !this.o.twinkle)) return;
+    var self = this, last = 0;
+    this._vis = true;
+    if (typeof IntersectionObserver !== 'undefined') {
+      this._io = new IntersectionObserver(function (es) { self._vis = es[0].isIntersecting; });
+      this._io.observe(this.canvas);
+    }
+    var tick = function (t) {
+      self._tk = requestAnimationFrame(tick);
+      if (!self._vis || document.hidden) return;
+      var flowing = self.o.flow && self.focus >= 0;
+      var every = flowing ? 33 : self.o.twinkle ? 66 : 0;
+      if (!every || t - last < every) return;
+      last = t;
+      self._draw();
+    };
+    this._tk = requestAnimationFrame(tick);
+  };
+
   P._bind = function () {
     var self = this, cv = this.canvas, pts = {}, down = null;
+    if (this.mini) {
+      cv.style.cursor = 'pointer';
+      this._onClickMini = function () { if (self.o.onClick) self.o.onClick(); };
+      cv.addEventListener('click', this._onClickMini);
+      this._onKey = function () {};
+      window.addEventListener('keydown', this._onKey);
+      return;
+    }
     cv.style.touchAction = 'none';
     var local = function (e) { var r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
     this._onWheel = function (e) {
@@ -381,7 +458,7 @@
       if (!down) return;
       var d = down; down = null;
       if (d.moved || performance.now() - d.t > 600) return;
-      var p = local(e), ri = self.regionAt(p[0], p[1]);
+      var p = local(e), ri = self.showRegions ? self.regionAt(p[0], p[1]) : -1;
       // Overview: while a neighbourhood is still small on screen, a click inside it zooms into it —
       // only a direct hit on a dot (no slop) selects a book. Zoomed in, normal forgiving picking.
       var small = ri >= 0 && self.focus < 0 && self.regions[ri].r * self.cam.k < Math.min(self.W, self.H) * 0.3;
@@ -405,7 +482,8 @@
   P._pd = function (pts) { var ids = Object.keys(pts), a = pts[ids[0]], b = pts[ids[1]]; return Math.hypot(a[0] - b[0], a[1] - b[1]) || 1; };
 
   P.destroy = function () {
-    cancelAnimationFrame(this._raf); cancelAnimationFrame(this._tw); cancelAnimationFrame(this._ai);
+    cancelAnimationFrame(this._raf); cancelAnimationFrame(this._tw); cancelAnimationFrame(this._ai); cancelAnimationFrame(this._tk);
+    if (this._io) this._io.disconnect();
     if (this.ro) this.ro.disconnect();
     window.removeEventListener('keydown', this._onKey);
     this.host.textContent = '';
