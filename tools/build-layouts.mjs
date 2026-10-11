@@ -200,7 +200,7 @@ const fame = () => {
     xy[2 * i] = X(dout[i]) + jx * sxp;
     xy[2 * i + 1] = Y(din[i]) - jy * syp;
   }
-  const ticks = [0, 1, 3, 10, 30, 100, 300];
+  const ticks = [0, 1, 2, 5, 10, 20, 50, 100, 200];   // 1-2-5 series: near-even steps on a log(1+n) axis
   const axes = {
     x0: X(0) - 10, y0: Y(0) + 10, x1: W - 40, y1: 50,   // just outside the smallest values
     tx: ticks.filter((v) => v <= maxOut * 1.2).map((v) => ({ x: round(X(v)), t: String(v) })),
