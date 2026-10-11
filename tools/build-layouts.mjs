@@ -193,20 +193,24 @@ const fame = () => {
     const sxp = X(dout[i] + 0.5) - X(dout[i]), syp = Y(din[i]) - Y(din[i] + 0.5);   // half a step in each direction
     // round (gaussian) clouds rather than boxes, clipped to the cell
     const g1 = Math.sqrt(-2 * Math.log(1 - rnd())), th = rnd() * Math.PI * 2;
-    xy[2 * i] = X(dout[i]) + Math.max(-1, Math.min(1, g1 * Math.cos(th) * 0.38)) * sxp;
-    xy[2 * i + 1] = Y(din[i]) + Math.max(-1, Math.min(1, g1 * Math.sin(th) * 0.38)) * syp;
+    // a count of 0 is the edge of the chart: nudge those inward only, never across the axis
+    var jx = Math.max(-1, Math.min(1, g1 * Math.cos(th) * 0.38)), jy = Math.max(-1, Math.min(1, g1 * Math.sin(th) * 0.38));
+    if (dout[i] === 0) jx = Math.abs(jx);
+    if (din[i] === 0) jy = Math.abs(jy);
+    xy[2 * i] = X(dout[i]) + jx * sxp;
+    xy[2 * i + 1] = Y(din[i]) - jy * syp;
   }
   const ticks = [0, 1, 3, 10, 30, 100, 300];
   const axes = {
-    x0: X(0) - 26, y0: Y(0) + 26, x1: W - 40, y1: 50,
+    x0: X(0) - 10, y0: Y(0) + 10, x1: W - 40, y1: 50,   // just outside the smallest values
     tx: ticks.filter((v) => v <= maxOut * 1.2).map((v) => ({ x: round(X(v)), t: String(v) })),
     ty: ticks.filter((v) => v <= maxIn * 1.2).map((v) => ({ y: round(Y(v)), t: String(v) })),
     xt: 'mentions more books →', yt: '↑ mentioned by more books',
     caps: [
       { x: X(0) - 20, y: -22, t: '↖ The canon', s: 'mentioned a lot, names little' },
-      { x: W - 250, y: Y(0) + 96, t: 'Name-droppers ↘', s: 'names a lot, rarely mentioned' },
+      { x: W - 250, y: Y(0) + 130, t: 'Name-droppers ↘', s: 'names a lot, rarely mentioned' },
       { x: W - 160, y: -22, t: 'Hubs ↗', s: 'both' },
-      { x: X(0) - 20, y: Y(0) + 96, t: '↙ Footnotes', s: 'one mention, names nothing' }
+      { x: X(0) - 20, y: Y(0) + 130, t: '↙ Footnotes', s: 'one mention, names nothing' }
     ]
   };
   const [mx, my] = centre(xy);
