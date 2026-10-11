@@ -25,16 +25,65 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f7f5f0;--ink:#141414;--accent:#9c3d22;--card:#fdfcfa;--mut:rgba(20,20,20,.55);}
+:root{--paper:#f7f5f0;--ink:#141414;--accent:#9c3d22;--card:#fdfcfa;--mut:rgba(20,20,20,.55);--inbound:#2f5590;
+  /* motion tokens — one vocabulary for every transition on the site */
+  --ease-out:cubic-bezier(.2,.7,.2,1);--ease-in-out:cubic-bezier(.65,0,.35,1);
+  --ease-spring:linear(0,.009,.035 2.1%,.141,.281 6.7%,.723 12.9%,.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,.991,.977 51%,.974 53.8%,.975 57.1%,.997 69.8%,1.003 76.9%,1);
+  --dur-1:120ms;--dur-2:240ms;--dur-3:480ms;
+  --cream:#f2ecdd;}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
 a{color:var(--ink);}
 a:hover{color:var(--accent);}
 ::selection{background:var(--ink);color:var(--paper);}
 input:focus{outline:none;}
 input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
-[data-hb]:hover{--hb:var(--bandc);}
+/* ---------- Penguin tri-band cover (rendered by P.coverHTML in app.js) ----------
+   Everything is sized in cqi against .cv, so one component scales from thumbnail to hero.
+   --lit (0..1) mixes the band from ink to the genre colour; registered so it can transition. */
+@property --lit{syntax:'<number>';inherits:true;initial-value:1;}
+.cv-host{display:block;}
+.cv{container-type:inline-size;position:relative;aspect-ratio:2/3;width:100%;transition:--lit .35s ease;}
+.cv-in{position:absolute;inset:0;display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box;text-align:center;
+  --band:color-mix(in oklab,var(--bandc,#141414) calc(var(--lit) * 100%),#141414);
+  background:var(--cream);border:max(1px,1.3cqi) solid var(--ink);border-radius:.9cqi 2.4cqi 2.4cqi .9cqi;}
+.cv-b{flex:none;display:flex;align-items:center;justify-content:center;background:var(--band);}
+.cv-top{height:26%;border-bottom:max(1px,1.1cqi) solid var(--ink);}
+.cv-bot{height:24%;border-top:max(1px,1.1cqi) solid var(--ink);color:var(--band);}
+.cv-bot svg{width:27cqi;height:27cqi;display:block;}
+.cv-plate{display:block;width:24cqi;height:10.5cqi;border-radius:50%/48%;background:var(--cream);box-shadow:inset 0 0 0 max(.5px,.55cqi) rgba(20,20,20,.18);}
+.cv-m{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4.2cqi;padding:3cqi 7cqi;overflow:hidden;
+  background:radial-gradient(120% 90% at 30% 20%,rgba(255,255,255,.45),transparent 60%);}
+.cv-t{font-family:'Gill Sans','Gill Sans MT',Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;
+  font-size:calc(var(--ts) * 1cqi);line-height:1.14;color:var(--ink);text-wrap:balance;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--tl);overflow:hidden;overflow-wrap:anywhere;}
+.cv-rule{display:block;flex:none;width:16cqi;height:max(1px,1.5cqi);border-radius:1cqi;background:var(--band);}
+.cv-a{font-family:'IBM Plex Mono',monospace;font-size:calc(var(--as) * 1cqi);letter-spacing:.08em;text-transform:uppercase;line-height:1.3;color:rgba(20,20,20,.72);
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--al);overflow:hidden;text-wrap:balance;}
+/* paper: a soft hinge shadow + highlight down the spine edge, and a sheen that follows the pointer (--mx) */
+.cv-fx{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.20) 0,rgba(0,0,0,.04) 2.4cqi,rgba(255,255,255,.16) 3.4cqi,transparent 6.5cqi),
+    linear-gradient(105deg,transparent calc(var(--mx,-40%) - 22%),rgba(255,255,255,.22) var(--mx,-40%),transparent calc(var(--mx,-40%) + 22%));}
+@container (max-width:74px){.cv-a,.cv-rule{display:none;}.cv-m{padding:2cqi 4cqi;}}
+/* tilt: JS (P._tilt) writes --rx/--ry/--mx on [data-tilt] hosts under a fine pointer */
+[data-tilt] .cv{transform:perspective(700px) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));transition:--lit .35s ease,transform .5s var(--ease-out);will-change:transform;}
+[data-tilt].is-tilting .cv{transition:--lit .35s ease,transform .08s linear;}
+@media (prefers-reduced-motion:reduce){.cv,[data-tilt] .cv{transition:none;transform:none;}}
+/* ---------- route transitions (same-document View Transitions; see P._transition) ---------- */
+.vt-hero .cv{view-transition-name:bj-cover;}
+.vt-swap .vt-hero .cv{view-transition-name:none;}
+.bj-hdr{view-transition-name:bj-header;}
+::view-transition-old(root){animation:vtOut .16s var(--ease-out) both;}
+::view-transition-new(root){animation:vtIn .34s var(--ease-out) both;}
+::view-transition-group(bj-cover){animation-duration:.46s;animation-timing-function:var(--ease-out);z-index:50;}
+::view-transition-old(bj-cover),::view-transition-new(bj-cover){animation-duration:.46s;}
+.vt-cover::view-transition-new(root){animation-delay:.06s;}
+@keyframes vtOut{to{opacity:0;}}
+@keyframes vtIn{from{opacity:0;transform:translateY(8px);}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important;}}
+[data-hb] .cv{--lit:0;}
+[data-hb]:hover .cv{--lit:1;}
 /* Idle home-wall spotlight: JS sets data-pulse on one random cover every ~8s, replaying
    the hover state (genre colour + springy bounce) so the wall feels alive. A data attribute
    (not a class) is used because React manages the cover's className via style-hover — it would
@@ -52,7 +101,8 @@ input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
   100%{transform:translate(0,0)       scale(1)    rotate(0);}
 }
 [data-pulse]{z-index:80;}
-[data-pulse] [data-hb]{--hb:var(--bandc);animation:bjWallPulse 1.6s cubic-bezier(.3,1.5,.5,1);}
+[data-pulse] [data-hb]{animation:bjWallPulse 1.6s cubic-bezier(.3,1.5,.5,1);}
+[data-pulse] [data-hb] .cv{--lit:1;}
 @media (prefers-reduced-motion:reduce){[data-pulse] [data-hb]{animation:none;}}
 /* Shuffle motion is a JS-driven FLIP (see componentDidUpdate in app.js) — no CSS animation here. */
 button{color:inherit;}
@@ -229,7 +279,7 @@ html,body{height:100%;}
 <div style="min-height:100dvh;">
 
   <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ false }}">
-  <div style="position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink);padding-top:env(safe-area-inset-top);">
+  <div class="bj-hdr" style="position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink);padding-top:env(safe-area-inset-top);">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:10px 20px;box-sizing:border-box;">
       <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;padding:0;">
         <svg width="36" height="21" viewBox="0 0 62 36" style="overflow:visible;">
@@ -295,15 +345,7 @@ html,body{height:100%;}
         <sc-for list="{{ wallCovers }}" as="w" hint-placeholder-count="24">
           <div onClick="{{ w.go }}" data-bk="{{ w.id }}" style="{{ w.wrap }}" style-hover="z-index:80;">
             <div data-hb="1" style="{{ w.inner }}" style-hover="transform:translateY(-8px) scale(1.1);box-shadow:0 16px 34px rgba(20,20,20,.3);">
-              <div style="{{ w.cover }}">
-                <div style="{{ w.top }}"><div style="{{ w.blob }}"></div></div>
-                <div style="{{ w.mid }}">
-                  <div style="{{ w.title }}">{{ w.titleText }}</div>
-                  <div style="{{ w.divider }}"></div>
-                  <div style="{{ w.author }}">{{ w.authorText }}</div>
-                </div>
-                <div style="{{ w.bot }}">{{ w.mark }}</div>
-              </div>
+              {{ w.cv }}
             </div>
           </div>
         </sc-for>
@@ -387,14 +429,7 @@ html,body{height:100%;}
     <div data-screen-label="Book page" style="max-width:1240px;margin:0 auto;{{ pagePad }}">
       <div style="{{ bookHero }}">
         <div style="{{ coverWrap }}">
-          <div style="{{ b_t.cover }}">
-            <div style="{{ b_t.top }}"><div style="{{ b_t.blob }}"></div></div>
-            <div style="{{ b_t.mid }}">
-              <div style="{{ b_t.title }}">{{ b_t.titleText }}</div>
-              <div style="{{ b_t.author }}">{{ b_t.authorText }}</div>
-            </div>
-            <div style="{{ b_t.bot }}">{{ b_t.mark }}</div>
-          </div>
+          {{ b_cv }}
         </div>
         <div>
           <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Book</div>
@@ -428,16 +463,9 @@ html,body{height:100%;}
         <sc-if value="{{ hasOut }}" hint-placeholder-val="{{ true }}">
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;margin-top:28px;align-items:start;">
             <sc-for list="{{ cardsOut }}" as="m" hint-placeholder-count="5">
-              <button onClick="{{ m.go }}" data-hb="1" style="{{ m.btnStyle }}">
+              <button onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
                 <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(-1deg);">
-                  <div style="{{ m.t.cover }}">
-                    <div style="{{ m.t.top }}"><div style="{{ m.t.blob }}"></div></div>
-                    <div style="{{ m.t.mid }}">
-                      <div style="{{ m.t.title }}">{{ m.t.titleText }}</div>
-                      <div style="{{ m.t.author }}">{{ m.t.authorText }}</div>
-                    </div>
-                    <div style="{{ m.t.bot }}">{{ m.t.mark }}</div>
-                  </div>
+                  {{ m.cv }}
                 </div>
                 <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
                 <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.author }}</div>
@@ -460,16 +488,9 @@ html,body{height:100%;}
         <sc-if value="{{ hasIn }}" hint-placeholder-val="{{ false }}">
           <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;margin-top:28px;align-items:start;">
             <sc-for list="{{ cardsIn }}" as="m" hint-placeholder-count="2">
-              <button onClick="{{ m.go }}" data-hb="1" style="{{ m.btnStyle }}">
+              <button onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
                 <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(1deg);">
-                  <div style="{{ m.t.cover }}">
-                    <div style="{{ m.t.top }}"><div style="{{ m.t.blob }}"></div></div>
-                    <div style="{{ m.t.mid }}">
-                      <div style="{{ m.t.title }}">{{ m.t.titleText }}</div>
-                      <div style="{{ m.t.author }}">{{ m.t.authorText }}</div>
-                    </div>
-                    <div style="{{ m.t.bot }}">{{ m.t.mark }}</div>
-                  </div>
+                  {{ m.cv }}
                 </div>
                 <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
                 <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.author }}</div>
@@ -493,16 +514,9 @@ html,body{height:100%;}
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:34px;">{{ a_count }}</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;align-items:start;">
           <sc-for list="{{ a_books }}" as="m" hint-placeholder-count="6">
-            <button onClick="{{ m.go }}" data-hb="1" style="{{ m.btnStyle }}">
+            <button onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
               <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(-1deg);">
-                <div style="{{ m.t.cover }}">
-                  <div style="{{ m.t.top }}"><div style="{{ m.t.blob }}"></div></div>
-                  <div style="{{ m.t.mid }}">
-                    <div style="{{ m.t.title }}">{{ m.t.titleText }}</div>
-                    <div style="{{ m.t.author }}">{{ m.t.authorText }}</div>
-                  </div>
-                  <div style="{{ m.t.bot }}">{{ m.t.mark }}</div>
-                </div>
+                {{ m.cv }}
               </div>
               <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
               <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;">{{ m.sub }}</div>
@@ -524,16 +538,9 @@ html,body{height:100%;}
       <sc-if value="{{ s_has }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;border-top:1.5px solid var(--ink);">
           <sc-for list="{{ s_results }}" as="r" hint-placeholder-count="3">
-            <button onClick="{{ r.go }}" data-hb="1" style="{{ r.rowStyle }}" style-hover="background:var(--card);">
+            <button onClick="{{ r.go }}" style="{{ r.rowStyle }}" style-hover="background:var(--card);">
               <div style="width:52px;flex-shrink:0;">
-                <div style="{{ r.t.cover }}">
-                  <div style="{{ r.t.top }}"><div style="{{ r.t.blob }}"></div></div>
-                  <div style="{{ r.t.mid }}">
-                    <div style="{{ r.t.title }}">{{ r.t.titleText }}</div>
-                    <div style="{{ r.t.author }}">{{ r.t.authorText }}</div>
-                  </div>
-                  <div style="{{ r.t.bot }}">{{ r.t.mark }}</div>
-                </div>
+                {{ r.cv }}
               </div>
               <div style="flex:1;min-width:0;">
                 <div style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;">{{ r.title }}</div>

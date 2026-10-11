@@ -320,6 +320,7 @@
     window.addEventListener('resize', this._onResize);
     if (location.hash && location.hash.length > 2) this.applyHash();
     this._startWallPulse();
+    this._startTilt();
   };
   P.componentWillUnmount = function () {
     window.removeEventListener('hashchange', this._onHash);
@@ -488,8 +489,7 @@
       // Only covers with a genre colour can "turn colour on"; skip MISC (no --bandc).
       var pick = [];
       for (var i = 0; i < wraps.length; i++) {
-        var inner = wraps[i].querySelector('[data-hb]');
-        if (inner && inner.style.getPropertyValue('--bandc')) pick.push(wraps[i]);
+        if (wraps[i].querySelector('.cv[style]')) pick.push(wraps[i]);
       }
       if (!pick.length) return;
       var el = pick[Math.floor(Math.random() * pick.length)];
@@ -500,6 +500,32 @@
       if (innerEl) innerEl.addEventListener('animationend', clear);
     };
     this._pulseTimer = setTimeout(tick, 5000);
+  };
+
+  // Cover tilt: one delegated pointer listener drives a small 3D tilt + moving sheen on whichever
+  // [data-tilt] card is under a fine pointer (writes --rx/--ry/--mx; CSS does the rest). Touch and
+  // reduced-motion users get the plain card.
+  P._startTilt = function () {
+    if (typeof matchMedia === 'undefined' || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var cur = null, raf = 0, ev = null;
+    var reset = function (el) { el.classList.remove('is-tilting'); el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); el.style.removeProperty('--mx'); };
+    var apply = function () {
+      raf = 0;
+      var el = ev && ev.target && ev.target.closest ? ev.target.closest('[data-tilt]') : null;
+      if (cur && cur !== el) reset(cur);
+      cur = el;
+      if (!el) return;
+      var cv = el.querySelector('.cv'); if (!cv) return;
+      var r = cv.getBoundingClientRect();
+      var px = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width)), py = Math.min(1, Math.max(0, (ev.clientY - r.top) / r.height));
+      el.classList.add('is-tilting');
+      el.style.setProperty('--ry', ((px - 0.5) * 12).toFixed(2));
+      el.style.setProperty('--rx', ((0.5 - py) * 9).toFixed(2));
+      el.style.setProperty('--mx', (px * 140 - 20).toFixed(1) + '%');
+    };
+    document.addEventListener('pointermove', function (e) { ev = e; if (!raf) raf = requestAnimationFrame(apply); }, { passive: true });
+    document.addEventListener('pointerleave', function () { if (cur) reset(cur); cur = null; });
   };
 
   P.slug = function (t) {
@@ -646,14 +672,21 @@
     return picks;
   };
 
+  // Genre icons as SVG markup strings (48×48 box). `ink` paints the glyph, `hole` its cut-outs —
+  // covers pass hole='currentColor' so the cut-outs track the live band colour (see .cv-bot in CSS).
   P.mark2 = function (name, size, ink, hole) {
-    var R = React.createElement;
     var kids = [];
-    var P_ = function (d, f) { kids.push(R('path', { d: d, fill: f || ink, key: kids.length })); };
-    var S = function (d, w, col) { kids.push(R('path', { d: d, fill: 'none', stroke: col || ink, strokeWidth: w, strokeLinecap: 'round', key: kids.length })); };
-    var C = function (cx, cy, r, f) { kids.push(R('circle', { cx: cx, cy: cy, r: r, fill: f || ink, key: kids.length })); };
-    var E = function (cx, cy, rx, ry, f) { kids.push(R('ellipse', { cx: cx, cy: cy, rx: rx, ry: ry, fill: f || ink, key: kids.length })); };
-    var RT = function (x, y, w, ht, f, rx) { kids.push(R('rect', { x: x, y: y, width: w, height: ht, fill: f || ink, rx: rx || 0, key: kids.length })); };
+    var esc = function (v) { return String(v).replace(/"/g, '&quot;'); };
+    var R = function (tag, a) {
+      var s = '<' + tag;
+      for (var k in a) if (a[k] != null && k !== 'key') s += ' ' + k.replace(/[A-Z]/g, function (c) { return '-' + c.toLowerCase(); }) + '="' + esc(a[k]) + '"';
+      return s + '/>';
+    };
+    var P_ = function (d, f) { kids.push(R('path', { d: d, fill: f || ink })); };
+    var S = function (d, w, col) { kids.push(R('path', { d: d, fill: 'none', stroke: col || ink, strokeWidth: w, strokeLinecap: 'round' })); };
+    var C = function (cx, cy, r, f) { kids.push(R('circle', { cx: cx, cy: cy, r: r, fill: f || ink })); };
+    var E = function (cx, cy, rx, ry, f) { kids.push(R('ellipse', { cx: cx, cy: cy, rx: rx, ry: ry, fill: f || ink })); };
+    var RT = function (x, y, w, ht, f, rx) { kids.push(R('rect', { x: x, y: y, width: w, height: ht, fill: f || ink, rx: rx || 0 })); };
     if (name === 'book') {
       P_('M24 15.5 C20 10.8 12.2 9 5.5 10.6 L5.5 34.5 C12.2 33 20 34.8 24 39.5 C28 34.8 35.8 33 42.5 34.5 L42.5 10.6 C35.8 9 28 10.8 24 15.5 Z');
       RT(23.05, 14.6, 1.9, 23, hole);
@@ -692,10 +725,10 @@
       P_('M14.5 25.5 A9.5 8.8 0 0 1 33.5 25.5 Z');
       E(24, 28, 19, 6.4);
       C(12.5, 28, 1.8, hole); C(24, 29.4, 1.8, hole); C(35.5, 28, 1.8, hole);
-      kids.push(R('path', { d: 'M19 34.5 L29 34.5 L33.5 44 L14.5 44 Z', fill: ink, opacity: 0.3, key: kids.length }));
+      kids.push(R('path', { d: 'M19 34.5 L29 34.5 L33.5 44 L14.5 44 Z', fill: ink, opacity: 0.3 }));
     }
     if (name === 'dragon2') {
-      kids.push(R('path', { d: 'M33.2 9.0 L36.6 12.2 L36.9 11.9 L37.2 12.5 L41.1 13.6 L43.8 16.8 L44.7 17.4 L45.2 16.9 L45.5 17.5 L45.2 19.1 L42.7 18.2 L44.1 19.1 L43.6 19.6 L42.9 19.6 L40.5 17.8 L37.9 16.6 L36.6 16.3 L36.2 16.9 L36.2 19.4 L38.5 25.9 L38.5 28.8 L37.7 30.8 L36.2 32.6 L34.6 33.4 L34.9 32.5 L34.9 31.9 L34.6 32.2 L34.0 35.0 L34.0 37.8 L35.2 38.4 L34.8 39.0 L33.3 39.0 L32.6 38.4 L31.6 36.4 L31.0 32.5 L31.0 34.4 L30.2 34.5 L24.2 34.2 L23.2 33.9 L23.4 33.3 L22.0 35.0 L21.0 37.5 L21.0 38.3 L22.3 38.6 L22.6 39.0 L20.4 39.0 L19.3 36.9 L19.2 33.0 L18.5 33.6 L14.8 32.5 L10.6 30.2 L9.0 28.6 L6.4 23.8 L5.5 20.7 L5.3 18.6 L3.1 17.5 L2.5 15.4 L2.7 14.9 L3.3 15.4 L3.7 15.2 L3.9 13.8 L4.8 11.8 L5.8 12.5 L6.9 14.9 L8.0 14.4 L8.0 17.2 L6.4 18.2 L6.6 19.6 L7.5 21.7 L10.8 25.6 L15.0 28.3 L17.1 28.9 L19.9 28.9 L28.1 26.9 L30.5 28.1 L29.3 26.9 L26.6 25.8 L22.6 25.6 L21.8 25.9 L21.4 23.0 L20.1 22.1 L18.9 21.9 L19.2 21.0 L18.9 19.2 L15.9 18.0 L18.1 17.8 L21.2 18.3 L27.0 20.5 L28.2 22.1 L28.8 24.5 L29.9 26.7 L30.4 27.0 L30.4 26.7 L32.3 26.3 L33.0 25.5 L33.5 24.1 L32.7 16.6 L34.0 14.0 L34.8 13.3 L35.2 13.5 L33.2 9.1Z M38.3 14.3 L39.0 15.0 L39.6 15.0 L39.6 14.1 L38.3 14.1Z', fill: ink, fillRule: 'evenodd', key: kids.length }));
+      kids.push(R('path', { d: 'M33.2 9.0 L36.6 12.2 L36.9 11.9 L37.2 12.5 L41.1 13.6 L43.8 16.8 L44.7 17.4 L45.2 16.9 L45.5 17.5 L45.2 19.1 L42.7 18.2 L44.1 19.1 L43.6 19.6 L42.9 19.6 L40.5 17.8 L37.9 16.6 L36.6 16.3 L36.2 16.9 L36.2 19.4 L38.5 25.9 L38.5 28.8 L37.7 30.8 L36.2 32.6 L34.6 33.4 L34.9 32.5 L34.9 31.9 L34.6 32.2 L34.0 35.0 L34.0 37.8 L35.2 38.4 L34.8 39.0 L33.3 39.0 L32.6 38.4 L31.6 36.4 L31.0 32.5 L31.0 34.4 L30.2 34.5 L24.2 34.2 L23.2 33.9 L23.4 33.3 L22.0 35.0 L21.0 37.5 L21.0 38.3 L22.3 38.6 L22.6 39.0 L20.4 39.0 L19.3 36.9 L19.2 33.0 L18.5 33.6 L14.8 32.5 L10.6 30.2 L9.0 28.6 L6.4 23.8 L5.5 20.7 L5.3 18.6 L3.1 17.5 L2.5 15.4 L2.7 14.9 L3.3 15.4 L3.7 15.2 L3.9 13.8 L4.8 11.8 L5.8 12.5 L6.9 14.9 L8.0 14.4 L8.0 17.2 L6.4 18.2 L6.6 19.6 L7.5 21.7 L10.8 25.6 L15.0 28.3 L17.1 28.9 L19.9 28.9 L28.1 26.9 L30.5 28.1 L29.3 26.9 L26.6 25.8 L22.6 25.6 L21.8 25.9 L21.4 23.0 L20.1 22.1 L18.9 21.9 L19.2 21.0 L18.9 19.2 L15.9 18.0 L18.1 17.8 L21.2 18.3 L27.0 20.5 L28.2 22.1 L28.8 24.5 L29.9 26.7 L30.4 27.0 L30.4 26.7 L32.3 26.3 L33.0 25.5 L33.5 24.1 L32.7 16.6 L34.0 14.0 L34.8 13.3 L35.2 13.5 L33.2 9.1Z M38.3 14.3 L39.0 15.0 L39.6 15.0 L39.6 14.1 L38.3 14.1Z', fill: ink, fillRule: 'evenodd' }));
     }
     if (name === 'bat') {
       P_('M17.6 12.4 L15.2 4.6 L21.4 9.6 Z'); P_('M30.4 12.4 L32.8 4.6 L26.6 9.6 Z');
@@ -749,7 +782,7 @@
     }
     if (name === 'globe') {
       C(24, 24, 15.5);
-      kids.push(R('ellipse', { cx: 24, cy: 24, rx: 7.4, ry: 15.5, fill: 'none', stroke: hole, strokeWidth: 1.8, key: kids.length }));
+      kids.push(R('ellipse', { cx: 24, cy: 24, rx: 7.4, ry: 15.5, fill: 'none', stroke: hole, strokeWidth: 1.8 }));
       RT(8.5, 23.1, 31, 1.8, hole);
       RT(11, 16.6, 26, 1.5, hole); RT(11, 29.9, 26, 1.5, hole);
     }
@@ -785,64 +818,49 @@
       P_('M24 14.5 L31.5 23.5 L24 32.5 L16.5 23.5 Z');
       P_('M24 19 L27.8 23.5 L24 28 L20.2 23.5 Z', hole);
     }
-    return R('svg', { viewBox: '0 0 48 48', width: size, height: size, style: { display: 'block' } }, kids);
+    return '<svg viewBox="0 0 48 48"' + (size ? ' width="' + size + '" height="' + size + '"' : '') + ' aria-hidden="true">' + kids.join('') + '</svg>';
   };
 
-  P.triCover = function (b, g, tier, mode, borderOpt) {
-    this._tri = this._tri || {};
-    borderOpt = (borderOpt === 'cream' || borderOpt === 'none') ? borderOpt : 'ink';
-    var key = b.id + ':' + tier + ':' + mode + ':' + borderOpt + ':' + (b.genre || '');
-    if (this._tri[key]) return this._tri[key];
-    var misc = g.name === 'MISC';
-    var bandBg;
-    if (mode === 'static') bandBg = misc ? '#141414' : g.color;
-    else if (misc) bandBg = '#141414';
-    else if (mode === 'color') bandBg = 'var(--hb, ' + g.color + ')';
-    else bandBg = 'var(--hb, #141414)';
-    var T = {
-      xs: { mark: 13, blob: [14, 6.5], bw: '1.5px', tb: 6.5, tmin: 5, ab: 4.5, amin: 4, gap: '2px', pad: '2px 4px' },
-      s: { mark: 26, blob: [25, 11], bw: '2px', tb: 11.5, tmin: 7.5, ab: 7, amin: 5.5, gap: '7px', pad: '6px 8px' },
-      l: { mark: 34, blob: [30, 13], bw: '2px', tb: 13, tmin: 9, ab: 8, amin: 6.5, gap: '4px', pad: '4px 10px' },
-      xl: { mark: 46, blob: [42, 18], bw: '2.5px', tb: 19, tmin: 12, ab: 9.5, amin: 7.5, gap: '6px', pad: '6px 14px' }
-    }[tier];
-    var band = { backgroundColor: bandBg, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' };
-
-    // Outer cover frame is tweakable (ink / cream / none); the internal color-band
-    // dividers below stay ink regardless so the bands never lose their edge.
-    var coverBorder = borderOpt === 'none' ? 'none'
-      : borderOpt === 'cream' ? (T.bw + ' solid #f2ecdd')
-      : (T.bw + ' solid var(--ink)');
-
-    // Title: 6 length buckets, each a smaller size + more clamp lines (up to 6).
+  // ---------- covers ----------
+  // One size-agnostic Penguin tri-band cover (band / oval plate / title · rule · author / band +
+  // genre mark). Every size is in container units (cqi) against .cv, so the same markup renders
+  // crisply from a 52px search thumbnail to the 210px book-page hero — see the .cv CSS block in
+  // index.html. Band colour = color-mix(genre colour, ink) by --lit (0 = ink, 1 = full colour),
+  // which the home wall's spotlight drives per cover; everywhere else --lit defaults to 1.
+  // Returned as an HTML string (cached per book) so the imperative home wall (home.js) and the
+  // React pages share exactly one renderer.
+  P.coverHTML = function (b) {
+    var cache = this._cvHtml || (this._cvHtml = {});
+    var key = b.id + ':' + (b.genre || '');
+    if (cache[key]) return cache[key];
+    var g = this.genreOf(b);
+    var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+    // Title scale: 6 length buckets → font size (cqi) + line clamp. Author: 4 buckets, ≤2 lines.
     var len = b.title.length;
-    var ts = len < 10 ? [1.00, 2] : len < 18 ? [0.90, 3] : len < 28 ? [0.80, 4]
-      : len < 40 ? [0.70, 5] : len < 60 ? [0.60, 6] : [0.52, 6];
-    var tSize = Math.max(T.tmin, Math.round(T.tb * ts[0] * 2) / 2);
-    var tClamp = tier === 'xs' ? Math.min(ts[1], 3) : ts[1];
-
-    // Author scales on its own length and wraps to 2 lines when the name is long.
-    var alen = (b.author || '').length;
-    var as = alen < 14 ? [1.00, 1] : alen < 22 ? [0.90, 2] : alen < 32 ? [0.82, 2] : [0.74, 2];
-    var aSize = Math.max(T.amin, Math.round(T.ab * as[0] * 2) / 2);
-    var aClamp = as[1];
-
-    var item = {
-      cover: { aspectRatio: '2 / 3', width: '100%', border: coverBorder, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#f2ecdd', boxSizing: 'border-box', textAlign: 'center' },
-      top: Object.assign({}, band, { height: '26%', borderBottom: '1.5px solid var(--ink)' }),
-      blob: { width: T.blob[0] + 'px', height: T.blob[1] + 'px', background: '#f2ecdd', borderRadius: '50% / 48%' },
-      mid: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: T.gap, padding: T.pad, overflow: 'hidden' },
-      title: { fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', fontSize: tSize + 'px', lineHeight: 1.18, letterSpacing: '.01em', color: 'var(--ink)', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: tClamp, overflow: 'hidden' },
-      author: { fontFamily: "'IBM Plex Mono', monospace", fontSize: aSize + 'px', letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.7, color: 'var(--ink)', lineHeight: 1.3, display: tier === 'xs' ? 'none' : '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: aClamp, overflow: 'hidden' },
-      // Penguin-style rule between title and author (wall covers with a known author).
-      // Dash tracks the band colour: ink by default, genre colour on hover (same
-      // var(--hb, …) mechanism as the top/bottom bands).
-      divider: { width: '18px', height: '2px', background: bandBg, borderRadius: '1px', flexShrink: 0, display: (tier === 's' && b.author) ? 'block' : 'none' },
-      bot: Object.assign({}, band, { height: '24%', borderTop: '1.5px solid var(--ink)' }),
-      mark: this.mark2(g.mark, T.mark, '#f7f5f0', mode === 'static' ? bandBg : (misc ? '#141414' : bandBg)),
-      titleText: b.title, authorText: b.author
-    };
-    this._tri[key] = item;
-    return item;
+    var ts = len < 10 ? [10.6, 2] : len < 18 ? [9.6, 3] : len < 28 ? [8.5, 4] : len < 40 ? [7.5, 5] : len < 60 ? [6.6, 6] : [5.8, 6];
+    var au = b.author && b.author !== 'Anonymous' ? b.author : (b.author || '');
+    var alen = au.length;
+    var as = alen < 14 ? [6.2, 1] : alen < 22 ? [5.7, 2] : alen < 32 ? [5.2, 2] : [4.7, 2];
+    var style = g.name === 'MISC' ? '' : ' style="--bandc:' + g.color + '"';
+    var html = '<div class="cv"' + style + '><div class="cv-in">'
+      + '<div class="cv-b cv-top"><i class="cv-plate"></i></div>'
+      + '<div class="cv-m"><div class="cv-t" style="--ts:' + ts[0] + ';--tl:' + ts[1] + '">' + esc(b.title) + '</div>'
+      + (au ? '<i class="cv-rule"></i><div class="cv-a" style="--as:' + as[0] + ';--al:' + as[1] + '">' + esc(au) + '</div>' : '')
+      + '</div>'
+      + '<div class="cv-b cv-bot">' + this.mark2(g.mark, 0, '#f7f5f0', 'currentColor') + '</div>'
+      + '<i class="cv-fx"></i></div></div>';
+    cache[key] = html;
+    return html;
+  };
+  // React wrapper for the template ({{ x.cv }}). Elements are cached per book + variant: a
+  // reused element object lets React skip re-reconciling unchanged covers on every setState.
+  P.cover = function (b, cls) {
+    var cache = this._cvEl || (this._cvEl = {});
+    var key = b.id + '|' + (cls || '');
+    if (cache[key]) return cache[key];
+    var el = h('div', { className: 'cv-host' + (cls ? ' ' + cls : ''), 'data-cover': b.id, dangerouslySetInnerHTML: { __html: this.coverHTML(b) } });
+    cache[key] = el;
+    return el;
   };
 
   // ---------- routing ----------
@@ -859,20 +877,46 @@
     if (hh.indexOf('/') !== -1) return { page: 'book', id: hh };            // <author>/<title>
     return { page: 'author', slug: hh };                                    // <author>
   };
-  P.navigate = function (route, hash) {
-    this.setState({ route: route, q: '', suggestFor: null });
+  // Route changes run inside a same-document View Transition when the browser supports it: the
+  // page cross-fades, and if `fromEl` (the clicked card / wall cover) holds a cover, that cover
+  // morphs into the book-page hero cover (both carry view-transition-name: bj-cover — the hero
+  // via .vt-hero, the source via an inline name set just for this one transition).
+  P._transition = function (update, fromEl) {
+    var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (!document.startViewTransition || reduced || document.hidden) { update(); return; }
+    var root = document.documentElement;
+    var src = fromEl && fromEl.querySelector ? (fromEl.matches && fromEl.matches('.cv') ? fromEl : fromEl.querySelector('.cv')) : null;
+    if (src) { root.classList.add('vt-swap'); src.style.viewTransitionName = 'bj-cover'; }
+    root.classList.toggle('vt-cover', !!src);
+    var vt;
+    try {
+      vt = document.startViewTransition(function () {
+        if (src) src.style.viewTransitionName = '';
+        root.classList.remove('vt-swap');
+        ReactDOM.flushSync(update);
+      });
+    } catch (e) { update(); return; }
+    vt.finished.then(function () { root.classList.remove('vt-cover'); }, function () { root.classList.remove('vt-cover', 'vt-swap'); });
+  };
+  P.navigate = function (route, hash, fromEl) {
+    var self = this;
+    this._transition(function () {
+      self.setState({ route: route, q: '', suggestFor: null });
+      window.scrollTo(0, 0);
+    }, fromEl);
     this._silent = true;
     location.hash = hash;
-    var self = this;
     setTimeout(function () { self._silent = false; }, 0);
-    window.scrollTo(0, 0);
   };
   P.applyHash = function () {
     if (this._silent) return;
-    this.setState({ route: this._routeFromHash(), suggestFor: null });
-    window.scrollTo(0, 0);
+    var self = this;
+    this._transition(function () {
+      self.setState({ route: self._routeFromHash(), suggestFor: null });
+      window.scrollTo(0, 0);
+    });
   };
-  P.goBook = function (id) { this.navigate({ page: 'book', id: id }, '#/' + id); };
+  P.goBook = function (id, fromEl) { this.navigate({ page: 'book', id: id }, '#/' + id, fromEl); };
   P.goAuthor = function (aslug) { if (aslug && aslug !== 'anonymous') this.navigate({ page: 'author', slug: aslug }, '#/' + aslug); };
   // Author segment of a key: slug(author) or "anonymous" (mirrors tools/bookkey.mjs authorSlug).
   P.authorSlug = function (author) { return this.slug(author || '') || 'anonymous'; };
@@ -1042,9 +1086,6 @@
     var warm = Pr.warmPaper != null ? Pr.warmPaper : true;
     var heroStyle = Pr.heroStyle != null ? Pr.heroStyle : 'dense wall';
     var accent = Pr.accent != null ? Pr.accent : '#9c3d22';
-    var coverMode = String(Pr.coverMode != null ? Pr.coverMode : 'ink, color on hover').indexOf('color,') === 0 ? 'color' : 'ink';
-    var coverBorder = (Pr.coverBorder === 'cream' || Pr.coverBorder === 'none') ? Pr.coverBorder : 'ink';
-    var bandcFor = function (g) { return g.name === 'MISC' ? null : (coverMode === 'ink' ? g.color : '#141414'); };
     if (typeof document !== 'undefined') {
       var r = document.documentElement.style;
       r.setProperty('--paper', warm ? '#f7f5f0' : '#ffffff');
@@ -1228,15 +1269,12 @@
       var list = this._wallIds.map(function (id) { return books[id]; }).filter(Boolean);
       vals.wallCovers = list.map(function (b, i) {
         var h1 = self.hash(b.id + i), h2 = self.hash(i + '/' + b.id);
-        var g = self.genreOf(b);
-        var bc = bandcFor(g);
         // backface-visibility on both wrapper and card tucks antialiasing seams
         // under neighbours where rotated covers overlap.
         var inner = {
           transition: 'transform .24s cubic-bezier(.3,1.6,.45,1), box-shadow .22s ease',
           backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden'
         };
-        if (bc) inner['--bandc'] = bc;
         var wrap = { position: 'relative', cursor: 'pointer', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' };
         if (wallMode === 'dense') {
           // Systematic zigzag: rotation direction + vertical offset flip every ~3
@@ -1264,11 +1302,8 @@
         } else {
           wrap.transform = 'rotate(' + (((h1 % 9) - 4) * 1.2).toFixed(2) + 'deg)';
         }
-        // Overlapping walls draw their dark edge with the opaque frame above, so the
-        // cover's own border is dropped (no double edge); other modes keep it.
-        var wallBorder = (wallMode === 'dense' || wallMode === 'light') ? 'none' : coverBorder;
-        var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id); }; })(b.id);
-        return Object.assign({ wrap: wrap, inner: inner, go: go, id: b.id }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
+        var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id, e && e.currentTarget); }; })(b.id);
+        return { wrap: wrap, inner: inner, go: go, id: b.id, cv: self.cover(b) };
       });
       vals.wallStyle = {
         position: 'absolute', zIndex: 0, isolation: 'isolate',
@@ -1297,7 +1332,7 @@
       var b = books[route.id];
       if (b) {
         vals.b_title = b.title;
-        vals.b_t = this.triCover(b, this.genreOf(b), 'xl', 'static', coverBorder);
+        vals.b_cv = this.cover(b, 'vt-hero');
         var yl = this.yearLabel(b.year);
         var bHasAuthor = !!(b.author && b.author !== 'Anonymous');
         vals.hasAuthor = bHasAuthor;
@@ -1312,11 +1347,9 @@
         vals.hasOut = b.out.length > 0; vals.noOut = b.out.length === 0;
         vals.hasIn = b.in.length > 0; vals.noIn = b.in.length === 0;
         var card = function (id) {
-          var bk = books[id]; var g = self.genreOf(bk);
-          var bc = bandcFor(g);
+          var bk = books[id];
           var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block' };
-          if (bc) btnStyle['--bandc'] = bc;
-          return { t: self.triCover(bk, g, 'l', coverMode, coverBorder), btnStyle: btnStyle, title: bk.title, author: bk.author || 'author unknown', sub: self.subFor(bk), go: function () { self.goBook(id); } };
+          return { cv: self.cover(bk), btnStyle: btnStyle, title: bk.title, author: bk.author || 'author unknown', sub: self.subFor(bk), go: function (e) { self.goBook(id, e && e.currentTarget); } };
         };
         vals.cardsOut = b.out.map(card);
         vals.cardsIn = b.in.map(card);
@@ -1325,8 +1358,7 @@
         vals.jumpOut = jump('mentions-out'); vals.jumpIn = jump('mentions-in');
       } else {
         vals.b_title = this.state.ready ? 'Book not found' : 'Opening the stacks…'; vals.b_byline = ''; vals.hasAuthor = false; vals.noAuthor = true; vals.b_author = ''; vals.b_authorGo = function () {}; vals.b_yearSuffix = ''; vals.b_synopsis = this.state.ready ? 'That book isn’t in the network yet.' : 'One moment.';
-        var phb = { id: 'x', title: '?', author: '' };
-        vals.b_t = this.triCover(phb, this.genreOf(phb), 'xl', 'static', coverBorder);
+        vals.b_cv = this.cover({ id: 'x', title: '?', author: '' }, 'vt-hero');
         vals.cntOut = 0; vals.cntIn = 0; vals.hasOut = false; vals.hasIn = false; vals.noOut = true; vals.noIn = true;
         vals.cardsOut = []; vals.cardsIn = []; vals.miniGraph = null; vals.jumpOut = function () {}; vals.jumpIn = function () {};
       }
@@ -1345,11 +1377,8 @@
       vals.a_count = mine.length + (mine.length === 1 ? ' work' : ' works')
         + '  ·  ' + aMentions + (aMentions === 1 ? ' mention' : ' mentions') + ' of their books';
       vals.a_books = mine.map(function (b) {
-        var g = self.genreOf(b);
-        var bc = bandcFor(g);
         var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block' };
-        if (bc) btnStyle['--bandc'] = bc;
-        return { t: self.triCover(b, g, 'l', coverMode, coverBorder), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), go: function () { self.goBook(b.id); } };
+        return { cv: self.cover(b), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), go: function (e) { self.goBook(b.id, e && e.currentTarget); } };
       });
     }
 
@@ -1359,11 +1388,8 @@
       var res = this.matches(q).slice(0, 30);
       vals.s_query = q;
       vals.s_results = res.map(function (b) {
-        var g = self.genreOf(b);
-        var bc = bandcFor(g);
         var rowStyle = { display: 'flex', alignItems: 'center', gap: m ? '12px' : '22px', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '16px 8px', fontFamily: 'inherit', width: '100%' };
-        if (bc) rowStyle['--bandc'] = bc;
-        return { t: self.triCover(b, g, 'xs', coverMode, coverBorder), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), go: function () { self.goBook(b.id); } };
+        return { cv: self.cover(b), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), go: function (e) { self.goBook(b.id, e && e.currentTarget); } };
       });
       vals.s_has = res.length > 0; vals.s_none = res.length === 0;
       vals.s_count = res.length === 0 ? 'no matches' : res.length + (res.length === 1 ? ' match' : ' matches');
