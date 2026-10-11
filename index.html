@@ -38,7 +38,8 @@ a{color:var(--ink);}
 a:hover{color:var(--accent);}
 ::selection{background:var(--ink);color:var(--paper);}
 input:focus{outline:none;}
-input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
+/* text inputs: a quiet ink ring on focus (clicking into a field still matches :focus-visible) */
+input:focus-visible{outline:none;box-shadow:0 4px 0 rgba(20,20,20,.9),0 0 0 4px rgba(20,20,20,.14) !important;}
 /* ---------- Penguin tri-band cover (rendered by P.coverHTML in app.js) ----------
    Everything is sized in cqi against .cv, so one component scales from thumbnail to hero.
    --lit (0..1) mixes the band from ink to the genre colour; registered so it can transition. */
@@ -182,7 +183,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hw-arcs path{fill:none;stroke:#f2ecdd;stroke-width:1.6;stroke-dasharray:2 5;stroke-linecap:round;opacity:.85;}
 .hw-arcs circle{fill:#f2ecdd;}
 .hw-label{position:absolute;left:14px;top:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#f2ecdd;background:rgba(29,27,24,.9);padding:4px 10px;border-radius:999px;border:1px solid rgba(242,236,221,.25);white-space:nowrap;z-index:5;pointer-events:none;}
-.hx-vignette{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse 46% 50% at 50% 50%,rgba(var(--wall-rgb),.78),rgba(var(--wall-rgb),.4) 55%,rgba(var(--wall-rgb),0) 85%);transition:opacity .6s var(--ease-out);}
+.hx-vignette{display:none;}
 .hx.is-compact .hx-vignette{opacity:0;}
 .hx-c .hx-vignette{display:none;}
 .hx-c .hx-card{box-shadow:0 0 0 6px var(--wall),0 30px 60px rgba(0,0,0,.5);}
@@ -197,7 +198,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 /* hero card (A/B): centred; compacts to a slim search bar once you start moving the wall */
 .hx-hero{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,calc(100% - 28px));z-index:6;pointer-events:none;
   transition:top .6s var(--ease-out),transform .6s var(--ease-out),width .6s var(--ease-out);}
-.hx-card{pointer-events:auto;background:var(--card);border:1.5px solid var(--ink);border-radius:22px;box-shadow:0 30px 80px rgba(0,0,0,.5);
+.hx-card{pointer-events:auto;background:var(--card);border:1.5px solid var(--ink);border-radius:22px;box-shadow:0 4px 0 rgba(20,20,20,.9),0 18px 36px rgba(40,30,15,.22);
   padding:clamp(22px,4vw,40px) clamp(18px,5vw,48px) clamp(20px,3.6vw,34px);text-align:center;box-sizing:border-box;transition:padding .6s var(--ease-out),border-radius .6s var(--ease-out);}
 .hx-x{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease-out),opacity .35s ease,margin .55s var(--ease-out);}
 .hx-x > div{min-height:0;overflow:hidden;}

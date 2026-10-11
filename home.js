@@ -120,7 +120,7 @@
     var cw = this.v === 'c' ? (mobile ? 78 : W < 1100 ? 96 : 108) : (mobile ? 88 : W < 1100 ? 112 : 124);
     var ch = Math.round(cw * 1.5);
     // A leaves wider gutters so the doodled graph paper behind can breathe.
-    var gx = this.v === 'a' ? (mobile ? 20 : 42) : (mobile ? 12 : 18), gy = this.v === 'a' ? (mobile ? 22 : 36) : (mobile ? 14 : 20);
+    var gx = this.v === 'a' ? (mobile ? 16 : 30) : (mobile ? 12 : 18), gy = this.v === 'a' ? (mobile ? 18 : 26) : (mobile ? 14 : 20);
     this.cw = cw; this.ch = ch;
     this.cellW = cw + gx; this.pitch = ch + gy;
     this.root.style.setProperty('--cw', cw + 'px');
