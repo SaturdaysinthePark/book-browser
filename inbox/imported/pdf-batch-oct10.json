@@ -1,0 +1,3754 @@
+{
+ "_readme": [
+  "Oct 10 PDF batch (batch 10-10): 48 books"
+ ],
+ "books": [
+  {
+   "title": "10:04",
+   "author": "Ben Lerner",
+   "year": 2014,
+   "genre": "FICTION",
+   "synopsis": "A young Brooklyn poet and novelist, newly signed to a lucrative book deal and diagnosed with a dilated aorta, drifts through a New York bracing for a hurricane while he agrees to father a child for his best friend. A meditative, autofictional novel about time, art, mortality and literary fraud."
+  },
+  {
+   "title": "A Brief History of Seven Killings",
+   "author": "Marlon James",
+   "year": 2014,
+   "genre": "FICTION",
+   "synopsis": "A polyphonic, multi-decade novel built around the 1976 attempted assassination of a reggae superstar known as the Singer in Kingston, Jamaica. Gang leaders, CIA operatives, a Rolling Stone journalist, and ordinary Jamaicans narrate the events and their fallout through the 1991 crack-era New York."
+  },
+  {
+   "title": "A Life's Work",
+   "author": "Rachel Cusk",
+   "year": 2001,
+   "genre": "BIOGRAPHY & MEMOIR",
+   "synopsis": "Novelist Rachel Cusk gives a frank, unsentimental account of pregnancy, birth and the first year of her daughter's life, from colic and sleepless nights to the loss of her former self. Interweaving readings of novels and childcare manuals, it is a landmark of the modern motherhood memoir."
+  },
+  {
+   "title": "Aftermath",
+   "author": "Rachel Cusk",
+   "year": 2012,
+   "genre": "BIOGRAPHY & MEMOIR",
+   "synopsis": "Rachel Cusk's memoir of her marriage breaking down and the disorienting life that follows for her and her two young daughters. She reads her own separation through Greek tragedy, writing about family, authority and the self in the wreckage of a household."
+  },
+  {
+   "title": "Agrippa",
+   "author": "Robert Harris",
+   "year": 2026,
+   "genre": "FICTION",
+   "synopsis": "Told as the secret memoir of Marcus Vipsanius Agrippa, born feet-first and nicknamed the mother-killer, who becomes the commoner general and right-hand man of Octavius, the future Augustus. It follows the two friends from Caesar's assassination through the civil wars and the fall of the Republic."
+  },
+  {
+   "title": "Angle of Yaw",
+   "author": "Ben Lerner",
+   "year": 2006,
+   "genre": "POETRY & EPICS",
+   "synopsis": "Ben Lerner's second poetry collection, in five sections, mixing prose-poem and fragmentary lyric to interrogate sports, war, politics, the novel and the page itself. It closes with a Twenty-One Gun Salute for Ronald Reagan."
+  },
+  {
+   "title": "Another America",
+   "author": "Barbara Kingsolver",
+   "year": 1992,
+   "genre": "POETRY & EPICS",
+   "synopsis": "Barbara Kingsolver's poetry collection, in five sections, about injustice, exile, violence and endurance in the United States and the Americas. This bilingual edition pairs each poem with a Spanish translation by Rebeca Cartes."
+  },
+  {
+   "title": "Artful",
+   "author": "Ali Smith",
+   "year": 2012,
+   "genre": "ESSAYS & JOURNALISM",
+   "synopsis": "Four Oxford lectures on time, form, edge, and offer and reflection, reworked by Ali Smith into a hybrid of essay and fiction. A grieving narrator reads her late partner's unfinished lectures on books, poems, and art, and the two voices slowly merge into one conversation about how stories work."
+  },
+  {
+   "title": "Babel",
+   "author": "R. F. Kuang",
+   "year": 2022,
+   "genre": "FANTASY",
+   "synopsis": "In an alternate 1830s Britain powered by silver-working, a Cantonese orphan is brought to Oxford to train at the Royal Institute of Translation, known as Babel, where magic is made from the gaps between languages. As he learns that the empire's wealth rests on colonial exploitation, he must choose between the institution that raised him and a secret society resisting it."
+  },
+  {
+   "title": "The Lacuna",
+   "author": "Barbara Kingsolver",
+   "year": 2009,
+   "genre": "FICTION",
+   "synopsis": "Born to an American father and Mexican mother, Harrison Shepherd grows up between Mexico and the United States, and finds work as a plaster-mixer and cook in the household of Diego Rivera and Frida Kahlo, where he also becomes secretary to the exiled Leon Trotsky. Told through his notebooks and the papers of his archivist, the novel follows his later life as a reclusive novelist in North Carolina, caught up in the anti-Communist hysteria of the postwar years."
+  },
+  {
+   "title": "Black Leopard, Red Wolf",
+   "author": "Marlon James",
+   "year": 2019,
+   "genre": "FANTASY",
+   "synopsis": "In a mythic, pre-colonial Africa, a mercenary known as Tracker, who can smell anyone's trail, is hired to find a missing boy and joins a band of misfits that includes a shape-shifting Leopard. Narrated to an inquisitor from a prison cell, the first book of the Dark Star trilogy turns the hunt into a tangled and violent account of kingdoms, witches and monsters."
+  },
+  {
+   "title": "Companion Piece",
+   "author": "Ali Smith",
+   "year": 2022,
+   "genre": "FICTION",
+   "synopsis": "During the pandemic lockdown, a lockdown-era academic who layer-paints the words of poems looks after her ailing father while a phone call from a near-stranger and two young girls, one obsessed with the Cottingley Fairies, upend her isolation. Folk tales of a smith, a curfew and a curlew cross with her own story as Smith explores real versus fake and the stories we inherit."
+  },
+  {
+   "title": "Coventry",
+   "author": "Rachel Cusk",
+   "year": 2019,
+   "genre": "ESSAYS & JOURNALISM",
+   "synopsis": "A collection of essays by the novelist Rachel Cusk, gathering personal pieces on driving, rudeness, motherhood, family and home alongside criticism of art and literature. The final section turns to classics and bestsellers, with essays on Edith Wharton, D. H. Lawrence, Olivia Manning, Natalia Ginzburg, Kazuo Ishiguro and others."
+  },
+  {
+   "title": "Crossing the Wine-Dark Sea",
+   "author": "Emily Wilson",
+   "year": 2026,
+   "genre": "ESSAYS & JOURNALISM",
+   "synopsis": "A collection of essays by the classicist and translator of the Odyssey and the Iliad on Greek and Roman literature and the art of translating it. Topics include Sappho, Aristophanes, Roman comedy, Helen of Troy, the Stoics, Christopher Logue's War Music, Edith Hamilton, and the problems of rendering Homer into English."
+  },
+  {
+   "title": "Small Wonder",
+   "author": "Barbara Kingsolver",
+   "year": 2002,
+   "synopsis": "A collection of twenty-three essays written in the wake of September 11, ranging from a Grand Canyon meditation and a defense of forests and seeds to letters to a daughter and a mother. Kingsolver weighs wonder, family, food, storytelling and what it means to love a country while grieving and questioning it.",
+   "genre": "ESSAYS & JOURNALISM"
+  },
+  {
+   "title": "Flight Behavior",
+   "author": "Barbara Kingsolver",
+   "year": 2012,
+   "synopsis": "Dellarobia Turnbow, a restless young farm wife in rural Tennessee, climbs a mountain intending to throw her life away and instead finds the forest ablaze with millions of monarch butterflies that have wintered in the wrong place. As scientists, reporters and a skeptical congregation descend on her family's land, her marriage, faith and sense of the future are all put to the test.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Girl Meets Boy",
+   "author": "Ali Smith",
+   "year": 2007,
+   "synopsis": "A retelling of Ovid's myth of Iphis set in contemporary Inverness, narrated alternately by two sisters, Midge and Imogen. While Imogen works at a corporation that bottles and sells Scottish water, a charismatic graffiti artist turns both sisters' lives upside down.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Glorious Exploits",
+   "author": "Ferdia Lennon",
+   "year": 2024,
+   "synopsis": "In Syracuse in 412 BC, two unemployed potters, Lampo and Gelon, decide to stage Euripides with the starving Athenian prisoners left to die in the city's quarries, trading scraps of food for recited lines. What starts as an eccentric scheme grows into an ambitious production that draws in the prisoners, the guards, and the whole divided city.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Glyph",
+   "author": "Ali Smith",
+   "year": 2026,
+   "synopsis": "A family story about a young man and a gassed, blinded horse in the First World War is passed down through generations and resurfaces in the present, when a sibling's bedroom is visited by what seems to be a ghost horse. The narrators search the internet, history and their own memories to work out what, if anything, the inherited story is really about.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "How to be both",
+   "author": "Ali Smith",
+   "year": 2014,
+   "synopsis": "A two-part novel that can be read in either order: in one half, the spirit of a fifteenth-century Ferrarese painter, Francesco del Cossa, looks back on a life spent disguised as a boy to paint; in the other, a modern teenager, George, grieves her mother and becomes fascinated by a fresco in Italy. The halves echo and refract each other on art, gender, time and loss.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "In the Fold",
+   "author": "Rachel Cusk",
+   "year": 2005,
+   "genre": "FICTION",
+   "synopsis": "A young man from a modest background becomes entranced by the wealthy, chaotic Hanbury family of a country house called Egypt, and years later, married with a son, he finds the old pull of their world reasserting itself. A comedy of class, envy and domestic disillusionment."
+  },
+  {
+   "title": "Kudos",
+   "author": "Rachel Cusk",
+   "year": 2018,
+   "genre": "FICTION",
+   "synopsis": "The writer Faye travels to a literary festival in Europe and passes through a series of encounters with publishers, interviewers and fellow passengers who talk at length about their lives. The final novel of the Outline trilogy, told almost entirely through what others confide to her."
+  },
+  {
+   "title": "Like",
+   "author": "Ali Smith",
+   "year": 1997,
+   "genre": "FICTION",
+   "synopsis": "Two timelines intertwine: a mother and her young daughter Kate living in a seaside caravan, and Amy and Ash, two girls whose intense friendship begins in a small Scottish town. Ali Smith's debut novel circles loss, desire and the missing person at the heart of both stories."
+  },
+  {
+   "title": "Mean Free Path",
+   "author": "Ben Lerner",
+   "year": 2010,
+   "genre": "POETRY & EPICS",
+   "synopsis": "A book of poems in two linked sequences, 'Mean Free Path' and 'Doppler Elegies', that fold elegy, ambient media and political dread into fragmented, self-interrupting lines. Dedicated to Ari, it plays with reference, grief and the distance between speaker and subject."
+  },
+  {
+   "title": "Moon Witch, Spider King",
+   "author": "Marlon James",
+   "year": 2022,
+   "genre": "FANTASY",
+   "synopsis": "Second book of the Dark Star trilogy, told by the witch Sogolon, who recounts her own version of the events in Black Leopard, Red Wolf. From a childhood of abuse to a career as a spy and assassin at the court of the Kwash kings, she exposes what the Tracker's account left out."
+  },
+  {
+   "title": "Outline",
+   "author": "Rachel Cusk",
+   "year": 2014,
+   "genre": "FICTION",
+   "synopsis": "A writer flies to Athens to teach a short creative-writing course and, over the following days, listens as seatmates, students, friends and fellow writers recount their marriages, regrets and self-deceptions. The narrator stays largely in outline while the stories of others fill the book."
+  },
+  {
+   "title": "Parade",
+   "author": "Rachel Cusk",
+   "year": 2024,
+   "genre": "FICTION",
+   "synopsis": "Four linked stories (The Stuntman, The Midwife, The Diver, The Spy) circle artists and the marriages, families and reputations around them, beginning with a painter known only as G who starts painting upside down. The book is told in Cusk's detached, fable-like register."
+  },
+  {
+   "title": "Partita",
+   "author": "Barbara Kingsolver",
+   "year": 2026,
+   "genre": "FICTION",
+   "synopsis": "Livia, a gifted young pianist from a Southern dairy-farm community, is haunted by her brother's death on the railroad tracks and by the question of how he could do it. Structured like a Bach partita, the novel follows her through conservatory ambition, a doomed love affair, injury, and a return to the farm and the neighbors she left."
+  },
+  {
+   "title": "Saving Agnes",
+   "author": "Rachel Cusk",
+   "year": 1993,
+   "genre": "FICTION",
+   "synopsis": "Agnes Day, a recent English graduate, drifts through a shabby London of flatshares, dead-end temp jobs and unreliable love, trying to work out who she is supposed to be. Her housemates and a succession of lovers keep pulling her in different directions as she searches for a stable sense of self. Cusk's first novel is a comic portrait of early adulthood in the early 1990s."
+  },
+  {
+   "title": "The Accidental",
+   "author": "Ali Smith",
+   "year": 2005,
+   "genre": "FICTION",
+   "synopsis": "The Smart family, on holiday in a rented house in Norfolk, is thrown into disarray when a stranger named Amber walks in and is taken for a colleague by each of them. The novel moves between the voices of the mother, stepfather, teenage son and young daughter, and of Amber herself."
+  },
+  {
+   "title": "The Country Life",
+   "author": "Rachel Cusk",
+   "year": 1997,
+   "genre": "FICTION",
+   "synopsis": "Stella Benson, a lonely young woman escaping a failed London life, takes a job caring for a disabled teenage boy on a Sussex farm owned by the overbearing Maddens. Her letters, observations and awkward encounters with the household and village slowly unsettle the pastoral promise of country life. The novel is a comic, darkening riff on Jane Eyre and the English rural idyll."
+  },
+  {
+   "title": "The Devotion of Suspect X",
+   "author": "Keigo Higashino",
+   "year": 2005,
+   "genre": "CRIME & MYSTERY",
+   "synopsis": "In Tokyo, a brilliant but reclusive high-school math teacher, Ishigami, moves to shield his neighbor Yasuko Hanaoka after her abusive ex-husband turns up dead. Detective Kusanagi investigates and turns for help to his friend, the physicist Manabu Yukawa, who was Ishigami's university rival."
+  },
+  {
+   "title": "The Disappearers",
+   "author": "Marlon James",
+   "year": 2026,
+   "genre": "FICTION",
+   "synopsis": "In 1988 Kingston, a group of men mount a staging of John Herbert's prison play Fortune and Men's Eyes, and the production ends in violence and a series of disappearances. The novel follows the survivors through journals, interview transcripts and letters across 1988, 1994, 1999 and 2005, from Jamaica to Miami and back."
+  },
+  {
+   "title": "The Last Supper",
+   "author": "Rachel Cusk",
+   "year": 2009,
+   "synopsis": "Rachel Cusk's account of a summer spent in Italy with her husband and two small children, travelling through Tuscany, Umbria, Rome and the south in search of art, food and a sense of home. Structured around the paintings of Piero della Francesca, Giotto and Raphael, it mixes travel writing with reflections on family life, motherhood and the writer's own restlessness.",
+   "genre": "ADVENTURE & TRAVEL"
+  },
+  {
+   "title": "The Lichtenberg Figures",
+   "author": "Ben Lerner",
+   "year": 2004,
+   "synopsis": "Ben Lerner's debut collection, a sequence of unrhymed fourteen-line sonnets that fracture and recombine speech, cliche, political and domestic scenes. Winner of the Hayden Carruth Award, it takes its title from the branching patterns left by electrical discharge.",
+   "genre": "POETRY & EPICS"
+  },
+  {
+   "title": "The Lights",
+   "author": "Ben Lerner",
+   "year": 2023,
+   "synopsis": "A collection of poems and prose poems by Ben Lerner, organized around light, night, grief, fatherhood and the ordinary and civic life of the present. Moving between lyric, essay and anecdote, it takes in museums, paintings, a residency and the speaker's daughters.",
+   "genre": "POETRY & EPICS"
+  },
+  {
+   "title": "The Poisonwood Bible",
+   "author": "Barbara Kingsolver",
+   "year": 1998,
+   "synopsis": "In 1959 the Baptist missionary Nathan Price takes his wife and four daughters to the Belgian Congo, where his zeal collides with the culture around him and with the country's slide toward independence and upheaval. The story is told in the alternating voices of Orleanna Price and her daughters over the following three decades.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "The Temporary",
+   "author": "Rachel Cusk",
+   "year": 1995,
+   "synopsis": "Francine Snaith, a young woman who believes herself marked out by destiny, takes temp work in London and meets Ralph, a man weighed down by his past and his unreliable father. Their relationship becomes a study of hope, self-deception and the gap between how people see themselves and how they are seen. Cusk's second novel.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "The Topeka School",
+   "author": "Ben Lerner",
+   "year": 2019,
+   "synopsis": "Adam Gordon, a high-school debate champion in 1990s Topeka, Kansas, grows up among his parents' psychiatric community at the Foundation while navigating masculinity, speech and the threat of violence. The novel shifts among the perspectives of Adam, his psychologist mother Jane and his father Jonathan, and later returns to Adam as an adult and father.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "There but for the",
+   "author": "Ali Smith",
+   "year": 2011,
+   "synopsis": "At a dinner party in Greenwich, a guest named Miles Garth goes upstairs, locks himself in the spare room and refuses to come out. Four linked sections follow different people drawn into his orbit, among them a ten-year-old girl with a gift for wordplay, as the novel plays on language, history and the idea of belonging.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Transcription",
+   "author": "Ben Lerner",
+   "year": 2025,
+   "genre": "FICTION",
+   "synopsis": "A writer on his way to interview Thomas, his ninety-year-old former teacher and a towering translator and thinker, drifts between recorded talks, memory, family life and the fragile business of turning speech into text. The narrator's pandemic-era care for his young daughter and his time in Providence, Madrid and a hotel on the French-Swiss border shape a meditation on mentorship, listening and mediation."
+  },
+  {
+   "title": "Transit",
+   "author": "Rachel Cusk",
+   "year": 2016,
+   "genre": "FICTION",
+   "synopsis": "In the wake of her marriage's collapse, a writer moves with her two young sons to London and begins renovating a flat. Through a series of conversations with builders, hairdressers, fellow writers, old friends and a former lover, the story builds a quiet portrait of change, vulnerability and fate. It is the second novel in Cusk's Outline trilogy."
+  },
+  {
+   "title": "Unsheltered",
+   "author": "Barbara Kingsolver",
+   "year": 2018,
+   "genre": "FICTION",
+   "synopsis": "Willa Knox inherits a crumbling house in Vineland, New Jersey, and tries to hold together her family amid a collapsing economy and a fraught new baby. A century and a half earlier, in the same town, the science teacher Thatcher Greenwood defends Darwin's ideas against a hostile community, with help from the naturalist Mary Treat. The two timelines echo each other across eras of upheaval."
+  },
+  {
+   "title": "Whistler",
+   "author": "Ann Patchett",
+   "year": 2026,
+   "genre": "FICTION",
+   "synopsis": "Daphne, a high-school English teacher in New York, is shadowed through the Metropolitan Museum by an old man named Eddie, whom she first met as a nine-year-old trapped with him in a snowbound crashed car. Moving between that childhood night and the present, the novel follows her complicated family, her mother and stepfather, her sister Leda, and the long bond with the man who once edited novels."
+  },
+  {
+   "title": "Winter",
+   "author": "Ali Smith",
+   "year": 2017,
+   "genre": "FICTION",
+   "synopsis": "On Christmas Eve, the semi-retired Sophia Cleves sees a disembodied child's head floating in her large, cold house in Cornwall. Her son Art, a nature blogger, hires a stranger named Lux to pose as his girlfriend for the holiday, and the group is joined by Sophia's estranged sister Iris, a veteran of the Greenham Common protests. The second of Smith's Seasonal quartet, it plays with ghosts, politics and the legacy of art."
+  },
+  {
+   "title": "Yellowface",
+   "author": "Rebecca F. Kuang",
+   "year": 2023,
+   "genre": "FICTION",
+   "synopsis": "June Hayward, a struggling white novelist, watches her more successful Chinese American rival Athena Liu die in an accident and walks away with Athena's unpublished manuscript about Chinese laborers in World War I. She submits it as her own under an ambiguous pen name, and a satire of the publishing industry unfolds as her bestselling success becomes threatened by accusations of plagiarism and cultural appropriation."
+  },
+  {
+   "title": "Spring",
+   "author": "Ali Smith",
+   "year": 2019,
+   "genre": "FICTION",
+   "synopsis": "Third of the Seasonal quartet, set in a Brexit-era Britain of detention centres and shrinking hope. A grieving screenwriter, a worn-down detention-centre guard and a mysterious girl on a train are drawn together, with Katherine Mansfield and Rainer Maria Rilke threaded through the story. (Source PDF is the Dutch translation, Lente.)"
+  }
+ ],
+ "mentions": [
+  {
+   "source": "10:04",
+   "mentioned": "Theses on the Philosophy of History",
+   "author": "Walter Benjamin",
+   "note": "“The storm irresistibly propels him into the future to which his back is turned.” —Walter Benjamin (epigraph to a part)",
+   "confidence": "high"
+  },
+  {
+   "source": "10:04",
+   "mentioned": "Specimen Days",
+   "author": "Walt Whitman",
+   "note": "“I would sit at my desk and read Specimen Days, his bizarre memoir, for hours.”",
+   "confidence": "high"
+  },
+  {
+   "source": "10:04",
+   "mentioned": "Leaves of Grass",
+   "author": "Walt Whitman",
+   "note": "“Or the two first editions on the market of Leaves of Grass.”",
+   "confidence": "medium"
+  },
+  {
+   "source": "10:04",
+   "mentioned": "America",
+   "author": "Walt Whitman",
+   "note": "“the one extant recording of Whitman, made by Edison: he recites four lines from ‘America’”",
+   "confidence": "medium"
+  },
+  {
+   "source": "10:04",
+   "mentioned": "Midsummer",
+   "author": "William Bronk",
+   "note": "Narrator opens Bronk's selected poems and the poem “MIDSUMMER” is quoted in full",
+   "confidence": "high"
+  },
+  {
+   "source": "10:04",
+   "mentioned": "The Door",
+   "author": "Robert Creeley",
+   "note": "“I played him reading ‘The Door’ in the early sixties”",
+   "confidence": "medium"
+  },
+  {
+   "source": "10:04",
+   "mentioned": "High Flight",
+   "author": "John Gillespie Magee Jr.",
+   "note": "“they were taken from a poem by John Gillespie Magee entitled ‘High Flight’”",
+   "confidence": "high"
+  },
+  {
+   "source": "10:04",
+   "mentioned": "Correspondances",
+   "author": "Charles Baudelaire",
+   "note": "“And of course we have Baudelaire’s sense of ‘Correspondances.’”",
+   "confidence": "medium"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "The Autobiography of Malcolm X",
+   "author": "Malcolm X",
+   "note": "“Autobiography of Malcolm X I expected, and even I have checked out Eldridge Cleaver.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "Soul on Ice",
+   "author": "Eldridge Cleaver",
+   "note": "“You read Soul On Ice?” / “even I have checked out Eldridge Cleaver”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "Soledad Brother",
+   "author": "George Jackson",
+   "note": "“How much I can bet that you never read Soledad Brother?”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "How Europe Underdeveloped Africa",
+   "author": "Walter Rodney",
+   "note": "“…never read Soledad Brother? How Europe Underdeveloped Africa?”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "The Problems of Philosophy",
+   "author": "Bertrand Russell",
+   "note": "“there the title be: Bertrand Russell, The Problems of Philosophy.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "The Middle Passage",
+   "author": "V. S. Naipaul",
+   "note": "“The Company suggested I read a book from V. S. Naipaul before coming here, The Middle Passage.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "Howl",
+   "author": "Allen Ginsberg",
+   "note": "“yes I read Howl, fucking facety white boy”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "Gulliver's Travels",
+   "author": "Jonathan Swift",
+   "note": "“So I take it you’ve read Swift.” “Jamaican schoolers read Gulliver’s Travels by the time they’re twelve.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "Crime and Punishment",
+   "author": "Fyodor Dostoevsky",
+   "note": "“Like that man in Crime and Punishment where Dostoyevsky says he was beyond thought”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "The Lorax",
+   "author": "Dr. Seuss",
+   "note": "“Nodding off between two pages of The Lorax.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "Miami and the Siege of Chicago",
+   "author": "Norman Mailer",
+   "note": "“In Miami and the Siege of Chicago, Norman Mailer dropped his own bad self into an event”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Brief History of Seven Killings",
+   "mentioned": "The Happy Hooker",
+   "author": "Xaviera Hollander",
+   "note": "“…so that I can get tips from The Happy Hooker?”",
+   "confidence": "medium"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "The Bad Mother",
+   "author": "James Hillman",
+   "note": "James Hillman, ‘The Bad Mother’ (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "War and Peace",
+   "author": "Leo Tolstoy",
+   "note": "“‘Natasha had married in the early spring of 1813,’ writes Tolstoy … at the end of War and Peace”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Anna Karenina",
+   "author": "Leo Tolstoy",
+   "note": "“Instead he wrote Anna Karenina, excavating the woman extant in the mother”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "The House of Mirth",
+   "author": "Edith Wharton",
+   "note": "“Edith Wharton’s 1905 novel The House of Mirth asks the question of what a woman is if she is not a wife, a mother”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "The Secret Garden",
+   "author": "Frances Hodgson Burnett",
+   "note": "“Poor Mary Lennox, child-heroine of Frances Hodgson Burnett’s The Secret Garden.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "The Great Fortune",
+   "author": "Olivia Manning",
+   "note": "“When the baby sleeps I intermittently read Olivia Manning’s The Great Fortune”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Madame Bovary",
+   "author": "Gustave Flaubert",
+   "note": "“In Madame Bovary, Emma Bovary sends her baby daughter to live with a wet-nurse”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Frost at Midnight",
+   "author": "Samuel Taylor Coleridge",
+   "note": "“I read again Coleridge’s poem ‘Frost At Midnight’.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Jane Eyre",
+   "author": "Charlotte Brontë",
+   "note": "“In Charlotte Bronte’s Jane Eyre, the child Jane’s cruel Aunt Reed locks her in the Red Room”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "The Rainbow",
+   "author": "D. H. Lawrence",
+   "note": "“‘From the first’, writes D. H. Lawrence in The Rainbow, the baby stirred in the young father a deep, strong emotion”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Swann's Way",
+   "author": "Marcel Proust",
+   "note": "“‘When a man is asleep,’ writes Proust in Swann’s Way, ‘he has in a circle round him the chain of the hours’”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Solve Your Child's Sleep Problems",
+   "author": "Richard Ferber",
+   "note": "“Dr Richard Ferber, in Solve Your Child’s Sleep Problems, relates the case of Betsy”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Baby and Child Care",
+   "author": "Benjamin Spock",
+   "note": "“She gives me Dr Spock’s Baby and Child Care.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Your Baby and Child",
+   "author": "Penelope Leach",
+   "note": "“I go to the bookshop myself and purchase Your Baby and Child by Penelope Leach.”",
+   "confidence": "high"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Brideshead Revisited",
+   "author": "Evelyn Waugh",
+   "note": "“an enactment of privilege derived from the pages of Brideshead Revisited”",
+   "confidence": "medium"
+  },
+  {
+   "source": "A Life's Work",
+   "mentioned": "Dr. Seuss's ABC",
+   "author": "Dr. Seuss",
+   "note": "“a book that is too old for her, by Dr Seuss. It is about the alphabet… Oscar’s only ostrich oiled an orange owl today”",
+   "confidence": "low"
+  },
+  {
+   "source": "Aftermath",
+   "mentioned": "The Oresteia",
+   "author": "Aeschylus",
+   "note": "Aeschylus, The Oresteia (epigraph); later “Agamemnon, in the Oresteia of Aeschylus, returns to his palace in Argos”",
+   "confidence": "high"
+  },
+  {
+   "source": "Aftermath",
+   "mentioned": "Antigone",
+   "author": "Sophocles",
+   "note": "“There’s a moment in Sophocles’s play Antigone when something new is born, or rather, when one thing becomes two”",
+   "confidence": "high"
+  },
+  {
+   "source": "Aftermath",
+   "mentioned": "Oedipus Rex",
+   "author": "Sophocles",
+   "note": "“In Oedipus Rex every kind of authority is damaged by precisely this process.”",
+   "confidence": "high"
+  },
+  {
+   "source": "Angle of Yaw",
+   "mentioned": "One-Way Street",
+   "author": "Walter Benjamin",
+   "note": "Walter Benjamin, “One-way Street” (epigraph on printing and the newspaper)",
+   "confidence": "high"
+  },
+  {
+   "source": "Angle of Yaw",
+   "mentioned": "At Melville's Tomb",
+   "author": "Hart Crane",
+   "note": "Hart Crane, “At Melville’s Tomb” (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Another America",
+   "mentioned": "Storm Warnings",
+   "author": "Adrienne Rich",
+   "note": "“These are the things that we have learned to do / Who live in troubled regions.” ADRIENNE RICH (section epigraph; source credited in permissions as “Storm Warnings”)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Another America",
+   "mentioned": "Walking Around",
+   "author": "Pablo Neruda",
+   "note": "“It so happens I am sick of being a man…” from “Walking Around” by Pablo Neruda (section epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Another America",
+   "mentioned": "The Eye",
+   "author": "Sharon Olds",
+   "note": "“somewhere in me too is the path down to the creek gleaming in the dark…” SHARON OLDS (section epigraph; “The Eye” credited in permissions)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Another America",
+   "mentioned": "Ourselves or Nothing",
+   "author": "Carolyn Forché",
+   "note": "“It is either the beginning or the end of the world, and the choice is ourselves or nothing.” CAROLYN FORCHÉ (section epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Oliver Twist",
+   "author": "Charles Dickens",
+   "note": "It was a Dickens novel, Oliver Twist, the old Penguin edition I'd had at university",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Golden Bowl",
+   "author": "Henry James",
+   "note": "got down Volume 1 of your old 1909 copy of Henry James's The Golden Bowl",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Troilus and Cressida",
+   "author": "William Shakespeare",
+   "note": "Graham Greene on Shakespeare's felicity of form... a throwaway moment from Troilus and Cressida",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Madame Bovary",
+   "author": "Gustave Flaubert",
+   "note": "One of the most recent translators of Madame Bovary, Lydia Davis, notes",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "War and Peace",
+   "author": "Leo Tolstoy",
+   "note": "Graham Greene, on reading War and Peace: 'What's the use of ever writing again'",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "One Art",
+   "author": "Elizabeth Bishop",
+   "note": "What was left of On Edge was a poem you'd typed out and printed up: One Art, by Elizabeth Bishop",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Lysistrata",
+   "author": "Aristophanes",
+   "note": "Shaw's Pygmalion and Aristophanes's Lysistrata and the leads in My Fair Lady",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Pygmalion",
+   "author": "George Bernard Shaw",
+   "note": "Shirley Valentine and Shaw's Pygmalion and Aristophanes's Lysistrata",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Sweet Bird of Youth",
+   "author": "Tennessee Williams",
+   "note": "the leads in My Fair Lady and in Tennessee Williams's Sweet Bird of Youth",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Odes",
+   "author": "Horace",
+   "note": "Shakespeare's original source for Sonnet 55, Horace's Odes: exegi monumentum aere perennius",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Archaic Torso of Apollo",
+   "author": "Rainer Maria Rilke",
+   "note": "in Rilke's poem Archaic Torso of Apollo (translated here by Stephen Mitchell)",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Crash",
+   "author": "J. G. Ballard",
+   "note": "In an introduction to his 1973 novel Crash, written in the 90s",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Epic of Gilgamesh",
+   "author": "Anonymous",
+   "note": "The earliest story we have, The Epic of Gilgamesh",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Unquiet Grave",
+   "author": "Cyril Connolly",
+   "note": "like The Unquiet Grave, a Child Ballad from the early fifteenth century where a lover mourns on the grave of a lost love",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Not Marble: A Reconstruction",
+   "author": "Edwin Morgan",
+   "note": "Put two poems together and they'll make a third: Not Marble: a Reconstruction",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Anecdote of the Jar",
+   "author": "Wallace Stevens",
+   "note": "here's a jarring anecdote from Wallace Stevens: I placed a jar in Tennessee",
+   "confidence": "medium"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Sleepless Nights",
+   "author": "Elizabeth Hardwick",
+   "note": "Alas, the heart is not a metaphor... Elizabeth Hardwick, from page 91 of a book that had the word Sleepless in the title",
+   "confidence": "medium"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Amores",
+   "author": "Ovid",
+   "note": "'To give, it is a witty thing,' Ovid says, via Christopher Marlowe's translation of Elegies of Love",
+   "confidence": "medium"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "At the Bay",
+   "author": "Katherine Mansfield",
+   "note": "as one of Mansfield's characters in her story At the Bay can't help but exclaim",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Shadow-Line",
+   "author": "Joseph Conrad",
+   "note": "Joseph Conrad, in his 1917 novel, The Shadow-Line, sees a lack of time as a state of absolute childishness",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Antigone",
+   "author": "Sophocles",
+   "note": "I was thinking about Antigone, the girl from Sophocles's Theban Plays who tried to bury her dead brother",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Stone Raft",
+   "author": "José Saramago",
+   "note": "In the opening lines of José Saramago's novel The Stone Raft",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Your Face Tomorrow",
+   "author": "Javier Marías",
+   "note": "Javier Marías, in Volume 1 of his trilogy about surveillance and history, Your Face Tomorrow",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Aspects of the Novel",
+   "author": "E. M. Forster",
+   "note": "'In a novel there is always a clock,' as EM Forster says in Aspects of the Novel",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Cymbeline",
+   "author": "William Shakespeare",
+   "note": "Shakespeare's most powerful forms of magic and coincidence in his late plays, Cymbeline, The Winter's Tale, The Tempest",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Winter's Tale",
+   "author": "William Shakespeare",
+   "note": "his late plays, Cymbeline, The Winter's Tale, The Tempest",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Tempest",
+   "author": "William Shakespeare",
+   "note": "his late plays, Cymbeline, The Winter's Tale, The Tempest",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Six Memos for the Next Millennium",
+   "author": "Italo Calvino",
+   "note": "Italian Cumin says near end of his book Six Memos that letters of the alphabet, words, literatures, are combinations",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Ars Poetica",
+   "author": "Czesław Miłosz",
+   "note": "'In the very essence of poetry there is something indecent,' Czesław Miłosz says in his poem Ars Poetica?",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "In My Craft or Sullen Art",
+   "author": "Dylan Thomas",
+   "note": "(DYLAN THOMAS, In My Craft or Sullen Art) quoted as section epigraph (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Wedding Party",
+   "author": "Boris Pasternak",
+   "note": "Boris Pasternak, via his translator Edwin Morgan in the poem The Wedding Party",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Messenger God",
+   "author": "Lavinia Greenlaw",
+   "note": "Lavinia Greenlaw, in this poem called The Messenger God, sees Mercury, Hermes, as god of response",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Edge",
+   "author": "Sylvia Plath",
+   "note": "Sylvia Plath, in her poem Edge, one clearly heavily influenced by Rilke's Eurydice",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Disquieting Muses",
+   "author": "Sylvia Plath",
+   "note": "Like the nodding De Chirico heads in Sylvia Plath's The Disquieting Muses, you said",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Orpheus. Eurydice. Hermes.",
+   "author": "Rainer Maria Rilke",
+   "note": "like it is in Rilke's Orpheus. Eurydice. Hermes., a poem whose title is already full of division and finality",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Character in Fiction",
+   "author": "Virginia Woolf",
+   "note": "'On or about December 1910 human character changed,' she famously says in her 1924 essay Character in Fiction",
+   "confidence": "high"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "i thank You God for most this amazing day",
+   "author": "E. E. Cummings",
+   "note": "EE Cummings is in no doubt about the answer in this sonnet: i thank You God for most this amazing day",
+   "confidence": "medium"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "Man Equals Man",
+   "author": "Bertolt Brecht",
+   "note": "'Don't try to hold on to the wave...' BERTOLT BRECHT (epigraph; sources note identifies Man Equals Man)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Artful",
+   "mentioned": "The Sandal",
+   "author": "Edwin Morgan",
+   "note": "A late poem by Edwin Morgan, The Sandal, does the same thing but this time for a poet",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Wealth of Nations",
+   "author": "Adam Smith",
+   "note": "The boy glanced at the title. The Wealth of Nations, by Adam Smith.",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Colonel Jack",
+   "author": "Daniel Defoe",
+   "note": "the wet, crumpled fingerprints he left on a new edition of Defoe's Colonel Jack shamed him enough to make him give up the practice",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Confessions of an English Opium-Eater",
+   "author": "Thomas De Quincey",
+   "note": "he had thumbed through a copy of De Quincey's Confessions of an English Opium-Eater",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Frankenstein",
+   "author": "Mary Shelley",
+   "note": "He greatly enjoyed Mary Shelley's Frankenstein",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Pickwick Papers",
+   "author": "Charles Dickens",
+   "note": "He stumbled on a series called The Pickwick Papers by someone named Charles Dickens",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Oliver Twist",
+   "author": "Charles Dickens",
+   "note": "He'd bought Robin the three-volume set of Oliver Twist; also chapter epigraph (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Great Expectations",
+   "author": "Charles Dickens",
+   "note": "CHARLES DICKENS, Great Expectations (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Gulliver's Travels",
+   "author": "Jonathan Swift",
+   "note": "They landed on a familiar volume on the shelf above Professor Lovell's head – Gulliver's Travels",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Rape of the Lock",
+   "author": "Alexander Pope",
+   "note": "for a full year Robin thought The Rape of the Lock was about fornication with an iron bolt instead of the theft of hair",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Iliad",
+   "author": "Homer",
+   "note": "You take things too far, and you get something like Pope's translation of the Iliad",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "A Vindication of the Rights of Woman",
+   "author": "Mary Wollstonecraft",
+   "note": "Mary Wollstonecraft's Vindication of the Rights of Woman, published only forty years ago, had inspired waves of loud, proud feminists",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "One Thousand and One Nights",
+   "author": "Anonymous",
+   "note": "'I've read Arabian Nights,' Robin offered, drunk on excitement",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Bhagavad Gita",
+   "author": "Anonymous",
+   "note": "I'm currently working on a better Latin version of the Bhagavad Gita",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Waste Land",
+   "author": "T. S. Eliot",
+   "note": "T. S. Eliot had supplied some of the more recent and detailed landscape descriptions on record, but The Waste Land was so self-referential",
+   "confidence": "medium"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Essay on the Principles of Translation",
+   "author": "Alexander Fraser Tytler",
+   "note": "They'd been assigned the introductory chapter of Essay on Principles of Translation by Lord Alexander Fraser Tytler Woodhouselee",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Agricola",
+   "author": "Tacitus",
+   "note": "He and Mr Felton had moved on to Tacitus's Agricola now.",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Dying Negro",
+   "author": "Thomas Day and John Bicknell",
+   "note": "That one by Bicknell and Day. It's called The Dying Negro.",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Ein Fichtenbaum",
+   "author": "Heinrich Heine",
+   "note": "Consider the Heinrich Heine poem 'Ein Fichtenbaum'",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Kubla Khan",
+   "author": "Samuel Taylor Coleridge",
+   "note": "'I know China,' Woolcombe interjected. 'Kubla Khan.' ... 'The Coleridge poem,' Woolcombe clarified.",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Aeneid",
+   "author": "Virgil",
+   "note": "Let us begin with what Dryden wrote about the Aeneid. I have endeavoured to make Virgil speak such English as he would himself have spoken",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Prelude",
+   "author": "William Wordsworth",
+   "note": "WILLIAM WORDSWORTH, The Prelude (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Oxford",
+   "author": "C. S. Lewis",
+   "note": "C.S. LEWIS, 'Oxford' (chapter epigraph) (epigraph)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Through the Looking-Glass",
+   "author": "Lewis Carroll",
+   "note": "'The question is,' said Humpty Dumpty, 'which is to be master, that's all.' LEWIS CARROLL (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Book of Snobs",
+   "author": "William Makepeace Thackeray",
+   "note": "WILLIAM MAKEPEACE THACKERAY, The Book of Snobs (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "State of German Literature",
+   "author": "Thomas Carlyle",
+   "note": "THOMAS CARLYLE, 'State of German Literature' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Edgeworth's Professional Education",
+   "author": "Sydney Smith",
+   "note": "SYDNEY SMITH, 'Edgeworth's Professional Education' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Dedication of the Aeneis",
+   "author": "John Dryden",
+   "note": "JOHN DRYDEN, extract from the 'Dedication' to his translation of the Aeneid (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Ars Poetica",
+   "author": "Horace",
+   "note": "Mountains will be in labour, the birth will be a single laughable little mouse. HORACE, Ars Poetica (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Fancy Ball",
+   "author": "Winthrop Mackworth Praed",
+   "note": "WINTHROP MACKWORTH PRAED, 'The Fancy Ball' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Halcyon Days",
+   "author": "Walt Whitman",
+   "note": "WALT WHITMAN, 'Halcyon Days' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Chinese Empire and Trade",
+   "author": "John Crawfurd",
+   "note": "JOHN CRAWFURD, 'Chinese Empire and Trade' (chapter epigraph) (epigraph)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Oxford, May 30, 1820",
+   "author": "William Wordsworth",
+   "note": "WILLIAM WORDSWORTH, 'Oxford, May 30, 1820' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Les Misérables",
+   "author": "Victor Hugo",
+   "note": "VICTOR HUGO, Les Misérables, trans. Frederic Charles Lascelles Wraxall (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The History of Mary Prince, a West Indian Slave",
+   "author": "Mary Prince",
+   "note": "Oh those white people have small hearts who can only feel for themselves. MARY PRINCE (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Ode to a Nightingale",
+   "author": "John Keats",
+   "note": "JOHN KEATS, 'Ode to a Nightingale' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Death's Jest-Book",
+   "author": "Thomas Lovell Beddoes",
+   "note": "THOMAS LOVELL BEDDOES, Death's Jest-Book (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Wretched of the Earth",
+   "author": "Frantz Fanon",
+   "note": "FRANTZ FANON, The Wretched of the Earth, trans. Richard Philcox (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Song to the Men of England",
+   "author": "Percy Bysshe Shelley",
+   "note": "PERCY BYSSHE SHELLEY, 'Song to the Men of England' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "London",
+   "author": "William Blake",
+   "note": "How the Chimney-sweepers cry / Every blackning Church appalls... WILLIAM BLAKE, 'London' (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "The Cummerbund",
+   "author": "Edward Lear",
+   "note": "EDWARD LEAR, 'The Cummerbund' (chapter epigraph) (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Babel",
+   "mentioned": "Gramática de la lengua castellana",
+   "author": "Antonio de Nebrija",
+   "note": "Language has always been the companion of empire... ANTONIO DE NEBRIJA, Gramática de la lengua castellana (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Count of Monte Cristo",
+   "author": "Alexandre Dumas",
+   "note": "exactly as Count Dantès in The Count of Monte Cristo had reached through the bars to touch his bride's face",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Mysterious Affair at Styles",
+   "author": "Agatha Christie",
+   "note": "So it only made sense to carry The Mysterious Affair at Styles instead.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Around the World in Eighty Days",
+   "author": "Jules Verne",
+   "note": "The Mysterious Affair at Styles, The Count of Monte Cristo, Around the World in Eighty Days, Twenty Thousand Leagues Under the Sea, books in English that didn't stink of mold",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Twenty Thousand Leagues Under the Sea",
+   "author": "Jules Verne",
+   "note": "Around the World in Eighty Days, Twenty Thousand Leagues Under the Sea, books in English that didn't stink of mold",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Three Musketeers",
+   "author": "Alexandre Dumas",
+   "note": "The Three Musketeers still called out to him, waving their swords, but he always shoved them back in the valise",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Prisoner of Zenda",
+   "author": "Anthony Hope",
+   "note": "But the storybook was The Prisoner of Zenda.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Don Quixote",
+   "author": "Miguel de Cervantes",
+   "note": "One week only with Don Quixote, before turning him in to be locked up again and exchanged for a new week's pile",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Zozobra",
+   "author": "Ramón López Velarde",
+   "note": "A few were all right, Zozobra, and also Romancero Gitano, poems by a young man who loved gypsies",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Romancero gitano",
+   "author": "Federico García Lorca",
+   "note": "It sounds like it would be in Romancero Gitano. But it isn't.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Odyssey",
+   "author": "Homer",
+   "note": "Or sit on the bed with The Odyssey.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Life and Opinions of Tristram Shandy, Gentleman",
+   "author": "Laurence Sterne",
+   "note": "Like poor old Tristram Shandy trying to remember his whole story helter-skelter?",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Gone with the Wind",
+   "author": "Margaret Mitchell",
+   "note": "This format, I was told, worked well for Gone With the Wind.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Big Money",
+   "author": "John Dos Passos",
+   "note": "Oh, and this one by Dos Passos, it's called The Big Money.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Great Gatsby",
+   "author": "F. Scott Fitzgerald",
+   "note": "He might have written Gatsby in the very room where I'm sleeping tonight.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Crack-Up",
+   "author": "F. Scott Fitzgerald",
+   "note": "More likely The Crack-Up. If he was here in town for the reason you say.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "The Hucksters",
+   "author": "Frederic Wakeman",
+   "note": "Now you want to be Llewelyn Evans in The Hucksters, selling Beautee Soap to unsuspecting housewives?",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Look Homeward, Angel",
+   "author": "Thomas Wolfe",
+   "note": "carrying Look Homeward, Angel and Tropic of Cancer without raising an eyebrow",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lacuna",
+   "mentioned": "Tropic of Cancer",
+   "author": "Henry Miller",
+   "note": "carrying Look Homeward, Angel and Tropic of Cancer without raising an eyebrow. All of Henry Miller in fact",
+   "confidence": "high"
+  },
+  {
+   "source": "Companion Piece",
+   "mentioned": "The Rime of the Ancient Mariner",
+   "author": "Samuel Taylor Coleridge",
+   "note": "A form of it turns up in The Rime of the Ancient Mariner by Samuel Taylor Coleridge, a poem about the terrible act and ominous aftermath of the killing of a bird",
+   "confidence": "high"
+  },
+  {
+   "source": "Companion Piece",
+   "mentioned": "The Scarlet Letter",
+   "author": "Nathaniel Hawthorne",
+   "note": "What book was that? The Scarlet Letter. I took it off the shelf. It was a paperback as old as me and still pristine.",
+   "confidence": "high"
+  },
+  {
+   "source": "Companion Piece",
+   "mentioned": "Twelfth Night",
+   "author": "William Shakespeare",
+   "note": "like when Shakespeare uses it in Twelfth Night as one of the proofs of love when one character tells another that to prove this love she'd halloo your name",
+   "confidence": "high"
+  },
+  {
+   "source": "Companion Piece",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "Gules... It's a word Shakespeare uses for blood... He uses it in Hamlet and that word sable with it too",
+   "confidence": "high"
+  },
+  {
+   "source": "Companion Piece",
+   "mentioned": "Loitering with Intent",
+   "author": "Muriel Spark",
+   "note": "reading a novel for pleasure, it's called Loitering with Intent, in the ruins of some long-gone rich person's castle",
+   "confidence": "high"
+  },
+  {
+   "source": "Companion Piece",
+   "mentioned": "In Drear-Nighted December",
+   "author": "John Keats",
+   "note": "It's from the poem, I say, by Keats, about just that, a tree in winter that doesn't have to miss its summer greenness... Green felicity",
+   "confidence": "medium"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Philoctetes",
+   "author": "Sophocles",
+   "note": "In Sophocles' play Philoctetes, the man who suffers most is also the man with the most powerful weapon, an infallible bow",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Oresteia",
+   "author": "Aeschylus",
+   "note": "We discuss the Oresteia, in which two children, Electra and Orestes, murder their mother, Clytemnestra",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Medea",
+   "author": "Euripides",
+   "note": "I'm currently writing a version of Euripides' Medea for a theatre in London",
+   "confidence": "medium"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Moby-Dick",
+   "author": "Herman Melville",
+   "note": "Woolf and De Beauvoir agree that a woman could never have written Moby-Dick or War and Peace",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "War and Peace",
+   "author": "Leo Tolstoy",
+   "note": "a woman – even a woman with her own room – could never have written Moby-Dick or War and Peace",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Second Sex",
+   "author": "Simone de Beauvoir",
+   "note": "Two books – Simone de Beauvoir's The Second Sex and Virginia Woolf's A Room of One's Own – bring these thoughts to mind",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "A Room of One's Own",
+   "author": "Virginia Woolf",
+   "note": "In A Room of One's Own Woolf asserts two things: first, that the world is demonstrably male",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Three Sisters",
+   "author": "Anton Chekhov",
+   "note": "Recently, reading Chekhov's Three Sisters, it struck me that the question of female self-expression becomes confused",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "To Room Nineteen",
+   "author": "Doris Lessing",
+   "note": "Doris Lessing enlarges on these themes in her story 'To Room Nineteen'",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Pride and Prejudice",
+   "author": "Jane Austen",
+   "note": "it was because Austen wrote behind the door in the shared sitting room that Pride and Prejudice is the flawless novel it is",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Beautiful and Damned",
+   "author": "F. Scott Fitzgerald",
+   "note": "In F. Scott Fitzgerald's novel The Beautiful and Damned, the writer Dick Caramel tells of a conversation with his uncle from Kansas",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Great Gatsby",
+   "author": "F. Scott Fitzgerald",
+   "note": "Scott Fitzgerald, for instance, virtually described his own funeral in The Great Gatsby",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Tender Is the Night",
+   "author": "F. Scott Fitzgerald",
+   "note": "something other than hard work had produced Tender is the Night and The Great Gatsby",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Swann's Way",
+   "author": "Marcel Proust",
+   "note": "'The past is hidden outside the realm,' writes Proust in Swann's Way",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Divine Comedy",
+   "author": "Dante Alighieri",
+   "note": "Dante summed up the situation in The Divine Comedy: Once, Cimabue thought to hold the field In painting",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Lives of the Artists",
+   "author": "Giorgio Vasari",
+   "note": "Reading Vasari's Lives of the Artists, one begins to notice a minor consistency of an unexpected sort",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Canticle of the Creatures",
+   "author": "Francis of Assisi",
+   "note": "he wrote the 'Canticle of the Creatures', a love poem to the unpopulated earth, to the sun and wind and water",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Age of Innocence",
+   "author": "Edith Wharton",
+   "note": "But unlike her other major novels... The Age of Innocence is not a story of contemporary America. The New York that is its subject was as dead, when Wharton wrote it",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Custom of the Country",
+   "author": "Edith Wharton",
+   "note": "unlike her other major novels, The Custom of the Country and The House of Mirth, The Age of Innocence is not a story of contemporary America",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The House of Mirth",
+   "author": "Edith Wharton",
+   "note": "unlike her other major novels, The Custom of the Country and The House of Mirth",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Golden Bough",
+   "author": "James George Frazer",
+   "note": "She had been reading The Golden Bough and Freud, and found in the concepts of tribalism and taboo a whole language",
+   "confidence": "medium"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Rainbow",
+   "author": "D. H. Lawrence",
+   "note": "The Rainbow came into the world more or less without literary antecedents. Nothing like it had been written before",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Women in Love",
+   "author": "D. H. Lawrence",
+   "note": "The Rainbow was originally conceived as a much longer novel... the second of which is Women in Love",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Ulysses",
+   "author": "James Joyce",
+   "note": "the same can be said of Joyce's Ulysses, with which The Rainbow was contemporaneous",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Bonjour Tristesse",
+   "author": "Françoise Sagan",
+   "note": "In that book, Bonjour Tristesse, she described the hedonism and amorality of youth",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "A Certain Smile",
+   "author": "Françoise Sagan",
+   "note": "Sagan's second novel, A Certain Smile, is in many ways a sequel to Bonjour Tristesse",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Balkan Trilogy",
+   "author": "Olivia Manning",
+   "note": "'I haven't any parents,' says Harriet Pringle, heroine and presiding spirit of Olivia Manning's Balkan Trilogy",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Eat, Pray, Love",
+   "author": "Elizabeth Gilbert",
+   "note": "There's a running gag in Elizabeth Gilbert's bestselling memoir of breakdown and recovery... The book's actual title, Eat, Pray, Love, is sincere",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Never Let Me Go",
+   "author": "Kazuo Ishiguro",
+   "note": "My name is Kathy H. I'm thirty-one years old, and I've been a carer now for over eleven years (essay on Never Let Me Go)",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Unconsoled",
+   "author": "Kazuo Ishiguro",
+   "note": "In Kazuo Ishiguro's 1995 novel The Unconsoled, Ryder, a pianist, is due to give an important concert in a foreign city",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Remains of the Day",
+   "author": "Kazuo Ishiguro",
+   "note": "His most popular novel, The Remains of the Day, recommended itself to readers by the purity of its translation of that perennial English favourite, the period piece",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Family Lexicon",
+   "author": "Natalia Ginzburg",
+   "note": "the most famous of which, Family Lexicon, is a history of a family whose observational core remains opaque",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Little Virtues",
+   "author": "Natalia Ginzburg",
+   "note": "The essays in The Little Virtues, written separately and in distinct circumstances between 1944 and 1960, comprise an autobiography of sorts",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Winter in the Abruzzi",
+   "author": "Natalia Ginzburg",
+   "note": "'Winter in the Abruzzi' describes a period in which the author, then a young wife and mother, was exiled in wartime",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "My Vocation",
+   "author": "Natalia Ginzburg",
+   "note": "'And then my children were born,' she writes in 'My Vocation'",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "Bridget Jones's Diary",
+   "author": "Helen Fielding",
+   "note": "this is a well-worn mode of female literary expression – Bridget Jones's Diary is a good example",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Road",
+   "author": "Cormac McCarthy",
+   "note": "as in Cormac McCarthy's The Road, the novel's horrific imaginings almost become a perverse kind of sentimentality",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Plague",
+   "author": "Albert Camus",
+   "note": "it has more in common with a novel such as Camus's The Plague, in which a dystopian but familiar reality dramatises the dilemmas of the age",
+   "confidence": "high"
+  },
+  {
+   "source": "Coventry",
+   "mentioned": "The Fall",
+   "author": "Albert Camus",
+   "note": "Albert Camus, more eerily, foretold precisely the manner of his death in La Chute",
+   "confidence": "medium"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Task of the Translator",
+   "author": "Walter Benjamin",
+   "note": "the great German-Jewish intellectual Walter Benjamin, whose essay 'The Task of the Translator' (1923) drew on his mystical notion of 'pure language'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Invisible Man",
+   "author": "G. K. Chesterton",
+   "note": "In a famous short story by G. K. Chesterton, 'The Invisible Man', the murderer enters the house of the victim observed by several witnesses",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Gunga Din",
+   "author": "Rudyard Kipling",
+   "note": "he secretly wrote his own name at the end of a fair copy he made of Rudyard Kipling's poem, 'Gunga Din'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Greeks and the Irrational",
+   "author": "E. R. Dodds",
+   "note": "the view put forth in E. R. Dodds's The Greeks and the Irrational (1951)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Apology",
+   "author": "Plato",
+   "note": "In Plato's Apology the play is said to have contributed to the case against Socrates",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Circe",
+   "author": "Madeline Miller",
+   "note": "the novels of Jennifer Saint, Miller's Circe, Pat Barker's The Silence of the Girls and Women of Troy",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Song of Achilles",
+   "author": "Madeline Miller",
+   "note": "Madeline Miller's heartbreaking novella, Song of Achilles (2011), helped to make the representation of queer love stories more mainstream",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Silence of the Girls",
+   "author": "Pat Barker",
+   "note": "Pat Barker's The Silence of the Girls and Women of Troy",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Women of Troy",
+   "author": "Pat Barker",
+   "note": "Pat Barker's The Silence of the Girls and Women of Troy",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Stone Blind",
+   "author": "Natalie Haynes",
+   "note": "Natalie Haynes' Stone Blind and A Thousand Ships",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "A Thousand Ships",
+   "author": "Natalie Haynes",
+   "note": "Natalie Haynes' Stone Blind and A Thousand Ships",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Doctor Faustus",
+   "author": "Christopher Marlowe",
+   "note": "Helen plays an unspeaking bit part in Christopher Marlowe's Doctor Faustus, but she is a phantom",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Romeo and Juliet",
+   "author": "William Shakespeare",
+   "note": "As in Romeo and Juliet – a love story dependent on Romeo's quick abandonment of Rosalind",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Troilus and Cressida",
+   "author": "William Shakespeare",
+   "note": "His Seven Books of the Iliades was a source for Shakespeare's Troilus and Cressida",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Tempest",
+   "author": "William Shakespeare",
+   "note": "Clayton's Demea sounds like a strangely laid-back, Byronic version of Prospero at the end of The Tempest",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Comedy of Errors",
+   "author": "William Shakespeare",
+   "note": "Shakespeare's Comedy of Errors is based on Plautus's Menaechmi",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "'springes' recalls Polonius warning Ophelia not to let Hamlet take her virginity",
+   "confidence": "medium"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Menaechmi",
+   "author": "Plautus",
+   "note": "Shakespeare's Comedy of Errors is based on Plautus's Menaechmi",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Aulularia",
+   "author": "Plautus",
+   "note": "Molière's Miser is a version of Plautus's Aulularia",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Captives",
+   "author": "Plautus",
+   "note": "Plautus's play The Captives seems to deal with precisely this issue: a master changes places with his slave",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Miser",
+   "author": "Molière",
+   "note": "Molière's Miser is a version of Plautus's Aulularia",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Tale of Genji",
+   "author": "Murasaki Shikibu",
+   "note": "the Koran, Homer, Tolstoy, Sundiata, Balzac, The Tale of Genji – are read in translation",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Sundiata",
+   "author": "Anonymous",
+   "note": "the Koran, Homer, Tolstoy, Sundiata, Balzac, The Tale of Genji – are read in translation",
+   "confidence": "medium"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Four Quartets",
+   "author": "T. S. Eliot",
+   "note": "Achilles' deathless horses... take on the voice of Eliot's Four Quartets: 'This time we will, this time we can, but this time cannot last.'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Manfred",
+   "author": "Lord Byron",
+   "note": "the first line here is stolen from Byron's Manfred",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Scholars",
+   "author": "W. B. Yeats",
+   "note": "Yeats' great poem 'The Scholars', whose lines were 'rhymed out in love's despair'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The River-Merchant's Wife: A Letter",
+   "author": "Ezra Pound",
+   "note": "Ezra Pound's famously controversial imitation of Li Po's 'The River Merchant's Wife: A Letter'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Sea and the Mirror",
+   "author": "W. H. Auden",
+   "note": "the passage would seem at home in Auden's long poetic riff on The Tempest, 'The Sea and the Mirror'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Phyllyp Sparowe",
+   "author": "John Skelton",
+   "note": "John Skelton's remarkable poem 'Phyllyp Sparowe' (written around 1500)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Sappho to Philaenis",
+   "author": "John Donne",
+   "note": "Donne's wonderful verse epistle 'Sappho to Philaenis' is the first English poem to describe what Sappho did with her girlfriend",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Ode to a Nightingale",
+   "author": "John Keats",
+   "note": "Catullus's poetry often has a far more aggressive, satirical edge than, say, Ode to a Nightingale",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Twenty Love Poems and a Song of Despair",
+   "author": "Pablo Neruda",
+   "note": "adapted Pablo Neruda's 'Twenty Love Poems' and combined them with a jazz track by Tony Kinsey",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Sappho's Leap",
+   "author": "Erica Jong",
+   "note": "Erica Jong's novel, Sappho's Leap (2003), corrects the legend by describing a Sappho who is unharmed",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Sparrow",
+   "author": "Carol Muske-Dukes",
+   "note": "to Carol Muske-Dukes' collection Sparrow (2003)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Life and Opinions of Tristram Shandy, Gentleman",
+   "author": "Laurence Sterne",
+   "note": "Lawrence Sterne's rollicking comic novel, The Life and Opinions of Tristram Shandy",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Nana",
+   "author": "Émile Zola",
+   "note": "Émile Zola's gripping novel Nana (1880) evokes the rise, fall and early death of a sexy blonde teenager",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Vegetarian",
+   "author": "Han Kang",
+   "note": "the International Booker Prize was awarded for the first time to a single novel, The Vegetarian, which was translated from the Korean",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Orientalism",
+   "author": "Edward Said",
+   "note": "Edward Said's influential study of the concept he popularised, 'Orientalism'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Ode to Aphrodite",
+   "author": "Sappho",
+   "note": "only one complete poem – the wonderful 'Ode to Aphrodite' (Fragment 1)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "On the Sublime",
+   "author": "Longinus",
+   "note": "Fragment 31 ('He seems to me equal to gods'), quoted at length in On the Sublime",
+   "confidence": "medium"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Iliad",
+   "author": "Homer",
+   "note": "a haunting, capricious patchwork of poetic narratives based on Homer's Iliad",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Odyssey",
+   "author": "Homer",
+   "note": "Translating the Odyssey (essay in the collection about the author's own translation)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Oresteia",
+   "author": "Aeschylus",
+   "note": "Aeschylus's tragic trilogy, the Oresteia, being the richest example",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Agamemnon",
+   "author": "Aeschylus",
+   "note": "Hamilton's translations of Aeschylus's Agamemnon, the perhaps-Aeschylean Prometheus Bound, and Euripides' Trojan Women",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Eumenides",
+   "author": "Aeschylus",
+   "note": "In the final play, The Eumenides ('Kindly Ones', a traditional euphemism for the Furies)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Prometheus Bound",
+   "author": "Aeschylus",
+   "note": "the perhaps-Aeschylean Prometheus Bound",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Trojan Women",
+   "author": "Euripides",
+   "note": "Early modern readers were far more interested in Euripides' Hecuba than in his Trojan Women",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Hecuba",
+   "author": "Euripides",
+   "note": "Early modern readers were far more interested in Euripides' Hecuba than in his Trojan Women",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Helen",
+   "author": "Euripides",
+   "note": "Greek tragedies with happy endings and little wailing – such as Euripides' Helen or Ion",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Ion",
+   "author": "Euripides",
+   "note": "Greek tragedies with happy endings and little wailing – such as Euripides' Helen or Ion",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Iphigenia in Tauris",
+   "author": "Euripides",
+   "note": "an escape fantasy, like Euripides' tragedy Iphigenia in Tauris (produced in the same year)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Clouds",
+   "author": "Aristophanes",
+   "note": "There is a moment in Clouds when the avaricious protagonist, Strepsiades, discovers to his horror that his son has learned from the school of sophists",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Birds",
+   "author": "Aristophanes",
+   "note": "the founding of an ideal society, minus the humans (in Birds)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Lysistrata",
+   "author": "Aristophanes",
+   "note": "Spike Lee's film Chi-Raq, a hip-hop adaptation of Lysistrata set on the South Side of Chicago",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Women at the Assembly",
+   "author": "Aristophanes",
+   "note": "the wild idea of emancipating women to end political corruption (in Women of the Assembly)",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Encomium of Helen",
+   "author": "Gorgias",
+   "note": "Gorgias... does just that in his Encomium of Helen, presenting our heroine as the victim of either deceit or her own weak will",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Meditations",
+   "author": "Marcus Aurelius",
+   "note": "the emperor Marcus Aurelius, whose Meditations amply demonstrate his deep engagement with the philosophy",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Discourses of Epictetus",
+   "author": "Arrian",
+   "note": "wrote what he described as a verbatim record of Epictetus's teaching in four books, known as the Discourses",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Enchiridion",
+   "author": "Epictetus",
+   "note": "He also wrote a separate summary of it, known as the Handbook",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Letters to Lucilius",
+   "author": "Seneca",
+   "note": "In his Letters to Lucilius, the Roman writer and philosopher Seneca cites the question of 'whether Sappho was a prostitute'",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Satyricon",
+   "author": "Petronius",
+   "note": "two comic novels, the Satyricon by Petronius... and the Golden Ass",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Golden Ass",
+   "author": "Apuleius",
+   "note": "the Satyricon by Petronius and the Golden Ass by the great orator, neo-Platonist philosopher",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Aeneid",
+   "author": "Virgil",
+   "note": "The translations of Aeneid books 2 and 4 by Henry Howard, Earl of Surrey in the sixteenth century were foundational",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Greek Way",
+   "author": "Edith Hamilton",
+   "note": "write two surveys of ancient literature, The Greek Way and The Roman Way",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "The Roman Way",
+   "author": "Edith Hamilton",
+   "note": "write two surveys of ancient literature, The Greek Way and The Roman Way",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "Mythology",
+   "author": "Edith Hamilton",
+   "note": "Along with Mythology, her retelling",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "War Music",
+   "author": "Christopher Logue",
+   "note": "Perhaps the most powerful example is Christopher Logue's War Music – a powerful poetic reimagining of the Iliad",
+   "confidence": "high"
+  },
+  {
+   "source": "Crossing the Wine-Dark Sea",
+   "mentioned": "A Lexicon of the Homeric Dialect",
+   "author": "Richard John Cunliffe",
+   "note": "to quote Richard Cunliffe's A Lexicon of the Homeric Dialect – a key resource for any translator of Homer",
+   "confidence": "high"
+  },
+  {
+   "source": "Demon Copperhead",
+   "mentioned": "David Copperfield",
+   "author": "Charles Dickens",
+   "note": "“It’s in vain to recall the past, unless it works some influence upon the present.” Charles Dickens, David Copperfield (epigraph); also Demon: “Likewise the Charles Dickens one … he did get the picture on kids and orphans getting screwed over”",
+   "confidence": "high"
+  },
+  {
+   "source": "Demon Copperhead",
+   "mentioned": "The Catcher in the Rye",
+   "author": "J. D. Salinger",
+   "note": "That Holden guy held my interest … all he wants in his heart is to stand at the edge of a field catching little boys before they go over the cliff … so I made him the catcher in the tobacco.",
+   "confidence": "high"
+  },
+  {
+   "source": "Demon Copperhead",
+   "mentioned": "Moby-Dick",
+   "author": "Herman Melville",
+   "note": "She had cherry-red hair … and a full sleeve tattoo representing the book of Moby-Dick. Sinking schooner, curling waves, wrathful whale.",
+   "confidence": "high"
+  },
+  {
+   "source": "Demon Copperhead",
+   "mentioned": "Richard III",
+   "author": "William Shakespeare",
+   "note": "His book had a name on it I’d heard of, Shakespeare … And if I die no soul will pity me [lines copied onto the kite; Richard III]",
+   "confidence": "medium"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Millennium: Winners and Losers in the Coming World Order",
+   "author": "Jacques Attali",
+   "note": "In his 1991 book Millennium: Winners and Losers in the Coming World Order, Attali observed with a chilling prescience that particularly among those in the Middle East …",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Measure for Measure",
+   "author": "William Shakespeare",
+   "note": "At age fifteen I was allowed to go on a trip with the high school English classes to see a performance of Measure for Measure … It was my first experience of Shakespeare",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Heart of Darkness",
+   "author": "Joseph Conrad",
+   "note": "I threw Heart of Darkness over my shoulder at the first bark of temptation and went out on a date.",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Snow Falling on Cedars",
+   "author": "David Guterson",
+   "note": "There’s a particularly lovely one in the center of David Guterson’s Snow Falling on Cedars [on sex scenes in literature]",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Middlemarch",
+   "author": "George Eliot",
+   "note": "With Middlemarch and Pilgrim at Tinker Creek in the world, a person should squander her reading time on fashionably ironic books about nothing much?",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Pilgrim at Tinker Creek",
+   "author": "Annie Dillard",
+   "note": "With Middlemarch and Pilgrim at Tinker Creek in the world, a person should squander her reading time on fashionably ironic books …",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Mending Wall",
+   "author": "Robert Frost",
+   "note": "In his poem “Mending Wall,” Robert Frost invokes the image of his neighbor walking the fence line intent on constant survey and repair",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "The Death of the Hired Man",
+   "author": "Robert Frost",
+   "note": "In his poem “Death of a Hired Man,” Robert Frost captured … the most perfect definition of home: Home is the place where, when you have to go there, They have to take you in.",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "The Poisonwood Bible",
+   "author": "Barbara Kingsolver",
+   "note": "my friends at the Book Mark asked me to give the debut reading of my eighth book, The Poisonwood Bible, at their store",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "The Bean Trees",
+   "author": "Barbara Kingsolver",
+   "note": "This great apple that had fallen into my lap became my first novel, The Bean Trees.",
+   "confidence": "high"
+  },
+  {
+   "source": "Small Wonder",
+   "mentioned": "Roget’s Thesaurus",
+   "author": "Peter Mark Roget",
+   "note": "My St. Martin’s Roget’s Thesaurus obligingly offers up … a whopping fifteen synonyms for copulation",
+   "confidence": "medium"
+  },
+  {
+   "source": "Flight Behavior",
+   "mentioned": "Ulysses",
+   "author": "James Joyce",
+   "note": "he knew the difference between Homer’s Ulysses and the one by James Joyce, and how to get down to business with a metaphor",
+   "confidence": "high"
+  },
+  {
+   "source": "Flight Behavior",
+   "mentioned": "King Lear",
+   "author": "William Shakespeare",
+   "note": "“Preston was my dad’s name,” Dellarobia offered. “And Cordelia is from King Lear. Of course!” Tina …",
+   "confidence": "high"
+  },
+  {
+   "source": "Flight Behavior",
+   "mentioned": "A Christmas Carol",
+   "author": "Charles Dickens",
+   "note": "the hooded skeleton pointing at gravestones that scared the bejesus out of her in childhood. A library book, Charles Dickens. But that was the Yet to Come ghost",
+   "confidence": "medium"
+  },
+  {
+   "source": "Flight Behavior",
+   "mentioned": "Do Not Go Gentle into That Good Night",
+   "author": "Dylan Thomas",
+   "note": "Rage, rage against the dying of the light. That was the end of a poem, brought to her by the one bright spot in her education, Mrs. Lake",
+   "confidence": "medium"
+  },
+  {
+   "source": "Girl Meets Boy",
+   "mentioned": "If—",
+   "author": "Rudyard Kipling",
+   "note": "If you can keep your head when all about you. Are losing theirs and blaming it on you. If you can bear to hear the tru[th]…",
+   "confidence": "high"
+  },
+  {
+   "source": "Girl Meets Boy",
+   "mentioned": "Twelfth Night",
+   "author": "William Shakespeare",
+   "note": "The rain it raineth every day. When that I was and a little tiny girl, with a hey, ho, the wind and the rain. [clown’s song from Twelfth Night, adapted]",
+   "confidence": "medium"
+  },
+  {
+   "source": "Girl Meets Boy",
+   "mentioned": "The Force That Through the Green Fuse Drives the Flower",
+   "author": "Dylan Thomas",
+   "note": "Now I’d become a walking fuse, like in that poem about the flower, and the force, and the green fuse the force drives through it",
+   "confidence": "medium"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "The Bacchae",
+   "author": "Euripides",
+   "note": "That which is beyond us, which is greater than the human … is for the mad, or for those who listen to the mad, and then believe them. —Euripides, The Bacchae (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "The Trojan Women",
+   "author": "Euripides",
+   "note": "Death cannot be what Life is, Child … —Euripides, The Trojan Women (epigraph); later the cast stages it: “Do Medea and Trojan Women.”",
+   "confidence": "high"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "Medea",
+   "author": "Euripides",
+   "note": "“We’re going to do Medea in the quarry. But not just bits and pieces. We’re going to do the whole play.”",
+   "confidence": "high"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "Hippolytus",
+   "author": "Euripides",
+   "note": "He says Euripides’s Hippolytus was put on during the plague at Athens.",
+   "confidence": "high"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "Oedipus Rex",
+   "author": "Sophocles",
+   "note": "“What about Sophocles?” … “Oedipus Rex?” “Fuck Sophocles!” ; later “It was Oedipus Rex. That was it for me.”",
+   "confidence": "high"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "The Iliad",
+   "author": "Homer",
+   "note": "You think Homer knew when he’d written The Iliad that he’d written The Iliad?",
+   "confidence": "high"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "The Odyssey",
+   "author": "Homer",
+   "note": "he started into the first book of The Odyssey, and for a while, I didn’t care that I was poor",
+   "confidence": "high"
+  },
+  {
+   "source": "Glorious Exploits",
+   "mentioned": "The Birds",
+   "author": "Aristophanes",
+   "note": "“New commission,” says Alekto. “Aristophanes’s The Birds. … There’s going to be a comedy festival all winter.”",
+   "confidence": "high"
+  },
+  {
+   "source": "Glyph",
+   "mentioned": "The Dream",
+   "author": "H. G. Wells",
+   "note": "He told me he remembers she brought home a book called The Dream … The Dream is a 1924 novel by H. G. Wells",
+   "confidence": "high"
+  },
+  {
+   "source": "Glyph",
+   "mentioned": "Flatland",
+   "author": "Edwin A. Abbott",
+   "note": "an 1884 book by someone called Edwin Abbott Abbott about a land called Flatland where the people are all two dimensional",
+   "confidence": "high"
+  },
+  {
+   "source": "Glyph",
+   "mentioned": "The Skin",
+   "author": "Curzio Malaparte",
+   "note": "an autobiographical Italian book called La pelle, from 1949, in which someone apparently picks up the skin of a flattened person off a road [author not named in text]",
+   "confidence": "medium"
+  },
+  {
+   "source": "Glyph",
+   "mentioned": "Anthem for Doomed Youth",
+   "author": "Wilfred Owen",
+   "note": "a BLIND HORSE FROM 100 YEARS AGO lost its eyes in the anthem for doomed youth trenches",
+   "confidence": "low"
+  },
+  {
+   "source": "Glyph",
+   "mentioned": "A Book of Nonsense",
+   "author": "Edward Lear",
+   "note": "There was a Young Lady of Norway, Who casually sat in a doorway … Edward Lear (epigraph; limerick appears in A Book of Nonsense)",
+   "confidence": "medium"
+  },
+  {
+   "source": "How to be both",
+   "mentioned": "The Eel",
+   "author": "Eugenio Montale",
+   "note": "green spirit seeking life where only drought and desolation sting; spark that says that everything begins when everything seems charcoal — Eugenio Montale / Jonathan Galassi (epigraph; the poem is “The Eel”)",
+   "confidence": "high"
+  },
+  {
+   "source": "How to be both",
+   "mentioned": "Il Libro dell’Arte",
+   "author": "Cennino Cennini",
+   "note": "The great Cennini … in his Handbook for Painters … Good work, good pay, as the great Cennini says in his Handbook for picturemakers",
+   "confidence": "high"
+  },
+  {
+   "source": "How to be both",
+   "mentioned": "As You Like It",
+   "author": "William Shakespeare",
+   "note": "the festival she was working at last summer, she was selling and tearing tickets for As You Like It at St John’s … Heigh-ho, green holly. Most friendship is feigning, most loving mere folly.",
+   "confidence": "high"
+  },
+  {
+   "source": "How to be both",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "at her afternoon performance of the Hamlet someone had exploded a bottle of cherryade just as she started doing her rosemary for remembrance speech",
+   "confidence": "medium"
+  },
+  {
+   "source": "In the Fold",
+   "mentioned": "The Cherry Orchard",
+   "author": "Anton Chekhov",
+   "note": "Epigraph: Liubov Andreyevna's speech, 'Chekhov, The Cherry Orchard' (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Kudos",
+   "mentioned": "She Got Up and Went Away",
+   "author": "Stevie Smith",
+   "note": "Epigraph: 'She got up and went away ...' signed 'She Got Up and Went Away', Stevie Smith (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Kudos",
+   "mentioned": "Four Quartets",
+   "author": "T. S. Eliot",
+   "note": "'if he were to pick up the Four Quartets today he didn't doubt it would cause him pain'",
+   "confidence": "high"
+  },
+  {
+   "source": "Kudos",
+   "mentioned": "The Divine Comedy",
+   "author": "Dante Alighieri",
+   "note": "'to see Dante awarded a single star ... and his Divine Comedy described as \"complete shit\"'",
+   "confidence": "high"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "Pericles, Prince of Tyre",
+   "author": "William Shakespeare",
+   "note": "Epigraph: 'Een dorre tak ... De leuze: In hac spe vivo', William Shakespeare (epigraph); Pericles also named in dialogue",
+   "confidence": "medium"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "Duino Elegies",
+   "author": "Rainer Maria Rilke",
+   "note": "Epigraph from Rilke (citations list Duineser Elegien) (epigraph); also 'elegieen van wijlen Rilke' in text",
+   "confidence": "high"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "Hard Times",
+   "author": "Charles Dickens",
+   "note": "'Na afloop maken ze grappen over Hard Times'; the 'factory of time' passage is attributed to Charles Dickens",
+   "confidence": "medium"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "The Seven Poor Travellers",
+   "author": "Charles Dickens",
+   "note": "'dubbele naam komt uit een oud verhaal van Charles Dickens ... Het verhaal van Richard Doubledick' (story is a chapter of this work)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "Macbeth",
+   "author": "William Shakespeare",
+   "note": "'veel lawaai, dat niets betekent. Zinnetje van school. William Shakespeare' then the plot of trees marching on a usurper king",
+   "confidence": "medium"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "Germinal",
+   "author": "Emile Zola",
+   "note": "'Germinal ... waarom Zola zijn roman over hopeloze hoop die revolutionaire titel gaf'",
+   "confidence": "high"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "The Rainbow",
+   "author": "D. H. Lawrence",
+   "note": "'D H Lawrence in het Duits, de roman De regenboog' read by Rilke",
+   "confidence": "high"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "The Collected Stories of Katherine Mansfield",
+   "author": "Katherine Mansfield",
+   "note": "'Collected Stories van Katherine Mansfield. Constable. 1948.' left to Richard in a will",
+   "confidence": "medium"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "The Cloud",
+   "author": "Percy Bysshe Shelley",
+   "note": "'De Wolk, door Percy Bysshe Shelley; dit is het laatste vers' (poem read in the text)",
+   "confidence": "high"
+  },
+  {
+   "source": "Like",
+   "mentioned": "A Streetcar Named Desire",
+   "author": "Tennessee Williams",
+   "note": "Epigraph: 'What is straight? A line can be straight, or a street, but the human heart, oh, no, it's curved like a road through mountains.' Tennessee Williams (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Like",
+   "mentioned": "Not Marble",
+   "author": "Edwin Morgan",
+   "note": "Epigraph: 'Exegi this, exegi that ... Hordes, posterities, judges vainly cram the space my love and I left yesterday.' Edwin Morgan (epigraph; poem identified in the acknowledgements as 'Not Marble')",
+   "confidence": "medium"
+  },
+  {
+   "source": "Like",
+   "mentioned": "A Pair of Blue Eyes",
+   "author": "Thomas Hardy",
+   "note": "'An aged-looking Hardy, A Pair of Blue Eyes (I'd read it already ...)'",
+   "confidence": "high"
+  },
+  {
+   "source": "Like",
+   "mentioned": "Clarissa",
+   "author": "Samuel Richardson",
+   "note": "'anything to put off reading Clarissa, I've got an essay for tomorrow ... it's all about rape'",
+   "confidence": "high"
+  },
+  {
+   "source": "Like",
+   "mentioned": "Gunga Din",
+   "author": "Rudyard Kipling",
+   "note": "'I called out poems I'd learned at school. Gunga Din, the Burns poem about the mountain daisy.'",
+   "confidence": "high"
+  },
+  {
+   "source": "Like",
+   "mentioned": "To a Mountain Daisy",
+   "author": "Robert Burns",
+   "note": "'Gunga Din, the Burns poem about the mountain daisy'",
+   "confidence": "medium"
+  },
+  {
+   "source": "Like",
+   "mentioned": "The Solitary Reaper",
+   "author": "William Wordsworth",
+   "note": "'After that I understood what all the Wordsworth stuff was about. The Solitary Reaper'",
+   "confidence": "high"
+  },
+  {
+   "source": "Like",
+   "mentioned": "The Go-Between",
+   "author": "L. P. Hartley",
+   "note": "'announced the beginnings of novels, the past is a foreign country, she called, they do things differently there'",
+   "confidence": "medium"
+  },
+  {
+   "source": "Like",
+   "mentioned": "A Lover's Discourse: Fragments",
+   "author": "Roland Barthes",
+   "note": "'books I knew she particularly liked. Hiroshima Mon Amour, A Lover's Discourse' (thrown on a fire)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Like",
+   "mentioned": "Northern Antiquities",
+   "author": "Paul-Henri Mallet",
+   "note": "'The ash is the greatest and best of all trees ... (Malet's Northern Antiquities)' in a quoted dictionary entry",
+   "confidence": "low"
+  },
+  {
+   "source": "Mean Free Path",
+   "mentioned": "Bezhin Meadow",
+   "author": "Ivan Turgenev",
+   "note": "'I dyed what's-her-face's hair with lime Kool-Aid so when I read \"Bezhin Meadow\" I lent her aspect to the green-haired spirit'",
+   "confidence": "high"
+  },
+  {
+   "source": "Mean Free Path",
+   "mentioned": "War and Peace",
+   "author": "Leo Tolstoy",
+   "note": "'Parting in stations, promising to write War and Peace, this time with feeling'",
+   "confidence": "medium"
+  },
+  {
+   "source": "Outline",
+   "mentioned": "Sons and Lovers",
+   "author": "D. H. Lawrence",
+   "note": "\"an essay about Sons and Lovers by D. H. Lawrence, the book that has inspired me more than anything else in my life\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Outline",
+   "mentioned": "The Wintry Peacock",
+   "author": "D. H. Lawrence",
+   "note": "\"The story I started to read ... was called 'The Wintry Peacock'\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Outline",
+   "mentioned": "Wuthering Heights",
+   "author": "Emily Brontë",
+   "note": "\"the chapter in Wuthering Heights where Heathcliff and Cathy stare from the dark garden through the windows of the Lintons' drawing room\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Outline",
+   "mentioned": "The Odyssey",
+   "author": "Homer",
+   "note": "\"You might remember in the Odyssey ... the character of Elpenor, Odysseus's crewmate who falls off the roof of Circe's house\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Outline",
+   "mentioned": "Encyclopaedia Britannica",
+   "author": "Anonymous",
+   "note": "\"any more than I would spend the afternoon reading the Encyclopaedia Britannica\" (simile)",
+   "confidence": "low"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "The Wreck of the Hesperus",
+   "author": "Henry Wadsworth Longfellow",
+   "note": "\"the Wreck of the Hesperus, and the rest of us took it up without knowing it was a poem, about a shipwreck. Mickie ... gave me the poem to read\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "Wuthering Heights",
+   "author": "Emily Brontë",
+   "note": "\"wouldn't your literature students all be reading Marvel Comics instead of Wuthering Heights?\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "\"Why should anybody ask them to read Hamlet or play a sonata?\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "The Name of the Rose",
+   "author": "Umberto Eco",
+   "note": "\"she got down a paperback called The Name of the Rose that I guessed was my brother's\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "The Gift of the Magi",
+   "author": "O. Henry",
+   "note": "\"Were we like 'The Gift of the Magi,' then? ... that Christmas story about giving presents. The girl cuts off her long hair\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "Harlem",
+   "author": "Langston Hughes",
+   "note": "\"There's this famous poem by Langston Hughes that asks what happens to a dream that gets deferred.\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "Ondine",
+   "author": "Aloysius Bertrand",
+   "note": "\"It was inspired by a poem by Aloysius Bertrand about a water nymph who sings a beautiful song to seduce a man\" (Ravel's Ondine)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Partita",
+   "mentioned": "Der Erlkönig",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "retells the boy, father and the Erlkönig narrative of \"Der Erlkönig\" (via Schubert's setting)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "Sonnets to Orpheus",
+   "author": "Rainer Maria Rilke",
+   "note": "\"estaba a punto de terminar las Elegías y escribir los Sonetos a Orfeo\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Spring",
+   "mentioned": "The Story of Richard Doubledick",
+   "author": "Charles Dickens",
+   "note": "\"tu doble apodo viene de un relato de Charles Dickens ... La historia de Richard Doubledick\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Saving Agnes",
+   "mentioned": "Julius Caesar",
+   "author": "William Shakespeare",
+   "note": "\"that play – you know, the one where that fortune-teller says to the Roman guy that he's going to get knifed... 'Julius Caesar.'\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "Emma",
+   "author": "Jane Austen",
+   "note": "\"The whole history dwindled soon into a matter of little importance but to Emma and her nephews...\" Jane Austen (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "Great Expectations",
+   "author": "Charles Dickens",
+   "note": "from the classics shelf: \"Great Expectations. My infant tongue could make of both names nothing longer or more explicit.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "The Mill on the Floss",
+   "author": "George Eliot",
+   "note": "\"The Mill on the Floss. Volume One, Book First, Boy and Girl.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "Vanity Fair",
+   "author": "William Makepeace Thackeray",
+   "note": "\"Vanity Fair. A novel without a hero. The Manager of the Performance.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "For Whom the Bell Tolls",
+   "author": "Ernest Hemingway",
+   "note": "\"didst thou feel the earth move ... in the not-very-good For Whom the Bell Tolls, 1941 Michael believed\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "Journey by Moonlight",
+   "author": "Antal Szerb",
+   "note": "\"picked a book off the shelf ... Journey by Moonlight. Antal Szerb. Never heard of him. Translated from the Hungarian.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "Little Women",
+   "author": "Louisa May Alcott",
+   "note": "\"She opened a book and pretended to read. Little Women, Eve said. Which are you, then? Married, tomboy, vain or dead?\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "An Arundel Tomb",
+   "author": "Philip Larkin",
+   "note": "\"Larkin ... knew the power of cliché. What will survive of us is love.\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Accidental",
+   "mentioned": "At Grass",
+   "author": "Philip Larkin",
+   "note": "\"His old racehorses in that horse poem didn't 'gallop for joy' but for what must be joy.\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Country Life",
+   "mentioned": "Georgics",
+   "author": "Virgil",
+   "note": "\"What makes the corncrops glad, under which star / To turn the soil, Maecenas...\" (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Fortune and Men's Eyes",
+   "author": "John Herbert",
+   "note": "\"the name of the play: Fortune and Men's Eyes, a play by John Herbert\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Dancer from the Dance",
+   "author": "Andrew Holleran",
+   "note": "\"I'm the only one you can talk to about Dancer from the Dance.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The City and the Pillar",
+   "author": "Gore Vidal",
+   "note": "\"And The City and the Pillar, A Boy's Own Story, Leaves of Grass.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "A Boy's Own Story",
+   "author": "Edmund White",
+   "note": "\"And The City and the Pillar, A Boy's Own Story, Leaves of Grass.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Leaves of Grass",
+   "author": "Walt Whitman",
+   "note": "\"And The City and the Pillar, A Boy's Own Story, Leaves of Grass.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Giovanni's Room",
+   "author": "James Baldwin",
+   "note": "\"Not even Giovanni's Room? 'The Baldwin?'\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Maurice",
+   "author": "E. M. Forster",
+   "note": "\"Prefer Maurice.\" \"The Forster? Nobody prefers Maurice.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Corydon",
+   "author": "André Gide",
+   "note": "\"What you have to say 'bout Gide? ... Corydon.\" \"The 'let me explain and defend my faggotry' book?\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "If It Die",
+   "author": "André Gide",
+   "note": "\"What you have to say 'bout Gide?\" \"If It Die or The Counterfeiters?\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Counterfeiters",
+   "author": "André Gide",
+   "note": "\"If It Die or The Counterfeiters?\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "De Profundis",
+   "author": "Oscar Wilde",
+   "note": "\"Bosie. The one who called it the love that dare not speak its name. It's there in De Profundis.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Dragon Can't Dance",
+   "author": "Earl Lovelace",
+   "note": "\"His book: The Dragon Can't Dance by Earl Lovelace\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Noble House",
+   "author": "James Clavell",
+   "note": "\"Noble House by James Clavell\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Tai-Pan",
+   "author": "James Clavell",
+   "note": "\"somebody loaned him Tai-Pan in second form\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Less Than Zero",
+   "author": "Bret Easton Ellis",
+   "note": "\"My fave book is Bret Easton Ellis's Less Than Zero\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Soul on Ice",
+   "author": "Eldridge Cleaver",
+   "note": "\"Eldridge Cleaver's Soul on Ice was speaking to him right down to his bones\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Summer Lightning",
+   "author": "Olive Senior",
+   "note": "\"The book he is reading is Summer Lightning by Olive Senior\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Year in San Fernando",
+   "author": "Michael Anthony",
+   "note": "\"The last Caribbean novel I remember reading was The Year in San Fernando\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "A House for Mr Biswas",
+   "author": "V. S. Naipaul",
+   "note": "\"and before that A House for Mr. Biswas\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Blacks",
+   "author": "Jean Genet",
+   "note": "\"Cover is like Genet's The Blacks\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Dark Knight Returns",
+   "author": "Frank Miller",
+   "note": "\"I spend all day on the bed reading The Dark Knight Returns for the umpteenth time.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Love in the Time of Cholera",
+   "author": "Gabriel García Márquez",
+   "note": "\"Márquez's Love in the Time of Cholera, Stephen King's The Tommyknockers, Toni Morrison's Beloved...\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Tommyknockers",
+   "author": "Stephen King",
+   "note": "\"Stephen King's The Tommyknockers\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Beloved",
+   "author": "Toni Morrison",
+   "note": "\"Toni Morrison's Beloved\"; later \"You really should read Beloved.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Wyrd Sisters",
+   "author": "Terry Pratchett",
+   "note": "\"Terry Pratchett's Wyrd Sisters\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Nebraska",
+   "author": "George Whitmore",
+   "note": "\"George Whitmore's Nebraska, which I heard is a gay novel\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Milkman's on His Way",
+   "author": "David Rees",
+   "note": "\"that David Rees book I brought back from England, The Milkman's on His Way\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Sexual Outlaw",
+   "author": "John Rechy",
+   "note": "\"John Rechy's The Sexual Outlaw, page twenty-eight\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Two Girls, Fat and Thin",
+   "author": "Mary Gaitskill",
+   "note": "\"one book, Two Girls, Fat and Thin, by Mary Gaitskill\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Lolita",
+   "author": "Vladimir Nabokov",
+   "note": "\"Lolita begins this way, with him turning her name into a tongue workout\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Bleak House",
+   "author": "Charles Dickens",
+   "note": "\"I've read Bleak House more times than that black-hating piece of dog shit named Dickens deserves\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Oliver Twist",
+   "author": "Charles Dickens",
+   "note": "\"reading him Oliver Twist\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Rime of the Ancient Mariner",
+   "author": "Samuel Taylor Coleridge",
+   "note": "\"'That what he singing now?' 'The Rime of the Ancient Mariner,' Eddy said.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Lyrical Ballads",
+   "author": "William Wordsworth and Samuel Taylor Coleridge",
+   "note": "\"the beaten-up copy of Lyrical Ballads, which you will never read\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Memoirs of Hadrian",
+   "author": "Marguerite Yourcenar",
+   "note": "\"I've tried to read Memoirs of Hadrian and for the third time I got as far as page 150\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Song of Solomon",
+   "author": "Toni Morrison",
+   "note": "\"Ever read Song of Solomon? The Toni Morrison novel, not the Bible story.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Count of Monte Cristo",
+   "author": "Alexandre Dumas",
+   "note": "\"First he asked me if I ever read The Count of Monte Cristo, which I have\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Joy of Sex",
+   "author": "Alex Comfort",
+   "note": "\"which he read in The Joy of Sex\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Mysterious Island",
+   "author": "Jules Verne",
+   "note": "\"looked like he just walked right off the pages of The Mysterious Island into our school\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Way We Live Now",
+   "author": "Anthony Trollope",
+   "note": "\"whoever couldn't be bothered to take home The Way We Live Now\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Shame",
+   "author": "Salman Rushdie",
+   "note": "\"those three sisters at the beginning of Salman Rushdie's novel Shame\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Fatal Vision",
+   "author": "Joe McGinniss",
+   "note": "\"You going turn this into a book like Fatal Vision?\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Flesh and Blood",
+   "author": "Michael Cunningham",
+   "note": "\"tried to read a novel called Flesh and Blood by Michael Cunningham\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Twelfth Night",
+   "author": "William Shakespeare",
+   "note": "\"Even your Twelfth Night had a table read.\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "\"Hamlet did fucking delay, too, you know.\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "Pharsalia",
+   "author": "Lucan",
+   "note": "\"I really want to pick the Theban plays or Lucan's Civil War\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Disappearers",
+   "mentioned": "The Theban Plays",
+   "author": "Sophocles",
+   "note": "\"I really want to pick the Theban plays or Lucan's Civil War\"",
+   "confidence": "low"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Sea and Sardinia",
+   "author": "D. H. Lawrence",
+   "note": "Epigraph: 'Comes over one an absolute necessity to move...' D. H. Lawrence, Sea and Sardinia (epigraph); later discussed as Lawrence's two-week visit to Sardinia",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "The Rainbow",
+   "author": "D. H. Lawrence",
+   "note": "'In The Rainbow Lawrence writes of the operation of culture as a form of grace in human evolution.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "The Lives of the Artists",
+   "author": "Giorgio Vasari",
+   "note": "'I have been reading Vasari's Lives of the Artists and have learned something of Piero's obscurity'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "The Charterhouse of Parma",
+   "author": "Stendhal",
+   "note": "'it is how I imagine Fabrizio's tower to have been in Stendhal's Charterhouse of Parma'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "The Divine Comedy",
+   "author": "Dante Alighieri",
+   "note": "'Dante summed up the situation in the Divine Comedy: Once, Cimabue thought to hold the field In painting'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "The Cat in the Hat",
+   "author": "Dr. Seuss",
+   "note": "'In the car they were reading The Cat in the Hat. They read it aloud'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "'I read them Hamlet's soliloquies'; 'The children are playing Hamlet'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Othello",
+   "author": "William Shakespeare",
+   "note": "'They want to know the plot of Othello, of Antony and Cleopatra.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Antony and Cleopatra",
+   "author": "William Shakespeare",
+   "note": "'I read them ... Antony's love-speeches'; 'the plot of Othello, of Antony and Cleopatra'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Macbeth",
+   "author": "William Shakespeare",
+   "note": "'I read them Hamlet's soliloquies and Antony's love-speeches and Macbeth's unsettling remarks on the death of his wife.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Twelfth Night",
+   "author": "William Shakespeare",
+   "note": "'Instead I tell them the story of Twelfth Night.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Canticle of the Creatures",
+   "author": "Francis of Assisi",
+   "note": "'he wrote the Canticle to the Creatures, a love poem to the unpopulated earth, to the sun and wind and water'",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "The Sick Rose",
+   "author": "William Blake",
+   "note": "'like the sick rose in Blake's poem'",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Extra Virgin",
+   "author": "Annie Hawes",
+   "note": "'one or two paperbacks in the sitting room, with titles like Extra Virgin and Tuscany for Beginners'",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Last Supper",
+   "mentioned": "Tuscany for Beginners",
+   "author": "Imogen Edwards-Jones",
+   "note": "'paperbacks in the sitting room, with titles like Extra Virgin and Tuscany for Beginners (Love and War in a Hot Climate!)'",
+   "confidence": "low"
+  },
+  {
+   "source": "The Lichtenberg Figures",
+   "mentioned": "Paradise Lost",
+   "author": "John Milton",
+   "note": "'I confused her body for a simplified prose version of Paradise Lost.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lichtenberg Figures",
+   "mentioned": "Tungsten",
+   "author": "Cesar Vallejo",
+   "note": "'Her death is the author of Tungsten, Cesar Vallejo's social-realist experiment.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lichtenberg Figures",
+   "mentioned": "The Complete Posthumous Poetry",
+   "author": "Cesar Vallejo",
+   "note": "'My death is the author of Cesar Vallejo: The Complete Posthumous Poetry.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lights",
+   "mentioned": "Specimen Days",
+   "author": "Walt Whitman",
+   "note": "'sunburnt from reading Specimen Days on the small porch across the street'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Lights",
+   "mentioned": "Crossing Brooklyn Ferry",
+   "author": "Walt Whitman",
+   "note": "'who is being addressed in the last stanza of Crossing Brooklyn Ferry?'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "Strange Case of Dr Jekyll and Mr Hyde",
+   "author": "Robert Louis Stevenson",
+   "note": "'The quote is from The Strange Case of Dr. Jekyll and Mr. Hyde, which I have read many times.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "The Pilgrim's Progress",
+   "author": "John Bunyan",
+   "note": "'I had also recently read The Pilgrim's Progress and Paradise Lost'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "Paradise Lost",
+   "author": "John Milton",
+   "note": "'I had also recently read The Pilgrim's Progress and Paradise Lost'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "Tales of the Grotesque and Arabesque",
+   "author": "Edgar Allan Poe",
+   "note": "'the poems of Miss Emily Dickinson and Tales of the Grotesque and Arabesque by Edgar Allan Poe'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "The Raven",
+   "author": "Edgar Allan Poe",
+   "note": "'I am fond of Mr. Poe and his telltale Raven'",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "Hope is the thing with feathers",
+   "author": "Emily Dickinson",
+   "note": "'When Miss Dickinson says, Hope is the thing with feathers, I always think of something round'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "Stuart Little",
+   "author": "E. B. White",
+   "note": "'I'm a-calling it Stuart Little. That is a mouse in a book.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Poisonwood Bible",
+   "mentioned": "The Bobbsey Twins in Eskimo Land",
+   "author": "Laura Lee Hope",
+   "note": "'I had nothing to read but The Bobbsey Twins in Eskimo Land, a childish book'",
+   "confidence": "medium"
+  },
+  {
+   "source": "The Topeka School",
+   "mentioned": "A Man by the Name of Ziegler",
+   "author": "Hermann Hesse",
+   "note": "'I first read A Man by the Name of Ziegler on the 4 train'; Ziegler takes a pill and understands the animals at the zoo",
+   "confidence": "high"
+  },
+  {
+   "source": "The Topeka School",
+   "mentioned": "The Purple Cow",
+   "author": "Gelett Burgess",
+   "note": "'I never saw a Purple Cow, I never hope to see one' recited at bedtime",
+   "confidence": "high"
+  },
+  {
+   "source": "The Topeka School",
+   "mentioned": "The Anatomy of Melancholy",
+   "author": "Robert Burton",
+   "note": "'There was rumored to be a copy of The Anatomy of Melancholy bound in human skin.'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Topeka School",
+   "mentioned": "How the Grinch Stole Christmas!",
+   "author": "Dr. Seuss",
+   "note": "'Mrs. Lewis demands he read aloud from How the Grinch Stole Christmas! in fourth grade'",
+   "confidence": "high"
+  },
+  {
+   "source": "The Topeka School",
+   "mentioned": "A Portrait of the Artist as a Young Man",
+   "author": "James Joyce",
+   "note": "'Once upon a time and a very good time it was there was a moocow... In the opening of Joyce's Portrait'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "The Secret Agent",
+   "author": "Joseph Conrad",
+   "note": "'she took the book down off the shelf, The Secret Agent by Joseph Conrad. It was about Greenwich and the man blowing himself up in the park!'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "The Go-Between",
+   "author": "L. P. Hartley",
+   "note": "'her old copy of her favourite book off the shelf... it's The Go-Between by LP Hartley'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "'Words words words, the child said... That's from Hamlet. A play by William Shakespeare'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "The Winter's Tale",
+   "author": "William Shakespeare",
+   "note": "'Mark goes to a matinee of The Winter's Tale at the Old Vic'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Women in Love",
+   "author": "D. H. Lawrence",
+   "note": "'A girl reading Women in Love.'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Zen and the Art of Motorcycle Maintenance",
+   "author": "Robert M. Pirsig",
+   "note": "'A man reading Zen and the Art of Motorcycle Maintenance'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Death in Venice",
+   "author": "Thomas Mann",
+   "note": "'A woman reading Death in Venice.'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Heat and Dust",
+   "author": "Ruth Prawer Jhabvala",
+   "note": "'A woman reading Heat and Dust.'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "The White Hotel",
+   "author": "D. M. Thomas",
+   "note": "'A man reading The White Hotel.'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Slaughterhouse-Five",
+   "author": "Kurt Vonnegut",
+   "note": "'A girl, looks like a student, reading Slaughterhouse 5.'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Struwwelpeter",
+   "author": "Heinrich Hoffmann",
+   "note": "'Have you ever read Struwwelpeter? The story of Augustus who would not eat any soup?'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "A Book of Nonsense",
+   "author": "Edward Lear",
+   "note": "'Or A Book of Nonsense? Have you ever read Edward Lear's limericks?'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "In Search of Lost Time",
+   "author": "Marcel Proust",
+   "note": "'Yes, but he's big in A La Recherche, her father said'",
+   "confidence": "medium"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Robinson Crusoe",
+   "author": "Daniel Defoe",
+   "note": "'the author of the book called Robinson Crusoe had a brick factory'",
+   "confidence": "high"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "The Railway Children",
+   "author": "E. Nesbit",
+   "note": "'I can be Bobbie in the Railway Children book'",
+   "confidence": "medium"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Anne of Green Gables",
+   "author": "L. M. Montgomery",
+   "note": "'I can be Anne of Green Gables.'",
+   "confidence": "medium"
+  },
+  {
+   "source": "There but for the",
+   "mentioned": "Reflections on Gandhi",
+   "author": "George Orwell",
+   "note": "Epigraph: 'The essence of being human is that one does not seek perfection...' George Orwell (epigraph)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Transcription",
+   "mentioned": "The Left Hand of Darkness",
+   "author": "Ursula K. Le Guin",
+   "note": "\"was reading The Left Hand of Darkness\" (Anisa on the green)",
+   "confidence": "high"
+  },
+  {
+   "source": "Transcription",
+   "mentioned": "The Hobbit",
+   "author": "J. R. R. Tolkien",
+   "note": "\"you read The Hobbit at six\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Transcription",
+   "mentioned": "Pippi Longstocking",
+   "author": "Astrid Lindgren",
+   "note": "\"slowly read The Adventures of Pippi Longstocking to this cultural giant\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "The Well Dressed Man with a Beard",
+   "author": "Wallace Stevens",
+   "note": "\"After the final no there comes a yes\" (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "The Odyssey",
+   "author": "Homer",
+   "note": "\"If her father-in-law had actually read The Odyssey\"; Scylla and Charybdis discussed at table",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "On the Origin of Species",
+   "author": "Charles Darwin",
+   "note": "\"I stayed awake six nights running when I discovered On the Origin of Species\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "The Descent of Man",
+   "author": "Charles Darwin",
+   "note": "\"...and I did the same last year when The Descent of Man came available\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "Great Expectations",
+   "author": "Charles Dickens",
+   "note": "\"a whiff of Miss Havisham in Dickens's Great Expectations\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "Flora Novae-Zelandiae",
+   "author": "Joseph Dalton Hooker",
+   "note": "\"his treasured copy of Hooker's Flora Novae-Zelandiae\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "How Plants Behave",
+   "author": "Asa Gray",
+   "note": "\"Gray's newly published How Plants Behave\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "Antigone",
+   "author": "Sophocles",
+   "note": "\"Did you ever even read Antigone?\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "Don Quixote",
+   "author": "Miguel de Cervantes",
+   "note": "\"Dulcinea, as in Don Quixote.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "Alice's Adventures in Wonderland",
+   "author": "Lewis Carroll",
+   "note": "\"Tweedledee and Tweedledum. They're from Alice in Wonderland.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "My Antonia",
+   "author": "Willa Cather",
+   "note": "\"It's from My Antonia. By Willa Cather. Mama's favorite book.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Unsheltered",
+   "mentioned": "I Hear America Singing",
+   "author": "Walt Whitman",
+   "note": "\"I hear America singing! Singing with open mouths their strong melodious songs!\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Twenty Thousand Leagues Under the Sea",
+   "author": "Jules Verne",
+   "note": "\"I only ask to live another hundred years so that your memory will remain with me that much longer\" (epigraph)",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Harriet the Spy",
+   "author": "Louise Fitzhugh",
+   "note": "\"I was directed to read her Harriet the Spy and play Go Fish\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Charlotte's Web",
+   "author": "E. B. White",
+   "note": "\"her paperback copy of Charlotte's Web\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "The Sailor Who Fell from Grace with the Sea",
+   "author": "Yukio Mishima",
+   "note": "\"Did you ever read that Mishima novel, The Sailor Who Fell from Grace with the Sea?\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Madame Bovary",
+   "author": "Gustave Flaubert",
+   "note": "\"I read Madame Bovary because of you\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "A Sentimental Education",
+   "author": "Gustave Flaubert",
+   "note": "\"she read A Sentimental Education for fun\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "David Copperfield",
+   "author": "Charles Dickens",
+   "note": "\"When they read David Copperfield, they read the whole thing\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "The Return of the Native",
+   "author": "Thomas Hardy",
+   "note": "\"They read The Return of the Native.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Anna Karenina",
+   "author": "Leo Tolstoy",
+   "note": "\"The AP girls read Anna Karenina and Moby-Dick last semester\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Moby-Dick",
+   "author": "Herman Melville",
+   "note": "\"The AP girls read Anna Karenina and Moby-Dick last semester\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Independent People",
+   "author": "Halldór Laxness",
+   "note": "\"Independent People.\" \"Halldór Laxness, Iceland, published in two volumes in 1934 and '35\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Men's Lives",
+   "author": "Peter Matthiessen",
+   "note": "\"a Peter Matthiessen book called Men's Lives, about fishing off the coast of Long Island\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "The Tibetan Book of the Dead",
+   "author": "Padmasambhava",
+   "note": "\"What have you been reading?\" \"The Tibetan Book of the Dead.\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Lincoln in the Bardo",
+   "author": "George Saunders",
+   "note": "\"You read the George Saunders novel\" (the bardo)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Wild Grapes",
+   "author": "Robert Frost",
+   "note": "He thought of Robert Frost, \"Wild Grapes\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Fire and Ice",
+   "author": "Robert Frost",
+   "note": "\"Some say the world will end in fire, / Some say in ice\" (Frost poems and car accidents)",
+   "confidence": "medium"
+  },
+  {
+   "source": "Whistler",
+   "mentioned": "Name Your Baby",
+   "author": "Lareina Rule",
+   "note": "\"a book called Name Your Baby\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Winter",
+   "mentioned": "A Christmas Carol",
+   "author": "Charles Dickens",
+   "note": "\"All Dickens says in A Christmas Carol is that bye and bye they had a song\"; later \"an old copy of A Christmas Carol by Charles Dickens\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Winter",
+   "mentioned": "Cymbeline",
+   "author": "William Shakespeare",
+   "note": "\"Cymbeline, Lux says. A play about a kingdom subsumed in chaos...\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Winter",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "\"relief much thanks (Hamlet)\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "The Last Tycoon",
+   "author": "F. Scott Fitzgerald",
+   "note": "\"as overhyped and disappointing as F. Scott Fitzgerald's The Last Tycoon\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "The Help",
+   "author": "Kathryn Stockett",
+   "note": "\"it joins novels like The Help and The Good Earth\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "The Good Earth",
+   "author": "Pearl S. Buck",
+   "note": "\"it joins novels like The Help and The Good Earth\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "The Idiot",
+   "author": "Elif Batuman",
+   "note": "\"our love of the same book, Elif Batuman's The Idiot\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "Lolita",
+   "author": "Vladimir Nabokov",
+   "note": "\"'Lolita,' Christina responds... 'By Nabokov?'\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "Anna Karenina",
+   "author": "Leo Tolstoy",
+   "note": "\"'Anna Karenina,' declares Johnson. 'Only Anna wouldn't kill herself.'\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "The Handmaid's Tale",
+   "author": "Margaret Atwood",
+   "note": "\"Imagine a world similar to The Handmaid's Tale\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "The Lord of the Rings",
+   "author": "J. R. R. Tolkien",
+   "note": "\"carrying chunky volumes of Lord of the Rings or The Spiderwick Chronicles\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "The Spiderwick Chronicles",
+   "author": "Tony DiTerlizzi and Holly Black",
+   "note": "\"carrying chunky volumes of Lord of the Rings or The Spiderwick Chronicles\"",
+   "confidence": "medium"
+  },
+  {
+   "source": "Yellowface",
+   "mentioned": "Twilight",
+   "author": "Stephenie Meyer",
+   "note": "\"Sixth grade: my Twilight phase... infatuated with Alice Cullen\"",
+   "confidence": "medium"
+  }
+ ]
+}

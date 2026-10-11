@@ -15,6 +15,7 @@ net-*.png
 
 # Detector: source PDFs + generated candidate/batch files (author-side, not shipped)
 inbox/pending/
+inbox/archive/
 
 # Dictionary: raw catalog dumps are regenerable; only the compact titles.json is committed
 tools/dict/*
