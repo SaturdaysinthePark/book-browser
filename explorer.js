@@ -390,7 +390,6 @@
     var bk = r.page === 'book' ? r.id : null;
     if (bk !== this._xLastBook) { this._xLastBook = bk; if (this.state.xGenre || this.state.xHover) this.setState({ xGenre: null, xHover: null }); }
     if (this._bkpEl) this._bkpQueue();
-    if (this._labSync) this._labSync();
     var f = this._xCur(), mi = this._xMini;
     if (mi) { var cur = mi.focus >= 0 ? mi.keys[mi.focus] : null; if (cur !== f) mi.setFocus(f); }
     var sm = this._stars;
@@ -625,16 +624,28 @@
   };
 
   // ---- ?v=next: the network page is the star map ---------------------------------------------
-  P._starsRef = function () {
-    var self = this;
-    return this._starsFn || (this._starsFn = function (el) {
+  // One BJAtlas per layout: the genre continents (stars-data.js) or, in ?v=lab, a point layout from
+  // layouts-data.js (spiral / petals / blend / fame). Switching layouts re-mounts the map.
+  P._starsRef = function (lk) {
+    var self = this, key = lk || 'stars';
+    this._starsFns = this._starsFns || {};
+    return this._starsFns[key] || (this._starsFns[key] = function (el) {
       if (self._stars) { self._stars.destroy(); self._stars = null; window.__stars = null; }
       if (!el || !window.BJAtlas || !window.BookJumprStars) return;
+      var data = lk ? self._layoutData(lk) : window.BookJumprStars;
+      if (!data) return;
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
-        root: el, regions: true, regionCircles: false,
+        root: el, data: data,
+        regions: !lk || lk === 'petals' || lk === 'blend', regionCircles: false, regionTint: lk !== 'petals',
         regionColor: function (R) { return self.xGenreColor(R.genre); },
+        guides: data.guides && (data.guides.rings || data.guides.axes) ? data.guides : null,
+        labelTop: lk ? (window.innerWidth < 760 ? 10 : 25) : 0,
         onFocus: function (k) { self.mapFocus(k); },
-        topInset: function () { var bar = window.innerWidth < 760 && document.querySelector('.bjx-stars .bjx-fbar'); return bar ? bar.getBoundingClientRect().height + 14 : 0; },
+        topInset: function () {   // keep the framing clear of the search bar / switcher
+          var bottom = 0, top = el.getBoundingClientRect().top;
+          [].forEach.call(document.querySelectorAll('.bjx-stars .bjx-fbar, .lab-switch'), function (x) { bottom = Math.max(bottom, x.getBoundingClientRect().bottom - top); });
+          return bottom ? bottom + 14 : 0;
+        },
         bottomInset: function () { var c = window.innerWidth < 760 && document.querySelector('.bjx-fcard'); return c ? c.getBoundingClientRect().height + 16 : 0; }
       }));
       el.addEventListener('dblclick', function (e) {
@@ -645,6 +656,33 @@
       if (f) m.setFocus(f, false);
     });
   };
+  // ?v=lab: a point layout expanded into BJAtlas's data shape (cached)
+  P._layoutData = function (lk) {
+    var D = window.BookJumprLayouts, L = D && D.layouts[lk];
+    if (!L) return null;
+    this._layoutCache = this._layoutCache || {};
+    if (this._layoutCache[lk]) return this._layoutCache[lk];
+    var nodes = D.keys.map(function (k, i) { return [k, L.xy[2 * i], L.xy[2 * i + 1], L.reg[i], D.deg[i]]; });
+    return (this._layoutCache[lk] = { nodes: nodes, regions: L.regions, guides: L.guides });
+  };
+  var LAB_VIEWS = [['spiral', 'Spiral'], ['petals', 'Petals'], ['blend', 'Blend'], ['fame', 'Fame'], ['stars', 'Stars']];
+  P._labView = function () {
+    var v = this.state.xView;
+    if (!v) { try { v = sessionStorage.getItem('bj-lab'); } catch (e) {} }
+    return LAB_VIEWS.some(function (x) { return x[0] === v; }) ? v : 'petals';
+  };
+  P.labSetView = function (v) {
+    try { sessionStorage.setItem('bj-lab', v); } catch (e) {}
+    this.setState({ xView: v });
+  };
+  P.labMap = function (focus) {
+    var self = this, view = this._labView();
+    var switcher = h('div', { key: 'sw', className: 'lab-switch', role: 'tablist' }, LAB_VIEWS.map(function (v) {
+      return h('button', { key: v[0], role: 'tab', 'aria-selected': view === v[0] ? 'true' : 'false', className: view === v[0] ? 'on' : '', onClick: function () { self.labSetView(v[0]); } }, v[1]);
+    }));
+    return this.starMap(focus, view === 'stars' ? null : view, switcher);
+  };
+
   // The selected book's card on a map view (stars, and the lab views): cover, counts, Open, Clear.
   P.mapCard = function (sel, o) {
     var self = this, yl = this.yearLabel(sel.year), g = this.xGenreLabel(this.xGenreKey(sel.id));
@@ -673,12 +711,12 @@
           h('span', { className: 'sg-cv' }, self.cover(x)), h('span', { className: 'sg-t' }, h('span', { className: 't' }, x.title), h('span', { className: 'a' }, x.author || '')));
       })) : null);
   };
-  P.starMap = function (focus) {
+  P.starMap = function (focus, lk, extra) {
     var self = this, books = this.books, sel = focus && books[focus] ? books[focus] : null;
     var m = function () { return self._stars; };
     var card = sel ? this.mapCard(sel) : null;
     return h('div', { className: 'bjx-full bjx-stars' },
-      h('div', { className: 'bjx-full-map', ref: this._starsRef() }),
+      h('div', { key: 'map:' + (lk || 'stars'), className: 'bjx-full-map', ref: this._starsRef(lk) }),
       h('div', { className: 'bjx-fbar' },
         this.mapSearch(),
         h('div', { className: 'atlas-zoom' },
@@ -689,7 +727,7 @@
         ? [h('span', { key: 'lo' }, h('i', { className: 'ln out' }), 'mentions'), h('span', { key: 'li' }, h('i', { className: 'ln in' }), 'mentioned by'),
           h('span', { key: 'u' }, h('i', { className: 'sw', style: { background: MISC_DOT } }), 'genre unknown'), h('span', { key: 'h', className: 'hint' }, 'Esc to clear')]
         : h('span', { className: 'hint' }, 'Scroll or pinch to zoom · click a star')),
-      card);
+      card, extra || null);
   };
 
   // ---- morphs between the fan and the star map ---------------------------------------------
@@ -756,7 +794,6 @@
     id = id || this._xCur();
     if (!id || !this.books[id]) return;
     var self = this, route = { page: 'network', focus: id }, hash = '#/network/' + id;
-    if (this._vLab && this._vLab() && this._labView() !== 'stars') { this.navigate(route, hash, document.querySelector('.bjx-hcv, .bkp-cv0')); return; }   // lab views: the cover glides in
     if (reducedMotion() || document.hidden || !window.ReactDOM || !document.querySelector('.bjx-fan, .bkp-shelves') || this._xMorphing) { this.navigate(route, hash); return; }
     var items = this._xPillSnap(), L = this._xMorphLayer();
     var chips = items.map(function (it) { var c = self._xChip(L, it); Object.assign(c.style, box(it.r)); return c; });

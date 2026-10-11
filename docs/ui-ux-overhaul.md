@@ -116,20 +116,16 @@ the references and prompt patterns behind the decisions.
     - Hubs label their 30 best-connected neighbours.
   - **Continents are now one disc each:** sub-communities are wedges of a single sunflower. Unknown-genre books sit toward the rim and are drawn lighter, and names are anchored just above the actual dots.
 
-- **Lab views (`?v=lab`): leading with the books people know.**
-  - The data explains the overwhelm:
-    - 71% of the 4,910 books have exactly one link;
-    - only 192 are mentioned 5+ times, and 66 are mentioned 10+ times.
-  - The lab variant keeps everything in `?v=next` and adds three views of the ~240 most-mentioned books and biggest name-droppers, drawn as covers (size = popularity, pan/zoom/pinch):
-    - **Canon:** one island per genre, the most mentioned in the middle, islands packed so genres that mention each other sit together.
-    - **Timeline:** left to right through time on a warped scale, in genre lanes. A crowded year fans out sideways. Faint arcs show every link among these books, and selecting one highlights its arcs back in time.
-    - **Fame:** right = mentioned by more books, up = mentions more books, both on log scales. Books that mention nothing sit in their own band. Quadrants: the canon, name-droppers, hubs, footnotes.
-  - In every view:
-    - selecting a cover shows its links and the map card;
-    - **Open →** morphs the cover into the book page;
-    - "Zoom out" from a book page glides its cover back into the view;
-    - a book outside the set is pinned in as "you are here".
-  - The choice of view is remembered for the session; "Stars" is the genre star map.
+- **Lab variants (`?v=lab`): the map as points, popular books first.**
+  - The cover views (Canon, Timeline, Fame as covers) were dropped: books should be points.
+  - `tools/build-layouts.mjs` (`npm run bj:layouts` → `layouts-data.js`) lays out all 4,910 books four ways, all drawn by the same canvas renderer (`atlas.js`) as the star map:
+    - **Spiral:** one sunflower spiral sorted by connections. The most connected sit at the centre and the one-off name-drops form the outer haze; guide rings mark 50+ / 20+ / 10+ / 5+ / 2+ links.
+    - **Petals:** the same spiral, but each genre owns a wedge sized to it. A mixed heart of famous books sits in the centre and genres fan out as petals (names at the tips); inside a petal, books that mention each other take neighbouring angles.
+    - **Blend:** the 302 books with 10+ links form a sorted core; each genre's other books form a filled disc around it.
+    - **Fame:** x = how many books it mentions, y = how many mention it, both on log scales, with round seeded jitter so equal counts become soft clouds. Corners: the canon, hubs, name-droppers, footnotes.
+  - Selection, card, Open → and the dot zoom-out morph work the same in every variant.
+  - At overview, the 25 most connected books are labelled (10 on phones).
+  - The switcher choice is remembered for the session.
 
 ## Next steps (not done)
 

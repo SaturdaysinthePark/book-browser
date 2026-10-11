@@ -54,6 +54,9 @@
     //   regions:false  no neighbourhood circles / names   colorOf(key)  per-book colour (e.g. genre)
     //   regionCircles:false  continents: names only (anchored at lx/ly, kept while a book is focused),
     //                        with a soft tint in regionColor(region) under the dots
+    //   guides         { rings:[{r,t}] } concentric guide rings, or { axes } a chart frame (ticks, titles, captions)
+    //   regionTint:false  no soft tint under continents (petals share one centre)
+    //   labelTop       at overview, always label this many of the most connected books
     //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
     //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
     this.showRegions = o.regions !== false;
@@ -221,7 +224,7 @@
     var r, R, sx, sy, sr, i;
 
     // regions
-    for (r = 0; this.showRegions && !this.regionCircles && this.o.regionColor && r < this.regions.length; r++) {
+    for (r = 0; this.showRegions && !this.regionCircles && this.o.regionColor && this.o.regionTint !== false && r < this.regions.length; r++) {
       R = this.regions[r]; sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k * 1.08;
       if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
       var tc = this.o.regionColor(R), gr = c.createRadialGradient(sx, sy, 0, sx, sy, sr);
@@ -238,6 +241,7 @@
       c.setLineDash([3, 5]); c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.14)'; c.stroke(); c.setLineDash([]);
     }
     c.globalAlpha = 1;
+    if (this.o.guides) this._guides(c, k);
 
     // dots
     for (i = 0; i < this.N; i++) {
@@ -352,16 +356,49 @@
       }
     }
     // hub titles once zoomed in enough to read them
-    if (focus < 0 && k > 0.55) {
-      var budget = k > 1.6 ? 120 : k > 1 ? 60 : 24, shown = 0;
+    if (focus < 0 && (k > 0.55 || this.o.labelTop)) {
+      var budget = k > 1.6 ? 120 : k > 1 ? 60 : k > 0.55 ? Math.max(24, this.o.labelTop || 0) : this.o.labelTop, shown = 0;
       for (var oi = 0; oi < this.order.length && shown < budget; oi++) {
         var ni = this.order[oi];
-        if (this.deg[ni] < 3 && k < 1.6) break;
+        if (this.deg[ni] < 3 && k < 1.6 && !this.o.labelTop) break;
         var before = placed.length;
         labelNode(this, ni, k > 1.6 ? 13 : 12, 600, 'rgba(20,20,20,0.82)', 'rgba(247,245,240,0.85)');
         if (placed.length > before) shown++;
       }
     }
+  };
+  // guide rings (spiral) or a chart frame (fame), in world coordinates; text stays screen-sized
+  P._guides = function (c, k) {
+    var G = this.o.guides, self = this, ox = this.sx(0), oy = this.sy(0);
+    c.save();
+    c.font = '10.5px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.5)'; c.strokeStyle = 'rgba(20,20,20,0.16)'; c.lineWidth = 1;
+    if (G.rings) G.rings.forEach(function (R) {
+      var r = R.r * k;
+      c.setLineDash([3, 6]); c.beginPath(); c.arc(ox, oy, r, 0, 6.2832); c.stroke(); c.setLineDash([]);
+      if (r > 30) { c.textAlign = 'center'; c.fillStyle = 'rgba(247,245,240,0.9)'; var tw = c.measureText(R.t).width; c.fillRect(ox - tw / 2 - 4, oy - r - 8, tw + 8, 15); c.fillStyle = 'rgba(20,20,20,0.55)'; c.fillText(R.t, ox, oy - r + 3); }
+    });
+    var A = G.axes;
+    if (A) {
+      var X = function (x) { return self.sx(x); }, Y = function (y) { return self.sy(y); };
+      c.strokeStyle = 'rgba(20,20,20,0.45)'; c.lineWidth = 1.2;
+      c.beginPath(); c.moveTo(X(A.x0), Y(A.y0)); c.lineTo(X(A.x1), Y(A.y0)); c.moveTo(X(A.x0), Y(A.y0)); c.lineTo(X(A.x0), Y(A.y1)); c.stroke();
+      c.strokeStyle = 'rgba(20,20,20,0.08)'; c.lineWidth = 1; c.setLineDash([3, 6]);
+      A.tx.forEach(function (t) { c.beginPath(); c.moveTo(X(t.x), Y(A.y0)); c.lineTo(X(t.x), Y(A.y1)); c.stroke(); });
+      A.ty.forEach(function (t) { c.beginPath(); c.moveTo(X(A.x0), Y(t.y)); c.lineTo(X(A.x1), Y(t.y)); c.stroke(); });
+      c.setLineDash([]);
+      c.fillStyle = 'rgba(20,20,20,0.6)';
+      c.textAlign = 'center'; A.tx.forEach(function (t) { c.fillText(t.t, X(t.x), Y(A.y0) + 16); });
+      c.textAlign = 'right'; A.ty.forEach(function (t) { c.fillText(t.t, X(A.x0) - 8, Y(t.y) + 4); });
+      c.font = '11.5px ' + MONO; c.fillStyle = INK;
+      c.textAlign = 'right'; c.fillText(A.xt, X(A.x1), Y(A.y0) + 34);
+      c.textAlign = 'left'; c.fillText(A.yt, X(A.x0) + 10, Y(A.y1) - 8);
+      var small = this.W < 600;
+      (A.caps || []).forEach(function (q) {
+        c.font = (small ? 15 : 22) + 'px ' + SERIF; c.fillStyle = 'rgba(20,20,20,0.55)'; c.textAlign = 'left'; c.fillText(q.t, X(q.x), Y(q.y));
+        if (!small) { c.font = '10px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.45)'; c.fillText(q.s, X(q.x), Y(q.y) + 15); }
+      });
+    }
+    c.restore();
   };
   P._ring = function (i, col, pad) {
     var c = this.ctx;

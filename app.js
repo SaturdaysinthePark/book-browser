@@ -1332,7 +1332,7 @@
   };
   // ?v=next: the connected experience — book pages are the fan + panel, the network page is the
   // star map, and you zoom between them.
-  // ?v=lab: everything in ?v=next, plus Canon / Timeline / Fame views on the network page (lab.js).
+  // ?v=lab: everything in ?v=next, plus point-layout variants of the network map (layouts-data.js).
   P._vNext = function () {
     if (this._vn === undefined) { var v = null; try { v = new URLSearchParams(location.search).get('v'); } catch (e) {} this._vn = v === 'next' || v === 'lab'; this._vl = v === 'lab'; }
     return this._vn;
@@ -1341,11 +1341,11 @@
   P._netExplorer = function () { var m = this._netMode(); return m === 'explorer' || m === 'plus'; };
   P._xPlus = function () { return this._netMode() === 'plus'; };
   P._xLive = function () { return this._xPlus() || this._vNext(); };   // living fan + star map layers
-  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xLive() || (window.BJAtlas && window.BookJumprStars)) && (!this._vLab() || window.__BJ.labReady)); };
+  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xLive() || (window.BJAtlas && window.BookJumprStars)) && (!this._vLab() || window.BookJumprLayouts)); };
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=3', 'explorer.js?v=4'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=4', 'explorer.js?v=5'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1382,8 +1382,8 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=3', 'stars-data.js?v=2', 'explorer.js?v=4'] : ['network-regions.js?v=1', 'explorer.js?v=4'];
-    if (this._vLab()) srcs.push('lab.js?v=1');
+    var srcs = this._xLive() ? ['atlas.js?v=4', 'stars-data.js?v=2', 'explorer.js?v=5'] : ['network-regions.js?v=1', 'explorer.js?v=5'];
+    if (this._vLab()) srcs.push('layouts-data.js?v=1');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {
