@@ -1203,7 +1203,7 @@
     dataScript.src = 'constellation-data.js';
     dataScript.onload = function () {
       var viewScript = document.createElement('script');
-      viewScript.src = 'constellation-view.js?v=18';
+      viewScript.src = 'constellation-view.js?v=19';
       viewScript.onload = done;
       document.body.appendChild(viewScript);
     };
