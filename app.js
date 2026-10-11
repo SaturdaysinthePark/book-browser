@@ -36,8 +36,27 @@
     'Pride and Prejudice', 'Sense and Sensibility', 'Emma', 'War and Peace', 'Anna Karenina',
     'Crime and Punishment', 'The Brothers Karamazov', 'Les Misérables', 'The Three Musketeers',
     'Treasure Island', "Gulliver's Travels", 'The Catcher in the Rye', 'The Scarlet Letter',
-    "Uncle Tom's Cabin", 'Madame Bovary', 'Vanity Fair', 'Middlemarch', 'A Farewell to Arms', 'Lolita'
+    "Uncle Tom's Cabin", 'Madame Bovary', 'Vanity Fair', 'Middlemarch', 'A Farewell to Arms'
   ];
+
+  // Books kept OFF the home screen (walls, shelf rows, suggestion chips). They stay in the data,
+  // search, book pages and the network — this only governs what the front door shows unprompted.
+  // Authors are matched on the key's author segment (catches future imports); books by full key.
+  var HOME_HIDE = {
+    authors: {
+      'adolph-hitler': 1,       // hate propaganda
+      'joseph-goebbels': 1,
+      'marquis-de-sade': 1      // explicit erotica
+    },
+    books: {
+      'pauline-reage/story-of-o': 1,
+      'vatsyayana/kama-sutra': 1,
+      'vladimir-nabokov/lolita': 1,
+      'j-g-wood/the-uncivilized-races-of-men-in-all-countries-of-the-world': 1,   // dated race/eugenics texts
+      'margaret-sanger/woman-and-the-new-race': 1,
+      'heinrich-kramer/malleus-maleficarum': 1
+    }
+  };
 
   /* ------------------------------------------------------------------ *
    * Template compiler — a minimal, faithful re-implementation of the
@@ -641,13 +660,16 @@
   // Scored candidate pool (cached). Eligible = mentions others (out>0) OR very-popular mentioned-only
   // (in>=3). Score is popularity-led (inbound citations), with a both-sided tier bonus and a boost
   // for the curated POPULAR_FICTION titles. Sorted best-first.
+  P._homeOk = function (id) {
+    return !!id && !HOME_HIDE.books[id] && !HOME_HIDE.authors[String(id).split('/')[0]];
+  };
   P._ensureWallPool = function () {
     if (this._wallPool) return this._wallPool;
     var self = this;
     var popSet = {};
     for (var p = 0; p < POPULAR_FICTION.length; p++) { var pb = this.bookByTitle(POPULAR_FICTION[p]); if (pb) popSet[pb.id] = 1; }
     var log2 = function (x) { return Math.log(x) / Math.LN2; };
-    var pool = (this.all || []).filter(function (b) { return b.out.length > 0 || b.in.length >= 3; }).map(function (b) {
+    var pool = (this.all || []).filter(function (b) { return (b.out.length > 0 || b.in.length >= 3) && self._homeOk(b.id); }).map(function (b) {
       var both = b.out.length > 0 && b.in.length > 0;
       var score = 3 * log2(1 + b.in.length) + log2(1 + b.out.length) + (both ? 2 : 1) + (popSet[b.id] ? 2 : 0);
       return { id: b.id, fic: self._isFiction(b.genre), genre: self.genreOf(b).name, author: b.author || '', score: score };
@@ -1296,7 +1318,7 @@
   // C: themed shelves. A couple of fixed leaderboards, one "found inside" shelf drawn from a
   // big name-dropper, and genre shelves — reshuffled (order + source) on every shuffle.
   P._hxRows = function (seed) {
-    var self = this, all = this.all;
+    var self = this, all = this.all.filter(function (b) { return self._homeOk(b.id); });
     var deg = function (b) { return b.in.length + b.out.length; };
     var top = function (list, key, n) { return list.slice().sort(function (a, b) { return key(b) - key(a) || (a.title < b.title ? -1 : 1); }).slice(0, n).map(function (b) { return b.id; }); };
     var rnd = function (k) { return self.hash(seed + ':' + k); };
@@ -1306,7 +1328,7 @@
     ];
     var sources = all.filter(function (b) { return b.out.length >= 18; }).sort(function (a, b) { return rnd(a.id) - rnd(b.id); });
     sources.slice(0, 2).forEach(function (src) {
-      rows.push({ label: 'Found inside ' + src.title, ids: src.out.slice().sort(function (a, b) { return deg(self.books[b]) - deg(self.books[a]); }).slice(0, 48) });
+      rows.push({ label: 'Found inside ' + src.title, ids: src.out.filter(function (id) { return self._homeOk(id); }).sort(function (a, b) { return deg(self.books[b]) - deg(self.books[a]); }).slice(0, 48) });
     });
     var genres = [['Poetry & epics', ['POETRY & EPICS']], ['Philosophy', ['PHILOSOPHY']], ['Drama & plays', ['DRAMA & PLAYS']],
       ['Sci-fi & fantasy', ['SCI-FI', 'FANTASY']], ['Crime & mystery', ['CRIME & MYSTERY']], ['History', ['HISTORY']],
@@ -1595,7 +1617,7 @@
       var chipN = m ? 2 : 5, chipMax = m ? 16 : 22;  // short pills; 2 on mobile so they never wrap
       // Suggestions come from the curated POPULAR_FICTION set (resolved once, then cached),
       // trimmed by title length so pills stay short, shuffled deterministically per seed.
-      var popPool = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(Boolean));
+      var popPool = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       var pool = popPool.filter(function (b) { return b.title.length <= chipMax; });
       // Prepend the seed (not append) so it perturbs the whole FNV hash via avalanche —
       // appending only shifts every hash by a constant, leaving the sort order unchanged.
@@ -1604,7 +1626,7 @@
     } else { vals.wallCovers = []; vals.chips = []; vals.wallStyle = {}; vals.wallFade = {}; }
     if (hv) {
       var seedC = this.state.chipSeed || 0, nChips = m ? 2 : hv === 'c' ? 3 : 4, maxC = m ? 16 : 22;
-      var pp = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(Boolean));
+      var pp = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       vals.chips = pp.filter(function (b) { return b.title.length <= maxC; })
         .sort(function (a, b2) { return self.hash(seedC + '~' + a.id) - self.hash(seedC + '~' + b2.id); }).slice(0, nChips)
         .map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
