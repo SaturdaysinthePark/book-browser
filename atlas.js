@@ -615,7 +615,9 @@
         return;
       }
       var p = local(e);
-      self.zoomBy(Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0018)), p[0], p[1]);
+      // trackpad pinch arrives as ctrl+wheel with small deltas: give it a little more reach
+      var zr = e.deltaMode === 1 ? 0.05 : e.ctrlKey ? 0.0032 : 0.0018;
+      self.zoomBy(Math.exp(-e.deltaY * zr), p[0], p[1]);
     };
     this._onDown = function (e) {
       cv.setPointerCapture(e.pointerId);
