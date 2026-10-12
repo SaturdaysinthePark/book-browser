@@ -756,11 +756,12 @@
     return this.starMap(focus, view, switcher);
   };
 
-  // The selected book's card on a map view (stars, and the lab views): cover, counts, Open, Clear.
+  // The selected book's card on a map view (stars, and the lab views): cover, counts, Open, and a corner × to close.
   P.mapCard = function (sel, o) {
     var self = this, yl = this.yearLabel(sel.year), g = this.xGenreLabel(this.xGenreKey(sel.id));
     o = o || {};
     return h('div', { className: 'bjx-fcard' },
+      h('button', { className: 'bjx-fx', 'aria-label': 'Close', title: 'Close (Esc)', onClick: function () { self.mapFocus(null); } }, '×'),
       h('div', { className: 'bjx-fcv' }, this.cover(sel)),
       h('div', { className: 'bjx-fmeta' },
         h('div', { className: 'eyebrow' }, o.eyebrow || (g === 'Unsorted' || g === 'Other' ? 'Selected' : g)),
@@ -768,8 +769,7 @@
         h('div', { className: 'by' }, [sel.author, yl].filter(Boolean).join('  ·  ')),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
         h('div', { className: 'bjx-act' },
-          h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'),
-          h('button', { className: 'pill', onClick: function () { self.mapFocus(null); } }, 'Clear'))));
+          h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'))));
   };
   // "Search by book or author…" for the map views; picking one selects it (mapFocus).
   P.mapSearch = function () {
