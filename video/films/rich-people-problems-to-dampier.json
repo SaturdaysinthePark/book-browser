@@ -1,0 +1,14 @@
+{
+  "question": "Have you ever wondered how books are connected?",
+  "accent": "connected?",
+  "path": [
+    "kevin-kwan/rich-people-problems",
+    "kevin-kwan/china-rich-girlfriend",
+    "edith-wharton/the-age-of-innocence",
+    "george-eliot/middlemarch",
+    "jonathan-swift/gulliver-s-travels",
+    "william-dampier/a-new-voyage-round-the-world"
+  ],
+  "end": "bookjumpr.com",
+  "layout": "chain"
+}

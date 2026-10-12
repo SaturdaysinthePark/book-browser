@@ -217,6 +217,21 @@ function main() {
     // the run of words that spells the named book (case, hyphens and punctuation don't matter)
     var target = norm(PATH[hp.named].t), hl = [];
     for (var i = 0; i < list.length && !hl.length; i++) { var acc = ''; for (var j = i; j < list.length && acc.length < target.length; j++) { acc += norm(list[j].s); if (acc === target) hl = list.slice(i, j + 1); } }
+    if (!hl.length) {
+      // the line may name the book loosely ("…Rasselas or Gulliver", "…his book called "A Voyage round the world""):
+      // take the longest run of words that follows the title's words in order (each a word, or the start of one)
+      var tws = PATH[hp.named].t.split(/\s+/).map(norm).filter(Boolean), stop = { a: 1, an: 1, the: 1, of: 1, and: 1 }, best = [];
+      for (var i2 = 0; i2 < list.length; i2++) {
+        var ti = 0, run = [];
+        for (var j2 = i2; j2 < list.length; j2++) {
+          var wn = norm(list[j2].s), f = -1; if (!wn) break;
+          for (var x2 = ti; x2 < tws.length; x2++) if (tws[x2] === wn || (wn.length >= 3 && tws[x2].indexOf(wn) === 0)) { f = x2; break; }
+          if (f < 0) break; run.push(list[j2]); ti = f + 1;
+        }
+        if (run.some(function (wd) { return !stop[norm(wd.s)]; }) && run.length > best.length) best = run;
+      }
+      hl = best;
+    }
     if (!hl.length) throw new Error('title not found in quote: ' + PATH[hp.named].t);
     return { hp: hp, w: w, h: h, fs: fs, font: font, words: list, hl: hl, padX: padX };
   };
@@ -224,13 +239,19 @@ function main() {
 
   // the chain: every book of the path on one screen, each hop's quote pinned beside it
   var CH = (function () {
-    var n = PATH.length, w = V ? 150 : 170, hh = w * 1.5, pos = [], cards = [], ctrl = [];
-    // spread the books out, but not too far apart when there are only a few (short chains sit together in the middle)
-    var stepV = Math.min((H - 800) / (n - 1), 380), midV = (380 + H - 420) / 2, stepH = Math.min(W * 0.8 / (n - 1), 560);
+    var n0 = PATH.length;
+    // spread the books out, but not too far apart when there are only a few (short chains sit together in the middle);
+    // long chains (9:16) use more of the height and smaller covers, so the books never touch
+    var stepV = Math.min((H - 800) / (n0 - 1), 380), midV = (380 + H - 420) / 2, stepH = Math.min(W * 0.8 / (n0 - 1), 560);
+    if (stepV < 260) stepV = (H - 640) / (n0 - 1);
+    var n = n0, w = V ? Math.min(150, stepV / 1.5 - 36) : 170, hh = w * 1.5, pos = [], cards = [], ctrl = [];
     for (var k = 0; k < n; k++) pos.push(V ? [210, midV + (k - (n - 1) / 2) * stepV] : [cx + (k - (n - 1) / 2) * stepH, cy + 20]);
     var gapX = V ? 0 : pos[1][0] - pos[0][0];
     for (var h = 0; h < n - 1; h++) {
-      var a = pos[h], z = pos[h + 1], card = layQuote(HOPS[h], V ? 29 : 30, V ? 640 : Math.min(480, gapX * 1.36 - 48), 66);
+      // the card's room: in 9:16 the gap between hops, in 16:9 above / below the row (alternating); type steps down to fit
+      var a = pos[h], z = pos[h + 1], room = V ? stepV - 24 : (h % 2 === 0 ? a[1] - hh / 2 - 130 : H - (a[1] + hh / 2) - 74);
+      var cw = V ? 640 : Math.min(480, 2 * gapX - 60), fsz = V ? 29 : 30, card = layQuote(HOPS[h], fsz, cw, 66);
+      while (card.h > room && fsz > 21) { fsz -= 1; card = layQuote(HOPS[h], fsz, cw, 66); }
       if (V) { card.x = 340; card.y = (a[1] + z[1]) / 2 - card.h / 2; ctrl.push([a[0] - 250, (a[1] + z[1]) / 2 - 60]); }
       else {
         var mx = (a[0] + z[0]) / 2, rowTop = a[1] - hh / 2, rowBot = a[1] + hh / 2;
