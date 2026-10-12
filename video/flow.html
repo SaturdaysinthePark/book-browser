@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset="utf-8">
-<title>BookJumpr — the flow of a book</title>
+<title>BookJumpr — how are books connected?</title>
 <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>html,body{margin:0;background:#f7f5f0;overflow:hidden;}canvas{display:block;}</style>
 </head>
@@ -10,14 +10,14 @@
 <canvas id="c"></canvas>
 <script src="film-data.js"></script>
 <script>
-// "The flow of a book" — a 16-second BookJumpr film. Every pixel is a function of time: seek(t) draws
-// frame t from scratch (no transitions, timers or state between frames), so any frame can be rendered
-// alone and the export is exact. ?w=&h= picks the format (1920×1080 or 1080×1920), ?bpm= the tempo,
-// ?play loops it in real time for previewing.
+// "Have you ever wondered how books are connected?" — a 20-second BookJumpr film. Every pixel is a
+// function of time: seek(t) draws frame t from scratch (no transitions, timers or state between frames),
+// so any frame can be rendered alone and the export is exact. ?w=&h= picks the format (1920×1080 or
+// 1080×1920), ?bpm= the tempo, ?play loops it in real time for previewing.
 function main() {
   var F = window.FILM, Q = new URLSearchParams(location.search);
   var W = +Q.get('w') || 1920, H = +Q.get('h') || 1080, V = H > W;
-  var BPM = +Q.get('bpm') || 120, BEAT = 60 / BPM, BEATS = 32, DUR = BEATS * BEAT;
+  var BPM = +Q.get('bpm') || 120, BEAT = 60 / BPM, BEATS = 40, DUR = BEATS * BEAT;
   var cv = document.getElementById('c'), c = cv.getContext('2d');
   cv.width = W; cv.height = H; cv.style.width = W + 'px'; cv.style.height = H + 'px';
 
@@ -78,8 +78,8 @@ function main() {
   };
   var markEnd = function (ox, oy, u) { return [ox + 57 * u, oy + 22 * u]; };
   // the little rust book (the logo's), the film's one travelling character
-  var book = function (x, y, u, rot, alpha) {
-    c.save(); c.translate(x, y); c.rotate(rot); c.globalAlpha = alpha == null ? 1 : alpha;
+  var book = function (x, y, u, rot, alpha, sx, sy) {
+    c.save(); c.translate(x, y); c.rotate(rot); c.scale(sx || 1, sy || 1); c.globalAlpha = alpha == null ? 1 : alpha;
     c.beginPath(); c.rect(-4 * u, -5.8 * u, 8 * u, 11.6 * u); c.fillStyle = RUST; c.fill();
     c.lineWidth = 1.9 * u; c.strokeStyle = INK; c.stroke();
     c.beginPath(); c.moveTo(-1.7 * u, -5.8 * u); c.lineTo(-1.7 * u, 5.8 * u); c.lineWidth = 1.5 * u; c.strokeStyle = INK; c.stroke();
@@ -110,381 +110,343 @@ function main() {
     c.restore();
   };
 
+  // a cover drawn around its centre, with a tilt (wiggles) and a scale (pops)
+  var coverC = function (x, y, w, b, alpha, rot, sc) {
+    if ((sc == null ? 1 : sc) <= 0.002 || alpha <= 0.002) return;
+    c.save(); c.translate(x, y); c.rotate(rot || 0); c.scale(sc == null ? 1 : sc, sc == null ? 1 : sc);
+    cover(-w / 2, -w * 0.75, w, b, alpha); c.restore();
+  };
+  // the little book's landing: a quick squash that springs back (closed form), and a stretch in the air
+  var squash = function (b, tl) {
+    var x = (b - tl) * BEAT;
+    if (x < 0 || x > 0.45) return [1, 1];
+    var s = 0.28 * Math.exp(-9 * x) * Math.cos(26 * x);
+    return [1 + s * 0.7, 1 - s];
+  };
+  var stretch = function (p) { var s = 0.14 * Math.sin(PI * p); return [1 - s * 0.5, 1 + s]; };
+  // a hop from A to B between beats b0 and b1 (arc height h): position, rotation, scale
+  var hop = function (A, B, b, b0, b1, h) {
+    var p = eio(b, b0, b1), C = [(A[0] + B[0]) / 2, Math.min(A[1], B[1]) - h], P = q(A, C, B, p);
+    var st = b < b1 ? stretch(p) : squash(b, b1);
+    return { p: P, sx: st[0], sy: st[1], t: p };
+  };
+
   // ---------------------------------------------------------------- layout
-  var S = V ? 1 : 1;                       // both formats are designed at 1px = 1 unit
-  var cx = W / 2, cy = V ? H * 0.5 : H * 0.53;
-  // the end card / logo lockup: mark + wordmark, its tagline and the stats
-  var LOCK = (function () {
-    var u = V ? 3.4 : 4, fs = V ? 128 : 150, gap = V ? 26 : 34, wm = tw('BookJumpr', fs + 'px ' + SERIF);
-    var w = 62 * u + gap + wm, x = cx - w / 2, y = V ? H * 0.42 : H * 0.4;
-    return { u: u, fs: fs, x: x, y: y, mx: x, my: y - 22 * u, wx: x + 62 * u + gap, wy: y + fs * 0.3, w: w };
-  })();
-  var HDR = { s: V ? 0.36 : 0.3, x: V ? 44 : 52, y: V ? 92 : 70, line: V ? 156 : 118 };   // header: the lockup scaled down, top-left
-  var lockAt = function (k) {   // k = 0 → end card, 1 → header
-    var s = lerp(1, HDR.s, k), ax = lerp(LOCK.x, HDR.x, k), ay = lerp(LOCK.y, HDR.y, k);
-    return { s: s, ox: ax, oy: ay, u: LOCK.u * s, mx: ax, my: ay - 22 * LOCK.u * s, wx: ax + (LOCK.wx - LOCK.x) * s, wy: ay + (LOCK.wy - LOCK.y) * s, fs: LOCK.fs * s };
-  };
-  var drawLock = function (L, alpha, letters) {
-    mark(L.mx, L.my, L.u, 1, 1, alpha);
-    var font = L.fs + 'px ' + SERIF, s = 'BookJumpr', x = L.wx;
-    for (var i = 0; i < s.length; i++) {
-      var ch = s[i], a = letters ? letters(i) : 1, w = tw(ch, font);
-      text(ch, x, L.wy + (1 - a) * L.fs * 0.5, font, INK, 'left', (alpha == null ? 1 : alpha) * clamp(a, 0, 1));
-      x += w;
-    }
-  };
+  var cx = W / 2, cy = H / 2;
+  var PATH = F.path, HOPS = F.hops;
 
-  // opening wall of covers
-  var WALL = (function () {
-    var cw = V ? 150 : 140, ch = cw * 1.5, gx = V ? 34 : 30, gy = 34, cols = Math.ceil(W / (cw + gx)) + 1, rows = Math.ceil(H / (ch + gy)) + 2;
-    var x0 = (W - (cols * (cw + gx) - gx)) / 2, y0 = V ? 210 : 150, list = [], dqc = Math.floor(cols / 2) - (V ? 0 : 1), dqr = V ? 3 : 1, n = 0;
-    for (var col = 0; col < cols; col++) for (var row = 0; row < rows; row++) {
-      var isDQ = col === dqc && row === dqr, b = isDQ ? F.dq : F.wall[(n++ * 7) % F.wall.length];
-      if (!isDQ && b.id === F.dq.id) b = F.wall[(n++ * 7) % F.wall.length];
-      list.push({ b: b, x: x0 + col * (cw + gx), y: y0 + row * (ch + gy) + (col % 2 ? ch * 0.32 : 0), col: col, row: row, dq: isDQ });
-    }
-    var dq = list.filter(function (e) { return e.dq; })[0];
-    return { cw: cw, ch: ch, list: list, dq: dq, cols: cols };
-  })();
-
-  // a fan: the book's pill in the middle, books that mention it (blue, in) and that it mentions (rust, out)
-  var PILL_H = V ? 64 : 64, PILL_F = V ? 25 : 26, CEN_H = V ? 104 : 108, CEN_F = V ? 62 : 66;
-  var short = function (s, n) { return s.length > n ? s.slice(0, n - 1) + '…' : s; };
-  var fanLayout = function (fb, ox, oy) {
-    var cw = tw(fb.t, 'italic ' + CEN_F + 'px ' + SERIF) + 70, items = [];
-    var pill = function (b, side, i, n) {
-      var t = short(b.t, V ? 26 : 27), w = tw(t, PILL_F + 'px ' + MONO) + 76, x, y, e, d;
-      if (!V) {
-        var gapX = 200, row = 88;
-        y = oy + (i - (n - 1) / 2) * row;
-        x = side === 'in' ? ox - cw / 2 - gapX - w : ox + cw / 2 + gapX;
-        e = side === 'in' ? [x + w, y] : [x, y];                                      // where its line meets the pill
-        d = side === 'in' ? [ox - cw / 2, oy + (i - (n - 1) / 2) * 7] : [ox + cw / 2, oy + (i - (n - 1) / 2) * 7];
-      } else {
-        var colN = Math.ceil(n / 2), cI = i % 2, rI = Math.floor(i / 2), colX = [W * 0.27, W * 0.73];
-        x = colX[cI] - w / 2; var yy = side === 'in' ? oy - 300 - (colN - 1 - rI) * 92 : oy + 300 + rI * 92;
-        y = yy; e = side === 'in' ? [x + w / 2, y + PILL_H / 2] : [x + w / 2, y - PILL_H / 2];
-        var spread = (i - (n - 1) / 2) * 16;
-        d = side === 'in' ? [ox + spread, oy - CEN_H / 2] : [ox + spread, oy + CEN_H / 2];
-      }
-      items.push({ b: b, t: t, side: side, x: x, y: y, w: w, e: e, d: d, i: i });
-    };
-    fb.inn.forEach(function (b, i) { pill(b, 'in', i, fb.inn.length); });
-    fb.out.forEach(function (b, i) { pill(b, 'out', i, fb.out.length); });
-    return { cw: cw, items: items, ox: ox, oy: oy };
-  };
-  var linePt = function (it) {
-    var a = it.side === 'in' ? it.e : it.d, z = it.side === 'in' ? it.d : it.e;
-    if (!V) { var mx = (a[0] + z[0]) / 2; return function (t) { return cub(a, [mx, a[1]], [mx, z[1]], z, t); }; }
-    var my = (a[1] + z[1]) / 2; return function (t) { return cub(a, [a[0], my], [z[0], my], z, t); };
-  };
-  var drawPill = function (it, s, alpha, hot) {
-    if (s <= 0.001) return;
-    var x = it.x + it.w / 2, y = it.y;
-    c.save(); c.translate(x, y); c.scale(s, s); c.globalAlpha = alpha;
-    rr(-it.w / 2, -PILL_H / 2, it.w, PILL_H, PILL_H / 2); c.fillStyle = hot ? INK : CARD; c.fill(); c.lineWidth = 2; c.strokeStyle = INK; c.stroke();
-    var dotX = it.side === 'in' ? it.w / 2 - 26 : -it.w / 2 + 26;
-    c.beginPath(); c.arc(dotX, 0, 8, 0, 2 * PI); c.fillStyle = it.b.c; c.fill();
-    var tx = it.side === 'in' ? -it.w / 2 + 26 : -it.w / 2 + 48;
-    text(it.t, tx, PILL_F * 0.36, PILL_F + 'px ' + MONO, hot ? PAPER : INK, 'left', alpha);
-    c.restore();
-  };
-  var drawFan = function (L, fb, b, b0, alpha, hot, retract) {
-    // b0: when this fan starts; pills pop on sixteenth-beats, lines draw on, counters tick as they land
-    L.items.forEach(function (it) {
-      var start = b0 + (it.side === 'in' ? 0 : 1) + it.i * 0.25, s = spr(b, start, 1.3), lt = eout(b, start + 0.15, start + 0.85);
-      if (retract != null) lt = Math.min(lt, 1 - retract);
-      var isHot = hot && hot.on > 0 && it.b.id === hot.id, dim = hot && hot.on > 0 && !isHot ? 1 - 0.75 * hot.on : 1;
-      var col = it.side === 'in' ? BLUE : RUST, flow = b * BEAT * 46;
-      dashed(linePt(it), lt, col, isHot ? 3.6 : 2.4, 10, 8, flow, alpha * dim);
-      drawPill(it, s * (retract != null ? 1 - retract : 1), alpha * dim, isHot && hot.on > 0.5);
+  // 1 · the question, laid out word by word
+  var QS = (function () {
+    var fs = V ? 112 : 124, lines = V ? [['Have', 'you', 'ever'], ['wondered', 'how'], ['books', 'are'], ['connected?']] : [['Have', 'you', 'ever', 'wondered'], ['how', 'books', 'are', 'connected?']];
+    var lh = fs * 1.12, y0 = cy - (lines.length - 1) * lh / 2 + fs * 0.32, words = [], k = 0;
+    lines.forEach(function (ln, li) {
+      var hot = function (w) { return w === 'connected?'; };
+      var fonts = ln.map(function (w) { return (hot(w) ? 'italic ' : '') + fs + 'px ' + SERIF; });
+      var sp = tw(' ', fs + 'px ' + SERIF), wsum = ln.reduce(function (a, w, i) { return a + tw(w, fonts[i]); }, 0) + sp * (ln.length - 1), x = cx - wsum / 2;
+      ln.forEach(function (w, i) { var ww = tw(w, fonts[i]); words.push({ s: w, x: x, y: y0 + li * lh, w: ww, font: fonts[i], hot: hot(w), k: k, tilt: ((k * 37) % 11 - 5) * 0.022 }); x += ww + sp; k++; });
     });
-    // section labels with counters
-    var cin = Math.round(fb.nIn * eout(b, b0 + 0.2, b0 + 2.2)), cou = Math.round(fb.nOut * eout(b, b0 + 1.2, b0 + 3.2));
-    var la = alpha * eout(b, b0, b0 + 0.6) * (hot && hot.on ? 1 - 0.75 * hot.on : 1) * (retract != null ? 1 - retract : 1);
-    var lf = '500 ' + (V ? 22 : 20) + 'px ' + MONO, ins = L.items.filter(function (i) { return i.side === 'in'; }), outs = L.items.filter(function (i) { return i.side === 'out'; });
-    if (!V) {
-      var ix = ins[0].x + ins[0].w, iy = ins[0].y - PILL_H / 2 - 26, ox2 = outs[0].x, oy2 = outs[0].y - PILL_H / 2 - 26;
-      text('← MENTIONED BY ' + cin, Math.max.apply(null, ins.map(function (i) { return i.x + i.w; })), iy, lf, BLUE, 'right', la, '0.16em');
-      text('MENTIONS ' + cou + ' →', Math.min.apply(null, outs.map(function (i) { return i.x; })), oy2, lf, RUST, 'left', la, '0.16em');
-    } else {
-      var topY = Math.min.apply(null, ins.map(function (i) { return i.y; })) - PILL_H / 2 - 30, botY = Math.max.apply(null, outs.map(function (i) { return i.y; })) + PILL_H / 2 + 52;
-      text('MENTIONED BY ' + cin, L.ox, topY, lf, BLUE, 'center', la, '0.16em');
-      text('MENTIONS ' + cou, L.ox, botY, lf, RUST, 'center', la, '0.16em');
+    words.forEach(function (w) { w.pop = 0.5 + w.k * 0.55; });
+    return { fs: fs, words: words };
+  })();
+  var wordTop = function (w) { return [w.x + w.w * (w.hot ? 0.93 : 0.5), w.y - QS.fs * 0.78]; };
+
+  // 2 · the big view: a wall of covers, rippling in from the middle and drifting
+  var WALL = (function () {
+    var cw = V ? 104 : 92, ch = cw * 1.5, gx = V ? 26 : 22, gy = 30, cols = Math.ceil(W / (cw + gx)) + 3, rows = Math.ceil(H / (ch + gy)) + 3;
+    var x0 = cx - (cols - 1) * (cw + gx) / 2, y0 = cy - (rows - 1) * (ch + gy) / 2, list = [], n = 0;
+    var jc = Math.floor(cols / 2) + (V ? 1 : 2), jr = Math.floor(rows / 2) - (V ? 1 : 0);
+    for (var col = 0; col < cols; col++) for (var row = 0; row < rows; row++) {
+      var isJ = col === jc && row === jr, b = isJ ? PATH[0] : F.wall[(n++ * 11) % F.wall.length];
+      var x = x0 + col * (cw + gx), y = y0 + row * (ch + gy) + (col % 2 ? ch * 0.3 : 0);
+      list.push({ b: b, x: x, y: y, j: isJ, d: Math.hypot(x - cx, y - cy), wig: (col * 7 + row * 13) % 9 === 0 });
     }
+    var je = list.filter(function (e) { return e.j; })[0];
+    // the covers the book browses on the way (near the middle, on the beat)
+    var near = list.filter(function (e) { return !e.j && e.d < (V ? 520 : 600) && e.d > 140; }).sort(function (a, z) { return a.d - z.d; });
+    var browse = [near[3], near[9], near[1]];
+    return { cw: cw, ch: ch, list: list, je: je, browse: browse };
+  })();
+  var drift = function (b) { return [-(b - 6) * (V ? 10 : 14), -(b - 6) * 4]; };   // the wall drifts slowly while we look
+
+  // 3 · the hops: the path's books stand along a line, the camera moves along it
+  var CW = V ? 320 : 300, D = V ? 900 : 1180;
+  var bookAt = function (k) { return V ? [0, k * D] : [k * D, 0]; };                   // world positions
+  var STAGE = V ? [cx, cy - D / 2] : [cx - D / 2, cy + 40];                              // where the current book sits on screen
+  var hopStart = function (k) { return 12 + k * 4.5; };
+  // camera: screen = world − cam + stage. Between hops it centres the gap between the two books
+  var camAt = function (b) {
+    var k = clamp(Math.floor((b - 12) / 4.5), 0, 3), s = hopStart(k), t = k + eio(b, s + 3.7, s + 4.6);
+    if (b >= hopStart(3) + 3.7) t = 3 + eio(b, hopStart(3) + 3.7, hopStart(3) + 4.6);   // the last one: Gatsby to the middle
+    var w = V ? [0, t * D] : [t * D, 0];
+    return w;
   };
-  var drawCenter = function (x, y, w, h, title, fill, alpha) {
-    rr(x - w / 2, y - h / 2, w, h, h / 2); c.globalAlpha = alpha == null ? 1 : alpha; c.fillStyle = fill; c.fill(); c.globalAlpha = 1;
-    if (title) text(title, x, y + CEN_F * 0.32, 'italic ' + CEN_F + 'px ' + SERIF, PAPER, 'center', alpha);
+  var toScreen = function (P, cam, b) {
+    var last = eio(b, hopStart(3) + 3.7, hopStart(3) + 4.6);                            // at the end, Gatsby sits dead centre
+    var st = [lerp(STAGE[0], V ? cx : cx, last), lerp(STAGE[1], cy, last)];
+    var mid = V ? [0, D / 2] : [D / 2, 0];
+    return [P[0] - cam[0] + st[0] + (V ? 0 : mid[0] * (1 - last) * 0) , P[1] - cam[1] + st[1]];
   };
 
-  var FAN1 = fanLayout(F.dq, cx, cy);
-  var MBP = V ? [cx, cy + 760] : [cx + 760, cy + 40];       // where Madame Bovary lands (the camera then centres it)
-  var FAN2 = fanLayout(F.mb, MBP[0], MBP[1]);
-  var hrItem = FAN1.items.filter(function (i) { return i.b.id === F.hr.id; })[0];
-
-  // the quote card (How to Read and Why → Madame Bovary), words laid out once
-  var QT = (function () {
-    var qs = F.quote.replace(/"([^"]*)"/g, '“$1”'), fs = V ? 50 : 50, font = fs + 'px ' + SERIF, maxW = V ? 860 : 1180;
+  // the quote bubbles: words laid out once, the named title found in the words
+  var norm = function (s) { return s.toLowerCase().replace(/[^a-z]/g, ''); };
+  var BUB = HOPS.map(function (hp) {
+    var raw = hp.quote.trim().replace(/^"(.*)"$/, '$1').replace(/(^|[\s(])'/g, '$1‘').replace(/'/g, '’').replace(/"([^"]*)"/g, '“$1”');
+    var qs = '“' + raw + '”', fs = V ? 46 : 46, font = fs + 'px ' + SERIF, maxW = V ? 840 : 740;
     var words = qs.split(' '), lines = [[]], lw = 0, spc = tw(' ', font);
     words.forEach(function (w) { var ww = tw(w, font); if (lw + ww > maxW && lines[lines.length - 1].length) { lines.push([]); lw = 0; } lines[lines.length - 1].push({ s: w, w: ww }); lw += ww + spc; });
-    var lh = fs * 1.18, padX = 50, head = 78, h = head + lines.length * lh + 40, w = maxW + padX * 2;
-    var x = cx - w / 2, y = V ? cy - h / 2 + 40 : cy - h / 2 + 30, list = [], k = 0, hl = [];
-    lines.forEach(function (ln, li) {
-      var xx = x + padX;
-      ln.forEach(function (wd) { var it = { s: wd.s, x: xx, y: y + head + li * lh + fs * 0.8, w: wd.w, k: k++ }; list.push(it); if (/^(Madame|Bovary)$/.test(wd.s)) hl.push(it); xx += wd.w + spc; });
-    });
-    return { x: x, y: y, w: w, h: h, fs: fs, font: font, words: list, hl: hl, head: 'HOW TO READ AND WHY  ·  HAROLD BLOOM  ·  2000' };
-  })();
-  var HL = (function () { var a = QT.hl[0], z = QT.hl[QT.hl.length - 1]; return { x: a.x, y: a.y, w: z.x + z.w - a.x, mid: [(a.x + z.x + z.w) / 2, a.y - QT.fs * 0.3] }; })();
+    var head = 96, lh = fs * 1.2, padX = 40, h = head + lines.length * lh + 26, w = Math.max(maxW, Math.max.apply(null, lines.map(function (ln) { return ln.reduce(function (a, x) { return a + x.w + spc; }, -spc); }))) + padX * 2;
+    var list = [], k = 0;
+    lines.forEach(function (ln, li) { var xx = padX; ln.forEach(function (wd) { list.push({ s: wd.s, x: xx, y: head + li * lh + fs * 0.82, w: wd.w, k: k++ }); xx += wd.w + spc; }); });
+    // the run of words that spells the named book (case, hyphens and punctuation don't matter)
+    var target = norm(PATH[hp.named].t), hl = [];
+    for (var i = 0; i < list.length && !hl.length; i++) { var acc = ''; for (var j = i; j < list.length && acc.length < target.length; j++) { acc += norm(list[j].s); if (acc === target) hl = list.slice(i, j + 1); } }
+    if (!hl.length) throw new Error('title not found in quote: ' + PATH[hp.named].t);
+    return { hp: hp, w: w, h: h, fs: fs, font: font, words: list, hl: hl };
+  });
 
-  // starfield (the site's network map, real positions)
+  // 4 · the network: the path's books at their real places on the site's map
   var ST = F.stars, NST = ST.x.length, P = F.torus.P, PY = F.torus.PY;
-  var mbS = [ST.x[F.mb.star], ST.y[F.mb.star]];
   var wrapd = function (d, p) { return d - p * Math.round(d / p); };
-  var K1 = Math.max(W / P, H / PY) * 1.12, K0 = 26;
-  // the logo's dotted arc as dash centres, for the stars to gather into at the end
+  var NET = (function () {
+    var s0 = PATH[0].star, pts = PATH.map(function (b) { return [ST.x[s0] + wrapd(ST.x[b.star] - ST.x[s0], P), ST.y[s0] + wrapd(ST.y[b.star] - ST.y[s0], PY)]; });
+    var mx = pts.reduce(function (a, p) { return a + p[0]; }, 0) / pts.length, my = pts.reduce(function (a, p) { return a + p[1]; }, 0) / pts.length;
+    var spanX = Math.max.apply(null, pts.map(function (p) { return Math.abs(p[0] - mx); })), spanY = Math.max.apply(null, pts.map(function (p) { return Math.abs(p[1] - my); }));
+    var kp = Math.min((W * 0.36) / Math.max(40, spanX), (H * 0.34) / Math.max(40, spanY), 3.2);
+    return { c: [mx, my], pts: pts, kp: kp, k1: Math.max(W / P, H / PY) * 1.08 };
+  })();
+
+  // 5 · the end card: mark + wordmark, and the address
+  var LOCK = (function () {
+    var u = V ? 3.6 : 4.4, fs = V ? 136 : 168, gap = V ? 26 : 36, wm = tw('BookJumpr', fs + 'px ' + SERIF);
+    var w = 62 * u + gap + wm, x = cx - w / 2, y = cy + fs * 0.05;
+    return { u: u, fs: fs, x: x, y: y, mx: x, my: y - 22 * u - fs * 0.12, wx: x + 62 * u + gap, wy: y + fs * 0.24, w: w };
+  })();
   var ARCPTS = (function () { var pts = [], n = 64; for (var i = 0; i < n; i++) { var p = q(ARC[0], ARC[1], ARC[2], (i + 0.5) / n); pts.push([LOCK.mx + p[0] * LOCK.u, LOCK.my + p[1] * LOCK.u]); } return pts; })();
   var BIG = []; for (var i0 = 0; i0 < NST; i0++) if (ST.d[i0] >= 4) BIG.push(i0);
+
+  // where a path book's top edge is (the little book perches there, a little right of centre)
+  var bu = function (w) { return Math.max(2.2, w * 0.02); };                            // the book's size on a cover of width w
+  var perch = function (x, y, w) { return [x + w * 0.22, y - w * 0.75 - 5.2 * bu(w)]; };
 
   // ---------------------------------------------------------------- the film
   var draw = function (b) {
     c.setTransform(1, 0, 0, 1, 0, 0); c.globalAlpha = 1;
     c.fillStyle = PAPER; c.fillRect(0, 0, W, H);
-    var flow = b * BEAT * 46;
+    var bk = null;   // the little book this frame: {p, u, rot, sx, sy}
 
-    // ---- the lockup: end card at the loop point, header through the middle of the film
-    var toHdr = eio(b, 0.6, 1.9), fromStars = b >= 28;
-    var bookPos = null;   // [x, y, u, rot, alpha]
-
-    // ===== scenes 1–4: the site (header, wall, fans, quote) =====
-    if (b < 23.6) {
-      var camX = 0, camY = 0, pan = eio(b, 17.4, 18.8);
-      camX = (cx - MBP[0]) * pan; camY = ((V ? cy : cy) - MBP[1]) * pan;
-      var siteA = 1 - eio(b, 22.4, 23.4);
-
-      // wall: rises in under the header, then falls away from Don Quixote
-      if (b >= 1 && b < 5.6) {
-        WALL.list.forEach(function (e) {
-          if (e.dq) return;
-          var rise = eout(b, 1.0 + e.col * 0.07, 2.0 + e.col * 0.07);
-          var dd = Math.hypot(e.x - WALL.dq.x, e.y - WALL.dq.y), fall = ein(b, 4.0 + dd / 2600, 4.9 + dd / 2600);
-          var y = e.y + (1 - rise) * H * 0.7 + fall * H * 0.9;
-          if (y > H + 40 || y + WALL.ch < -40) return;
-          cover(e.x, y, WALL.cw, e.b, rise * (1 - fall));
-        });
-      }
-      // Don Quixote: a cover on the wall → clicked → becomes the fan's centre pill
-      var dqRise = eout(b, 1.0 + WALL.dq.col * 0.07, 2.0 + WALL.dq.col * 0.07), press = b >= 3.4 && b < 3.62 ? 1 : 0;
-      var lift = spr(b, 3.55, 1.0) * (1 - eio(b, 4.2, 5.2));
-      var m = eio(b, 4.25, 5.35), cen = spr(b, 4.25, 1.6);
-      var dqW0 = WALL.cw * (1 + 0.06 * lift - 0.03 * press), dqH0 = dqW0 * 1.5;
-      var dqX0 = WALL.dq.x + WALL.cw / 2, dqY0 = WALL.dq.y + WALL.ch / 2 + (1 - dqRise) * H * 0.7;
-      var dqx = lerp(dqX0, FAN1.ox, cen) + camX, dqy = lerp(dqY0, FAN1.oy, cen) + camY;
-      // later: Don Quixote's pill flies to the jump trail
-      var toTrail = eio(b, 16.6, 17.8);
-      var TR = { x: V ? 60 : 62, y: V ? 236 : 172, w: V ? 46 : 40 };
-      var dqA = siteA;
-      if (b >= 1 && b < 23.6) {
-        if (m < 1) cover(dqx - dqW0 / 2, dqy - dqH0 / 2 - lift * 10, dqW0, F.dq, (1 - m) * dqA * (b < 1.5 ? dqRise : 1), lift);
-        if (m > 0 && toTrail < 1) {
-          var pw = lerp(dqW0, FAN1.cw, m), ph = lerp(dqH0, CEN_H, m);
-          var tx2 = lerp(dqx, TR.x + TR.w / 2, toTrail), ty2 = lerp(dqy, TR.y + TR.w * 0.75, toTrail), sc = lerp(1, TR.w / FAN1.cw, toTrail);
-          drawCenter(tx2, ty2, pw * sc, lerp(ph, TR.w * 1.5, toTrail), toTrail < 0.3 ? F.dq.t : '', mix(F.dq.c, INK, clamp(m * 1.4, 0, 1)), clamp((m - 0.2) * 3, 0, 1) * dqA * (1 - toTrail * 0.999));
-          if (m > 0.6 && toTrail === 0) text(F.dq.t, dqx, dqy + CEN_F * 0.32, 'italic ' + CEN_F + 'px ' + SERIF, PAPER, 'center', clamp((m - 0.6) * 2.5, 0, 1) * dqA);
-        }
-      }
-
-      // Don Quixote's fan, with How to Read and Why lighting up, then folding away
-      if (b >= 5 && b < 18.6) {
-        c.save(); c.translate(camX, camY);
-        var hot = { id: F.hr.id, on: eio(b, 8.4, 9.2) }, fold = eio(b, 16.4, 17.6);
-        var fanA = (1 - 0.85 * eio(b, 10.2, 11.2)) * (1 - fold);
-        drawFan(FAN1, F.dq, b, 5, fanA, hot);
+    // ===== 1 · the question (b0–6.6) =====
+    if (b < 6.8) {
+      var gone = function (w) { return ein(b, 6.0 + w.k * 0.05, 6.5 + w.k * 0.05); };   // words shrink away as the wall arrives
+      QS.words.forEach(function (w) {
+        var s = spr(b, w.pop, 1.5), g = gone(w); if (s <= 0) return;
+        var wob = w.tilt * (1 - spr(b, w.pop, 2.2));
+        c.save(); c.translate(w.x + w.w / 2, w.y - QS.fs * 0.3); c.rotate(wob + g * w.tilt * 4); c.scale(s * (1 - g), s * (1 - g));
+        text(w.s, -w.w / 2, QS.fs * 0.3 + (1 - s) * 30, w.font, w.hot ? RUST : INK, 'left', clamp(s * 1.5, 0, 1));
         c.restore();
-      }
+      });
+      // the book: drops in, then hops word to word, landing on each as it pops (on the "?" at the end)
+      var ws = QS.words, cur = 0;
+      for (var i = 0; i < ws.length; i++) if (b >= ws[i].pop - 0.42) cur = i;
+      var A = cur === 0 ? [wordTop(ws[0])[0], -80] : wordTop(ws[cur - 1]), B = wordTop(ws[cur]);
+      var hp = hop(A, B, b, ws[cur].pop - 0.42, ws[cur].pop, cur === 0 ? 0 : 70);
+      var lastLand = ws[ws.length - 1].pop;
+      var sq = b > lastLand + 0.4 ? squash(b, 5.0) : [hp.sx, hp.sy];                      // a little jump of joy on beat 5
+      var joy = b > 4.6 && b < 5.0 ? Math.sin(PI * prog(b, 4.6, 5.0)) * 34 : 0;
+      bk = { p: [hp.p[0], hp.p[1] - joy], u: V ? 4.4 : 4.8, rot: BOOKROT * 0.6, sx: sq[0], sy: sq[1] };
+    }
 
-      // the quote card grows out of How to Read and Why's pill
-      if (b >= 10 && b < 18) {
-        var g = spr(b, 10, 1.8), col = 1 - eio(b, 16.1, 16.9);
-        var px = hrItem.x + camX, py = hrItem.y - PILL_H / 2 + camY;
-        var kx = lerp(px, QT.x + camX, g), ky = lerp(py, QT.y + camY, g), kw = lerp(hrItem.w, QT.w, g), kh = lerp(PILL_H, QT.h, g);
-        if (col > 0.02) {
-          c.globalAlpha = col; c.fillStyle = 'rgba(20,20,20,0.9)'; rr(kx + 6, ky + 8, kw, kh, lerp(PILL_H / 2, 22, g)); c.fill(); c.globalAlpha = 1;
-          c.globalAlpha = col; rr(kx, ky, kw, kh, lerp(PILL_H / 2, 22, g)); c.fillStyle = CARD; c.fill(); c.lineWidth = 2.5; c.strokeStyle = INK; c.stroke(); c.globalAlpha = 1;
-          var ca = clamp((g - 0.6) * 2.5, 0, 1) * col;
-          text(QT.head, kx + 50, ky + 58, '500 ' + (V ? 21 : 20) + 'px ' + MONO, BLUE, 'left', ca, '0.14em');
-          // a thin blue rule: this book mentions Don Quixote (and, in this line, Madame Bovary)
-          var hlOn = eio(b, 13.4, 14.6), lifted = b >= 16;
-          // highlight behind "Madame Bovary", swept letter by letter
-          if (hlOn > 0) { c.globalAlpha = col; c.fillStyle = 'rgba(156,61,34,0.16)'; c.fillRect(HL.x + camX - 6, HL.y + camY - QT.fs * 0.78, (HL.w + 12) * hlOn, QT.fs * 1.02); c.fillStyle = RUST; c.fillRect(HL.x + camX - 6, HL.y + camY + 8, (HL.w + 12) * hlOn, 4); c.globalAlpha = 1; }
-          QT.words.forEach(function (wd) {
-            var wa = eout(b, 11.0 + wd.k * 0.11, 11.5 + wd.k * 0.11) * col;
-            if (lifted && QT.hl.indexOf(wd) >= 0) return;          // these two words leave with the jump
-            text(wd.s, wd.x + camX, wd.y + camY + (1 - wa) * 14, QT.font, QT.hl.indexOf(wd) >= 0 && hlOn > 0 ? mix(INK, RUST, hlOn) : INK, 'left', wa);
-          });
-        }
-      }
-
-      // the jump: "Madame Bovary" lifts out of the quote and arcs to its own page
-      var J0 = 16, J1 = 17.6, jt = eio(b, J0, J1), jland = spr(b, J1 - 0.1, 1.4);
-      var jA = [HL.mid[0], HL.mid[1]], jZ = [MBP[0], MBP[1]];
-      var jC = V ? [cx + 470, (jA[1] + jZ[1]) / 2] : [(jA[0] + jZ[0]) / 2, Math.min(jA[1], jZ[1]) - 520];
-      if (b >= J0 - 0.6 && b < J1 + 0.2) {
-        // the dotted arc is drawn ahead of the words, the logo's arc made big
-        var arcUp = eio(b, J0 - 0.6, J0 + 0.3), arcGone = eio(b, J1, J1 + 0.2);
-        dashed(function (t) { var p = q(jA, jC, jZ, t); return [p[0] + camX, p[1] + camY]; }, arcUp, INK, 3, 9, 10, 0, 0.55 * (1 - arcGone));
-      }
-      var mbOn = b >= J0 && b < 23.6;
-      if (mbOn) {
-        var jp = q(jA, jC, jZ, jt), grow = eio(b, J1 - 0.3, J1 + 0.5), mbW = tw(F.mb.t, 'italic ' + CEN_F + 'px ' + SERIF) + 70;
-        var phX = jp[0] + camX, phY = jp[1] + camY;
-        var toDot = eio(b, 22.0, 23.0), dotR = 15;
-        var w0 = lerp(HL.w + 24, mbW, grow), h0 = lerp(QT.fs * 1.1, CEN_H, grow);
-        var w1 = lerp(w0, dotR * 2, toDot), h1 = lerp(h0, dotR * 2, toDot);
-        var fill = grow > 0 ? mix('#e7c9bd', INK, grow) : null;
-        if (fill) { rr(phX - w1 / 2, phY - h1 / 2, w1, h1, h1 / 2); c.globalAlpha = Math.max(grow, toDot); c.fillStyle = toDot > 0 ? mix(INK, F.mb.c, toDot) : fill; c.fill(); c.globalAlpha = 1; }
-        // the phrase itself: upright serif in the quote → italic white on the pill
-        var ta = 1 - toDot * 1.6;
-        if (ta > 0) {
-          var fsz = lerp(QT.fs, CEN_F, grow);
-          if (grow < 0.5) text(F.mb.t, phX, phY + fsz * 0.32, fsz + 'px ' + SERIF, mix(RUST, PAPER, grow * 2), 'center', ta);
-          else text(F.mb.t, phX, phY + fsz * 0.32, 'italic ' + fsz + 'px ' + SERIF, PAPER, 'center', ta);
-        }
-        // Madame Bovary's fan
-        if (b >= 18.3) { c.save(); c.translate(camX, camY); drawFan(FAN2, F.mb, b, 18.3, 1, null, eio(b, 21.6, 22.6)); c.restore(); }
-        // the book rides on top of the phrase, then on its pill / dot
-        var onTop = lerp(h0 / 2, h1 / 2, toDot);
-        bookPos = [phX + lerp(w0 / 2 - 22, 0, toDot), phY - onTop - 13 + (1 - jland) * -30 * (b < J1 + 1 ? 1 : 0), 2.6, BOOKROT * (1 - toDot) - 0.25 * (1 - jt) * (b < J1 ? 1 : 0), 1];
-      }
-
-      // the jump trail at the top: Don Quixote ⌒ Madame Bovary
-      if (b >= 17.4 && b < 23.6) {
-        var trA = siteA, mbPop = spr(b, 18.6, 1.3);
-        text('YOUR JUMPS', TR.x, TR.y - 16, '500 ' + (V ? 18 : 16) + 'px ' + MONO, 'rgba(20,20,20,0.55)', 'left', trA * eout(b, 17.6, 18.2), '0.18em');
-        cover(TR.x, TR.y, TR.w, F.dq, trA * eout(b, 17.4, 17.8));
-        var tA = [TR.x + TR.w + 6, TR.y + TR.w * 0.6], tZ = [TR.x + TR.w * 2.4 - 6, TR.y + TR.w * 0.6], tC = [(tA[0] + tZ[0]) / 2, TR.y - 8];
-        dashed(function (t) { return q(tA, tC, tZ, t); }, eout(b, 18.2, 18.9), INK, 2, 4, 4, 0, trA);
-        if (mbPop > 0) { c.save(); var mx0 = TR.x + TR.w * 2.4, my0 = TR.y; c.translate(mx0 + TR.w / 2, my0 + TR.w * 0.75); c.scale(mbPop, mbPop); cover(-TR.w / 2, -TR.w * 0.75, TR.w, F.mb, trA); c.restore(); }
-      }
-
-      // header (the lockup, small) + its rule
-      if (b >= 0.6) {
-        var Lh = lockAt(toHdr);
-        if (b < 1.95) drawLock(Lh, 1, null);
-        else drawLock(lockAt(1), siteA, null);
-        var rule = eio(b, 1.1, 1.9);
-        c.globalAlpha = siteA; c.fillStyle = INK; c.fillRect(0, HDR.line, W * rule, 2); c.globalAlpha = 1;
-      }
-
-      // the cursor: in, click Don Quixote, out
-      if (b >= 1.9 && b < 5) {
-        var cin2 = eio(b, 1.9, 3.3), cout = ein(b, 3.9, 4.8);
-        var tgt = [WALL.dq.x + WALL.cw * 0.62, WALL.dq.y + WALL.ch * 0.58];
-        var cx0 = [W + 60, H * 0.95], cpt = q(cx0, [lerp(cx0[0], tgt[0], 0.5), tgt[1] + 260], tgt, cin2);
-        cpt = [lerp(cpt[0], W + 80, cout), lerp(cpt[1], H + 80, cout)];
-        var csc = (V ? 2.2 : 1.9) * (b >= 3.4 && b < 3.62 ? 0.84 : 1);
-        c.save(); c.translate(cpt[0], cpt[1]); c.scale(csc, csc);
+    // ===== 2 · the big view, the tap, the zoom (b6–12.4) =====
+    var Z = CW / WALL.cw, zt = eio(b, 10.4, 12.0);          // zoom into Jane Eyre
+    var je = WALL.je, dr = drift(Math.min(b, 10.4));
+    var jeS0 = [je.x + dr[0], je.y + dr[1]];                 // Jane Eyre on screen before the zoom
+    var jeS1 = toScreen(bookAt(0), camAt(12), 12);           // …and where the hop stage wants it
+    var zoomPt = function (x, y) { var z = lerp(1, Z, zt); return [lerp(jeS0[0], jeS1[0], zt) + (x - jeS0[0]) * z, lerp(jeS0[1], jeS1[1], zt) + (y - jeS0[1]) * z]; };
+    if (b >= 6 && b < 12.4) {
+      var zs = lerp(1, Z, zt), fadeOthers = 1 - eio(b, 10.8, 11.9);
+      WALL.list.forEach(function (e) {
+        var pop = spr(b, 6.1 + e.d / (V ? 1100 : 1300), 1.4); if (pop <= 0) return;
+        var d = drift(Math.min(b, 10.4)), sp = zoomPt(e.x + d[0], e.y + d[1]);
+        if (e.j) return;
+        var wig = e.wig ? Math.sin((b - 6) * PI * 2) * 0.09 * Math.exp(-((b - 6) % 1) * 3) * (b > 6.8 && b < 9.6 ? 1 : 0) : 0;
+        if (sp[0] < -200 || sp[0] > W + 200 || sp[1] < -260 || sp[1] > H + 260) return;
+        coverC(sp[0], sp[1], WALL.cw * zs, e.b, fadeOthers, wig, pop);
+      });
+      // the cursor taps Jane Eyre
+      if (b >= 8.4 && b < 11.2) {
+        var cin = eio(b, 8.4, 9.7), cout = ein(b, 10.3, 11.1), tgt = [jeS0[0] + WALL.cw * 0.18, jeS0[1] + WALL.ch * 0.12];
+        var c0 = [W + 60, H * 0.92], cp = q(c0, [lerp(c0[0], tgt[0], 0.5), tgt[1] + 240], tgt, cin);
+        cp = [lerp(cp[0], W + 90, cout), lerp(cp[1], H + 90, cout)];
+        var csc = (V ? 2.3 : 2.0) * (b >= 9.85 && b < 10.1 ? 0.82 : 1);
+        c.save(); c.translate(cp[0], cp[1]); c.scale(csc, csc);
         c.beginPath(); c.moveTo(0, 0); c.lineTo(0, 22); c.lineTo(5.5, 16.8); c.lineTo(9.6, 25.6); c.lineTo(13.2, 24); c.lineTo(9.2, 15.4); c.lineTo(16.6, 15.4); c.closePath();
         c.fillStyle = INK; c.fill(); c.lineWidth = 1.6; c.strokeStyle = '#fff'; c.lineJoin = 'round'; c.stroke(); c.restore();
       }
+    }
 
-      // the book before Madame Bovary: on the logo, hopping to Don Quixote, riding its pill, onto the quote
-      if (!mbOn) {
-        var L0 = lockAt(toHdr), e0 = markEnd(L0.mx, L0.my, L0.u), u0 = lerp(LOCK.u, LOCK.u * HDR.s, toHdr);
-        var dqTop = [dqx + dqW0 * 0.28, dqy - dqH0 / 2 - 14 - lift * 10];
-        var h1t = eio(b, 3.5, 4.3), h1l = spr(b, 4.25, 1.2);
-        if (b < 3.5) bookPos = [e0[0], e0[1], u0, BOOKROT, 1];
-        else {
-          var pillTop = [dqx + lerp(dqW0 * 0.28, FAN1.cw / 2 - 30, m), dqy - lerp(dqH0 / 2, CEN_H / 2, m) - 14];
-          var hp = q(e0, [(e0[0] + dqTop[0]) / 2, Math.min(e0[1], dqTop[1]) - 220], dqTop, h1t);
-          var base = b < 4.3 ? hp : pillTop, uu = lerp(u0, 2.6, h1t);
-          // second hop: from the pill onto the highlighted words
-          var h2t = eio(b, 14.6, 15.4);
-          if (h2t > 0) { var hlTop = [HL.mid[0] + camX + HL.w / 2 - 22, HL.y + camY - QT.fs * 0.9 - 13]; base = q(pillTop, [(pillTop[0] + hlTop[0]) / 2, Math.min(pillTop[1], hlTop[1]) - 160], hlTop, h2t); }
-          bookPos = [base[0], base[1] + (b > 4.25 && b < 6 ? (1 - h1l) * -24 : 0) + (b > 15.3 && b < 16.5 ? (1 - spr(b, 15.3, 1.1)) * -20 : 0), uu, BOOKROT, 1];
+    // ===== 3 · the path: Jane Eyre and the books it leads to (b6–31) =====
+    var cam = camAt(b), trailIn = function (k) { return eio(b, hopStart(k) + 3.7, hopStart(k) + 4.4); };
+    var TR = { x: V ? 70 : 64, y: V ? H - 190 : H - 118, w: V ? 50 : 44, gap: V ? 96 : 86 };   // the trail of jumps, bottom-left
+    var trailAt = function (k) { return [TR.x + k * TR.gap + TR.w / 2, TR.y + TR.w * 0.75]; };
+    var toNet = eio(b, 30.0, 31.2);                                  // trail covers → dots on the map
+    var netK = Math.exp(lerp(Math.log(NET.kp), Math.log(NET.k1), eio(b, 31.4, 34.0)));
+    var netPt = function (k) { var p = NET.pts[k]; return [cx + (p[0] - NET.c[0]) * netK, cy + (p[1] - NET.c[1]) * netK]; };
+    var pathPos = [];                                                // each path book's screen position + width this frame
+    if (b >= 6 && b < 35) {
+      for (var k = 0; k < PATH.length; k++) {
+        var pop = k === 0 ? spr(b, 6.1 + je.d / (V ? 1100 : 1300), 1.4) : spr(b, hopStart(k - 1) + 0.2, 1.6);
+        if (pop <= 0) { pathPos.push(null); continue; }
+        var onStage = toScreen(bookAt(k), cam, b), w = CW;
+        if (k === 0 && b < 12.4) { onStage = zoomPt(jeS0[0], jeS0[1]); w = WALL.cw * lerp(1, Z, zt); if (b >= 9.9 && b < 10.6) w *= 1 + 0.08 * spr(b, 9.9, 1.0) * (1 - prog(b, 10.2, 10.6)); }
+        var tIn = k < 4 ? trailIn(k) : 0, ts = trailAt(k);                         // Gatsby stays centre stage until the map
+        var x = lerp(onStage[0], ts[0], tIn), y = lerp(onStage[1], ts[1], tIn), ww = lerp(w, TR.w, tIn);
+        var wig = k > 0 ? (1 - spr(b, hopStart(k - 1) + 0.2, 2.4)) * 0.18 * (k % 2 ? 1 : -1) : 0;
+        pathPos.push([x, y, ww]);
+        if (toNet > 0) {   // the trail becomes dots at their real places on the map
+          var np = netPt(k), dx = lerp(x, np[0], toNet), dy = lerp(y, np[1], toNet), dw = lerp(ww, 0, toNet);
+          if (dw > 2) coverC(dx, dy, dw, PATH[k], 1, 0, 1);
+          var dr2 = lerp(0, V ? 15 : 13, toNet);
+          c.beginPath(); c.arc(dx, dy, dr2, 0, 2 * PI); c.fillStyle = PATH[k].c; c.globalAlpha = toNet; c.fill(); c.lineWidth = 3; c.strokeStyle = INK; c.stroke(); c.globalAlpha = 1;
+          pathPos[k] = [dx, dy, dw, dr2];
+          continue;
+        }
+        coverC(x, y, ww, PATH[k], 1, wig, pop);
+      }
+      // the trail's dotted arcs (they grow as each book joins it)
+      if (b >= hopStart(0) + 3.8 && b < 31.4) {
+        for (var k2 = 0; k2 < 3; k2++) {
+          var on = eout(b, hopStart(k2 + 1) + 4.0, hopStart(k2 + 1) + 4.6) * (1 - toNet); if (on <= 0) continue;
+          var a0 = trailAt(k2), a1 = trailAt(k2 + 1), y1 = TR.y + TR.w * 0.2;
+          dashed(function (t) { return q([a0[0] + TR.w * 0.3, y1], [(a0[0] + a1[0]) / 2, y1 - 26], [a1[0] - TR.w * 0.3, y1], t); }, on, INK, 2, 4, 4, 0, 1);
         }
       }
     }
 
-    // ===== scene 5: the starfield =====
-    if (b >= 22.9) {
-      var zk = Math.exp(lerp(Math.log(K0), Math.log(K1), eio(b, 23.0, 26.6)));
-      var gather = b >= 28 ? 1 : 0, sa = eio(b, 22.9, 24.2);
-      var sx = function (i) { return cx + wrapd(ST.x[i] - mbS[0], P) * zk; }, sy = function (i) { return cy + wrapd(ST.y[i] - mbS[1], PY) * zk; };
-      var rad = function (i) { return (0.9 + Math.sqrt(ST.d[i]) * 0.42) * clamp(Math.sqrt(zk) * 0.95, 0.95, 7); };
-      var reach = sa * Math.hypot(W, H);
-      var gt = function (i, k) { return eio(b, 28 + (k % 7) * 0.08, 29.6 + (k % 7) * 0.08); };
-      for (var i = 0; i < NST; i++) {
-        var x = sx(i), y = sy(i);
-        if (x < -30 || x > W + 30 || y < -30 || y > H + 30) continue;
-        var dd2 = Math.hypot(x - cx, y - cy), a = clamp((reach - dd2) / 260, 0, 1);
-        if (a <= 0) continue;
-        var dust = ST.d[i] <= 1, col = F.palette[ST.c[i]] || F.misc;
-        var fade = 1 - eio(b, 28.0, 29.3);
-        c.globalAlpha = a * (dust ? 0.45 : 0.85) * fade;
-        c.beginPath(); c.arc(x, y, dust ? rad(i) * 0.7 : rad(i), 0, 2 * PI); c.fillStyle = col; c.fill();
+    // the quote bubbles + highlighter + the jump, once per hop
+    for (var h = 0; h < 4; h++) {
+      var s0 = hopStart(h), Bq = BUB[h];
+      if (b < s0 || b > s0 + 4.6) continue;
+      var cur2 = toScreen(bookAt(h), cam, b), nxt = toScreen(bookAt(h + 1), cam, b), src = Bq.hp.src === h ? cur2 : nxt;
+      var gIn = spr(b, s0 + 0.7, 1.6), gOut = ein(b, s0 + 3.7, s0 + 4.3), g = gIn * (1 - gOut);
+      if (g > 0.01) {
+        var bx = V ? cx : (cur2[0] + nxt[0]) / 2, by = V ? (cur2[1] + nxt[1]) / 2 : cy + 20;
+        // grows out of the book that says it, and shrinks back into it
+        var ox = lerp(src[0], bx, g), oy = lerp(src[1], by, g), bw = Bq.w * g, bh = Bq.h * g, x0 = ox - bw / 2, y0 = oy - bh / 2;
+        // the tail points at the source book
+        var tx = src[0] < bx - 10 ? x0 : src[0] > bx + 10 ? x0 + bw : ox, ty = V ? (src[1] < by ? y0 : y0 + bh) : oy + bh * 0.1;
+        c.save();
+        c.fillStyle = 'rgba(20,20,20,0.92)'; rr(x0 + 7, y0 + 9, bw, bh, 26 * g); c.fill();
+        rr(x0, y0, bw, bh, 26 * g); c.fillStyle = CARD; c.fill(); c.lineWidth = 3; c.strokeStyle = INK; c.stroke();
+        // tail
+        var tip = V ? [src[0] + (src[0] < cx ? 0 : 0), src[1] + (src[1] < by ? CW * 0.78 : -CW * 0.78)] : [src[0] + (src[0] < bx ? CW * 0.55 : -CW * 0.55), src[1] - CW * 0.1];
+        tip = [lerp(tx, tip[0], g), lerp(ty, tip[1], g)];
+        var base = V ? [[ox - 26 * g, ty], [ox + 26 * g, ty]] : [[tx, ty - 26 * g], [tx, ty + 26 * g]];
+        c.beginPath(); c.moveTo(base[0][0], base[0][1]); c.lineTo(tip[0], tip[1]); c.lineTo(base[1][0], base[1][1]); c.closePath(); c.fillStyle = CARD; c.fill();
+        c.beginPath(); c.moveTo(base[0][0], base[0][1]); c.lineTo(tip[0], tip[1]); c.lineTo(base[1][0], base[1][1]); c.strokeStyle = INK; c.lineWidth = 3; c.stroke();
+        c.restore();
+        if (g > 0.85) {
+          var ca = clamp((g - 0.85) / 0.15, 0, 1), sb = PATH[Bq.hp.src];
+          // who says it: a mini cover + title + author
+          coverC(x0 + 40 + 20, y0 + 50, 40, sb, ca, 0, 1);
+          text(sb.t, x0 + 98, y0 + 46, (V ? 34 : 32) + 'px ' + SERIF, INK, 'left', ca);
+          text(sb.a.toUpperCase(), x0 + 100, y0 + 76, '500 ' + (V ? 17 : 16) + 'px ' + MONO, 'rgba(20,20,20,0.6)', 'left', ca, '0.14em');
+          var hl = eio(b, s0 + 2.0, s0 + 2.6), a0w = Bq.hl[0], z0w = Bq.hl[Bq.hl.length - 1];
+          // the named book, swiped with a rust highlighter (behind its words)
+          if (hl > 0) {
+            var lines2 = {}; Bq.hl.forEach(function (wd) { (lines2[wd.y] = lines2[wd.y] || []).push(wd); });
+            var tot = Bq.hl.reduce(function (a, wd) { return a + wd.w; }, 0), done = hl * tot;
+            Object.keys(lines2).forEach(function (ky) { var ln = lines2[ky], lx = ln[0].x, rx = ln[ln.length - 1].x + ln[ln.length - 1].w, lw = Math.min(rx - lx, Math.max(0, done)); done -= rx - lx;
+              c.globalAlpha = ca; c.fillStyle = 'rgba(156,61,34,0.2)'; c.fillRect(x0 + lx - 5, y0 + +ky - Bq.fs * 0.76, lw + 10, Bq.fs * 0.98); c.fillStyle = RUST; c.fillRect(x0 + lx - 5, y0 + +ky + 7, lw + 10, 4); c.globalAlpha = 1; });
+          }
+          Bq.words.forEach(function (wd) {
+            var wa = eout(b, s0 + 1.0 + wd.k * 0.06, s0 + 1.35 + wd.k * 0.06) * ca, isH = Bq.hl.indexOf(wd) >= 0;
+            text(wd.s, x0 + wd.x, y0 + wd.y + (1 - wa) * 10, Bq.font, isH && hl > 0 ? mix(INK, RUST, hl) : INK, 'left', wa);
+          });
+        }
+      }
+    }
+
+    // ===== 4 · the network (b30–35.5) =====
+    if (b >= 30.6) {
+      var sa = eio(b, 31.0, 32.6), gath = b >= 34.4;
+      var camN = [NET.c[0], NET.c[1]];
+      var sx = function (i) { return cx + wrapd(ST.x[i] - camN[0], P) * netK; }, sy = function (i) { return cy + wrapd(ST.y[i] - camN[1], PY) * netK; };
+      var rad = function (i) { return (0.9 + Math.sqrt(ST.d[i]) * 0.42) * clamp(Math.sqrt(netK) * 1.1, 0.95, 4); };
+      var reach = sa * Math.hypot(W, H) * 0.75, fade = 1 - eio(b, 34.2, 35.4);
+      for (var i2 = 0; i2 < NST; i2++) {
+        var x2 = sx(i2), y2 = sy(i2);
+        if (x2 < -20 || x2 > W + 20 || y2 < -20 || y2 > H + 20) continue;
+        var a2 = clamp((reach - Math.hypot(x2 - cx, y2 - cy)) / 240, 0, 1) * fade; if (a2 <= 0) continue;
+        var dust = ST.d[i2] <= 1;
+        c.globalAlpha = a2 * (dust ? 0.4 : 0.85); c.beginPath(); c.arc(x2, y2, dust ? rad(i2) * 0.7 : rad(i2), 0, 2 * PI); c.fillStyle = F.palette[ST.c[i2]] || F.misc; c.fill();
       }
       c.globalAlpha = 1;
-      // Madame Bovary's threads (it mentions → rust, mentioned by → blue)
-      var th = eout(b, 24.2, 25.8) * (1 - eio(b, 27.6, 28.4)), mx2 = cx, my2 = cy;
-      if (th > 0) F.mb.links.forEach(function (l) {
-        var x2 = sx(l[0]), y2 = sy(l[0]);
-        c.beginPath(); c.moveTo(mx2, my2); c.lineTo(lerp(mx2, x2, th), lerp(my2, y2, th)); c.strokeStyle = l[1] ? RUST : BLUE; c.lineWidth = 2.4; c.globalAlpha = 0.85; c.stroke(); c.globalAlpha = 1;
-        c.beginPath(); c.arc(x2, y2, Math.max(4, rad(l[0])), 0, 2 * PI); c.fillStyle = l[1] ? RUST : BLUE; c.globalAlpha = th; c.fill(); c.globalAlpha = 1;
-      });
-      // the star itself, and its name
-      var mr = Math.max(rad(F.mb.star) * 1.2, lerp(15, 9, eio(b, 23, 26)));
-      var starA = 1 - eio(b, 28.2, 29.2);
-      c.beginPath(); c.arc(cx, cy, mr, 0, 2 * PI); c.fillStyle = F.mb.c; c.globalAlpha = starA; c.fill(); c.lineWidth = 3; c.strokeStyle = INK; c.stroke(); c.globalAlpha = 1;
-      var na = eout(b, 25.0, 25.8) * (1 - eio(b, 27.6, 28.2));
-      if (na > 0) { c.lineJoin = 'round'; c.font = 'italic ' + (V ? 50 : 44) + 'px ' + SERIF; c.textAlign = 'center'; c.lineWidth = 9; c.strokeStyle = PAPER; c.globalAlpha = na; c.strokeText(F.mb.t, cx, cy - mr - 26); c.globalAlpha = 1; text(F.mb.t, cx, cy - mr - 26, 'italic ' + (V ? 50 : 44) + 'px ' + SERIF, INK, 'center', na); }
+      // the hop path, dotted, from star to star
+      var pa = eout(b, 30.8, 31.8) * (1 - eio(b, 34.0, 34.8));
+      if (pa > 0) for (var k3 = 0; k3 < 4; k3++) {
+        var p0 = netPt(k3), p1 = netPt(k3 + 1), cpt = [(p0[0] + p1[0]) / 2, Math.min(p0[1], p1[1]) - 40 - 0.12 * Math.abs(p1[0] - p0[0])];
+        dashed(function (t) { return q(p0, cpt, p1, t); }, clamp(pa * 4 - k3, 0, 1), RUST, 3.2, 9, 7, b * BEAT * 40, 1);
+      }
+      // the path's books stay marked on top
+      var mk = 1 - eio(b, 34.0, 34.8);
+      if (mk > 0 && toNet >= 1) PATH.forEach(function (pb, k4) { var np = netPt(k4); c.beginPath(); c.arc(np[0], np[1], V ? 15 : 13, 0, 2 * PI); c.fillStyle = pb.c; c.globalAlpha = mk; c.fill(); c.lineWidth = 3; c.strokeStyle = INK; c.stroke(); c.globalAlpha = 1; });
       // the stars gather into the logo's dotted arc
-      if (b >= 28 && b < 30.4) {
-        var gA = 1 - eio(b, 29.7, 30.3);
-        for (var k = 0; k < BIG.length; k++) {
-          var bi = BIG[k], tgt2 = ARCPTS[k % ARCPTS.length], g2 = gt(bi, k);
-          var x3 = lerp(sx(bi), tgt2[0], g2), y3 = lerp(sy(bi), tgt2[1], g2);
-          c.globalAlpha = 0.9 * gA; c.beginPath(); c.arc(x3, y3, lerp(rad(bi), LOCK.u * 1.0, g2), 0, 2 * PI);
+      if (gath && b < 36.6) {
+        var gA = 1 - eio(b, 36.0, 36.6);
+        for (var k5 = 0; k5 < BIG.length; k5++) {
+          var bi = BIG[k5], tgt2 = ARCPTS[k5 % ARCPTS.length], g2 = eio(b, 34.4 + (k5 % 7) * 0.08, 35.9 + (k5 % 7) * 0.08);
+          c.globalAlpha = 0.9 * gA; c.beginPath(); c.arc(lerp(sx(bi), tgt2[0], g2), lerp(sy(bi), tgt2[1], g2), lerp(rad(bi), LOCK.u, g2), 0, 2 * PI);
           c.fillStyle = g2 > 0.85 ? INK : (F.palette[ST.c[bi]] || F.misc); c.fill();
         }
         c.globalAlpha = 1;
       }
-      if (b < 28.5) bookPos = [cx + 20, cy - mr - 14 - (na > 0 ? (V ? 66 : 58) : 0) * 0, lerp(2.6, 2.0, eio(b, 23, 26)), BOOKROT, 1];
     }
 
-    // ===== scene 6 + the loop point: the end card =====
-    var endIn = b >= 29.6, endOut = b < 1.9;
-    if (endIn || endOut) {
-      var Le = endOut ? lockAt(toHdr) : lockAt(0);
-      // the mark: drawn in from the gathered stars at the end; at the loop start it travels to the header
-      var arcA = endIn ? eio(b, 29.6, 30.3) : 1, dotA = endIn ? spr(b, 29.9, 1.0) : 1;
-      if (!(endOut && b >= 0.6)) {
-        mark(Le.mx, Le.my, Le.u, 1, dotA, arcA);
-        var font = Le.fs + 'px ' + SERIF, s = 'BookJumpr', x4 = Le.wx;
-        for (var j = 0; j < s.length; j++) {
-          var la2 = endIn ? spr(b, 30.0 + j * 0.07, 1.2) : 1, w4 = tw(s[j], font);
-          text(s[j], x4, Le.wy + (1 - la2) * Le.fs * 0.45, font, INK, 'left', clamp(la2 * 1.6, 0, 1));
-          x4 += w4;
-        }
-      }
-      // tagline + stats (they arrive last and leave first)
-      var tgIn = endIn ? eout(b, 30.5, 31.3) : 1 - ein(b, 0.35, 0.9), stIn = endIn ? eout(b, 30.9, 31.6) : 1 - ein(b, 0.3, 0.8);
-      var tgY = LOCK.y + (V ? 170 : 190), stY = tgY + (V ? 92 : 86);
-      text('Follow the books inside the books.', cx, tgY + (1 - tgIn) * 24, 'italic ' + (V ? 58 : 54) + 'px ' + SERIF, INK, 'center', tgIn);
-      var stats = F.totals.books.toLocaleString('en-US') + ' BOOKS  ·  ' + F.totals.mentions.toLocaleString('en-US') + ' MENTIONS';
-      text(stats, cx, stY + (1 - stIn) * 18, '500 ' + (V ? 26 : 24) + 'px ' + MONO, 'rgba(20,20,20,0.62)', 'center', stIn, '0.2em');
-      text('bookjumpr.com', cx, stY + (V ? 64 : 56) + (1 - stIn) * 18, '500 ' + (V ? 26 : 24) + 'px ' + MONO, RUST, 'center', stIn, '0.12em');
-      // the book: lands on the arc's end (and sits there at the loop point)
-      if (endIn) {
-        var e5 = markEnd(LOCK.mx, LOCK.my, LOCK.u), from = [cx + 20, cy - 40];
-        var h5 = eio(b, 29.2, 30.4), l5 = spr(b, 30.3, 1.2);
-        var p5 = q(from, [(from[0] + e5[0]) / 2, Math.min(from[1], e5[1]) - 260], e5, h5);
-        bookPos = [p5[0], p5[1] + (1 - l5) * (b > 30.3 ? -18 : 0), lerp(2.0, LOCK.u, h5), BOOKROT, 1];
-      }
+    // ===== 5 · the end card (b35.9–40) =====
+    if (b >= 35.9) {
+      mark(LOCK.mx, LOCK.my, LOCK.u, 1, spr(b, 36.1, 1.0), eio(b, 35.9, 36.5));
+      var font = LOCK.fs + 'px ' + SERIF, x4 = LOCK.wx, s4 = 'BookJumpr';
+      for (var j = 0; j < s4.length; j++) { var la = spr(b, 36.3 + j * 0.08, 1.4); text(s4[j], x4, LOCK.wy + (1 - la) * LOCK.fs * 0.45, font, INK, 'left', clamp(la * 1.6, 0, 1)); x4 += tw(s4[j], font); }
+      var ua = spr(b, 37.4, 1.5);
+      text('bookjumpr.com', cx, LOCK.y + (V ? 200 : 200) + (1 - ua) * 26, '500 ' + (V ? 44 : 42) + 'px ' + MONO, RUST, 'center', clamp(ua * 1.4, 0, 1), '0.06em');
     }
 
-    if (bookPos) book(bookPos[0], bookPos[1], bookPos[2], bookPos[3], bookPos[4]);
+    // ===== the little book's journey, scene by scene =====
+    if (b >= 6.3 && b < 12.4) {
+      // browse three covers on the beat, then land on Jane Eyre after the tap
+      var stops = WALL.browse.map(function (e) { var d = drift(Math.min(b, 10.4)); return perch(e.x + d[0], e.y + d[1], WALL.cw); });
+      var jeP = pathPos[0] ? perch(pathPos[0][0], pathPos[0][1], pathPos[0][2]) : perch(jeS0[0], jeS0[1], WALL.cw);
+      var qmark = wordTop(QS.words[QS.words.length - 1]);
+      var seq = [qmark].concat(stops).concat([jeP]), times = [6.3, 7.0, 8.0, 9.0, 10.3];
+      var si = 0; for (var i3 = 0; i3 < times.length - 1; i3++) if (b >= times[i3]) si = i3;
+      var hb = hop(seq[si], seq[si + 1], b, times[si], times[si + 1] - 0.15, 90);
+      if (b >= 10.15) { hb = { p: jeP, sx: squash(b, 10.15)[0], sy: squash(b, 10.15)[1] }; }
+      bk = { p: hb.p, u: b >= 10.15 && pathPos[0] ? bu(pathPos[0][2]) : lerp(V ? 4.4 : 4.8, bu(WALL.cw), eio(b, 6.3, 7.0)), rot: BOOKROT * 0.6, sx: hb.sx, sy: hb.sy };
+    }
+    if (b >= 12.4 && b < 30.0) {
+      var hk = clamp(Math.floor((b - 12) / 4.5), 0, 3), hs = hopStart(hk);
+      var pc = pathPos[hk], pn = pathPos[hk + 1];
+      if (pc && pn) {
+        var A2 = perch(pc[0], pc[1], pc[2]), B2 = perch(pn[0], pn[1], pn[2]);
+        var jb = hop(A2, B2, b, hs + 2.8, hs + 3.6, V ? 260 : 300);
+        // the dotted arc is drawn just ahead of the jump
+        var Cj = [(A2[0] + B2[0]) / 2, Math.min(A2[1], B2[1]) - (V ? 260 : 300)];
+        var arcOn = eio(b, hs + 2.5, hs + 3.0) * (1 - eio(b, hs + 3.7, hs + 4.1));
+        if (arcOn > 0) dashed(function (t) { return q(A2, Cj, B2, t); }, arcOn, INK, 3, 10, 9, 0, 0.6);
+        var ride = b >= hs + 3.6 ? B2 : jb.p;
+        if (hk === 3 && b >= hs + 3.6) { var pg = pathPos[4]; ride = perch(pg[0], pg[1], pg[2]); }
+        bk = { p: ride, u: bu(b >= hs + 3.6 ? pn[2] : pc[2]), rot: BOOKROT * 0.6, sx: jb.sx, sy: jb.sy };
+        if (b < hs + 2.8) { var pc2 = pathPos[hk]; bk.p = perch(pc2[0], pc2[1], pc2[2]); bk.u = bu(pc2[2]); bk.sx = 1; bk.sy = 1; if (hk > 0 && b < hs + 0.4) { var sqk = squash(b, hopStart(hk - 1) + 3.6); bk.sx = sqk[0]; bk.sy = sqk[1]; } }
+      }
+    }
+    if (b >= 30.0 && b < 37.6) {
+      // ride Gatsby as it shrinks onto the map, then hop onto the logo's arc as it forms
+      var gp = b < 35 && pathPos[4] ? pathPos[4] : [netPt(4)[0], netPt(4)[1]], e5 = markEnd(LOCK.mx, LOCK.my, LOCK.u);
+      var onDot = [gp[0] + lerp(CW * 0.22, 4, toNet), gp[1] - lerp(CW * 0.75 + 5.2 * bu(CW), (V ? 15 : 13) + 12, toNet)];
+      var h5 = hop(onDot, e5, b, 35.6, 36.6, V ? 300 : 260);
+      bk = { p: b < 35.6 ? onDot : h5.p, u: lerp(lerp(bu(CW), 2.6, toNet), LOCK.u, h5.t), rot: lerp(BOOKROT * 0.6, BOOKROT, h5.t), sx: b < 35.6 ? 1 : h5.sx, sy: b < 35.6 ? 1 : h5.sy };
+    }
+    if (b >= 37.6) { var e6 = markEnd(LOCK.mx, LOCK.my, LOCK.u), sq6 = squash(b, 36.6); bk = { p: e6, u: LOCK.u, rot: BOOKROT, sx: sq6[0], sy: sq6[1] }; }
+    if (bk) book(bk.p[0], bk.p[1], bk.u, bk.rot, 1, bk.sx, bk.sy);
   };
 
   window.seek = function (t) { var b = ((t / BEAT) % BEATS + BEATS) % BEATS; draw(b); };

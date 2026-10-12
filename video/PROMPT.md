@@ -1,80 +1,63 @@
 # BookJumpr film — the prompt
 
-Our version of the shared motion-design prompt, adapted to BookJumpr: the logo's little book is the thread that links every scene, following one real "flow" through the site.
+Our version of the shared motion-design prompt, adapted to BookJumpr: playful, a real path of hops, the logo's little book as the thread through every scene.
 
 ```
 <inputs>
-Ask me for: the opening book, the quote that makes the jump, the book it jumps to,
-the two stats for the end card, and a track with a clear beat (or a tempo to cut to).
-Defaults: Don Quixote → Madame Bovary via Harold Bloom's line "the female Quixote" ·
-5,145 books · 7,764 mentions · 120 BPM.
+Ask me for: the opening question, the book to zoom into, 3–4 hops (each a real line where one
+book names the next), and a track with a clear beat (or a tempo to cut to).
+Defaults: "Have you ever wondered how books are connected?" · Jane Eyre → Looking for Alaska →
+Moby-Dick → The Storied Life of A. J. Fikry → The Great Gatsby · 120 BPM. No stats anywhere.
 </inputs>
 
 <direction>
-A 2D motion design film for BookJumpr, a site that maps the books mentioned inside other
-books. 16:9 master, with a 9:16 cut. Warm paper canvas (#f7f5f0), near-black ink (#141414),
-editorial serif titles (Instrument Serif), mono labels (IBM Plex Mono), flat genre-coloured
-book covers. One accent: rust (#9c3d22). Blue (#2f5590) appears only where the site uses it,
-for "mentioned by" lines.
-The jumping book links every scene: the small rust book from the BookJumpr logo. It starts
-on the logo's dotted arc, hops onto a cover, becomes the centre of a fan, underlines a
-quote, leaps along a dotted arc to the next book, then joins the starfield and lands back on
-the logo. A cursor makes the opening click feel real. Crisp, controlled movement with
-subtle spring overshoot, dashed lines that draw on, no empty pauses.
-Banned: stock footage, gradients, glows, particle bursts, 3D, arbitrary transitions, and
-any movement that doesn't grow from something already on screen.
+A playful 2D motion film for BookJumpr, a site that maps the books mentioned inside other books.
+16:9 master with a 9:16 cut. Warm paper (#f7f5f0), near-black ink (#141414), editorial serif
+(Instrument Serif), mono labels (IBM Plex Mono), flat genre-coloured covers. One accent: rust
+(#9c3d22). The star is the little rust book from the BookJumpr logo: it hops word to word, cover
+to cover, star to star, and lands on the logo at the end. Bouncy springs with overshoot, squash
+and stretch, tilt-and-settle, covers that wiggle when they're waiting to be picked.
+Banned: stock footage, gradients, glows, particle bursts, 3D, and any movement that doesn't grow
+from something already on screen. No numbers or stats.
 </direction>
 
 <structure>
-About 16 seconds (32 beats at 120 BPM), with a visual change on every major beat.
-Open (beats 1–4): the BookJumpr logo. The small book rides its dotted arc and drops
-  onto a wall of covers. A cursor glides in and clicks "Don Quixote".
-Fan (5–10): the clicked cover shrinks into a black title pill. Blue dashed lines draw in
-  from the left ("Mentioned by 75") and rust lines draw out to the right ("Mentions 41"),
-  pills popping in one per beat-subdivision. The counters tick up as the lines land.
-Quote (11–16): one blue line brightens. Its pill opens into a quote card from Harold
-  Bloom's How to Read and Why: "…whose Madame Bovary is 'the female Quixote.'"
-  "Madame Bovary" gets highlighted in rust, letter by letter.
-Jump (17–22): the rust book lifts off the highlight and leaps along a dotted arc,
-  overshoots and settles on "Madame Bovary". That becomes the new centre pill; the old fan
-  folds away behind it. A trail of jumps (small covers joined by dotted arcs) builds along
-  the top.
-Zoom out (23–28): the pill folds into its genre dot. The camera pulls back. That dot is
-  one star among 5,145, a field of genre-coloured points that fills past every edge, with
-  rust and blue threads lighting from the current book.
-End (29–32): the field contracts to the logo. "BookJumpr" sets in serif with
-  "Follow the books inside the books." below and "5,145 books · 7,764 mentions" in mono.
-  The small book settles on the arc exactly as in frame one, for a seamless loop.
+About 20 seconds (40 beats at 120 BPM).
+Question (beats 0–6): "Have you ever wondered how books are connected?" pops in word by word on
+  the beat; the little book hops along the words like a karaoke ball and lands on the "?".
+Big view (6–10): the words shrink away as a wall of covers ripples out from the middle and
+  drifts; the book hops across a few covers, browsing.
+Zoom (10–12): a cursor taps Jane Eyre; the camera dives in until it's centre stage.
+Hops (12–30): four times — the next book pops in with a wobble; a speech bubble grows out of the
+  book that says the line, its tail pointing at it; the line types in and the named title is
+  swiped with a rust highlighter; the little book leaps along a dotted arc onto the next cover
+  (squash on landing) and the last one slides into a trail of jumps along the bottom.
+Network (30–35): the trail becomes five dots at their real places on the site's map, joined by
+  the dotted path, and the camera pulls back to every book at once.
+End (35–40): the stars gather into the logo's dotted arc, the book lands on its end, "BookJumpr"
+  bounces in letter by letter, then "bookjumpr.com".
 </structure>
 
 <build>
-1. One HTML file, 1920×1080 (plus a 1080×1920 layout from the same timeline), 60 fps.
-   Compute every visual from time inside seek(t): no CSS transitions, timers or state
-   carried between frames.
-2. Use one closed-form spring for every settle (cursor click, pill pops, the jump's landing,
-   counters). The jump follows the logo's own arc, a quadratic from (4,30) to (58,23) via
-   control point (30,−8), scaled.
-3. Draw the dashed lines as path-length draw-ons, timed to the beat. Dashes keep moving in
-   the direction of the mention: inward for blue, outward for rust.
-4. Treat the cover, title pill, genre dot and star as states of one object. Carry its
-   position and momentum through each change.
-5. The starfield uses real positions from layouts-data.js (wrap layout) and real genre
-   colours, so it's truthfully the site's map.
-6. Align the click, the first line landing, the highlight, the jump's landing, the zoom-out
-   and the title to beats. Render one still per beat to check timing before the full export.
+1. One HTML file, 1920×1080 (plus a 1080×1920 layout from the same timeline), 60 fps. Compute
+   every visual from time inside seek(t): no CSS transitions, timers or state between frames.
+2. One closed-form spring for every pop and settle; a closed-form squash for every landing.
+3. Every hop follows the logo's arc shape (a quadratic, raised in the middle), drawn as a dotted
+   line just ahead of the book.
+4. Lay the quote out once; find the named title in its words (ignore case and hyphens) for the
+   highlighter.
+5. The map uses the site's real positions and genre colours.
+6. Render one still per scene before the full export.
 </build>
 
 <gotchas>
-The jumping book must use the same arc and spring in every scene, or it stops reading as
-one character. Use only the rust accent (blue only for in-lines). Time outgoing and
-incoming text separately so letters never overlap. When the starfield fills the screen,
-extend it past all four corners. Match the logo, the book's position and the paper
-colour in the first and last frames so the loop doesn't stutter. Quotes must be verbatim
-from the data.
+Quotes must be verbatim from the data, and the bubble's tail must point at the book that says
+the line. The little book must be one continuous character — never pop in or vanish. Keep every
+title and bubble inside the frame in both formats.
 </gotchas>
 
 <start>
-Ask me for the inputs, then show me the beat map and four stills (logo + click, fan,
-quote + jump, end card) before building the full video.
+Ask me for the inputs, then show me the beat map and stills (question, wall, zoom, a hop, the
+last hop, the network, the end card) before building the full video.
 </start>
 ```
