@@ -129,7 +129,7 @@
     var A = this.o.guides && this.o.guides.axes;
     if (A) {   // a chart: fit its frame, keeping screen room for tick labels, axis titles and corner captions
       var hx = Math.max(Math.abs(A.x0), Math.abs(A.x1)), hy = Math.max(Math.abs(A.y0), Math.abs(A.y1));
-      var TOP = 56, BOT = 100, SIDE = 80;
+      var sm = this.W < 600, TOP = sm ? 74 : 56, BOT = sm ? 128 : 100, SIDE = sm ? 58 : 80;   // phones: room for the hint line below   // phones: tighter sides
       var kc = Math.min((this.W - 2 * SIDE) / (2 * hx), (this.H - ins - TOP - BOT) / (2 * hy));
       this.minK = kc * 0.7;
       this._lookAt(0, ((BOT - TOP) / 2) / kc, kc, anim);
@@ -298,7 +298,7 @@
       c.setLineDash([3, 5]); c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.14)'; c.stroke(); c.setLineDash([]);
     }
     c.globalAlpha = 1;
-    if (this.o.guides) this._guides(c, k);
+    if (this.o.guides) this._guides(c, k, placed);
 
     // dots
     for (i = 0; i < this.N; i++) {
@@ -471,7 +471,8 @@
     }
   };
   // guide rings (spiral) or a chart frame (fame), in world coordinates; text stays screen-sized
-  P._guides = function (c, k) {
+  P._guides = function (c, k, placed) {
+    var keep = function (x, y, w, h) { if (placed) placed.push([x, y, w, h]); };   // titles then avoid these
     var G = this.o.guides, self = this, ox = this.sx(0), oy = this.sy(0);
     c.save();
     c.font = '10.5px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.5)'; c.strokeStyle = 'rgba(20,20,20,0.16)'; c.lineWidth = 1;
@@ -498,20 +499,21 @@
       c.fillStyle = 'rgba(20,20,20,0.6)';
       // tick labels, skipping any that would collide with the previous one (narrow screens)
       var lastR = -1e9;
-      c.textAlign = 'center'; A.tx.forEach(function (t) { var w = c.measureText(t.t).width, x = X(t.x); if (x - w / 2 < lastR + 6) return; c.fillText(t.t, x, Y(A.y0) + 16); lastR = x + w / 2; });
+      c.textAlign = 'center'; A.tx.forEach(function (t) { var w = c.measureText(t.t).width, x = X(t.x); if (x - w / 2 < lastR + 6) return; c.fillText(t.t, x, Y(A.y0) + 16); keep(x - w / 2, Y(A.y0) + 6, w, 13); lastR = x + w / 2; });
       var lastY = 1e9;
-      c.textAlign = 'right'; A.ty.forEach(function (t) { var y = Y(t.y); if (y > lastY - 13) return; c.fillText(t.t, X(A.x0) - 8, y + 4); lastY = y; });
+      c.textAlign = 'right'; A.ty.forEach(function (t) { var y = Y(t.y), w = c.measureText(t.t).width; if (y > lastY - 13) return; c.fillText(t.t, X(A.x0) - 8, y + 4); keep(X(A.x0) - 8 - w, y - 7, w + 8, 14); lastY = y; });
       c.font = '11.5px ' + MONO; c.fillStyle = INK;
       c.textAlign = 'right'; c.fillText(A.xt, X(A.x1), Y(A.y0) + 34);
       // y-axis title runs up the axis, clear of the corner captions
-      c.save(); c.translate(X(A.x0) - (A.grid ? 52 : 34), (Y(A.y0) + Y(A.y1)) / 2); c.rotate(-Math.PI / 2); c.textAlign = 'center'; c.fillText(A.yt, 0, 0); c.restore();
+      c.save(); c.translate(X(A.x0) - (A.grid ? (this.W < 600 ? 44 : 52) : 34), (Y(A.y0) + Y(A.y1)) / 2); c.rotate(-Math.PI / 2); c.textAlign = 'center'; c.fillText(A.yt, 0, 0); c.restore();
       var small = this.W < 600, L = X(A.x0), Rr = X(A.x1), T = Y(A.y1), B = Y(A.y0);
       (A.caps || []).forEach(function (q) {
         var x, y, al;
-        if (q.c) { al = q.c[1] === 'l' ? 'left' : 'right'; x = al === 'left' ? L : Rr; y = q.c[0] === 't' ? T - (small ? 10 : 26) : B + (small ? 58 : 64); }
+        if (q.c) { al = q.c[1] === 'l' ? 'left' : 'right'; x = al === 'left' ? L : Rr; y = q.c[0] === 't' ? T - (small ? 30 : 26) : B + (small ? 60 : 64); }
         else { al = 'left'; x = X(q.x); y = Y(q.y); }
         c.textAlign = al;
         c.font = (small ? 14 : 22) + 'px ' + SERIF; c.fillStyle = 'rgba(20,20,20,0.55)'; c.fillText(q.t, x, y);
+        var cw = c.measureText(q.t).width, fs = small ? 14 : 22; keep(al === 'left' ? x : x - cw, y - fs, cw, fs + (small ? 4 : 18));
         if (!small) { c.font = '10px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.45)'; c.fillText(q.s, x, y + 15); }
       });
     }

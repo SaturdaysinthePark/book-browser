@@ -633,6 +633,17 @@
       if (!el || !window.BJAtlas || !window.BookJumprStars) return;
       var data = lk ? self._layoutData(lk) : window.BookJumprStars;
       if (!data) return;
+      // a chart on a tall phone screen: spread its rows to use the height (each neighbourhood stays round)
+      if (data.guides && data.guides.axes && data.guides.axes.grid) {
+        var er = el.getBoundingClientRect();
+        if (er.width < 760 && er.height > er.width) {
+          var A0 = data.guides.axes, hx = Math.max(Math.abs(A0.x0), Math.abs(A0.x1)), hy = Math.max(Math.abs(A0.y0), Math.abs(A0.y1));
+          var ins = 0;
+          [].forEach.call(document.querySelectorAll('.bjx-stars .bjx-fbar, .lab-switch'), function (x) { ins = Math.max(ins, x.getBoundingClientRect().bottom - er.top + 14); });
+          var f = ((er.height - ins - 74 - 128) / (er.width - 2 * 58)) * (hx / hy);
+          if (f > 1.05) data = self._stretchChart(data, Math.min(3, f));
+        }
+      }
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
         root: el, data: data,
         regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
@@ -642,7 +653,7 @@
         dust: lk === 'wrap', gravity: lk === 'wrap',
         regionColor: function (R) { return self.xGenreColor(R.genre); },
         guides: data.guides && (data.guides.rings || data.guides.axes) ? data.guides : null,
-        labelTop: lk ? (window.innerWidth < 760 ? 10 : 25) : 0,
+        labelTop: !lk ? 0 : window.innerWidth < 760 ? (lk === 'fame' ? 0 : 10) : 25,   // phones: no always-on titles on the chart (they cover the dots)
         onFocus: function (k) { self.mapFocus(k); },
         topInset: function () {   // keep the framing clear of the search bar / switcher
           var bottom = 0, top = el.getBoundingClientRect().top;
@@ -658,6 +669,16 @@
       var f = self.state.route.focus;
       if (f) m.setFocus(f, false);
     });
+  };
+  // Stretch a binned chart vertically: rows (and the lines between them) move apart by f, but each
+  // neighbourhood keeps its round shape around its row's centre.
+  P._stretchChart = function (data, f) {
+    var regs = data.regions, A = data.guides.axes;
+    return {
+      nodes: data.nodes.map(function (n) { var R = regs[n[3]]; return [n[0], n[1], R.y * f + (n[2] - R.y), n[3], n[4]]; }),
+      regions: regs.map(function (R) { return Object.assign({}, R, { y: R.y * f, ly: R.y * f + (R.ly - R.y) }); }),
+      guides: { axes: Object.assign({}, A, { y0: A.y0 * f, y1: A.y1 * f, by: A.by.map(function (v) { return v * f; }), ty: A.ty.map(function (t) { return { y: t.y * f, t: t.t }; }) }) }
+    };
   };
   // ?v=lab: a point layout expanded into BJAtlas's data shape (cached)
   P._layoutData = function (lk) {
@@ -772,6 +793,8 @@
           h('button', { onClick: function () { if (m()) m().zoomBy(1.4); }, 'aria-label': 'Zoom in' }, '+'),
           h('button', { className: 'fit', onClick: function () { if (m()) m().fit(true); } }, 'Fit'))),
       // one quiet line of how-to: what clears a selection, how to zoom (⌘ on Macs, Ctrl elsewhere)
+      // (phones: the Influence chart's own captions do this job, and the hint would sit on them)
+      lk === 'fame' && typeof matchMedia !== 'undefined' && matchMedia('(pointer: coarse)').matches ? null :
       h('div', { className: 'bjx-fkey' }, h('span', { className: 'hint' }, (function () {
         if (typeof matchMedia !== 'undefined' && matchMedia('(pointer: coarse)').matches) return sel ? 'Tap empty space to clear · pinch to zoom' : 'Drag to move · pinch to zoom · tap a star';
         var mod = /Mac/.test(navigator.platform || navigator.userAgent) ? '⌘' : 'Ctrl';
