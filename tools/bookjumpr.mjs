@@ -7,7 +7,7 @@ import { seed } from './seed.mjs';
 import { writeBuild } from './build.mjs';
 import {
   upsertBook, upsertMention, importJsonFile, exportCsv, importCsv,
-  renameBook, removeMention, removeBook, setGenre,
+  renameBook, removeMention, removeBook, mergeBook, setGenre,
 } from './importer.mjs';
 import { doctor, printReport } from './doctor.mjs';
 import { GENRES } from './genres.mjs';
@@ -48,6 +48,7 @@ Usage: npm run bj -- <command> [options]
   rename --from OLD --to NEW    Rename a book (cascades its key)
   remove-mention --source S --mentioned M [--author A] [--source-author SA]
   remove-book --title T [--cascade] [--author A]
+  merge-book --from DUP --into CANON [--author A]   Fold a duplicate into its twin (re-points mentions)
   # keys are author-first (slug(author)/slug(title)); --author disambiguates a shared title
   doctor [--fix]               Validate the dataset
 `;
@@ -250,6 +251,14 @@ async function run(cmd, args) {
       withDb((db) => {
         const r = removeBook(db, args.title, { cascade: !!args.cascade, author: args.author });
         console.log(r.removed ? `✓ removed book: ${args.title}${r.mentionsRemoved ? ` (and ${r.mentionsRemoved} mention(s))` : ''}` : '• no such book');
+      });
+      return;
+
+    case 'merge-book':
+      if (!args.from || !args.into) throw new Error('usage: merge-book --from "Duplicate Title" --into "Canonical Title" [--author A]');
+      withDb((db) => {
+        const r = mergeBook(db, args.from, args.into, { author: args.author });
+        console.log(`✓ merged ${r.from} → ${r.into}: ${r.moved} mention(s) re-pointed, ${r.dropped} duplicate(s) dropped${r.droppedMeta ? ' (discarded its synopsis)' : ''}`);
       });
       return;
 

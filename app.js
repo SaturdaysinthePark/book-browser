@@ -1257,7 +1257,7 @@
     if (this._notes || this._notesLoading) return;
     this._notesLoading = true;
     var self = this, sc = document.createElement('script');
-    sc.src = 'bookjumpr-notes.js?v=1';
+    sc.src = 'bookjumpr-notes.js?v=2';
     sc.onload = function () {
       var N = window.BookJumprNotes, M = DATA.MENTIONS || [], map = {};
       if (N && N.COUNT === M.length) N.NOTES.forEach(function (r) { var m = M[r[0]]; if (m) map[m[0] + '|' + m[1]] = r[1]; });
@@ -1407,7 +1407,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=13', 'explorer.js?v=20'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=13', 'explorer.js?v=20'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1444,8 +1444,8 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=13', 'stars-data.js?v=2', 'explorer.js?v=20'] : ['network-regions.js?v=1', 'explorer.js?v=20'];
-    if (this._vLab()) srcs.push('layouts-data.js?v=7');
+    var srcs = this._xLive() ? ['atlas.js?v=13', 'stars-data.js?v=3', 'explorer.js?v=20'] : ['network-regions.js?v=2', 'explorer.js?v=20'];
+    if (this._vLab()) srcs.push('layouts-data.js?v=8');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {

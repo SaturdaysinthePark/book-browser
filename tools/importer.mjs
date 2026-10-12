@@ -278,5 +278,35 @@ export function removeBook(db, title, { cascade = false, author = '' } = {}) {
   } catch (e) { db.exec('ROLLBACK'); throw e; }
 }
 
+// Fold a duplicate book into its canonical twin (e.g. "Iliad" / "The Iliad": resolveKey keeps
+// leading articles, so the same work can mint two rows). Every mention touching `from` is
+// re-pointed at `into`; ones that would duplicate an existing (source, mentioned) pair or
+// become a self-mention are dropped. `from` is then deleted. Refuses to discard metadata:
+// `from` may only carry a synopsis if `into` has one too (otherwise swap the arguments).
+export function mergeBook(db, from, into, { author = '' } = {}) {
+  const fid = existingKey(db, from, author), tid = existingKey(db, into, author);
+  if (!fid) throw new Error(`no book matching ${JSON.stringify(from)}`);
+  if (!tid) throw new Error(`no book matching ${JSON.stringify(into)}`);
+  if (fid === tid) throw new Error(`"${from}" and "${into}" are the same book`);
+  const f = db.prepare('SELECT has_meta, genre FROM books WHERE slug = ?').get(fid);
+  const t = db.prepare('SELECT has_meta, genre FROM books WHERE slug = ?').get(tid);
+  if (f.has_meta && !t.has_meta) throw new Error(`"${from}" has metadata but "${into}" does not — swap --from and --into`);
+  const has = db.prepare('SELECT 1 FROM mentions WHERE source_slug = ? AND mentioned_slug = ?');
+  const res = { from: fid, into: tid, moved: 0, dropped: 0, droppedMeta: !!(f.has_meta && t.has_meta) };
+  db.exec('BEGIN');
+  try {
+    const rows = db.prepare('SELECT id, source_slug AS s, mentioned_slug AS m FROM mentions WHERE source_slug = ? OR mentioned_slug = ?').all(fid, fid);
+    for (const r of rows) {
+      const s = r.s === fid ? tid : r.s, m = r.m === fid ? tid : r.m;
+      if (s === m || has.get(s, m)) { db.prepare('DELETE FROM mentions WHERE id = ?').run(r.id); res.dropped++; }
+      else { db.prepare('UPDATE mentions SET source_slug = ?, mentioned_slug = ? WHERE id = ?').run(s, m, r.id); res.moved++; }
+    }
+    if (!t.genre && f.genre) db.prepare("UPDATE books SET genre = ?, updated_at = datetime('now') WHERE slug = ?").run(f.genre, tid);
+    db.prepare('DELETE FROM books WHERE slug = ?').run(fid);
+    db.exec('COMMIT');
+  } catch (e) { db.exec('ROLLBACK'); throw e; }
+  return res;
+}
+
 // Exposed for the migration + doctor.
 export { resolveKey };

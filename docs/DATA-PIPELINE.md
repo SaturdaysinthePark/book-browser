@@ -268,7 +268,7 @@ the real text. Lessons learned the hard way (see project memory for full detail)
 - **No fixed year cutoff — Gutenberg's own hosting is the only bar.** Gutenberg won't host
   a work still under US copyright, so there's no need to additionally pre-filter candidates
   by publication year.
-- **Watch for two known recurring bugs after any batch that both creates new mentions and
+- **Watch for these known recurring bugs after any batch that both creates new mentions and
   touches an existing book's author field:**
   1. An "prefer the fuller author name" backfill can silently change a book's stored
      `author` (e.g. "Cicero" → "Marcus Tullius Cicero") without re-deriving its slug,
@@ -276,8 +276,17 @@ the real text. Lessons learned the hard way (see project memory for full detail)
      author field to whatever the existing slug implies.
   2. The same real-world entity can get created twice under different author-name
      spellings (e.g. "Lao Tzu" vs "Laozi" both for *Tao Te Ching*). Fix: pick the more-
-     linked one as canonical, re-point any mentions from the duplicate via `add-mention`
-     / a mentions-only import, then `bj -- remove-book` the orphaned duplicate.
+     linked one as canonical and fold the other into it with
+     `bj -- merge-book --from "Dup" --into "Canonical" --author "Author"` (re-points its
+     mentions, drops ones that would duplicate, then deletes the dupe). It refuses to
+     discard a synopsis the canonical side lacks, so keep the side that has metadata.
+  3. **Leading articles split a book in two.** Identity is `slug(title)`, which keeps the
+     leading "The/A/An", so "Iliad" and "The Iliad" (same author) become two rows and
+     split the mentions. This recurs on every batch (commit `449b36c` merged 34 of them;
+     the Oct 10 batch re-created 28). Before importing, normalize each mention title
+     against the existing book set with articles stripped and reuse the **existing
+     spelling**; afterwards, scan for same-author pairs equal after dropping the article
+     and `merge-book` any that slipped through.
   Always run `npm run bj:build -- --check` after a batch and treat any doctor error as one
   of these known classes before assuming something new is wrong.
 
