@@ -764,10 +764,10 @@
   };
   // "Search by book or author…" for the map views; picking one selects it (mapFocus).
   P.mapSearch = function () {
-    var self = this, q = this.state.xFq || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
+    var self = this, q = this.state.xFq || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [], vw = this.state.vw || window.innerWidth;
     var find = function (id) { self.setState({ xFq: '' }); self.mapFocus(id); };
     return h('div', { className: 'atlas-q' },
-      h('input', { className: 'atlas-input', placeholder: 'Search by book or author…', value: q, 'aria-label': 'Search the map by book or author',
+      h('input', { className: 'atlas-input', placeholder: vw < 340 ? 'Search…' : vw < 430 ? 'Book or author…' : 'Search by book or author…', value: q, 'aria-label': 'Search the map by book or author',
         onChange: function (e) { self.setState({ xFq: e.target.value }); },
         onKeyDown: function (e) { if (e.key === 'Enter' && sugg[0]) find(sugg[0].id); if (e.key === 'Escape') self.setState({ xFq: '' }); } }),
       sugg.length ? h('div', { className: 'sg-pop atlas-sg' }, sugg.map(function (x) {
