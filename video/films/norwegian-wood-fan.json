@@ -1,0 +1,36 @@
+{
+  "question": "Have you ever wondered how books are connected?",
+  "accent": "connected?",
+  "end": "bookjumpr.com",
+  "layout": "fan",
+  "fans": [
+    {
+      "from": "haruki-murakami/norwegian-wood",
+      "to": [
+        "leo-tolstoy/war-and-peace",
+        "karl-marx/das-kapital",
+        "thomas-mann/the-magic-mountain",
+        "f-scott-fitzgerald/the-great-gatsby",
+        "j-d-salinger/the-catcher-in-the-rye"
+      ],
+      "quotes": [
+        "f-scott-fitzgerald/the-great-gatsby",
+        "karl-marx/das-kapital",
+        "thomas-mann/the-magic-mountain"
+      ]
+    },
+    {
+      "from": "j-d-salinger/the-catcher-in-the-rye",
+      "to": [
+        "william-shakespeare/hamlet",
+        "william-shakespeare/romeo-and-juliet",
+        "f-scott-fitzgerald/the-great-gatsby",
+        "charles-dickens/oliver-twist",
+        "ernest-hemingway/a-farewell-to-arms"
+      ],
+      "quotes": [
+        "charles-dickens/oliver-twist"
+      ]
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 ---
 name: bookjumpr-film
-description: Make a short BookJumpr film — a chain of books where each one mentions the next, each hop shown with its real quote, rendered as an MP4 in 16:9 and 9:16. Use when asked to make, render or re-render a BookJumpr film/video, find or check a chain/path of books for one, or fill a missing quote for a hop.
+description: Make a short BookJumpr film — a chain of books where each one mentions the next (or a fan — one book and everything it mentions, then one of those fanning out), each hop shown with its real quote, rendered as an MP4 for the phone feed (9:16) and 16:9. Use when asked to make, render or re-render a BookJumpr film/video, find or check a chain/path of books for one, or fill a missing quote for a hop.
 ---
 
 # BookJumpr film
@@ -63,6 +63,16 @@ In-copyright books can't be fetched: point to `docs/detector.md` (find mentions 
 3. Preview: serve the repo (`npm run serve`) and open `/video/flow.html?film=<film>&play`
    (`&w=1080&h=1920` for vertical).
 
+### Fan films (`"layout": "fan"`)
+
+One book fans out to the books it mentions, then one of those fans out in turn. Config: copy
+`video/films/norwegian-wood-fan.json` — `fans: [{ from, to: [ids], quotes: [ids] }, …]`. Find candidates with
+`node video/find-chains.mjs --fan "Norwegian Wood"` (★ = quote saved; "→ mentions 13, 3 quoted" shows which books
+can fan out next). Rules: about **5 books per fan** (more and nothing reads on a phone); quotes only on 1–3 of
+them plus the hop to the next fan's book; each `to` book must be a forward mention of `from`. Timing for stills:
+fan 1 lines from beat 12, its first card at ≈ 12 + 0.45·n + 0.5, cards every 4.4 beats, then the hop (4.4); the
+tree is held 2.8 beats before the network (`window.FILM_META` in the page gives BEATS).
+
 ## 4. Check stills before rendering
 
 ```bash
@@ -75,12 +85,14 @@ frame edges, no card over a cover or another card, the little book on the dotted
 
 ## 5. Render and deliver
 
+The vertical cut is the one people post (X, Instagram, TikTok), so check it first and hardest: in the feed it
+plays at about a third of its size. Render social cuts at 30 fps.
 ```bash
-node video/render.mjs --film <film> --w 1920 --h 1080      # run in the background (~4 min each)
-node video/render.mjs --film <film> --w 1080 --h 1920
+node video/render.mjs --film <film> --w 1080 --h 1920 --fps 30   # run in the background (~2 min)
+node video/render.mjs --film <film> --w 1920 --h 1080             # only if a widescreen cut is wanted
 ffprobe -v error -show_entries stream=width,height,avg_frame_rate,nb_frames -show_entries format=duration video/out/<film>-*.mp4
 ```
-60 fps, frames = duration × 60. Send both MP4s, then commit `video/films/<film>.json` and
+frames = duration × fps. Send both MP4s, then commit `video/films/<film>.json` and
 `<film>.data.js` (`video/out/` is gitignored).
 
 ## Knobs
