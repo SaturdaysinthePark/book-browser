@@ -366,6 +366,7 @@
     this._startWallPulse();
     this._startTilt();
     this._startHeaderAutohide();
+    this._startToTop();
     this._settleSmil();
     if (this.state.route.page === 'book') this._loadNotes();
   };
@@ -395,6 +396,7 @@
     return map;
   };
   P.componentDidUpdate = function (prevProps, prevState, snapshot) {
+    if (this._toTopCheck && prevState.route !== this.state.route) this._toTopCheck();
     // Stats page reveal: arm scroll-triggered count-up + bar-grow on entry, tear it down on exit.
     var nowStats = this.state.route.page === 'stats', wasStats = prevState.route.page === 'stats';
     if (nowStats && !wasStats) this._setupStatsReveal();
@@ -600,6 +602,27 @@
       if (y < 90 || acc < -24) hdr.classList.remove('hdr-hide');
       else if (acc > 36 && !hdr.contains(document.activeElement)) hdr.classList.add('hdr-hide');
     }, { passive: true });
+  };
+  // Long pages (a book's mention list, stats, search): once you're about a screen and a half down, a
+  // round ↑ button bottom-right takes you all the way back up. Not on home or the full-screen network.
+  P._startToTop = function () {
+    var self = this, btn = document.createElement('button'), on = false;
+    btn.className = 'to-top'; btn.type = 'button'; btn.title = 'Back to top'; btn.setAttribute('aria-label', 'Back to top');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    btn.tabIndex = -1;
+    btn.addEventListener('click', function () {
+      var still = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+      btn.blur();
+    });
+    document.body.appendChild(btn);
+    var check = function () {
+      var pg = self.state.route.page, show = pg !== 'home' && pg !== 'network' && window.scrollY > window.innerHeight * 1.5;
+      if (show === on) return;
+      on = show; btn.classList.toggle('is-on', on); btn.tabIndex = on ? 0 : -1;
+    };
+    window.addEventListener('scroll', check, { passive: true });
+    this._toTopCheck = check;
   };
   // SMIL (the logo / hero jump-arc) ignores prefers-reduced-motion, so under reduced motion jump
   // every SVG timeline to its drawn end state and freeze it.

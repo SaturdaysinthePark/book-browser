@@ -281,8 +281,13 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   .hx-arc{max-width:230px;}
   .hx-chips{padding-top:12px;}
   .hx-chips .lbl{display:none;}
-  .hx.is-compact .hx-logo{width:40px;padding-left:4px;}
+  /* phone bar: the mark alone is too faint on the busy wall, so it sits in a solid ink disc */
+  .hx.is-compact .hx-logo{width:52px;padding-left:6px;}
   .hx.is-compact .hx-logo span{display:none;}
+  .hx.is-compact .hx-logo svg{box-sizing:border-box;width:44px;height:44px;padding:7px 7px 13px 6px;border-radius:50%;background:var(--ink);color:var(--paper);}
+  .hx.is-compact .hx-logo svg path{stroke-width:3.2;stroke-dasharray:4.5 4;}
+  .hx.is-compact .hx-logo svg circle{r:3.4;}
+  .hx.is-compact .hx-logo svg rect{fill:var(--ink);stroke-width:3;}
   .hx-a .hx-nav,.hx-b .hx-nav{top:auto;bottom:calc(14px + env(safe-area-inset-bottom));}
   .hx-a .hx-hint,.hx-c .hx-hint{bottom:calc(70px + env(safe-area-inset-bottom));}
   .hx-b .hx-hint{bottom:calc(70px + env(safe-area-inset-bottom));}
@@ -735,6 +740,12 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 }
 
 /* Map / Explorer switcher (only with ?net=) */
+.to-top{position:fixed;right:calc(16px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;width:46px;height:46px;display:flex;align-items:center;justify-content:center;padding:0;border:1.5px solid var(--ink);border-radius:50%;background:var(--card);color:var(--ink);box-shadow:0 3px 0 rgba(20,20,20,.9);cursor:pointer;
+  opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .2s,transform .25s var(--ease-out),visibility 0s .25s,background .15s,color .15s;}
+.to-top.is-on{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .25s var(--ease-out),visibility 0s,background .15s,color .15s;}
+.to-top:hover{background:var(--ink);color:var(--paper);}
+.to-top:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+@media (prefers-reduced-motion:reduce){.to-top,.to-top.is-on{transition:none;transform:none;}}
 .net-switch{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 12px;background:rgba(29,27,24,.9);border:1px solid rgba(242,236,221,.3);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,221,.7);}
 .net-switch a{color:#f2ecdd;text-decoration:none;padding:5px 9px;border-radius:999px;}
 .net-switch a.on{background:#f2ecdd;color:var(--ink);}
@@ -1493,6 +1504,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="home.js?v=3"></script>
-<script src="app.js?v=2"></script>
+<script src="app.js?v=3"></script>
 </body>
 </html>
