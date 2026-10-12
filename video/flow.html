@@ -309,7 +309,7 @@ function main() {
       var cx0 = V ? pos[0][0] + w / 2 + 46 : 0, lay = function (fs) { var hs = V ? Math.max(1, fs / 29) : 1, cd = layQuote(HOPS[h], fs, V ? W - 30 - cx0 - (fs < 40 ? 48 : 80) : Math.min(480, 2 * gapX - 60), Math.round(66 * hs)); cd.hs = hs; return cd; };
       var fsz = V ? 46 : 30, card = lay(fsz);
       while (card.h > room && fsz > (V ? 24 : 21)) { fsz -= 1; card = lay(fsz); }
-      if (V) { card.x = cx0; card.y = (a[1] + z[1]) / 2 - card.h / 2; ctrl.push([a[0] - 250, (a[1] + z[1]) / 2 - 60]); }
+      if (V) { card.x = cx0; card.y = clamp(a[1] - card.h / 2, 40, H - 40 - card.h); ctrl.push([a[0] - 250, (a[1] + z[1]) / 2 - 60]); }
       else {
         var mx = (a[0] + z[0]) / 2, rowTop = a[1] - hh / 2, rowBot = a[1] + hh / 2;
         card.x = mx - card.w / 2; card.y = h % 2 === 0 ? rowTop - 100 - card.h : rowBot + 44;
