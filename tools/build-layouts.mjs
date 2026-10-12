@@ -5,6 +5,7 @@
 // compare which map is easiest to read:
 //   spiral  one sunflower spiral, sorted by connections: the most connected in the middle, the
 //           one-off name-drops as the outer haze. Guide rings mark where 50+/20+/10+/5+/2+ links end.
+//   wrap    one even starfield on a surface whose edges join (pan forever)
 //   petals  the same spiral, but each genre owns a wedge (sized to it): a mixed heart of famous
 //           books in the centre, genres fanning out as petals. Within a petal, books that mention
 //           each other (Louvain sub-communities) take neighbouring angles.
@@ -147,38 +148,6 @@ const petals = () => {
     return { x: 0, y: 0, r: round(R), lx: round(Math.cos(am) * rr), ly: round(Math.sin(am) * rr + 6), name: GNAME(g), genre: g, size: cnt.get(g), tip: 1 };
   });
   return { xy, reg, regions, guides: {} };
-};
-
-// ---- band: the petals unrolled into a strip that loops sideways ----
-// Genres are columns across the strip, in the petals' circular order (so the last column leads back
-// into the first, and the map can wrap). Distance from the middle line = global popularity rank
-// (√ of rank, so the famous get room): every genre's most connected books line the centre, one-offs
-// fade to the top and bottom edges. Inside a column, sub-communities take neighbouring x ranges.
-const band = () => {
-  const { order, cnt, sub } = genrePrep(), counters = new Map();
-  const P = 2000, GAP = 16, Hh = 260;
-  const usable = P - GAP * order.length, col = new Map();
-  let x = -P / 2;
-  order.forEach((g) => { const w = usable * cnt.get(g) / N; col.set(g, [x + GAP / 2, x + GAP / 2 + w]); x += w + GAP; });
-  const xy = new Float64Array(2 * N), reg = new Array(N), gi = new Map(order.map((g, i) => [g, i]));
-  rank.forEach((i, j) => {
-    const [x0, x1] = col.get(genre[i]), [f0, fr, ck] = sub[i];
-    const m = counters.get(ck) || 0; counters.set(ck, m + 1);
-    const frac = f0 + fr * (0.06 + 0.88 * ((m * PHI + 0.5) % 1));
-    const yy = Hh * Math.sqrt((j + 0.5) / N) * (j % 2 ? 1 : -1);   // √: the famous get room, the one-offs compress
-    xy[2 * i] = x0 + (x1 - x0) * frac; xy[2 * i + 1] = yy; reg[i] = gi.get(genre[i]);
-  });
-  collide(xy, S * 0.6, 30);
-  const lines = [];
-  for (const [t, label] of [[50, '50+ links'], [20, '20+'], [10, '10+'], [5, '5+'], [2, '2+']]) {
-    const j = rank.findIndex((i) => deg[i] < t);
-    if (j > 0) lines.push({ y: round(Hh * Math.sqrt(j / N)), t: label });
-  }
-  const regions = order.map((g) => {
-    const [x0, x1] = col.get(g);
-    return { x: round((x0 + x1) / 2), y: 0, r: round((x1 - x0) / 2), lx: round((x0 + x1) / 2), ly: round(-Hh - 12), name: GNAME(g), genre: g, size: cnt.get(g) };
-  });
-  return { xy, reg, regions, guides: { band: { P, h: round(Hh), lines, cols: order.map((g) => round(col.get(g)[0] - GAP / 2)) } } };
 };
 
 // ---- wrap: one starfield on a surface whose edges join ----
@@ -365,9 +334,9 @@ const fame = () => {
 };
 
 const out = { keys, deg, layouts: {} };
-for (const [name, fn] of [['spiral', spiral], ['petals', petals], ['band', band], ['wrap', wrap], ['blend', blend], ['fame', fame]]) {
+for (const [name, fn] of [['spiral', spiral], ['petals', petals], ['wrap', wrap], ['blend', blend], ['fame', fame]]) {
   const L = fn();
-  if (name !== 'fame' && name !== 'band' && name !== 'wrap') centre(L.xy);
+  if (name !== 'fame' && name !== 'wrap') centre(L.xy);
   out.layouts[name] = { xy: Array.from(L.xy, Math.round), reg: L.reg, regions: L.regions, guides: L.guides };
 }
 writeFileSync(join(ROOT, 'layouts-data.js'),

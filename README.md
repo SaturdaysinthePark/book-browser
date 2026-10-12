@@ -27,7 +27,7 @@ vendored locally and the data loads via a classic script rather than an ES modul
 | `app.js` | The application: a small template compiler + the ported component logic + React mount |
 | `explorer.js` | The network **Explorer** (`?net=v2`): fan-to-fan navigation built on the book page's neighbourhood — lazy-loaded |
 | `network-regions.js` | "Reading neighbourhoods" for the Explorer's entry — **generated** by `npm run bj:regions` (Louvain) |
-| `layouts-data.js` | Point layouts for the `?v=lab` map variants (spiral, petals, band, wrap, blend, fame) — **generated** by `npm run bj:layouts` |
+| `layouts-data.js` | Point layouts for the `?v=lab` map variants (wrap, spiral, petals, blend, fame) — **generated** by `npm run bj:layouts` |
 | `atlas.js` | Canvas star-map renderer: the **Atlas** (`?net=v3`) and the Explorer+ mini-map / full view — lazy-loaded |
 | `atlas-data.js` | Atlas layout (books grouped by Louvain community) — **generated** by `npm run bj:atlas` |
 | `stars-data.js` | Star-map layout: every book in its genre "continent" (`?v=next`, Explorer+) — **generated** by `npm run bj:stars` |
@@ -61,8 +61,7 @@ vendored locally and the data loads via a classic script rather than an ES modul
   quote cards); "Zoom out" morphs the fan into the star map of every book (genre continents), and a star's
   "Open →" morphs back into its fan. Without the flag the site is unchanged; the pill bottom-left flips to Classic.
 - **`?v=lab`** — `?v=next` plus point-layout variants of the network map to compare (switch at the top right):
-  **Spiral** (most connected in the middle, spiralling out), **Petals** (the same, one wedge per genre), **Band** (the petals unrolled into an endlessly looping strip),
-  **Wrap** (one even starfield on a surface whose edges join, so you can pan forever),
+  **Spiral** (most connected in the middle, spiralling out), **Petals** (the same, one wedge per genre), **Wrap** (the default: one even starfield you can pan forever, with cursor gravity),
   **Blend** (a core of the 302 most connected with genre blobs around it), **Fame** (x = mentions, y = mentioned by,
   log scales) and **Stars** (the genre continents).
 - **About** — how the dataset works

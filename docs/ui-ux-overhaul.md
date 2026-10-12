@@ -121,10 +121,16 @@ the references and prompt patterns behind the decisions.
   - `tools/build-layouts.mjs` (`npm run bj:layouts` → `layouts-data.js`) lays out all 4,910 books four ways, all drawn by the same canvas renderer (`atlas.js`) as the star map:
     - **Spiral:** one sunflower spiral sorted by connections. The most connected sit at the centre and the one-off name-drops form the outer haze; guide rings mark 50+ / 20+ / 10+ / 5+ / 2+ links.
     - **Petals:** the same spiral, but each genre owns a wedge sized to it. A mixed heart of famous books sits in the centre and genres fan out as petals (names at the tips); inside a petal, books that mention each other take neighbouring angles.
-    - **Band:** the petals unrolled into a strip that **loops sideways forever**. Genres are columns in the petals' circular order, and distance from the middle line is popularity (√ of rank, so the famous get room). Scroll or drag to travel round; pinch, ⌘-scroll or +/− zooms.
     - **Wrap:** one starfield filling a surface whose edges join (left↔right and top↔bottom), so you can pan in any direction forever with each book drawn once.
       - The continents are only the starting arrangement. Every star then pushes its neighbours apart until the spacing is even (20 units), while mention links pull gently, so there are no blobs: genres become territories that blend at their borders, and the field fills the screen.
-    - Both use `atlas.js` `wrapX`/`wrapY`: each book is drawn at its copy nearest the camera, picking works across the seams, selection flies the short way round, and the view is never wider than one loop.
+      - **Friendlier reading (round 2):**
+        - Books with a single link (71%) draw as faint **dust**. It lights up near the cursor, when linked to the selected book, or once you zoom in.
+        - Only ~1% of stars twinkle, gently.
+        - **Cursor gravity** from the classic map: stars lean toward the mouse on a damped spring, and dust brightens as it leans in. It's off on touch, while dragging, with a selection, and under reduced motion.
+        - Bolder in/out lines with direction arrows.
+        - Titles keep a clear margin; genre names are bigger and fade as you zoom in; the genre tints are stronger.
+      - Wrap is the lab default. Band was removed (too structured).
+    - Wrap uses `atlas.js` `wrapX`/`wrapY`: each book is drawn at its copy nearest the camera, picking works across the seams, selection flies the short way round, and the view is never wider than one loop.
     - **Blend:** the 302 books with 10+ links form a sorted core; each genre's other books form a filled disc around it.
     - **Fame:** a binned chart. x = how many books it mentions, y = how many mention it, in bins 0 · 1 · 2 · 3–5 · 6–10 · 11–20 · 21–50 · 51+, with solid grid lines between them.
       - Every square is a **neighbourhood**: its books packed as one round cluster, most connected in the middle, with a tint and a count once it has 12+ books. Columns and rows are as wide as their biggest neighbourhood, and the very largest packs tighter.

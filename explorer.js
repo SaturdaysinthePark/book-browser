@@ -636,12 +636,13 @@
       if (!data) return;
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
         root: el, data: data,
-        regions: !lk || lk === 'petals' || lk === 'band' || lk === 'wrap' || lk === 'blend' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals' && lk !== 'band', bundle: lk === 'fame',
-        wrapX: data.guides && data.guides.band ? data.guides.band.P : data.guides && data.guides.torus ? data.guides.torus.P : 0,
+        regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'blend' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
+        wrapX: data.guides && data.guides.torus ? data.guides.torus.P : 0,
         wrapY: data.guides && data.guides.torus ? data.guides.torus.PY : 0,
-        regionZoom: lk !== 'band' && lk !== 'wrap',
+        regionZoom: lk !== 'wrap',
+        dust: lk === 'wrap', gravity: lk === 'wrap',
         regionColor: function (R) { return self.xGenreColor(R.genre); },
-        guides: data.guides && (data.guides.rings || data.guides.axes || data.guides.band) ? data.guides : null,
+        guides: data.guides && (data.guides.rings || data.guides.axes) ? data.guides : null,
         labelTop: lk ? (window.innerWidth < 760 ? 10 : 25) : 0,
         onFocus: function (k) { self.mapFocus(k); },
         topInset: function () {   // keep the framing clear of the search bar / switcher
@@ -668,11 +669,11 @@
     var nodes = D.keys.map(function (k, i) { return [k, L.xy[2 * i], L.xy[2 * i + 1], L.reg[i], D.deg[i]]; });
     return (this._layoutCache[lk] = { nodes: nodes, regions: L.regions, guides: L.guides });
   };
-  var LAB_VIEWS = [['spiral', 'Spiral'], ['petals', 'Petals'], ['band', 'Band'], ['wrap', 'Wrap'], ['blend', 'Blend'], ['fame', 'Fame'], ['stars', 'Stars']];
+  var LAB_VIEWS = [['wrap', 'Wrap'], ['spiral', 'Spiral'], ['petals', 'Petals'], ['blend', 'Blend'], ['fame', 'Fame'], ['stars', 'Stars']];
   P._labView = function () {
     var v = this.state.xView;
     if (!v) { try { v = sessionStorage.getItem('bj-lab'); } catch (e) {} }
-    return LAB_VIEWS.some(function (x) { return x[0] === v; }) ? v : 'petals';
+    return LAB_VIEWS.some(function (x) { return x[0] === v; }) ? v : 'wrap';
   };
   P.labSetView = function (v) {
     try { sessionStorage.setItem('bj-lab', v); } catch (e) {}
@@ -729,7 +730,7 @@
       h('div', { className: 'bjx-fkey' }, sel
         ? [h('span', { key: 'lo' }, h('i', { className: 'ln out' }), 'mentions'), h('span', { key: 'li' }, h('i', { className: 'ln in' }), 'mentioned by'),
           h('span', { key: 'u' }, h('i', { className: 'sw', style: { background: MISC_DOT } }), 'genre unknown'), h('span', { key: 'h', className: 'hint' }, 'Esc to clear')]
-        : h('span', { className: 'hint' }, lk === 'band' || lk === 'wrap' ? 'Scroll or drag to travel — it never ends · pinch or +/− to zoom · click a star' : 'Scroll or pinch to zoom · click a star')),
+        : h('span', { className: 'hint' }, lk === 'wrap' ? 'Scroll or drag to travel — it never ends · pinch or +/− to zoom · point to look closer · click a star' : 'Scroll or pinch to zoom · click a star')),
       card, extra || null);
   };
 

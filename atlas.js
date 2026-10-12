@@ -56,21 +56,29 @@
     //                        with a soft tint in regionColor(region) under the dots
     //   guides         { rings:[{r,t}] } concentric guide rings, or { axes } a chart frame (ticks, titles, captions)
     //   regionTint:false  no soft tint under continents (petals share one centre)
-    //   wrapX/wrapY    periods in world units: the map loops sideways (band) or both ways (wrap)
+    //   wrapX/wrapY    periods in world units: the map loops both ways (a surface whose edges join)
     //   regionZoom:false  clicks never zoom into a region
+    //   dust           books with a single link draw as faint dust (they light up near the cursor,
+    //                  when linked to the selection, or zoomed in)
+    //   gravity        stars lean toward the mouse on a damped spring (as the classic constellation)
     //   bundle         3+ links into one region draw as one thick line with a count (binned charts)
     //   labelTop       at overview, always label this many of the most connected books
     //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
     //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
     this.showRegions = o.regions !== false;
+    this.dust = !!o.dust;
+    this.grav = !!o.gravity && !this.reduced;
+    this.ox = new Float32Array(this.N); this.oy = new Float32Array(this.N);   // gravity offsets (screen px)
+    this.gvx = new Float32Array(this.N); this.gvy = new Float32Array(this.N);
+    this._gAct = new Set();
     this.P = o.wrapX || 0;   // horizontal period: the map repeats every P world units (infinite sideways pan)
     this.PY = o.wrapY || 0;  // vertical period (with wrapX: a surface whose edges join, pan any way forever)
     this.regionCircles = o.regionCircles !== false;
     this.mini = !!o.mini;
     if (o.colorOf) { this.col = []; for (i = 0; i < this.N; i++) this.col.push(o.colorOf(this.keys[i])); }
     if (o.twinkle) {
-      this.tw = new Float32Array(this.N);   // 0 = steady; otherwise a phase (about 1 star in 7)
-      for (i = 0; i < this.N; i++) { var hsh = Math.sin(i * 12.9898) * 43758.5453; hsh -= Math.floor(hsh); this.tw[i] = hsh < 0.15 ? 0.5 + hsh * 40 : 0; }
+      this.tw = new Float32Array(this.N);   // 0 = steady; otherwise an angular speed (about 1 star in 25, slow)
+      for (i = 0; i < this.N; i++) { var hsh = Math.sin(i * 12.9898) * 43758.5453; hsh -= Math.floor(hsh); this.tw[i] = hsh < 0.04 && !(o.dust && this.deg[i] <= 1) ? 1.6 + hsh * 55 : 0; }
     }
     this.canvas = document.createElement('canvas');
     this.canvas.className = 'atlas-canvas';
@@ -101,9 +109,9 @@
   P.sy = function (y) { return (y - this.cam.y) * this.cam.k + this.H / 2; };
   // wrapped maps: the copy of world x nearest the camera (the view is never wider than one period)
   P._wrap = function (x) { return this.P ? x + this.P * Math.round((this.cam.x - x) / this.P) : x; };
-  P._x = function (i) { return this._wrap(this.wx[i]); };
+  P._x = function (i) { return this._wrap(this.wx[i]) + this.ox[i] / this.cam.k; };
   P._wrapY = function (y) { return this.PY ? y + this.PY * Math.round((this.cam.y - y) / this.PY) : y; };
-  P._y = function (i) { return this._wrapY(this.wy[i]); };
+  P._y = function (i) { return this._wrapY(this.wy[i]) + this.oy[i] / this.cam.k; };
   // On phones the panel is a bottom sheet over the map; frame things in the visible area above it.
   P._inset = function () { return this.o.bottomInset ? Math.min(this.H * 0.6, this.o.bottomInset() || 0) : 0; };
   P._insetTop = function () { return this.o.topInset ? Math.min(this.H * 0.3, this.o.topInset() || 0) : 0; };
@@ -116,13 +124,6 @@
     if (this.P && this.PY) {   // a surface that wraps both ways: never show more than one period either way
       this.minK = Math.max(this.W / this.P, (this.H - ins) / this.PY);
       this._lookAt(this.cam.x || 0, this.cam.y || 0, this.minK * 1.25, anim);
-      return;
-    }
-    var BD = this.o.guides && this.o.guides.band;
-    if (BD) {   // a looping strip: fit its height; never wider than one period
-      var kb = Math.max(this.W / BD.P, (this.H - ins - 70) / (2 * BD.h + 40));
-      this.minK = this.W / BD.P;
-      this._lookAt(this.cam.x || 0, 0, kb, anim);
       return;
     }
     var A = this.o.guides && this.o.guides.axes;
@@ -219,13 +220,13 @@
     return best.i;
   };
   P._pickAt = function (wx, wy, tol) {
-    var rad = (tol + 9) / this.cam.k, c = this.cell, best = -1, bd = 1e9;
+    var rad = (tol + 9 + (this.grav ? 50 : 0)) / this.cam.k, c = this.cell, best = -1, bd = 1e9;
     for (var gx = Math.floor((wx - rad) / c); gx <= Math.floor((wx + rad) / c); gx++) {
       for (var gy = Math.floor((wy - rad) / c); gy <= Math.floor((wy + rad) / c); gy++) {
         var list = this.grid[gx + ',' + gy];
         if (!list) continue;
         for (var j = 0; j < list.length; j++) {
-          var i = list[j], d = Math.hypot(this.wx[i] - wx, this.wy[i] - wy) * this.cam.k;
+          var i = list[j], d = Math.hypot(this.wx[i] + this.ox[i] / this.cam.k - wx, this.wy[i] + this.oy[i] / this.cam.k - wy) * this.cam.k;
           if (d < this._r(i) + tol && d < bd) { bd = d; best = i; }
         }
       }
@@ -241,11 +242,20 @@
     return -1;
   };
 
-  // dot radius: grows gently with connections and with zoom
-  P._r = function (i) {
+  // dot radius: grows gently with connections and with zoom (dust is smaller unless `full`)
+  P._r = function (i, full) {
     var z = Math.sqrt(Math.max(0.15, this.cam.k));
     if (this.mini) return Math.max(0.9, Math.min(5, (0.7 + Math.sqrt(this.deg[i]) * 0.35) * z * 1.4));
-    return Math.max(1.3, Math.min(11, (0.9 + Math.sqrt(this.deg[i]) * 0.55) * z * 1.6));
+    var r = Math.max(1.3, Math.min(11, (0.9 + Math.sqrt(this.deg[i]) * 0.55) * z * 1.6));
+    return this.dust && this.deg[i] <= 1 && !full && this.cam.k < this._dustK() ? Math.max(1, r * 0.62) : r;
+  };
+  // zoomed in past this, dust is drawn as ordinary dots (there's room to read everything)
+  P._dustK = function () { return (this.minK || 0.05) / 0.8 * 1.6; };
+  // 0 (far) → 1 (at the cursor): how much a star is lit by the mouse's gravity well
+  P._glow = function (sx, sy) {
+    var C = this._cur; if (!C || !this.grav) return 0;
+    var d = Math.hypot(sx - C[0], sy - C[1]);
+    return d < 150 ? 1 - d / 150 : 0;
   };
 
   // ---- drawing ---------------------------------------------------------------------------
@@ -274,7 +284,8 @@
       sx = this.sx(this._wrap(R.x)); sy = this.sy(this._wrapY(R.y)); sr = R.r * k * 1.08;
       if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
       var tc = this.o.regionColor(R), gr = c.createRadialGradient(sx, sy, 0, sx, sy, sr);
-      gr.addColorStop(0, hexA(tc, 0.075)); gr.addColorStop(0.7, hexA(tc, 0.04)); gr.addColorStop(1, hexA(tc, 0));
+      var tA = this.dust ? 0.11 : 0.075;
+      gr.addColorStop(0, hexA(tc, tA)); gr.addColorStop(0.7, hexA(tc, tA * 0.55)); gr.addColorStop(1, hexA(tc, 0));
       c.fillStyle = gr; c.beginPath(); c.arc(sx, sy, sr, 0, 6.2832); c.fill();
     }
     for (r = 0; this.showRegions && this.regionCircles && r < this.regions.length; r++) {
@@ -294,14 +305,19 @@
       sx = this.sx(this._x(i)); sy = this.sy(this._y(i));
       if (sx < -12 || sx > W + 12 || sy < -12 || sy > H + 12) continue;
       R = this.regions[this.reg[i]];
-      var rad = this._r(i), on = focus < 0 || i === focus || (nb && nb[i]);
-      var a = on ? 1 : (this.mini ? 0.22 : this.col ? 0.3 : 0.13);
-      if (this.tw && this.tw[i] && !this.reduced) a *= 0.55 + 0.45 * Math.sin(now * this.tw[i] + i);
+      var linked = i === focus || (nb && nb[i]), on = focus < 0 || linked;
+      // dust: single-link books stay faint unless lit (linked to the selection, near the cursor, zoomed in)
+      var isDust = this.dust && this.deg[i] <= 1 && !linked && k < this._dustK(), glow = this.dust && this.deg[i] <= 4 ? this._glow(sx, sy) : 0;
+      var rad = this._r(i, !isDust);
+      var a = on ? 1 : (this.mini ? 0.22 : this.col ? 0.2 : 0.13);
+      if (on && this.dust && focus < 0) a = isDust ? 0.34 + 0.66 * glow : this.deg[i] <= 4 ? 0.8 + 0.2 * glow : 1;
+      if (isDust && glow > 0) rad *= 1 + 0.6 * glow;
+      if (this.tw && this.tw[i] && !this.reduced && !linked) a *= 0.75 + 0.25 * Math.sin(now * this.tw[i] + i);
       c.globalAlpha = a;
       c.beginPath(); c.arc(sx, sy, rad, 0, 6.2832);
       c.fillStyle = this.col ? this.col[i] : R.name ? hexA(PAL[this.reg[i] % PAL.length], 0.8) : 'rgba(110,104,92,0.6)';
       c.fill();
-      if (rad > 3.2) { c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.55)'; c.stroke(); }
+      if (rad > 3.2 && !isDust) { c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.55)'; c.stroke(); }
     }
     c.globalAlpha = 1;
 
@@ -325,7 +341,7 @@
         lines.push({ j: -1, kind: G2.kind, tx: rcx + ddx / dd * rr, ty: rcy + ddy / dd * rr, n: G2.ids.length });
       }
       var ne = lines.length;
-      var thin = this.o.flow ? Math.max(0.4, Math.min(1, 36 / ne)) : 1;   // big hubs: quieter lines
+      var thin = this.o.flow ? Math.max(0.6, Math.min(1, 36 / ne)) : 1;   // big hubs: quieter lines
       var badges = [];
       for (var li0 = 0; li0 < lines.length; li0++) {
         var LN = lines[li0], j = LN.j, kind = LN.kind;
@@ -335,14 +351,14 @@
         var cx2 = mx - dy * 0.18, cy2 = my + dx * 0.18;
         var hot = j === hover && focus >= 0;
         c.strokeStyle = kind === 'out' ? OUT : kind === 'in' ? IN : INK;
-        c.globalAlpha = (focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.25 : 0.75) : 0.45) * (hot ? 1 : thin);
-        c.lineWidth = hot ? 2.6 : LN.n ? Math.min(7, 1.4 + Math.sqrt(LN.n) * 0.7) : focus >= 0 ? 1.4 : 1;
+        c.globalAlpha = (focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.3 : 0.9) : 0.55) * (hot ? 1 : thin);
+        c.lineWidth = hot ? 3.2 : LN.n ? Math.min(8, 2.2 + Math.sqrt(LN.n) * 0.7) : focus >= 0 ? 2.2 : 1.3;
         if (LN.n) c.globalAlpha = Math.max(c.globalAlpha, 0.7);
         // Flow (after the reveal): dashes travel in the mention's direction — out from the book for
         // books it mentions, in toward it for books that mention it. Mutual stays solid.
         var flowing = this.o.flow && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
         var rev = flowing && kind === 'in';
-        if (flowing) { c.setLineDash([6, 7]); c.lineDashOffset = -((now * 26) % 13); }
+        if (flowing) { c.setLineDash([8, 6]); c.lineDashOffset = -((now * 18) % 14); }
         c.beginPath();
         // draw-in: grow along the curve during the focus reveal
         var steps = 18, upto = Math.max(1, Math.round(steps * ease));
@@ -353,6 +369,18 @@
         }
         c.stroke();
         if (flowing) c.setLineDash([]);
+        // arrowhead at the curve's midpoint, pointing the way the mention goes (mutual: none)
+        if (focus >= 0 && ip >= 1 && kind !== 'both') {
+          var t1 = 0.5, t2 = 0.56, m1 = 1 - t1, m2 = 1 - t2;
+          var ax1 = m1 * m1 * hx + 2 * m1 * t1 * cx2 + t1 * t1 * tx, ay1 = m1 * m1 * hy + 2 * m1 * t1 * cy2 + t1 * t1 * ty;
+          var ax2 = m2 * m2 * hx + 2 * m2 * t2 * cx2 + t2 * t2 * tx, ay2 = m2 * m2 * hy + 2 * m2 * t2 * cy2 + t2 * t2 * ty;
+          var ang = Math.atan2(ay2 - ay1, ax2 - ax1) + (kind === 'in' ? Math.PI : 0), AS = hot ? 9 : 7;
+          c.fillStyle = c.strokeStyle; c.beginPath();
+          c.moveTo(ax1 + Math.cos(ang) * AS, ay1 + Math.sin(ang) * AS);
+          c.lineTo(ax1 + Math.cos(ang + 2.5) * AS, ay1 + Math.sin(ang + 2.5) * AS);
+          c.lineTo(ax1 + Math.cos(ang - 2.5) * AS, ay1 + Math.sin(ang - 2.5) * AS);
+          c.fill();
+        }
       }
       c.globalAlpha = 1;
       // counts where bundled lines meet their neighbourhood
@@ -371,13 +399,14 @@
 
     // labels: focused book, its neighbours (by connections), then hubs/regions with whatever room is left
     c.textBaseline = 'alphabetic';
-    var labelNode = function (self2, i2, size, weight, color, bg) {
+    var labelNode = function (self2, i2, size, weight, color, bg, pad) {
       var tl = self2.o.title(self2.keys[i2]); if (!tl) return;
       if (tl.length > 34) tl = tl.slice(0, 32) + '…';
       c.font = 'italic ' + weight + ' ' + size + 'px ' + SERIF;
       var tw = c.measureText(tl).width, x0 = self2.sx(self2._x(i2)), y0 = self2.sy(self2._y(i2)) - self2._r(i2) - 5;
       if (x0 < -40 || x0 > W + 40 || y0 < -10 || y0 > H + 20) return;
-      if (!tryPlace(x0 - tw / 2 - 4, y0 - size, tw + 8, size + 5)) return;
+      pad = pad || 0;   // keep-clear margin, so titles don't pack into a wall
+      if (!tryPlace(x0 - tw / 2 - 4 - pad, y0 - size - pad * 0.6, tw + 8 + pad * 2, size + 5 + pad * 1.2)) return;
       c.fillStyle = bg; c.fillRect(x0 - tw / 2 - 3, y0 - size + 1, tw + 6, size + 3);
       c.fillStyle = color; c.textAlign = 'center'; c.fillText(tl, x0, y0);
     };
@@ -411,13 +440,16 @@
       if (sr < 34 || (focus >= 0 && !cont)) continue;
       sx = this.sx(this._wrap(R.lx != null ? R.lx : R.x)); sy = R.ly != null ? this.sy(this._wrapY(R.ly)) - 9 : this.sy(this._wrapY(R.y)) - sr - 6;
       if (sx < -100 || sx > W + 100 || sy < 0 || sy > H + 20) continue;
-      var fs = Math.max(13, Math.min(22, sr / 7));
+      var fs = this.dust ? Math.max(17, Math.min(30, sr / 4.5)) : Math.max(13, Math.min(22, sr / 7));
+      // starfield: genre names fade out once zoomed in (titles take over)
+      var zf = this.dust ? k / ((this.minK || 0.05) * 1.25) : 1, nameA = zf < 2 ? 1 : Math.max(0, 1 - (zf - 2) * 1.2);
+      if (nameA < 0.05) continue;
       c.font = fs + 'px ' + SERIF;
       var nm = R.name.replace(/^Around /, ''), tw2 = c.measureText(nm).width;   // the panel keeps "Around …"; the map just names the hub
       if (!tryPlace(sx - tw2 / 2 - 4, sy - fs, tw2 + 8, fs + 6)) continue;
-      c.globalAlpha = cont && focus >= 0 ? 0.55 : 1;
+      c.globalAlpha = (cont && focus >= 0 ? 0.55 : this.dust ? 0.9 : 1) * nameA;
       if (!cont) { c.fillStyle = 'rgba(247,245,240,0.85)'; c.fillRect(sx - tw2 / 2 - 4, sy - fs + 1, tw2 + 8, fs + 4); }
-      if (cont) { c.lineJoin = 'round'; c.lineWidth = 4; c.strokeStyle = 'rgba(247,245,240,0.9)'; c.strokeText(nm, sx, sy); }
+      if (cont) { c.lineJoin = 'round'; c.lineWidth = this.dust ? 5 : 4; c.strokeStyle = 'rgba(247,245,240,0.9)'; c.strokeText(nm, sx, sy); }
       c.fillStyle = this.o.regionColor ? this.o.regionColor(R) : INK; c.fillText(nm, sx, sy);
       c.globalAlpha = 1;
       if (sr > 120) {
@@ -433,7 +465,7 @@
         var ni = this.order[oi];
         if (this.deg[ni] < 3 && k < 1.6 && !this.o.labelTop) break;
         var before = placed.length;
-        labelNode(this, ni, k > 1.6 ? 13 : 12, 600, 'rgba(20,20,20,0.82)', 'rgba(247,245,240,0.85)');
+        labelNode(this, ni, k > 1.6 ? 13 : 12, 600, 'rgba(20,20,20,0.82)', 'rgba(247,245,240,0.85)', this.dust ? 24 : 0);
         if (placed.length > before) shown++;
       }
     }
@@ -448,24 +480,6 @@
       c.setLineDash([3, 6]); c.beginPath(); c.arc(ox, oy, r, 0, 6.2832); c.stroke(); c.setLineDash([]);
       if (r > 30) { c.textAlign = 'center'; c.fillStyle = 'rgba(247,245,240,0.9)'; var tw = c.measureText(R.t).width; c.fillRect(ox - tw / 2 - 4, oy - r - 8, tw + 8, 15); c.fillStyle = 'rgba(20,20,20,0.55)'; c.fillText(R.t, ox, oy - r + 3); }
     });
-    var BD = G.band;
-    if (BD) {
-      var Wd = this.W, top = this.sy(-BD.h - 4), bot = this.sy(BD.h + 4);
-      c.strokeStyle = 'rgba(20,20,20,0.12)'; c.lineWidth = 1;
-      BD.cols.forEach(function (x0) {   // genre column separators, every copy on screen
-        for (var xx = self._wrap(x0) - self.P; xx <= self._wrap(x0) + self.P; xx += self.P) { var px = self.sx(xx); if (px < -2 || px > Wd + 2) continue; c.beginPath(); c.moveTo(px, top); c.lineTo(px, bot); c.stroke(); }
-      });
-      c.setLineDash([2, 6]); c.strokeStyle = 'rgba(20,20,20,0.2)';
-      c.beginPath(); c.moveTo(0, this.sy(0)); c.lineTo(Wd, this.sy(0)); c.stroke();
-      c.strokeStyle = 'rgba(20,20,20,0.12)';
-      var lastLbl = -1e9;
-      BD.lines.slice().reverse().forEach(function (L) {   // outermost first, so labels never pile up at the middle
-        [-1, 1].forEach(function (sg) { var py = self.sy(sg * L.y); c.beginPath(); c.moveTo(0, py); c.lineTo(Wd, py); c.stroke(); });
-        var py2 = self.sy(-L.y);
-        if (py2 - lastLbl >= 16 && self.sy(0) - py2 >= 9) { lastLbl = py2; c.textAlign = 'left'; c.fillStyle = 'rgba(247,245,240,0.9)'; var tw = c.measureText(L.t).width; c.fillRect(8, py2 - 7, tw + 8, 14); c.fillStyle = 'rgba(20,20,20,0.55)'; c.fillText(L.t, 12, py2 + 4); }
-      });
-      c.setLineDash([]);
-    }
     var A = G.axes;
     if (A) {
       var X = function (x) { return self.sx(x); }, Y = function (y) { return self.sy(y); };
@@ -520,17 +534,57 @@
   // ---- input -----------------------------------------------------------------------------
   // One light loop for ambient motion: flowing focus lines (~30fps) and twinkle (~15fps). It only
   // runs while the canvas is on screen, the tab is visible and motion is allowed.
+  // Cursor gravity (from the classic constellation): each star near the mouse sits on a damped
+  // spring pulled toward the pointer inside a smooth well (zero force at the rim and at the cursor),
+  // then settles back with a little overshoot. Simulated in screen px, only for stars in the well
+  // or still settling. Off while dragging, with a book selected, on touch, and under reduced motion.
+  P._gravStep = function (dt) {
+    var R = 150, KS = 90, KD = 14, KC = 30, k = this.cam.k, act = this._gAct, self = this;
+    var cur = this._cur && this.focus < 0 && !this._dragging ? this._cur : null;
+    if (cur) {   // add the stars inside the well (all wrapped copies of the cursor's world spot)
+      var wx = (cur[0] - this.W / 2) / k + this.cam.x, wy = (cur[1] - this.H / 2) / k + this.cam.y, rad = R / k + 2, c = this.cell;
+      var xs = this.P ? [-1, 0, 1].map(function (n) { return wx - self.P * Math.round(wx / self.P) + n * self.P; }) : [wx];
+      var ys = this.PY ? [-1, 0, 1].map(function (n) { return wy - self.PY * Math.round(wy / self.PY) + n * self.PY; }) : [wy];
+      xs.forEach(function (cx) { ys.forEach(function (cy) {
+        for (var gx = Math.floor((cx - rad) / c); gx <= Math.floor((cx + rad) / c); gx++)
+          for (var gy = Math.floor((cy - rad) / c); gy <= Math.floor((cy + rad) / c); gy++) {
+            var list = self.grid[gx + ',' + gy]; if (list) for (var j = 0; j < list.length; j++) act.add(list[j]);
+          }
+      }); });
+    }
+    var ox = this.ox, oy = this.oy, vx = this.gvx, vy = this.gvy;
+    act.forEach(function (i) {
+      var px = ox[i], py = oy[i], pvx = vx[i], pvy = vy[i];
+      var ax = -KS * px - KD * pvx, ay = -KS * py - KD * pvy, inWell = false;
+      if (cur) {
+        var bx = self.sx(self._wrap(self.wx[i])) + px, by = self.sy(self._wrapY(self.wy[i])) + py;
+        var dx = cur[0] - bx, dy = cur[1] - by, d = Math.hypot(dx, dy);
+        if (d < R) { var fall = 1 - d / R; ax += dx * KC * fall; ay += dy * KC * fall; inWell = true; }
+      }
+      pvx += ax * dt; pvy += ay * dt; px += pvx * dt; py += pvy * dt;
+      if (!inWell && px * px + py * py < 0.01 && pvx * pvx + pvy * pvy < 0.01) { px = py = pvx = pvy = 0; act.delete(i); }
+      ox[i] = px; oy[i] = py; vx[i] = pvx; vy[i] = pvy;
+    });
+    return act.size > 0 || !!cur;
+  };
   P._startTick = function () {
-    if (this.reduced || (!this.o.flow && !this.o.twinkle)) return;
+    if (this.reduced || (!this.o.flow && !this.o.twinkle && !this.grav)) return;
     var self = this, last = 0;
     this._vis = true;
     if (typeof IntersectionObserver !== 'undefined') {
       this._io = new IntersectionObserver(function (es) { self._vis = es[0].isIntersecting; });
       this._io.observe(this.canvas);
     }
+    var lastG = 0;
     var tick = function (t) {
       self._tk = requestAnimationFrame(tick);
       if (!self._vis || document.hidden) return;
+      if (self.grav && (self._cur || self._gAct.size)) {   // gravity runs at full frame rate while active
+        var dt = lastG ? Math.min(0.048, (t - lastG) / 1000) : 0.016; lastG = t;
+        self._gravStep(dt); self._draw(); last = t;
+        return;
+      }
+      lastG = 0;
       var flowing = self.o.flow && self.focus >= 0;
       var every = flowing ? 33 : self.o.twinkle ? 66 : 0;
       if (!every || t - last < every) return;
@@ -554,10 +608,9 @@
     var local = function (e) { var r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
     this._onWheel = function (e) {
       e.preventDefault();
-      if (self.P && !e.ctrlKey && !e.metaKey) {   // wrapped maps: scrolling travels (pinch / ⌘-scroll zooms)
+      if (self.P && self.PY && !e.ctrlKey && !e.metaKey) {   // wrapped surface: scrolling travels (pinch / ⌘-scroll zooms)
         var u = (e.deltaMode === 1 ? 16 : 1) / self.cam.k;
-        if (self.PY) { self.cam.x += e.deltaX * u; self.cam.y += e.deltaY * u; }
-        else self.cam.x += (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) * u;
+        self.cam.x += e.deltaX * u; self.cam.y += e.deltaY * u;
         self.draw();
         return;
       }
@@ -583,10 +636,11 @@
       if (down) {
         var dx = p[0] - down.p[0], dy = p[1] - down.p[1];
         if (Math.abs(dx) + Math.abs(dy) > 5) down.moved = true;
-        if (down.moved) { self.cam.x = down.cam.x - dx / self.cam.k; self.cam.y = down.cam.y - dy / self.cam.k; self.host.setAttribute('data-drag', '1'); self.draw(); }
+        if (down.moved) { self._dragging = true; self.cam.x = down.cam.x - dx / self.cam.k; self.cam.y = down.cam.y - dy / self.cam.k; self.host.setAttribute('data-drag', '1'); self.draw(); }
         return;
       }
       if (e.pointerType === 'mouse') {
+        if (self.grav) self._cur = p;
         var hv = self.pick(p[0], p[1], 4);
         if (hv !== self.hover) {
           self.hover = hv; cv.style.cursor = hv >= 0 ? 'pointer' : 'grab';
@@ -596,6 +650,7 @@
       }
     };
     this._onUp = function (e) {
+      self._dragging = false;
       delete pts[e.pointerId];
       if (Object.keys(pts).length < 2) self._pinch = null;
       self.host.removeAttribute('data-drag');
@@ -611,7 +666,7 @@
       if (self.focus >= 0) { self.o.onFocus(null); return; }   // empty space steps back out of a focus
       if (small) self.flyToRegion(ri);
     };
-    this._onLeave = function () { if (self.hover >= 0) { self.hover = -1; if (self.o.onHover) self.o.onHover(null); self.draw(); } };
+    this._onLeave = function () { self._cur = null; if (self.hover >= 0) { self.hover = -1; if (self.o.onHover) self.o.onHover(null); self.draw(); } };
     this._onKey = function (e) {
       if (e.key === 'Escape' && self.focus >= 0) self.o.onFocus(null);
     };
