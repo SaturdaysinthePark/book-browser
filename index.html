@@ -705,6 +705,9 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .bjx-stage.landed .ng-e,.bkp-shelves.landed .ng-e{animation:none !important;opacity:1;stroke-dashoffset:0;}
 .bjx-stage.landed .bjx-eg{transition:opacity .35s ease;}
 .bjx-mclone{z-index:1;}
+.bjx-mdot{position:fixed;z-index:2;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(20,20,20,.25);pointer-events:none;}
+.bjx-mlines{z-index:0;overflow:visible;pointer-events:none;}
+.bjx-mlines .ng-e,.bjx-mlines .ng-flow{animation:none !important;opacity:1;stroke-dashoffset:0;}
 
 /* Map / Explorer switcher (only with ?net=) */
 .net-switch{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 12px;background:rgba(29,27,24,.9);border:1px solid rgba(242,236,221,.3);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,221,.7);}

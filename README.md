@@ -47,7 +47,7 @@ vendored locally and the data loads via a classic script rather than an ES modul
 ## Screens
 
 - **Home** — an endless, scrollable wall of covers on doodled graph paper behind the hero + search
-  (`?home=a` default · `?home=b` 2D canvas · `?home=c` shelf rows · `?home=classic` the static wall;
+  (`?home=b` 2D canvas, pan any direction — the default · `?home=a` endless shelf · `?home=c` shelf rows · `?home=classic` the static wall;
   `?wall=dark` for the charcoal wall). See `docs/ui-ux-overhaul.md`.
 - **Book** — the book in the middle of its fan (books that mention it flow in, books it mentions flow
   out), a side panel (mini-map, cover, author, synopsis), and every mention as quote cards ("Mentions" /

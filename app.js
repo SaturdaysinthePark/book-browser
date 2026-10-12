@@ -1129,9 +1129,11 @@
           var tw = self._measure(txt, FONT) + 18 + ex;
           var sx = cx + side * cw / 2, sy = cy;
           var c1 = sx + side * 46, c2 = x - side * 46;
+          // o.touch: lines run right up to the pill's edge (the pill starts 10px past x) instead of a dot at x
+          var xin = o.touch ? x + side * 10 : x, xout = o.touch ? x + side * 8.5 : x - side * 3;
           var d = it.k === 'in'
-            ? 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + ' C' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + c1.toFixed(1) + ' ' + sy + ' ' + (sx - 3).toFixed(1) + ' ' + sy
-            : 'M' + sx.toFixed(1) + ' ' + sy + ' C' + c1.toFixed(1) + ' ' + sy + ' ' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + (x - side * 3).toFixed(1) + ' ' + y.toFixed(1);
+            ? 'M' + xin.toFixed(1) + ' ' + y.toFixed(1) + ' C' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + c1.toFixed(1) + ' ' + sy + ' ' + (sx - 3).toFixed(1) + ' ' + sy
+            : 'M' + sx.toFixed(1) + ' ' + sy + ' C' + c1.toFixed(1) + ' ' + sy + ' ' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + xout.toFixed(1) + ' ' + y.toFixed(1);
           items.push({ it: it, x: x, y: y, d: it.more ? null : d, txt: txt,
             px: side > 0 ? x + 10 : x - 10 - tw, tw: tw, tx: side > 0 ? x + 19 : x - 19, anchor: side > 0 ? 'start' : 'end', i: i++ });
         });
@@ -1372,7 +1374,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=10', 'explorer.js?v=13'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=10', 'explorer.js?v=14'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1409,7 +1411,7 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=10', 'stars-data.js?v=2', 'explorer.js?v=13'] : ['network-regions.js?v=1', 'explorer.js?v=13'];
+    var srcs = this._xLive() ? ['atlas.js?v=10', 'stars-data.js?v=2', 'explorer.js?v=14'] : ['network-regions.js?v=1', 'explorer.js?v=14'];
     if (this._vLab()) srcs.push('layouts-data.js?v=7');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
@@ -1427,8 +1429,9 @@
     try { v = new URLSearchParams(location.search).get('home'); } catch (e) {}
     this._hvCompare = v != null && v !== '';     // an explicit ?home= shows the variant switcher
     try { this._wallDark = new URLSearchParams(location.search).get('wall') === 'dark'; } catch (e) {}
-    // Variant A ("endless shelf") is the default home; ?home=classic restores the static wall.
-    if (v == null || v === '') v = 'a';
+    // Variant B (the infinite canvas you can pan in any direction) is the default home;
+    // ?home=a is the endless shelf, ?home=c the shelf rows, ?home=classic the static wall.
+    if (v == null || v === '') v = 'b';
     this._hv = (v === 'a' || v === 'b' || v === 'c') && window.BJHomeWall ? v : null;
     return this._hv;
   };

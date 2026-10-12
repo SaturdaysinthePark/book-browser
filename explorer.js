@@ -118,7 +118,7 @@
     };
     var cap = st.xAll === b.id ? 80 : Math.max(5, Math.min(16, Math.floor((availH - 90) / 38)));
     var lay = this.fanLayout(b, W, {
-      cap: cap, font: FONT, cfont: "italic 22px 'Instrument Serif', serif", ph: 30, row: 38, ch: 42, extra: extra,
+      cap: cap, font: FONT, cfont: "italic 22px 'Instrument Serif', serif", ph: 30, row: 38, ch: 42, extra: extra, touch: self._vNext(),
       gap: function (w) { return Math.max(120, Math.min(w * 0.17, 240)); }
     });
     if (lay.empty) return h('div', { className: 'bjx-empty' }, 'No connections logged for ' + b.title + ' yet.');
@@ -805,14 +805,15 @@
     var fr = fan.getBoundingClientRect();
     var at = function (el) { return { left: fr.left + el.offsetLeft, top: fr.top + el.offsetTop, width: el.offsetWidth, height: el.offsetHeight }; };
     var c = fan.querySelector('.bjx-center');
-    if (c) out.push({ id: this._xCur(), r: at(c), center: true, t: c.textContent, el: c });
+    if (c) { var cr0 = at(c); out.push({ id: this._xCur(), r: cr0, center: true, t: c.textContent, el: c, dot: { left: cr0.left + cr0.width / 2 - 6, top: cr0.top + cr0.height / 2 - 6, width: 12, height: 12 } }); }
     [].forEach.call(fan.querySelectorAll('.bjx-pill[data-id]'), function (el) {
       var id = el.getAttribute('data-id');
       if (!id || !self.books[id]) return;
       var r = at(el);
       if (r.top + r.height < 0 || r.top > window.innerHeight) return;
       var t = el.querySelector('.t');
-      out.push({ id: id, r: r, t: t ? t.textContent : '', el: el });
+      var gd = el.querySelector('.gdot');   // offsets within the pill: unaffected by its entrance transform
+      out.push({ id: id, r: r, t: t ? t.textContent : '', el: el, dot: gd ? { left: r.left + gd.offsetLeft, top: r.top + gd.offsetTop, width: gd.offsetWidth, height: gd.offsetHeight } : null });
     });
     return out;
   };
@@ -853,6 +854,23 @@
   };
 
   // Book → map: each pill flies to its star and shrinks into the dot while the map fades in around it.
+  // A genre-colour dot in the morph layer (the star, on its way to / from its pill's dot).
+  P._xDot = function (L, col) {
+    var d = document.createElement('i');
+    d.className = 'bjx-mdot'; d.style.background = col;
+    L.appendChild(d);
+    return d;
+  };
+  // The pill clipped to a circle around its dot: radius 0 = only the dot, full = the whole pill.
+  var dotClip = function (it, rad) {
+    var ox = it.dot.left + it.dot.width / 2 - it.r.left, oy = it.dot.top + it.dot.height / 2 - it.r.top;
+    return 'circle(' + rad.toFixed(1) + 'px at ' + ox.toFixed(1) + 'px ' + oy.toFixed(1) + 'px)';
+  };
+  var fullR = function (it) {
+    var ox = it.dot.left + it.dot.width / 2 - it.r.left, oy = it.dot.top + it.dot.height / 2 - it.r.top;
+    return Math.hypot(Math.max(ox, it.r.width - ox), Math.max(oy, it.r.height - oy)) + 3;
+  };
+  var centreOf = function (b) { return { left: b.left + b.width / 2, top: b.top + b.height / 2, width: 0, height: 0 }; };
   P.xZoomOut = function (id) {
     id = id || this._xCur();
     if (!id || !this.books[id]) return;
@@ -860,34 +878,54 @@
     if (this.state.xView) this.setState({ xView: null });   // zooming out lands on the Network view
     if (reducedMotion() || document.hidden || !window.ReactDOM || !document.querySelector('.bjx-fan, .bkp-shelves') || this._xMorphing) { this.navigate(route, hash); return; }
     var items = this._xPillSnap(), L = this._xMorphLayer();
+    // the fan's lines fade out instead of vanishing
+    var svg0 = document.querySelector('.bjx-fan > svg, .bkp-shelves > svg.bkp-lines');
+    if (svg0) {
+      var sr0 = svg0.getBoundingClientRect(), sc = svg0.cloneNode(true);
+      sc.setAttribute('class', (svg0.getAttribute('class') || '') + ' bjx-mlines');
+      Object.assign(sc.style, box(sr0), { position: 'fixed' });
+      L.appendChild(sc);
+      sc.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 300, easing: 'ease-out', fill: 'forwards' });
+    }
     var chips = items.map(function (it) { var c = self._xChip(L, it); Object.assign(c.style, box(it.r)); return c; });
+    var dots = items.map(function (it) { return it.dot ? self._xDot(L, self.xGenreColor(self.xGenreKey(it.id))) : null; });
     this._xMorphing = true;
     this._xSwapRoute(route, hash);
     var m = this._stars;
     if (!m) { L.remove(); this._xMorphing = false; return; }
     if (m.focus < 0 || m.keys[m.focus] !== id) m.setFocus(id, false);
-    m.canvas.animate([{ opacity: 0, transform: 'scale(1.035)' }, { opacity: 1, transform: 'none' }], { duration: 560, delay: 160, easing: EASE, fill: 'backwards' });
-    var chrome = document.querySelectorAll('.bjx-stars .bjx-fbar, .bjx-stars .bjx-flegend, .bjx-stars .bjx-fcard');
-    [].forEach.call(chrome, function (el) { el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: 480, fill: 'backwards' }); });
-    var D = 620;
+    m.canvas.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 520, delay: 220, easing: EASE, fill: 'backwards' });
+    var chrome = document.querySelectorAll('.bjx-stars .bjx-fbar, .bjx-stars .lab-switch, .bjx-stars .bjx-fkey, .bjx-stars .bjx-fcard');
+    [].forEach.call(chrome, function (el) { el.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 300, delay: 560, fill: 'backwards' }); });
+    var SH = 260, D = 640, last = 0;
     items.forEach(function (it, j) {
-      var to = self._xStarPt(m, it.id), c = chips[j], col = self.xGenreColor(self.xGenreKey(it.id));
-      if (!to) { c.animate([{ opacity: 1 }, { opacity: 0, transform: 'scale(.7)' }], { duration: 280, fill: 'forwards' }); return; }
-      var lk = it.look || {}, dl = Math.min(j, 24) * 10;
-      [].forEach.call(c.children, function (k) { k.animate([{ opacity: 1 }, { opacity: 0, offset: 0.3 }, { opacity: 0 }], { duration: D, delay: dl, fill: 'forwards' }); });
-      c.animate([
-        Object.assign({ borderRadius: lk.radius || '999px', backgroundColor: lk.bg || '#fdfcfa', borderWidth: lk.border || '1.4px' }, box(it.r)),
-        { backgroundColor: col, offset: 0.45 },
-        Object.assign({ borderRadius: '50%', backgroundColor: col, borderWidth: '1px' }, box(to))
-      ], { duration: D, delay: dl, easing: EASE, fill: 'forwards' });
+      var to = self._xStarPt(m, it.id), c = chips[j], col = self.xGenreColor(self.xGenreKey(it.id)), dl = Math.min(j, 24) * 9;
+      last = Math.max(last, dl);
+      if (!it.dot) {   // covers (phone shelves): the old shape morph
+        var lk = it.look || {};
+        if (!to) { c.animate([{ opacity: 1 }, { opacity: 0, transform: 'scale(.7)' }], { duration: 280, fill: 'forwards' }); return; }
+        [].forEach.call(c.children, function (k) { k.animate([{ opacity: 1 }, { opacity: 0, offset: 0.3 }, { opacity: 0 }], { duration: D, delay: dl, fill: 'forwards' }); });
+        c.animate([Object.assign({ borderRadius: lk.radius || '4px', backgroundColor: lk.bg || col }, box(it.r)), Object.assign({ borderRadius: '50%', backgroundColor: col }, box(to))],
+          { duration: D, delay: dl, easing: EASE, fill: 'forwards' });
+        return;
+      }
+      // 1) the pill folds into its dot, 2) the dot flies to its star
+      var d = dots[j];
+      Object.assign(d.style, box(it.dot));
+      if (it.center) d.style.opacity = '0';
+      c.animate([{ clipPath: dotClip(it, fullR(it)) }, { clipPath: dotClip(it, 0) }], { duration: SH, delay: dl * 0.5, easing: 'cubic-bezier(.5,0,.75,0)', fill: 'forwards' });
+      if (it.center) d.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 120, delay: SH * 0.6, fill: 'forwards' });
+      d.animate([box(it.dot), to ? box(to) : centreOf(it.dot)], { duration: D, delay: SH + dl, easing: EASE, fill: 'forwards' });
+      if (!to) d.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 260, delay: SH + dl, fill: 'forwards' });
     });
     setTimeout(function () {
       self._xMorphing = false;
-      L.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: 'forwards' }).onfinish = function () { L.remove(); };
-    }, D + 240);
+      L.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: 'forwards' }).onfinish = function () { L.remove(); };
+    }, SH + D + last + 40);
   };
 
-  // Map → book: the star and its neighbours fly into the new fan's pills; the map fades away.
+  // Map → book: each star flies to its pill's genre dot and the pill grows out of it; the book you
+  // opened lands in the middle and its pill grows from there. Then the fan's lines fade in.
   P.xOpenBook = function (id) {
     if (!id || !this.books[id]) return;
     var self = this, m = this._stars, route = { page: 'book', id: id }, hash = '#/' + id;
@@ -905,25 +943,31 @@
     window.ReactDOM.flushSync(function () { self.setState({ route: route, xArriving: true, xGenre: null, q: '', suggestFor: null, xHover: null, xPathOpen: false, xFq: '' }); });
     this._silent = true; location.hash = hash; setTimeout(function () { self._silent = false; }, 0);
     window.scrollTo(0, 0);
-    var items = this._xPillSnap(), D = 640;
-    snap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 520, delay: 120, easing: 'ease-out', fill: 'forwards' });
+    var items = this._xPillSnap(), D = 620, GROW = 340, last = 0;
+    snap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 560, delay: 120, easing: 'ease-out', fill: 'forwards' });
+    var chips = items.map(function (it) { var c = self._xChip(L, it); Object.assign(c.style, box(it.r)); return c; });
     items.forEach(function (it, j) {
-      var c = self._xChip(L, it), from = pts[it.id], col = self.xGenreColor(self.xGenreKey(it.id)), lk = it.look || {};
-      Object.assign(c.style, box(it.r));
-      if (!from) { c.animate([{ opacity: 0, transform: 'scale(.85)' }, { opacity: 1, transform: 'none' }], { duration: 360, delay: 280, easing: EASE, fill: 'both' }); return; }
-      var dl = Math.min(j, 24) * 10;
-      [].forEach.call(c.children, function (k) { k.animate([{ opacity: 0 }, { opacity: 0, offset: 0.55 }, { opacity: 1 }], { duration: D, delay: dl, fill: 'both' }); });
-      c.animate([
-        Object.assign({ borderRadius: '50%', backgroundColor: col, borderWidth: '1px' }, box(from)),
-        { backgroundColor: col, offset: 0.5 },
-        Object.assign({ borderRadius: lk.radius || '999px', backgroundColor: lk.bg || '#fdfcfa', borderWidth: lk.border || '1.4px' }, box(it.r))
-      ], { duration: D, delay: dl, easing: EASE, fill: 'both' });
+      var c = chips[j], from = pts[it.id], col = self.xGenreColor(self.xGenreKey(it.id)), lk = it.look || {}, dl = Math.min(j, 24) * 9;
+      last = Math.max(last, dl);
+      if (!it.dot) {   // covers (phone shelves): the shape morph
+        if (!from) { c.animate([{ opacity: 0, transform: 'scale(.85)' }, { opacity: 1, transform: 'none' }], { duration: 360, delay: 280, easing: EASE, fill: 'both' }); return; }
+        [].forEach.call(c.children, function (k) { k.animate([{ opacity: 0 }, { opacity: 0, offset: 0.55 }, { opacity: 1 }], { duration: D, delay: dl, fill: 'both' }); });
+        c.animate([Object.assign({ borderRadius: '50%', backgroundColor: col }, box(from)), Object.assign({ borderRadius: lk.radius || '4px', backgroundColor: lk.bg || col }, box(it.r))],
+          { duration: D, delay: dl, easing: EASE, fill: 'both' });
+        return;
+      }
+      // the star flies to the dot; the pill grows out of it
+      var d = self._xDot(L, col);
+      d.animate([from ? box(from) : centreOf(it.dot), box(it.dot)], { duration: from ? D : 260, delay: from ? dl : 260 + dl, easing: EASE, fill: 'both' });
+      var at = (from ? D : 520) + dl - 60;
+      c.animate([{ clipPath: dotClip(it, 0) }, { clipPath: dotClip(it, fullR(it)) }], { duration: GROW, delay: at, easing: 'cubic-bezier(.2,.8,.2,1)', fill: 'both' });
+      if (it.center) d.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, delay: at + 120, fill: 'forwards' });
     });
     setTimeout(function () {
       self._xMorphing = false;
       self.setState({ xArriving: false, xLanded: id });   // 'landed': pills stay put, the lines just fade in
       requestAnimationFrame(function () { L.remove(); });
-    }, D + 260);
+    }, D + GROW + last + 40);
   };
 
   // ---- page ------------------------------------------------------------------------------

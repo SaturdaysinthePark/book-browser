@@ -145,6 +145,12 @@ the references and prompt patterns behind the decisions.
   - Spiral, Blend and Stars were removed; the earlier `?net=v2|v3|v4|map` comparisons still work.
   - Stats now lists the top 30 books and the top 30 authors.
 
+- **Map ↔ book page, dot for dot.** A book's star *is* the genre dot in its pill.
+  - Opening a book flies each star to its pill's dot, then the pill grows out of it (a clip-path circle from the dot). The opened book lands in the centre and its pill grows from there; the lines then fade in.
+  - Zooming out folds each pill back into its dot, which flies to its star, while the fan's lines fade out.
+  - Fan lines now run right up to the pill edges, and the separate in/out endpoint dots are gone.
+- **Home:** variant B (the canvas you can pan in any direction) is now the default; `?home=a` is the endless shelf.
+
 ## Next steps (not done)
 
 - Colour or cluster the network by community (`analysis/communities.json`). Consider WebGL points if real phones still struggle.
