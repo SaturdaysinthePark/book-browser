@@ -592,8 +592,15 @@
 
   // Sticky header hides while you scroll down a long page and returns on any scroll up — on a
   // phone it's two rows tall, so this gives the content most of the screen back.
+  // --hdr-vis is how much of the header is on screen (its real height, or 0 while hidden), so sticky
+  // bits such as the mention tabs ride just under it and take the top of the screen when it's gone.
   P._startHeaderAutohide = function () {
-    var last = window.scrollY, acc = 0;
+    var last = window.scrollY, acc = 0, vis = null, root = document.documentElement;
+    var setVis = function (hdr) {
+      if (!hdr) return;
+      var v = hdr.classList.contains('hdr-hide') ? 0 : hdr.offsetHeight;
+      if (v !== vis) { vis = v; root.style.setProperty('--hdr-vis', v + 'px'); }
+    };
     window.addEventListener('scroll', function () {
       var y = window.scrollY, d = y - last; last = y;
       var hdr = document.querySelector('.bj-hdr');
@@ -601,7 +608,10 @@
       acc = (d > 0) === (acc > 0) ? acc + d : d;
       if (y < 90 || acc < -24) hdr.classList.remove('hdr-hide');
       else if (acc > 36 && !hdr.contains(document.activeElement)) hdr.classList.add('hdr-hide');
+      setVis(hdr);
     }, { passive: true });
+    window.addEventListener('resize', function () { vis = null; setVis(document.querySelector('.bj-hdr')); });
+    setVis(document.querySelector('.bj-hdr'));
   };
   // Long pages (a book's mention list, stats, search): once you're about a screen and a half down, a
   // round ↑ button bottom-right takes you all the way back up. Not on home or the full-screen network.
