@@ -1374,7 +1374,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=11', 'explorer.js?v=16'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=12', 'explorer.js?v=17'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1411,7 +1411,7 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=11', 'stars-data.js?v=2', 'explorer.js?v=16'] : ['network-regions.js?v=1', 'explorer.js?v=16'];
+    var srcs = this._xLive() ? ['atlas.js?v=12', 'stars-data.js?v=2', 'explorer.js?v=17'] : ['network-regions.js?v=1', 'explorer.js?v=17'];
     if (this._vLab()) srcs.push('layouts-data.js?v=7');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
@@ -1926,6 +1926,14 @@
       vals.s_count = res.length === 0 ? 'no matches' : res.length + (res.length === 1 ? ' match' : ' matches');
     }
 
+    // stats page: on narrow screens the two lists become Books / Authors tabs
+    var stNarrow = vw < 900, stTab = this.state.statsTab === 'authors' ? 'authors' : 'books';
+    vals.statsTabs = stNarrow;
+    vals.statsShowBooks = !stNarrow || stTab === 'books';
+    vals.statsShowAuthors = !stNarrow || stTab === 'authors';
+    vals.statsTabBooksCls = stTab === 'books' ? 'on' : ''; vals.statsTabAuthorsCls = stTab === 'authors' ? 'on' : '';
+    vals.statsTabBooks = function () { self.setState({ statsTab: 'books' }); };
+    vals.statsTabAuthors = function () { self.setState({ statsTab: 'authors' }); };
     // stats page
     if (page === 'stats' && all.length) {
       var sd = this.statsData();

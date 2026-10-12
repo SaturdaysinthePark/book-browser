@@ -352,13 +352,13 @@
         var hot = j === hover && focus >= 0;
         c.strokeStyle = kind === 'out' ? OUT : kind === 'in' ? IN : INK;
         c.globalAlpha = (focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.3 : 0.9) : 0.55) * (hot ? 1 : thin);
-        c.lineWidth = hot ? 3.2 : LN.n ? Math.min(8, 2.2 + Math.sqrt(LN.n) * 0.7) : focus >= 0 ? 2.2 : 1.3;
+        c.lineWidth = (hot ? 3.2 : LN.n ? Math.min(8, 2.2 + Math.sqrt(LN.n) * 0.7) : focus >= 0 ? 2.2 : 1.3) * (W < 600 ? 0.55 : 1);   // phones: finer lines
         if (LN.n) c.globalAlpha = Math.max(c.globalAlpha, 0.7);
         // Flow (after the reveal): dashes travel in the mention's direction — out from the book for
         // books it mentions, in toward it for books that mention it. Mutual stays solid.
         var flowing = this.o.flow && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
         var rev = flowing && kind === 'in';
-        if (flowing) { c.setLineDash([8, 6]); c.lineDashOffset = -((now * 18) % 14); }
+        if (flowing) { var dsh = W < 600 ? [5, 4] : [8, 6]; c.setLineDash(dsh); c.lineDashOffset = -((now * 18) % (dsh[0] + dsh[1])); }
         c.beginPath();
         // draw-in: grow along the curve during the focus reveal
         var steps = 18, upto = Math.max(1, Math.round(steps * ease));
@@ -374,7 +374,7 @@
           var t1 = 0.5, t2 = 0.56, m1 = 1 - t1, m2 = 1 - t2;
           var ax1 = m1 * m1 * hx + 2 * m1 * t1 * cx2 + t1 * t1 * tx, ay1 = m1 * m1 * hy + 2 * m1 * t1 * cy2 + t1 * t1 * ty;
           var ax2 = m2 * m2 * hx + 2 * m2 * t2 * cx2 + t2 * t2 * tx, ay2 = m2 * m2 * hy + 2 * m2 * t2 * cy2 + t2 * t2 * ty;
-          var ang = Math.atan2(ay2 - ay1, ax2 - ax1) + (kind === 'in' ? Math.PI : 0), AS = hot ? 9 : 7;
+          var ang = Math.atan2(ay2 - ay1, ax2 - ax1) + (kind === 'in' ? Math.PI : 0), AS = (hot ? 9 : 7) * (W < 600 ? 0.7 : 1);
           c.fillStyle = c.strokeStyle; c.beginPath();
           c.moveTo(ax1 + Math.cos(ang) * AS, ay1 + Math.sin(ang) * AS);
           c.lineTo(ax1 + Math.cos(ang + 2.5) * AS, ay1 + Math.sin(ang + 2.5) * AS);
