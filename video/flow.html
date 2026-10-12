@@ -17,7 +17,7 @@
 function main() {
   var F = window.FILM, Q = new URLSearchParams(location.search);
   var W = +Q.get('w') || 1920, H = +Q.get('h') || 1080, V = H > W;
-  var LAYOUT = Q.get('layout') || F.layout || 'stage', CHAIN = LAYOUT === 'chain';
+  var LAYOUT = Q.get('layout') || F.layout || 'chain', CHAIN = LAYOUT === 'chain';   // chain (all hops on one screen) is the default
   var NH = F.path.length - 1, HL = CHAIN ? 4.2 : 4.5;                 // hops, and beats per hop
   var TN = 12 + NH * HL + (CHAIN ? 1.6 : 0);                          // the network starts (chain: hold the whole chain to read it)
   var BPM = +Q.get('bpm') || 120, BEAT = 60 / BPM, BEATS = TN + 10, DUR = BEATS * BEAT;
@@ -225,7 +225,9 @@ function main() {
   // the chain: every book of the path on one screen, each hop's quote pinned beside it
   var CH = (function () {
     var n = PATH.length, w = V ? 150 : 170, hh = w * 1.5, pos = [], cards = [], ctrl = [];
-    for (var k = 0; k < n; k++) pos.push(V ? [210, lerp(380, H - 420, k / (n - 1))] : [lerp(W * 0.1, W * 0.9, k / (n - 1)), cy + 20]);
+    // spread the books out, but not too far apart when there are only a few (short chains sit together in the middle)
+    var stepV = Math.min((H - 800) / (n - 1), 380), midV = (380 + H - 420) / 2, stepH = Math.min(W * 0.8 / (n - 1), 560);
+    for (var k = 0; k < n; k++) pos.push(V ? [210, midV + (k - (n - 1) / 2) * stepV] : [cx + (k - (n - 1) / 2) * stepH, cy + 20]);
     var gapX = V ? 0 : pos[1][0] - pos[0][0];
     for (var h = 0; h < n - 1; h++) {
       var a = pos[h], z = pos[h + 1], card = layQuote(HOPS[h], V ? 29 : 30, V ? 640 : Math.min(480, gapX * 1.36 - 48), 66);

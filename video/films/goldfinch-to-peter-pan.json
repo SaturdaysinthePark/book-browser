@@ -1,0 +1,11 @@
+{
+  "question": "Have you ever wondered how books are connected?",
+  "accent": "connected?",
+  "path": [
+    "donna-tartt/the-goldfinch",
+    "j-d-salinger/franny-and-zooey",
+    "j-m-barrie/peter-pan"
+  ],
+  "end": "bookjumpr.com",
+  "layout": "chain"
+}

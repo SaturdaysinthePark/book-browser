@@ -47,7 +47,7 @@ const wall = Object.keys(deg).filter(k => NODES[k] && NODES[k][4] && !/harry pot
   .sort((x, y) => deg[y] - deg[x]).slice(0, 170).map(book);
 
 const out = {
-  name: NAME, question: CFG.question, accent: CFG.accent || null, end: CFG.end || 'bookjumpr.com', layout: CFG.layout || 'stage',
+  name: NAME, question: CFG.question, accent: CFG.accent || null, end: CFG.end || 'bookjumpr.com', layout: CFG.layout || 'chain',
   palette: regCol, misc: MISC, torus: W.guides.torus,
   path: PATH.map(k => ({ ...book(k), star: idx(k) })), hops, wall, stars
 };

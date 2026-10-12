@@ -22,8 +22,8 @@ Any number of hops works: each takes 4.5 beats (stage) or 4.2 (chain), and the f
 
 ## Layouts
 
+- **chain** (the default) — every hop on one screen: the books in a row (a column in 9:16), each quote pinned beside its hop and left there, so by the end the whole path reads at once (held for 1.6 beats before the network).
 - **stage** — one hop at a time, big: the current book and the next, a speech bubble between them, then the leap; finished books slide into a trail along the bottom.
-- **chain** — every hop on one screen: the books in a row (a column in 9:16), each quote pinned beside its hop and left there, so by the end the whole path reads at once (held for 1.6 beats before the network).
 
 ## Beat map — marriage-plot-to-romeo (120 BPM)
 
