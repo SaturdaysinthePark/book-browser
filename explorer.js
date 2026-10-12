@@ -464,7 +464,6 @@
       h('div', { className: 'bjx-top' }, this.explorerTrail(b.id),
         h('button', { className: 'bkn-zoom', onClick: function () { self.xZoomOut(b.id); } }, 'Zoom out to the map ⤢')),
       h('div', { className: 'bjx-stage' + (st.xArriving ? ' arriving' : st.xLanded === b.id ? ' landed' : '') }, this.explorerFan(b, Math.max(300, W), vh - 56 - 110)),
-      h('div', { className: 'bjx-legend' }, h('span', null, h('i', { className: 'ln in' }), 'mentioned by'), h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln both' }), 'mention each other'), h('span', { className: 'cnt' }, '+12 = books one more jump away')),
       this.bookLists(b),
       null);
     var panel = h(React.Fragment, { key: 'panel' }, this.explorerPanel(b));
