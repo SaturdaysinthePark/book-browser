@@ -21,7 +21,9 @@ function main() {
   var NH = F.path.length - 1, HL = CHAIN ? 4.2 : 4.5;                 // hops, and beats per hop
   var TN = 12 + NH * HL + (CHAIN ? 1.6 : 0);                          // the network starts (chain: hold the whole chain to read it)
   var BPM = +Q.get('bpm') || 120, BEAT = 60 / BPM, BEATS = TN + 10, DUR = BEATS * BEAT;
-  var cv = document.getElementById('c'), c = cv.getContext('2d');
+  var cv = document.getElementById('c'), c = cv.getContext('2d'), CTX = c;
+  // an offscreen layer, so a card made of several overlapping shapes can fade out as one image
+  var OFF = document.createElement('canvas'); OFF.width = W; OFF.height = H; var OC = OFF.getContext('2d');
   cv.width = W; cv.height = H; cv.style.width = W + 'px'; cv.style.height = H + 'px';
 
   var PAPER = '#f7f5f0', INK = '#141414', RUST = '#9c3d22', BLUE = '#2f5590', CARD = '#fdfcfa', CREAM = '#f3ecdc';
@@ -258,6 +260,14 @@ function main() {
   // where a path book's top edge is (the little book perches there, a little right of centre)
   var bu = function (w) { return Math.max(2.2, w * 0.02); };                            // the book's size on a cover of width w
   var perch = function (x, y, w) { return [x + w * 0.22, y - w * 0.75 - 5.2 * bu(w)]; };
+  // 9:16 chain: the path runs down the left side of the column like a bracket, and the book rests against
+  // each cover's left edge, a quarter of the way down — it lands on the end of the arc, as in the logo
+  var VCH = CHAIN && V;
+  var side = function (x, y, w) { return [x - w / 2 - 4.6 * bu(w), y - w * 1.5 * 0.25]; };
+  var sideCtrl = function (A, B) { return [Math.min(A[0], B[0]) - 170, (A[1] + B[1]) / 2]; };
+  var restAt = function (p) { return VCH ? side(p[0], p[1], p[2]) : perch(p[0], p[1], p[2]); };
+  var ROTV = (function () { var A = side(CH.pos[0][0], CH.pos[0][1], CH.w), B = side(CH.pos[1][0], CH.pos[1][1], CH.w), C = sideCtrl(A, B); return Math.atan2(B[1] - C[1], B[0] - C[0]) - 0.17; })();
+  var restRot = VCH ? ROTV : BOOKROT * 0.6;
 
   // ---------------------------------------------------------------- the film
   var draw = function (b) {
@@ -400,9 +410,10 @@ function main() {
 
     // the chain: each hop's quote stays pinned beside it, and the dotted path stays behind the book
     for (var h2 = 0; CHAIN && h2 < NH; h2++) {
-      var s1 = hopStart(h2), Cq = CH.cards[h2], away = eio(b, TN, TN + 0.6), pc3 = pathPos[h2], pn3 = pathPos[h2 + 1];
-      if (b >= s1 + 3.6 && pc3 && pn3 && away < 1) { var A3 = perch(pc3[0], pc3[1], pc3[2]), B3 = perch(pn3[0], pn3[1], pn3[2]); dashed(function (t) { return q(A3, CH.ctrl[h2], B3, t); }, 1, INK, 2.4, 8, 8, 0, 0.45 * (1 - away)); }
-      var g3 = spr(b, s1 + 0.4, 1.5) * (1 - away); if (g3 <= 0.01) continue;
+      var s1 = hopStart(h2), Cq = CH.cards[h2], away = eio(b, TN, TN + 0.6), txtA = 1 - away, pc3 = pathPos[h2], pn3 = pathPos[h2 + 1];   // each card fades out whole (box, tail, words)
+      if (b >= s1 + 3.6 && pc3 && pn3 && away < 1) { var A3 = restAt(pc3), B3 = restAt(pn3), C3 = VCH ? sideCtrl(A3, B3) : CH.ctrl[h2]; dashed(function (t) { return q(A3, C3, B3, t); }, 1, INK, 2.4, 8, 8, 0, 0.45 * (1 - away)); }
+      var gin3 = spr(b, s1 + 0.4, 1.5), g3 = gin3; if (g3 <= 0.01 || txtA <= 0) continue;
+      var layer = txtA < 1; if (layer) { c = OC; c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, W, H); }
       var srcK = Cq.hp.src, sp3 = pathPos[srcK]; if (!sp3) continue;
       var cxq = Cq.x + Cq.w / 2, cyq = Cq.y + Cq.h / 2, bw3 = Cq.w * g3, bh3 = Cq.h * g3, x3 = lerp(sp3[0], cxq, g3) - bw3 / 2, y3 = lerp(sp3[1], cyq, g3) - bh3 / 2;
       c.fillStyle = 'rgba(20,20,20,0.92)'; rr(x3 + 5, y3 + 7, bw3, bh3, 18 * g3); c.fill();
@@ -413,8 +424,8 @@ function main() {
       else { var tx3 = clamp(sp3[0], x3 + 30, x3 + bw3 - 30), ey = above ? y3 + bh3 : y3; base3 = [[tx3 - 16 * g3, ey], [tx3 + 16 * g3, ey]]; tip3 = [lerp(tx3, sp3[0], g3), lerp(ey, above ? sp3[1] - CH.w * 0.75 - 30 : sp3[1] + CH.w * 0.75 + 10, g3)]; }
       c.beginPath(); c.moveTo(base3[0][0], base3[0][1]); c.lineTo(tip3[0], tip3[1]); c.lineTo(base3[1][0], base3[1][1]); c.closePath(); c.fillStyle = CARD; c.fill();
       c.beginPath(); c.moveTo(base3[0][0], base3[0][1]); c.lineTo(tip3[0], tip3[1]); c.lineTo(base3[1][0], base3[1][1]); c.strokeStyle = INK; c.lineWidth = 2.5; c.stroke();
-      if (g3 > 0.85) {
-        var ca3 = clamp((g3 - 0.85) / 0.15, 0, 1), sb3 = PATH[srcK];
+      if (gin3 > 0.85 && txtA > 0) {
+        var ca3 = clamp((gin3 - 0.85) / 0.15, 0, 1), sb3 = PATH[srcK];
         coverC(x3 + Cq.padX + 13, y3 + 34, 26, sb3, ca3, 0, 1);
         text(sb3.t, x3 + Cq.padX + 36, y3 + 32, (V ? 24 : 22) + 'px ' + SERIF, INK, 'left', ca3);
         text(sb3.a.toUpperCase(), x3 + Cq.padX + 37, y3 + 52, '500 ' + (V ? 13 : 12) + 'px ' + MONO, 'rgba(20,20,20,0.6)', 'left', ca3, '0.14em');
@@ -427,6 +438,7 @@ function main() {
           text(wd.s, x3 + wd.x, y3 + wd.y + (1 - wa) * 8, Cq.font, isH && hl3 > 0 ? mix(INK, RUST, hl3) : INK, 'left', wa);
         });
       }
+      if (layer) { c = CTX; c.globalAlpha = txtA; c.drawImage(OFF, 0, 0); c.globalAlpha = 1; }
     }
 
     // ===== 4 · the network (b30–35.5) =====
@@ -478,37 +490,38 @@ function main() {
     if (b >= 6.3 && b < 12.4) {
       // browse three covers on the beat, then land on Jane Eyre after the tap
       var stops = WALL.browse.map(function (e) { var d = drift(Math.min(b, 10.4)); return perch(e.x + d[0], e.y + d[1], WALL.cw); });
-      var jeP = pathPos[0] ? perch(pathPos[0][0], pathPos[0][1], pathPos[0][2]) : perch(jeS0[0], jeS0[1], WALL.cw);
+      var jeP = pathPos[0] ? restAt(pathPos[0]) : perch(jeS0[0], jeS0[1], WALL.cw);
       var qmark = wordTop(QS.words[QS.words.length - 1]);
       var seq = [qmark].concat(stops).concat([jeP]), times = [6.3, 7.0, 8.0, 9.0, 10.3];
       var si = 0; for (var i3 = 0; i3 < times.length - 1; i3++) if (b >= times[i3]) si = i3;
       var hb = hop(seq[si], seq[si + 1], b, times[si], times[si + 1] - 0.15, 90);
       if (b >= 10.15) { hb = { p: jeP, sx: squash(b, 10.15)[0], sy: squash(b, 10.15)[1] }; }
-      bk = { p: hb.p, u: b >= 10.15 && pathPos[0] ? bu(pathPos[0][2]) : lerp(V ? 4.4 : 4.8, bu(WALL.cw), eio(b, 6.3, 7.0)), rot: BOOKROT * 0.6, sx: hb.sx, sy: hb.sy };
+      bk = { p: hb.p, u: b >= 10.15 && pathPos[0] ? bu(pathPos[0][2]) : lerp(V ? 4.4 : 4.8, bu(WALL.cw), eio(b, 6.3, 7.0)), rot: b >= 10.15 ? restRot : BOOKROT * 0.6, sx: hb.sx, sy: hb.sy };
     }
     if (b >= 12.4 && b < (TN + 0)) {
       var hk = clamp(Math.floor((b - 12) / HL), 0, NH - 1), hs = hopStart(hk);
       var pc = pathPos[hk], pn = pathPos[hk + 1];
       if (pc && pn) {
-        var A2 = perch(pc[0], pc[1], pc[2]), B2 = perch(pn[0], pn[1], pn[2]);
+        var A2 = restAt(pc), B2 = restAt(pn);
         // the leap's arc: up and over in 16:9; in 9:16 (books stacked) it swings out to the right, around the cover
-        var Cj = CHAIN ? CH.ctrl[hk] : V ? [Math.max(A2[0], B2[0]) + CW * 1.1, (A2[1] + B2[1]) / 2 - CW * 0.5] : [(A2[0] + B2[0]) / 2, Math.min(A2[1], B2[1]) - 300];
+        var Cj = VCH ? sideCtrl(A2, B2) : CHAIN ? CH.ctrl[hk] : V ? [Math.max(A2[0], B2[0]) + CW * 1.1, (A2[1] + B2[1]) / 2 - CW * 0.5] : [(A2[0] + B2[0]) / 2, Math.min(A2[1], B2[1]) - 300];
         var jb = hop(A2, B2, b, hs + 2.8, hs + 3.6, 0, Cj);
         // the dotted arc is drawn just ahead of the jump
         var arcOn = eio(b, hs + 2.5, hs + 3.0) * (CHAIN ? (b < hs + 3.6 ? 1 : 0) : 1 - eio(b, hs + 3.7, hs + 4.1));
         if (arcOn > 0) dashed(function (t) { return q(A2, Cj, B2, t); }, arcOn, INK, 3, 10, 9, 0, 0.6);
         var ride = b >= hs + 3.6 ? B2 : jb.p;
-        if (hk === NH - 1 && b >= hs + 3.6) { var pg = pathPos[NH]; ride = perch(pg[0], pg[1], pg[2]); }
-        bk = { p: ride, u: bu(b >= hs + 3.6 ? pn[2] : pc[2]), rot: BOOKROT * 0.6, sx: jb.sx, sy: jb.sy };
-        if (b < hs + 2.8) { var pc2 = pathPos[hk]; bk.p = perch(pc2[0], pc2[1], pc2[2]); bk.u = bu(pc2[2]); bk.sx = 1; bk.sy = 1; if (hk > 0 && b < hs + 0.4) { var sqk = squash(b, hopStart(hk - 1) + 3.6); bk.sx = sqk[0]; bk.sy = sqk[1]; } }
+        if (hk === NH - 1 && b >= hs + 3.6) { var pg = pathPos[NH]; ride = restAt(pg); }
+        bk = { p: ride, u: bu(b >= hs + 3.6 ? pn[2] : pc[2]), rot: restRot, sx: jb.sx, sy: jb.sy };
+        if (b < hs + 2.8) { var pc2 = pathPos[hk]; bk.p = restAt(pc2); bk.u = bu(pc2[2]); bk.sx = 1; bk.sy = 1; if (hk > 0 && b < hs + 0.4) { var sqk = squash(b, hopStart(hk - 1) + 3.6); bk.sx = sqk[0]; bk.sy = sqk[1]; } }
       }
     }
     if (b >= (TN + 0) && b < (TN + 7.6)) {
       // ride Gatsby as it shrinks onto the map, then hop onto the logo's arc as it forms
       var gp = b < (TN + 5) && pathPos[NH] ? pathPos[NH] : [netPt(NH)[0], netPt(NH)[1]], e5 = markEnd(LOCK.mx, LOCK.my, LOCK.u);
-      var onDot = [gp[0] + lerp(CW * 0.22, 4, toNet), gp[1] - lerp(CW * 0.75 + 5.2 * bu(CW), (V ? 15 : 13) + 12, toNet)];
+      var w0 = CHAIN ? CH.w : CW, rest0 = gp.length > 2 && gp[2] > 1 ? restAt(gp) : [gp[0], gp[1]], dotTop = [gp[0] + 4, gp[1] - (V ? 15 : 13) - 12];
+      var onDot = [lerp(rest0[0], dotTop[0], toNet), lerp(rest0[1], dotTop[1], toNet)];
       var h5 = hop(onDot, e5, b, (TN + 5.6), (TN + 6.6), V ? 300 : 260);
-      bk = { p: b < (TN + 5.6) ? onDot : h5.p, u: lerp(lerp(bu(CW), 2.6, toNet), LOCK.u, h5.t), rot: lerp(BOOKROT * 0.6, BOOKROT, h5.t), sx: b < (TN + 5.6) ? 1 : h5.sx, sy: b < (TN + 5.6) ? 1 : h5.sy };
+      bk = { p: b < (TN + 5.6) ? onDot : h5.p, u: lerp(lerp(bu(w0), 2.6, toNet), LOCK.u, h5.t), rot: lerp(lerp(restRot, BOOKROT * 0.6, toNet), BOOKROT, h5.t), sx: b < (TN + 5.6) ? 1 : h5.sx, sy: b < (TN + 5.6) ? 1 : h5.sy };
     }
     if (b >= (TN + 7.6)) { var e6 = markEnd(LOCK.mx, LOCK.my, LOCK.u), sq6 = squash(b, (TN + 6.6)); bk = { p: e6, u: LOCK.u, rot: BOOKROT, sx: sq6[0], sy: sq6[1] }; }
     if (bk) book(bk.p[0], bk.p[1], bk.u, bk.rot, 1, bk.sx, bk.sy);
