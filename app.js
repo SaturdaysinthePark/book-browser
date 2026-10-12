@@ -1280,7 +1280,7 @@
   P.statsData = function () {
     if (this._stats) return this._stats;
     var byBook = this.all.filter(function (b) { return b.in.length > 0; })
-      .sort(function (a, b) { return b.in.length - a.in.length || a.title.localeCompare(b.title); }).slice(0, 20);
+      .sort(function (a, b) { return b.in.length - a.in.length || a.title.localeCompare(b.title); }).slice(0, 30);
     var authors = {};
     for (var i = 0; i < this.all.length; i++) {
       var b = this.all[i];
@@ -1293,7 +1293,7 @@
     }
     var byAuthor = Object.keys(authors).map(function (name) {
       return [name, { count: authors[name].count, works: { size: Object.keys(authors[name].works).length } }];
-    }).sort(function (a, b) { return b[1].count - a[1].count || a[0].localeCompare(b[0]); }).slice(0, 20);
+    }).sort(function (a, b) { return b[1].count - a[1].count || a[0].localeCompare(b[0]); }).slice(0, 30);
     this._stats = { byBook: byBook, byAuthor: byAuthor };
     return this._stats;
   };
@@ -1342,24 +1342,29 @@
   // ---------- network variants: the constellation map (default) or the Explorer (?net=v2) ----------
   // 'map' (default) · 'explorer' (?net=v2) · 'atlas' (?net=v3) · 'plus' (?net=v4, Explorer+)
   // · 'stars' (?v=next: the network page is the genre star map)
+  // The site by default: book pages are the fan + panel, the network page is the starfield (with an
+  // Influence chart beside it), and you zoom between them. ?v=classic restores the classic book page
+  // and constellation; ?net=v2|v3|v4|map are the old network comparisons (classic book pages too);
+  // ?net=petals adds the Petals layout to the network switcher.
+  P._q = function (name) { try { return new URLSearchParams(location.search).get(name); } catch (e) { return null; } };
   P._netMode = function () {
     if (this._netV === undefined) {
-      var v = null;
-      try { v = new URLSearchParams(location.search).get('net'); } catch (e) {}
-      this._netCompare = v != null && v !== '';
+      var v = this._q('net');
+      this._netCompare = v != null && v !== '' && v !== 'petals';
       this._netV = v === 'v2' || v === 'explorer' ? 'explorer' : v === 'v3' || v === 'atlas' ? 'atlas' : v === 'v4' || v === 'plus' ? 'plus'
-        : !this._netCompare && this._vNext() ? 'stars' : 'map';
+        : v === 'map' ? 'map' : this._vNext() ? 'stars' : 'map';
     }
     return this._netV;
   };
-  // ?v=next: the connected experience — book pages are the fan + panel, the network page is the
-  // star map, and you zoom between them.
-  // ?v=lab: everything in ?v=next, plus point-layout variants of the network map (layouts-data.js).
   P._vNext = function () {
-    if (this._vn === undefined) { var v = null; try { v = new URLSearchParams(location.search).get('v'); } catch (e) {} this._vn = v === 'next' || v === 'lab'; this._vl = v === 'lab'; }
+    if (this._vn === undefined) {
+      var net = this._q('net');
+      this._vClassic = this._q('v') === 'classic';
+      this._vn = !this._vClassic && !(net && net !== 'petals');
+    }
     return this._vn;
   };
-  P._vLab = function () { this._vNext(); return this._vl; };
+  P._vLab = function () { return this._vNext(); };   // the network page's layout switcher (Network · Influence)
   P._netExplorer = function () { var m = this._netMode(); return m === 'explorer' || m === 'plus'; };
   P._xPlus = function () { return this._netMode() === 'plus'; };
   P._xLive = function () { return this._xPlus() || this._vNext(); };   // living fan + star map layers
@@ -1367,7 +1372,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=9', 'explorer.js?v=10'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=10', 'explorer.js?v=11'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1404,8 +1409,8 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=9', 'stars-data.js?v=2', 'explorer.js?v=10'] : ['network-regions.js?v=1', 'explorer.js?v=10'];
-    if (this._vLab()) srcs.push('layouts-data.js?v=6');
+    var srcs = this._xLive() ? ['atlas.js?v=10', 'stars-data.js?v=2', 'explorer.js?v=11'] : ['network-regions.js?v=1', 'explorer.js?v=11'];
+    if (this._vLab()) srcs.push('layouts-data.js?v=7');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {
@@ -1989,8 +1994,10 @@
         vals.starMap = vals.pgStars ? (this._vLab() && this.labMap ? this.labMap(route.focus) : this.starMap(route.focus)) : null;
       }
     } else vals.bookNext = vals.starMap = null;
-    vals.vSwitch = this._vNext(); vals.vName = this._vLab() ? 'Lab' : 'Next';
-    vals.vToClassic = function (e) { if (e) e.preventDefault(); location.href = location.pathname + location.hash; };
+    // only on ?v=classic: a way back to the new site
+    this._vNext();
+    vals.vSwitch = !!this._vClassic;
+    vals.vToNew = function (e) { if (e) e.preventDefault(); location.href = location.pathname + location.hash; };
     if (vals.pgExplorer) {
       this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       this._loadNotes();

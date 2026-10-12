@@ -140,6 +140,11 @@ the references and prompt patterns behind the decisions.
   - At overview, the 25 most connected books are labelled (10 on phones).
   - The switcher choice is remembered for the session.
 
+- **The new site is the default.** Book pages are the fan page, the network page is the Wrap starfield (now just "Network"), and the binned Fame chart is **Influence**. Switching between Network and Influence animates every star from one layout to the other.
+  - `?v=classic` keeps the classic book page and constellation; `?net=petals` brings back Petals.
+  - Spiral, Blend and Stars were removed; the earlier `?net=v2|v3|v4|map` comparisons still work.
+  - Stats now lists the top 30 books and the top 30 authors.
+
 ## Next steps (not done)
 
 - Colour or cluster the network by community (`analysis/communities.json`). Consider WebGL points if real phones still struggle.

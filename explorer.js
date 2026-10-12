@@ -338,7 +338,9 @@
     return this._xMiniFn || (this._xMiniFn = function (el) {
       if (self._xMini) { self._xMini.destroy(); self._xMini = null; }
       if (!el || !window.BJAtlas || !window.BookJumprStars) return;
-      self._xMini = new window.BJAtlas(self._xStarOpts({ root: el, mini: true, onClick: function () { if (self._vNext()) self.xZoomOut(); else self.xOpenFull(); } }));
+      var wd = self._vLab() && window.BookJumprLayouts ? self._layoutData('wrap') : null, tor = wd && wd.guides && wd.guides.torus;
+      self._xMini = new window.BJAtlas(self._xStarOpts({ root: el, mini: true, data: wd || window.BookJumprStars, wrapX: tor ? tor.P : 0, wrapY: tor ? tor.PY : 0,
+        onClick: function () { if (self._vNext()) self.xZoomOut(); else self.xOpenFull(); } }));
       var f = self._xCur();
       if (f) self._xMini.setFocus(f, false);
     });
@@ -462,13 +464,10 @@
       h('div', { className: 'bjx-stage' + (st.xArriving ? ' arriving' : '') }, this.explorerFan(b, Math.max(300, W), vh - 56 - 110)),
       h('div', { className: 'bjx-legend' }, h('span', null, h('i', { className: 'ln in' }), 'mentioned by'), h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln both' }), 'mention each other'), h('span', { className: 'cnt' }, '+12 = books one more jump away')),
       this.bookLists(b),
-      this.classicLink());
+      null);
     var panel = h(React.Fragment, { key: 'panel' }, this.explorerPanel(b));
     // narrower screens: the book (panel) comes first, so it anchors the page
     return h('div', { className: 'bjx-page bjx-plus bkn-page' + (wide ? ' wide' : ' stacked') }, wide ? [main, panel] : [panel, main]);
-  };
-  P.classicLink = function () {
-    return h('p', { key: 'classic', className: 'bkn-classic' }, h('a', { href: location.pathname + location.hash, onClick: function (e) { e.preventDefault(); location.href = location.pathname + location.hash; } }, 'Switch to the classic view'));
   };
 
   // Phone: a slim book header with a map thumbnail, the fan as two shelves of covers (swipe
@@ -499,7 +498,6 @@
         isOut ? this.noteEl(b.id, hot.id) : this.noteEl(hot.id, b.id)));
     } else kids.push(h('p', { key: 'tip', className: 'bkp-tip' }, 'Tap a cover to see how it connects · swipe the shelves for more'));
     kids.push(this.bookLists(b));
-    kids.push(this.classicLink());
     return h('div', { className: 'bjx-page bjx-plus bkp-page' }, kids);
   };
 
@@ -625,7 +623,7 @@
 
   // ---- ?v=next: the network page is the star map ---------------------------------------------
   // One BJAtlas per layout: the genre continents (stars-data.js) or, in ?v=lab, a point layout from
-  // layouts-data.js (spiral / petals / blend / fame). Switching layouts re-mounts the map.
+  // layouts-data.js (wrap / petals / fame). Switching layouts re-mounts the map.
   P._starsRef = function (lk) {
     var self = this, key = lk || 'stars';
     this._starsFns = this._starsFns || {};
@@ -636,7 +634,7 @@
       if (!data) return;
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
         root: el, data: data,
-        regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'blend' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
+        regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
         wrapX: data.guides && data.guides.torus ? data.guides.torus.P : 0,
         wrapY: data.guides && data.guides.torus ? data.guides.torus.PY : 0,
         regionZoom: lk !== 'wrap',
@@ -669,22 +667,69 @@
     var nodes = D.keys.map(function (k, i) { return [k, L.xy[2 * i], L.xy[2 * i + 1], L.reg[i], D.deg[i]]; });
     return (this._layoutCache[lk] = { nodes: nodes, regions: L.regions, guides: L.guides });
   };
-  var LAB_VIEWS = [['wrap', 'Wrap'], ['spiral', 'Spiral'], ['petals', 'Petals'], ['blend', 'Blend'], ['fame', 'Fame'], ['stars', 'Stars']];
+  // The network page's views: the starfield and the Influence chart (+ Petals with ?net=petals).
+  P._labViews = function () {
+    var v = [['wrap', 'Network'], ['fame', 'Influence']];
+    if (this._q && this._q('net') === 'petals') v.splice(1, 0, ['petals', 'Petals']);
+    return v;
+  };
   P._labView = function () {
     var v = this.state.xView;
     if (!v) { try { v = sessionStorage.getItem('bj-lab'); } catch (e) {} }
-    return LAB_VIEWS.some(function (x) { return x[0] === v; }) ? v : 'wrap';
+    if (!v && this._q && this._q('net') === 'petals') v = 'petals';
+    return this._labViews().some(function (x) { return x[0] === v; }) ? v : 'wrap';
   };
+  // Switching views morphs every star from where it is now to where it sits in the next layout.
   P.labSetView = function (v) {
+    if (v === this._labView()) return;
     try { sessionStorage.setItem('bj-lab', v); } catch (e) {}
-    this.setState({ xView: v });
+    var self = this, from = this._stars, snap = null;
+    var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (from && !reduced && !document.hidden) {
+      snap = {};
+      for (var i = 0; i < from.N; i++) snap[from.keys[i]] = [from.sx(from._x(i)), from.sy(from._y(i)), from._r(i, true)];
+    }
+    this.setState({ xView: v }, function () { if (snap && self._stars && self._stars !== from) self._labMorph(snap, self._stars); });
+  };
+  P._labMorph = function (snap, to) {
+    var self = this, host = to.host, cv = to.canvas, W = to.W, H = to.H, dpr = to.dpr;
+    var o = document.createElement('canvas');
+    o.className = 'lab-morph'; o.width = Math.round(W * dpr); o.height = Math.round(H * dpr);
+    o.style.cssText = 'position:absolute;left:0;top:0;width:' + W + 'px;height:' + H + 'px;pointer-events:none;';
+    host.appendChild(o);
+    var c = o.getContext('2d'), pts = [];
+    for (var i = 0; i < to.N; i++) {
+      var a = snap[to.keys[i]]; if (!a) continue;
+      var b = [to.sx(to._x(i)), to.sy(to._y(i)), to._r(i, true)];
+      var onA = a[0] > -40 && a[0] < W + 40 && a[1] > -40 && a[1] < H + 40, onB = b[0] > -40 && b[0] < W + 40 && b[1] > -40 && b[1] < H + 40;
+      if (!onA && !onB) continue;   // off screen before and after: nothing to see
+      pts.push({ a: a, b: b, col: to.col ? to.col[i] : '#888', d: Math.random() * 0.18 });
+    }
+    cv.style.transition = 'none'; cv.style.opacity = '0';
+    var t0 = performance.now(), D = 950;
+    var step = function (t) {
+      var p = Math.min(1, (t - t0) / D);
+      c.setTransform(dpr, 0, 0, dpr, 0, 0);
+      c.globalAlpha = 1; c.fillStyle = '#f7f5f0'; c.fillRect(0, 0, W, H);
+      for (var j = 0; j < pts.length; j++) {
+        var P2 = pts[j], q = Math.max(0, Math.min(1, (p - P2.d) / 0.82)), e = q < 0.5 ? 4 * q * q * q : 1 - Math.pow(-2 * q + 2, 3) / 2;
+        var x = P2.a[0] + (P2.b[0] - P2.a[0]) * e, y = P2.a[1] + (P2.b[1] - P2.a[1]) * e, r = P2.a[2] + (P2.b[2] - P2.a[2]) * e;
+        c.globalAlpha = 0.85; c.fillStyle = P2.col; c.beginPath(); c.arc(x, y, Math.max(1, r), 0, 6.2832); c.fill();
+      }
+      if (p < 1) { self._labRaf = requestAnimationFrame(step); return; }
+      cv.style.transition = 'opacity .28s ease'; cv.style.opacity = '1';
+      o.style.transition = 'opacity .28s ease'; o.style.opacity = '0';
+      setTimeout(function () { o.remove(); cv.style.transition = ''; }, 320);
+    };
+    cancelAnimationFrame(this._labRaf);
+    this._labRaf = requestAnimationFrame(step);
   };
   P.labMap = function (focus) {
     var self = this, view = this._labView();
-    var switcher = h('div', { key: 'sw', className: 'lab-switch', role: 'tablist' }, LAB_VIEWS.map(function (v) {
+    var switcher = h('div', { key: 'sw', className: 'lab-switch', role: 'tablist' }, this._labViews().map(function (v) {
       return h('button', { key: v[0], role: 'tab', 'aria-selected': view === v[0] ? 'true' : 'false', className: view === v[0] ? 'on' : '', onClick: function () { self.labSetView(v[0]); } }, v[1]);
     }));
-    return this.starMap(focus, view === 'stars' ? null : view, switcher);
+    return this.starMap(focus, view, switcher);
   };
 
   // The selected book's card on a map view (stars, and the lab views): cover, counts, Open, Clear.

@@ -1307,7 +1307,7 @@ html,body{height:100%;}
     <div data-screen-label="Network" class="bjx stars-page">{{ starMap }}</div>
   </sc-if>
   <sc-if value="{{ vSwitch }}" hint-placeholder-val="{{ false }}">
-    <div class="net-switch v-switch">View <a href="#" onClick="{{ vToClassic }}">Classic</a><a class="on">{{ vName }}</a></div>
+    <div class="net-switch v-switch">View <a class="on">Classic</a><a href="#" onClick="{{ vToNew }}">New</a></div>
   </sc-if>
   <sc-if value="{{ pgExplorer }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Network explorer" class="bjx">{{ explorer }}</div>

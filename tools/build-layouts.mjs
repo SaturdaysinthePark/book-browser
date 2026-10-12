@@ -1,18 +1,13 @@
 #!/usr/bin/env node
-// build-layouts.mjs — the point layouts for the ?v=lab network variants.
+// build-layouts.mjs — point layouts for the network page.
 //
-// Every book is a point (genre colour, size = connections). Four ways to place them, so we can
-// compare which map is easiest to read:
-//   spiral  one sunflower spiral, sorted by connections: the most connected in the middle, the
-//           one-off name-drops as the outer haze. Guide rings mark where 50+/20+/10+/5+/2+ links end.
-//   wrap    one even starfield on a surface whose edges join (pan forever)
-//   petals  the same spiral, but each genre owns a wedge (sized to it): a mixed heart of famous
-//           books in the centre, genres fanning out as petals. Within a petal, books that mention
-//           each other (Louvain sub-communities) take neighbouring angles.
-//   blend   the genre-continent map (stars-data.js), with every book pulled toward the centre by
-//           its connections: hubs of every genre meet in a shared core, one-offs stay in their blob.
-//   fame    a chart: x = how many books it mentions, y = how many books mention it (log scales),
-//           seeded jitter so books with the same counts spread into soft clouds.
+// Every book is a point (genre colour, size = connections):
+//   wrap    the network map (default): one even starfield on a surface whose edges join, so it can
+//           be panned forever; genres are territories that blend at their borders.
+//   fame    the "Influence" chart, binned: x = how many books it mentions, y = how many mention it;
+//           every grid square is a neighbourhood of the books that share those counts.
+//   petals  (only with ?net=petals) one sunflower sorted by connections, the most connected in the
+//           middle, each genre owning a wedge.
 // Genre per book = its continent's genre in stars-data.js (books without one join their
 // neighbours' genre there), so run `npm run bj:stars` first.
 //
@@ -84,19 +79,6 @@ const centre = (xy) => {
   const mx = (x0 + x1) / 2, my = (y0 + y1) / 2;
   for (let i = 0; i < xy.length; i += 2) { xy[i] -= mx; xy[i + 1] -= my; }
   return [mx, my];
-};
-
-// ---- spiral ----
-const spiral = () => {
-  const xy = new Float64Array(2 * N);
-  rank.forEach((i, j) => { const r = radiusOf(j), th = j * GOLDEN; xy[2 * i] = Math.cos(th) * r; xy[2 * i + 1] = Math.sin(th) * r; });
-  const rings = [];
-  for (const [t, label] of [[50, '50+ links'], [20, '20+'], [10, '10+'], [5, '5+'], [2, '2+']]) {
-    const j = rank.findIndex((i) => deg[i] < t);
-    if (j > 0) rings.push({ r: round(radiusOf(j)), t: label });
-  }
-  rings.push({ r: round(radiusOf(N - 1) + S), t: '1 link' });
-  return { xy, reg: new Array(N).fill(0), regions: [], guides: { rings } };
 };
 
 // ---- petals ----
@@ -236,47 +218,6 @@ const wrap = () => {
   return { xy, reg, regions, guides: { torus: { P: QX, PY: QY } } };
 };
 
-// ---- blend: a core of the most connected, genre blobs around it ----
-// The ~300 books with 10+ links form a sunflower core in the middle (sorted, so the very top sit at
-// the centre). Each genre continent keeps its other books as a filled disc (sorted by connections,
-// no holes), pushed outward from the centre so it clears the core; then discs are de-overlapped.
-const blend = () => {
-  const CORE = 10, xy = new Float64Array(2 * N), reg = stars.nodes.map((n) => n[3]);
-  const core = rank.filter((i) => deg[i] >= CORE);
-  core.forEach((i, j) => { const r = S * Math.sqrt(j + (j ? 0.6 : 0)), th = j * GOLDEN; xy[2 * i] = Math.cos(th) * r; xy[2 * i + 1] = Math.sin(th) * r; });
-  const Rc = S * Math.sqrt(core.length + 0.6) + 8;
-  const isCore = new Uint8Array(N); core.forEach((i) => { isCore[i] = 1; });
-  const discs = stars.regions.map((R, ri) => {
-    const mem = rank.filter((i) => reg[i] === ri && !isCore[i]);
-    const len = Math.hypot(R.x, R.y) || 1, h = hashOf(R.genre), ux = len > 1 ? R.x / len : Math.cos(h), uy = len > 1 ? R.y / len : Math.sin(h);
-    return { ri, mem, r: S * Math.sqrt(mem.length + 0.6) + 6, x: R.x + ux * (Rc + 40), y: R.y + uy * (Rc + 40) };
-  }).filter((d) => d.mem.length);
-  // de-overlap discs (and keep them off the core), heavier discs move less
-  for (let it = 0; it < 400; it++) {
-    let moved = 0;
-    for (let a = 0; a < discs.length; a++) {
-      const A = discs[a], dc = Math.hypot(A.x, A.y) || 1, minc = Rc + A.r + 24;
-      if (dc < minc) { A.x *= minc / dc; A.y *= minc / dc; moved++; }
-      for (let b = a + 1; b < discs.length; b++) {
-        const B = discs[b], dx = B.x - A.x, dy = B.y - A.y, d = Math.hypot(dx, dy) || 0.01, min = A.r + B.r + 22;
-        if (d >= min) continue;
-        const p = (min - d) / 2, wa = B.r / (A.r + B.r), wb = A.r / (A.r + B.r);
-        A.x -= dx / d * p * 2 * wa; A.y -= dy / d * p * 2 * wa; B.x += dx / d * p * 2 * wb; B.y += dy / d * p * 2 * wb; moved++;
-      }
-    }
-    for (const D of discs) { const dc = Math.hypot(D.x, D.y) || 1, k = Math.max(Rc + D.r + 24, dc * 0.995) / dc; D.x *= k; D.y *= k; }   // a whisper of gravity
-    if (!moved && it > 30) break;
-  }
-  for (const D of discs) D.mem.forEach((i, j) => { const r = S * Math.sqrt(j + (j ? 0.6 : 0)), th = j * GOLDEN; xy[2 * i] = D.x + Math.cos(th) * r; xy[2 * i + 1] = D.y + Math.sin(th) * r; });
-  const byRi = new Map(discs.map((D) => [D.ri, D]));
-  const regions = stars.regions.map((R, ri) => {
-    const D = byRi.get(ri);
-    if (!D) return { x: 0, y: 0, r: 0, lx: 0, ly: 0, name: '', genre: R.genre, size: 0 };
-    return { x: round(D.x), y: round(D.y), r: round(D.r), lx: round(D.x), ly: round(D.y - D.r + 4), name: R.name, genre: R.genre, size: D.mem.length };
-  });
-  return { xy, reg, regions, guides: { rings: [{ r: round(Rc), t: 'the ' + core.length + ' most connected (10+ links)' }] } };
-};
-
 // ---- fame ----
 // A binned chart: x = how many books it mentions, y = how many mention it, each in bins
 // 0 · 1 · 2 · 3–5 · 6–10 · 11–20 · 21–50 · 51+. Every grid square is a "neighbourhood": its books
@@ -334,14 +275,14 @@ const fame = () => {
 };
 
 const out = { keys, deg, layouts: {} };
-for (const [name, fn] of [['spiral', spiral], ['petals', petals], ['wrap', wrap], ['blend', blend], ['fame', fame]]) {
+for (const [name, fn] of [['wrap', wrap], ['petals', petals], ['fame', fame]]) {
   const L = fn();
   if (name !== 'fame' && name !== 'wrap') centre(L.xy);
   out.layouts[name] = { xy: Array.from(L.xy, Math.round), reg: L.reg, regions: L.regions, guides: L.guides };
 }
 writeFileSync(join(ROOT, 'layouts-data.js'),
   '// GENERATED by tools/build-layouts.mjs from bookjumpr-data.js + stars-data.js — do not hand-edit.\n'
-  + '// Point layouts for the ?v=lab network variants (spiral, petals, blend, fame).\n'
+  + '// Point layouts for the network page (wrap = the map, fame = Influence, petals = ?net=petals).\n'
   + 'window.BookJumprLayouts = ' + JSON.stringify(out) + ';\n');
 const top = rank.slice(0, 10).map((i) => keys[i].split('/')[1]).join(', ');
 console.log(`✓ wrote layouts-data.js — ${N} books × ${Object.keys(out.layouts).length} layouts · most connected: ${top}`);

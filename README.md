@@ -27,10 +27,10 @@ vendored locally and the data loads via a classic script rather than an ES modul
 | `app.js` | The application: a small template compiler + the ported component logic + React mount |
 | `explorer.js` | The network **Explorer** (`?net=v2`): fan-to-fan navigation built on the book page's neighbourhood — lazy-loaded |
 | `network-regions.js` | "Reading neighbourhoods" for the Explorer's entry — **generated** by `npm run bj:regions` (Louvain) |
-| `layouts-data.js` | Point layouts for the `?v=lab` map variants (wrap, spiral, petals, blend, fame) — **generated** by `npm run bj:layouts` |
+| `layouts-data.js` | Point layouts for the network page (the starfield, Influence, Petals) — **generated** by `npm run bj:layouts` |
 | `atlas.js` | Canvas star-map renderer: the **Atlas** (`?net=v3`) and the Explorer+ mini-map / full view — lazy-loaded |
 | `atlas-data.js` | Atlas layout (books grouped by Louvain community) — **generated** by `npm run bj:atlas` |
-| `stars-data.js` | Star-map layout: every book in its genre "continent" (`?v=next`, Explorer+) — **generated** by `npm run bj:stars` |
+| `stars-data.js` | Genre-continent layout (Explorer+, and the starting arrangement for the network starfield) — **generated** by `npm run bj:stars` |
 | `home.js` | The interactive home-wall engine (endless shelf / infinite canvas / shelf rows) — imperative, transforms only |
 | `bookjumpr-data.js` | The dataset the site loads — **generated** from the database by `npm run bj:build` (don't hand-edit) |
 | `bookjumpr-notes.js` | Mention quotes/context, lazy-loaded on book pages — **generated** by `npm run bj:build` |
@@ -49,21 +49,18 @@ vendored locally and the data loads via a classic script rather than an ES modul
 - **Home** — an endless, scrollable wall of covers on doodled graph paper behind the hero + search
   (`?home=a` default · `?home=b` 2D canvas · `?home=c` shelf rows · `?home=classic` the static wall;
   `?wall=dark` for the charcoal wall). See `docs/ui-ux-overhaul.md`.
-- **Book** — cover, synopsis, an ego-graph of its "neighborhood", and grids of the
-  books it *mentions* and the books that *mention* it
-- **Search** — ranked results (with an as-you-type suggestion dropdown)
-- **Stats** — the most name-dropped books and authors
-- **Network** — a force-directed graph of the whole web of mentions (drag / hover / zoom)
-  `?net=v2` swaps it for the **Explorer**: one book in the middle, its mentions fanning out, jump from fan to fan.
-  `?net=v3` is the **Atlas** (the whole map grouped into neighbourhoods); `?net=v4` is **Explorer+**: the Explorer
-  with flowing lines, genre chips and a genre-coloured star map of every book (mini-map → full screen).
-- **`?v=next`** — the connected experience under test: a book page *is* the fan (+ panel, + every mention as
-  quote cards); "Zoom out" morphs the fan into the star map of every book (genre continents), and a star's
-  "Open →" morphs back into its fan. Without the flag the site is unchanged; the pill bottom-left flips to Classic.
-- **`?v=lab`** — `?v=next` plus point-layout variants of the network map to compare (switch at the top right):
-  **Spiral** (most connected in the middle, spiralling out), **Petals** (the same, one wedge per genre), **Wrap** (the default: one even starfield you can pan forever, with cursor gravity),
-  **Blend** (a core of the 302 most connected with genre blobs around it), **Fame** (x = mentions, y = mentioned by,
-  log scales) and **Stars** (the genre continents).
+- **Book** — the book in the middle of its fan (books that mention it flow in, books it mentions flow
+  out), a side panel (mini-map, cover, author, synopsis), and every mention as quote cards ("Mentions" /
+  "Mentioned by"; tabs and swipeable cover shelves on phones). "Zoom out" morphs the fan into the network.
+- **Search** — ranked results (with an as-you-type suggestion dropdown); ⌘F / Ctrl+F jumps to the search box
+- **Stats** — the 30 most name-dropped books and the 30 most name-dropped authors
+- **Network** — every book as a star on one even starfield whose edges join, so it pans forever; genres are
+  territories, one-off mentions are faint dust, stars lean toward the mouse. Select a star for its in/out links,
+  "Open →" morphs it back into its book page. **Influence** (switch, top right) is a binned chart — x = books it
+  mentions, y = books that mention it — and the stars travel between the two views.
+- **Query flags:** `?v=classic` — the classic book page and constellation network; `?net=petals` — adds the
+  Petals layout to the network switcher; `?net=v2` / `v3` / `v4` / `map` — the earlier network comparisons
+  (Explorer, Atlas, Explorer+, classic constellation).
 - **About** — how the dataset works
 
 Routing is hash-based and author-first: a book lives at `#/<author>/<title>` (e.g.
