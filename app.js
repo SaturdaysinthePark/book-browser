@@ -335,12 +335,33 @@
   // Lazily loaded modules (explorer.js) extend the component through this handle.
   window.__BJ = { P: P, h: h };
 
+  // The search box that ⌘F should focus on this page: map searches first, then any visible
+  // "Search…"/"Find…" input on the page, the header's last.
+  P._searchBox = function () {
+    var vis = function (el) { if (!el || el.disabled) return false; var r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(el).visibility !== 'hidden'; };
+    var pri = ['.bjx-fbar .atlas-input', '.atlas-bar .atlas-input', '#search', '.bjx-entry .bjx-input'];
+    for (var i = 0; i < pri.length; i++) { var el = document.querySelector(pri[i]); if (vis(el)) return el; }
+    var all = [].filter.call(document.querySelectorAll('input'), function (x) { return /^(search|find)/i.test(x.placeholder || x.getAttribute('aria-label') || '') && vis(x); });
+    var hdr = document.querySelector('.bj-hdr');
+    all.sort(function (a, b) { return (hdr && hdr.contains(a) ? 1 : 0) - (hdr && hdr.contains(b) ? 1 : 0); });
+    return all[0] || null;
+  };
   P.componentDidMount = function () {
     var self = this;
     this._onHash = function () { self.applyHash(); };
     window.addEventListener('hashchange', this._onHash);
     this._onResize = function () { self.setState({ vw: window.innerWidth }); };
     window.addEventListener('resize', this._onResize);
+    // ⌘F / Ctrl+F jumps to the page's own search box (the map's "Find a book…", the home or header
+    // search, the classic map's search). Pages without one keep the browser's find.
+    this._onFindKey = function (e) {
+      if (!(e.metaKey || e.ctrlKey) || e.altKey || e.shiftKey || (e.key || '').toLowerCase() !== 'f') return;
+      var el = self._searchBox();
+      if (!el) return;
+      e.preventDefault();
+      el.focus(); if (el.select) el.select();
+    };
+    window.addEventListener('keydown', this._onFindKey);
     if (location.hash && location.hash.length > 2) this.applyHash();
     this._startWallPulse();
     this._startTilt();
@@ -351,6 +372,7 @@
   P.componentWillUnmount = function () {
     window.removeEventListener('hashchange', this._onHash);
     window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('keydown', this._onFindKey);
     clearTimeout(this._pulseTimer);
     clearTimeout(this._flipCleanup);
     this._teardownStatsReveal();
