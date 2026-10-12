@@ -1,16 +1,31 @@
-# How are books connected? — BookJumpr film
+# BookJumpr films
 
-A playful 20-second motion film of bookjumpr.com, in 16:9 and 9:16. Prompt: [PROMPT.md](PROMPT.md).
+A template for short, playful motion films of bookjumpr.com, in 16:9 and 9:16. The first: *How are books connected?* (20 s). Prompt: [PROMPT.md](PROMPT.md).
 Not part of the site (Netlify only publishes the files listed in `netlify.toml`).
 
 | File | What it is |
 | --- | --- |
-| `flow.html` | The film. Every frame is computed from time by `seek(t)`; `?w=1080&h=1920` for the vertical cut, `?bpm=` for the tempo, `?play` to preview it in a browser |
-| `film-data.js` | The path, its quotes, the wall and the starfield, **generated** from the site's data by `build-data.mjs` (it fails if a quote isn't really in the data) |
-| `build-data.mjs` | `node video/build-data.mjs` (from the repo root) |
-| `render.mjs` | `node video/render.mjs [--w 1080 --h 1920] [--bpm 120] [--stills 0,14,28]` → PNG frames + MP4 in `video/out/` |
+| `films/<film>.json` | **A film's config** — its question (+ the accented word), the path of book ids, the end text, the default layout |
+| `films/<film>.data.js` | The film's data, **generated** from the site's by `build-data.mjs`: the path's books and genre colours, each hop's quote (verbatim — it fails if a hop or quote isn't really in the data), the wall, the starfield |
+| `flow.html` | The film engine. Every frame is computed from time by `seek(t)`. `?film=<film>`, `?layout=stage\|chain`, `?w=1080&h=1920` for the vertical cut, `?bpm=`, `?play` to preview in a browser |
+| `build-data.mjs` | `node video/build-data.mjs <film>` (from the repo root) |
+| `render.mjs` | `node video/render.mjs --film <film> [--layout chain] [--w 1080 --h 1920] [--stills 0,14,28]` → `video/out/<film>[-chain]-<w>x<h>.mp4` |
 
-## Beat map (120 BPM · 40 beats · 20 s)
+## Making another film
+
+1. Copy `films/jane-eyre-to-gatsby.json` to `films/<new>.json`; set `question`, `accent` (the word set in rust italic), `path` (book ids from `bookjumpr-data.js`, each next to the last by a real mention) and `end`.
+2. `node video/build-data.mjs <new>` — it prints each hop's quote, or fails naming the hop with no quoted mention.
+3. Preview: `http://localhost:8917/video/flow.html?film=<new>&play` (add `&layout=chain`, `&w=1080&h=1920`).
+4. `node video/render.mjs --film <new>` (and `--layout chain`, `--w 1080 --h 1920`).
+
+Any number of hops works: each takes 4.5 beats (stage) or 4.2 (chain), and the film grows to fit. Covers take their colour from the book's genre in the database, so re-tagging a book and running `npm run bj:build` then `build-data.mjs` recolours it.
+
+## Layouts
+
+- **stage** — one hop at a time, big: the current book and the next, a speech bubble between them, then the leap; finished books slide into a trail along the bottom.
+- **chain** — every hop on one screen: the books in a row (a column in 9:16), each quote pinned beside its hop and left there, so by the end the whole path reads at once (held for 1.6 beats before the network).
+
+## Beat map — jane-eyre-to-gatsby, stage layout (120 BPM · 40 beats · 20 s; chain: 40.4 beats)
 
 | Beats | Time | Scene |
 | --- | --- | --- |

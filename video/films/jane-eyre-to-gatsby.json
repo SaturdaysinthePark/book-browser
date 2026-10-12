@@ -1,0 +1,13 @@
+{
+  "question": "Have you ever wondered how books are connected?",
+  "accent": "connected?",
+  "path": [
+    "charlotte-bronte/jane-eyre",
+    "john-green/looking-for-alaska",
+    "herman-melville/moby-dick",
+    "gabrielle-zevin/the-storied-life-of-a-j-fikry",
+    "f-scott-fitzgerald/the-great-gatsby"
+  ],
+  "end": "bookjumpr.com",
+  "layout": "stage"
+}
