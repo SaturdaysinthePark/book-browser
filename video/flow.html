@@ -358,7 +358,8 @@ function main() {
       if (b < s0 || b > s0 + 4.6) continue;
       var cur2 = toScreen(bookAt(h), cam, b), nxt = toScreen(bookAt(h + 1), cam, b), src = Bq.hp.src === h ? cur2 : nxt;
       // 9:16: the leap swings out sideways across the bubble's space, so the bubble tucks away first
-      var gIn = spr(b, s0 + 0.7, 1.6), gOut = V ? ein(b, s0 + 2.65, s0 + 3.1) : ein(b, s0 + 3.7, s0 + 4.3), g = gIn * (1 - gOut);
+      var gIn = spr(b, s0 + 0.7, 1.6), gOut = V ? ein(b, s0 + 2.65, s0 + 3.1) : ein(b, s0 + 3.55, s0 + 3.95), g = gIn * (1 - gOut);
+      var per = Math.min(0.06, 0.6 / Bq.words.length);           // long quotes type faster, so every word is in before the highlight
       if (g > 0.01) {
         var bx = V ? cx : (cur2[0] + nxt[0]) / 2, by = V ? (cur2[1] + nxt[1]) / 2 : cy + 20;
         // grows out of the book that says it, and shrinks back into it
@@ -390,7 +391,7 @@ function main() {
               c.globalAlpha = ca; c.fillStyle = 'rgba(156,61,34,0.2)'; c.fillRect(x0 + lx - 5, y0 + +ky - Bq.fs * 0.76, lw + 10, Bq.fs * 0.98); c.fillStyle = RUST; c.fillRect(x0 + lx - 5, y0 + +ky + 7, lw + 10, 4); c.globalAlpha = 1; });
           }
           Bq.words.forEach(function (wd) {
-            var wa = eout(b, s0 + 1.0 + wd.k * 0.06, s0 + 1.35 + wd.k * 0.06) * ca, isH = Bq.hl.indexOf(wd) >= 0;
+            var wa = eout(b, s0 + 1.0 + wd.k * per, s0 + 1.35 + wd.k * per) * ca, isH = Bq.hl.indexOf(wd) >= 0;
             text(wd.s, x0 + wd.x, y0 + wd.y + (1 - wa) * 10, Bq.font, isH && hl > 0 ? mix(INK, RUST, hl) : INK, 'left', wa);
           });
         }
@@ -422,7 +423,7 @@ function main() {
         if (hl3 > 0) Object.keys(lines3).forEach(function (ky) { var ln = lines3[ky], lx = ln[0].x, rx = ln[ln.length - 1].x + ln[ln.length - 1].w, lw = Math.min(rx - lx, Math.max(0, done3)); done3 -= rx - lx;
           c.globalAlpha = ca3; c.fillStyle = 'rgba(156,61,34,0.2)'; c.fillRect(x3 + lx - 4, y3 + +ky - Cq.fs * 0.76, lw + 8, Cq.fs * 0.98); c.fillStyle = RUST; c.fillRect(x3 + lx - 4, y3 + +ky + 5, lw + 8, 3); c.globalAlpha = 1; });
         Cq.words.forEach(function (wd) {
-          var wa = eout(b, s1 + 0.7 + wd.k * 0.05, s1 + 1.0 + wd.k * 0.05) * ca3, isH = Cq.hl.indexOf(wd) >= 0;
+          var per3 = Math.min(0.05, 0.95 / Cq.words.length), wa = eout(b, s1 + 0.7 + wd.k * per3, s1 + 1.0 + wd.k * per3) * ca3, isH = Cq.hl.indexOf(wd) >= 0;
           text(wd.s, x3 + wd.x, y3 + wd.y + (1 - wa) * 8, Cq.font, isH && hl3 > 0 ? mix(INK, RUST, hl3) : INK, 'left', wa);
         });
       }
@@ -519,7 +520,7 @@ function main() {
   else window.seek(+Q.get('t') || 0);
 }
 // layout measures text, so the film is built once the fonts are in
-var FILM_NAME = new URLSearchParams(location.search).get('film') || 'jane-eyre-to-gatsby';
+var FILM_NAME = new URLSearchParams(location.search).get('film') || 'marriage-plot-to-romeo';
 var filmData = new Promise(function (res, rej) { var sc = document.createElement('script'); sc.src = 'films/' + FILM_NAME + '.data.js'; sc.onload = res; sc.onerror = function () { rej(new Error('no film data: films/' + FILM_NAME + '.data.js — run node video/build-data.mjs ' + FILM_NAME)); }; document.head.appendChild(sc); });
 window.filmReady = Promise.all([filmData,
   document.fonts.load('150px "Instrument Serif"'), document.fonts.load('italic 58px "Instrument Serif"'),

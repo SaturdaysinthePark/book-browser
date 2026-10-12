@@ -1,5 +1,5 @@
 // Builds a film's data from the site's generated data (run from the repo root):
-//   node video/build-data.mjs [film]          (film = a config in video/films/, default jane-eyre-to-gatsby)
+//   node video/build-data.mjs [film]          (film = a config in video/films/, default marriage-plot-to-romeo)
 // reads video/films/<film>.json and writes video/films/<film>.data.js. Everything the film shows — the
 // path's books, their quotes, the wall, the starfield — comes from the site's data, never typed in by hand.
 import fs from 'node:fs';
@@ -23,18 +23,18 @@ MENTIONS.forEach(([a, b]) => { deg[a] = (deg[a] || 0) + 1; deg[b] = (deg[b] || 0
 const book = k => ({ id: k, t: NODES[k][0], a: NODES[k][1], y: NODES[k][2], c: GEN[NODES[k][4]] || MISC });
 
 // the film's config: its question, the path it follows (each hop must be a real mention) and its end card
-const NAME = process.argv[2] || 'jane-eyre-to-gatsby';
+const NAME = process.argv[2] || 'marriage-plot-to-romeo';
 const CFG = JSON.parse(fs.readFileSync('video/films/' + NAME + '.json', 'utf8'));
 const PATH = CFG.path;
 if (!Array.isArray(PATH) || PATH.length < 2) throw new Error(NAME + '.json: "path" needs at least two book ids');
 PATH.forEach(k => { if (!NODES[k]) throw new Error('not in the data: ' + k); });
 const idx = k => L.keys.indexOf(k);
+// every hop runs forward: each book on the path mentions the next one, quoted from its text
 const hops = PATH.slice(1).map((to, i) => {
-  const from = PATH[i];
-  let e = MENTIONS.findIndex(([a, b]) => a === to && b === from), src = to, named = from;      // the next book mentions this one
-  if (e < 0) { e = MENTIONS.findIndex(([a, b]) => a === from && b === to); src = from; named = to; }   // or this one mentions the next
-  if (e < 0 || !NOTES[e]) throw new Error('no quoted mention between ' + from + ' and ' + to);
-  return { from: i, to: i + 1, src: PATH.indexOf(src), named: PATH.indexOf(named), quote: NOTES[e] };
+  const from = PATH[i], e = MENTIONS.findIndex(([a, b]) => a === from && b === to);
+  if (e < 0) throw new Error(NODES[from][0] + ' does not mention ' + NODES[to][0] + (MENTIONS.some(([a, b]) => a === to && b === from) ? ' (it is the other way round)' : ''));
+  if (!NOTES[e]) throw new Error(NODES[from][0] + ' mentions ' + NODES[to][0] + ', but there is no quote for it');
+  return { from: i, to: i + 1, src: i, named: i + 1, quote: NOTES[e] };
 });
 
 // the starfield: every book on the site, at its real place on the network map, in its territory's colour

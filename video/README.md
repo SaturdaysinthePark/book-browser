@@ -1,6 +1,6 @@
 # BookJumpr films
 
-A template for short, playful motion films of bookjumpr.com, in 16:9 and 9:16. The first: *How are books connected?* (20 s). Prompt: [PROMPT.md](PROMPT.md).
+A template for short, playful motion films of bookjumpr.com, in 16:9 and 9:16. The first: *How are books connected?* — The Marriage Plot → Invisible Cities → Brave New World → Romeo and Juliet. Prompt: [PROMPT.md](PROMPT.md).
 Not part of the site (Netlify only publishes the files listed in `netlify.toml`).
 
 | File | What it is |
@@ -13,8 +13,8 @@ Not part of the site (Netlify only publishes the files listed in `netlify.toml`)
 
 ## Making another film
 
-1. Copy `films/jane-eyre-to-gatsby.json` to `films/<new>.json`; set `question`, `accent` (the word set in rust italic), `path` (book ids from `bookjumpr-data.js`, each next to the last by a real mention) and `end`.
-2. `node video/build-data.mjs <new>` — it prints each hop's quote, or fails naming the hop with no quoted mention.
+1. Copy `films/marriage-plot-to-romeo.json` to `films/<new>.json`; set `question`, `accent` (the word set in rust italic), `path` (book ids from `bookjumpr-data.js`, **each book mentioning the next** — A mentions B mentions C) and `end`.
+2. `node video/build-data.mjs <new>` — it prints each hop's quote, or fails naming the hop that isn't a quoted forward mention (and says so if the mention runs the other way).
 3. Preview: `http://localhost:8917/video/flow.html?film=<new>&play` (add `&layout=chain`, `&w=1080&h=1920`).
 4. `node video/render.mjs --film <new>` (and `--layout chain`, `--w 1080 --h 1920`).
 
@@ -25,19 +25,20 @@ Any number of hops works: each takes 4.5 beats (stage) or 4.2 (chain), and the f
 - **stage** — one hop at a time, big: the current book and the next, a speech bubble between them, then the leap; finished books slide into a trail along the bottom.
 - **chain** — every hop on one screen: the books in a row (a column in 9:16), each quote pinned beside its hop and left there, so by the end the whole path reads at once (held for 1.6 beats before the network).
 
-## Beat map — jane-eyre-to-gatsby, stage layout (120 BPM · 40 beats · 20 s; chain: 40.4 beats)
+## Beat map — marriage-plot-to-romeo (120 BPM)
 
-| Beats | Time | Scene |
-| --- | --- | --- |
-| 0–6 | 0–3 s | **Question** — "Have you ever wondered how books are connected?" pops in word by word; the book hops along the words and lands on the "?" |
-| 6–10 | 3–5 s | **Big view** — a wall of covers ripples out and drifts; the book browses a few covers |
-| 10–12 | 5–6 s | **Zoom** — a cursor taps *Jane Eyre*; the camera dives in |
-| 12–30 | 6–15 s | **Hops** — Jane Eyre → *Looking for Alaska* → *Moby-Dick* → *The Storied Life of A. J. Fikry* → *The Great Gatsby*; each: next book pops in, a speech bubble from the book that says it, the title highlighted, a leap along a dotted arc |
-| 30–35 | 15–17.5 s | **Network** — the trail becomes dots at their real places on the map, joined by the path; pull back to every book |
-| 35–40 | 17.5–20 s | **End** — stars gather into the logo, the book lands on its arc, *BookJumpr*, bookjumpr.com |
+Stage: 35.5 beats (17.75 s). Chain: 36.2 beats (18.1 s) — 4.2 beats a hop and a 1.6-beat hold on the whole chain.
 
-The four lines, verbatim from the data:
-- *Looking for Alaska* (John Green): "Muting Decapitation would be like reading only every other word of Jane Eyre."
-- *Looking for Alaska*: "He lay on the top bunk, reading for his English class. Moby-Dick."
-- *The Storied Life of A. J. Fikry* (Gabrielle Zevin): "'Do you like Moby Dick?' he asks."
-- *The Storied Life of A. J. Fikry*: "The Great Gatsby is unquestionably dazzling, but that novel occasionally seems overgroomed to me, like a garden topiary."
+| Beats | Scene |
+| --- | --- |
+| 0–6 | **Question** — "Have you ever wondered how books are connected?" pops in word by word; the book hops along the words and lands on the "?" |
+| 6–10 | **Big view** — a wall of covers ripples out and drifts; the book browses a few covers |
+| 10–12 | **Zoom** — a cursor taps *The Marriage Plot*; the camera dives in |
+| 12–25.5 | **Hops** — *The Marriage Plot* → *Invisible Cities* → *Brave New World* → *Romeo and Juliet*: each book's line, in a bubble from that book, the next title highlighted, a leap along a dotted arc (stage: one at a time; chain: all on one screen) |
+| +0–5 | **Network** — the path becomes dots at their real places on the map, joined by the dotted path; pull back to every book |
+| +5–10 | **End** — stars gather into the logo, the book lands on its arc, *BookJumpr*, bookjumpr.com |
+
+The three lines, verbatim from the data (each book mentions the next):
+- *The Marriage Plot* (Jeffrey Eugenides): "a girl ... was smoking a clove cigarette and reading Invisible Cities"
+- *Invisible Cities* (Italo Calvino): "Already the Great Khan was leafing through his atlas, over the maps of the cities that menace in nightmares and maledictions: Enoch, Babylon, Yahooland, Butua, Brave New World."
+- *Brave New World* (Aldous Huxley): "Upstairs in his room the Savage was reading Romeo and Juliet."

@@ -4,10 +4,11 @@ Our version of the shared motion-design prompt, adapted to BookJumpr: playful, a
 
 ```
 <inputs>
-Ask me for: the opening question, the book to zoom into, 3–4 hops (each a real line where one
-book names the next), and a track with a clear beat (or a tempo to cut to).
-Defaults: "Have you ever wondered how books are connected?" · Jane Eyre → Looking for Alaska →
-Moby-Dick → The Storied Life of A. J. Fikry → The Great Gatsby · 120 BPM. No stats anywhere.
+Ask me for: the opening question, the book to zoom into, 3–4 hops that run forward (Book A
+mentions Book B, which mentions Book C… each a real line from the book's text), and a track with
+a clear beat (or a tempo to cut to).
+Defaults: "Have you ever wondered how books are connected?" · The Marriage Plot → Invisible Cities
+→ Brave New World → Romeo and Juliet · 120 BPM. No stats anywhere.
 </inputs>
 
 <direction>
@@ -22,19 +23,19 @@ from something already on screen. No numbers or stats.
 </direction>
 
 <structure>
-About 20 seconds (40 beats at 120 BPM).
+About 18 seconds at 120 BPM (12 beats of intro, 4.5 a hop, 10 to finish).
 Question (beats 0–6): "Have you ever wondered how books are connected?" pops in word by word on
   the beat; the little book hops along the words like a karaoke ball and lands on the "?".
 Big view (6–10): the words shrink away as a wall of covers ripples out from the middle and
   drifts; the book hops across a few covers, browsing.
-Zoom (10–12): a cursor taps Jane Eyre; the camera dives in until it's centre stage.
-Hops (12–30): four times — the next book pops in with a wobble; a speech bubble grows out of the
+Zoom (10–12): a cursor taps the first book; the camera dives in until it's centre stage.
+Hops (from beat 12, 4.5 beats each): each book mentions the next — the next book pops in with a wobble; a speech bubble grows out of the
   book that says the line, its tail pointing at it; the line types in and the named title is
   swiped with a rust highlighter; the little book leaps along a dotted arc onto the next cover
   (squash on landing) and the last one slides into a trail of jumps along the bottom.
-Network (30–35): the trail becomes five dots at their real places on the site's map, joined by
+Network (after the last hop, 5 beats): the trail becomes dots at their real places on the site's map, joined by
   the dotted path, and the camera pulls back to every book at once.
-End (35–40): the stars gather into the logo's dotted arc, the book lands on its end, "BookJumpr"
+End (5 more beats): the stars gather into the logo's dotted arc, the book lands on its end, "BookJumpr"
   bounces in letter by letter, then "bookjumpr.com".
 </structure>
 
@@ -51,8 +52,8 @@ End (35–40): the stars gather into the logo's dotted arc, the book lands on it
 </build>
 
 <gotchas>
-Quotes must be verbatim from the data, and the bubble's tail must point at the book that says
-the line. The little book must be one continuous character — never pop in or vanish. Keep every
+Every hop runs forward (the book on screen mentions the next). Quotes must be verbatim from the
+data, and the bubble's tail must point at the book that says the line. The little book must be one continuous character — never pop in or vanish. Keep every
 title and bubble inside the frame in both formats.
 </gotchas>
 

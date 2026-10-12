@@ -1,5 +1,5 @@
 // Renders video/flow.html to frames and an MP4 (run from the repo root):
-//   node video/render.mjs [--film jane-eyre-to-gatsby] [--layout stage|chain] [--w 1920 --h 1080] [--fps 60]
+//   node video/render.mjs [--film marriage-plot-to-romeo] [--layout stage|chain] [--w 1920 --h 1080] [--fps 60]
 //                         [--stills 0,4,9.5,...] [--out video/out]
 // --stills renders PNGs at those beat numbers only (for checking timing); without it, the whole film
 // is piped straight into ffmpeg as video/out/bookjumpr-<w>x<h>.mp4.
@@ -11,7 +11,7 @@ import http from 'node:http';
 
 const arg = (k, d) => { const i = process.argv.indexOf('--' + k); return i > 0 ? process.argv[i + 1] : d; };
 const W = +arg('w', 1920), H = +arg('h', 1080), FPS = +arg('fps', 60), OUT = arg('out', 'video/out'), STILLS = arg('stills', null), BPM = +arg('bpm', 120);
-const FILM = arg('film', 'jane-eyre-to-gatsby'), LAYOUT = arg('layout', '');
+const FILM = arg('film', 'marriage-plot-to-romeo'), LAYOUT = arg('layout', '');
 const tag = FILM + (LAYOUT ? '-' + LAYOUT : '') + '-' + W + 'x' + H;
 fs.mkdirSync(OUT, { recursive: true });
 
