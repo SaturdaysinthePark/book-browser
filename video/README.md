@@ -28,8 +28,7 @@ Any number of hops works: each takes 4.5 beats (stage) or 4.2 (chain), and the f
 - **chain** (the default) — every hop on one screen: the books in a row (a column in 9:16), each quote pinned beside its hop and left there, so by the end the whole path reads at once (held for 1.6 beats before the network).
 - **fan** — top down, like a book's page on the site: one book at the top, the books it mentions in a row below it
   (titles underneath), joined by curved dotted lines that never cross; a quote card for only some of them, one at a
-  time; then the hop to one of those books, whose own row hangs below it (a book both mention, like *The Great
-  Gatsby* below, gets a loop to its existing cover). The whole tree fits one frame, then centres before the network.
+  time; then the hop to one of those books, whose own row hangs below it. The whole tree fits one frame, then centres before the network.
   Made for 9:16 (tree on top, cards below); 16:9 puts the cards on the right but isn't tuned.
 - **stage** — one hop at a time, big: the current book and the next, a speech bubble between them, then the leap; finished books slide into a trail along the bottom.
 
