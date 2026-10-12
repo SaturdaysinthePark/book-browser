@@ -1407,7 +1407,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=13', 'explorer.js?v=20'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=14', 'explorer.js?v=23'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1444,7 +1444,7 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=13', 'stars-data.js?v=3', 'explorer.js?v=20'] : ['network-regions.js?v=2', 'explorer.js?v=20'];
+    var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=23'] : ['network-regions.js?v=2', 'explorer.js?v=23'];
     if (this._vLab()) srcs.push('layouts-data.js?v=8');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
@@ -1633,8 +1633,14 @@
       showHeaderSearch: page !== 'home' && page !== 'network',
       navText: page !== 'home' && !m,
       navIcons: page !== 'home' && m,
-      hdrSearchWrap: m ? { position: 'relative', flexBasis: '100%', order: 9, margin: '2px 0 4px' } : { position: 'relative', marginRight: '8px' },
-      hdrInput: { height: '40px', border: '1.5px solid var(--ink)', borderRadius: '999px', padding: '0 18px', fontSize: '16px', background: 'var(--card)', color: 'var(--ink)', fontFamily: 'inherit', boxSizing: 'border-box', boxShadow: '0 3px 0 rgba(20,20,20,.85)', width: m ? '100%' : '240px' },
+      // phones: one compact row. Pages with a header search show the mark + search + icons (the wordmark
+      // makes room); the network (its map has its own search) keeps the wordmark.
+      hdrRow: { position: 'relative', maxWidth: '1240px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: m ? '6px' : '6px', padding: m ? '7px 10px 7px 14px' : '10px 20px', boxSizing: 'border-box' },
+      hdrWord: { fontFamily: "'Instrument Serif',serif", fontSize: m ? '23px' : '25px', letterSpacing: '.01em', display: m && page !== 'home' && page !== 'network' ? 'none' : 'inline' },
+      hdrSpacer: { flex: m && page !== 'home' && page !== 'network' ? '0 0 0' : '1' },
+      hdrPh: vw < 360 ? 'Search…' : 'Search a book…',
+      hdrSearchWrap: m ? { position: 'static', flex: '1 1 auto', minWidth: 0, margin: '0 2px 0 6px' } : { position: 'relative', marginRight: '8px' },
+      hdrInput: { height: m ? '38px' : '40px', border: '1.5px solid var(--ink)', borderRadius: '999px', padding: m ? '0 14px' : '0 18px', fontSize: '16px', background: 'var(--card)', color: 'var(--ink)', fontFamily: 'inherit', boxSizing: 'border-box', boxShadow: m ? '0 2px 0 rgba(20,20,20,.85)' : '0 3px 0 rgba(20,20,20,.85)', width: m ? '100%' : '240px', minWidth: 0 },
       bookHero: { display: 'grid', gridTemplateColumns: m ? '1fr' : mid ? '180px minmax(0,1fr)' : '210px minmax(0,1fr) 340px', gap: m ? '28px' : '44px', alignItems: 'start' },
       coverWrap: { boxShadow: '10px 10px 0 rgba(20,20,20,.12)', maxWidth: m ? '180px' : 'none' },
       graphPanel: { border: '1.5px solid var(--ink)', borderRadius: '18px', background: 'var(--card)', padding: '18px 18px 10px', gridColumn: mid && !m ? '1 / -1' : 'auto', maxWidth: mid && !m ? '540px' : 'none' },
@@ -1737,7 +1743,7 @@
     // color) already exists on the base object with a different value — never introduce a key here
     // that's absent from the other branch, or React's style diffing will unset it instead of
     // resetting it (that's what caused icons to get stuck with a visible border after a few clicks).
-    var hdrNavBtnBase = Object.assign({}, iconBtn(m ? 44 : 34, 0.6), { color: 'var(--ink)' });
+    var hdrNavBtnBase = Object.assign({}, iconBtn(m ? 40 : 34, 0.6), { color: 'var(--ink)', flex: 'none' });
     var hdrNavBtnActive = { opacity: 1, color: 'var(--accent)' };
     vals.hdrNavBtnNetwork = vals.pgNetwork ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;
     vals.hdrNavBtnStats = vals.pgStats ? Object.assign({}, hdrNavBtnBase, hdrNavBtnActive) : hdrNavBtnBase;

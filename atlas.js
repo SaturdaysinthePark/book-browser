@@ -318,7 +318,7 @@
       c.beginPath(); c.arc(sx, sy, rad, 0, 6.2832);
       c.fillStyle = this.col ? this.col[i] : R.name ? hexA(PAL[this.reg[i] % PAL.length], 0.8) : 'rgba(110,104,92,0.6)';
       // thumbnails: a linked book is drawn in its link's colour (in / out / both), so the ends of the lines read
-      if (this.mini && nb && nb[i]) { c.fillStyle = nb[i] === 'out' ? OUT : nb[i] === 'in' ? IN : INK; rad = Math.max(rad, 1.8); }
+      if ((this.mini || W < 600) && nb && nb[i]) { c.fillStyle = nb[i] === 'out' ? OUT : nb[i] === 'in' ? IN : INK; rad = Math.max(rad, 1.8); }
       c.fill();
       if (rad > 3.2 && !isDust) { c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.55)'; c.stroke(); }
     }
@@ -330,20 +330,37 @@
     if (edgesOf) {
       var hx = this.sx(this._x(hub)), hy = this.sy(this._y(hub));
       // bundle: 3+ links of one kind into one neighbourhood (not the hub's own) draw as a single
-      // thicker line to that neighbourhood's edge, with a count
+      // thicker line to that neighbourhood's edge, with a count.
+      // phones (bundleNarrow): a big hub's links are bundled per genre territory, own one included, and
+      // each bundle ends at the middle of the books it stands for (territories on the starfield aren't round)
+      var nE = 0; for (var jc in edgesOf) nE++;
+      var near = this.o.bundleNarrow && W < 600 && !this.mini && focus >= 0 && nE > 16;
       var lines = [], groups = {};
       for (var js in edgesOf) {
         var j0 = +js, kd = edgesOf[js], rg = this.reg[j0];
-        if (this.o.bundle && rg !== this.reg[hub]) { var gk = rg + kd; (groups[gk] || (groups[gk] = { rg: rg, kind: kd, ids: [] })).ids.push(j0); }
+        if ((this.o.bundle && rg !== this.reg[hub]) || (near && kd !== 'both')) { var gk = rg + kd; (groups[gk] || (groups[gk] = { rg: rg, kind: kd, ids: [] })).ids.push(j0); }
         else lines.push({ j: j0, kind: kd });
       }
       for (var gk2 in groups) {
         var G2 = groups[gk2];
         if (G2.ids.length < 3) { G2.ids.forEach(function (x) { lines.push({ j: x, kind: G2.kind }); }); continue; }
+        if (near) {
+          var mxs = 0, mys = 0;
+          for (var gi = 0; gi < G2.ids.length; gi++) { mxs += this.sx(this._x(G2.ids[gi])); mys += this.sy(this._y(G2.ids[gi])); }
+          mxs /= G2.ids.length; mys /= G2.ids.length;
+          if (Math.hypot(mxs - hx, mys - hy) < 40) { G2.ids.forEach(function (x) { lines.push({ j: x, kind: G2.kind }); }); continue; }   // too close to read as a bundle
+          // keep the bundle's end (and its count) on screen, between the top bar and the bottom card
+          var top0 = this._insetTop() + 22, bot0 = H - this._inset() - 22, f0 = 1, vx = mxs - hx, vy = mys - hy;
+          if (hx + vx * f0 < 24) f0 = (24 - hx) / vx; if (hx + vx * f0 > W - 24) f0 = (W - 24 - hx) / vx;
+          if (hy + vy * f0 < top0) f0 = (top0 - hy) / vy; if (hy + vy * f0 > bot0) f0 = (bot0 - hy) / vy;
+          f0 = Math.max(0.25, Math.min(1, f0));
+          lines.push({ j: -1, kind: G2.kind, tx: hx + vx * f0, ty: hy + vy * f0, n: G2.ids.length });
+          continue;
+        }
         var RG = this.regions[G2.rg], rcx = this.sx(RG.x), rcy = this.sy(RG.y), rr = RG.r * k, ddx = hx - rcx, ddy = hy - rcy, dd = Math.hypot(ddx, ddy) || 1;
         lines.push({ j: -1, kind: G2.kind, tx: rcx + ddx / dd * rr, ty: rcy + ddy / dd * rr, n: G2.ids.length });
       }
-      var ne = lines.length;
+      var ne = lines.length, plain = W < 600;   // phones: colour alone says in / out (as on the book page)
       var thin = this.o.flow ? Math.max(0.6, Math.min(1, 36 / ne)) : 1;   // big hubs: quieter lines
       var badges = [];
       for (var li0 = 0; li0 < lines.length; li0++) {
@@ -357,10 +374,11 @@
         c.globalAlpha = (focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.3 : 0.9) : 0.55) * (hot ? 1 : thin);
         c.lineWidth = (hot ? 3.2 : LN.n ? Math.min(8, 2.2 + Math.sqrt(LN.n) * 0.7) : focus >= 0 ? 2.2 : 1.3) * (W < 600 ? 0.55 : 1);   // phones: finer lines
         if (this.mini) { c.lineWidth = W < 180 ? 0.8 : 1.1; c.globalAlpha = Math.min(c.globalAlpha, ne > 30 ? 0.45 : 0.7); }   // thumbnails: plain hairlines
+        else if (plain && !hot && !LN.n) { c.lineWidth = 1.1; c.globalAlpha = Math.min(c.globalAlpha, ne > 30 ? 0.5 : 0.8); }   // phones: plain fine lines
         if (LN.n) c.globalAlpha = Math.max(c.globalAlpha, 0.7);
         // Flow (after the reveal): dashes travel in the mention's direction — out from the book for
         // books it mentions, in toward it for books that mention it. Mutual stays solid.
-        var flowing = this.o.flow && !this.mini && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
+        var flowing = this.o.flow && !this.mini && !plain && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
         var rev = flowing && kind === 'in';
         if (flowing) { var dsh = W < 600 ? [5, 4] : [8, 6]; c.setLineDash(dsh); c.lineDashOffset = -((now * 18) % (dsh[0] + dsh[1])); }
         c.beginPath();
@@ -374,7 +392,7 @@
         c.stroke();
         if (flowing) c.setLineDash([]);
         // arrowhead at the curve's midpoint, pointing the way the mention goes (mutual: none)
-        if (focus >= 0 && ip >= 1 && kind !== 'both' && !this.mini) {
+        if (focus >= 0 && ip >= 1 && kind !== 'both' && !this.mini && !plain) {
           var t1 = 0.5, t2 = 0.56, m1 = 1 - t1, m2 = 1 - t2;
           var ax1 = m1 * m1 * hx + 2 * m1 * t1 * cx2 + t1 * t1 * tx, ay1 = m1 * m1 * hy + 2 * m1 * t1 * cy2 + t1 * t1 * ty;
           var ax2 = m2 * m2 * hx + 2 * m2 * t2 * cx2 + t2 * t2 * tx, ay2 = m2 * m2 * hy + 2 * m2 * t2 * cy2 + t2 * t2 * ty;
@@ -593,7 +611,7 @@
         return;
       }
       lastG = 0;
-      var flowing = self.o.flow && !self.mini && self.focus >= 0;
+      var flowing = self.o.flow && !self.mini && self.W >= 600 && self.focus >= 0;   // phones draw plain lines: nothing to animate
       var every = flowing ? 33 : self.o.twinkle && !self.mini ? 66 : 0;
       if (!every || t - last < every) return;
       last = t;

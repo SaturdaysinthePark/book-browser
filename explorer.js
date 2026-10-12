@@ -121,7 +121,7 @@
       cap: cap, font: FONT, cfont: "italic 22px 'Instrument Serif', serif", ph: 30, row: 38, ch: 42, extra: extra, touch: self._vNext(),
       gap: function (w) { return Math.max(120, Math.min(w * 0.17, 240)); }
     });
-    if (lay.empty) return h('div', { className: 'bjx-empty' }, 'No connections logged for ' + b.title + ' yet.');
+    if (lay.empty) return h('div', { className: 'bjx-empty' }, 'No connections logged for ' + b.title + '.');
     var PH = lay.PH, hot = st.xHover;
     var arrow = function (id, col) {
       return h('marker', { key: id, id: id, viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 6.5, markerHeight: 6.5, orient: 'auto-start-reverse' },
@@ -218,7 +218,7 @@
       }
       if (st.xPathTo) {
         var path = this.xPath(b.id, st.xPathTo);
-        if (!path) pk.push(h('p', { key: 'np', className: 'bjx-note' }, 'No chain of mentions connects these two yet.'));
+        if (!path) pk.push(h('p', { key: 'np', className: 'bjx-note' }, 'No chain of mentions connects these two.'));
         else {
           var chain = [];
           path.forEach(function (id, i) {
@@ -479,7 +479,7 @@
   // Phone: a slim book header with a map thumbnail, the fan as two shelves of covers (swipe
   // sideways) with lines flowing into the book, a sheet for the tapped cover, then tabs.
   P.bookNextPhone = function (b) {
-    var self = this, st = this.state, yl = this.yearLabel(b.year), gl = this.genreOf(b).name, hot = st.xHover && this.books[st.xHover] && (b.out.indexOf(st.xHover) !== -1 || b.in.indexOf(st.xHover) !== -1) ? this.books[st.xHover] : null;
+    var self = this, st = this.state, yl = this.yearLabel(b.year), gl = this.genreOf(b).name;
     var hasAu = b.author && b.author !== 'Anonymous', synOpen = st.bkSyn === b.id;
     var kids = [];
     kids.push(h('div', { key: 'head', className: 'bkp-head' },
@@ -494,15 +494,6 @@
         h('span', { className: 'bkp-map-l' }, 'Zoom out ⤢'))));
     if (b.synopsis) kids.push(h('p', { key: 'syn', className: 'bkp-syn' + (synOpen ? ' open' : ''), onClick: function () { self.setState({ bkSyn: synOpen ? null : b.id }); } }, b.synopsis));
     kids.push(this.coverShelves(b));
-    if (hot) {
-      var isOut = b.out.indexOf(hot.id) !== -1, isIn = b.in.indexOf(hot.id) !== -1, hy = this.yearLabel(hot.year);
-      kids.push(h('div', { key: 'sheet', className: 'bkp-sheet' },
-        h('div', { className: 'bkp-sheet-h' },
-          h('div', { className: 'bkp-sheet-t' }, h('div', { className: 'eyebrow ' + (isOut && isIn ? '' : isOut ? 'out' : 'in') }, isOut && isIn ? 'They mention each other' : isOut ? b.title + ' mentions' : 'Mentions ' + b.title),
-            h('div', { className: 't' }, hot.title), h('div', { className: 'a' }, [hot.author, hy].filter(Boolean).join('  ·  '))),
-          h('button', { className: 'pill solid', onClick: function () { self.xJump(hot.id, document.querySelector('.bkp-cv[data-id="' + CSS.escape(hot.id) + '"]')); } }, 'Jump →')),
-        isOut ? this.noteEl(b.id, hot.id) : this.noteEl(hot.id, b.id)));
-    }
     kids.push(this.bookLists(b));
     return h('div', { className: 'bjx-page bjx-plus bkp-page' }, kids);
   };
@@ -517,14 +508,14 @@
         var k = side === 'in' ? 'in' : b.in.indexOf(id) !== -1 ? 'both' : 'out';
         return h('button', { key: id, className: 'bkp-cv k-' + k + (st.xHover === id ? ' is-hot' : ''), 'data-id': id, 'data-k': k, style: { '--i': i },
           'aria-label': books[id].title, title: books[id].title,
-          onClick: function (e) { if (self.state.xHover === id) self.xJump(id, e.currentTarget); else self.setState({ xHover: id }); } },
+          onClick: function (e) { self.xJump(id, e.currentTarget); } },   // one tap opens it (its quote is in the lists below)
           self.cover(books[id]), k === 'both' ? h('span', { className: 'mut' }, '⇄') : null);
       });
       if (ids.length > CAP) items.push(h('button', { key: 'more', className: 'bkp-more', onClick: function () {
         self.setState({ bkTab: { id: b.id, side: side === 'in' ? 'in' : 'out' } });
         setTimeout(function () { var el = document.querySelector('.bkn-tabs'); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }, 30);
       } }, '+' + (ids.length - CAP), h('br'), 'in the list ↓'));
-      if (!ids.length) items.push(h('span', { key: 'none', className: 'bkp-none' }, side === 'in' ? 'No book mentions it yet' : 'It doesn’t mention any books yet'));
+      if (!ids.length) items.push(h('span', { key: 'none', className: 'bkp-none' }, side === 'in' ? 'No book mentions it' : 'It doesn’t mention any books'));
       return h('div', { key: 'r' + side, className: 'bkp-row ' + side, onScroll: function () { self._bkpQueue(); } }, items);
     };
     return h('div', { key: 'shelves:' + b.id, className: 'bkp-shelves' + (st.xArriving ? ' arriving' : st.xLanded === b.id ? ' landed' : '') + (st.xHover ? ' has-hot' : ''), ref: this._bkpRef() },
@@ -612,7 +603,7 @@
             h('span', { className: 'count ' + side }, ids.length),
             h('span', { className: 'cap' }, (out ? 'found inside ' : 'that reference ') + b.title)),
         cards.length ? h('div', { className: 'bkn-cards' }, cards)
-          : h('p', { className: 'bjx-note' }, out ? 'Nothing logged inside this one yet.' : 'No book has name-dropped it yet.'),
+          : h('p', { className: 'bjx-note' }, out ? 'It doesn’t mention any books.' : 'No book mentions it.'),
         ids.length > shown.length ? h('button', { className: 'pill more', onClick: function () { self.setState(out ? { allOut: b.id } : { allIn: b.id }); } }, 'Show all ' + ids.length) : null);
     };
     if (!tabs) return h('div', { key: 'lists', className: 'bkn-lists' }, col('out'), col('in'));
@@ -650,7 +641,7 @@
       }
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
         root: el, data: data,
-        regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
+        regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame', bundleNarrow: !lk || lk === 'wrap',
         wrapX: data.guides && data.guides.torus ? data.guides.torus.P : 0,
         wrapY: data.guides && data.guides.torus ? data.guides.torus.PY : 0,
         regionZoom: lk !== 'wrap',
@@ -756,11 +747,12 @@
     return this.starMap(focus, view, switcher);
   };
 
-  // The selected book's card on a map view (stars, and the lab views): cover, counts, Open, Clear.
+  // The selected book's card on a map view (stars, and the lab views): cover, counts, Open, and a corner × to close.
   P.mapCard = function (sel, o) {
     var self = this, yl = this.yearLabel(sel.year), g = this.xGenreLabel(this.xGenreKey(sel.id));
     o = o || {};
     return h('div', { className: 'bjx-fcard' },
+      h('button', { className: 'bjx-fx', 'aria-label': 'Close', title: 'Close (Esc)', onClick: function () { self.mapFocus(null); } }, '×'),
       h('div', { className: 'bjx-fcv' }, this.cover(sel)),
       h('div', { className: 'bjx-fmeta' },
         h('div', { className: 'eyebrow' }, o.eyebrow || (g === 'Unsorted' || g === 'Other' ? 'Selected' : g)),
@@ -768,8 +760,7 @@
         h('div', { className: 'by' }, [sel.author, yl].filter(Boolean).join('  ·  ')),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
         h('div', { className: 'bjx-act' },
-          h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'),
-          h('button', { className: 'pill', onClick: function () { self.mapFocus(null); } }, 'Clear'))));
+          h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'))));
   };
   // "Search by book or author…" for the map views; picking one selects it (mapFocus).
   P.mapSearch = function () {
