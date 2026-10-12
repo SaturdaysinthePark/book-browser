@@ -665,8 +665,10 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .bkp-lines .ng-e{stroke-width:1.1;}
 .bkp-lines .ng-flow{stroke-width:1.5;stroke-dasharray:2 8;}
 .bkp-eg.is-hot .ng-e{stroke-width:2 !important;}
-.bkp-row{position:relative;z-index:1;display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 16px 6px;scrollbar-width:none;min-height:88px;align-items:center;}
+.bkp-row{position:relative;z-index:1;display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scroll-padding:0 16px;padding:4px 16px 6px;scrollbar-width:none;min-height:88px;align-items:center;}
 .bkp-row::-webkit-scrollbar{display:none;}
+/* a short shelf centres under/over the pill; auto margins only take spare room, so a long one still scrolls from the left */
+.bkp-row>:first-child{margin-left:auto;}.bkp-row>:last-child{margin-right:auto;}
 .bkp-cv{position:relative;flex:none;width:52px;padding:0;border:none;background:none;scroll-snap-align:start;cursor:pointer;transition:transform .25s var(--ease-spring),opacity .2s;
   opacity:0;animation:ngIn .4s var(--ease-out) forwards;animation-delay:calc(min(var(--i), 10) * 28ms + 120ms);}
 .bkp-cv.is-hot{transform:translateY(-4px) scale(1.08);}
