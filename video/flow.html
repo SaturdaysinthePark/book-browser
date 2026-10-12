@@ -333,93 +333,58 @@ function main() {
   var ROTV = !VCH ? 0 : (function () { var A = side(CH.pos[0][0], CH.pos[0][1], CH.w), B = side(CH.pos[1][0], CH.pos[1][1], CH.w), C = sideCtrl(A, B); return Math.atan2(B[1] - C[1], B[0] - C[0]) - 0.17; })();
   var restRot = VCH ? ROTV : BOOKROT * 0.6;
 
-  // the fan: the first book and every book it mentions on an arc to its right (each title beside its cover),
-  // the quotes one by one, then the hop to one of those books, which fans out in turn. World space, one camera:
-  // screen = (p − view.c)·view.z + centre. Tuned for 9:16 (phones); 16:9 uses the same plan
+  // the fan, top down like a book's page on the site: the first book at the top, the books it mentions in a row
+  // below it (titles underneath), joined by curved dotted lines that never cross; the quotes (only some) one at a
+  // time; then the hop to one of those books, whose own row hangs below it. The whole tree is on screen at once.
+  // 9:16: the tree on top, the cards below it. 16:9: the tree on the left, the cards on the right
   var FN = !FAN ? null : (function () {
-    var fans = F.fans, NF = fans.length, anchor = V ? [140, 560] : [300, cy], RW = V ? 220 : 170, RW2 = V ? 170 : 130;
-    var RAD = V ? [380, 380] : [470, 500], SW = V ? [130, 130] : [84, 76], SPR = (V ? [70, 70] : [64, 62]).map(function (d) { return d * PI / 180; }), GAP = V ? 150 : 150;
-    var ROW = 225, span = [], LFS = V ? 54 : 30, pos = [], wid = [], fanOf = [], popAt = [], lineAt = [], rustAt = [], member = PATH.map(function () { return []; });
-    var r0 = fans[0].root; pos[r0] = [0, 0]; wid[r0] = RW;
-    fans.forEach(function (f, i) {
-      var R = RAD[Math.min(i, 1)], sw = SW[Math.min(i, 1)], O = pos[f.root], ft = FT.fans[i];
-      var fresh = f.spokes.filter(function (k) { return !pos[k]; }), spread = Math.min(SPR[Math.min(i, 1)], (fresh.length - 1) * GAP / R / 2);
-      fresh.forEach(function (k, j) {
-        if (V) { var yy = (j - (fresh.length - 1) / 2) * ROW, ry = Math.max(1, (fresh.length - 1) / 2 * ROW) * 1.18; pos[k] = [O[0] + R * Math.sqrt(1 - yy * yy / (ry * ry)), O[1] + yy]; }
-        else { var a = fresh.length > 1 ? -spread + 2 * spread * j / (fresh.length - 1) : 0; pos[k] = [O[0] + R * Math.cos(a), O[1] + R * Math.sin(a)]; }
-        wid[k] = sw; fanOf[k] = i;
-      });
-      span[i] = (fresh.length - 1) * (V ? ROW : 0);
-      // a later fan moves out to the right until its books clear every book already placed (so the whole tree reads)
-      if (i) {
-        var push = 0;
-        fresh.forEach(function (k) { PATH.forEach(function (_, j) {
-          if (!pos[j] || fresh.indexOf(j) >= 0 || j === f.root) return;
-          if (Math.abs(pos[j][1] - pos[k][1]) < (wid[j] + sw) * 0.75 + 24) push = Math.max(push, pos[j][0] + wid[j] / 2 + 48 + sw / 2 - pos[k][0]);
-        }); });
-        fresh.forEach(function (k) { pos[k][0] += push; });
+    var fans = F.fans, NF = fans.length, tx = V ? cx : 540, tW = V ? W - 110 : 1000, RW = V ? 210 : 150, SW0 = V ? 180 : 140;
+    var LFS = V ? 36 : 25, LH = LFS * 1.12, GAPL = V ? 150 : 90, top = V ? 80 : 56;
+    var pos = [], wid = [], fanOf = [], popAt = [], lineAt = [], rustAt = [], lab = [], rows = [];
+    var r0 = fans[0].root; pos[r0] = [tx, top + RW * 0.75]; wid[r0] = RW;
+    // a title under its cover, in at most two lines, as big as fits the slot
+    var labOf = function (k, slot) {
+      for (var fs = LFS; ; fs -= 1) {
+        var font = fs + 'px ' + SERIF, ws = PATH[k].t.split(' '), ls = [''];
+        ws.forEach(function (w) { var t = ls[ls.length - 1] ? ls[ls.length - 1] + ' ' + w : w; if (tw(t, font) > slot && ls[ls.length - 1]) ls.push(w); else ls[ls.length - 1] = t; });
+        if ((ls.length <= 2 && Math.max.apply(null, ls.map(function (l) { return tw(l, font); })) <= slot) || fs <= 18) return { font: font, fs: fs, lines: ls };
       }
-      member[f.root].push(i); lineAt[i] = {}; rustAt[i] = {};
-      f.spokes.forEach(function (k, j) { member[k].push(i); lineAt[i][k] = ft.T + j * ft.ls; if (popAt[k] == null) popAt[k] = lineAt[i][k] + 0.45; });
+    };
+    var labH = 2 * LH + 16, bottomOf = function (k) { return pos[k][1] + wid[k] * 0.75 + (lab[k] ? 14 + lab[k].lines.length * lab[k].fs * 1.12 : 0); };
+    var y = pos[r0][1] + RW * 0.75;
+    fans.forEach(function (f, i) {
+      var ft = FT.fans[i], fresh = f.spokes.filter(function (k) { return !pos[k]; }), n = fresh.length;
+      var sw = Math.min(SW0, (tW - (n - 1) * 26) / n), slot = Math.min(tW / n, sw + 60), rowTop = (i ? bottomOf(f.root) : y) + GAPL;
+      fresh.forEach(function (k, j) { pos[k] = [tx + (j - (n - 1) / 2) * (sw + Math.max(26, Math.min(70, (tW - n * sw) / Math.max(1, n - 1)))), rowTop + sw * 0.75]; wid[k] = sw; fanOf[k] = i; lab[k] = labOf(k, slot - 8); });
+      rows.push({ top: rowTop, bot: rowTop + sw * 1.5 + 14 + labH });
+      lineAt[i] = {}; rustAt[i] = {};
+      f.spokes.forEach(function (k, j) { lineAt[i][k] = ft.T + j * ft.ls; if (popAt[k] == null) popAt[k] = lineAt[i][k] + 0.45; });
       ft.slots.forEach(function (sl) { rustAt[i][sl.k] = sl.s + 2.0; });
       if (ft.H != null) rustAt[i][fans[i + 1].root] = ft.H + 2.0;
     });
-    // a later fan's book grows into a root, as far as its neighbours allow
-    var grown = [];
-    fans.forEach(function (f, i) {
-      if (!i) return; var k = f.root, w = RW2;
-      PATH.forEach(function (_, j) { if (j === k || !pos[j]) return; var dx = Math.abs(pos[j][0] - pos[k][0]), dy = Math.abs(pos[j][1] - pos[k][1]); w = Math.min(w, Math.max(2 * (dx - 14) - wid[j], 2 * (dy - 14) / 1.5 - wid[j])); });
-      grown[k] = Math.max(wid[k], w);
-    });
-    var glide = function (i, b) { return i < NF - 1 ? eio(b, FT.fans[i].H + 3.0, FT.fans[i].H + 4.2) : 0; };
-    var widthAt = function (k, b) { var w = wid[k]; fans.forEach(function (f, i) { if (i && f.root === k) w = lerp(wid[k], grown[k], glide(i - 1, b)); }); return w; };
-    var anchorOf = function (i) { return V ? [anchor[0], 70 + span[i] / 2 + SW[Math.min(i, 1)] * 0.75] : anchor; };
-    var views = fans.map(function (f, i) { var p = pos[f.root], an = anchorOf(i); return { c: [p[0] - (an[0] - cx), p[1] - (an[1] - cy)], z: 1 }; });
-    var bx0 = 1e9, bx1 = -1e9, by0 = 1e9, by1 = -1e9;
-    PATH.forEach(function (_, k) { var w = grown[k] || wid[k]; bx0 = Math.min(bx0, pos[k][0] - w / 2); bx1 = Math.max(bx1, pos[k][0] + w / 2); by0 = Math.min(by0, pos[k][1] - w * 0.75); by1 = Math.max(by1, pos[k][1] + w * 0.75); });
-    var ov = { c: [(bx0 + bx1) / 2, (by0 + by1) / 2], z: Math.min(1, (W - (V ? 100 : 200)) / (bx1 - bx0), (H - (V ? 300 : 110)) / (by1 - by0)) };
-    var view = function (b) {
-      var v = views[0];
-      for (var i = 0; i < NF - 1; i++) { var t = glide(i, b); if (t > 0) v = { c: [lerp(views[i].c[0], views[i + 1].c[0], t), lerp(views[i].c[1], views[i + 1].c[1], t)], z: 1 }; }
-      var to = eio(b, FT.O, FT.O + 1.4);
-      return to > 0 ? { c: [lerp(v.c[0], ov.c[0], to), lerp(v.c[1], ov.c[1], to)], z: lerp(v.z, ov.z, to) } : v;
+    // for the whole tree, it moves to the middle of the frame (9:16: it was sitting on top of the cards)
+    var treeBot = rows[rows.length - 1].bot, shiftO = V ? Math.max(0, (H - treeBot - top) / 2) : (H - treeBot - top) / 2;
+    var oy = function (b) { return shiftO * eio(b, FT.O, FT.O + 1.4); };
+    var at = function (k, b) { return [pos[k][0], pos[k][1] + oy(b), wid[k]]; };
+    // a line from a root to a book it mentions: down from the root's bottom (each leaves at its own point, in order),
+    // into the top of the book. A book already on screen in the same row gets a loop underneath instead
+    var line = function (i, k, b) {
+      var R = at(fans[i].root, b), S = at(k, b), y0 = i ? bottomOf(fans[i].root) + oy(b) + 6 : R[1] + R[2] * 0.75 + 6;
+      if (S[1] <= R[1] + 1) { var ys = bottomOf(k) + oy(b) + 6, yd = Math.max(y0, ys) + 70; return function (t) { return cub([R[0], y0], [R[0], yd], [S[0], yd], [S[0], ys], t); }; }
+      var sx = R[0] + clamp((S[0] - R[0]) * 0.22, -R[2] * 0.4, R[2] * 0.4), y1 = S[1] - S[2] * 0.75 - 8, ym = (y0 + y1) / 2;
+      return function (t) { return cub([sx, y0], [sx, ym], [S[0], ym], [S[0], y1], t); };
     };
-    var scr = function (k, b, v) { return [(pos[k][0] - v.c[0]) * v.z + cx, (pos[k][1] - v.c[1]) * v.z + cy, widthAt(k, b) * v.z]; };
-    // a fan dims once the next one takes over (its books stay as context), and comes back for the whole tree
-    var fanDim = function (i, b) { return i >= NF - 1 ? 1 : 1 - eio(b, FT.fans[i].H + 3.0, FT.fans[i].H + 4.0) + eio(b, FT.O, FT.O + 1.2); };
-    var coverDim = function (k, b) { return member[k].reduce(function (a, i) { return Math.max(a, fanDim(i, b)); }, 0); };
-    // titles beside the spokes, while their fan is the one being read
-    var lab = [];
-    PATH.forEach(function (bk, k) {
-      if (fanOf[k] == null) return; var p = scr(k, 0, views[fanOf[k]]), x = p[0] + p[2] / 2 + (V ? 18 : 14), room = V ? W - 36 - x : 250, fs = LFS;
-      while (tw(bk.t, fs + 'px ' + SERIF) > room && fs > (V ? 36 : 22)) fs -= 1;
-      lab[k] = { font: fs + 'px ' + SERIF, fs: fs, w: tw(bk.t, fs + 'px ' + SERIF), dx: p[2] / 2 + (V ? 18 : 14) };
-    });
-    var labVis = function (k, b) { var i = fanOf[k], a = 1 - eio(b, FT.O, FT.O + 0.6); if (i < NF - 1) a *= 1 - eio(b, FT.fans[i].H + 2.9, FT.fans[i].H + 3.5); return a; };
-    // the quote cards. 9:16: one at a time, big, in the band below the fan. 16:9: pinned in a column on the right
+    // the cards: one at a time, as big as fits; each grows out of the book it names
     var cards = fans.map(function (f, i) {
       var ft = FT.fans[i], items = ft.slots.map(function (sl) { return { k: sl.k, s: sl.s }; });
       if (ft.H != null) items.push({ k: fans[i + 1].root, s: ft.H });
-      var v = views[i], sp = function (k) { return scr(k, 0, v); }, cs, fs, hs;
-      var fresh = f.spokes.filter(function (k) { return fanOf[k] === i; });
-      var make = function (fs, hs, cw) { return items.map(function (it) { var cd = layQuote({ quote: f.quotes[it.k], named: it.k, src: f.root }, fs, cw, Math.round(66 * hs)); cd.k = it.k; cd.s = it.s; cd.src = f.root; cd.hs = hs; return cd; }); };
-      if (V) {
-        var top = Math.max.apply(null, fresh.map(function (k) { var p = sp(k); return p[1] + p[2] * 0.75; })) + 60, room = H - 70 - top;
-        for (fs = 58; ; fs -= 2) { hs = fs / 30; cs = make(fs, hs, W - 100 - 80); if (Math.max.apply(null, cs.map(function (cd) { return cd.h; })) <= room || fs <= 36) break; }
-        cs.forEach(function (cd) { cd.x = (W - cd.w) / 2; cd.y = top + (room - cd.h) / 2; });
-      } else {
-        var x0 = Math.max.apply(null, fresh.map(function (k) { return sp(k)[0] + lab[k].dx + lab[k].w; })) + 60, cw = W - 70 - x0;
-        for (fs = 34; ; fs -= 1) { hs = fs / 30; cs = make(fs, hs, cw - 48); var tot = cs.reduce(function (a, cd) { return a + cd.h + 22; }, -22); if (tot <= H - 100 || fs <= 20) break; }
-        cs.sort(function (a, z) { return sp(a.k)[1] - sp(z.k)[1]; });
-        var yb = 50; cs.forEach(function (cd) { cd.x = x0; cd.y = Math.max(yb, sp(cd.k)[1] - cd.h / 2); yb = cd.y + cd.h + 22; });
-        var over = yb - 22 - (H - 50); if (over > 0) cs.forEach(function (cd) { cd.y -= over; });
+      var bandT = V ? rows[i].bot + 40 : 60, bandB = H - (V ? 60 : 60), cw = V ? W - 100 : W - 1100 - 60, cs;
+      for (var fs = V ? 58 : 40; ; fs -= 2) {
+        var hs = fs / 30;
+        cs = items.map(function (it) { var cd = layQuote({ quote: f.quotes[it.k], named: it.k, src: f.root }, fs, cw - (fs < 40 ? 48 : 80), Math.round(66 * hs)); cd.k = it.k; cd.s = it.s; cd.src = f.root; cd.hs = hs; return cd; });
+        if (Math.max.apply(null, cs.map(function (cd) { return cd.h; })) <= bandB - bandT || fs <= 28) break;
       }
-      var gone = i < NF - 1 ? ft.H + 2.9 : FT.O;
-      cs.forEach(function (cd, j) {
-        // 9:16: each card gives way to the next one
-        var nx = V ? items.filter(function (it) { return it.s > cd.s; })[0] : null;
-        cd.out = nx ? nx.s + 0.1 : gone;
-      });
+      cs.forEach(function (cd, j) { cd.x = V ? (W - cd.w) / 2 : 1100; cd.y = bandT + (bandB - bandT - cd.h) / 2; cd.out = j < cs.length - 1 ? cs[j + 1].s + 0.1 : i < NF - 1 ? ft.H + 2.9 : FT.O; });
       return cs;
     });
     // the little book's hops: out to each quoted book and back, then on to the next fan's book
@@ -428,12 +393,11 @@ function main() {
       var ft = FT.fans[i], sl = ft.slots.map(function (x) { return { k: x.k, s: x.s }; });
       if (ft.H != null) sl.push({ k: fans[i + 1].root, s: ft.H, hop: true });
       sl.forEach(function (x) {
-        if (cur !== f.root) { ev.push({ a: cur, z: f.root, b0: x.s, b1: x.s + 0.5, h: 70 }); cur = f.root; }
+        if (cur !== f.root) { ev.push({ a: cur, z: f.root, b0: x.s, b1: x.s + 0.5, h: 90 }); cur = f.root; }
         ev.push({ a: f.root, z: x.k, b0: x.s + (x.hop ? 2.5 : 2.4), b1: x.s + (x.hop ? 3.2 : 3.0), h: x.hop ? 150 : 110 }); cur = x.k;
       });
     });
-    return { anchor: anchorOf(0), rw: RW, pos: pos, popAt: popAt, lineAt: lineAt, rustAt: rustAt, fanOf: fanOf, lab: lab, labVis: labVis, cards: cards,
-      ev: ev, view: view, scr: scr, fanDim: fanDim, coverDim: coverDim, endW: (grown[NH] || wid[NH]) * ov.z };
+    return { anchor: pos[r0].slice(), rw: RW, at: at, line: line, popAt: popAt, lineAt: lineAt, rustAt: rustAt, fanOf: fanOf, lab: lab, cards: cards, ev: ev, endW: wid[NH] };
   })();
 
   // ---------------------------------------------------------------- the film
@@ -576,21 +540,18 @@ function main() {
     }
 
 
-    // the fan: lines out to every book it mentions, the titles, the quotes (only some), the hop to the next fan
+    // the fan: lines down to every book it mentions, the titles, the quotes (only some), the hop to the next fan
     if (FAN && b >= 6 && b < (TN + 5)) {
-      var vw = FN.view(b), net0 = 1 - toNet;
+      var net0 = 1 - toNet;
       if (b >= 12 && net0 > 0) F.fans.forEach(function (f, fi) {
-        var R0 = FN.scr(f.root, b, vw), fd = FN.fanDim(fi, b);
         f.spokes.forEach(function (k) {
           var t0 = FN.lineAt[fi][k], on = eout(b, t0, t0 + 0.6); if (on <= 0) return;
-          var S = FN.scr(k, b, vw), ru = FN.rustAt[fi][k] != null ? eio(b, FN.rustAt[fi][k], FN.rustAt[fi][k] + 0.5) : 0;
-          var edge = function (P, w, Q) { var dx = Q[0] - P[0], dy = Q[1] - P[1], t = Math.min(dx ? (w / 2 + 6) / Math.abs(dx) : 1e9, dy ? (w * 0.75 + 6) / Math.abs(dy) : 1e9); return [P[0] + dx * t, P[1] + dy * t]; };
-          var A = edge(R0, R0[2], S), Bp = edge(S, S[2], R0);
-          dashed(function (t) { return [lerp(A[0], Bp[0], t), lerp(A[1], Bp[1], t)]; }, on, ru > 0 ? mix(INK, RUST, ru) : INK, (V ? 3 : 2.4) + ru, 9, 8, 0, lerp(0.5, 0.95, ru) * fd * net0);
+          var ru = FN.rustAt[fi][k] != null ? eio(b, FN.rustAt[fi][k], FN.rustAt[fi][k] + 0.5) : 0;
+          dashed(FN.line(fi, k, b), on, ru > 0 ? mix(INK, RUST, ru) : INK, (V ? 3.2 : 2.4) + ru, 9, 8, 0, lerp(0.55, 0.95, ru) * net0);
         });
       });
       for (var k = 0; k < PATH.length; k++) {
-        var S2 = FN.scr(k, b, vw), x = S2[0], y = S2[1], ww = S2[2], pop = k === 0 ? spr(b, 6.1 + je.d / (V ? 1100 : 1300), 1.4) : spr(b, FN.popAt[k], 1.6);
+        var S2 = FN.at(k, b), x = S2[0], y = S2[1], ww = S2[2], pop = k === 0 ? spr(b, 6.1 + je.d / (V ? 1100 : 1300), 1.4) : spr(b, FN.popAt[k], 1.6);
         if (k === 0 && b < 12.4) { var zp = zoomPt(jeS0[0], jeS0[1]); x = zp[0]; y = zp[1]; ww = WALL.cw * lerp(1, Z, zt); if (b >= 9.9 && b < 10.6) ww *= 1 + 0.08 * spr(b, 9.9, 1.0) * (1 - prog(b, 10.2, 10.6)); }
         if (pop <= 0) { pathPos.push(null); continue; }
         pathPos.push([x, y, ww]);
@@ -602,13 +563,12 @@ function main() {
           pathPos[k] = [dx, dy, dw, dr2];
           continue;
         }
-        var wig = k > 0 ? (1 - spr(b, FN.popAt[k], 2.4)) * 0.18 * (k % 2 ? 1 : -1) : 0, cd = FN.coverDim(k, b);
-        coverC(x, y, ww, PATH[k], cd, wig, pop);
-        var L = FN.lab[k];
-        if (L) {
-          var la = FN.labVis(k, b) * clamp((pop - 0.5) * 2, 0, 1) * cd; if (la <= 0) continue;
+        var wig = k > 0 ? (1 - spr(b, FN.popAt[k], 2.4)) * 0.18 * (k % 2 ? 1 : -1) : 0;
+        coverC(x, y, ww, PATH[k], 1, wig, pop);
+        var L = FN.lab[k], la = clamp((pop - 0.5) * 2, 0, 1);
+        if (L && la > 0) {
           var fi2 = FN.fanOf[k], ru2 = FN.rustAt[fi2][k] != null ? eio(b, FN.rustAt[fi2][k], FN.rustAt[fi2][k] + 0.5) : 0;
-          text(PATH[k].t, x + L.dx * vw.z, y + L.fs * 0.33, L.font, ru2 > 0 ? mix(INK, RUST, ru2) : INK, 'left', la);
+          L.lines.forEach(function (ln, li) { text(ln, x, y + ww * 0.75 + 14 + L.fs * 0.86 + li * L.fs * 1.12, L.font, ru2 > 0 ? mix(INK, RUST, ru2) : INK, 'center', la); });
         }
       }
       // the quote cards: each grows out of the book it names, its header the book that says it
@@ -617,14 +577,12 @@ function main() {
           var gin = spr(b, Cq.s + 0.4, 1.5), al = 1 - eio(b, Cq.out, Cq.out + 0.6), sp = pathPos[Cq.k];
           if (gin <= 0.01 || al <= 0 || !sp) return;
           var layer = al < 1; if (layer) { c = OC; c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, W, H); }
-          var g = gin, bw = Cq.w * g, bh = Cq.h * g, x0 = lerp(sp[0], Cq.x + Cq.w / 2, g) - bw / 2, y0 = lerp(sp[1], Cq.y + Cq.h / 2, g) - bh / 2, base = null, tip = null;
-          if (!V) { var L2 = FN.lab[Cq.k], tx = sp[0] + (L2 ? L2.dx + L2.w : sp[2] / 2) + 10, ty = clamp(sp[1], y0 + 26, y0 + bh - 26); base = [[x0, ty - 16 * g], [x0, ty + 16 * g]]; tip = [lerp(x0, tx, g), lerp(ty, sp[1], g)]; }
-          drawCard(b, Cq, x0, y0, bw, bh, g, gin, Cq.s, PATH[Cq.src], base, tip);
+          var g = gin, bw = Cq.w * g, bh = Cq.h * g, x0 = lerp(sp[0], Cq.x + Cq.w / 2, g) - bw / 2, y0 = lerp(sp[1], Cq.y + Cq.h / 2, g) - bh / 2;
+          drawCard(b, Cq, x0, y0, bw, bh, g, gin, Cq.s, PATH[Cq.src], null, null);
           if (layer) { c = CTX; c.globalAlpha = al; c.drawImage(OFF, 0, 0); c.globalAlpha = 1; }
         });
       });
     }
-
     // the chain: each hop's quote stays pinned beside it, and the dotted path stays behind the book
     for (var h2 = 0; CHAIN && h2 < NH; h2++) {
       var s1 = hopStart(h2), Cq = CH.cards[h2], away = eio(b, TN, TN + 0.6), txtA = 1 - away, pc3 = pathPos[h2], pn3 = pathPos[h2 + 1];   // each card fades out whole (box, tail, words)
