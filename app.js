@@ -1345,7 +1345,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=4', 'explorer.js?v=5'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=1', 'atlas.js?v=5', 'explorer.js?v=6'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1382,8 +1382,8 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=4', 'stars-data.js?v=2', 'explorer.js?v=5'] : ['network-regions.js?v=1', 'explorer.js?v=5'];
-    if (this._vLab()) srcs.push('layouts-data.js?v=1');
+    var srcs = this._xLive() ? ['atlas.js?v=5', 'stars-data.js?v=2', 'explorer.js?v=6'] : ['network-regions.js?v=1', 'explorer.js?v=6'];
+    if (this._vLab()) srcs.push('layouts-data.js?v=2');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {

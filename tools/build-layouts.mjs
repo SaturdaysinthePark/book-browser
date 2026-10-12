@@ -183,51 +183,59 @@ const blend = () => {
 };
 
 // ---- fame ----
-// Axes: log(1 + n / C), C < 1, a log scale whose low end is stretched (0, 1, 2 get room; most books
-// live there). Books that share the same (mentions, mentioned-by) counts fill their whole cell as an
-// even sunflower (the most connected in the middle), so a cell of 2,700 books spreads out instead of
-// piling into a blob. A zero count is the chart's edge: its cell only extends inward.
+// A binned chart: x = how many books it mentions, y = how many mention it, each in bins
+// 0 · 1 · 2 · 3–5 · 6–10 · 11–20 · 21–50 · 51+. Every grid square is a "neighbourhood": its books
+// packed as one round sunflower (most connected in the middle). Columns and rows are as wide as their
+// biggest neighbourhood, so the huge low-count groups get room and the sparse famous corner stays tight.
+// Every square is a region (the map bundles a selected book's links into each one); squares with
+// enough books get a tint and a count label.
 const fame = () => {
-  const W = 2400, H = 1600, C = 0.2, maxIn = Math.max(...din), maxOut = Math.max(...dout);
-  const lx = (v) => Math.log(1 + v / C) / Math.log(1 + maxOut / C), ly = (v) => Math.log(1 + v / C) / Math.log(1 + maxIn / C);
-  const X = (v) => 90 + (W - 160) * lx(v), Y = (v) => H - 90 - (H - 160) * ly(v);
-  const xy = new Float64Array(2 * N), cells = new Map();
-  for (let i = 0; i < N; i++) { const ck = dout[i] + ',' + din[i]; (cells.get(ck) || cells.set(ck, []).get(ck)).push(i); }
-  for (const [ck, list] of cells) {
-    const [o, n] = ck.split(',').map(Number);
-    // half-widths of the cell (to the midpoint with each neighbouring count); 0 = one-sided
-    // (a zero cell is one-sided, so it may use most of the gap up to the 1s)
-    const rx = o ? (X(o + 0.5) - X(o - 0.5)) / 2 : (X(1) - X(0)) * 0.7, ry = n ? (Y(n - 0.5) - Y(n + 0.5)) / 2 : (Y(0) - Y(1)) * 0.7;
+  const BINS = [[0, 0, '0'], [1, 1, '1'], [2, 2, '2'], [3, 5, '3–5'], [6, 10, '6–10'], [11, 20, '11–20'], [21, 50, '21–50'], [51, 1e9, '51+']];
+  const bin = (v) => BINS.findIndex((B) => v >= B[0] && v <= B[1]);
+  const SP = 9, PAD = 34, LABEL_MIN = 12;
+  const cells = new Map();
+  for (let i = 0; i < N; i++) { const ck = bin(dout[i]) + ',' + bin(din[i]); (cells.get(ck) || cells.set(ck, []).get(ck)).push(i); }
+  // very large neighbourhoods pack tighter, so they don't squeeze every other column
+  const spOf = (m) => SP * Math.min(1, Math.pow(300 / m, 0.25));
+  const discR = (m) => spOf(m) * Math.sqrt(m + 0.6) + 5;
+  const colW = BINS.map(() => 120), rowH = BINS.map(() => 90);
+  for (const [ck, list] of cells) { const [c, r] = ck.split(',').map(Number), d = 2 * discR(list.length) + PAD; colW[c] = Math.max(colW[c], d); rowH[r] = Math.max(rowH[r], d + (list.length >= LABEL_MIN ? 40 : 10)); }
+  const colX = [], rowY = [];   // centres; y grows downward (row 0 at the bottom)
+  let acc = 0; colW.forEach((w, c) => { colX[c] = acc + w / 2; acc += w; }); const Wt = acc;
+  acc = 0; const Ht = rowH.reduce((p, q) => p + q, 0);
+  rowH.forEach((hh, r) => { rowY[r] = Ht - acc - hh / 2; acc += hh; });
+  const xy = new Float64Array(2 * N), reg = new Array(N), regions = [];
+  [...cells.entries()].sort().forEach(([ck, list]) => {
+    const [c, r] = ck.split(',').map(Number), m = list.length, cx = colX[c], cy = rowY[r] + (m >= LABEL_MIN ? 14 : 0), R = discR(m);   // room for the count above
     list.sort((a, b) => deg[b] - deg[a] || (keys[a] < keys[b] ? -1 : 1));
-    const m = list.length, fill = Math.min(0.92, 0.35 + 0.12 * Math.log10(1 + m));   // lone books stay near the exact value
-    list.forEach((i, j) => {
-      const t = m > 1 ? Math.sqrt((j + 0.5) / m) : 0, th = j * GOLDEN;
-      let dx = Math.cos(th) * t, dy = Math.sin(th) * t;
-      if (!o) dx = Math.abs(dx);   // fold zero counts inward
-      if (!n) dy = Math.abs(dy);
-      xy[2 * i] = X(o) + dx * rx * fill;
-      xy[2 * i + 1] = Y(n) - dy * ry * fill;
-    });
-  }
-  const ticks = [0, 1, 2, 5, 10, 20, 50, 100, 200];   // 1-2-5 series: near-even steps on a log(1+n) axis
+    const sp = spOf(m);
+    list.forEach((i, j) => { const rr = sp * Math.sqrt(j + (j ? 0.6 : 0)), th = j * GOLDEN; xy[2 * i] = cx + Math.cos(th) * rr; xy[2 * i + 1] = cy + Math.sin(th) * rr; reg[i] = regions.length; });
+    const big = m >= LABEL_MIN;
+    regions.push({ x: round(cx), y: round(cy), r: round(R), lx: round(cx), ly: round(cy - R + 2), name: big ? m.toLocaleString('en-US') + ' books' : '', genre: '', size: m, tint: big });
+  });
+  const bx = [0], by = [Ht];
+  acc = 0; colW.forEach((w) => { acc += w; bx.push(round(acc)); });
+  acc = 0; rowH.forEach((hh) => { acc += hh; by.push(round(Ht - acc)); });
   const axes = {
-    x0: X(0) - 10, y0: Y(0) + 10, x1: W - 40, y1: 50,   // just outside the smallest values
-    tx: ticks.filter((v) => v <= maxOut * 1.2).map((v) => ({ x: round(X(v)), t: String(v) })),
-    ty: ticks.filter((v) => v <= maxIn * 1.2).map((v) => ({ y: round(Y(v)), t: String(v) })),
+    x0: 0, y0: Ht, x1: Wt, y1: 0, grid: true,
+    bx, by,
+    tx: BINS.map((B, c) => ({ x: round(colX[c]), t: B[2] })),
+    ty: BINS.map((B, r) => ({ y: round(rowY[r]), t: B[2] })),
     xt: 'mentions more books →', yt: '↑ mentioned by more books',
-    caps: [
-      { x: X(0) - 20, y: -48, t: '↖ The canon', s: 'mentioned a lot, names little' },
-      { x: W - 250, y: Y(0) + 130, t: 'Name-droppers ↘', s: 'names a lot, rarely mentioned' },
-      { x: W - 160, y: -48, t: 'Hubs ↗', s: 'both' },
-      { x: X(0) - 20, y: Y(0) + 130, t: '↙ Footnotes', s: 'one mention, names nothing' }
+    caps: [   // pinned to the chart's corners on screen (atlas.js)
+      { c: 'tl', t: '↖ The canon', s: 'mentioned a lot, names little' },
+      { c: 'tr', t: 'Hubs ↗', s: 'both' },
+      { c: 'bl', t: '↙ Footnotes', s: 'one mention, names nothing' },
+      { c: 'br', t: 'Name-droppers ↘', s: 'names a lot, rarely mentioned' }
     ]
   };
-  const [mx, my] = centre(xy);
-  const sh = (o, kx, ky) => { o[kx] = round(o[kx] - mx); if (ky) o[ky] = round(o[ky] - my); };
-  axes.x0 = round(axes.x0 - mx); axes.x1 = round(axes.x1 - mx); axes.y0 = round(axes.y0 - my); axes.y1 = round(axes.y1 - my);
-  axes.tx.forEach((t) => sh(t, 'x')); axes.ty.forEach((t) => { t.y = round(t.y - my); });
-  axes.caps.forEach((c) => sh(c, 'x', 'y'));
-  return { xy, reg: new Array(N).fill(0), regions: [], guides: { axes } };
+  const mx = Wt / 2, my = Ht / 2;
+  for (let i = 0; i < N; i++) { xy[2 * i] -= mx; xy[2 * i + 1] -= my; }
+  regions.forEach((R) => { R.x = round(R.x - mx); R.y = round(R.y - my); R.lx = round(R.lx - mx); R.ly = round(R.ly - my); });
+  axes.x0 -= mx; axes.x1 -= mx; axes.y0 -= my; axes.y1 -= my;
+  axes.bx = axes.bx.map((v) => round(v - mx)); axes.by = axes.by.map((v) => round(v - my));
+  axes.tx.forEach((t) => { t.x = round(t.x - mx); }); axes.ty.forEach((t) => { t.y = round(t.y - my); });
+  return { xy, reg, regions, guides: { axes } };
 };
 
 const out = { keys, deg, layouts: {} };

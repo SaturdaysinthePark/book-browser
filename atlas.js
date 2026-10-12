@@ -56,6 +56,7 @@
     //                        with a soft tint in regionColor(region) under the dots
     //   guides         { rings:[{r,t}] } concentric guide rings, or { axes } a chart frame (ticks, titles, captions)
     //   regionTint:false  no soft tint under continents (petals share one centre)
+    //   bundle         3+ links into one region draw as one thick line with a count (binned charts)
     //   labelTop       at overview, always label this many of the most connected books
     //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
     //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
@@ -102,8 +103,18 @@
     this.flyTo(x, y + (ins / 2) / Math.max(this.minK || 0.05, Math.min(6, k)), k, anim);
   };
   P.fit = function (anim) {
-    var ins = this._inset();
-    var k = Math.min(this.W, this.H - ins) * 0.94 / (2 * this.extent);
+    var ins = this._inset() + this._insetTop();
+    var A = this.o.guides && this.o.guides.axes;
+    if (A) {   // a chart: fit its frame, keeping screen room for tick labels, axis titles and corner captions
+      var hx = Math.max(Math.abs(A.x0), Math.abs(A.x1)), hy = Math.max(Math.abs(A.y0), Math.abs(A.y1));
+      var TOP = 56, BOT = 100, SIDE = 80;
+      var kc = Math.min((this.W - 2 * SIDE) / (2 * hx), (this.H - ins - TOP - BOT) / (2 * hy));
+      this.minK = kc * 0.7;
+      this._lookAt(0, ((BOT - TOP) / 2) / kc, kc, anim);
+      return;
+    }
+    var ex = this.extent, ey = this.extent;
+    var k = Math.min(this.W * 0.94 / (2 * ex), (this.H - ins) * 0.94 / (2 * ey));
     this.minK = k * 0.7;
     this._lookAt(0, 0, k, anim);
   };
@@ -225,7 +236,8 @@
 
     // regions
     for (r = 0; this.showRegions && !this.regionCircles && this.o.regionColor && this.o.regionTint !== false && r < this.regions.length; r++) {
-      R = this.regions[r]; sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k * 1.08;
+      R = this.regions[r]; if (R.tint === false) continue;
+      sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k * 1.08;
       if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
       var tc = this.o.regionColor(R), gr = c.createRadialGradient(sx, sy, 0, sx, sy, sr);
       gr.addColorStop(0, hexA(tc, 0.075)); gr.addColorStop(0.7, hexA(tc, 0.04)); gr.addColorStop(1, hexA(tc, 0));
@@ -264,17 +276,34 @@
     var edgesOf = hub >= 0 ? (focus >= 0 ? nb : this._nbOf(hover)) : null;
     if (edgesOf) {
       var hx = this.sx(this.wx[hub]), hy = this.sy(this.wy[hub]);
-      var ne = 0; for (var cnt in edgesOf) ne++;
-      var thin = this.o.flow ? Math.max(0.4, Math.min(1, 36 / ne)) : 1;   // big hubs: quieter lines
+      // bundle: 3+ links of one kind into one neighbourhood (not the hub's own) draw as a single
+      // thicker line to that neighbourhood's edge, with a count
+      var lines = [], groups = {};
       for (var js in edgesOf) {
-        var j = +js, kind = edgesOf[js];
-        var tx = this.sx(this.wx[j]), ty = this.sy(this.wy[j]);
+        var j0 = +js, kd = edgesOf[js], rg = this.reg[j0];
+        if (this.o.bundle && rg !== this.reg[hub]) { var gk = rg + kd; (groups[gk] || (groups[gk] = { rg: rg, kind: kd, ids: [] })).ids.push(j0); }
+        else lines.push({ j: j0, kind: kd });
+      }
+      for (var gk2 in groups) {
+        var G2 = groups[gk2];
+        if (G2.ids.length < 3) { G2.ids.forEach(function (x) { lines.push({ j: x, kind: G2.kind }); }); continue; }
+        var RG = this.regions[G2.rg], rcx = this.sx(RG.x), rcy = this.sy(RG.y), rr = RG.r * k, ddx = hx - rcx, ddy = hy - rcy, dd = Math.hypot(ddx, ddy) || 1;
+        lines.push({ j: -1, kind: G2.kind, tx: rcx + ddx / dd * rr, ty: rcy + ddy / dd * rr, n: G2.ids.length });
+      }
+      var ne = lines.length;
+      var thin = this.o.flow ? Math.max(0.4, Math.min(1, 36 / ne)) : 1;   // big hubs: quieter lines
+      var badges = [];
+      for (var li0 = 0; li0 < lines.length; li0++) {
+        var LN = lines[li0], j = LN.j, kind = LN.kind;
+        var tx = j >= 0 ? this.sx(this.wx[j]) : LN.tx, ty = j >= 0 ? this.sy(this.wy[j]) : LN.ty;
+        if (LN.n) badges.push(LN);
         var mx = (hx + tx) / 2, my = (hy + ty) / 2, dx = tx - hx, dy = ty - hy;
         var cx2 = mx - dy * 0.18, cy2 = my + dx * 0.18;
         var hot = j === hover && focus >= 0;
         c.strokeStyle = kind === 'out' ? OUT : kind === 'in' ? IN : INK;
         c.globalAlpha = (focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.25 : 0.75) : 0.45) * (hot ? 1 : thin);
-        c.lineWidth = hot ? 2.6 : focus >= 0 ? 1.4 : 1;
+        c.lineWidth = hot ? 2.6 : LN.n ? Math.min(7, 1.4 + Math.sqrt(LN.n) * 0.7) : focus >= 0 ? 1.4 : 1;
+        if (LN.n) c.globalAlpha = Math.max(c.globalAlpha, 0.7);
         // Flow (after the reveal): dashes travel in the mention's direction — out from the book for
         // books it mentions, in toward it for books that mention it. Mutual stays solid.
         var flowing = this.o.flow && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
@@ -292,6 +321,14 @@
         if (flowing) c.setLineDash([]);
       }
       c.globalAlpha = 1;
+      // counts where bundled lines meet their neighbourhood
+      if (ip >= 1) badges.forEach(function (B) {
+        var t = String(B.n);
+        c.font = '600 11px ' + MONO; var bw = c.measureText(t).width + 12;
+        c.fillStyle = B.kind === 'out' ? OUT : B.kind === 'in' ? IN : INK;
+        c.beginPath(); c.roundRect ? c.roundRect(B.tx - bw / 2, B.ty - 9, bw, 18, 9) : c.rect(B.tx - bw / 2, B.ty - 9, bw, 18); c.fill();
+        c.fillStyle = PAPER; c.textAlign = 'center'; c.textBaseline = 'middle'; c.fillText(t, B.tx, B.ty + 0.5); c.textBaseline = 'alphabetic';
+      });
     }
 
     // focus ring + hover ring
@@ -382,20 +419,34 @@
       var X = function (x) { return self.sx(x); }, Y = function (y) { return self.sy(y); };
       c.strokeStyle = 'rgba(20,20,20,0.45)'; c.lineWidth = 1.2;
       c.beginPath(); c.moveTo(X(A.x0), Y(A.y0)); c.lineTo(X(A.x1), Y(A.y0)); c.moveTo(X(A.x0), Y(A.y0)); c.lineTo(X(A.x0), Y(A.y1)); c.stroke();
-      c.strokeStyle = 'rgba(20,20,20,0.08)'; c.lineWidth = 1; c.setLineDash([3, 6]);
-      A.tx.forEach(function (t) { c.beginPath(); c.moveTo(X(t.x), Y(A.y0)); c.lineTo(X(t.x), Y(A.y1)); c.stroke(); });
-      A.ty.forEach(function (t) { c.beginPath(); c.moveTo(X(A.x0), Y(t.y)); c.lineTo(X(A.x1), Y(t.y)); c.stroke(); });
-      c.setLineDash([]);
+      if (A.grid) {   // binned chart: solid lines between the bins
+        c.strokeStyle = 'rgba(20,20,20,0.17)'; c.lineWidth = 1;
+        A.bx.forEach(function (x) { c.beginPath(); c.moveTo(X(x), Y(A.y0)); c.lineTo(X(x), Y(A.y1)); c.stroke(); });
+        A.by.forEach(function (y) { c.beginPath(); c.moveTo(X(A.x0), Y(y)); c.lineTo(X(A.x1), Y(y)); c.stroke(); });
+      } else {
+        c.strokeStyle = 'rgba(20,20,20,0.08)'; c.lineWidth = 1; c.setLineDash([3, 6]);
+        A.tx.forEach(function (t) { c.beginPath(); c.moveTo(X(t.x), Y(A.y0)); c.lineTo(X(t.x), Y(A.y1)); c.stroke(); });
+        A.ty.forEach(function (t) { c.beginPath(); c.moveTo(X(A.x0), Y(t.y)); c.lineTo(X(A.x1), Y(t.y)); c.stroke(); });
+        c.setLineDash([]);
+      }
       c.fillStyle = 'rgba(20,20,20,0.6)';
-      c.textAlign = 'center'; A.tx.forEach(function (t) { c.fillText(t.t, X(t.x), Y(A.y0) + 16); });
-      c.textAlign = 'right'; A.ty.forEach(function (t) { c.fillText(t.t, X(A.x0) - 8, Y(t.y) + 4); });
+      // tick labels, skipping any that would collide with the previous one (narrow screens)
+      var lastR = -1e9;
+      c.textAlign = 'center'; A.tx.forEach(function (t) { var w = c.measureText(t.t).width, x = X(t.x); if (x - w / 2 < lastR + 6) return; c.fillText(t.t, x, Y(A.y0) + 16); lastR = x + w / 2; });
+      var lastY = 1e9;
+      c.textAlign = 'right'; A.ty.forEach(function (t) { var y = Y(t.y); if (y > lastY - 13) return; c.fillText(t.t, X(A.x0) - 8, y + 4); lastY = y; });
       c.font = '11.5px ' + MONO; c.fillStyle = INK;
       c.textAlign = 'right'; c.fillText(A.xt, X(A.x1), Y(A.y0) + 34);
-      c.textAlign = 'left'; c.fillText(A.yt, X(A.x0) + 10, Y(A.y1) - 8);
-      var small = this.W < 600;
+      // y-axis title runs up the axis, clear of the corner captions
+      c.save(); c.translate(X(A.x0) - (A.grid ? 52 : 34), (Y(A.y0) + Y(A.y1)) / 2); c.rotate(-Math.PI / 2); c.textAlign = 'center'; c.fillText(A.yt, 0, 0); c.restore();
+      var small = this.W < 600, L = X(A.x0), Rr = X(A.x1), T = Y(A.y1), B = Y(A.y0);
       (A.caps || []).forEach(function (q) {
-        c.font = (small ? 15 : 22) + 'px ' + SERIF; c.fillStyle = 'rgba(20,20,20,0.55)'; c.textAlign = 'left'; c.fillText(q.t, X(q.x), Y(q.y));
-        if (!small) { c.font = '10px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.45)'; c.fillText(q.s, X(q.x), Y(q.y) + 15); }
+        var x, y, al;
+        if (q.c) { al = q.c[1] === 'l' ? 'left' : 'right'; x = al === 'left' ? L : Rr; y = q.c[0] === 't' ? T - (small ? 10 : 26) : B + (small ? 58 : 64); }
+        else { al = 'left'; x = X(q.x); y = Y(q.y); }
+        c.textAlign = al;
+        c.font = (small ? 14 : 22) + 'px ' + SERIF; c.fillStyle = 'rgba(20,20,20,0.55)'; c.fillText(q.t, x, y);
+        if (!small) { c.font = '10px ' + MONO; c.fillStyle = 'rgba(20,20,20,0.45)'; c.fillText(q.s, x, y + 15); }
       });
     }
     c.restore();

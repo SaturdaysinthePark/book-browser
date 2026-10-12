@@ -122,7 +122,10 @@ the references and prompt patterns behind the decisions.
     - **Spiral:** one sunflower spiral sorted by connections. The most connected sit at the centre and the one-off name-drops form the outer haze; guide rings mark 50+ / 20+ / 10+ / 5+ / 2+ links.
     - **Petals:** the same spiral, but each genre owns a wedge sized to it. A mixed heart of famous books sits in the centre and genres fan out as petals (names at the tips); inside a petal, books that mention each other take neighbouring angles.
     - **Blend:** the 302 books with 10+ links form a sorted core; each genre's other books form a filled disc around it.
-    - **Fame:** x = how many books it mentions, y = how many mention it, both on log scales, with round seeded jitter so equal counts become soft clouds. Corners: the canon, hubs, name-droppers, footnotes.
+    - **Fame:** a binned chart. x = how many books it mentions, y = how many mention it, in bins 0 · 1 · 2 · 3–5 · 6–10 · 11–20 · 21–50 · 51+, with solid grid lines between them.
+      - Every square is a **neighbourhood**: its books packed as one round cluster, most connected in the middle, with a tint and a count once it has 12+ books. Columns and rows are as wide as their biggest neighbourhood, and the very largest packs tighter.
+      - Selecting a book **bundles** its links: 3+ links of one kind into one neighbourhood become a single thicker line to its edge with a count badge (e.g. Don Quixote → 38 into the 3,385 one-off books), while the books inside still light up.
+      - Corner captions (the canon, hubs, footnotes, name-droppers) are pinned to the chart's corners.
   - Selection, card, Open → and the dot zoom-out morph work the same in every variant.
   - At overview, the 25 most connected books are labelled (10 on phones).
   - The switcher choice is remembered for the session.

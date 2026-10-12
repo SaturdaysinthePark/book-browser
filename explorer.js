@@ -636,7 +636,7 @@
       if (!data) return;
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
         root: el, data: data,
-        regions: !lk || lk === 'petals' || lk === 'blend', regionCircles: false, regionTint: lk !== 'petals',
+        regions: !lk || lk === 'petals' || lk === 'blend' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
         regionColor: function (R) { return self.xGenreColor(R.genre); },
         guides: data.guides && (data.guides.rings || data.guides.axes) ? data.guides : null,
         labelTop: lk ? (window.innerWidth < 760 ? 10 : 25) : 0,
