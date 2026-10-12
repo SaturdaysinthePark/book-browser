@@ -149,7 +149,8 @@
       }
       var go = it.more ? function () { self.setState({ xAll: b.id }); } : function (e) { self.xJump(id, e.currentTarget); };
       var kids = it.more ? [h('span', { key: 't', className: 't' }, n.txt)] : [
-        h('span', { key: 'cv', className: 'mcv' }, self.cover(books[id])),
+        self._vNext() ? h('i', { key: 'cv', className: 'gdot', style: { background: self.xGenreColor(self.xGenreKey(id)) } })
+          : h('span', { key: 'cv', className: 'mcv' }, self.cover(books[id])),
         h('span', { key: 't', className: 't' }, n.txt),
         self.xCountTxt(id) ? h('span', { key: 'n', className: 'n', title: 'one jump further: ' + self.xCountTxt(id).slice(1) + ' more books' }, self.xCountTxt(id)) : null
       ];
@@ -461,7 +462,7 @@
     var main = h('div', { key: 'main', className: 'bjx-main' },
       h('div', { className: 'bjx-top' }, this.explorerTrail(b.id),
         h('button', { className: 'bkn-zoom', onClick: function () { self.xZoomOut(b.id); } }, 'Zoom out to the map ⤢')),
-      h('div', { className: 'bjx-stage' + (st.xArriving ? ' arriving' : '') }, this.explorerFan(b, Math.max(300, W), vh - 56 - 110)),
+      h('div', { className: 'bjx-stage' + (st.xArriving ? ' arriving' : st.xLanded === b.id ? ' landed' : '') }, this.explorerFan(b, Math.max(300, W), vh - 56 - 110)),
       h('div', { className: 'bjx-legend' }, h('span', null, h('i', { className: 'ln in' }), 'mentioned by'), h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln both' }), 'mention each other'), h('span', { className: 'cnt' }, '+12 = books one more jump away')),
       this.bookLists(b),
       null);
@@ -521,7 +522,7 @@
       if (!ids.length) items.push(h('span', { key: 'none', className: 'bkp-none' }, side === 'in' ? 'No book mentions it yet' : 'It doesn’t mention any books yet'));
       return h('div', { key: 'r' + side, className: 'bkp-row ' + side, onScroll: function () { self._bkpQueue(); } }, items);
     };
-    return h('div', { key: 'shelves:' + b.id, className: 'bkp-shelves' + (st.xArriving ? ' arriving' : '') + (st.xHover ? ' has-hot' : ''), ref: this._bkpRef() },
+    return h('div', { key: 'shelves:' + b.id, className: 'bkp-shelves' + (st.xArriving ? ' arriving' : st.xLanded === b.id ? ' landed' : '') + (st.xHover ? ' has-hot' : ''), ref: this._bkpRef() },
       h('svg', { className: 'bkp-lines', 'aria-hidden': true }),
       h('div', { className: 'bkp-lab in' }, h('i', { className: 'dot in' }), 'Mentioned by ' + top.length),
       row(top, 'in'),
@@ -674,15 +675,13 @@
     return v;
   };
   P._labView = function () {
-    var v = this.state.xView;
-    if (!v) { try { v = sessionStorage.getItem('bj-lab'); } catch (e) {} }
+    var v = this.state.xView;   // arriving on the page (menu, zoom out) always starts on Network
     if (!v && this._q && this._q('net') === 'petals') v = 'petals';
     return this._labViews().some(function (x) { return x[0] === v; }) ? v : 'wrap';
   };
   // Switching views morphs every star from where it is now to where it sits in the next layout.
   P.labSetView = function (v) {
     if (v === this._labView()) return;
-    try { sessionStorage.setItem('bj-lab', v); } catch (e) {}
     var self = this, from = this._stars, snap = null;
     var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
     if (from && !reduced && !document.hidden) {
@@ -792,11 +791,11 @@
     var self = this, out = [], shelves = document.querySelector('.bkp-shelves');
     if (shelves) {   // phone: the centre pill and every cover that's on screen
       var sr = shelves.getBoundingClientRect(), cc = shelves.querySelector('.bjx-center');
-      if (cc) out.push({ id: this._xCur(), r: cc.getBoundingClientRect(), center: true, t: cc.textContent });
+      if (cc) out.push({ id: this._xCur(), r: cc.getBoundingClientRect(), center: true, t: cc.textContent, el: cc });
       [].forEach.call(shelves.querySelectorAll('.bkp-cv[data-id]'), function (el) {
         var r = el.getBoundingClientRect(), id = el.getAttribute('data-id');
         if (!self.books[id] || r.right < sr.left || r.left > sr.right || r.bottom < 0 || r.top > window.innerHeight) return;
-        out.push({ id: id, r: { left: r.left, top: r.top, width: r.width, height: r.height }, cover: true, t: '' });
+        out.push({ id: id, r: { left: r.left, top: r.top, width: r.width, height: r.height }, cover: true, t: '', el: el });
       });
       return out;
     }
@@ -805,14 +804,14 @@
     var fr = fan.getBoundingClientRect();
     var at = function (el) { return { left: fr.left + el.offsetLeft, top: fr.top + el.offsetTop, width: el.offsetWidth, height: el.offsetHeight }; };
     var c = fan.querySelector('.bjx-center');
-    if (c) out.push({ id: this._xCur(), r: at(c), center: true, t: c.textContent });
+    if (c) out.push({ id: this._xCur(), r: at(c), center: true, t: c.textContent, el: c });
     [].forEach.call(fan.querySelectorAll('.bjx-pill[data-id]'), function (el) {
       var id = el.getAttribute('data-id');
       if (!id || !self.books[id]) return;
       var r = at(el);
       if (r.top + r.height < 0 || r.top > window.innerHeight) return;
       var t = el.querySelector('.t');
-      out.push({ id: id, r: r, t: t ? t.textContent : '' });
+      out.push({ id: id, r: r, t: t ? t.textContent : '', el: el });
     });
     return out;
   };
@@ -824,7 +823,18 @@
     if (x < cr.left - 10 || x > cr.right + 10 || y < cr.top - 10 || y > cr.bottom + 10) return null;
     return { left: x - rad, top: y - rad, width: rad * 2, height: rad * 2 };
   };
+  // The flying shape: a copy of the real pill / cover / centre (so it lands as exactly what's
+  // underneath, with no swap), or a plain chip when there's no element.
   P._xChip = function (L, it) {
+    if (it.el) {
+      var cs = getComputedStyle(it.el), cl = it.el.cloneNode(true);
+      cl.removeAttribute('data-vtn'); cl.removeAttribute('data-id');
+      cl.classList.add('bjx-mclone');
+      cl.style.cssText += ';position:fixed;margin:0;animation:none;transition:none;transform:none;opacity:1;visibility:visible;view-transition-name:none;overflow:hidden;box-sizing:border-box;';
+      L.appendChild(cl);
+      it.look = { radius: cs.borderRadius, bg: cs.backgroundColor, border: cs.borderTopWidth };
+      return cl;
+    }
     var e = document.createElement('i');
     e.className = 'bjx-mchip' + (it.center ? ' c' : '') + (it.cover ? ' cvr' : '');
     e.textContent = it.t || '';
@@ -846,6 +856,7 @@
     id = id || this._xCur();
     if (!id || !this.books[id]) return;
     var self = this, route = { page: 'network', focus: id }, hash = '#/network/' + id;
+    if (this.state.xView) this.setState({ xView: null });   // zooming out lands on the Network view
     if (reducedMotion() || document.hidden || !window.ReactDOM || !document.querySelector('.bjx-fan, .bkp-shelves') || this._xMorphing) { this.navigate(route, hash); return; }
     var items = this._xPillSnap(), L = this._xMorphLayer();
     var chips = items.map(function (it) { var c = self._xChip(L, it); Object.assign(c.style, box(it.r)); return c; });
@@ -861,15 +872,16 @@
     items.forEach(function (it, j) {
       var to = self._xStarPt(m, it.id), c = chips[j], col = self.xGenreColor(self.xGenreKey(it.id));
       if (!to) { c.animate([{ opacity: 1 }, { opacity: 0, transform: 'scale(.7)' }], { duration: 280, fill: 'forwards' }); return; }
+      var lk = it.look || {}, dl = Math.min(j, 24) * 10;
+      [].forEach.call(c.children, function (k) { k.animate([{ opacity: 1 }, { opacity: 0, offset: 0.3 }, { opacity: 0 }], { duration: D, delay: dl, fill: 'forwards' }); });
       c.animate([
-        Object.assign({ borderRadius: it.cover ? '3px' : '999px', color: it.center ? 'rgba(247,245,240,1)' : 'rgba(20,20,20,1)', backgroundColor: it.center ? '#141414' : it.cover ? col : '#fdfcfa', borderWidth: '1.4px' }, box(it.r)),
-        { color: 'rgba(20,20,20,0)', offset: 0.3 },
-        Object.assign({ borderRadius: '50%', color: 'rgba(20,20,20,0)', backgroundColor: col, borderWidth: '1px' }, box(to))
-      ], { duration: D, delay: Math.min(j, 24) * 10, easing: EASE, fill: 'forwards' });
+        Object.assign({ borderRadius: lk.radius || '999px', backgroundColor: lk.bg || '#fdfcfa', borderWidth: lk.border || '1.4px' }, box(it.r)),
+        { backgroundColor: col, offset: 0.45 },
+        Object.assign({ borderRadius: '50%', backgroundColor: col, borderWidth: '1px' }, box(to))
+      ], { duration: D, delay: dl, easing: EASE, fill: 'forwards' });
     });
     setTimeout(function () {
       self._xMorphing = false;
-      m.t0 = performance.now(); m._animateIn();
       L.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 200, fill: 'forwards' }).onfinish = function () { L.remove(); };
     }, D + 240);
   };
@@ -895,20 +907,21 @@
     var items = this._xPillSnap(), D = 640;
     snap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 520, delay: 120, easing: 'ease-out', fill: 'forwards' });
     items.forEach(function (it, j) {
-      var c = self._xChip(L, it), from = pts[it.id], col = self.xGenreColor(self.xGenreKey(it.id));
+      var c = self._xChip(L, it), from = pts[it.id], col = self.xGenreColor(self.xGenreKey(it.id)), lk = it.look || {};
       Object.assign(c.style, box(it.r));
-      var end = Object.assign({ borderRadius: it.cover ? '3px' : '999px', color: it.center ? 'rgba(247,245,240,1)' : 'rgba(20,20,20,1)', backgroundColor: it.center ? '#141414' : it.cover ? col : '#fdfcfa', borderWidth: '1.4px' }, box(it.r));
       if (!from) { c.animate([{ opacity: 0, transform: 'scale(.85)' }, { opacity: 1, transform: 'none' }], { duration: 360, delay: 280, easing: EASE, fill: 'both' }); return; }
+      var dl = Math.min(j, 24) * 10;
+      [].forEach.call(c.children, function (k) { k.animate([{ opacity: 0 }, { opacity: 0, offset: 0.55 }, { opacity: 1 }], { duration: D, delay: dl, fill: 'both' }); });
       c.animate([
-        Object.assign({ borderRadius: '50%', color: 'rgba(20,20,20,0)', backgroundColor: col, borderWidth: '1px' }, box(from)),
-        { color: 'rgba(20,20,20,0)', offset: 0.7 },
-        end
-      ], { duration: D, delay: Math.min(j, 24) * 10, easing: EASE, fill: 'both' });
+        Object.assign({ borderRadius: '50%', backgroundColor: col, borderWidth: '1px' }, box(from)),
+        { backgroundColor: col, offset: 0.5 },
+        Object.assign({ borderRadius: lk.radius || '999px', backgroundColor: lk.bg || '#fdfcfa', borderWidth: lk.border || '1.4px' }, box(it.r))
+      ], { duration: D, delay: dl, easing: EASE, fill: 'both' });
     });
     setTimeout(function () {
       self._xMorphing = false;
-      self.setState({ xArriving: false });
-      L.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 160, fill: 'forwards' }).onfinish = function () { L.remove(); };
+      self.setState({ xArriving: false, xLanded: id });   // 'landed': pills stay put, the lines just fade in
+      requestAnimationFrame(function () { L.remove(); });
     }, D + 260);
   };
 
