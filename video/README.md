@@ -9,9 +9,12 @@ Not part of the site (Netlify only publishes the files listed in `netlify.toml`)
 | `films/<film>.data.js` | The film's data, **generated** from the site's by `build-data.mjs`: the path's books and genre colours, each hop's quote (verbatim — it fails if a hop or quote isn't really in the data), the wall, the starfield |
 | `flow.html` | The film engine. Every frame is computed from time by `seek(t)`. `?film=<film>`, `?layout=stage\|chain`, `?w=1080&h=1920` for the vertical cut, `?bpm=`, `?play` to preview in a browser |
 | `build-data.mjs` | `node video/build-data.mjs <film>` (from the repo root) |
+| `find-chains.mjs` | `node video/find-chains.mjs --check "A" "B" …` checks a chain hop by hop; without `--check` it searches for forward, fully quoted chains (`--from`, `--to`, `--hops`, `--max-hops`, `--exclude <film>`) |
 | `render.mjs` | `node video/render.mjs --film <film> [--layout chain] [--w 1080 --h 1920] [--stills 0,14,28]` → `video/out/<film>[-chain]-<w>x<h>.mp4` |
 
 ## Making another film
+
+The whole procedure — finding or checking a chain (`node video/find-chains.mjs`), filling a missing quote from public-domain text, rendering and checking — is the `bookjumpr-film` skill in `.claude/skills/bookjumpr-film/SKILL.md`.
 
 1. Copy `films/marriage-plot-to-romeo.json` to `films/<new>.json`; set `question`, `accent` (the word set in rust italic), `path` (book ids from `bookjumpr-data.js`, **each book mentioning the next** — A mentions B mentions C) and `end`.
 2. `node video/build-data.mjs <new>` — it prints each hop's quote, or fails naming the hop that isn't a quoted forward mention (and says so if the mention runs the other way).

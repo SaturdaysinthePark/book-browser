@@ -59,6 +59,15 @@ https://www.gutenberg.org/cache/epub/<id>/pg<id>.txt
 https://www.gutenberg.org/files/<id>/<id>-0.txt      (fallback)
 ```
 
+**If gutenberg.org is blocked** (the cloud environment's network policy denies www.gutenberg.org and
+archive.org), use **GITenberg** — the Gutenberg corpus mirrored on GitHub, reachable as raw files:
+
+```
+https://raw.githubusercontent.com/GITenberg/<Title-With-Hyphens>_<id>/master/<id>.txt   (or <id>-0.txt)
+```
+e.g. `Middlemarch_145`, `The-Age-of-Innocence_541`, `Gulliver-s-Travels_829` (apostrophes become hyphens).
+Confirm the `Title:` / `Author:` header lines match before using it.
+
 **On repeated timeouts/504s from gutenberg.org**: this has happened mid-session before (a
 real outage, not a bad URL). Retry with backoff a reasonable number of times (e.g. 3-4
 attempts over a minute or two). If it's still down:
