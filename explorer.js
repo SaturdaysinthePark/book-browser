@@ -137,7 +137,8 @@
         h('path', { className: 'ng-e ' + k + (isHot ? ' is-hot' : ''), d: n.d, pathLength: 1, style: { '--i': n.i },
           markerEnd: 'url(#bjxA-' + k + ')', markerStart: k === 'both' ? 'url(#bjxA-both)' : null }),
         plus && k !== 'both' ? h('path', { className: 'ng-flow ' + k, d: n.d, style: { '--i': n.i } }) : null));
-      if (!it.more) svgKids.push(h('circle', { key: 'c' + n.i, className: 'bjx-dot ' + k, cx: n.x, cy: n.y, r: 4.6, style: { '--i': n.i } }));
+      // the line's colour already says in / out; on the new site the pill's genre dot is the only dot
+      if (!it.more && !self._vNext()) svgKids.push(h('circle', { key: 'c' + n.i, className: 'bjx-dot ' + k, cx: n.x, cy: n.y, r: 4.6, style: { '--i': n.i } }));
       // Hovered neighbour: faint stubs hint at where it leads next.
       if (isHot) {
         var onward = Math.min(8, books[id].in.length + books[id].out.length - 1), side = n.anchor === 'start' ? 1 : -1;
