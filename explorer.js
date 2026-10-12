@@ -727,10 +727,13 @@
           h('button', { onClick: function () { if (m()) m().zoomBy(1 / 1.4); }, 'aria-label': 'Zoom out' }, '−'),
           h('button', { onClick: function () { if (m()) m().zoomBy(1.4); }, 'aria-label': 'Zoom in' }, '+'),
           h('button', { className: 'fit', onClick: function () { if (m()) m().fit(true); } }, 'Fit'))),
-      h('div', { className: 'bjx-fkey' }, sel
-        ? [h('span', { key: 'lo' }, h('i', { className: 'ln out' }), 'mentions'), h('span', { key: 'li' }, h('i', { className: 'ln in' }), 'mentioned by'),
-          h('span', { key: 'u' }, h('i', { className: 'sw', style: { background: MISC_DOT } }), 'genre unknown'), h('span', { key: 'h', className: 'hint' }, 'Esc to clear')]
-        : h('span', { className: 'hint' }, lk === 'wrap' ? 'Scroll or drag to travel — it never ends · pinch or +/− to zoom · point to look closer · click a star' : 'Scroll or pinch to zoom · click a star')),
+      // one quiet line of how-to: what clears a selection, how to zoom (⌘ on Macs, Ctrl elsewhere)
+      h('div', { className: 'bjx-fkey' }, h('span', { className: 'hint' }, (function () {
+        if (typeof matchMedia !== 'undefined' && matchMedia('(pointer: coarse)').matches) return sel ? 'Tap empty space to clear · pinch to zoom' : 'Drag to move · pinch to zoom · tap a star';
+        var mod = /Mac/.test(navigator.platform || navigator.userAgent) ? '⌘' : 'Ctrl';
+        var zoom = lk === 'wrap' ? 'scroll to travel · ' + mod + ' + scroll or pinch to zoom' : 'scroll or pinch to zoom';
+        return sel ? 'Esc to clear · ' + zoom : zoom + ' · click a star';
+      })())),
       card, extra || null);
   };
 
