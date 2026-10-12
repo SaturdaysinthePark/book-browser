@@ -107,10 +107,13 @@ function main() {
     c.fillStyle = CREAM; c.fillRect(x, y + h * 0.24, w, h * 0.52);
     c.beginPath(); c.ellipse(x + w / 2, y + h * 0.12, w * 0.15, h * 0.028, 0, 0, 2 * PI); c.fillStyle = CREAM; c.fill();
     c.beginPath(); var dx = x + w / 2, dy = y + h * 0.88, ds = w * 0.07; c.moveTo(dx, dy - ds); c.lineTo(dx + ds, dy); c.lineTo(dx, dy + ds); c.lineTo(dx - ds, dy); c.closePath(); c.fill();
-    var fs = Math.max(7, w * 0.085), font = '700 ' + fs + 'px ' + CABIN, lines = wrapLines(b.t, font, w * 0.82, '0.02em');
-    c.fillStyle = INK; c.font = font; c.textAlign = 'center'; c.letterSpacing = '0.02em';
-    lines.forEach(function (ln, i) { c.fillText(ln, x + w / 2, y + h * 0.5 + (i - (lines.length - 1) / 2) * fs * 1.2 + fs * 0.35); });
-    c.letterSpacing = '0px';
+    // small covers (card headers, the trail, covers shrinking into dots) skip the title: unreadable at that size
+    if (w >= 60) {
+      var fs = Math.max(7, w * 0.085), font = '700 ' + fs + 'px ' + CABIN, lines = wrapLines(b.t, font, w * 0.82, '0.02em');
+      c.fillStyle = INK; c.font = font; c.textAlign = 'center'; c.letterSpacing = '0.02em';
+      lines.forEach(function (ln, i) { c.fillText(ln, x + w / 2, y + h * 0.5 + (i - (lines.length - 1) / 2) * fs * 1.2 + fs * 0.35); });
+      c.letterSpacing = '0px';
+    }
     c.lineWidth = Math.max(1.5, w * 0.014); c.strokeStyle = INK; c.strokeRect(x, y, w, h);
     c.restore();
   };
