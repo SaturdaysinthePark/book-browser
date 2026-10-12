@@ -25,7 +25,15 @@ vendored locally and the data loads via a classic script rather than an ES modul
 | --- | --- |
 | `index.html` | Page shell + global styles + the original template markup (embedded as `<script id="bj-template">`) |
 | `app.js` | The application: a small template compiler + the ported component logic + React mount |
+| `explorer.js` | The network **Explorer** (`?net=v2`): fan-to-fan navigation built on the book page's neighbourhood — lazy-loaded |
+| `network-regions.js` | "Reading neighbourhoods" for the Explorer's entry — **generated** by `npm run bj:regions` (Louvain) |
+| `layouts-data.js` | Point layouts for the network page (the starfield, Influence, Petals) — **generated** by `npm run bj:layouts` |
+| `atlas.js` | Canvas star-map renderer: the **Atlas** (`?net=v3`) and the Explorer+ mini-map / full view — lazy-loaded |
+| `atlas-data.js` | Atlas layout (books grouped by Louvain community) — **generated** by `npm run bj:atlas` |
+| `stars-data.js` | Genre-continent layout (Explorer+, and the starting arrangement for the network starfield) — **generated** by `npm run bj:stars` |
+| `home.js` | The interactive home-wall engine (endless shelf / infinite canvas / shelf rows) — imperative, transforms only |
 | `bookjumpr-data.js` | The dataset the site loads — **generated** from the database by `npm run bj:build` (don't hand-edit) |
+| `bookjumpr-notes.js` | Mention quotes/context, lazy-loaded on book pages — **generated** by `npm run bj:build` |
 | `bookjumpr.db` | SQLite database — the **source of truth** for books & mentions |
 | `tools/` | The data pipeline (CLI, build, validation, admin server) |
 | `admin.html` | Local point-and-click admin UI (served by `npm run admin`) |
@@ -38,12 +46,21 @@ vendored locally and the data loads via a classic script rather than an ES modul
 
 ## Screens
 
-- **Home** — a dense procedural wall of book covers behind an animated hero + search
-- **Book** — cover, synopsis, an ego-graph of its "neighborhood", and grids of the
-  books it *mentions* and the books that *mention* it
-- **Search** — ranked results (with an as-you-type suggestion dropdown)
-- **Stats** — the most name-dropped books and authors
-- **Network** — a force-directed graph of the whole web of mentions (drag / hover / zoom)
+- **Home** — an endless, scrollable wall of covers on doodled graph paper behind the hero + search
+  (`?home=b` 2D canvas, pan any direction — the default · `?home=a` endless shelf · `?home=c` shelf rows · `?home=classic` the static wall;
+  `?wall=dark` for the charcoal wall). See `docs/ui-ux-overhaul.md`.
+- **Book** — the book in the middle of its fan (books that mention it flow in, books it mentions flow
+  out), a side panel (mini-map, cover, author, synopsis), and every mention as quote cards ("Mentions" /
+  "Mentioned by"; tabs and swipeable cover shelves on phones). "Zoom out" morphs the fan into the network.
+- **Search** — ranked results (with an as-you-type suggestion dropdown); ⌘F / Ctrl+F jumps to the search box
+- **Stats** — the 30 most name-dropped books and the 30 most name-dropped authors
+- **Network** — every book as a star on one even starfield whose edges join, so it pans forever; genres are
+  territories, one-off mentions are faint dust, stars lean toward the mouse. Select a star for its in/out links,
+  "Open →" morphs it back into its book page. **Influence** (switch, top right) is a binned chart — x = books it
+  mentions, y = books that mention it — and the stars travel between the two views.
+- **Query flags:** `?v=classic` — the classic book page and constellation network; `?net=petals` — adds the
+  Petals layout to the network switcher; `?net=v2` / `v3` / `v4` / `map` — the earlier network comparisons
+  (Explorer, Atlas, Explorer+, classic constellation).
 - **About** — how the dataset works
 
 Routing is hash-based and author-first: a book lives at `#/<author>/<title>` (e.g.

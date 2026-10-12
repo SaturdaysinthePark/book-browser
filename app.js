@@ -36,8 +36,27 @@
     'Pride and Prejudice', 'Sense and Sensibility', 'Emma', 'War and Peace', 'Anna Karenina',
     'Crime and Punishment', 'The Brothers Karamazov', 'Les Misérables', 'The Three Musketeers',
     'Treasure Island', "Gulliver's Travels", 'The Catcher in the Rye', 'The Scarlet Letter',
-    "Uncle Tom's Cabin", 'Madame Bovary', 'Vanity Fair', 'Middlemarch', 'A Farewell to Arms', 'Lolita'
+    "Uncle Tom's Cabin", 'Madame Bovary', 'Vanity Fair', 'Middlemarch', 'A Farewell to Arms'
   ];
+
+  // Books kept OFF the home screen (walls, shelf rows, suggestion chips). They stay in the data,
+  // search, book pages and the network — this only governs what the front door shows unprompted.
+  // Authors are matched on the key's author segment (catches future imports); books by full key.
+  var HOME_HIDE = {
+    authors: {
+      'adolph-hitler': 1,       // hate propaganda
+      'joseph-goebbels': 1,
+      'marquis-de-sade': 1      // explicit erotica
+    },
+    books: {
+      'pauline-reage/story-of-o': 1,
+      'vatsyayana/kama-sutra': 1,
+      'vladimir-nabokov/lolita': 1,
+      'j-g-wood/the-uncivilized-races-of-men-in-all-countries-of-the-world': 1,   // dated race/eugenics texts
+      'margaret-sanger/woman-and-the-new-race': 1,
+      'heinrich-kramer/malleus-maleficarum': 1
+    }
+  };
 
   /* ------------------------------------------------------------------ *
    * Template compiler — a minimal, faithful re-implementation of the
@@ -299,31 +318,62 @@
 
   var BookJumpr = function (props) {
     React.Component.call(this, props);
-    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0 };
+    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false,
+      xHover: null, xAll: null, xQ: '', xPathOpen: false, xPathQ: '', xPathTo: null };
     // Data is available synchronously via the vendored global, so build it up front.
     this.buildData(DATA.NODES || {}, DATA.MENTIONS || []);
     this.state.ready = true;
     this.state.vw = typeof window !== 'undefined' ? window.innerWidth : 1280;
     if (typeof location !== 'undefined' && location.hash && location.hash.length > 2) {
       this.state.route = this._routeFromHash();
+      this._pushTrail(this.state.route);
     }
   };
   BookJumpr.prototype = Object.create(React.Component.prototype);
   BookJumpr.prototype.constructor = BookJumpr;
   var P = BookJumpr.prototype;
+  // Lazily loaded modules (explorer.js) extend the component through this handle.
+  window.__BJ = { P: P, h: h };
 
+  // The search box that ⌘F should focus on this page: map searches first, then any visible
+  // "Search…"/"Find…" input on the page, the header's last.
+  P._searchBox = function () {
+    var vis = function (el) { if (!el || el.disabled) return false; var r = el.getBoundingClientRect(); return r.width > 0 && r.height > 0 && getComputedStyle(el).visibility !== 'hidden'; };
+    var pri = ['.bjx-fbar .atlas-input', '.atlas-bar .atlas-input', '#search', '.bjx-entry .bjx-input'];
+    for (var i = 0; i < pri.length; i++) { var el = document.querySelector(pri[i]); if (vis(el)) return el; }
+    var all = [].filter.call(document.querySelectorAll('input'), function (x) { return /^(search|find)/i.test(x.placeholder || x.getAttribute('aria-label') || '') && vis(x); });
+    var hdr = document.querySelector('.bj-hdr');
+    all.sort(function (a, b) { return (hdr && hdr.contains(a) ? 1 : 0) - (hdr && hdr.contains(b) ? 1 : 0); });
+    return all[0] || null;
+  };
   P.componentDidMount = function () {
     var self = this;
     this._onHash = function () { self.applyHash(); };
     window.addEventListener('hashchange', this._onHash);
     this._onResize = function () { self.setState({ vw: window.innerWidth }); };
     window.addEventListener('resize', this._onResize);
+    // ⌘F / Ctrl+F jumps to the page's own search box (the map's "Search by book or author…", the home or header
+    // search, the classic map's search). Pages without one keep the browser's find.
+    this._onFindKey = function (e) {
+      if (!(e.metaKey || e.ctrlKey) || e.altKey || e.shiftKey || (e.key || '').toLowerCase() !== 'f') return;
+      var el = self._searchBox();
+      if (!el) return;
+      e.preventDefault();
+      el.focus(); if (el.select) el.select();
+    };
+    window.addEventListener('keydown', this._onFindKey);
     if (location.hash && location.hash.length > 2) this.applyHash();
     this._startWallPulse();
+    this._startTilt();
+    this._startHeaderAutohide();
+    this._startToTop();
+    this._settleSmil();
+    if (this.state.route.page === 'book') this._loadNotes();
   };
   P.componentWillUnmount = function () {
     window.removeEventListener('hashchange', this._onHash);
     window.removeEventListener('resize', this._onResize);
+    window.removeEventListener('keydown', this._onFindKey);
     clearTimeout(this._pulseTimer);
     clearTimeout(this._flipCleanup);
     this._teardownStatsReveal();
@@ -346,10 +396,23 @@
     return map;
   };
   P.componentDidUpdate = function (prevProps, prevState, snapshot) {
+    if (this._toTopCheck && prevState.route !== this.state.route) this._toTopCheck();
     // Stats page reveal: arm scroll-triggered count-up + bar-grow on entry, tear it down on exit.
     var nowStats = this.state.route.page === 'stats', wasStats = prevState.route.page === 'stats';
     if (nowStats && !wasStats) this._setupStatsReveal();
     else if (!nowStats && wasStats) this._teardownStatsReveal();
+    if (this.state.route.page === 'book') this._loadNotes();
+    if (prevState.route !== this.state.route) { this._settleSmil(); var hd = document.querySelector('.bj-hdr'); if (hd) hd.classList.remove('hdr-hide'); }
+    // Network deep link (#/network/<book>): focus that book once the engine is up.
+    var cst = this._constellation, fk = this.state.route.page === 'network' && this.state.route.focus;
+    if (cst && fk && this._cstFocused !== fk && cst.focusKey) { this._cstFocused = fk; cst.focusKey(fk); }
+    // Atlas: keep the map's focus in step with the route (search, path chips, back button).
+    var at = this._atlas;
+    if (at && this.state.route.page === 'network') {
+      var af = this.state.route.focus || null, cur = at.focus >= 0 ? at.keys[at.focus] : null;
+      if (af !== cur) at.setFocus(af);
+    }
+    if (this._xStarSync) this._xStarSync();   // Explorer+ mini-map follows the hops
     if (!snapshot) return;
     if (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     var self = this;
@@ -488,8 +551,7 @@
       // Only covers with a genre colour can "turn colour on"; skip MISC (no --bandc).
       var pick = [];
       for (var i = 0; i < wraps.length; i++) {
-        var inner = wraps[i].querySelector('[data-hb]');
-        if (inner && inner.style.getPropertyValue('--bandc')) pick.push(wraps[i]);
+        if (wraps[i].querySelector('.cv[style]')) pick.push(wraps[i]);
       }
       if (!pick.length) return;
       var el = pick[Math.floor(Math.random() * pick.length)];
@@ -500,6 +562,87 @@
       if (innerEl) innerEl.addEventListener('animationend', clear);
     };
     this._pulseTimer = setTimeout(tick, 5000);
+  };
+
+  // Cover tilt: one delegated pointer listener drives a small 3D tilt + moving sheen on whichever
+  // [data-tilt] card is under a fine pointer (writes --rx/--ry/--mx; CSS does the rest). Touch and
+  // reduced-motion users get the plain card.
+  P._startTilt = function () {
+    if (typeof matchMedia === 'undefined' || !matchMedia('(hover: hover) and (pointer: fine)').matches) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var cur = null, raf = 0, ev = null;
+    var reset = function (el) { el.classList.remove('is-tilting'); el.style.removeProperty('--rx'); el.style.removeProperty('--ry'); el.style.removeProperty('--mx'); };
+    var apply = function () {
+      raf = 0;
+      var el = ev && ev.target && ev.target.closest ? ev.target.closest('[data-tilt]') : null;
+      if (cur && cur !== el) reset(cur);
+      cur = el;
+      if (!el) return;
+      var cv = el.querySelector('.cv'); if (!cv) return;
+      var r = cv.getBoundingClientRect();
+      var px = Math.min(1, Math.max(0, (ev.clientX - r.left) / r.width)), py = Math.min(1, Math.max(0, (ev.clientY - r.top) / r.height));
+      el.classList.add('is-tilting');
+      el.style.setProperty('--ry', ((px - 0.5) * 12).toFixed(2));
+      el.style.setProperty('--rx', ((0.5 - py) * 9).toFixed(2));
+      el.style.setProperty('--mx', (px * 140 - 20).toFixed(1) + '%');
+    };
+    document.addEventListener('pointermove', function (e) { ev = e; if (!raf) raf = requestAnimationFrame(apply); }, { passive: true });
+    document.addEventListener('pointerleave', function () { if (cur) reset(cur); cur = null; });
+  };
+
+  // Sticky header hides while you scroll down a long page and returns on any scroll up — on a
+  // phone it's two rows tall, so this gives the content most of the screen back.
+  // --hdr-vis is how much of the header is on screen (its real height, or 0 while hidden), so sticky
+  // bits such as the mention tabs ride just under it and take the top of the screen when it's gone.
+  P._startHeaderAutohide = function () {
+    var last = window.scrollY, acc = 0, vis = null, root = document.documentElement;
+    var setVis = function (hdr) {
+      if (!hdr) return;
+      var v = hdr.classList.contains('hdr-hide') ? 0 : hdr.offsetHeight;
+      if (v !== vis) { vis = v; root.style.setProperty('--hdr-vis', v + 'px'); }
+    };
+    window.addEventListener('scroll', function () {
+      var y = window.scrollY, d = y - last; last = y;
+      var hdr = document.querySelector('.bj-hdr');
+      if (!hdr) return;
+      acc = (d > 0) === (acc > 0) ? acc + d : d;
+      if (y < 90 || acc < -24) hdr.classList.remove('hdr-hide');
+      else if (acc > 36 && !hdr.contains(document.activeElement)) hdr.classList.add('hdr-hide');
+      setVis(hdr);
+    }, { passive: true });
+    window.addEventListener('resize', function () { vis = null; setVis(document.querySelector('.bj-hdr')); });
+    setVis(document.querySelector('.bj-hdr'));
+  };
+  // Long pages (a book's mention list, stats, search): once you're about a screen and a half down, a
+  // round ↑ button bottom-right takes you all the way back up. Not on home or the full-screen network.
+  P._startToTop = function () {
+    var self = this, btn = document.createElement('button'), on = false;
+    btn.className = 'to-top'; btn.type = 'button'; btn.title = 'Back to top'; btn.setAttribute('aria-label', 'Back to top');
+    btn.innerHTML = '<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M12 19V5M5.5 11.5 12 5l6.5 6.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+    btn.tabIndex = -1;
+    btn.addEventListener('click', function () {
+      var still = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+      window.scrollTo({ top: 0, behavior: still ? 'auto' : 'smooth' });
+      btn.blur();
+    });
+    document.body.appendChild(btn);
+    var check = function () {
+      var pg = self.state.route.page, show = pg !== 'home' && pg !== 'network' && window.scrollY > window.innerHeight * 1.5;
+      if (show === on) return;
+      on = show; btn.classList.toggle('is-on', on); btn.tabIndex = on ? 0 : -1;
+    };
+    window.addEventListener('scroll', check, { passive: true });
+    this._toTopCheck = check;
+  };
+  // SMIL (the logo / hero jump-arc) ignores prefers-reduced-motion, so under reduced motion jump
+  // every SVG timeline to its drawn end state and freeze it.
+  P._settleSmil = function () {
+    if (typeof matchMedia === 'undefined' || !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var svgs = document.querySelectorAll('svg');
+    for (var i = 0; i < svgs.length; i++) {
+      var sv = svgs[i];
+      if (sv.pauseAnimations && sv.querySelector('animate,animateMotion') && !sv._settled) { sv._settled = true; try { sv.setCurrentTime(3.45); sv.pauseAnimations(); } catch (e) {} }
+    }
   };
 
   P.slug = function (t) {
@@ -582,13 +725,16 @@
   // Scored candidate pool (cached). Eligible = mentions others (out>0) OR very-popular mentioned-only
   // (in>=3). Score is popularity-led (inbound citations), with a both-sided tier bonus and a boost
   // for the curated POPULAR_FICTION titles. Sorted best-first.
+  P._homeOk = function (id) {
+    return !!id && !HOME_HIDE.books[id] && !HOME_HIDE.authors[String(id).split('/')[0]];
+  };
   P._ensureWallPool = function () {
     if (this._wallPool) return this._wallPool;
     var self = this;
     var popSet = {};
     for (var p = 0; p < POPULAR_FICTION.length; p++) { var pb = this.bookByTitle(POPULAR_FICTION[p]); if (pb) popSet[pb.id] = 1; }
     var log2 = function (x) { return Math.log(x) / Math.LN2; };
-    var pool = (this.all || []).filter(function (b) { return b.out.length > 0 || b.in.length >= 3; }).map(function (b) {
+    var pool = (this.all || []).filter(function (b) { return (b.out.length > 0 || b.in.length >= 3) && self._homeOk(b.id); }).map(function (b) {
       var both = b.out.length > 0 && b.in.length > 0;
       var score = 3 * log2(1 + b.in.length) + log2(1 + b.out.length) + (both ? 2 : 1) + (popSet[b.id] ? 2 : 0);
       return { id: b.id, fic: self._isFiction(b.genre), genre: self.genreOf(b).name, author: b.author || '', score: score };
@@ -646,14 +792,21 @@
     return picks;
   };
 
+  // Genre icons as SVG markup strings (48×48 box). `ink` paints the glyph, `hole` its cut-outs —
+  // covers pass hole='currentColor' so the cut-outs track the live band colour (see .cv-bot in CSS).
   P.mark2 = function (name, size, ink, hole) {
-    var R = React.createElement;
     var kids = [];
-    var P_ = function (d, f) { kids.push(R('path', { d: d, fill: f || ink, key: kids.length })); };
-    var S = function (d, w, col) { kids.push(R('path', { d: d, fill: 'none', stroke: col || ink, strokeWidth: w, strokeLinecap: 'round', key: kids.length })); };
-    var C = function (cx, cy, r, f) { kids.push(R('circle', { cx: cx, cy: cy, r: r, fill: f || ink, key: kids.length })); };
-    var E = function (cx, cy, rx, ry, f) { kids.push(R('ellipse', { cx: cx, cy: cy, rx: rx, ry: ry, fill: f || ink, key: kids.length })); };
-    var RT = function (x, y, w, ht, f, rx) { kids.push(R('rect', { x: x, y: y, width: w, height: ht, fill: f || ink, rx: rx || 0, key: kids.length })); };
+    var esc = function (v) { return String(v).replace(/"/g, '&quot;'); };
+    var R = function (tag, a) {
+      var s = '<' + tag;
+      for (var k in a) if (a[k] != null && k !== 'key') s += ' ' + k.replace(/[A-Z]/g, function (c) { return '-' + c.toLowerCase(); }) + '="' + esc(a[k]) + '"';
+      return s + '/>';
+    };
+    var P_ = function (d, f) { kids.push(R('path', { d: d, fill: f || ink })); };
+    var S = function (d, w, col) { kids.push(R('path', { d: d, fill: 'none', stroke: col || ink, strokeWidth: w, strokeLinecap: 'round' })); };
+    var C = function (cx, cy, r, f) { kids.push(R('circle', { cx: cx, cy: cy, r: r, fill: f || ink })); };
+    var E = function (cx, cy, rx, ry, f) { kids.push(R('ellipse', { cx: cx, cy: cy, rx: rx, ry: ry, fill: f || ink })); };
+    var RT = function (x, y, w, ht, f, rx) { kids.push(R('rect', { x: x, y: y, width: w, height: ht, fill: f || ink, rx: rx || 0 })); };
     if (name === 'book') {
       P_('M24 15.5 C20 10.8 12.2 9 5.5 10.6 L5.5 34.5 C12.2 33 20 34.8 24 39.5 C28 34.8 35.8 33 42.5 34.5 L42.5 10.6 C35.8 9 28 10.8 24 15.5 Z');
       RT(23.05, 14.6, 1.9, 23, hole);
@@ -692,10 +845,10 @@
       P_('M14.5 25.5 A9.5 8.8 0 0 1 33.5 25.5 Z');
       E(24, 28, 19, 6.4);
       C(12.5, 28, 1.8, hole); C(24, 29.4, 1.8, hole); C(35.5, 28, 1.8, hole);
-      kids.push(R('path', { d: 'M19 34.5 L29 34.5 L33.5 44 L14.5 44 Z', fill: ink, opacity: 0.3, key: kids.length }));
+      kids.push(R('path', { d: 'M19 34.5 L29 34.5 L33.5 44 L14.5 44 Z', fill: ink, opacity: 0.3 }));
     }
     if (name === 'dragon2') {
-      kids.push(R('path', { d: 'M33.2 9.0 L36.6 12.2 L36.9 11.9 L37.2 12.5 L41.1 13.6 L43.8 16.8 L44.7 17.4 L45.2 16.9 L45.5 17.5 L45.2 19.1 L42.7 18.2 L44.1 19.1 L43.6 19.6 L42.9 19.6 L40.5 17.8 L37.9 16.6 L36.6 16.3 L36.2 16.9 L36.2 19.4 L38.5 25.9 L38.5 28.8 L37.7 30.8 L36.2 32.6 L34.6 33.4 L34.9 32.5 L34.9 31.9 L34.6 32.2 L34.0 35.0 L34.0 37.8 L35.2 38.4 L34.8 39.0 L33.3 39.0 L32.6 38.4 L31.6 36.4 L31.0 32.5 L31.0 34.4 L30.2 34.5 L24.2 34.2 L23.2 33.9 L23.4 33.3 L22.0 35.0 L21.0 37.5 L21.0 38.3 L22.3 38.6 L22.6 39.0 L20.4 39.0 L19.3 36.9 L19.2 33.0 L18.5 33.6 L14.8 32.5 L10.6 30.2 L9.0 28.6 L6.4 23.8 L5.5 20.7 L5.3 18.6 L3.1 17.5 L2.5 15.4 L2.7 14.9 L3.3 15.4 L3.7 15.2 L3.9 13.8 L4.8 11.8 L5.8 12.5 L6.9 14.9 L8.0 14.4 L8.0 17.2 L6.4 18.2 L6.6 19.6 L7.5 21.7 L10.8 25.6 L15.0 28.3 L17.1 28.9 L19.9 28.9 L28.1 26.9 L30.5 28.1 L29.3 26.9 L26.6 25.8 L22.6 25.6 L21.8 25.9 L21.4 23.0 L20.1 22.1 L18.9 21.9 L19.2 21.0 L18.9 19.2 L15.9 18.0 L18.1 17.8 L21.2 18.3 L27.0 20.5 L28.2 22.1 L28.8 24.5 L29.9 26.7 L30.4 27.0 L30.4 26.7 L32.3 26.3 L33.0 25.5 L33.5 24.1 L32.7 16.6 L34.0 14.0 L34.8 13.3 L35.2 13.5 L33.2 9.1Z M38.3 14.3 L39.0 15.0 L39.6 15.0 L39.6 14.1 L38.3 14.1Z', fill: ink, fillRule: 'evenodd', key: kids.length }));
+      kids.push(R('path', { d: 'M33.2 9.0 L36.6 12.2 L36.9 11.9 L37.2 12.5 L41.1 13.6 L43.8 16.8 L44.7 17.4 L45.2 16.9 L45.5 17.5 L45.2 19.1 L42.7 18.2 L44.1 19.1 L43.6 19.6 L42.9 19.6 L40.5 17.8 L37.9 16.6 L36.6 16.3 L36.2 16.9 L36.2 19.4 L38.5 25.9 L38.5 28.8 L37.7 30.8 L36.2 32.6 L34.6 33.4 L34.9 32.5 L34.9 31.9 L34.6 32.2 L34.0 35.0 L34.0 37.8 L35.2 38.4 L34.8 39.0 L33.3 39.0 L32.6 38.4 L31.6 36.4 L31.0 32.5 L31.0 34.4 L30.2 34.5 L24.2 34.2 L23.2 33.9 L23.4 33.3 L22.0 35.0 L21.0 37.5 L21.0 38.3 L22.3 38.6 L22.6 39.0 L20.4 39.0 L19.3 36.9 L19.2 33.0 L18.5 33.6 L14.8 32.5 L10.6 30.2 L9.0 28.6 L6.4 23.8 L5.5 20.7 L5.3 18.6 L3.1 17.5 L2.5 15.4 L2.7 14.9 L3.3 15.4 L3.7 15.2 L3.9 13.8 L4.8 11.8 L5.8 12.5 L6.9 14.9 L8.0 14.4 L8.0 17.2 L6.4 18.2 L6.6 19.6 L7.5 21.7 L10.8 25.6 L15.0 28.3 L17.1 28.9 L19.9 28.9 L28.1 26.9 L30.5 28.1 L29.3 26.9 L26.6 25.8 L22.6 25.6 L21.8 25.9 L21.4 23.0 L20.1 22.1 L18.9 21.9 L19.2 21.0 L18.9 19.2 L15.9 18.0 L18.1 17.8 L21.2 18.3 L27.0 20.5 L28.2 22.1 L28.8 24.5 L29.9 26.7 L30.4 27.0 L30.4 26.7 L32.3 26.3 L33.0 25.5 L33.5 24.1 L32.7 16.6 L34.0 14.0 L34.8 13.3 L35.2 13.5 L33.2 9.1Z M38.3 14.3 L39.0 15.0 L39.6 15.0 L39.6 14.1 L38.3 14.1Z', fill: ink, fillRule: 'evenodd' }));
     }
     if (name === 'bat') {
       P_('M17.6 12.4 L15.2 4.6 L21.4 9.6 Z'); P_('M30.4 12.4 L32.8 4.6 L26.6 9.6 Z');
@@ -749,7 +902,7 @@
     }
     if (name === 'globe') {
       C(24, 24, 15.5);
-      kids.push(R('ellipse', { cx: 24, cy: 24, rx: 7.4, ry: 15.5, fill: 'none', stroke: hole, strokeWidth: 1.8, key: kids.length }));
+      kids.push(R('ellipse', { cx: 24, cy: 24, rx: 7.4, ry: 15.5, fill: 'none', stroke: hole, strokeWidth: 1.8 }));
       RT(8.5, 23.1, 31, 1.8, hole);
       RT(11, 16.6, 26, 1.5, hole); RT(11, 29.9, 26, 1.5, hole);
     }
@@ -785,64 +938,49 @@
       P_('M24 14.5 L31.5 23.5 L24 32.5 L16.5 23.5 Z');
       P_('M24 19 L27.8 23.5 L24 28 L20.2 23.5 Z', hole);
     }
-    return R('svg', { viewBox: '0 0 48 48', width: size, height: size, style: { display: 'block' } }, kids);
+    return '<svg viewBox="0 0 48 48"' + (size ? ' width="' + size + '" height="' + size + '"' : '') + ' aria-hidden="true">' + kids.join('') + '</svg>';
   };
 
-  P.triCover = function (b, g, tier, mode, borderOpt) {
-    this._tri = this._tri || {};
-    borderOpt = (borderOpt === 'cream' || borderOpt === 'none') ? borderOpt : 'ink';
-    var key = b.id + ':' + tier + ':' + mode + ':' + borderOpt + ':' + (b.genre || '');
-    if (this._tri[key]) return this._tri[key];
-    var misc = g.name === 'MISC';
-    var bandBg;
-    if (mode === 'static') bandBg = misc ? '#141414' : g.color;
-    else if (misc) bandBg = '#141414';
-    else if (mode === 'color') bandBg = 'var(--hb, ' + g.color + ')';
-    else bandBg = 'var(--hb, #141414)';
-    var T = {
-      xs: { mark: 13, blob: [14, 6.5], bw: '1.5px', tb: 6.5, tmin: 5, ab: 4.5, amin: 4, gap: '2px', pad: '2px 4px' },
-      s: { mark: 26, blob: [25, 11], bw: '2px', tb: 11.5, tmin: 7.5, ab: 7, amin: 5.5, gap: '7px', pad: '6px 8px' },
-      l: { mark: 34, blob: [30, 13], bw: '2px', tb: 13, tmin: 9, ab: 8, amin: 6.5, gap: '4px', pad: '4px 10px' },
-      xl: { mark: 46, blob: [42, 18], bw: '2.5px', tb: 19, tmin: 12, ab: 9.5, amin: 7.5, gap: '6px', pad: '6px 14px' }
-    }[tier];
-    var band = { backgroundColor: bandBg, flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' };
-
-    // Outer cover frame is tweakable (ink / cream / none); the internal color-band
-    // dividers below stay ink regardless so the bands never lose their edge.
-    var coverBorder = borderOpt === 'none' ? 'none'
-      : borderOpt === 'cream' ? (T.bw + ' solid #f2ecdd')
-      : (T.bw + ' solid var(--ink)');
-
-    // Title: 6 length buckets, each a smaller size + more clamp lines (up to 6).
+  // ---------- covers ----------
+  // One size-agnostic Penguin tri-band cover (band / oval plate / title · rule · author / band +
+  // genre mark). Every size is in container units (cqi) against .cv, so the same markup renders
+  // crisply from a 52px search thumbnail to the 210px book-page hero — see the .cv CSS block in
+  // index.html. Band colour = color-mix(genre colour, ink) by --lit (0 = ink, 1 = full colour),
+  // which the home wall's spotlight drives per cover; everywhere else --lit defaults to 1.
+  // Returned as an HTML string (cached per book) so the imperative home wall (home.js) and the
+  // React pages share exactly one renderer.
+  P.coverHTML = function (b) {
+    var cache = this._cvHtml || (this._cvHtml = {});
+    var key = b.id + ':' + (b.genre || '');
+    if (cache[key]) return cache[key];
+    var g = this.genreOf(b);
+    var esc = function (t) { return String(t).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+    // Title scale: 6 length buckets → font size (cqi) + line clamp. Author: 4 buckets, ≤2 lines.
     var len = b.title.length;
-    var ts = len < 10 ? [1.00, 2] : len < 18 ? [0.90, 3] : len < 28 ? [0.80, 4]
-      : len < 40 ? [0.70, 5] : len < 60 ? [0.60, 6] : [0.52, 6];
-    var tSize = Math.max(T.tmin, Math.round(T.tb * ts[0] * 2) / 2);
-    var tClamp = tier === 'xs' ? Math.min(ts[1], 3) : ts[1];
-
-    // Author scales on its own length and wraps to 2 lines when the name is long.
-    var alen = (b.author || '').length;
-    var as = alen < 14 ? [1.00, 1] : alen < 22 ? [0.90, 2] : alen < 32 ? [0.82, 2] : [0.74, 2];
-    var aSize = Math.max(T.amin, Math.round(T.ab * as[0] * 2) / 2);
-    var aClamp = as[1];
-
-    var item = {
-      cover: { aspectRatio: '2 / 3', width: '100%', border: coverBorder, display: 'flex', flexDirection: 'column', overflow: 'hidden', background: '#f2ecdd', boxSizing: 'border-box', textAlign: 'center' },
-      top: Object.assign({}, band, { height: '26%', borderBottom: '1.5px solid var(--ink)' }),
-      blob: { width: T.blob[0] + 'px', height: T.blob[1] + 'px', background: '#f2ecdd', borderRadius: '50% / 48%' },
-      mid: { flex: 1, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: T.gap, padding: T.pad, overflow: 'hidden' },
-      title: { fontFamily: 'Helvetica, Arial, sans-serif', fontWeight: 700, textTransform: 'uppercase', fontSize: tSize + 'px', lineHeight: 1.18, letterSpacing: '.01em', color: 'var(--ink)', display: '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: tClamp, overflow: 'hidden' },
-      author: { fontFamily: "'IBM Plex Mono', monospace", fontSize: aSize + 'px', letterSpacing: '.08em', textTransform: 'uppercase', opacity: 0.7, color: 'var(--ink)', lineHeight: 1.3, display: tier === 'xs' ? 'none' : '-webkit-box', WebkitBoxOrient: 'vertical', WebkitLineClamp: aClamp, overflow: 'hidden' },
-      // Penguin-style rule between title and author (wall covers with a known author).
-      // Dash tracks the band colour: ink by default, genre colour on hover (same
-      // var(--hb, …) mechanism as the top/bottom bands).
-      divider: { width: '18px', height: '2px', background: bandBg, borderRadius: '1px', flexShrink: 0, display: (tier === 's' && b.author) ? 'block' : 'none' },
-      bot: Object.assign({}, band, { height: '24%', borderTop: '1.5px solid var(--ink)' }),
-      mark: this.mark2(g.mark, T.mark, '#f7f5f0', mode === 'static' ? bandBg : (misc ? '#141414' : bandBg)),
-      titleText: b.title, authorText: b.author
-    };
-    this._tri[key] = item;
-    return item;
+    var ts = len < 10 ? [10.6, 2] : len < 18 ? [9.6, 3] : len < 28 ? [8.5, 4] : len < 40 ? [7.5, 5] : len < 60 ? [6.6, 6] : [5.8, 6];
+    var au = b.author && b.author !== 'Anonymous' ? b.author : (b.author || '');
+    var alen = au.length;
+    var as = alen < 14 ? [6.2, 1] : alen < 22 ? [5.7, 2] : alen < 32 ? [5.2, 2] : [4.7, 2];
+    var style = g.name === 'MISC' ? '' : ' style="--bandc:' + g.color + '"';
+    var html = '<div class="cv"' + style + '><div class="cv-in">'
+      + '<div class="cv-b cv-top"><i class="cv-plate"></i></div>'
+      + '<div class="cv-m"><div class="cv-t" style="--ts:' + ts[0] + ';--tl:' + ts[1] + '">' + esc(b.title) + '</div>'
+      + (au ? '<i class="cv-rule"></i><div class="cv-a" style="--as:' + as[0] + ';--al:' + as[1] + '">' + esc(au) + '</div>' : '')
+      + '</div>'
+      + '<div class="cv-b cv-bot">' + this.mark2(g.mark, 0, '#f7f5f0', 'currentColor') + '</div>'
+      + '<i class="cv-fx"></i></div></div>';
+    cache[key] = html;
+    return html;
+  };
+  // React wrapper for the template ({{ x.cv }}). Elements are cached per book + variant: a
+  // reused element object lets React skip re-reconciling unchanged covers on every setState.
+  P.cover = function (b, cls) {
+    var cache = this._cvEl || (this._cvEl = {});
+    var key = b.id + '|' + (cls || '');
+    if (cache[key]) return cache[key];
+    var el = h('div', { className: 'cv-host' + (cls ? ' ' + cls : ''), 'data-cover': b.id, dangerouslySetInnerHTML: { __html: this.coverHTML(b) } });
+    cache[key] = el;
+    return el;
   };
 
   // ---------- routing ----------
@@ -854,25 +992,61 @@
     if (hh.indexOf('search/') === 0) return { page: 'search', q: hh.slice(7) };
     if (hh === 'stats') return { page: 'stats' };
     if (hh === 'network') return { page: 'network' };
+    if (hh.indexOf('network/') === 0) return { page: 'network', focus: hh.slice(8) };
     if (hh === 'about') return { page: 'about' };
     if (hh.indexOf('book/') === 0) return { page: 'book', id: hh.slice(5) }; // legacy alias
     if (hh.indexOf('/') !== -1) return { page: 'book', id: hh };            // <author>/<title>
     return { page: 'author', slug: hh };                                    // <author>
   };
-  P.navigate = function (route, hash) {
-    this.setState({ route: route, q: '', suggestFor: null });
+  // Route changes run inside a same-document View Transition when the browser supports it: the
+  // page cross-fades, and if `fromEl` (the clicked card / wall cover) holds a cover, that cover
+  // morphs into the book-page hero cover (both carry view-transition-name: bj-cover — the hero
+  // via .vt-hero, the source via an inline name set just for this one transition).
+  // `post` runs right after the new DOM is committed (inside the transition), for callers that name
+  // elements of the new page — the Explorer uses it to name the book you came from (see xJump).
+  P._transition = function (update, fromEl, post) {
+    var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var clearNames = function () { [].forEach.call(document.querySelectorAll('[data-vtn]'), function (el) { el.style.viewTransitionName = ''; el.removeAttribute('data-vtn'); }); };
+    if (!document.startViewTransition || reduced || document.hidden) { clearNames(); update(); return; }
+    var root = document.documentElement;
+    var src = fromEl && fromEl.querySelector ? (fromEl.matches && fromEl.matches('.cv') ? fromEl : fromEl.querySelector('.cv')) : null;
+    if (src) { root.classList.add('vt-swap'); src.style.viewTransitionName = 'bj-cover'; }
+    root.classList.toggle('vt-cover', !!src);
+    var vt;
+    try {
+      vt = document.startViewTransition(function () {
+        if (src) src.style.viewTransitionName = '';
+        // The old frame is captured by now: drop temporary names before React commits, since React
+        // reuses DOM nodes (e.g. a trail button) that would otherwise carry a name into the new page.
+        clearNames();
+        root.classList.remove('vt-swap');
+        ReactDOM.flushSync(update);
+        if (post) post();
+      });
+    } catch (e) { clearNames(); update(); return; }
+    vt.finished.then(function () { root.classList.remove('vt-cover'); clearNames(); }, function () { root.classList.remove('vt-cover', 'vt-swap'); clearNames(); });
+  };
+  P.navigate = function (route, hash, fromEl, post) {
+    var self = this;
+    this._pushTrail(route);
+    this._transition(function () {
+      self.setState({ route: route, q: '', suggestFor: null });
+      window.scrollTo(0, 0);
+    }, fromEl, post);
     this._silent = true;
     location.hash = hash;
-    var self = this;
     setTimeout(function () { self._silent = false; }, 0);
-    window.scrollTo(0, 0);
   };
   P.applyHash = function () {
     if (this._silent) return;
-    this.setState({ route: this._routeFromHash(), suggestFor: null });
-    window.scrollTo(0, 0);
+    var self = this, route = this._routeFromHash();
+    this._pushTrail(route);
+    this._transition(function () {
+      self.setState({ route: route, suggestFor: null });
+      window.scrollTo(0, 0);
+    });
   };
-  P.goBook = function (id) { this.navigate({ page: 'book', id: id }, '#/' + id); };
+  P.goBook = function (id, fromEl) { this.navigate({ page: 'book', id: id }, '#/' + id, fromEl); };
   P.goAuthor = function (aslug) { if (aslug && aslug !== 'anonymous') this.navigate({ page: 'author', slug: aslug }, '#/' + aslug); };
   // Author segment of a key: slug(author) or "anonymous" (mirrors tools/bookkey.mjs authorSlug).
   P.authorSlug = function (author) { return this.slug(author || '') || 'anonymous'; };
@@ -919,67 +1093,229 @@
     return parts.join(' · ') || 'quiet one';
   };
 
-  // ---------- mini ego graph ----------
-  P.miniGraph = function (b) {
-    var R = React.createElement;
-    var self = this;
-    var W = 300, H = 260, cx = W / 2, cy = H / 2;
-    var outN = b.out.map(function (id) { return { id: id, kind: 'out' }; });
-    var inN = b.in.map(function (id) { return { id: id, kind: 'in' }; }).filter(function (n) { return b.out.indexOf(n.id) === -1; });
-    var nodes = outN.concat(inN);
-    var extra = Math.max(0, nodes.length - 12);
-    nodes = nodes.slice(0, 12);
-    var n = nodes.length || 1;
-    var pts = nodes.map(function (nd, i) {
-      var ang = -Math.PI / 2 + (i * 2 * Math.PI) / n;
-      return Object.assign({}, nd, { x: cx + Math.cos(ang) * 108, y: cy + Math.sin(ang) * 92 });
+  // ---------- the neighborhood (book-page ego graph) ----------
+  // A full-width fan in ONE coordinate system (an SVG laid out for the real container width, so
+  // nodes and edges can never drift apart). Wide: "mentioned by" fans in from the left, "mentions"
+  // fan out to the right, mutual mentions sit right with a two-way ink edge. Narrow (<560px): a
+  // tree — mentioned-by above the book, mentions below — so labels get the full width. Labels are
+  // measured (canvas) and truncated to fit; edges draw in, labels rise in, hovering one dims the rest.
+  P._measure = function (txt, font) {
+    var c = this._mctx || (this._mctx = document.createElement('canvas').getContext('2d'));
+    c.font = font;
+    return c.measureText(txt).width;
+  };
+  P._fit = function (txt, font, max) {
+    if (this._measure(txt, font) <= max) return txt;
+    var lo = 0, hi = txt.length;
+    while (lo < hi) { var mid = (lo + hi + 1) >> 1; if (this._measure(txt.slice(0, mid) + '…', font) <= max) lo = mid; else hi = mid - 1; }
+    return txt.slice(0, Math.max(1, lo)).replace(/[\s,:;.-]+$/, '') + '…';
+  };
+  // Fan layout shared by the book-page neighbourhood (SVG) and the network Explorer (HTML pills):
+  // mentioned-by on the left, mentions (and mutual mentions, first) on the right, or a tree when
+  // narrow. Options: cap (max pills per side), font/cfont/ph/row/gap (scale), extra(it) (extra pill
+  // width for a cover or count). Returns geometry only; callers render it.
+  P.fanLayout = function (b, W, o) {
+    o = o || {};
+    var self = this, books = this.books;
+    var deg = function (id) { var x = books[id]; return x.in.length + x.out.length; };
+    var inSet = {}, outSet = {};
+    b.in.forEach(function (id) { inSet[id] = 1; });
+    b.out.forEach(function (id) { outSet[id] = 1; });
+    var right = b.out.map(function (id) { return { id: id, k: inSet[id] ? 'both' : 'out' }; })
+      .sort(function (x, y) { return (x.k === 'both' ? -1e6 : 0) - (y.k === 'both' ? -1e6 : 0) || deg(y.id) - deg(x.id); });
+    var left = b.in.filter(function (id) { return !outSet[id]; }).map(function (id) { return { id: id, k: 'in' }; })
+      .sort(function (x, y) { return deg(y.id) - deg(x.id); });
+    if (!right.length && !left.length) return { empty: true };
+    var narrow = W < (o.narrowAt || 560);
+    var cap = o.cap != null ? o.cap : narrow ? 5 : 9;
+    var extra = o.extra || function () { return 0; };
+    var clip = function (list) {
+      if (list.length <= cap) return list;
+      var shown = list.slice(0, cap - 1);
+      shown.push({ more: list.length - (cap - 1) });
+      return shown;
+    };
+    var L = clip(left), Rt = clip(right);
+    var FONT = o.font || "10.5px 'IBM Plex Mono', monospace", CFONT = o.cfont || "italic 16px 'Instrument Serif', serif";
+    var PH = o.ph || 21, ROW = o.row || (narrow ? 28 : 27), CH = o.ch || 30;
+    var items = [], i = 0, H, cx, cy, center;
+    var mkLabel = function (it) { return it.more ? '+' + it.more + ' more' : books[it.id].title; };
+
+    if (!narrow) {
+      var n = Math.max(L.length, Rt.length, 1);
+      H = Math.max(170, n * ROW + 56);
+      cx = W / 2; cy = H / 2 + 8;
+      var G = o.gap ? o.gap(W) : Math.max(84, Math.min(W * 0.13, 170));
+      var cMax = 2 * G - 36;
+      var ct = self._fit(b.title, CFONT, cMax);
+      var cw = Math.min(cMax, self._measure(ct, CFONT)) + 26;
+      center = { x: cx - cw / 2, y: cy - CH / 2, w: cw, h: CH, t: ct, tx: cx, ty: cy + 5, anchor: 'middle' };
+      var place = function (list, side) {
+        var m = list.length;
+        list.forEach(function (it, j) {
+          var y = cy + (j - (m - 1) / 2) * ROW;
+          var t = m > 1 ? (y - cy) / (H / 2) : 0;
+          var x = cx + side * (G + 34 * (1 - t * t));
+          var avail = side > 0 ? W - (x + 12) - 6 : x - 12 - 6;
+          var ex = extra(it);
+          var txt = self._fit(mkLabel(it), FONT, Math.max(40, avail - 18 - ex));
+          var tw = self._measure(txt, FONT) + 18 + ex;
+          var sx = cx + side * cw / 2, sy = cy;
+          var c1 = sx + side * 46, c2 = x - side * 46;
+          // o.touch: lines run right up to the pill's edge (the pill starts 10px past x) instead of a dot at x
+          var xin = o.touch ? x + side * 10 : x, xout = o.touch ? x + side * 8.5 : x - side * 3;
+          var d = it.k === 'in'
+            ? 'M' + xin.toFixed(1) + ' ' + y.toFixed(1) + ' C' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + c1.toFixed(1) + ' ' + sy + ' ' + (sx - 3).toFixed(1) + ' ' + sy
+            : 'M' + sx.toFixed(1) + ' ' + sy + ' C' + c1.toFixed(1) + ' ' + sy + ' ' + c2.toFixed(1) + ' ' + y.toFixed(1) + ' ' + xout.toFixed(1) + ' ' + y.toFixed(1);
+          items.push({ it: it, x: x, y: y, d: it.more ? null : d, txt: txt,
+            px: side > 0 ? x + 10 : x - 10 - tw, tw: tw, tx: side > 0 ? x + 19 : x - 19, anchor: side > 0 ? 'start' : 'end', i: i++ });
+        });
+      };
+      place(L, -1); place(Rt, 1);
+    } else {
+      // Tree: header row, mentioned-by rows, the book, mentions rows.
+      var trunk = 16, dotX = 44, y0 = 18;
+      var rowsTop = L.length, rowsBot = Rt.length;
+      var cyy = y0 + (rowsTop ? rowsTop * ROW + 12 : 0) + 16;
+      H = cyy + 16 + (rowsBot ? rowsBot * ROW + 12 : 0) + 8;
+      cx = trunk; cy = cyy;
+      var ct2 = self._fit(b.title, CFONT, W - 60);
+      var cw2 = self._measure(ct2, CFONT) + 26;
+      center = { x: 4, y: cy - CH / 2, w: cw2, h: CH, t: ct2, tx: 17, ty: cy + 5, anchor: 'start' };
+      var placeV = function (list, top) {
+        list.forEach(function (it, j) {
+          var y = top ? y0 + 6 + j * ROW + 12 : cy + CH + j * ROW + 4;
+          var x = dotX + (top ? (list.length - 1 - j) : j) * 1.2;
+          var ex = extra(it);
+          var txt = self._fit(mkLabel(it), FONT, W - x - 34 - ex);
+          var tw = self._measure(txt, FONT) + 18 + ex;
+          var sy = top ? cy - CH / 2 : cy + CH / 2, sx = trunk + 6;
+          var d = top
+            ? 'M' + x.toFixed(1) + ' ' + y.toFixed(1) + ' C' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + (sy - 3)
+            : 'M' + sx + ' ' + sy + ' C' + sx + ' ' + y.toFixed(1) + ' ' + sx + ' ' + y.toFixed(1) + ' ' + (x - 3).toFixed(1) + ' ' + y.toFixed(1);
+          items.push({ it: it, x: x, y: y, d: it.more ? null : d, txt: txt, px: x + 10, tw: tw, tx: x + 19, anchor: 'start', i: i++ });
+        });
+      };
+      placeV(L, true); placeV(Rt, false);
+    }
+    return { narrow: narrow, H: H, cx: cx, cy: cy, G: G, center: center, items: items, L: L, Rt: Rt, PH: PH, ROW: ROW };
+  };
+
+  P.neighborhood = function (b, W, showAll) {
+    var self = this, books = this.books;
+    var lay = this.fanLayout(b, W, { cap: showAll ? 60 : null });
+    if (lay.empty) return h('div', { className: 'ng-empty' }, 'No connections logged yet — this one is waiting for its first door.');
+    var narrow = lay.narrow, H = lay.H, cx = lay.cx, cy = lay.cy, G = lay.G, center = lay.center, items = lay.items, L = lay.L, Rt = lay.Rt, PH = lay.PH, ROW = lay.ROW;
+
+    var R = h;
+    var arrow = function (id, col) {
+      return R('marker', { id: id, viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 6.5, markerHeight: 6.5, orient: 'auto-start-reverse' },
+        R('path', { d: 'M0 1 L9 5 L0 9 z', fill: col }));
+    };
+    var defs = R('defs', { key: 'defs' }, arrow('ngA-out', '#9c3d22'), arrow('ngA-in', '#2f5590'), arrow('ngA-both', '#141414'));
+    var kids = [defs];
+    items.forEach(function (n) {
+      var it = n.it, k = it.k || 'more';
+      var go = it.more ? function () { self.setState({ ngAll: true, ngFor: b.id }); } : function (e) { self.goBook(it.id); };
+      var gProps = {
+        key: (it.id || 'more') + ':' + n.i, className: 'ng-it' + (it.more ? ' ng-more' : ''), style: { '--i': n.i },
+        onClick: go, tabIndex: 0, role: 'link', 'aria-label': it.more ? 'Show ' + it.more + ' more' : books[it.id].title,
+        onKeyDown: function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); go(e); } }
+      };
+      var dotFill = k === 'out' ? '#9c3d22' : k === 'in' ? '#2f5590' : k === 'both' ? '#141414' : 'var(--card)';
+      gProps.children = [
+        n.d ? R('path', { key: 'e', className: 'ng-e ' + k, d: n.d, pathLength: 1,
+          markerEnd: k === 'both' || k === 'out' || k === 'in' ? 'url(#ngA-' + k + ')' : null,
+          markerStart: k === 'both' ? 'url(#ngA-both)' : null }) : null,
+        R('g', { key: 'l', className: 'ng-lab' },
+          it.more ? null : R('circle', { className: 'ng-dot', cx: n.x, cy: n.y, r: 4.2, fill: dotFill }),
+          R('rect', { className: 'ng-pill', x: n.px, y: n.y - PH / 2, width: n.tw, height: PH, rx: PH / 2 }),
+          R('text', { className: 'ng-txt', x: n.anchor === 'start' ? n.px + 9 : n.px + n.tw - 9, y: n.y + 3.6, textAnchor: n.anchor }, n.txt),
+          it.more ? null : R('title', null, books[it.id].title + (books[it.id].author ? ' — ' + books[it.id].author : '')))
+      ];
+      kids.push(R('g', gProps, gProps.children));
     });
-    var lines = pts.map(function (p, i) {
-      return R('line', {
-        key: i, x1: cx, y1: cy, x2: p.x, y2: p.y,
-        stroke: 'var(--ink)', strokeWidth: 1.2, opacity: 0.55,
-        strokeDasharray: p.kind === 'in' ? '2 4' : 'none'
-      });
+    if (!narrow) {
+      var hy = Math.max(12, cy - (Math.max(L.length, Rt.length) - 1) / 2 * ROW - 20);
+      if (L.length) kids.push(R('text', { key: 'hl', className: 'ng-head', x: cx - G - 34, y: hy, textAnchor: 'end' }, '← mentioned by'));
+      if (Rt.length) kids.push(R('text', { key: 'hr', className: 'ng-head', x: cx + G + 34, y: hy }, 'mentions →'));
+    }
+    kids.push(R('g', { key: 'c', className: 'ng-c', onClick: function () { self.openNetwork(b.id); }, role: 'link', tabIndex: 0, 'aria-label': 'See ' + b.title + ' in the network' },
+      R('rect', { x: center.x, y: center.y, width: center.w, height: center.h, rx: 15 }),
+      R('text', { x: center.anchor === 'middle' ? center.tx : center.x + 13, y: center.ty, textAnchor: center.anchor }, center.t),
+      R('title', null, 'See ' + b.title + ' in the full network')));
+    return R('div', { className: 'ng', key: b.id + (showAll ? ':all' : '') },
+      R('svg', { className: 'ng-svg', width: W, height: H, viewBox: '0 0 ' + W + ' ' + H, style: { maxWidth: '100%' } }, kids));
+  };
+  P.openNetwork = function (id) {
+    if (this._vNext() && this.xZoomOut) { this.xZoomOut(id); return; }
+    this.navigate({ page: 'network', focus: id }, '#/network/' + id);
+  };
+
+  // ---------- mention notes (lazy: bookjumpr-notes.js) ----------
+  P._loadNotes = function () {
+    if (this._notes || this._notesLoading) return;
+    this._notesLoading = true;
+    var self = this, sc = document.createElement('script');
+    sc.src = 'bookjumpr-notes.js?v=2';
+    sc.onload = function () {
+      var N = window.BookJumprNotes, M = DATA.MENTIONS || [], map = {};
+      if (N && N.COUNT === M.length) N.NOTES.forEach(function (r) { var m = M[r[0]]; if (m) map[m[0] + '|' + m[1]] = r[1]; });
+      self._notes = map;
+      self.forceUpdate();
+    };
+    sc.onerror = function () { self._notes = {}; self.forceUpdate(); };
+    document.body.appendChild(sc);
+  };
+  // A note as a React node: quotes (anything quoted) render as a pull-quote, paraphrase as a caption;
+  // the mentioned book's title is marked wherever it appears.
+  P.noteEl = function (src, ment) {
+    if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
+    var note = this._notes[src + '|' + ment];
+    if (!note) return null;
+    var t = this.books[ment].title, short = t.split(/[:(]/)[0].trim();
+    var esc = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
+    var parts = note.split(new RegExp('(' + esc(t) + (short.length > 3 && short !== t ? '|' + esc(short) : '') + ')', 'i'));
+    var kids = parts.map(function (p, i) { return i % 2 ? h('mark', { key: i }, p) : p; });
+    var quote = /["“”‘’']/.test(note.slice(0, 3)) || /[“”]/.test(note) || (note.match(/"/g) || []).length >= 2;
+    return h('p', { className: 'mc-q ' + (quote ? 'quote' : 'ctx'), title: 'Click to expand', onClick: function (e) { e.currentTarget.classList.toggle('open'); } }, kids);
+  };
+
+  // ---------- jump trail (session history of books visited) ----------
+  P._pushTrail = function (route) {
+    // Explorer jumps keep their own trail (in memory for the session).
+    if (route && route.page === 'network' && route.focus && this.books[route.focus]) {
+      var xt = (this._xTrail || []).filter(function (id) { return id !== route.focus; });
+      xt.push(route.focus);
+      this._xTrail = xt.slice(-10);
+      return;
+    }
+    if (!route || route.page !== 'book' || !this.books[route.id]) return;
+    var t = this._trail;
+    if (!t) { try { t = JSON.parse(sessionStorage.getItem('bj-trail') || '[]'); } catch (e) { t = []; } }
+    t = t.filter(function (id) { return id !== route.id; });
+    t.push(route.id);
+    if (t.length > 9) t = t.slice(-9);
+    this._trail = t;
+    try { sessionStorage.setItem('bj-trail', JSON.stringify(t)); } catch (e) {}
+  };
+  P.trailEl = function (curId) {
+    var self = this, t = (this._trail || []).filter(function (id) { return self.books[id]; });
+    if (t.length < 2) return null;
+    var kids = [h('span', { key: 'l', className: 'lbl' }, 'Your jumps')];
+    t.forEach(function (id, i) {
+      if (i) kids.push(h('svg', { key: 'h' + i, className: 'hop', viewBox: '0 0 26 14' }, h('path', { d: 'M2 12 Q13 -2 24 12' })));
+      kids.push(h('button', { key: id, className: id === curId ? 'cur' : '', title: self.books[id].title, 'aria-label': self.books[id].title,
+        onClick: function (e) { if (id !== curId) self.goBook(id, e.currentTarget); } }, self.cover(self.books[id])));
     });
-    var nodeEls = pts.map(function (p, i) {
-      var bk = self.books[p.id];
-      var label = bk.title.length > 20 ? bk.title.slice(0, 19).replace(/\s+$/, '') + '…' : bk.title;
-      return R('button', {
-        key: 'n' + i,
-        onClick: function () { self.goBook(p.id); },
-        title: bk.title,
-        style: {
-          position: 'absolute', left: p.x, top: p.y, transform: 'translate(-50%,-50%)',
-          background: 'var(--card)', border: '1.5px solid var(--ink)', borderRadius: 999,
-          padding: '3px 8px', fontSize: 9.5, fontFamily: "'IBM Plex Mono', monospace",
-          cursor: 'pointer', maxWidth: 110, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'
-        }
-      }, label);
-    });
-    var center = R('div', {
-      style: {
-        position: 'absolute', left: cx, top: cy, transform: 'translate(-50%,-50%)',
-        background: 'var(--ink)', color: 'var(--paper)', borderRadius: 999,
-        padding: '5px 11px', fontSize: 10, fontFamily: "'IBM Plex Mono', monospace",
-        maxWidth: 130, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis'
-      }
-    }, b.title);
-    var more = extra ? R('div', {
-      style: { position: 'absolute', right: 6, bottom: 4, fontSize: 9.5, fontFamily: "'IBM Plex Mono', monospace", opacity: 0.55 }
-    }, '+' + extra + ' more') : null;
-    var empty = n === 0 || (nodes.length === 0) ? R('div', {
-      style: { position: 'absolute', left: 0, right: 0, top: '70%', textAlign: 'center', fontSize: 10.5, fontFamily: "'IBM Plex Mono', monospace", opacity: 0.55 }
-    }, 'no connections yet') : null;
-    return R('div', { style: { position: 'relative', width: '100%', height: H } },
-      R('svg', { width: '100%', height: H, viewBox: '0 0 ' + W + ' ' + H, style: { position: 'absolute', inset: 0 }, preserveAspectRatio: 'xMidYMid meet' }, lines),
-      pts.length ? nodeEls : empty, center, more);
+    return h('nav', { className: 'trail', 'aria-label': 'Books you jumped through' }, kids);
   };
 
   // ---------- stats ----------
   P.statsData = function () {
     if (this._stats) return this._stats;
     var byBook = this.all.filter(function (b) { return b.in.length > 0; })
-      .sort(function (a, b) { return b.in.length - a.in.length || a.title.localeCompare(b.title); }).slice(0, 20);
+      .sort(function (a, b) { return b.in.length - a.in.length || a.title.localeCompare(b.title); }).slice(0, 30);
     var authors = {};
     for (var i = 0; i < this.all.length; i++) {
       var b = this.all[i];
@@ -992,7 +1328,7 @@
     }
     var byAuthor = Object.keys(authors).map(function (name) {
       return [name, { count: authors[name].count, works: { size: Object.keys(authors[name].works).length } }];
-    }).sort(function (a, b) { return b[1].count - a[1].count || a[0].localeCompare(b[0]); }).slice(0, 20);
+    }).sort(function (a, b) { return b[1].count - a[1].count || a[0].localeCompare(b[0]); }).slice(0, 30);
     this._stats = { byBook: byBook, byAuthor: byAuthor };
     return this._stats;
   };
@@ -1016,7 +1352,7 @@
     dataScript.src = 'constellation-data.js';
     dataScript.onload = function () {
       var viewScript = document.createElement('script');
-      viewScript.src = 'constellation-view.js?v=18';
+      viewScript.src = 'constellation-view.js?v=19';
       viewScript.onload = done;
       document.body.appendChild(viewScript);
     };
@@ -1034,6 +1370,218 @@
       onOpenPage: function (key) { self.navigate({ page: 'book', id: key }, '#/' + key); }
     });
     window.__constellation = this._constellation; // debug / integration hook
+    var fk = this.state.route.focus;
+    if (fk && this._constellation.focusKey) { this._cstFocused = fk; this._constellation.focusKey(fk); }
+  };
+
+  // ---------- network variants: the constellation map (default) or the Explorer (?net=v2) ----------
+  // 'map' (default) · 'explorer' (?net=v2) · 'atlas' (?net=v3) · 'plus' (?net=v4, Explorer+)
+  // · 'stars' (?v=next: the network page is the genre star map)
+  // The site by default: book pages are the fan + panel, the network page is the starfield (with an
+  // Influence chart beside it), and you zoom between them. ?v=classic restores the classic book page
+  // and constellation; ?net=v2|v3|v4|map are the old network comparisons (classic book pages too);
+  // ?net=petals adds the Petals layout to the network switcher.
+  P._q = function (name) { try { return new URLSearchParams(location.search).get(name); } catch (e) { return null; } };
+  P._netMode = function () {
+    if (this._netV === undefined) {
+      var v = this._q('net');
+      this._netCompare = v != null && v !== '' && v !== 'petals';
+      this._netV = v === 'v2' || v === 'explorer' ? 'explorer' : v === 'v3' || v === 'atlas' ? 'atlas' : v === 'v4' || v === 'plus' ? 'plus'
+        : v === 'map' ? 'map' : this._vNext() ? 'stars' : 'map';
+    }
+    return this._netV;
+  };
+  P._vNext = function () {
+    if (this._vn === undefined) {
+      var net = this._q('net');
+      this._vClassic = this._q('v') === 'classic';
+      this._vn = !this._vClassic && !(net && net !== 'petals');
+    }
+    return this._vn;
+  };
+  P._vLab = function () { return this._vNext(); };   // the network page's layout switcher (Network · Influence)
+  P._netExplorer = function () { var m = this._netMode(); return m === 'explorer' || m === 'plus'; };
+  P._xPlus = function () { return this._netMode() === 'plus'; };
+  P._xLive = function () { return this._xPlus() || this._vNext(); };   // living fan + star map layers
+  P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xLive() || (window.BJAtlas && window.BookJumprStars)) && (!this._vLab() || window.BookJumprLayouts)); };
+  P._loadAtlas = function () {
+    if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
+    this._aLoading = true;
+    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=13', 'explorer.js?v=20'], left = srcs.length;
+    var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
+    srcs.forEach(function (src) {
+      var sc = document.createElement('script');
+      sc.src = src; sc.onload = done; sc.onerror = done;
+      document.body.appendChild(sc);
+    });
+  };
+  P._mountAtlas = function () {
+    if (this._atlas || !this._atlasEl || !window.BJAtlas || !window.BookJumprAtlas) return;
+    var self = this;
+    this._atlas = new window.BJAtlas({
+      root: this._atlasEl, data: window.BookJumprAtlas,
+      title: function (k) { var b = self.books[k]; return b ? b.title : ''; },
+      neighbors: function (k) { var b = self.books[k]; return b ? { out: b.out, in: b.in } : { out: [], in: [] }; },
+      onFocus: function (k) { self.mapFocus(k); },
+      bottomInset: function () { var el = window.innerWidth < 1000 && document.querySelector('.atlas-panel'); return el ? el.getBoundingClientRect().height : 0; },
+      onHover: function (k) { if (self.state.xHover !== k) self.setState({ xHover: k }); }
+    });
+    window.__atlas = this._atlas;
+    var f = this.state.route.focus;
+    if (f) this._atlas.setFocus(f, false);
+  };
+  // Atlas focus changes update the URL and panel without a page cross-fade (the map stays put).
+  P.mapFocus = function (id) {
+    var route = id ? { page: 'network', focus: id } : { page: 'network' };
+    this._pushTrail(route);
+    this.setState({ route: route, xHover: null, xPathOpen: false, xPathTo: null, xPathQ: '' });
+    this._silent = true;
+    location.hash = id ? '#/network/' + id : '#/network';
+    var self = this;
+    setTimeout(function () { self._silent = false; }, 0);
+  };
+  P._loadExplorer = function () {
+    if (this._xReady() || this._xLoading) return;
+    this._xLoading = true;
+    // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
+    var srcs = this._xLive() ? ['atlas.js?v=13', 'stars-data.js?v=3', 'explorer.js?v=20'] : ['network-regions.js?v=2', 'explorer.js?v=20'];
+    if (this._vLab()) srcs.push('layouts-data.js?v=8');
+    var self = this, left = srcs.length;
+    var done = function () { if (--left === 0) self.forceUpdate(); };
+    srcs.forEach(function (src) {
+      var sc = document.createElement('script');
+      sc.src = src; sc.onload = done; sc.onerror = done;
+      document.body.appendChild(sc);
+    });
+  };
+
+  // ---------- interactive home walls (?home=a|b|c; engine in home.js) ----------
+  P._homeVariant = function () {
+    if (this._hv !== undefined) return this._hv;
+    var v = null;
+    try { v = new URLSearchParams(location.search).get('home'); } catch (e) {}
+    this._hvCompare = v != null && v !== '';     // an explicit ?home= shows the variant switcher
+    try { this._wallDark = new URLSearchParams(location.search).get('wall') === 'dark'; } catch (e) {}
+    // Variant B (the infinite canvas you can pan in any direction) is the default home;
+    // ?home=a is the endless shelf, ?home=c the shelf rows, ?home=classic the static wall.
+    if (v == null || v === '') v = 'b';
+    this._hv = (v === 'a' || v === 'b' || v === 'c') && window.BJHomeWall ? v : null;
+    return this._hv;
+  };
+  // A deep, varied pool for the walls: the same curated selection the classic wall uses
+  // (popular + connected, 80/20 fiction, author/genre caps), randomised per visit.
+  P._hxPool = function () {
+    if (this._hxPoolIds) return this._hxPoolIds;
+    var n = Math.min(720, this._ensureWallPool().length);
+    this._hxPoolIds = this._selectWall(n, null, null, true);
+    return this._hxPoolIds;
+  };
+  // B: order the pool by a depth-first walk of the mention graph, so books sit near the books
+  // they mention / are mentioned by — the 2D wall then has real neighbours to draw arcs to.
+  P._hxSeq = function () {
+    if (this._hxSeqIds) return this._hxSeqIds;
+    var self = this, pool = this._hxPool(), inPool = {}, rank = {}, seen = {}, out = [];
+    pool.forEach(function (id, i) { inPool[id] = 1; rank[id] = i; });
+    pool.forEach(function (start) {
+      var stack = [start];
+      while (stack.length) {
+        var id = stack.pop();
+        if (seen[id]) continue;
+        seen[id] = 1; out.push(id);
+        var b = self.books[id];
+        var nb = b.out.concat(b.in).filter(function (x) { return inPool[x] && !seen[x]; });
+        nb.sort(function (x, y) { return rank[y] - rank[x]; });
+        for (var i = 0; i < nb.length; i++) stack.push(nb[i]);
+      }
+    });
+    this._hxSeqIds = out;
+    return out;
+  };
+  // C: themed shelves. A couple of fixed leaderboards, one "found inside" shelf drawn from a
+  // big name-dropper, and genre shelves — reshuffled (order + source) on every shuffle.
+  P._hxRows = function (seed) {
+    var self = this, all = this.all.filter(function (b) { return self._homeOk(b.id); });
+    var deg = function (b) { return b.in.length + b.out.length; };
+    var top = function (list, key, n) { return list.slice().sort(function (a, b) { return key(b) - key(a) || (a.title < b.title ? -1 : 1); }).slice(0, n).map(function (b) { return b.id; }); };
+    var rnd = function (k) { return self.hash(seed + ':' + k); };
+    var rows = [
+      { label: 'Most name-dropped', ids: top(all, function (b) { return b.in.length; }, 48) },
+      { label: 'The great name-droppers', ids: top(all, function (b) { return b.out.length; }, 48) }
+    ];
+    var sources = all.filter(function (b) { return b.out.length >= 18; }).sort(function (a, b) { return rnd(a.id) - rnd(b.id); });
+    sources.slice(0, 2).forEach(function (src) {
+      rows.push({ label: 'Found inside ' + src.title, ids: src.out.filter(function (id) { return self._homeOk(id); }).sort(function (a, b) { return deg(self.books[b]) - deg(self.books[a]); }).slice(0, 48) });
+    });
+    var genres = [['Poetry & epics', ['POETRY & EPICS']], ['Philosophy', ['PHILOSOPHY']], ['Drama & plays', ['DRAMA & PLAYS']],
+      ['Sci-fi & fantasy', ['SCI-FI', 'FANTASY']], ['Crime & mystery', ['CRIME & MYSTERY']], ['History', ['HISTORY']],
+      ['Lives & memoirs', ['BIOGRAPHY & MEMOIR']], ['Essays & journalism', ['ESSAYS & JOURNALISM']], ['Adventure & travel', ['ADVENTURE & TRAVEL']]];
+    genres.sort(function (a, b) { return rnd(a[0]) - rnd(b[0]); });
+    genres.forEach(function (g) {
+      var ids = top(all.filter(function (b) { return b.genre && g[1].indexOf(String(b.genre).toUpperCase()) !== -1 && deg(b) > 0; }), deg, 48);
+      if (ids.length >= 12) rows.push({ label: g[0], ids: ids });
+    });
+    // Interleave so neighbouring shelves differ in kind.
+    var lead = rows.slice(0, 4), rest = rows.slice(4), outRows = [];
+    while (lead.length || rest.length) { if (lead.length) outRows.push(lead.shift()); if (rest.length) outRows.push(rest.shift()); }
+    return outRows;
+  };
+  P._mountHomeWall = function () {
+    if (this._hw || !this._hxStageEl || !this._hxRootEl || !window.BJHomeWall) return;
+    var self = this, v = this._homeVariant();
+    if (this.state.hxCompact || this.state.hxEngaged) this.setState({ hxCompact: false, hxEngaged: false });
+    var reduced = typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this._hw = new window.BJHomeWall({
+      root: this._hxStageEl, scope: this._hxRootEl, variant: v, reduced: reduced, dark: !!this._wallDark,
+      pool: this._hxPool(), seq: v === 'b' ? this._hxSeq() : null,
+      rows: v === 'c' ? this._hxRows(this.state.chipSeed || 0) : null,
+      html: function (id) { return self.coverHTML(self.books[id]); },
+      neighbors: function (id) { var b = self.books[id]; return b ? b.out.concat(b.in) : []; },
+      onOpen: function (id, el) { self.goBook(id, el); },
+      onEngage: function () { self.setState({ hxEngaged: true, hxCompact: v !== 'c' }); }
+    });
+  };
+
+  // Atlas overlay: toolbar (search, zoom, fit), legend, and the side panel — the Explorer's panel
+  // for a focused book, otherwise a short intro with the biggest neighbourhoods.
+  P.atlasUi = function (focus) {
+    var self = this, st = this.state, b = focus && this.books[focus], at = this._atlas;
+    var q = st.aQ || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
+    var pick = function (id) { self.setState({ aQ: '' }); self.mapFocus(id); };
+    var bar = h('div', { key: 'bar', className: 'atlas-bar' },
+      h('div', { className: 'atlas-q' },
+        h('input', { className: 'atlas-input', placeholder: 'Find a book on the map…', value: q, 'aria-label': 'Find a book',
+          onChange: function (e) { self.setState({ aQ: e.target.value }); },
+          onKeyDown: function (e) { if (e.key === 'Enter' && sugg[0]) pick(sugg[0].id); if (e.key === 'Escape') self.setState({ aQ: '' }); } }),
+        sugg.length ? h('div', { className: 'sg-pop atlas-sg' }, sugg.map(function (m) {
+          return h('button', { key: m.id, onMouseDown: function (e) { e.preventDefault(); pick(m.id); } },
+            h('span', { className: 'sg-cv' }, self.cover(m)), h('span', { className: 'sg-t' }, h('span', { className: 't' }, m.title), h('span', { className: 'a' }, m.author || '')),
+            h('span', { className: 's' }, self.subFor(m)));
+        })) : null),
+      h('div', { className: 'atlas-zoom' },
+        h('button', { onClick: function () { if (self._atlas) self._atlas.zoomBy(1 / 1.4); }, 'aria-label': 'Zoom out' }, '−'),
+        h('button', { onClick: function () { if (self._atlas) self._atlas.zoomBy(1.4); }, 'aria-label': 'Zoom in' }, '+'),
+        h('button', { className: 'fit', onClick: function () { if (self._atlas) self._atlas.fit(true); } }, 'Fit')));
+    var legend = h('div', { key: 'lg', className: 'atlas-legend' },
+      h('span', null, h('i', { className: 'blob' }), 'neighbourhood'),
+      h('span', null, h('i', { className: 'ln out' }), 'mentions'), h('span', null, h('i', { className: 'ln in' }), 'mentioned by'),
+      h('span', { className: 'hint' }, b ? 'Esc or click empty space to step back' : 'Click a neighbourhood to zoom, a book to see its links'));
+    var panel;
+    if (b && this.explorerPanel) panel = this.explorerPanel(b);
+    else {
+      var regs = ((window.BookJumprAtlas && window.BookJumprAtlas.regions) || []).map(function (r, i) { return { r: r, i: i }; })
+        .filter(function (x) { return x.r.name && self._homeOk(x.r.hub); }).slice(0, 12);
+      panel = h('aside', { className: 'bjx-side atlas-intro' },
+        h('div', { className: 'eyebrow' }, 'Network · Atlas'),
+        h('h2', null, 'Every book on one map, grouped by the books they keep mentioning.'),
+        h('p', { className: 'bjx-syn' }, 'Each tinted circle is a reading neighbourhood; its most-connected books sit in the middle. Lines only appear for the book you point at.'),
+        h('div', { className: 'eyebrow' }, 'Biggest neighbourhoods'),
+        h('div', { className: 'atlas-regs' }, regs.map(function (x) {
+          return h('button', { key: x.i, onClick: function () { if (self._atlas) self._atlas.flyToRegion(x.i); } },
+            h('span', { className: 'sw', style: { background: ['#c4682e', '#2f5590', '#3f7d7d', '#7d4a66', '#8a5a3a', '#2e8156', '#a34a9c', '#8c6d24', '#c33d2e', '#4a3b52'][x.i % 10] } }),
+            h('span', { className: 'nm' }, x.r.name), h('span', { className: 'sz' }, x.r.size));
+        })));
+    }
+    return [bar, legend, h('div', { key: 'pn', className: 'atlas-panel' + (b ? ' has-focus' : '') }, panel)];
   };
 
   P.renderVals = function () {
@@ -1042,9 +1590,6 @@
     var warm = Pr.warmPaper != null ? Pr.warmPaper : true;
     var heroStyle = Pr.heroStyle != null ? Pr.heroStyle : 'dense wall';
     var accent = Pr.accent != null ? Pr.accent : '#9c3d22';
-    var coverMode = String(Pr.coverMode != null ? Pr.coverMode : 'ink, color on hover').indexOf('color,') === 0 ? 'color' : 'ink';
-    var coverBorder = (Pr.coverBorder === 'cream' || Pr.coverBorder === 'none') ? Pr.coverBorder : 'ink';
-    var bandcFor = function (g) { return g.name === 'MISC' ? null : (coverMode === 'ink' ? g.color : '#141414'); };
     if (typeof document !== 'undefined') {
       var r = document.documentElement.style;
       r.setProperty('--paper', warm ? '#f7f5f0' : '#ffffff');
@@ -1063,22 +1608,25 @@
     // document background AND the iOS Safari chrome tint (theme-color) ink there — otherwise
     // the paper background and paper theme-color show as white bands top & bottom around the
     // floating address bar. Every other page keeps the paper background.
+    var hv = page === 'home' ? this._homeVariant() : null;
     if (typeof document !== 'undefined') {
-      var homeBg = page === 'home' ? '#141414' : '';
+      var homeBg = page === 'home' ? (hv ? (this._wallDark ? '#2e2a25' : '#ede6d6') : '#141414') : '';
       document.documentElement.style.background = homeBg;
       if (document.body) document.body.style.background = homeBg;
       var tcMeta = document.querySelector('meta[name="theme-color"]');
-      if (tcMeta) tcMeta.setAttribute('content', page === 'home' ? '#141414' : (warm ? '#f7f5f0' : '#ffffff'));
+      if (tcMeta) tcMeta.setAttribute('content', page === 'home' ? homeBg : (warm ? '#f7f5f0' : '#ffffff'));
     }
 
     var go = function (fn) { return function (e) { if (e && e.preventDefault) e.preventDefault(); fn(); }; };
     var vals = {
-      pgHome: page === 'home', pgBook: page === 'book', pgSearch: page === 'search',
+      pgHome: page === 'home' && !hv, pgHomeX: !!hv, pgBook: page === 'book' && !this._vNext(), pgBookNext: page === 'book' && this._vNext(), pgSearch: page === 'search',
       pgStats: page === 'stats', pgNetwork: page === 'network', pgAbout: page === 'about',
+      pgNetMap: page === 'network' && this._netMode() === 'map', pgExplorer: page === 'network' && this._netExplorer(),
+      pgAtlas: page === 'network' && this._netMode() === 'atlas', pgStars: page === 'network' && this._netMode() === 'stars',
       pgAuthor: page === 'author',
       goHome: go(function () { self.navigate({ page: 'home' }, '#/'); }),
       goStats: go(function () { self.navigate({ page: 'stats' }, '#/stats'); }),
-      goNetwork: go(function () { self.navigate({ page: 'network' }, '#/network'); }),
+      goNetwork: go(function () { if (self.state.xView) self.setState({ xView: null }); self.navigate({ page: 'network' }, '#/network'); }),
       goAbout: go(function () { self.navigate({ page: 'about' }, '#/about'); }),
       showChrome: page !== 'home',
       showFooter: page !== 'home' && page !== 'network',
@@ -1092,6 +1640,12 @@
       graphPanel: { border: '1.5px solid var(--ink)', borderRadius: '18px', background: 'var(--card)', padding: '18px 18px 10px', gridColumn: mid && !m ? '1 / -1' : 'auto', maxWidth: mid && !m ? '540px' : 'none' },
       statsCols: { display: 'grid', gridTemplateColumns: vw < 900 ? '1fr' : '1fr 1fr', gap: '44px 56px', alignItems: 'start' },
       shuffleChips: function () {
+        if (hv) {
+          var seedX = (self.state.chipSeed || 0) + 1;
+          if (self._hw) self._hw.shuffle(hv === 'c' ? self._hxRows(seedX) : null);
+          self.setState({ chipSeed: seedX });
+          return;
+        }
         // Reshuffle the wall: keep ~75% of the covers (they glide to new spots via the FLIP in
         // componentDidUpdate) and swap ~25% for fresh books drawn from the SAME curated pool
         // (so eligibility, the 80/20 fiction mix and variety caps still hold), then reorder.
@@ -1109,8 +1663,14 @@
         self.setState({ chipSeed: (self.state.chipSeed || 0) + 1 });
       },
       q: this.state.q,
-      onQ: function (e) { self.setState({ q: e.target.value }); },
-      onKey: function (e) { if (e.key === 'Enter') self.submitSearch(); if (e.key === 'Escape') self.setState({ suggestFor: null }); },
+      onQ: function (e) { self.setState({ q: e.target.value, sugIdx: -1 }); },
+      onKey: function (e) {
+        var n = (self._sugg || []).length, i = self.state.sugIdx == null ? -1 : self.state.sugIdx;
+        if (e.key === 'ArrowDown' && n) { e.preventDefault(); self.setState({ sugIdx: (i + 1) % n }); return; }
+        if (e.key === 'ArrowUp' && n) { e.preventDefault(); self.setState({ sugIdx: i <= 0 ? n - 1 : i - 1 }); return; }
+        if (e.key === 'Enter') { if (i >= 0 && i < n) self.goBook(self._sugg[i].id); else self.submitSearch(); }
+        if (e.key === 'Escape') self.setState({ suggestFor: null, sugIdx: -1 });
+      },
       onFocusHome: function () { self.setState({ suggestFor: 'home' }); },
       onFocusHeader: function () { self.setState({ suggestFor: 'header' }); },
       onBlur: function () { setTimeout(function () { self.setState({ suggestFor: null }); }, 120); },
@@ -1195,7 +1755,13 @@
 
     // suggestions
     var sugg = this.state.suggestFor && this.state.q.trim() ? this.matches(this.state.q).slice(0, 7) : [];
-    vals.suggestions = sugg.map(function (b) { return { title: b.title, sub: self.subFor(b), go: function () { self.goBook(b.id); } }; });
+    this._sugg = sugg;
+    var sIdx = this.state.sugIdx == null ? -1 : this.state.sugIdx;
+    vals.suggestions = sugg.map(function (b, i) {
+      return { title: b.title, author: b.author || '', sub: self.subFor(b), cv: self.cover(b), cls: i === sIdx ? 'on' : '',
+        hover: function () { if (self.state.sugIdx !== i) self.setState({ sugIdx: i }); },
+        go: function () { self.goBook(b.id); } };
+    });
     vals.showHomeSuggest = this.state.suggestFor === 'home' && sugg.length > 0;
     vals.showHeaderSuggest = this.state.suggestFor === 'header' && sugg.length > 0;
 
@@ -1228,15 +1794,12 @@
       var list = this._wallIds.map(function (id) { return books[id]; }).filter(Boolean);
       vals.wallCovers = list.map(function (b, i) {
         var h1 = self.hash(b.id + i), h2 = self.hash(i + '/' + b.id);
-        var g = self.genreOf(b);
-        var bc = bandcFor(g);
         // backface-visibility on both wrapper and card tucks antialiasing seams
         // under neighbours where rotated covers overlap.
         var inner = {
           transition: 'transform .24s cubic-bezier(.3,1.6,.45,1), box-shadow .22s ease',
           backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden'
         };
-        if (bc) inner['--bandc'] = bc;
         var wrap = { position: 'relative', cursor: 'pointer', backfaceVisibility: 'hidden', WebkitBackfaceVisibility: 'hidden' };
         if (wallMode === 'dense') {
           // Systematic zigzag: rotation direction + vertical offset flip every ~3
@@ -1264,11 +1827,8 @@
         } else {
           wrap.transform = 'rotate(' + (((h1 % 9) - 4) * 1.2).toFixed(2) + 'deg)';
         }
-        // Overlapping walls draw their dark edge with the opaque frame above, so the
-        // cover's own border is dropped (no double edge); other modes keep it.
-        var wallBorder = (wallMode === 'dense' || wallMode === 'light') ? 'none' : coverBorder;
-        var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id); }; })(b.id);
-        return Object.assign({ wrap: wrap, inner: inner, go: go, id: b.id }, self.triCover(b, g, wallCfg.tier, coverMode, wallBorder));
+        var go = (function (id) { return function (e) { if (e && e.preventDefault) e.preventDefault(); self.goBook(id, e && e.currentTarget); }; })(b.id);
+        return { wrap: wrap, inner: inner, go: go, id: b.id, cv: self.cover(b) };
       });
       vals.wallStyle = {
         position: 'absolute', zIndex: 0, isolation: 'isolate',
@@ -1284,20 +1844,43 @@
       var chipN = m ? 2 : 5, chipMax = m ? 16 : 22;  // short pills; 2 on mobile so they never wrap
       // Suggestions come from the curated POPULAR_FICTION set (resolved once, then cached),
       // trimmed by title length so pills stay short, shuffled deterministically per seed.
-      var popPool = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(Boolean));
+      var popPool = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       var pool = popPool.filter(function (b) { return b.title.length <= chipMax; });
       // Prepend the seed (not append) so it perturbs the whole FNV hash via avalanche —
       // appending only shifts every hash by a constant, leaving the sort order unchanged.
       var picks = pool.slice().sort(function (a, b2) { return self.hash(seed + '~' + a.id) - self.hash(seed + '~' + b2.id); }).slice(0, chipN);
       vals.chips = picks.map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
     } else { vals.wallCovers = []; vals.chips = []; vals.wallStyle = {}; vals.wallFade = {}; }
+    if (hv) {
+      var seedC = this.state.chipSeed || 0, nChips = m ? 2 : hv === 'c' ? 3 : 4, maxC = m ? 16 : 22;
+      var pp = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
+      vals.chips = pp.filter(function (b) { return b.title.length <= maxC; })
+        .sort(function (a, b2) { return self.hash(seedC + '~' + a.id) - self.hash(seedC + '~' + b2.id); }).slice(0, nChips)
+        .map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
+      var st = this.state;
+      vals.hxClass = 'hx hx-' + hv + (this._wallDark ? ' wall-dark' : '') + (st.hxCompact && hv !== 'c' ? ' is-compact' : '') + (st.hxEngaged ? ' is-engaged' : '') + (st.hxTyping ? ' is-typing' : '');
+      vals.hxIntro = m ? 'The books mentioned inside other books — pick one and jump.'
+        : 'BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one.';
+      vals.hxHint = hv === 'b' ? (m ? 'Drag anywhere' : 'Drag or scroll anywhere') : hv === 'c' ? 'Scroll to spin the shelves' : 'Scroll the shelves';
+      vals.hxExpand = function () { self.setState({ hxCompact: false }); if (self._hw) self._hw.resetEngage(); };
+      vals.onFocusHx = function () { self.setState({ suggestFor: 'home', hxTyping: true, hxCompact: m && hv !== 'c' ? true : self.state.hxCompact }); };
+      vals.onBlurHx = function () { setTimeout(function () { self.setState({ suggestFor: null, hxTyping: false }); }, 120); };
+      vals.hxShowSwitch = !!this._hvCompare; vals.hxSw0 = ''; vals.hxSwA = hv === 'a' ? 'on' : ''; vals.hxSwB = hv === 'b' ? 'on' : ''; vals.hxSwC = hv === 'c' ? 'on' : '';
+    }
+    vals.hxCompare = page === 'home' && !hv && !!this._hvCompare;
+    // Stable refs (created once) so React only fires them on real mount/unmount of the home wall.
+    vals.hxRootRef = this._hxRootRefFn || (this._hxRootRefFn = function (el) { self._hxRootEl = el; if (el) self._mountHomeWall(); });
+    vals.hxStageRef = this._hxStageRefFn || (this._hxStageRefFn = function (el) {
+      if (el) { self._hxStageEl = el; self._mountHomeWall(); }
+      else { self._hxStageEl = null; if (self._hw) { self._hw.destroy(); self._hw = null; } }
+    });
 
     // book page
     if (page === 'book') {
       var b = books[route.id];
       if (b) {
         vals.b_title = b.title;
-        vals.b_t = this.triCover(b, this.genreOf(b), 'xl', 'static', coverBorder);
+        vals.b_cv = this.cover(b, 'vt-hero');
         var yl = this.yearLabel(b.year);
         var bHasAuthor = !!(b.author && b.author !== 'Anonymous');
         vals.hasAuthor = bHasAuthor;
@@ -1311,24 +1894,37 @@
         vals.cntOut = b.out.length; vals.cntIn = b.in.length;
         vals.hasOut = b.out.length > 0; vals.noOut = b.out.length === 0;
         vals.hasIn = b.in.length > 0; vals.noIn = b.in.length === 0;
-        var card = function (id) {
-          var bk = books[id]; var g = self.genreOf(bk);
-          var bc = bandcFor(g);
-          var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block' };
-          if (bc) btnStyle['--bandc'] = bc;
-          return { t: self.triCover(bk, g, 'l', coverMode, coverBorder), btnStyle: btnStyle, title: bk.title, author: bk.author || 'author unknown', sub: self.subFor(bk), go: function () { self.goBook(id); } };
+        var CARD_CAP = 24;
+        var card = function (id, src, ment) {
+          var bk = books[id];
+          var yl2 = self.yearLabel(bk.year);
+          return { cv: self.cover(bk), title: bk.title, author: (bk.author || 'author unknown') + (yl2 ? '  ·  ' + yl2 : ''), sub: self.subFor(bk),
+            note: self.noteEl(src, ment), go: function (e) { self.goBook(id, e && e.currentTarget); } };
         };
-        vals.cardsOut = b.out.map(card);
-        vals.cardsIn = b.in.map(card);
-        vals.miniGraph = this.miniGraph(b);
+        var byDeg = function (x, y) { return (books[y].in.length + books[y].out.length) - (books[x].in.length + books[x].out.length); };
+        var outIds = b.out.slice().sort(byDeg), inIds = b.in.slice().sort(byDeg);
+        var allOut = this.state.allOut === b.id, allIn = this.state.allIn === b.id;
+        vals.cardsOut = (allOut ? outIds : outIds.slice(0, CARD_CAP)).map(function (id) { return card(id, b.id, id); });
+        vals.cardsIn = (allIn ? inIds : inIds.slice(0, CARD_CAP)).map(function (id) { return card(id, id, b.id); });
+        vals.moreOut = !allOut && outIds.length > CARD_CAP; vals.moreIn = !allIn && inIds.length > CARD_CAP;
+        vals.showAllOut = function () { self.setState({ allOut: b.id }); };
+        vals.showAllIn = function () { self.setState({ allIn: b.id }); };
+        var ngW = Math.max(280, Math.min(vw, 1240) - 48 - (vw > 900 ? 15 : 0));
+        vals.neighborhood = this._vNext() ? null : this.neighborhood(b, ngW, this.state.ngAll === true && this.state.ngFor === b.id);
+        var nIn = b.in.filter(function (id) { return b.out.indexOf(id) === -1; }).length, nBoth = b.out.filter(function (id) { return b.in.indexOf(id) !== -1; }).length;
+        vals.ngCaption = (b.out.length + nIn) ? (b.out.length + nIn) + ' books one jump away' + (nBoth ? ' · ' + nBoth + ' mention each other' : '') : '';
+        vals.openNetwork = function () { self.openNetwork(b.id); };
+        vals.trail = this.trailEl(b.id);
+        var gb = this.genreOf(b);
+        vals.b_genreLabel = gb.name === 'MISC' ? '' : '  ·  ' + gb.name.toLowerCase();
         var jump = function (sel) { return function () { var el = document.getElementById(sel); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }; };
         vals.jumpOut = jump('mentions-out'); vals.jumpIn = jump('mentions-in');
       } else {
         vals.b_title = this.state.ready ? 'Book not found' : 'Opening the stacks…'; vals.b_byline = ''; vals.hasAuthor = false; vals.noAuthor = true; vals.b_author = ''; vals.b_authorGo = function () {}; vals.b_yearSuffix = ''; vals.b_synopsis = this.state.ready ? 'That book isn’t in the network yet.' : 'One moment.';
-        var phb = { id: 'x', title: '?', author: '' };
-        vals.b_t = this.triCover(phb, this.genreOf(phb), 'xl', 'static', coverBorder);
+        vals.b_cv = this.cover({ id: 'x', title: '?', author: '' }, 'vt-hero');
         vals.cntOut = 0; vals.cntIn = 0; vals.hasOut = false; vals.hasIn = false; vals.noOut = true; vals.noIn = true;
-        vals.cardsOut = []; vals.cardsIn = []; vals.miniGraph = null; vals.jumpOut = function () {}; vals.jumpIn = function () {};
+        vals.cardsOut = []; vals.cardsIn = []; vals.neighborhood = null; vals.jumpOut = function () {}; vals.jumpIn = function () {};
+        vals.trail = null; vals.ngCaption = ''; vals.openNetwork = function () {}; vals.b_genreLabel = ''; vals.moreOut = vals.moreIn = false;
       }
     }
 
@@ -1345,11 +1941,8 @@
       vals.a_count = mine.length + (mine.length === 1 ? ' work' : ' works')
         + '  ·  ' + aMentions + (aMentions === 1 ? ' mention' : ' mentions') + ' of their books';
       vals.a_books = mine.map(function (b) {
-        var g = self.genreOf(b);
-        var bc = bandcFor(g);
         var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block' };
-        if (bc) btnStyle['--bandc'] = bc;
-        return { t: self.triCover(b, g, 'l', coverMode, coverBorder), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), go: function () { self.goBook(b.id); } };
+        return { cv: self.cover(b), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), go: function (e) { self.goBook(b.id, e && e.currentTarget); } };
       });
     }
 
@@ -1359,16 +1952,21 @@
       var res = this.matches(q).slice(0, 30);
       vals.s_query = q;
       vals.s_results = res.map(function (b) {
-        var g = self.genreOf(b);
-        var bc = bandcFor(g);
         var rowStyle = { display: 'flex', alignItems: 'center', gap: m ? '12px' : '22px', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '16px 8px', fontFamily: 'inherit', width: '100%' };
-        if (bc) rowStyle['--bandc'] = bc;
-        return { t: self.triCover(b, g, 'xs', coverMode, coverBorder), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), go: function () { self.goBook(b.id); } };
+        return { cv: self.cover(b), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), go: function (e) { self.goBook(b.id, e && e.currentTarget); } };
       });
       vals.s_has = res.length > 0; vals.s_none = res.length === 0;
       vals.s_count = res.length === 0 ? 'no matches' : res.length + (res.length === 1 ? ' match' : ' matches');
     }
 
+    // stats page: on narrow screens the two lists become Books / Authors tabs
+    var stNarrow = vw < 900, stTab = this.state.statsTab === 'authors' ? 'authors' : 'books';
+    vals.statsTabs = stNarrow;
+    vals.statsShowBooks = !stNarrow || stTab === 'books';
+    vals.statsShowAuthors = !stNarrow || stTab === 'authors';
+    vals.statsTabBooksCls = stTab === 'books' ? 'on' : ''; vals.statsTabAuthorsCls = stTab === 'authors' ? 'on' : '';
+    vals.statsTabBooks = function () { self.setState({ statsTab: 'books' }); };
+    vals.statsTabAuthors = function () { self.setState({ statsTab: 'authors' }); };
     // stats page
     if (page === 'stats' && all.length) {
       var sd = this.statsData();
@@ -1407,10 +2005,49 @@
         if (self._constellation) {
           self._constellation.destroy();
           self._constellation = null;
+          self._cstFocused = null;
           window.__constellation = null;
         }
       }
     });
+
+    // network: the Explorer variant (lazy) + the Map/Explorer switcher when ?net= is set
+    vals.netCompare = page === 'network' && !!this._netCompare;
+    var nf = route.focus ? '/' + route.focus : '';
+    vals.netSwMap = '?net=map#/network' + nf; vals.netSwX = '?net=v2#/network' + nf;
+    vals.netSwMapCls = vals.pgNetMap ? 'on' : ''; vals.netSwXCls = vals.pgExplorer ? 'on' : '';
+    vals.netSwA = '?net=v3#/network' + nf; vals.netSwACls = vals.pgAtlas ? 'on' : '';
+    vals.netSwP = '?net=v4#/network' + nf; vals.netSwPCls = this._netMode() === 'plus' && page === 'network' ? 'on' : '';
+    if (vals.netSwXCls && vals.netSwPCls) vals.netSwXCls = '';
+    vals.atlasHostRef = this._atlasRefFn || (this._atlasRefFn = function (el) {
+      if (el) { self._atlasEl = el; self._mountAtlas(); }
+      else { self._atlasEl = null; if (self._atlas) { self._atlas.destroy(); self._atlas = null; window.__atlas = null; } }
+    });
+    if (vals.pgAtlas) {
+      this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
+      this._loadNotes();
+      this._loadAtlas();
+      vals.atlasUi = this.atlasUi(route.focus);
+    } else vals.atlasUi = null;
+    // ?v=next: the book page (fan + panel + lists) and the star-map network page
+    if (vals.pgBookNext || vals.pgStars) {
+      this._loadNotes();
+      if (!this._xReady()) { this._loadExplorer(); vals.bookNext = vals.starMap = h('div', { className: 'bjx-loading' }, 'Opening…'); }
+      else {
+        vals.bookNext = vals.pgBookNext ? (books[route.id] ? this.bookNext(books[route.id]) : h('div', { className: 'bjx-empty' }, this.state.ready ? 'That book isn’t in the network yet.' : 'Opening the stacks…')) : null;
+        vals.starMap = vals.pgStars ? (this._vLab() && this.labMap ? this.labMap(route.focus) : this.starMap(route.focus)) : null;
+      }
+    } else vals.bookNext = vals.starMap = null;
+    // only on ?v=classic: a way back to the new site
+    this._vNext();
+    vals.vSwitch = !!this._vClassic;
+    vals.vToNew = function (e) { if (e) e.preventDefault(); location.href = location.pathname + location.hash; };
+    if (vals.pgExplorer) {
+      this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
+      this._loadNotes();
+      if (this._xReady()) vals.explorer = this.explorer(route.focus);
+      else { this._loadExplorer(); vals.explorer = h('div', { className: 'bjx-loading' }, 'Opening the explorer…'); }
+    } else vals.explorer = null;
 
     // Per-route browser tab title (OG/social preview tags stay homepage-only by design —
     // this only ever affects document.title, never anything a link-unfurler reads).

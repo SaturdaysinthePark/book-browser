@@ -35,7 +35,7 @@
 // formula so the reported Q is auditable independently of the optimizer's bookkeeping.
 
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { fileURLToPath, pathToFileURL } from 'node:url';
 import { dirname, join, resolve } from 'node:path';
 
 const HERE = dirname(fileURLToPath(import.meta.url));
@@ -580,4 +580,6 @@ function sizeHistogram(sizes) {
   return L.join('\n');
 }
 
-main();
+// Run as a CLI only when executed directly; tools/build-regions.mjs imports the Louvain pieces.
+export { loadData, mulberry32, buildLevel, louvain, modularity };
+if (process.argv[1] && import.meta.url === pathToFileURL(resolve(process.argv[1])).href) main();

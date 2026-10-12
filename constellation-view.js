@@ -133,6 +133,7 @@
     }
 
     destroy() {
+      this.destroyed = true;
       cancelAnimationFrame(this.raf);
       if (this.ro) this.ro.disconnect();
       window.removeEventListener('keydown', this.keyH);
@@ -149,7 +150,7 @@
       this.mode = mode;
       // the storyline is indexed to the old lens's node array — it can't survive a lens swap
       this.thread = null; this.threadT0 = 0; this.armPick = false; this.hidePathHint();
-      this.graph = this.prep(this.fullData[mode]);
+      this.graph = this.prep(this.fullData[mode]); this.sxValid = false;
       this.hover = -1; this.tourT0 = 0; this.tourIdx = 0;
       this.pulseOn = !this.reduceMotion; this.pulseT0 = 0;  // replay the intro spotlight pulse for the new lens
       if (this.modesEl) this.modesEl.querySelectorAll('[data-mode]').forEach(b => {
@@ -231,6 +232,12 @@
       c.ox = new Float64Array(n); c.oy = new Float64Array(n);
       c.vx = new Float64Array(n); c.vy = new Float64Array(n);
       c.ax = new Float64Array(n); c.ay = new Float64Array(n);
+      // per-frame screen positions (filled once in draw(); nodeScreen/pick read them) and the
+      // resting edges bucketed by weight so stroke style is set once per bucket, not per edge.
+      c.sx = new Float32Array(n); c.sy = new Float32Array(n); c.sqDeg = new Float32Array(n);
+      for (let i = 0; i < n; i++) c.sqDeg[i] = Math.sqrt(N[i].o + N[i].i);
+      c.edgeBuckets = new Map();
+      for (const e of c.G.edges) { const wt = Math.min(13, e[2] || 1); if (!c.edgeBuckets.has(wt)) c.edgeBuckets.set(wt, []); c.edgeBuckets.get(wt).push(e[0], e[1]); }
       for (let i = 0; i < n; i++) {
         c.sPhX[i] = h(i, 12.9898) * TAU; c.sPhY[i] = h(i, 78.233) * TAU;
         c.sFx[i] = 0.28 + h(i, 3.17) * 0.34; c.sFy[i] = 0.28 + h(i, 5.91) * 0.34;
@@ -267,9 +274,12 @@
       const cv = this.canvasEl, wrap = this.wrapEl;
       this.ctx = cv.getContext('2d');
       const resize = () => {
-        const dpr = window.devicePixelRatio || 1;
-        cv.width = wrap.clientWidth * dpr; cv.height = wrap.clientHeight * dpr;
-        cv.style.width = wrap.clientWidth + 'px'; cv.style.height = wrap.clientHeight + 'px';
+        // DPR capped at 2: a 3x phone canvas is 2.25x the pixels for no visible gain on hairlines.
+        const dpr = Math.min(2, window.devicePixelRatio || 1);
+        // Cache the size: toScreen/axisScales run ~10k times a frame and must not touch the DOM.
+        this.cw = wrap.clientWidth; this.ch = wrap.clientHeight;
+        cv.width = this.cw * dpr; cv.height = this.ch * dpr;
+        cv.style.width = this.cw + 'px'; cv.style.height = this.ch + 'px';
         this.dpr = dpr; this.dirty = true;
         const mob = wrap.clientWidth < 640;
         if (this.state.ready && mob !== this.state.isMobile) this.setState({ isMobile: mob });
@@ -337,7 +347,7 @@
     // full bleed, the ellipse always touches every edge of the container.
     axisScales() {
       const c = this.graph; if (!c) return [1, 1];
-      const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+      const w = this.cw || this.wrapEl.clientWidth, h = this.ch || this.wrapEl.clientHeight;
       return [w / c.extent, h / c.extent];
     }
     fit() {
@@ -355,12 +365,12 @@
       this.dirty = true;
     }
     toScreen(x, y) {
-      const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+      const w = this.cw || this.wrapEl.clientWidth, h = this.ch || this.wrapEl.clientHeight;
       const [bx, by] = this.axisScales();
       return [(x - this.view.x) * bx * this.view.k + w / 2, (y - this.view.y) * by * this.view.k + h / 2];
     }
     toWorld(sx, sy) {
-      const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight;
+      const w = this.cw || this.wrapEl.clientWidth, h = this.ch || this.wrapEl.clientHeight;
       const [bx, by] = this.axisScales();
       return [(sx - w / 2) / (bx * this.view.k) + this.view.x, (sy - h / 2) / (by * this.view.k) + this.view.y];
     }
@@ -402,11 +412,16 @@
         if (this.railHorizontal) { this.railThumbEl.style.left = (100 - p) + '%'; this.railThumbEl.style.top = ''; }
         else { this.railThumbEl.style.top = p + '%'; this.railThumbEl.style.left = ''; }
       }
+      const now = performance.now();
+      let ambient = false;
       if (!this.reduceMotion) {
-        // ambient drift/twinkle/spring animate every frame; rAF already pauses on hidden tabs
-        this.dirty = true;
+        // ambient drift/twinkle/spring/tours animate continuously; rAF already pauses on hidden tabs
+        ambient = true;
       }
-      if (this.dirty) { this.dirty = false; this.draw(); }
+      // Interaction, camera tweens and the short reveal animations (ignition, storyline, lens
+      // morph, cursor gravity) run at full rate; purely ambient motion is slow enough for ~30fps.
+      const lively = this.dirty || this.morph || this.mouse || this.dragging || (this.igniteT0 && now - this.igniteT0 < 900) || (this.threadT0 && now - this.threadT0 < 1300);
+      if (lively || (ambient && now - (this.lastDraw || 0) > 30)) { this.dirty = false; this.lastDraw = now; this.draw(); }
     };
 
     nodeR(n) {
@@ -414,6 +429,8 @@
       const refK = Math.min(bx, by) * this.view.k;
       return Math.max(2.8, Math.min(24, (2 + Math.sqrt(n.o + n.i) * 1.5) * Math.sqrt(refK) * 1.35));
     }
+    // hot-path radius: same formula, with sqrt(degree) precomputed and the zoom factor per frame
+    nodeRi(i, rk) { return Math.max(2.8, Math.min(24, (2 + this.graph.sqDeg[i] * 1.5) * rk)); }
     genreCol(n) { return n.f ? '#9c3d22' : '#2e8156'; }
 
     leafPositions(f) {
@@ -517,17 +534,22 @@
         ax[i] = hx + px; ay[i] = hy + py;
       }
     }
-    nodeScreen(i) { const c = this.graph; return this.toScreen(c.ax[i], c.ay[i]); }
+    nodeScreen(i) { const c = this.graph; return this.sxValid ? [c.sx[i], c.sy[i]] : this.toScreen(c.ax[i], c.ay[i]); }
 
     draw() {
       const ctx = this.ctx; const c = this.graph; if (!ctx || !c) return;
       this.computePositions(performance.now());
-      const w = this.wrapEl.clientWidth, h = this.wrapEl.clientHeight, dpr = this.dpr || 1;
+      const w = this.cw || this.wrapEl.clientWidth, h = this.ch || this.wrapEl.clientHeight, dpr = this.dpr || 1;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       ctx.fillStyle = '#f7f5f0'; ctx.fillRect(0, 0, w, h);
       const k = this.view.k;
       const [bx, by] = this.axisScales();
       const refK = Math.min(bx, by) * k;
+      // project every star once per frame
+      { const SX = c.sx, SY = c.sy, AX = c.ax, AY = c.ay, kx = bx * k, ky = by * k, ox = this.view.x, oy = this.view.y, hw = w / 2, hh = h / 2;
+        for (let i = 0, n = AX.length; i < n; i++) { SX[i] = (AX[i] - ox) * kx + hw; SY[i] = (AY[i] - oy) * ky + hh; }
+        this.sxValid = true; }
+      const rk = Math.sqrt(refK) * 1.35;
       const thr = this.thread; // A↔B storyline takes over highlighting when active
       const focus = thr ? -1 : (this.state.focus >= 0 ? this.state.focus : this.hover);
       const hasFocus = focus >= 0;
@@ -580,16 +602,20 @@
         }
       }
 
-      if (mEdgeA > 0 && !thr) for (const [i, j, wt0] of c.G.edges) {
-        const wt = wt0 || 1;
-        if (hasFocus) continue;
-        const [x1, y1] = this.nodeScreen(i);
-        const [x2, y2] = this.nodeScreen(j);
-        if ((x1 < 0 && x2 < 0) || (x1 > w && x2 > w) || (y1 < 0 && y2 < 0) || (y1 > h && y2 > h)) continue;
+      if (mEdgeA > 0 && !thr && !hasFocus) {
+        const SX = c.sx, SY = c.sy;
         ctx.strokeStyle = '#141414';
-        ctx.globalAlpha = Math.min(0.16, 0.05 + wt * 0.02) * mEdgeA;
-        ctx.lineWidth = Math.min(3, 0.5 + wt * 0.3);
-        ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+        for (const [wt, ends] of c.edgeBuckets) {
+          ctx.globalAlpha = Math.min(0.16, 0.05 + wt * 0.02) * mEdgeA;
+          ctx.lineWidth = Math.min(3, 0.5 + wt * 0.3);
+          // Style is set once per weight bucket; each segment is its own short path (measured:
+          // one big multi-segment path rasterises slower and stops overlapping edges darkening).
+          for (let e = 0; e < ends.length; e += 2) {
+            const x1 = SX[ends[e]], y1 = SY[ends[e]], x2 = SX[ends[e + 1]], y2 = SY[ends[e + 1]];
+            if ((x1 < 0 && x2 < 0) || (x1 > w && x2 > w) || (y1 < 0 && y2 < 0) || (y1 > h && y2 > h)) continue;
+            ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+          }
+        }
         ctx.globalAlpha = 1;
       }
 
@@ -690,10 +716,10 @@
       const nowS = performance.now() / 1000;
       for (let i = 0; i < N.length; i++) {
         const n = N[i];
-        const [sx, sy] = this.nodeScreen(i);
+        const sx = c.sx[i], sy = c.sy[i];
         if (sx < -30 || sx > w + 30 || sy < -30 || sy > h + 30) continue;
         const tw = this.reduceMotion ? 1 : 1 + Math.sin(nowS * c.sTwFq[i] + c.sTwPh[i]) * 0.12; // twinkle
-        const r = this.nodeR(n) * tw;
+        const r = this.nodeRi(i, rk) * tw;
         const isF = i === focus;
         const conn = hasFocus && c.neigh[focus].has(i);
         const inHop2 = hasFocus && hop2.has(i);
@@ -911,11 +937,15 @@
     pick(mx, my, touch) {
       const c = this.graph;
       let best = -1, bd = 1e9;
+      const [bx, by] = this.axisScales(), rk = Math.sqrt(Math.min(bx, by) * this.view.k) * 1.35;
+      const pad = touch ? 20 : 8, SX = c.sx, SY = c.sy, live = this.sxValid;
       for (let i = 0; i < c.G.nodes.length; i++) {
-        const n = c.G.nodes[i];
-        const [sx, sy] = this.nodeScreen(i); // match the displaced (drift/gravity) star, not the baked spot
-        const d = Math.hypot(sx - mx, sy - my);
-        const tol = this.nodeR(n) + (touch ? 20 : 8);
+        let sx, sy;
+        if (live) { sx = SX[i]; sy = SY[i]; } else { [sx, sy] = this.nodeScreen(i); } // the displaced (drift/gravity) star, not the baked spot
+        const dx = sx - mx, dy = sy - my;
+        if (dx > 44 || dx < -44 || dy > 44 || dy < -44) continue;   // cheap reject (max radius 24 + pad 20)
+        const d = Math.hypot(dx, dy);
+        const tol = this.nodeRi(i, rk) + pad;
         if (d < tol && d < bd) { bd = d; best = i; }
       }
       return best;
@@ -981,6 +1011,20 @@
       const sx0 = padX + availW / 2, sy0 = padT + availH / 2;
       this.flyTo(cx - (sx0 - w / 2) / (bx * k), cy - (sy0 - h / 2) / (by * k), k);
       this.dirty = true;
+    }
+
+    // Deep link (#/network/<key>): focus a book by its site key once layout is ready. A rim
+    // "leaf" (cited by a single hub) focuses the hub that cites it, so its bloom shows.
+    focusKey(key) {
+      const run = () => {
+        const c = this.graph; if (!c || this.destroyed) return;
+        const N = c.G.nodes;
+        for (let i = 0; i < N.length; i++) if (N[i].key === key) { this.focusNode(i); return; }
+        for (const [hub, ids] of Object.entries(c.G.leavesFor || {})) {
+          for (const li of ids) { const lf = c.G.leaves[li]; if (lf && lf.key === key) { this.focusNode(+hub); return; } }
+        }
+      };
+      requestAnimationFrame(() => requestAnimationFrame(run));
     }
 
     // ---------------------------------------------------------------- A↔B storyline (undirected)

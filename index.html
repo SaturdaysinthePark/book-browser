@@ -25,16 +25,66 @@
 <link rel="manifest" href="/manifest.json">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@600;700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-:root{--paper:#f7f5f0;--ink:#141414;--accent:#9c3d22;--card:#fdfcfa;--mut:rgba(20,20,20,.55);}
+:root{--paper:#f7f5f0;--ink:#141414;--accent:#9c3d22;--card:#fdfcfa;--mut:rgba(20,20,20,.55);--inbound:#2f5590;
+  /* motion tokens — one vocabulary for every transition on the site */
+  --ease-out:cubic-bezier(.2,.7,.2,1);--ease-in-out:cubic-bezier(.65,0,.35,1);
+  --ease-spring:linear(0,.009,.035 2.1%,.141,.281 6.7%,.723 12.9%,.938 16.7%,1.017,1.077,1.121,1.149 24.3%,1.159,1.163,1.161,1.154 29.9%,1.129 32.8%,1.051 39.6%,1.017 43.1%,.991,.977 51%,.974 53.8%,.975 57.1%,.997 69.8%,1.003 76.9%,1);
+  --dur-1:120ms;--dur-2:240ms;--dur-3:480ms;
+  --cream:#f2ecdd;}
 html,body{margin:0;padding:0;background:var(--paper);color:var(--ink);font-family:Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;}
 a{color:var(--ink);}
 a:hover{color:var(--accent);}
 ::selection{background:var(--ink);color:var(--paper);}
 input:focus{outline:none;}
-input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
-[data-hb]:hover{--hb:var(--bandc);}
+/* text inputs: a quiet ink ring on focus (clicking into a field still matches :focus-visible) */
+input:focus-visible{outline:none;box-shadow:0 4px 0 rgba(20,20,20,.9),0 0 0 4px rgba(20,20,20,.14) !important;}
+/* ---------- Penguin tri-band cover (rendered by P.coverHTML in app.js) ----------
+   Everything is sized in cqi against .cv, so one component scales from thumbnail to hero.
+   --lit (0..1) mixes the band from ink to the genre colour; registered so it can transition. */
+@property --lit{syntax:'<number>';inherits:true;initial-value:1;}
+.cv-host{display:block;}
+.cv{container-type:inline-size;position:relative;aspect-ratio:2/3;width:100%;transition:--lit .35s ease;}
+.cv-in{position:absolute;inset:0;display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box;text-align:center;
+  --band:color-mix(in oklab,var(--bandc,#141414) calc(var(--lit) * 100%),#141414);
+  background:var(--cream);border:max(1px,1.3cqi) solid var(--ink);border-radius:.9cqi 2.4cqi 2.4cqi .9cqi;}
+.cv-b{flex:none;display:flex;align-items:center;justify-content:center;background:var(--band);}
+.cv-top{height:26%;border-bottom:max(1px,1.1cqi) solid var(--ink);}
+.cv-bot{height:24%;border-top:max(1px,1.1cqi) solid var(--ink);color:var(--band);}
+.cv-bot svg{width:27cqi;height:27cqi;display:block;}
+.cv-plate{display:block;width:24cqi;height:10.5cqi;border-radius:50%/48%;background:var(--cream);box-shadow:inset 0 0 0 max(.5px,.55cqi) rgba(20,20,20,.18);}
+.cv-m{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4.2cqi;padding:3cqi 7cqi;overflow:hidden;
+  background:radial-gradient(120% 90% at 30% 20%,rgba(255,255,255,.45),transparent 60%);}
+.cv-t{font-family:'Gill Sans','Gill Sans MT',Cabin,'Helvetica Neue',Helvetica,Arial,sans-serif;font-weight:700;text-transform:uppercase;letter-spacing:.02em;
+  font-size:calc(var(--ts) * 1cqi);line-height:1.14;color:var(--ink);text-wrap:balance;
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--tl);overflow:hidden;overflow-wrap:anywhere;}
+.cv-rule{display:block;flex:none;width:16cqi;height:max(1px,1.5cqi);border-radius:1cqi;background:var(--band);}
+.cv-a{font-family:'IBM Plex Mono',monospace;font-size:calc(var(--as) * 1cqi);letter-spacing:.08em;text-transform:uppercase;line-height:1.3;color:rgba(20,20,20,.72);
+  display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:var(--al);overflow:hidden;text-wrap:balance;}
+/* paper: a soft hinge shadow + highlight down the spine edge, and a sheen that follows the pointer (--mx) */
+.cv-fx{position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,rgba(0,0,0,.20) 0,rgba(0,0,0,.04) 2.4cqi,rgba(255,255,255,.16) 3.4cqi,transparent 6.5cqi),
+    linear-gradient(105deg,transparent calc(var(--mx,-40%) - 22%),rgba(255,255,255,.22) var(--mx,-40%),transparent calc(var(--mx,-40%) + 22%));}
+@container (max-width:74px){.cv-a,.cv-rule{display:none;}.cv-m{padding:2cqi 4cqi;}}
+/* tilt: JS (P._tilt) writes --rx/--ry/--mx on [data-tilt] hosts under a fine pointer */
+[data-tilt] .cv{transform:perspective(700px) rotateX(calc(var(--rx,0) * 1deg)) rotateY(calc(var(--ry,0) * 1deg));transition:--lit .35s ease,transform .5s var(--ease-out);will-change:transform;}
+[data-tilt].is-tilting .cv{transition:--lit .35s ease,transform .08s linear;}
+@media (prefers-reduced-motion:reduce){.cv,[data-tilt] .cv{transition:none;transform:none;}}
+/* ---------- route transitions (same-document View Transitions; see P._transition) ---------- */
+.vt-hero .cv{view-transition-name:bj-cover;}
+.vt-swap .vt-hero .cv{view-transition-name:none;}
+.bj-hdr{view-transition-name:bj-header;}
+::view-transition-old(root){animation:vtOut .16s var(--ease-out) both;}
+::view-transition-new(root){animation:vtIn .34s var(--ease-out) both;}
+::view-transition-group(bj-cover){animation-duration:.46s;animation-timing-function:var(--ease-out);z-index:50;}
+::view-transition-old(bj-cover),::view-transition-new(bj-cover){animation-duration:.46s;}
+.vt-cover::view-transition-new(root){animation-delay:.06s;}
+@keyframes vtOut{to{opacity:0;}}
+@keyframes vtIn{from{opacity:0;transform:translateY(8px);}}
+@media (prefers-reduced-motion:reduce){::view-transition-group(*),::view-transition-old(*),::view-transition-new(*){animation:none !important;}}
+[data-hb] .cv{--lit:0;}
+[data-hb]:hover .cv{--lit:1;}
 /* Idle home-wall spotlight: JS sets data-pulse on one random cover every ~8s, replaying
    the hover state (genre colour + springy bounce) so the wall feels alive. A data attribute
    (not a class) is used because React manages the cover's className via style-hover — it would
@@ -52,7 +102,8 @@ input:focus-visible{outline:2.5px solid var(--accent);outline-offset:2px;}
   100%{transform:translate(0,0)       scale(1)    rotate(0);}
 }
 [data-pulse]{z-index:80;}
-[data-pulse] [data-hb]{--hb:var(--bandc);animation:bjWallPulse 1.6s cubic-bezier(.3,1.5,.5,1);}
+[data-pulse] [data-hb]{animation:bjWallPulse 1.6s cubic-bezier(.3,1.5,.5,1);}
+[data-pulse] [data-hb] .cv{--lit:1;}
 @media (prefers-reduced-motion:reduce){[data-pulse] [data-hb]{animation:none;}}
 /* Shuffle motion is a JS-driven FLIP (see componentDidUpdate in app.js) — no CSS animation here. */
 button{color:inherit;}
@@ -105,6 +156,661 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 }
 </style>
 <style>
+/* ---------- Interactive home walls (?home=a|b|c) — engine in home.js ----------
+   .hx is a fixed, app-like canvas: the wall (stage) scrolls/drags, the hero stays put.
+   Engine-driven flags are data-* attributes (React never clobbers them); React owns the classes. */
+.hx{position:fixed;inset:0;overflow:hidden;background:var(--wall);--wall:#ede6d6;--wall-rgb:237,230,214;--grid-rgb:62,96,130;--shade-rgb:90,70,40;touch-action:none;-webkit-user-select:none;user-select:none;-webkit-tap-highlight-color:transparent;}
+.hx-stage{position:absolute;inset:0;cursor:grab;}
+.hx[data-drag] .hx-stage{cursor:grabbing;}
+.hw-layer{position:absolute;inset:0;}
+/* backdrop: graph paper (far) + doodles (near), each oversized by one tile and translated by home.js */
+.hw-bg{position:absolute;left:0;top:0;right:-520px;bottom:-520px;pointer-events:none;will-change:transform;}
+.hw-grid{right:-160px;bottom:-160px;
+  background-image:linear-gradient(rgba(var(--grid-rgb),.16) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--grid-rgb),.16) 1px,transparent 1px),
+    linear-gradient(rgba(var(--grid-rgb),.07) 1px,transparent 1px),linear-gradient(90deg,rgba(var(--grid-rgb),.07) 1px,transparent 1px);
+  background-size:160px 160px,160px 160px,32px 32px,32px 32px;}
+.hw-doodles{right:-420px;bottom:-420px;background-size:420px 420px;}
+/* depth: a soft tray shadow at the edges so the paper reads as a surface the covers sit above */
+.hx-stage::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 120px rgba(var(--shade-rgb),.22);}
+.hw-slot{position:absolute;left:0;top:0;width:var(--cw);will-change:transform;--lit:0;}
+.hw-slot .cv{transition:none;}
+.hw-card{border-radius:3px;box-shadow:0 0 0 1px rgba(242,236,221,.16),0 12px 26px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.3);transition:transform .32s var(--ease-spring),box-shadow .3s var(--ease-out);cursor:pointer;}
+.hw-slot.is-hot{z-index:4;}
+.hw-slot.is-hot .hw-card{transform:translateY(-8px) scale(1.07);box-shadow:0 0 0 1px rgba(242,236,221,.2),0 26px 44px rgba(0,0,0,.55),0 4px 8px rgba(0,0,0,.3);}
+.hw-arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;}
+.hw-arcs path{fill:none;stroke:#f2ecdd;stroke-width:2.4;stroke-dasharray:3 6;stroke-linecap:round;opacity:.9;}
+.hw-arcs circle{fill:#f2ecdd;stroke:var(--wall);stroke-width:1.5;}
+.hw-label{position:absolute;left:14px;top:0;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#f2ecdd;background:rgba(29,27,24,.9);padding:4px 10px;border-radius:999px;border:1px solid rgba(242,236,221,.25);white-space:nowrap;z-index:5;pointer-events:none;}
+.hx-vignette{display:none;}
+.hx.is-compact .hx-vignette{opacity:0;}
+.hx-c .hx-vignette{display:none;}
+.hx-c .hx-card{box-shadow:0 0 0 6px var(--wall),0 30px 60px rgba(0,0,0,.5);}
+/* default: ink covers on graph paper. ?wall=dark — the charcoal wall with cream doodles */
+.hx:not(.wall-dark) .hw-card{box-shadow:0 14px 26px rgba(70,50,25,.24),0 2px 5px rgba(40,30,15,.22);}
+.hx:not(.wall-dark) .hw-slot.is-hot .hw-card{box-shadow:0 28px 46px rgba(70,50,25,.32),0 4px 8px rgba(40,30,15,.2);}
+.hx:not(.wall-dark) .hw-arcs path{stroke:var(--accent);opacity:.9;}
+.hx:not(.wall-dark) .hw-arcs circle{fill:var(--accent);}
+.hx.wall-dark{--wall:#2e2a25;--wall-rgb:46,42,37;--grid-rgb:242,236,221;--shade-rgb:0,0,0;}
+.hx.wall-dark .hw-grid{opacity:.55;}
+
+/* hero card (A/B): centred; compacts to a slim search bar once you start moving the wall */
+.hx-hero{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(620px,calc(100% - 28px));z-index:6;pointer-events:none;
+  transition:top .6s var(--ease-out),transform .6s var(--ease-out),width .6s var(--ease-out);}
+.hx-card{pointer-events:auto;background:var(--card);border:1.5px solid var(--ink);border-radius:22px;box-shadow:0 4px 0 rgba(20,20,20,.9),0 18px 36px rgba(40,30,15,.22);
+  padding:clamp(22px,4vw,40px) clamp(18px,5vw,48px) clamp(20px,3.6vw,34px);text-align:center;box-sizing:border-box;transition:padding .6s var(--ease-out),border-radius .6s var(--ease-out);}
+.hx-x{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease-out),opacity .35s ease,margin .55s var(--ease-out);}
+.hx-x > div{min-height:0;overflow:hidden;}
+.hx-arc{display:flex;justify-content:center;max-width:420px;margin:0 auto;}
+.hx-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6.4vw,52px);line-height:1.04;margin:14px 0 10px;letter-spacing:-.005em;}
+.hx-p{font-size:15px;line-height:1.55;color:rgba(20,20,20,.72);max-width:440px;margin:0 auto;text-wrap:pretty;}
+.hx-bar{display:flex;align-items:center;gap:8px;margin-top:22px;transition:margin .55s var(--ease-out);}
+.hx-logo{flex:none;display:flex;align-items:center;gap:8px;width:0;opacity:0;overflow:hidden;padding:0;border:none;background:none;cursor:pointer;transition:width .55s var(--ease-out),opacity .3s ease;color:var(--ink);}
+.hx-logo span{font-family:'Instrument Serif',serif;font-size:21px;white-space:nowrap;}
+.hx-search{position:relative;flex:1;min-width:0;}
+/* search suggestions (header, classic home, walls): mini cover + title/author + counts; keyboard nav */
+.sg-pop{transition:opacity .18s var(--ease-out),transform .18s var(--ease-out);}
+@starting-style{.sg-pop{opacity:0;transform:translateY(-6px);}}
+.sg-pop button{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:8px 16px;border-bottom:1px solid rgba(20,20,20,.08);color:var(--ink);font-family:inherit;}
+.sg-pop button:last-child{border-bottom:none;}
+.sg-pop button.on,.sg-pop button:hover{background:var(--ink);color:var(--paper);}
+.sg-pop button.on .a,.sg-pop button:hover .a{color:rgba(247,245,240,.7);}
+.sg-cv{flex:none;width:26px;}
+.sg-t{flex:1;min-width:0;display:flex;flex-direction:column;}
+.sg-pop .t{font-family:'Instrument Serif',serif;font-size:17px;line-height:1.15;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.sg-pop .a{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-top:2px;}
+.sg-pop .s{font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;white-space:nowrap;flex:none;}
+@media (max-width:639px){.sg-pop .s{display:none;}}
+/* auto-hiding sticky header (scroll down hides, scroll up reveals) */
+.bj-hdr{transition:transform .3s var(--ease-out);}
+.bj-hdr.hdr-hide{transform:translateY(-100%);}
+.hx-search input{width:100%;height:54px;border:1.5px solid var(--ink);border-radius:999px;padding:0 54px 0 24px;font-size:16px;background:var(--paper);color:var(--ink);font-family:inherit;box-sizing:border-box;box-shadow:0 4px 0 rgba(20,20,20,.9);transition:height .55s var(--ease-out),box-shadow .3s;-webkit-user-select:text;user-select:text;}
+.hx-shuf{position:absolute;right:7px;top:50%;transform:translateY(-50%);width:40px;height:40px;border-radius:999px;border:1.5px solid transparent;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:.55;color:var(--ink);transition:opacity .2s,border-color .2s,transform .4s var(--ease-spring);}
+.hx-shuf:hover{opacity:1;border-color:var(--ink);}
+.hx-shuf:active{transform:translateY(-50%) rotate(180deg);}
+.hx-sugg{position:absolute;top:calc(100% + 10px);left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;z-index:20;text-align:left;}
+.hx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;}
+.hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
+.hx-chips button:hover{background:var(--ink);color:var(--paper);}
+.hx-chips .lbl{width:100%;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;}
+
+.hx.is-compact .hx-x{grid-template-rows:0fr;opacity:0;}
+.hx.is-compact .hx-card{padding:7px;border-radius:999px;}
+.hx.is-compact .hx-bar{margin-top:0;}
+.hx.is-compact .hx-logo{width:150px;opacity:1;padding-left:10px;}
+.hx.is-compact .hx-search input{height:46px;box-shadow:0 3px 0 rgba(20,20,20,.9);}
+/* compact: the hero docks at the top as a slim search bar (A and B), clear of the corner nav */
+.hx.is-compact .hx-hero{top:calc(14px + env(safe-area-inset-top));transform:translate(-50%,0);width:min(640px,calc(100% - 24px));}
+@media (min-width:900px){.hx.is-compact .hx-hero{width:min(640px,calc(100% - 440px));}}
+
+/* C: the hero is a full-width band between the shelf rows */
+.hx-c .hx-hero{left:0;width:100%;transform:translateY(-50%);}
+.hx-c .hx-card{border-radius:0;border-left:none;border-right:none;padding:26px max(24px,calc((100% - 1080px) / 2));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:10px 48px;align-items:center;text-align:left;}
+.hx-c .hx-arc{display:none;}
+.hx-c .hx-h1{margin:0;font-size:clamp(30px,4.4vw,48px);}
+.hx-c .hx-p{margin:8px 0 0;max-width:none;font-size:14px;}
+.hx-c .hx-bar{margin-top:0;}
+.hx-c .hx-chips{justify-content:flex-start;padding-top:12px;}
+.hx-c .hx-chips .lbl{display:none;}
+
+.hx-nav{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:7;display:flex;gap:2px;padding:3px;background:rgba(253,252,250,.94);border:1.5px solid var(--ink);border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.6);}
+/* corner nav: icon pills that pop open to icon + label on hover / keyboard focus */
+.hx-nav button{height:38px;min-width:38px;padding:0 11px;border-radius:999px;border:none;background:none;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ink);opacity:.7;
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  transition:background .2s ease,color .2s ease,opacity .2s ease,transform .45s var(--ease-spring);}
+.hx-nav button svg{flex:none;}
+.hx-nav .lbl{display:inline-block;max-width:0;opacity:0;overflow:hidden;white-space:nowrap;margin-left:0;
+  transition:max-width .5s var(--ease-spring),opacity .2s ease,margin .5s var(--ease-spring);}
+.hx-nav button:hover,.hx-nav button:focus-visible{opacity:1;background:var(--ink);color:var(--paper);transform:scale(1.06);outline:none;}
+.hx-nav button:hover .lbl,.hx-nav button:focus-visible .lbl{max-width:90px;opacity:1;margin-left:8px;}
+.hx-nav button:active{transform:scale(.96);}
+.hx-switch{position:absolute;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:7;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 12px;background:rgba(29,27,24,.88);border:1px solid rgba(242,236,221,.3);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,221,.7);}
+.hx-switch a{color:#f2ecdd;text-decoration:none;padding:5px 9px;border-radius:999px;}
+.hx-switch a:hover{background:rgba(242,236,221,.15);color:#fff;}
+.hx-switch a.on{background:#f2ecdd;color:var(--ink);}
+.hx-hint{position:absolute;left:50%;bottom:calc(22px + env(safe-area-inset-bottom));transform:translateX(-50%);z-index:5;font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.16em;text-transform:uppercase;color:#f2ecdd;background:rgba(29,27,24,.88);border:1px solid rgba(242,236,221,.25);padding:7px 14px 7px 12px;border-radius:999px;pointer-events:none;transition:opacity .6s ease;display:flex;align-items:center;gap:8px;white-space:nowrap;}
+.hx-hint i{display:block;width:1.5px;height:16px;background:currentColor;animation:hxHint 1.6s var(--ease-in-out) infinite;}
+@keyframes hxHint{0%,100%{transform:translateY(-3px);opacity:.4;}50%{transform:translateY(3px);opacity:1;}}
+.hx.is-engaged .hx-hint{opacity:0;}
+
+@media (max-width:639px){
+  .hx-card{border-radius:20px;}
+  .hx-h1{font-size:34px;margin:8px 0 6px;}
+  .hx-p{font-size:14px;}
+  .hx-bar{margin-top:14px;}
+  .hx-search input{height:50px;}
+  .hx-arc{max-width:230px;}
+  .hx-chips{padding-top:12px;}
+  .hx-chips .lbl{display:none;}
+  /* phone bar: the mark alone is too faint on the busy wall, so it sits in a solid ink disc */
+  .hx.is-compact .hx-logo{width:52px;padding-left:6px;}
+  .hx.is-compact .hx-logo span{display:none;}
+  .hx.is-compact .hx-logo svg{box-sizing:border-box;width:44px;height:44px;padding:7px 7px 13px 6px;border-radius:50%;background:var(--ink);color:var(--paper);}
+  .hx.is-compact .hx-logo svg path{stroke-width:3.2;stroke-dasharray:4.5 4;}
+  .hx.is-compact .hx-logo svg circle{r:3.4;}
+  .hx.is-compact .hx-logo svg rect{fill:var(--ink);stroke-width:3;}
+  .hx-a .hx-nav,.hx-b .hx-nav{top:auto;bottom:calc(14px + env(safe-area-inset-bottom));}
+  .hx-a .hx-hint,.hx-c .hx-hint{bottom:calc(70px + env(safe-area-inset-bottom));}
+  .hx-b .hx-hint{bottom:calc(70px + env(safe-area-inset-bottom));}
+  .hx-c .hx-card{display:block;padding:18px 16px;}
+  .hx-c .hx-h1{font-size:30px;}
+  .hx-c .hx-p{display:none;}
+  .hx-c .hx-bar{margin-top:12px;}
+}
+@media (prefers-reduced-motion:reduce){
+  .hx-hero,.hx-card,.hx-x,.hx-bar,.hx-logo,.hx-search input,.hw-card,.hx-vignette,.hx-nav button,.hx-nav .lbl{transition:none;}
+  .hx-hint i{animation:none;}
+}
+</style>
+<style>
+/* ---------- Book page ---------- */
+.bk .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);}
+.bk-hero{display:grid;grid-template-columns:210px minmax(0,1fr);grid-template-areas:"cv head" "cv body";column-gap:48px;align-items:start;}
+.bk-cv{grid-area:cv;filter:drop-shadow(10px 10px 0 rgba(20,20,20,.12));}
+.bk-head{grid-area:head;align-self:end;}
+.bk-body{grid-area:body;}
+.bk-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,5.4vw,52px);line-height:1.04;margin:10px 0 10px;text-wrap:balance;}
+.bk-by{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(20,20,20,.7);}
+.bk .lnk{background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
+.bk .lnk:hover{color:var(--accent);}
+.bk-syn{font-size:16.5px;line-height:1.65;max-width:620px;margin:18px 0 24px;text-wrap:pretty;}
+.bk-jumps{display:flex;gap:10px;flex-wrap:wrap;}
+.bk .pill{display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:9px 16px;font-size:12.5px;cursor:pointer;font-family:'IBM Plex Mono',monospace;color:var(--ink);transition:background .15s,color .15s;}
+.bk .pill:hover{background:var(--ink);color:var(--paper);}
+.bk .pill.ghost{border-color:transparent;background:none;text-decoration:underline;text-underline-offset:3px;padding-left:6px;}
+.bk .pill.ghost:hover{color:var(--accent);background:none;}
+.bk .pill.more{margin:26px auto 0;display:flex;}
+.bk .dot{display:inline-block;width:8px;height:8px;border-radius:50%;}
+.bk .dot.out{background:var(--accent);}
+.bk .dot.in{background:var(--inbound);}
+.bk .sec-h{display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;}
+.bk .sec-h h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;margin:0;}
+.bk .sec-h .cap{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(20,20,20,.6);min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.bk .sec-h .count{margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;border:1.5px solid var(--ink);border-radius:999px;padding:3px 11px;display:flex;align-items:center;gap:6px;}
+.bk .sec-h .count::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent);}
+.bk .sec-h .count.in::before{background:var(--inbound);}
+.bk-ng{margin-top:64px;}
+.bk-sec{margin-top:64px;}
+.bk .empty{border:1.5px dashed var(--ink);border-radius:16px;padding:30px;margin-top:24px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;}
+
+/* jump trail */
+.trail{display:flex;align-items:center;gap:0;margin:-18px 0 30px;overflow-x:auto;scrollbar-width:none;}
+.trail::-webkit-scrollbar{display:none;}
+.trail .lbl{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-right:12px;white-space:nowrap;}
+.trail button{flex:none;width:26px;padding:0;border:none;background:none;cursor:pointer;transition:transform .25s var(--ease-spring);}
+.trail button:hover{transform:translateY(-3px);}
+.trail button.cur{width:30px;}
+.trail .hop{flex:none;width:26px;height:14px;}
+.trail .hop path{fill:none;stroke:var(--ink);stroke-width:1.3;stroke-dasharray:2 2.6;opacity:.6;}
+
+/* mention cards */
+.mc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:8px 36px;margin-top:10px;}
+.mc{display:flex;gap:18px;align-items:flex-start;padding:18px 0;border-bottom:1px solid rgba(20,20,20,.12);}
+.mc-cv{flex:none;width:84px;padding:0;border:none;background:none;cursor:pointer;}
+.mc-body{flex:1;min-width:0;}
+.mc-t{display:block;text-align:left;background:none;border:none;padding:0;cursor:pointer;font-family:'Instrument Serif',serif;font-size:22px;line-height:1.12;color:var(--ink);}
+.mc-t:hover{color:var(--accent);}
+.mc-a{font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:rgba(20,20,20,.6);margin-top:4px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.mc-sub{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:9px;}
+.mc-q{margin:11px 0 0;cursor:pointer;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:4;overflow:hidden;text-wrap:pretty;}
+.mc-q.open{-webkit-line-clamp:unset;display:block;}
+.mc-q.quote{font-family:'Instrument Serif',serif;font-style:italic;font-size:16.5px;line-height:1.38;padding-left:12px;border-left:2px solid var(--accent);color:rgba(20,20,20,.86);}
+.mc-q.ctx{font-size:13.5px;line-height:1.5;color:rgba(20,20,20,.68);}
+.mc-q mark{background:linear-gradient(transparent 62%,rgba(156,61,34,.24) 0);color:inherit;padding:0 1px;}
+.mc-q.wait{height:14px;width:60%;border-radius:4px;background:linear-gradient(90deg,rgba(20,20,20,.06),rgba(20,20,20,.12),rgba(20,20,20,.06));background-size:200% 100%;animation:mcShim 1.2s linear infinite;}
+@keyframes mcShim{to{background-position:-200% 0;}}
+@supports (animation-timeline: view()){
+  .rv{animation:rvIn linear both;animation-timeline:view();animation-range:entry 0% entry 60%;}
+  @keyframes rvIn{from{opacity:0;transform:translateY(18px);}to{opacity:1;transform:none;}}
+}
+
+/* neighborhood fan */
+.ng{position:relative;margin-top:14px;}
+.ng svg{display:block;overflow:visible;}
+.ng-it{cursor:pointer;transition:opacity .2s ease;}
+.ng-svg:has(.ng-it:hover) .ng-it:not(:hover),.ng-svg:has(.ng-it:focus-visible) .ng-it:not(:focus-visible){opacity:.22;}
+.ng-it:focus{outline:none;}
+.ng-it:focus-visible .ng-pill{stroke:var(--accent);stroke-width:2.2;}
+/* edges draw in; opacity rises with them so arrowheads don't appear before their line */
+.ng-e{fill:none;stroke-width:1.5;stroke-dasharray:1;stroke-dashoffset:1;opacity:0;animation:ngDraw .7s var(--ease-out) forwards,ngShow .35s ease forwards;animation-delay:calc(var(--i) * 35ms + 80ms);}
+.ng-e.out{stroke:var(--accent);}
+.ng-e.in{stroke:var(--inbound);}
+.ng-e.both{stroke:var(--ink);}
+.ng-it:hover .ng-e{stroke-width:2.4;}
+.ng-lab{opacity:0;animation:ngIn .45s var(--ease-out) forwards;animation-delay:calc(var(--i) * 35ms + 280ms);}
+.ng-pill{fill:var(--card);stroke:var(--ink);stroke-width:1.2;}
+.ng-it:hover .ng-pill{fill:var(--ink);}
+.ng-it:hover .ng-txt{fill:var(--paper);}
+.ng-txt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;fill:var(--ink);}
+.ng-dot{stroke:var(--ink);stroke-width:1.2;}
+.ng-more .ng-pill{stroke-dasharray:3 3;}
+.ng-c rect{fill:var(--ink);}
+.ng-c text{font-family:'Instrument Serif',serif;font-style:italic;font-size:16px;fill:var(--paper);}
+.ng-c{cursor:pointer;}
+.ng-c:hover rect{fill:var(--accent);}
+.ng-head{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;fill:var(--mut);}
+.ng-empty{font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mut);padding:24px 0;}
+@keyframes ngDraw{to{stroke-dashoffset:0;}}
+@keyframes ngShow{to{opacity:1;}}
+@keyframes ngIn{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+@media (prefers-reduced-motion:reduce){.ng-e{animation:none;stroke-dashoffset:0;opacity:1;}.ng-lab{animation:none;opacity:1;}.rv{animation:none !important;}}
+
+@media (max-width:1099px){.bk-hero{grid-template-columns:180px minmax(0,1fr);column-gap:36px;}}
+@media (max-width:639px){
+  .bk-hero{grid-template-columns:104px minmax(0,1fr);grid-template-areas:"cv head" "body body";column-gap:18px;}
+  .bk-h1{font-size:30px;margin:6px 0 6px;}
+  .bk-by{font-size:11.5px;}
+  .bk-syn{font-size:15.5px;margin:18px 0 18px;}
+  .bk-cv{filter:drop-shadow(6px 6px 0 rgba(20,20,20,.12));}
+  .bk .sec-h h2{font-size:27px;}
+  .bk .sec-h .cap{display:none;}
+  .bk-ng,.bk-sec{margin-top:46px;}
+  .mc{gap:14px;padding:14px 0;}
+  .mc-cv{width:68px;}
+  .mc-t{font-size:20px;}
+  .mc-q.quote{font-size:15.5px;}
+  .trail{margin:-10px 0 22px;}
+}
+</style>
+<style>
+/* ---------- Network Explorer (?net=v2; explorer.js) — the book page's fan, full screen ---------- */
+.bjx{min-height:calc(100dvh - var(--hdr-h));}
+.bjx .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);}
+.bjx-loading{padding:80px 24px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--mut);}
+.bjx-page{display:grid;grid-template-columns:minmax(0,1fr);}
+.bjx-page.wide{grid-template-columns:minmax(0,1fr) 400px;}
+.bjx-main{min-width:0;padding:18px 32px 40px;display:flex;flex-direction:column;}
+.bjx-top{display:flex;align-items:center;gap:18px;min-height:40px;flex-wrap:wrap;}
+.bjx-back{border:none;background:none;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;color:var(--mut);}
+.bjx-back:hover{color:var(--accent);}
+.bjx-trail{margin:0;flex:1;min-width:0;}
+.bjx-trail .clr{width:auto;margin-left:10px;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);text-decoration:underline;}
+.bjx-stage{flex:1;display:flex;align-items:center;justify-content:center;padding:14px 0;min-height:420px;}
+.bjx-fan{position:relative;flex:none;}
+.bjx-fan svg{position:absolute;inset:0;overflow:visible;}
+.bjx-dot{stroke:var(--ink);stroke-width:1.2;opacity:0;animation:ngIn .45s var(--ease-out) forwards;animation-delay:calc(var(--i) * 30ms + 240ms);}
+.bjx-dot.out{fill:#9c3d22;}.bjx-dot.in{fill:#2f5590;}.bjx-dot.both{fill:#141414;}
+.bjx-fan .ng-e{animation-delay:calc(var(--i) * 30ms + 60ms);transition:stroke-width .2s ease;}
+.bjx-eg{transition:opacity .2s ease;}
+.bjx-fan.has-hot .bjx-eg:not(.is-hot){opacity:.14;}
+.bjx-fan .ng-e.is-hot{stroke-width:2.6;}
+.bjx-ghost{stroke:var(--ink);stroke-width:1.3;stroke-dasharray:2 4;opacity:.35;}
+.bjx-pill{position:absolute;display:flex;align-items:center;gap:7px;box-sizing:border-box;padding:0 10px 0 6px;border:1.4px solid var(--ink);border-radius:999px;background:var(--card);
+  cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink);white-space:nowrap;text-align:left;
+  opacity:0;animation:ngIn .45s var(--ease-out) forwards;animation-delay:calc(var(--i) * 30ms + 260ms);transition:background .15s,color .15s,opacity .2s,transform .3s var(--ease-spring);}
+.bjx-pill.left{flex-direction:row-reverse;padding:0 6px 0 10px;text-align:right;}
+.bjx-pill .mcv{flex:none;width:16px;display:block;}
+.bjx-pill .t{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;}
+.bjx-pill .n{flex:none;font-size:10px;color:var(--mut);}
+.bjx-pill:hover,.bjx-pill.is-hot,.bjx-pill:focus-visible{background:var(--ink);color:var(--paper);transform:scale(1.04);outline:none;z-index:2;}
+.bjx-pill:hover .n,.bjx-pill.is-hot .n{color:rgba(247,245,240,.7);}
+.bjx-fan.has-hot .bjx-pill:not(.is-hot){opacity:.45 !important;}
+.bjx-pill.k-more{border-style:dashed;justify-content:center;padding:0 8px;color:var(--mut);}
+.bjx-center{position:absolute;display:flex;align-items:center;box-sizing:border-box;padding:0 13px;border-radius:999px;background:var(--ink);color:var(--paper);
+  font-family:'Instrument Serif',serif;font-style:italic;font-size:22px;white-space:nowrap;overflow:hidden;view-transition-name:bjx-c;}
+.bjx-empty{font-family:'IBM Plex Mono',monospace;font-size:13px;color:var(--mut);padding:40px;}
+.bjx-legend{display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:center;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);}
+.bjx-legend span{display:inline-flex;align-items:center;gap:7px;}
+.bjx-legend .ln{display:inline-block;width:22px;height:2px;}
+.bjx-legend .ln.in{background:#2f5590;}.bjx-legend .ln.out{background:#9c3d22;}.bjx-legend .ln.both{background:#141414;}
+.bjx .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin:0 6px 0 12px;}
+.bjx .dot:first-child{margin-left:0;}
+.bjx .dot.out{background:var(--accent);}.bjx .dot.in{background:var(--inbound);}
+
+/* side panel */
+.bjx-side{border-left:1.5px solid var(--ink);background:var(--card);padding:22px 24px 40px;display:flex;flex-direction:column;gap:18px;
+  position:sticky;top:var(--hdr-h);align-self:start;min-height:calc(100dvh - var(--hdr-h));max-height:calc(100dvh - var(--hdr-h));overflow:auto;box-sizing:border-box;}
+.bjx-head{display:flex;gap:16px;align-items:flex-start;}
+.bjx-hcv{flex:none;width:84px;filter:drop-shadow(5px 5px 0 rgba(20,20,20,.12));}
+.bjx-hmeta{min-width:0;}
+.bjx-hmeta h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.05;margin:6px 0 6px;text-wrap:balance;}
+.bjx-hmeta .by{font-family:'IBM Plex Mono',monospace;font-size:11px;color:rgba(20,20,20,.7);}
+.bjx-hmeta .cnt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:10px;display:flex;align-items:center;flex-wrap:wrap;}
+.bjx-syn{margin:0;font-size:14.5px;line-height:1.6;color:rgba(20,20,20,.85);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:6;overflow:hidden;}
+.bjx-act{display:flex;gap:8px;flex-wrap:wrap;}
+.bjx .pill{display:inline-flex;align-items:center;border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:8px 14px;font-size:12px;cursor:pointer;font-family:'IBM Plex Mono',monospace;color:var(--ink);}
+.bjx .pill:hover{background:var(--ink);color:var(--paper);}
+.bjx .pill.solid{background:var(--ink);color:var(--paper);}
+.bjx .pill.solid:hover{background:var(--accent);border-color:var(--accent);}
+.bjx-hot{border-top:1px solid rgba(20,20,20,.14);padding-top:16px;display:flex;flex-direction:column;gap:10px;animation:cstlFade .2s ease;}
+.bjx-rel{font-size:14px;line-height:1.45;padding-left:12px;border-left:3px solid;}
+.bjx-rel.out{border-color:#9c3d22;}.bjx-rel.in{border-color:#2f5590;}
+.bjx-rel b{font-family:'Instrument Serif',serif;font-weight:400;font-size:17px;}
+.bjx-hot .mc-q{-webkit-line-clamp:6;}
+.bjx-note{margin:0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);line-height:1.5;}
+.bjx-note.tip{border-top:1px solid rgba(20,20,20,.14);padding-top:16px;}
+.bjx-pf{display:flex;flex-direction:column;gap:10px;position:relative;}
+.bjx-input{width:100%;box-sizing:border-box;height:42px;border:1.5px solid var(--ink);border-radius:999px;padding:0 18px;font-size:15px;background:var(--paper);color:var(--ink);font-family:inherit;box-shadow:0 3px 0 rgba(20,20,20,.9);}
+.bjx-input.big{height:56px;font-size:17px;padding:0 24px;box-shadow:0 4px 0 rgba(20,20,20,.9);}
+.bjx-sg{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--card);border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;z-index:30;box-shadow:0 18px 40px rgba(20,20,20,.18);}
+.bjx-pf .bjx-sg{top:48px;}
+.bjx-path{display:flex;flex-wrap:wrap;align-items:center;gap:6px;}
+.bjx-path .eyebrow{width:100%;margin-bottom:2px;}
+.bjx-chip{display:inline-flex;align-items:center;gap:6px;border:1.4px solid var(--ink);border-radius:999px;background:var(--card);padding:3px 10px 3px 4px;font-family:'IBM Plex Mono',monospace;font-size:11px;cursor:pointer;color:var(--ink);max-width:100%;}
+.bjx-chip .mcv{width:13px;flex:none;}
+.bjx-chip.here{background:var(--ink);color:var(--paper);cursor:default;}
+.bjx-chip:not(.here):hover{background:var(--ink);color:var(--paper);}
+.bjx-arr{font-family:'IBM Plex Mono',monospace;font-size:14px;}
+.bjx-arr.out{color:#9c3d22;}.bjx-arr.in{color:#2f5590;}
+
+/* entry */
+.bjx-entry{max-width:1100px;margin:0 auto;padding:48px 24px 90px;}
+.bjx-entry h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,5vw,54px);line-height:1.04;margin:10px 0 12px;max-width:760px;text-wrap:balance;}
+.bjx-entry .lede{font-size:16px;line-height:1.6;color:rgba(20,20,20,.75);max-width:600px;margin:0 0 26px;}
+.bjx-q{position:relative;max-width:600px;}
+.bjx-chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;max-width:760px;}
+.bjx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);}
+.bjx-chips button:hover{background:var(--ink);color:var(--paper);}
+.bjx-chips .rnd{background:var(--ink);color:var(--paper);}
+.bjx-chips .rnd:hover{background:var(--accent);border-color:var(--accent);}
+.bjx-regions{margin-top:64px;}
+.bjx .sec-h{display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;}
+.bjx .sec-h h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;margin:0;}
+.bjx .sec-h .cap{font-family:'IBM Plex Mono',monospace;font-size:11.5px;color:rgba(20,20,20,.6);}
+.bjx-rgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:16px;margin-top:22px;}
+.bjx-region{text-align:left;border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 16px 14px;cursor:pointer;display:flex;flex-direction:column;gap:6px;color:var(--ink);font-family:inherit;transition:transform .3s var(--ease-spring),box-shadow .2s;}
+.bjx-region:hover{transform:translateY(-3px);box-shadow:0 4px 0 rgba(20,20,20,.9);}
+.bjx-region .covers{display:flex;gap:6px;margin-bottom:8px;}
+.bjx-region .covers span{width:38px;flex:none;}
+.bjx-region .nm{font-family:'Instrument Serif',serif;font-size:21px;line-height:1.15;}
+.bjx-region .au{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(20,20,20,.65);}
+.bjx-region .sz{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--accent);margin-top:2px;}
+
+/* Explorer+ (?net=v4): living fan, genre chips, star map */
+.bjx-plus .ng-flow{fill:none;stroke:var(--card);stroke-width:2.2;stroke-linecap:round;stroke-dasharray:3 11;opacity:0;pointer-events:none;
+  animation:ngShow .4s ease forwards,bjxFlow 1.15s linear infinite;animation-delay:calc(var(--i) * 30ms + 760ms),0s;}
+.bjx-plus .bjx-eg.is-hot .ng-flow{stroke-width:3;stroke-dasharray:4 9;animation-duration:.4s,.55s;}
+@keyframes bjxFlow{from{stroke-dashoffset:14;}to{stroke-dashoffset:0;}}
+.bjx-plus .bjx-eg.is-hot .ng-flow{animation-name:ngShow,bjxFlowHot;}
+@keyframes bjxFlowHot{from{stroke-dashoffset:13;}to{stroke-dashoffset:0;}}
+.bjx-plus .bjx-center{animation:bjxBeat 3.6s ease-out 1s infinite;}
+@keyframes bjxBeat{0%{box-shadow:0 0 0 0 rgba(156,61,34,.42),0 0 0 0 rgba(20,20,20,.16);}
+  14%{box-shadow:0 0 0 9px rgba(156,61,34,0),0 0 0 3px rgba(20,20,20,.12);}
+  26%{box-shadow:0 0 0 0 rgba(156,61,34,0),0 0 0 16px rgba(20,20,20,0);}100%{box-shadow:0 0 0 0 rgba(156,61,34,0),0 0 0 0 rgba(20,20,20,0);}}
+.bjx-spark{position:absolute;left:0;top:0;width:11px;height:11px;border-radius:50%;pointer-events:none;offset-rotate:0deg;offset-anchor:50% 50%;z-index:3;
+  background:#fff6e8;box-shadow:0 0 0 2px var(--accent),0 0 14px 4px rgba(156,61,34,.55);}
+.bjx-spark.in{box-shadow:0 0 0 2px var(--inbound),0 0 14px 4px rgba(47,85,144,.55);}
+.bjx-spark.both{box-shadow:0 0 0 2px var(--ink),0 0 14px 4px rgba(20,20,20,.35);}
+.bjx-genres{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-top:10px;}
+.bjx-gchip{display:inline-flex;align-items:center;gap:6px;border:1.3px solid rgba(20,20,20,.35);background:var(--card);border-radius:999px;padding:4px 11px;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--ink);cursor:pointer;transition:background .15s,border-color .15s,transform .25s var(--ease-spring);}
+.bjx-gchip:hover{border-color:var(--ink);transform:translateY(-1px);}
+.bjx-gchip.on{background:var(--ink);border-color:var(--ink);color:var(--paper);}
+.bjx-gchip .n{color:var(--mut);}.bjx-gchip.on .n{color:rgba(247,245,240,.65);}
+.bjx .sw{display:inline-block;width:9px;height:9px;border-radius:50%;flex:none;box-shadow:inset 0 0 0 1px rgba(20,20,20,.25);}
+.bjx-starts .nm{display:flex;align-items:center;gap:8px;}
+.bjx-chips .stars{border-style:dashed;}
+.bjx-mini{display:flex;flex-direction:column;gap:8px;margin-bottom:-4px;}
+.bjx-mini-h{display:flex;align-items:center;justify-content:space-between;}
+.bjx-mini-open{border:none;background:none;padding:0;cursor:pointer;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);}
+.bjx-mini-open:hover{color:var(--accent);}
+.bjx-mini-map{position:relative;height:190px;border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;background:var(--paper);cursor:pointer;transition:box-shadow .2s,transform .3s var(--ease-spring);}
+.bjx-mini-map:hover,.bjx-mini-map:focus-visible{box-shadow:0 4px 0 rgba(20,20,20,.9);transform:translateY(-2px);outline:none;}
+.bjx-mini-map canvas,.bjx-full-map canvas{display:block;}
+.bjx-full{position:fixed;inset:0;z-index:90;background:var(--paper);animation:bjxFullIn .32s var(--ease-out);}
+@keyframes bjxFullIn{from{opacity:0;transform:scale(.985);}to{opacity:1;transform:none;}}
+.bjx-full-map{position:absolute;inset:0;}
+.bjx-fbar{position:absolute;left:16px;right:16px;top:14px;display:flex;align-items:center;gap:12px;flex-wrap:wrap;pointer-events:none;}
+.bjx-fbar > *{pointer-events:auto;}
+.bjx-ftitle{display:flex;flex-direction:column;gap:2px;background:rgba(247,245,240,.88);padding:6px 10px;border-radius:10px;}
+.bjx-ftitle .sub{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);}
+.bjx-fbar .atlas-q{flex:1;width:auto;max-width:420px;min-width:200px;}
+.bjx-fclose{margin-left:auto;width:42px;height:42px;border-radius:50%;border:1.5px solid var(--ink);background:var(--card);font-size:16px;cursor:pointer;color:var(--ink);box-shadow:0 3px 0 rgba(20,20,20,.9);}
+.bjx-fclose:hover{background:var(--ink);color:var(--paper);}
+.bjx-flegend{position:absolute;left:16px;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:6px 14px;max-width:min(560px,calc(100% - 32px));
+  font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(20,20,20,.75);background:rgba(247,245,240,.9);padding:8px 12px;border-radius:12px;pointer-events:none;}
+.bjx-flegend span{display:inline-flex;align-items:center;gap:6px;}
+.bjx-flegend .ln{display:inline-block;width:20px;border-top:2px dashed;}.bjx-flegend .ln.out{color:var(--accent);}.bjx-flegend .ln.in{color:var(--inbound);}
+.bjx-flegend .ln.tr{border:none;height:2px;background:var(--ink);}
+.bjx-flegend .hint{width:100%;color:var(--mut);}
+.bjx-fcard{position:absolute;right:16px;bottom:calc(16px + env(safe-area-inset-bottom));width:360px;max-width:calc(100% - 32px);box-sizing:border-box;display:flex;gap:14px;
+  background:var(--card);border:1.5px solid var(--ink);border-radius:16px;padding:14px;box-shadow:0 5px 0 rgba(20,20,20,.9);animation:cstlFade .2s ease;}
+.bjx-fcv{flex:none;width:64px;}
+.bjx-fmeta{min-width:0;display:flex;flex-direction:column;gap:4px;}
+.bjx-fmeta h3{font-family:'Instrument Serif',serif;font-weight:400;font-size:22px;line-height:1.05;margin:2px 0;}
+.bjx-fmeta .by{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(20,20,20,.7);}
+.bjx-fmeta .cnt{font-family:'IBM Plex Mono',monospace;font-size:10px;display:flex;align-items:center;flex-wrap:wrap;margin:4px 0 6px;}
+@media (max-width:759px){
+  .bjx-ftitle{display:none;}
+  .bjx-fbar .atlas-q{min-width:0;}
+  .bjx-flegend{display:none;}
+  .bjx-fcard{left:12px;right:12px;width:auto;max-width:none;bottom:calc(12px + env(safe-area-inset-bottom));}
+}
+@media (prefers-reduced-motion:reduce){
+  .bjx-plus .ng-flow{display:none;}
+  .bjx-plus .bjx-center{animation:none;}
+  .bjx-full{animation:none;}
+}
+
+/* ?v=next: book page = fan + panel + lists; network = star map; morphs between them */
+.bkn-page .bjx-top{justify-content:space-between;}
+.bkn-zoom{margin-left:auto;border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 14px;font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink);cursor:pointer;box-shadow:0 3px 0 rgba(20,20,20,.9);transition:transform .25s var(--ease-spring),box-shadow .2s;}
+.bkn-zoom:hover{transform:translateY(-2px);box-shadow:0 5px 0 rgba(20,20,20,.9);}
+.bkn-zoom:active{transform:translateY(2px);box-shadow:0 1px 0 rgba(20,20,20,.9);}
+.bkn .bjx-hmeta h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;line-height:1.05;margin:6px 0 6px;text-wrap:balance;}
+.bkn .bjx-hmeta .lnk{font:inherit;color:inherit;background:none;border:none;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:rgba(20,20,20,.3);text-underline-offset:3px;}
+.bkn .bjx-hmeta .lnk:hover{color:var(--accent);}
+.bkn-lists{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:56px;padding-top:24px;border-top:1.5px solid var(--ink);}
+.bkn-h{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:14px;}
+.bkn-h h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;margin:0;}
+.bkn-h .count{font-family:'IBM Plex Mono',monospace;font-size:12px;padding:2px 9px;border-radius:999px;color:var(--paper);}
+.bkn-h .count.out{background:var(--accent);}.bkn-h .count.in{background:var(--inbound);}
+.bkn-h .cap{width:100%;font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);}
+.bkn-cards{display:flex;flex-direction:column;}
+.bkn-card{display:flex;gap:14px;padding:12px 10px;margin:0 -10px;border-radius:12px;border-top:1px solid rgba(20,20,20,.1);transition:background .15s;}
+.bkn-card:first-child{border-top:none;}
+.bkn-card.is-hot{background:rgba(20,20,20,.05);}
+.bkn-col.out .bkn-card.is-hot{box-shadow:inset 3px 0 0 var(--accent);}.bkn-col.in .bkn-card.is-hot{box-shadow:inset 3px 0 0 var(--inbound);}
+.bkn-cv{flex:none;width:52px;padding:0;border:none;background:none;cursor:pointer;align-self:flex-start;}
+.bkn-body{min-width:0;flex:1;}
+.bkn-t{display:block;text-align:left;background:none;border:none;padding:0;cursor:pointer;font-family:'Instrument Serif',serif;font-size:19px;line-height:1.12;color:var(--ink);}
+.bkn-t:hover{color:var(--accent);}
+.bkn-a{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.04em;color:rgba(20,20,20,.6);margin-top:3px;}
+.bkn-a .mut{color:var(--ink);}
+.bkn-card .mc-q{margin-top:7px;-webkit-line-clamp:3;}
+.bkn-card .mc-q.quote{font-size:15px;}
+.bkn-card .mc-q.ctx{font-size:12.5px;}
+.bkn-col .pill.more{margin-top:12px;}
+.bjx-stage.arriving .bjx-pill,.bjx-stage.arriving .bjx-center,.bjx-stage.arriving .bjx-dot{visibility:hidden;}
+.bjx-morph{position:fixed;inset:0;z-index:95;pointer-events:none;}
+.bjx-msnap{position:fixed;}
+.bjx-mchip{position:fixed;box-sizing:border-box;display:flex;align-items:center;padding:0 10px;overflow:hidden;white-space:nowrap;border:1.4px solid rgba(20,20,20,.85);border-radius:999px;background:#fdfcfa;
+  font:12px 'IBM Plex Mono',monospace;font-style:normal;color:var(--ink);}
+.bjx-mchip.c{background:var(--ink);color:var(--paper);font:italic 22px 'Instrument Serif',serif;justify-content:center;}
+.stars-page .bjx-full{position:fixed;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:5;animation:none;}
+.stars-page .bjx-flegend{bottom:calc(60px + env(safe-area-inset-bottom));}
+@media (max-width:999px){.bkn-lists{grid-template-columns:1fr;gap:28px;}}
+@media (max-width:759px){
+  .bkn-page .bjx-top{gap:10px;}
+  .bkn-zoom{padding:6px 12px;font-size:10.5px;}
+  .stars-page .bjx-fcard{bottom:calc(12px + env(safe-area-inset-bottom));}
+  .net-switch.v-switch{display:none;}
+}
+
+/* ?v=next, round 2: stacked panel, tabs, map key, phone page (header + cover shelves) */
+.bkn-page.stacked .bjx-side{position:static;min-height:0;max-height:none;border-left:none;border-bottom:1.5px solid var(--ink);}
+.bkn-page.stacked .bkn-zoom{display:none;}
+@media (max-width:999px){.net-switch.v-switch{display:none;}}
+.bkn-classic{margin:40px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;}
+.bkn-classic a{color:var(--mut);}
+.bkn-lists.tabbed{display:block;margin-top:22px;padding-top:0;border-top:none;}
+.bkn-tabs{display:flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px;gap:3px;background:var(--card);position:sticky;top:calc(var(--hdr-vis, var(--hdr-h)) + 8px);z-index:4;box-shadow:0 3px 0 rgba(20,20,20,.9);transition:top .3s var(--ease-out);}
+.bkn-tab{flex:1;border:none;background:none;border-radius:999px;padding:9px 6px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;}
+.bkn-tab .n{font-size:10.5px;padding:1px 7px;border-radius:999px;color:var(--paper);}
+.bkn-tab.out .n{background:var(--accent);}.bkn-tab.in .n{background:var(--inbound);}
+.bkn-tab.on{background:var(--ink);color:var(--paper);}
+.bkn-cap{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);margin:14px 0 4px;}
+.bjx-fkey{position:absolute;left:16px;bottom:calc(16px + env(safe-area-inset-bottom));display:flex;flex-wrap:wrap;gap:6px 14px;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(20,20,20,.7);background:rgba(247,245,240,.88);padding:7px 11px;border-radius:999px;pointer-events:none;}
+.bjx-fkey span{display:inline-flex;align-items:center;gap:6px;}
+.bjx-fkey .ln{display:inline-block;width:18px;border-top:2px dashed;}.bjx-fkey .ln.out{color:var(--accent);}.bjx-fkey .ln.in{color:var(--inbound);}
+.bjx-fkey .hint{color:var(--mut);}
+.stars-page .bjx-fkey{bottom:calc(64px + env(safe-area-inset-bottom));}
+.bkp-page{padding:14px 16px 40px;display:block;}
+.bkp-head{display:grid;grid-template-columns:62px minmax(0,1fr) 108px;gap:12px;align-items:start;}
+.bkp-cv0{width:62px;filter:drop-shadow(4px 4px 0 rgba(20,20,20,.12));}
+.bkp-meta{min-width:0;}
+.bkp-meta h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:24px;line-height:1.02;margin:3px 0 4px;text-wrap:balance;}
+.bkp-meta .by{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(20,20,20,.7);}
+.bkp-meta .lnk{font:inherit;color:inherit;background:none;border:none;padding:0;text-decoration:underline;text-decoration-color:rgba(20,20,20,.3);text-underline-offset:3px;}
+.bkp-meta .cnt{font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-top:6px;display:flex;align-items:center;}
+.bkp-map{position:relative;width:108px;height:84px;border:1.5px solid var(--ink);border-radius:12px;overflow:hidden;background:var(--paper);}
+.bkp-map-c{position:absolute;inset:0;}
+.bkp-map-l{position:absolute;left:0;right:0;bottom:0;padding:2px 0 3px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:9px;background:rgba(247,245,240,.88);pointer-events:none;}
+.bkp-syn{margin:12px 0 0;font-size:14px;line-height:1.5;color:rgba(20,20,20,.82);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;cursor:pointer;}
+.bkp-syn.open{-webkit-line-clamp:unset;display:block;}
+.bkp-shelves{position:relative;margin:12px -16px 0;padding:0;}
+.bkp-lines{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:0;}
+.bkp-lab{position:relative;z-index:1;display:flex;align-items:center;gap:6px;padding:0 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
+.bkp-lab .dot{margin:0 !important;}
+.bkp-lab.in{margin-bottom:6px;}.bkp-lab.out{margin-top:6px;}
+.bkp-lab .hint{margin-left:auto;text-transform:none;letter-spacing:0;font-size:9.5px;opacity:.75;}
+.bkp-lines .ng-e{stroke-width:1.1;}
+.bkp-lines .ng-flow{stroke-width:1.5;stroke-dasharray:2 8;}
+.bkp-eg.is-hot .ng-e{stroke-width:2 !important;}
+.bkp-row{position:relative;z-index:1;display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scroll-padding:0 16px;padding:4px 16px 6px;scrollbar-width:none;min-height:88px;align-items:center;}
+.bkp-row::-webkit-scrollbar{display:none;}
+/* a short shelf centres under/over the pill; auto margins only take spare room, so a long one still scrolls from the left */
+.bkp-row>:first-child{margin-left:auto;}.bkp-row>:last-child{margin-right:auto;}
+.bkp-cv{position:relative;flex:none;width:52px;padding:0;border:none;background:none;scroll-snap-align:start;cursor:pointer;transition:transform .25s var(--ease-spring),opacity .2s;
+  opacity:0;animation:ngIn .4s var(--ease-out) forwards;animation-delay:calc(min(var(--i), 10) * 28ms + 120ms);}
+.bkp-cv.is-hot{transform:translateY(-4px) scale(1.08);}
+.bkp-row.out .bkp-cv.is-hot{transform:translateY(4px) scale(1.08);}
+.bkp-shelves.has-hot .bkp-cv:not(.is-hot){opacity:.45 !important;}
+.bkp-shelves.has-hot .bkp-eg:not(.is-hot){opacity:.15;}
+.bkp-eg{transition:opacity .2s;}
+.bkp-cv .mut{position:absolute;right:-5px;top:-6px;width:17px;height:17px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:10px;line-height:17px;text-align:center;}
+.bkp-more{flex:none;width:68px;height:78px;border:1.4px dashed rgba(20,20,20,.5);border-radius:6px;background:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--mut);line-height:1.3;}
+.bkp-none{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);padding:24px 0;}
+.bkp-mid{position:relative;z-index:1;height:118px;display:flex;align-items:center;justify-content:center;padding:0 16px;}
+.bkp-mid .bjx-center{position:relative;display:block;height:34px;line-height:34px;font-size:17.5px;max-width:100%;padding:0 15px;text-overflow:ellipsis;}
+.bkp-shelves.arriving .bkp-cv,.bkp-shelves.arriving .bjx-center{visibility:hidden;}
+.bkp-tip{margin:10px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);text-align:center;}
+.bkp-sheet{margin-top:12px;border:1.5px solid var(--ink);border-radius:14px;background:var(--card);padding:12px 14px;box-shadow:0 3px 0 rgba(20,20,20,.9);animation:cstlFade .2s ease;}
+.bkp-sheet-h{display:flex;gap:10px;align-items:flex-start;justify-content:space-between;}
+.bkp-sheet-t{min-width:0;}
+.bkp-sheet .eyebrow.out{color:var(--accent);}.bkp-sheet .eyebrow.in{color:var(--inbound);}
+.bkp-sheet .t{font-family:'Instrument Serif',serif;font-size:20px;line-height:1.1;margin-top:3px;}
+.bkp-sheet .a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:rgba(20,20,20,.6);margin-top:2px;}
+.bkp-sheet .pill{flex:none;}
+.bkp-sheet .mc-q{margin-top:8px;-webkit-line-clamp:3;}
+.bjx-mchip.cvr{padding:0;}
+
+/* ?v=lab: the layout switcher (Spiral / Petals / Blend / Fame / Stars) */
+.lab-switch{position:absolute;top:14px;right:16px;z-index:6;display:flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px;gap:2px;background:var(--card);box-shadow:0 3px 0 rgba(20,20,20,.9);}
+.lab-switch button{border:none;background:none;border-radius:999px;padding:8px 13px;font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--ink);cursor:pointer;}
+.lab-switch button.on{background:var(--ink);color:var(--paper);}
+.bjx-full .bjx-fbar{z-index:7;}
+@media (max-width:1100px){.bjx-fbar .atlas-q{max-width:300px;}}
+@media (max-width:759px){
+  .lab-switch{position:absolute;top:64px;left:12px;right:12px;justify-content:space-between;}
+  .lab-switch button{flex:1;padding:7px 4px;font-size:10px;}
+}
+
+/* fan pills: a genre-colour dot (the colour of its star on the map) instead of a tiny cover */
+.bjx-pill .gdot{flex:none;display:block;width:10px;height:10px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(20,20,20,.25);margin:0 2px;}
+/* arriving from the map: lines stay hidden while the pills fly in, then fade in (no redraw) */
+.bjx-stage.arriving .bjx-eg,.bkp-shelves.arriving .bkp-lines{opacity:0;}
+.bkp-lines{transition:opacity .35s ease;}
+.bjx-stage.landed .bjx-pill,.bjx-stage.landed .bjx-center,.bjx-stage.landed .bjx-dot,.bkp-shelves.landed .bkp-cv{animation:none !important;opacity:1;}
+.bjx-stage.landed .ng-e,.bkp-shelves.landed .ng-e{animation:none !important;opacity:1;stroke-dashoffset:0;}
+.bjx-stage.landed .bjx-eg{transition:opacity .35s ease;}
+.bjx-mclone{z-index:1;}
+.bjx-mdot{position:fixed;z-index:2;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(20,20,20,.25);pointer-events:none;}
+.bjx-mlines{z-index:0;overflow:visible;pointer-events:none;}
+.bjx-mlines .ng-e,.bjx-mlines .ng-flow{animation:none !important;opacity:1;stroke-dashoffset:0;}
+
+/* stats: three compact tiles on one line; Books / Authors tabs on narrow screens */
+.st-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,5vw,46px);line-height:1.02;margin:0 0 6px;}
+.st-lede{font-size:15px;opacity:.7;max-width:540px;margin:0 0 22px;}
+.st-h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:0 0 4px;}
+.st-cap{font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.6;margin-bottom:14px;}
+.st-tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;max-width:640px;margin-bottom:30px;}
+.st-tile{border:1.5px solid var(--ink);border-radius:14px;background:var(--card);padding:12px 16px;min-width:0;}
+.st-tile .n{font-family:'Instrument Serif',serif;font-size:30px;line-height:1;}
+.st-tile .l{font-family:'IBM Plex Mono',monospace;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;opacity:.6;margin-top:6px;}
+.st-tabs{margin:0 0 14px;max-width:420px;position:static;box-shadow:0 2px 0 rgba(20,20,20,.9);}
+.st-tabs button{padding:7px 6px !important;}
+.st-tabs button{flex:1;border:none;background:none;border-radius:999px;padding:9px 6px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink);cursor:pointer;}
+.st-tabs button.on{background:var(--ink);color:var(--paper);}
+@media (max-width:639px){
+  .st-page{padding-top:16px !important;}
+  .st-h1{font-size:28px;margin-bottom:4px;}
+  .st-lede{font-size:13.5px;margin-bottom:14px;}
+  .st-tiles{gap:7px;margin-bottom:12px;}
+  .st-tile{padding:9px 10px;border-radius:12px;}
+  .st-tile .n{font-size:22px;}
+  .st-tile .l{font-size:8px;letter-spacing:.06em;margin-top:4px;line-height:1.3;}
+  .st-tabs + div .st-h2{display:none;}   /* the tab already names the list */
+}
+
+/* Map / Explorer switcher (only with ?net=) */
+.to-top{position:fixed;right:calc(16px + env(safe-area-inset-right));bottom:calc(18px + env(safe-area-inset-bottom));z-index:60;width:46px;height:46px;display:flex;align-items:center;justify-content:center;padding:0;border:1.5px solid var(--ink);border-radius:50%;background:var(--card);color:var(--ink);box-shadow:0 3px 0 rgba(20,20,20,.9);cursor:pointer;
+  opacity:0;visibility:hidden;transform:translateY(10px);transition:opacity .2s,transform .25s var(--ease-out),visibility 0s .25s,background .15s,color .15s;}
+.to-top.is-on{opacity:1;visibility:visible;transform:none;transition:opacity .2s,transform .25s var(--ease-out),visibility 0s,background .15s,color .15s;}
+.to-top:hover{background:var(--ink);color:var(--paper);}
+.to-top:focus-visible{outline:2px solid var(--accent);outline-offset:3px;}
+@media (prefers-reduced-motion:reduce){.to-top,.to-top.is-on{transition:none;transform:none;}}
+.net-switch{position:fixed;left:14px;bottom:calc(14px + env(safe-area-inset-bottom));z-index:70;display:flex;align-items:center;gap:2px;padding:3px 4px 3px 12px;background:rgba(29,27,24,.9);border:1px solid rgba(242,236,221,.3);border-radius:999px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(242,236,221,.7);}
+.net-switch a{color:#f2ecdd;text-decoration:none;padding:5px 9px;border-radius:999px;}
+.net-switch a.on{background:#f2ecdd;color:var(--ink);}
+
+/* ---------- Network Atlas (?net=v3; atlas.js) — calm grouped map + the Explorer's panel ---------- */
+.atlas{position:relative;display:grid;grid-template-columns:minmax(0,1fr) 400px;height:calc(100dvh - var(--hdr-h));min-height:0;overflow:hidden;}
+.atlas-map{position:relative;min-width:0;height:100%;cursor:grab;}
+.atlas-map[data-drag]{cursor:grabbing;}
+.atlas-canvas{position:absolute;inset:0;display:block;}
+.atlas-panel{min-height:0;height:100%;}
+.atlas-panel .bjx-side{position:relative;top:auto;height:100%;min-height:0;max-height:none;}
+.atlas-bar{position:absolute;top:14px;left:14px;z-index:5;display:flex;gap:10px;align-items:flex-start;max-width:calc(100% - 428px);}
+.atlas-q{position:relative;width:min(340px,60vw);}
+.atlas-input{width:100%;box-sizing:border-box;height:44px;border:1.5px solid var(--ink);border-radius:999px;padding:0 18px;font-size:15px;background:var(--card);color:var(--ink);font-family:inherit;box-shadow:0 3px 0 rgba(20,20,20,.9);}
+.atlas-sg{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--card);border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;z-index:30;box-shadow:0 18px 40px rgba(20,20,20,.18);}
+.atlas-zoom{display:flex;border:1.5px solid var(--ink);border-radius:999px;background:var(--card);box-shadow:0 3px 0 rgba(20,20,20,.9);overflow:hidden;}
+.atlas-zoom button{height:41px;min-width:40px;border:none;background:none;font-family:'IBM Plex Mono',monospace;font-size:16px;cursor:pointer;color:var(--ink);padding:0 10px;}
+.atlas-zoom button+button{border-left:1px solid rgba(20,20,20,.15);}
+.atlas-zoom .fit{font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;}
+.atlas-zoom button:hover{background:var(--ink);color:var(--paper);}
+.atlas-legend{position:absolute;right:414px;bottom:14px;z-index:5;display:flex;flex-wrap:wrap;gap:6px 16px;align-items:center;max-width:calc(100% - 428px);
+  font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:rgba(20,20,20,.65);background:rgba(247,245,240,.92);border:1px solid rgba(20,20,20,.12);border-radius:12px;padding:7px 12px;}
+.atlas-legend span{display:inline-flex;align-items:center;gap:7px;}
+.atlas-legend .blob{display:inline-block;width:14px;height:14px;border-radius:50%;background:rgba(196,104,46,.12);border:1px dashed rgba(20,20,20,.3);}
+.atlas-legend .ln{display:inline-block;width:20px;height:2px;}
+.atlas-legend .ln.out{background:#9c3d22;}.atlas-legend .ln.in{background:#2f5590;}
+.atlas-legend .hint{color:var(--mut);}
+.atlas-intro h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;line-height:1.1;margin:0;text-wrap:balance;}
+.atlas-regs{display:flex;flex-direction:column;}
+.atlas-regs button{display:flex;align-items:center;gap:10px;padding:9px 2px;border:none;border-bottom:1px solid rgba(20,20,20,.1);background:none;cursor:pointer;text-align:left;color:var(--ink);font-family:inherit;}
+.atlas-regs button:hover .nm{color:var(--accent);}
+.atlas-regs .sw{flex:none;width:12px;height:12px;border-radius:50%;opacity:.75;}
+.atlas-regs .nm{flex:1;min-width:0;font-family:'Instrument Serif',serif;font-size:17px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.atlas-regs .sz{flex:none;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);}
+@media (max-width:999px){
+  .atlas{grid-template-columns:minmax(0,1fr);}
+  .atlas-bar,.atlas-legend{max-width:calc(100% - 28px);}
+  .atlas-panel{position:absolute;left:0;right:0;bottom:0;height:auto;max-height:46%;z-index:8;overflow:auto;border-top:1.5px solid var(--ink);border-radius:18px 18px 0 0;background:var(--card);box-shadow:0 -10px 30px rgba(20,20,20,.12);}
+  .atlas-panel:not(.has-focus){max-height:30%;}
+  .atlas-panel .bjx-side{height:auto;border:none;padding:16px 16px 28px;}
+  .atlas-legend{bottom:auto;top:66px;right:auto;left:14px;}
+  .atlas-legend .hint{display:none;}
+}
+@media (max-width:639px){
+  .atlas-q{width:calc(100vw - 196px);}
+  .atlas-intro h2{font-size:22px;}
+}
+
+::view-transition-group(bjx-c),::view-transition-group(bjx-p){animation-duration:.5s;animation-timing-function:var(--ease-out);z-index:60;}
+
+@media (max-width:999px){
+  .bjx-side{position:static;min-height:0;max-height:none;border-left:none;border-top:1.5px solid var(--ink);}
+}
+@media (max-width:639px){
+  .bjx-main{padding:14px 16px 28px;}
+  .bjx-stage{justify-content:flex-start;min-height:0;}
+  .bjx-entry{padding:28px 16px 70px;}
+  .bjx-side{padding:20px 16px 90px;}
+  .bjx-center{font-size:19px;}
+}
+@media (prefers-reduced-motion:reduce){.bjx-pill,.bjx-dot{animation:none;opacity:1;}.bjx-region,.bjx-pill{transition:none;}}
+</style>
+<style>
 /* Standalone page shell (mirrors the design runtime's full-page CSS). */
 html,body{height:100%;}
 #app{min-height:100%;}
@@ -118,7 +824,7 @@ html,body{height:100%;}
 .bj-constellation{position:relative;height:calc(100dvh - var(--hdr-h));width:100%;overflow:hidden;background:var(--paper);font-family:'IBM Plex Mono',monospace;color:var(--ink);}
 .bj-constellation #wrap{position:absolute;inset:0;overflow:hidden;cursor:grab;touch-action:none;}
 .bj-constellation #canvas{position:absolute;inset:0;display:block;}
-.bj-constellation #hint{position:absolute;bottom:12px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.04em;opacity:.45;pointer-events:none;z-index:5;text-align:center;max-width:70%;}
+.bj-constellation #hint{position:absolute;bottom:14px;left:50%;transform:translateX(-50%);font-size:10px;letter-spacing:.04em;color:rgba(20,20,20,.62);background:rgba(247,245,240,.92);border:1px solid rgba(20,20,20,.12);padding:5px 12px;border-radius:999px;pointer-events:none;z-index:5;text-align:center;max-width:70%;}
 .bj-constellation #pathHint{position:absolute;top:64px;left:50%;transform:translateX(-50%);display:none;z-index:22;background:var(--card);border:1.5px solid var(--ink);border-radius:12px;box-shadow:0 3px 0 rgba(20,20,20,.85);padding:9px 14px;font-size:11.5px;line-height:1.4;text-align:center;max-width:min(360px,80%);animation:cstlFade .15s ease;}
 
 .bj-constellation .cstl-topbar{display:contents;}
@@ -229,7 +935,7 @@ html,body{height:100%;}
 <div style="min-height:100dvh;">
 
   <sc-if value="{{ showChrome }}" hint-placeholder-val="{{ false }}">
-  <div style="position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink);padding-top:env(safe-area-inset-top);">
+  <div class="bj-hdr" style="position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink);padding-top:env(safe-area-inset-top);">
     <div style="max-width:1240px;margin:0 auto;display:flex;align-items:center;flex-wrap:wrap;gap:6px;padding:10px 20px;box-sizing:border-box;">
       <button onClick="{{ goHome }}" style="display:flex;align-items:center;gap:10px;background:none;border:none;cursor:pointer;padding:0;">
         <svg width="36" height="21" viewBox="0 0 62 36" style="overflow:visible;">
@@ -254,12 +960,9 @@ html,body{height:100%;}
         <div style="{{ hdrSearchWrap }}">
           <input value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" onFocus="{{ onFocusHeader }}" onBlur="{{ onBlur }}" placeholder="Search a book…" style="{{ hdrInput }}"></input>
           <sc-if value="{{ showHeaderSuggest }}" hint-placeholder-val="{{ false }}">
-            <div style="position:absolute;top:46px;right:0;width:min(340px, calc(100vw - 40px));background:var(--card);border:1.5px solid var(--ink);border-radius:14px;box-shadow:0 18px 40px rgba(20,20,20,.18);overflow:hidden;z-index:80;">
+            <div class="sg-pop" style="position:absolute;top:46px;right:0;width:min(380px, calc(100vw - 40px));background:var(--card);border:1.5px solid var(--ink);border-radius:14px;box-shadow:0 18px 40px rgba(20,20,20,.18);overflow:hidden;z-index:80;">
               <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="0">
-                <button onMouseDown="{{ s.go }}" style="display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:11px 16px;border-bottom:1px solid rgba(20,20,20,.08);" style-hover="background:var(--ink);color:var(--paper);">
-                  <span style="font-family:'Instrument Serif',serif;font-size:16px;">{{ s.title }}</span>
-                  <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;margin-left:auto;white-space:nowrap;">{{ s.sub }}</span>
-                </button>
+                <button onMouseDown="{{ s.go }}" onMouseEnter="{{ s.hover }}" class="{{ s.cls }}"><span class="sg-cv">{{ s.cv }}</span><span class="sg-t"><span class="t">{{ s.title }}</span><span class="a">{{ s.author }}</span></span><span class="s">{{ s.sub }}</span></button>
               </sc-for>
             </div>
           </sc-if>
@@ -295,20 +998,17 @@ html,body{height:100%;}
         <sc-for list="{{ wallCovers }}" as="w" hint-placeholder-count="24">
           <div onClick="{{ w.go }}" data-bk="{{ w.id }}" style="{{ w.wrap }}" style-hover="z-index:80;">
             <div data-hb="1" style="{{ w.inner }}" style-hover="transform:translateY(-8px) scale(1.1);box-shadow:0 16px 34px rgba(20,20,20,.3);">
-              <div style="{{ w.cover }}">
-                <div style="{{ w.top }}"><div style="{{ w.blob }}"></div></div>
-                <div style="{{ w.mid }}">
-                  <div style="{{ w.title }}">{{ w.titleText }}</div>
-                  <div style="{{ w.divider }}"></div>
-                  <div style="{{ w.author }}">{{ w.authorText }}</div>
-                </div>
-                <div style="{{ w.bot }}">{{ w.mark }}</div>
-              </div>
+              {{ w.cv }}
             </div>
           </div>
         </sc-for>
       </div>
       <div style="{{ wallFade }}"></div>
+      <sc-if value="{{ hxCompare }}" hint-placeholder-val="{{ false }}">
+        <div class="hx-switch" style="position:fixed;z-index:20;">Home
+          <a href="?home=classic#/" class="on">Classic</a><a href="?home=a#/">A</a><a href="?home=b#/">B</a><a href="?home=c#/">C</a>
+        </div>
+      </sc-if>
       <div style="{{ heroCenter }}">
         <div style="{{ heroCard }}">
           <div style="{{ heroArc }}">
@@ -339,12 +1039,9 @@ html,body{height:100%;}
           <div style="{{ heroSearchWrap }}">
             <input value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" onFocus="{{ onFocusHome }}" onBlur="{{ onBlur }}" placeholder="{{ homePlaceholder }}" style="width:100%;height:56px;border:1.5px solid var(--ink);border-radius:999px;padding:0 26px;font-size:16.5px;background:var(--paper);color:var(--ink);font-family:inherit;box-sizing:border-box;box-shadow:0 4px 0 rgba(20,20,20,.9);"></input>
             <sc-if value="{{ showHomeSuggest }}" hint-placeholder-val="{{ false }}">
-              <div style="position:absolute;top:64px;left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(20,20,20,.2);overflow:hidden;z-index:80;text-align:left;">
+              <div class="sg-pop" style="position:absolute;top:64px;left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(20,20,20,.2);overflow:hidden;z-index:80;text-align:left;">
                 <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="0">
-                  <button onMouseDown="{{ s.go }}" style="display:flex;align-items:baseline;gap:10px;width:100%;text-align:left;background:none;border:none;cursor:pointer;padding:12px 20px;border-bottom:1px solid rgba(20,20,20,.08);" style-hover="background:var(--ink);color:var(--paper);">
-                    <span style="font-family:'Instrument Serif',serif;font-size:17px;">{{ s.title }}</span>
-                    <span style="font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;margin-left:auto;white-space:nowrap;">{{ s.sub }}</span>
-                  </button>
+                  <button onMouseDown="{{ s.go }}" onMouseEnter="{{ s.hover }}" class="{{ s.cls }}"><span class="sg-cv">{{ s.cv }}</span><span class="sg-t"><span class="t">{{ s.title }}</span><span class="a">{{ s.author }}</span></span><span class="s">{{ s.sub }}</span></button>
                 </sc-for>
               </div>
             </sc-if>
@@ -383,105 +1080,166 @@ html,body{height:100%;}
     </div>
   </sc-if>
 
-  <sc-if value="{{ pgBook }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="Book page" style="max-width:1240px;margin:0 auto;{{ pagePad }}">
-      <div style="{{ bookHero }}">
-        <div style="{{ coverWrap }}">
-          <div style="{{ b_t.cover }}">
-            <div style="{{ b_t.top }}"><div style="{{ b_t.blob }}"></div></div>
-            <div style="{{ b_t.mid }}">
-              <div style="{{ b_t.title }}">{{ b_t.titleText }}</div>
-              <div style="{{ b_t.author }}">{{ b_t.authorText }}</div>
+  <sc-if value="{{ pgHomeX }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Home" class="{{ hxClass }}" ref="{{ hxRootRef }}">
+      <div class="hx-stage" ref="{{ hxStageRef }}" aria-hidden="true"></div>
+      <div class="hx-vignette"></div>
+      <div class="hx-hero" data-hx-band="1">
+        <div class="hx-card">
+          <div class="hx-x"><div>
+            <div class="hx-arc">
+              <svg viewBox="0 0 300 44" style="width:100%;height:auto;display:block;overflow:visible;">
+                <path id="bj-hx-arc" d="M4 38 Q77 -20 150 38 Q192 2 235 38 Q264 16 292 38" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="2.4 3"></path>
+                <path d="M4 38 Q77 -20 150 38 Q192 2 235 38 Q264 16 292 38" fill="none" stroke="var(--card)" stroke-width="4.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0">
+                  <animate attributeName="stroke-dashoffset" values="0;-50;-80;-100;-100" keyTimes="0;0.275;0.44;0.55;1" begin="0.6s" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0 0 1 1"></animate>
+                </path>
+                <circle cx="4" cy="38" r="2.1" fill="var(--ink)"></circle>
+                <g opacity="0">
+                  <rect x="-4.5" y="-6.5" width="9" height="13" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"></rect>
+                  <line x1="-2" y1="-6.5" x2="-2" y2="6.5" stroke="var(--ink)" stroke-width="1.2"></line>
+                  <animate attributeName="opacity" values="0;1" begin="0.6s" dur="0.01s" fill="freeze"></animate>
+                  <animateMotion begin="0.6s" dur="5s" repeatCount="indefinite" rotate="auto" calcMode="spline" keyPoints="0;0.5;0.8;1;1" keyTimes="0;0.275;0.44;0.55;1" keySplines="0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0 0 1 1">
+                    <mpath href="#bj-hx-arc"></mpath>
+                  </animateMotion>
+                </g>
+              </svg>
             </div>
-            <div style="{{ b_t.bot }}">{{ b_t.mark }}</div>
+            <h1 class="hx-h1">Every book is a door<br>to more books.</h1>
+            <p class="hx-p">{{ hxIntro }}</p>
+          </div></div>
+          <div>
+            <div class="hx-bar">
+              <button class="hx-logo" onClick="{{ hxExpand }}" aria-label="Show intro" title="Back to the intro">
+                <svg width="36" height="21" viewBox="0 0 62 36" style="overflow:visible;flex:none;"><path d="M4 30 Q 30 -8 58 23" fill="none" stroke="currentColor" stroke-width="2" stroke-dasharray="3 3.4"></path><circle cx="4" cy="30" r="2.4" fill="currentColor"></circle><g transform="translate(57 22) rotate(38)"><rect x="-4" y="-5.8" width="8" height="11.6" fill="var(--card)" stroke="currentColor" stroke-width="1.9"></rect></g></svg>
+                <span>BookJumpr</span>
+              </button>
+              <div class="hx-search">
+                <input value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" onFocus="{{ onFocusHx }}" onBlur="{{ onBlurHx }}" placeholder="{{ homePlaceholder }}" aria-label="Search a book"></input>
+                <button class="hx-shuf" onClick="{{ shuffleChips }}" title="Shuffle the shelves" aria-label="Shuffle the shelves">
+                  <svg width="16" height="16" viewBox="0 0 16 16"><path d="M1.5 4.5 H5 L11 11.5 H13" fill="none" stroke="currentColor" stroke-width="1.6"></path><path d="M1.5 11.5 H5 L11 4.5 H13" fill="none" stroke="currentColor" stroke-width="1.6"></path><polygon points="12.4,2.4 16,4.5 12.4,6.6" fill="currentColor"></polygon><polygon points="12.4,9.4 16,11.5 12.4,13.6" fill="currentColor"></polygon></svg>
+                </button>
+                <sc-if value="{{ showHomeSuggest }}" hint-placeholder-val="{{ false }}">
+                  <div class="hx-sugg sg-pop" data-hx-sugg="1">
+                    <sc-for list="{{ suggestions }}" as="s" hint-placeholder-count="0">
+                      <button onMouseDown="{{ s.go }}" onMouseEnter="{{ s.hover }}" class="{{ s.cls }}"><span class="sg-cv">{{ s.cv }}</span><span class="sg-t"><span class="t">{{ s.title }}</span><span class="a">{{ s.author }}</span></span><span class="s">{{ s.sub }}</span></button>
+                    </sc-for>
+                  </div>
+                </sc-if>
+              </div>
+            </div>
+            <div class="hx-x"><div>
+              <div class="hx-chips">
+                <span class="lbl">Rabbit holes to fall into</span>
+                <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
+                  <button onClick="{{ ch.go }}">{{ ch.label }}</button>
+                </sc-for>
+              </div>
+            </div></div>
           </div>
         </div>
-        <div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Book</div>
-          <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6vw,46px);line-height:1.06;margin:10px 0 10px;">{{ b_title }}</h1>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:12.5px;opacity:.7;">
-            <sc-if value="{{ hasAuthor }}" hint-placeholder-val="{{ true }}">by <button onClick="{{ b_authorGo }}" style="background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px;" style-hover="color:var(--accent);">{{ b_author }}</button>{{ b_yearSuffix }}</sc-if>
+      </div>
+      <div class="hx-nav">
+        <button onClick="{{ goNetwork }}" aria-label="Network"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="3" cy="12" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="8" cy="4" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><circle cx="13" cy="11" r="2" fill="none" stroke="currentColor" stroke-width="1.5"></circle><line x1="4.2" y1="10.4" x2="6.9" y2="5.7" stroke="currentColor" stroke-width="1.5"></line><line x1="9.5" y1="5.4" x2="11.7" y2="9.6" stroke="currentColor" stroke-width="1.5"></line></svg><span class="lbl">Network</span></button>
+        <button onClick="{{ goStats }}" aria-label="Stats"><svg width="16" height="16" viewBox="0 0 16 16"><rect x="2" y="9" width="3" height="5" fill="currentColor"></rect><rect x="6.5" y="5" width="3" height="9" fill="currentColor"></rect><rect x="11" y="2" width="3" height="12" fill="currentColor"></rect></svg><span class="lbl">Stats</span></button>
+        <button onClick="{{ goAbout }}" aria-label="About"><svg width="16" height="16" viewBox="0 0 16 16"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.5"></circle><text x="8" y="11" text-anchor="middle" font-size="8.5" font-family="Helvetica, Arial, sans-serif" font-weight="bold" fill="currentColor">?</text></svg><span class="lbl">About</span></button>
+      </div>
+      <div class="hx-hint"><i></i>{{ hxHint }}</div>
+      <sc-if value="{{ hxShowSwitch }}" hint-placeholder-val="{{ false }}">
+        <div class="hx-switch" data-nodrag="1">Home
+          <a href="?home=classic#/" class="{{ hxSw0 }}">Classic</a><a href="?home=a#/" class="{{ hxSwA }}">A</a><a href="?home=b#/" class="{{ hxSwB }}">B</a><a href="?home=c#/" class="{{ hxSwC }}">C</a>
+        </div>
+      </sc-if>
+    </div>
+  </sc-if>
+
+  <sc-if value="{{ pgBook }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Book page" class="bk" style="max-width:1240px;margin:0 auto;{{ pagePad }}">
+      {{ trail }}
+      <div class="bk-hero">
+        <div class="bk-cv">{{ b_cv }}</div>
+        <div class="bk-head">
+          <div class="eyebrow">Book{{ b_genreLabel }}</div>
+          <h1 class="bk-h1">{{ b_title }}</h1>
+          <div class="bk-by">
+            <sc-if value="{{ hasAuthor }}" hint-placeholder-val="{{ true }}">by <button onClick="{{ b_authorGo }}" class="lnk">{{ b_author }}</button>{{ b_yearSuffix }}</sc-if>
             <sc-if value="{{ noAuthor }}" hint-placeholder-val="{{ false }}">{{ b_byline }}</sc-if>
           </div>
-          <p style="font-size:16px;line-height:1.65;max-width:560px;margin:18px 0 26px;text-wrap:pretty;">{{ b_synopsis }}</p>
-          <div style="display:flex;gap:12px;flex-wrap:wrap;">
-            <button onClick="{{ jumpOut }}" style="border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:9px 18px;font-size:13px;cursor:pointer;font-family:'IBM Plex Mono',monospace;" style-hover="background:var(--ink);color:var(--paper);">↓ mentions {{ cntOut }}</button>
-            <button onClick="{{ jumpIn }}" style="border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:9px 18px;font-size:13px;cursor:pointer;font-family:'IBM Plex Mono',monospace;" style-hover="background:var(--ink);color:var(--paper);">↓ mentioned by {{ cntIn }}</button>
-          </div>
         </div>
-        <div style="{{ graphPanel }}">
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">The neighborhood</div>
-          {{ miniGraph }}
-          <div style="display:flex;gap:16px;font-family:'IBM Plex Mono',monospace;font-size:10px;opacity:.6;padding:6px 2px 8px;">
-            <span>— mentions</span>
-            <span>&#183;&#183;&#183; mentioned by</span>
+        <div class="bk-body">
+          <p class="bk-syn">{{ b_synopsis }}</p>
+          <div class="bk-jumps">
+            <button onClick="{{ jumpOut }}" class="pill"><i class="dot out"></i>mentions {{ cntOut }}</button>
+            <button onClick="{{ jumpIn }}" class="pill"><i class="dot in"></i>mentioned by {{ cntIn }}</button>
+            <button onClick="{{ openNetwork }}" class="pill ghost">see it in the network ↗</button>
           </div>
         </div>
       </div>
 
-      <div id="mentions-out" style="margin-top:76px;">
-        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;">
-          <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;margin:0;">Mentions</h2>
-          <span style="{{ secCaption }}">books found inside {{ b_title }}</span>
-          <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;border:1.5px solid var(--ink);border-radius:999px;padding:3px 11px;">{{ cntOut }}</span>
+      <section class="bk-ng">
+        <div class="sec-h">
+          <h2>The neighborhood</h2>
+          <span class="cap">{{ ngCaption }}</span>
+        </div>
+        {{ neighborhood }}
+      </section>
+
+      <section id="mentions-out" class="bk-sec">
+        <div class="sec-h">
+          <h2>Mentions</h2>
+          <span class="cap">books found inside {{ b_title }}</span>
+          <span class="count out">{{ cntOut }}</span>
         </div>
         <sc-if value="{{ hasOut }}" hint-placeholder-val="{{ true }}">
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;margin-top:28px;align-items:start;">
-            <sc-for list="{{ cardsOut }}" as="m" hint-placeholder-count="5">
-              <button onClick="{{ m.go }}" data-hb="1" style="{{ m.btnStyle }}">
-                <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(-1deg);">
-                  <div style="{{ m.t.cover }}">
-                    <div style="{{ m.t.top }}"><div style="{{ m.t.blob }}"></div></div>
-                    <div style="{{ m.t.mid }}">
-                      <div style="{{ m.t.title }}">{{ m.t.titleText }}</div>
-                      <div style="{{ m.t.author }}">{{ m.t.authorText }}</div>
-                    </div>
-                    <div style="{{ m.t.bot }}">{{ m.t.mark }}</div>
-                  </div>
+          <div class="mc-grid">
+            <sc-for list="{{ cardsOut }}" as="m" hint-placeholder-count="3">
+              <article class="mc rv">
+                <button onClick="{{ m.go }}" class="mc-cv" data-tilt="1" aria-label="{{ m.title }}">{{ m.cv }}</button>
+                <div class="mc-body">
+                  <button onClick="{{ m.go }}" class="mc-t">{{ m.title }}</button>
+                  <div class="mc-a">{{ m.author }}</div>
+                  {{ m.note }}
+                  <div class="mc-sub">{{ m.sub }}</div>
                 </div>
-                <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.author }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;">{{ m.sub }}</div>
-              </button>
+              </article>
             </sc-for>
           </div>
+          <sc-if value="{{ moreOut }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ showAllOut }}" class="pill more">Show all {{ cntOut }}</button>
+          </sc-if>
         </sc-if>
         <sc-if value="{{ noOut }}" hint-placeholder-val="{{ false }}">
-          <div style="border:1.5px dashed var(--ink);border-radius:16px;padding:34px;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;">Nothing on the shelf. {{ b_title }} doesn&rsquo;t name-drop a single book — or nobody has logged one yet.</div>
+          <div class="empty">Nothing on the shelf. {{ b_title }} doesn&rsquo;t name-drop a single book — or nobody has logged one yet.</div>
         </sc-if>
-      </div>
+      </section>
 
-      <div id="mentions-in" style="margin-top:64px;">
-        <div style="display:flex;align-items:baseline;gap:14px;border-bottom:1.5px solid var(--ink);padding-bottom:12px;">
-          <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:32px;margin:0;">Mentioned by</h2>
-          <span style="{{ secCaption }}">books that reference {{ b_title }}</span>
-          <span style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:12px;border:1.5px solid var(--ink);border-radius:999px;padding:3px 11px;">{{ cntIn }}</span>
+      <section id="mentions-in" class="bk-sec">
+        <div class="sec-h">
+          <h2>Mentioned by</h2>
+          <span class="cap">books that reference {{ b_title }}</span>
+          <span class="count in">{{ cntIn }}</span>
         </div>
         <sc-if value="{{ hasIn }}" hint-placeholder-val="{{ false }}">
-          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;margin-top:28px;align-items:start;">
+          <div class="mc-grid">
             <sc-for list="{{ cardsIn }}" as="m" hint-placeholder-count="2">
-              <button onClick="{{ m.go }}" data-hb="1" style="{{ m.btnStyle }}">
-                <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(1deg);">
-                  <div style="{{ m.t.cover }}">
-                    <div style="{{ m.t.top }}"><div style="{{ m.t.blob }}"></div></div>
-                    <div style="{{ m.t.mid }}">
-                      <div style="{{ m.t.title }}">{{ m.t.titleText }}</div>
-                      <div style="{{ m.t.author }}">{{ m.t.authorText }}</div>
-                    </div>
-                    <div style="{{ m.t.bot }}">{{ m.t.mark }}</div>
-                  </div>
+              <article class="mc rv">
+                <button onClick="{{ m.go }}" class="mc-cv" data-tilt="1" aria-label="{{ m.title }}">{{ m.cv }}</button>
+                <div class="mc-body">
+                  <button onClick="{{ m.go }}" class="mc-t">{{ m.title }}</button>
+                  <div class="mc-a">{{ m.author }}</div>
+                  {{ m.note }}
+                  <div class="mc-sub">{{ m.sub }}</div>
                 </div>
-                <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;text-transform:uppercase;letter-spacing:.08em;opacity:.6;margin-top:3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">{{ m.author }}</div>
-                <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;">{{ m.sub }}</div>
-              </button>
+              </article>
             </sc-for>
           </div>
+          <sc-if value="{{ moreIn }}" hint-placeholder-val="{{ false }}">
+            <button onClick="{{ showAllIn }}" class="pill more">Show all {{ cntIn }}</button>
+          </sc-if>
         </sc-if>
         <sc-if value="{{ noIn }}" hint-placeholder-val="{{ false }}">
-          <div style="border:1.5px dashed var(--ink);border-radius:16px;padding:34px;margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;">No book has name-dropped {{ b_title }} yet. Give it time — the canon is slow.</div>
+          <div class="empty">No book has name-dropped {{ b_title }} yet. Give it time — the canon is slow.</div>
         </sc-if>
-      </div>
+      </section>
     </div>
   </sc-if>
 
@@ -493,16 +1251,9 @@ html,body{height:100%;}
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:34px;">{{ a_count }}</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;align-items:start;">
           <sc-for list="{{ a_books }}" as="m" hint-placeholder-count="6">
-            <button onClick="{{ m.go }}" data-hb="1" style="{{ m.btnStyle }}">
+            <button onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
               <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(-1deg);">
-                <div style="{{ m.t.cover }}">
-                  <div style="{{ m.t.top }}"><div style="{{ m.t.blob }}"></div></div>
-                  <div style="{{ m.t.mid }}">
-                    <div style="{{ m.t.title }}">{{ m.t.titleText }}</div>
-                    <div style="{{ m.t.author }}">{{ m.t.authorText }}</div>
-                  </div>
-                  <div style="{{ m.t.bot }}">{{ m.t.mark }}</div>
-                </div>
+                {{ m.cv }}
               </div>
               <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
               <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;">{{ m.sub }}</div>
@@ -524,16 +1275,9 @@ html,body{height:100%;}
       <sc-if value="{{ s_has }}" hint-placeholder-val="{{ true }}">
         <div style="display:flex;flex-direction:column;border-top:1.5px solid var(--ink);">
           <sc-for list="{{ s_results }}" as="r" hint-placeholder-count="3">
-            <button onClick="{{ r.go }}" data-hb="1" style="{{ r.rowStyle }}" style-hover="background:var(--card);">
+            <button onClick="{{ r.go }}" style="{{ r.rowStyle }}" style-hover="background:var(--card);">
               <div style="width:52px;flex-shrink:0;">
-                <div style="{{ r.t.cover }}">
-                  <div style="{{ r.t.top }}"><div style="{{ r.t.blob }}"></div></div>
-                  <div style="{{ r.t.mid }}">
-                    <div style="{{ r.t.title }}">{{ r.t.titleText }}</div>
-                    <div style="{{ r.t.author }}">{{ r.t.authorText }}</div>
-                  </div>
-                  <div style="{{ r.t.bot }}">{{ r.t.mark }}</div>
-                </div>
+                {{ r.cv }}
               </div>
               <div style="flex:1;min-width:0;">
                 <div style="font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;">{{ r.title }}</div>
@@ -551,28 +1295,34 @@ html,body{height:100%;}
   </sc-if>
 
   <sc-if value="{{ pgStats }}" hint-placeholder-val="{{ false }}">
-    <div data-screen-label="Stats" style="max-width:1100px;margin:0 auto;{{ pagePad }}">
-      <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Stats</div>
-      <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(34px,6vw,46px);margin:10px 0 8px;">The most name-dropped</h1>
-      <p style="font-size:15px;opacity:.7;max-width:540px;margin:0 0 34px;">Which books keep showing up inside other books.</p>
-      <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:44px;">
-        <div style="border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 22px;">
-          <div data-statnum style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_sources }}</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:6px;">books indexed so far</div>
+    <div data-screen-label="Stats" class="st-page" style="max-width:1100px;margin:0 auto;{{ pagePad }}">
+      <h1 class="st-h1">The most name-dropped</h1>
+      <p class="st-lede">Which books keep showing up inside other books.</p>
+      <div class="st-tiles">
+        <div class="st-tile">
+          <div data-statnum class="n">{{ st_sources }}</div>
+          <div class="l">books indexed</div>
         </div>
-        <div style="border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 22px;">
-          <div data-statnum style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_books }}</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:6px;">books in the network</div>
+        <div class="st-tile">
+          <div data-statnum class="n">{{ st_books }}</div>
+          <div class="l">in the network</div>
         </div>
-        <div style="border:1.5px solid var(--ink);border-radius:16px;background:var(--card);padding:16px 22px;">
-          <div data-statnum style="font-family:'Instrument Serif',serif;font-size:34px;line-height:1;">{{ st_links }}</div>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.14em;text-transform:uppercase;opacity:.6;margin-top:6px;">mentions logged</div>
+        <div class="st-tile">
+          <div data-statnum class="n">{{ st_links }}</div>
+          <div class="l">mentions logged</div>
         </div>
       </div>
+      <sc-if value="{{ statsTabs }}" hint-placeholder-val="{{ false }}">
+        <div class="bkn-tabs st-tabs" role="tablist">
+          <button role="tab" onClick="{{ statsTabBooks }}" class="{{ statsTabBooksCls }}">Books</button>
+          <button role="tab" onClick="{{ statsTabAuthors }}" class="{{ statsTabAuthorsCls }}">Authors</button>
+        </div>
+      </sc-if>
       <div style="{{ statsCols }}">
+        <sc-if value="{{ statsShowBooks }}" hint-placeholder-val="{{ true }}">
         <div>
-          <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:0 0 4px;">Most mentioned books</h2>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.6;margin-bottom:18px;">by number of books that mention them</div>
+          <h2 class="st-h2">Most mentioned books</h2>
+          <div class="st-cap">by number of books that mention them</div>
           <div style="border-top:1.5px solid var(--ink);">
             <sc-for list="{{ topBooks }}" as="tb" hint-placeholder-count="8">
               <button onClick="{{ tb.go }}" style="display:block;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid rgba(20,20,20,.15);cursor:pointer;padding:12px 4px;font-family:inherit;" style-hover="background:var(--card);">
@@ -589,9 +1339,11 @@ html,body{height:100%;}
             </sc-for>
           </div>
         </div>
+        </sc-if>
+        <sc-if value="{{ statsShowAuthors }}" hint-placeholder-val="{{ true }}">
         <div>
-          <h2 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:28px;margin:0 0 4px;">Most mentioned authors</h2>
-          <div style="font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.6;margin-bottom:18px;">by total mentions of their works</div>
+          <h2 class="st-h2">Most mentioned authors</h2>
+          <div class="st-cap">by total mentions of their works</div>
           <div style="border-top:1.5px solid var(--ink);">
             <sc-for list="{{ topAuthors }}" as="ta" hint-placeholder-count="8">
               <button onClick="{{ ta.go }}" style="display:flex;align-items:baseline;gap:12px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid rgba(20,20,20,.15);cursor:pointer;padding:12px 4px;font-family:inherit;" style-hover="background:var(--card);">
@@ -603,11 +1355,35 @@ html,body{height:100%;}
             </sc-for>
           </div>
         </div>
+        </sc-if>
       </div>
     </div>
   </sc-if>
 
-  <sc-if value="{{ pgNetwork }}" hint-placeholder-val="{{ false }}">
+  <sc-if value="{{ pgBookNext }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Book page" class="bjx bkn">{{ bookNext }}</div>
+  </sc-if>
+  <sc-if value="{{ pgStars }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Network" class="bjx stars-page">{{ starMap }}</div>
+  </sc-if>
+  <sc-if value="{{ vSwitch }}" hint-placeholder-val="{{ false }}">
+    <div class="net-switch v-switch">View <a class="on">Classic</a><a href="#" onClick="{{ vToNew }}">New</a></div>
+  </sc-if>
+  <sc-if value="{{ pgExplorer }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Network explorer" class="bjx">{{ explorer }}</div>
+  </sc-if>
+  <sc-if value="{{ pgAtlas }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Network atlas" class="atlas bjx">
+      <div class="atlas-map" ref="{{ atlasHostRef }}"></div>
+      {{ atlasUi }}
+    </div>
+  </sc-if>
+  <sc-if value="{{ netCompare }}" hint-placeholder-val="{{ false }}">
+    <div class="net-switch">Network
+      <a href="{{ netSwMap }}" class="{{ netSwMapCls }}">Map</a><a href="{{ netSwX }}" class="{{ netSwXCls }}">Explorer</a><a href="{{ netSwA }}" class="{{ netSwACls }}">Atlas</a><a href="{{ netSwP }}" class="{{ netSwPCls }}">Explorer+</a>
+    </div>
+  </sc-if>
+  <sc-if value="{{ pgNetMap }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="Network" class="bj-constellation" ref="{{ netHostRef }}">
       <div id="wrap"><canvas id="canvas"></canvas></div>
       <div id="hint">dot = book · click to trace a book · shift-click two to thread them · esc to reset</div>
@@ -724,11 +1500,12 @@ html,body{height:100%;}
 <script src="vendor/react.production.min.js"></script>
 <script src="vendor/react-dom.production.min.js"></script>
 <!-- Data: exposes window.BookJumprData = { MENTIONS, META } -->
-<script src="bookjumpr-data.js"></script>
+<script src="bookjumpr-data.js?v=2"></script>
 <!-- Network tab: constellation graph data (window.BookGraph) + engine (window.Constellation) —
      loaded lazily by app.js (P._loadConstellation) only when the #/network route is first hit,
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
-<script src="app.js?v=2"></script>
+<script src="home.js?v=3"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>

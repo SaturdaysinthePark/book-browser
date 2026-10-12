@@ -132,7 +132,7 @@ async function run(cmd, args) {
           if (!r.identical) process.exitCode = 1;
         } else {
           exportCsv(db); // keep the CSV backup in lockstep with each build
-          console.log(`✓ wrote bookjumpr-data.js (${r.bytes} bytes)${r.changed ? '' : ' — no change'} + refreshed data/*.csv`);
+          console.log(`✓ wrote bookjumpr-data.js (${r.bytes} bytes) + bookjumpr-notes.js (${r.notesBytes} bytes)${r.changed ? '' : ' — no change'} + refreshed data/*.csv`);
         }
       });
       return;
