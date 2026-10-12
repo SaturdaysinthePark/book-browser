@@ -776,6 +776,8 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .atlas-bar{position:absolute;top:14px;left:14px;z-index:5;display:flex;gap:10px;align-items:flex-start;max-width:calc(100% - 428px);}
 .atlas-q{position:relative;width:min(340px,60vw);}
 .atlas-input{width:100%;box-sizing:border-box;height:44px;border:1.5px solid var(--ink);border-radius:999px;padding:0 18px;font-size:15px;background:var(--card);color:var(--ink);font-family:inherit;box-shadow:0 3px 0 rgba(20,20,20,.9);}
+/* iOS Safari zooms into any text field under 16px on focus (and stays zoomed, the page panned): touch screens get 16px */
+@media (pointer:coarse),(max-width:759px){.atlas-input,.bjx-input{font-size:16px;}}
 .atlas-sg{position:absolute;left:0;right:0;top:calc(100% + 8px);background:var(--card);border:1.5px solid var(--ink);border-radius:14px;overflow:hidden;z-index:30;box-shadow:0 18px 40px rgba(20,20,20,.18);}
 .atlas-zoom{display:flex;border:1.5px solid var(--ink);border-radius:999px;background:var(--card);box-shadow:0 3px 0 rgba(20,20,20,.9);overflow:hidden;}
 .atlas-zoom button{height:41px;min-width:40px;border:none;background:none;font-family:'IBM Plex Mono',monospace;font-size:16px;cursor:pointer;color:var(--ink);padding:0 10px;}
