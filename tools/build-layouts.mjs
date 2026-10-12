@@ -99,7 +99,10 @@ const spiral = () => {
 };
 
 // ---- petals ----
-const petals = () => {
+// genre order around the circle (greedy by shared mentions) + each book's sub-community slice of its genre
+let _prep = null;
+const genrePrep = () => {
+  if (_prep) return _prep;
   const gs = [...new Set(genre)].sort((a, b) => genre.filter((x) => x === b).length - genre.filter((x) => x === a).length);
   const cnt = new Map(gs.map((g) => [g, genre.filter((x) => x === g).length]));
   // order around the circle: greedy by shared mentions, so related genres are neighbours
@@ -108,12 +111,8 @@ const petals = () => {
   const link = (a, b) => cross.get([a, b].sort().join('|')) || 0;
   const rest = gs.slice(1), order = [gs[0]];
   while (rest.length) { const last = order[order.length - 1]; let bi = 0, bv = -1; rest.forEach((g, i) => { const v = link(last, g) + cnt.get(g) * 1e-3; if (v > bv) { bv = v; bi = i; } }); order.push(rest.splice(bi, 1)[0]); }
-  // wedges (a small gap between petals); inside each, sub-communities get contiguous sub-ranges
-  const GAPA = 0.03, span = Math.PI * 2 - GAPA * order.length;
-  let a = -Math.PI / 2;
-  const wedge = new Map(), sub = new Array(N), counters = new Map();
+  const sub = new Array(N);
   order.forEach((g) => {
-    const w = span * cnt.get(g) / N; wedge.set(g, [a, a + w]); a += w + GAPA;
     const members = []; for (let i = 0; i < N; i++) if (genre[i] === g) members.push(i);
     const li = new Map(members.map((i, j) => [i, j])), edges = [];
     for (const [x, y] of pairs) if (li.has(x) && li.has(y)) edges.push([li.get(x), li.get(y), 1]);
@@ -123,6 +122,15 @@ const petals = () => {
     let f = 0;
     comms.forEach((list, ci) => { const fr = list.length / members.length; list.forEach((i) => { sub[i] = [f, fr, g + ':' + ci]; }); f += fr; });
   });
+  return (_prep = { order, cnt, sub });
+};
+const petals = () => {
+  const { order, cnt, sub } = genrePrep(), counters = new Map();
+  // wedges (a small gap between petals); inside each, sub-communities get contiguous sub-ranges
+  const GAPA = 0.03, span = Math.PI * 2 - GAPA * order.length;
+  let a = -Math.PI / 2;
+  const wedge = new Map();
+  order.forEach((g) => { const w = span * cnt.get(g) / N; wedge.set(g, [a, a + w]); a += w + GAPA; });
   const xy = new Float64Array(2 * N), reg = new Array(N);
   const gi = new Map(order.map((g, i) => [g, i]));
   rank.forEach((i, j) => {
@@ -139,6 +147,81 @@ const petals = () => {
     return { x: 0, y: 0, r: round(R), lx: round(Math.cos(am) * rr), ly: round(Math.sin(am) * rr + 6), name: GNAME(g), genre: g, size: cnt.get(g), tip: 1 };
   });
   return { xy, reg, regions, guides: {} };
+};
+
+// ---- band: the petals unrolled into a strip that loops sideways ----
+// Genres are columns across the strip, in the petals' circular order (so the last column leads back
+// into the first, and the map can wrap). Distance from the middle line = global popularity rank
+// (√ of rank, so the famous get room): every genre's most connected books line the centre, one-offs
+// fade to the top and bottom edges. Inside a column, sub-communities take neighbouring x ranges.
+const band = () => {
+  const { order, cnt, sub } = genrePrep(), counters = new Map();
+  const P = 2000, GAP = 16, Hh = 260;
+  const usable = P - GAP * order.length, col = new Map();
+  let x = -P / 2;
+  order.forEach((g) => { const w = usable * cnt.get(g) / N; col.set(g, [x + GAP / 2, x + GAP / 2 + w]); x += w + GAP; });
+  const xy = new Float64Array(2 * N), reg = new Array(N), gi = new Map(order.map((g, i) => [g, i]));
+  rank.forEach((i, j) => {
+    const [x0, x1] = col.get(genre[i]), [f0, fr, ck] = sub[i];
+    const m = counters.get(ck) || 0; counters.set(ck, m + 1);
+    const frac = f0 + fr * (0.06 + 0.88 * ((m * PHI + 0.5) % 1));
+    const yy = Hh * Math.sqrt((j + 0.5) / N) * (j % 2 ? 1 : -1);   // √: the famous get room, the one-offs compress
+    xy[2 * i] = x0 + (x1 - x0) * frac; xy[2 * i + 1] = yy; reg[i] = gi.get(genre[i]);
+  });
+  collide(xy, S * 0.6, 30);
+  const lines = [];
+  for (const [t, label] of [[50, '50+ links'], [20, '20+'], [10, '10+'], [5, '5+'], [2, '2+']]) {
+    const j = rank.findIndex((i) => deg[i] < t);
+    if (j > 0) lines.push({ y: round(Hh * Math.sqrt(j / N)), t: label });
+  }
+  const regions = order.map((g) => {
+    const [x0, x1] = col.get(g);
+    return { x: round((x0 + x1) / 2), y: 0, r: round((x1 - x0) / 2), lx: round((x0 + x1) / 2), ly: round(-Hh - 12), name: GNAME(g), genre: g, size: cnt.get(g) };
+  });
+  return { xy, reg, regions, guides: { band: { P, h: round(Hh), lines, cols: order.map((g) => round(col.get(g)[0] - GAP / 2)) } } };
+};
+
+// ---- wrap: the genre continents on a surface whose edges join ----
+// The continents from stars-data.js (same shapes), re-packed into a box with periodic edges: a
+// continent near the right edge is a neighbour of one near the left, so the map can be panned in
+// any direction forever without a border, and each book still appears once. Packing uses the
+// shortest way round for both collisions and the springs that pull related genres together.
+const wrap = () => {
+  const regs = stars.regions.map((R, ri) => ({ ri, r: R.r + 10, x: 0, y: 0 }));
+  const area = regs.reduce((a, R) => a + Math.PI * (R.r + 14) * (R.r + 14), 0) / 0.62;
+  const PX = Math.round(Math.sqrt(area * 1.6)), PY = Math.round(area / PX);
+  const mi = (d, P) => d - P * Math.round(d / P);   // minimum-image difference
+  const rnd = mulberry32(17);
+  regs.forEach((R) => { R.x = (rnd() - 0.5) * PX; R.y = (rnd() - 0.5) * PY; });
+  const gidx = new Map(stars.regions.map((R, i) => [R.genre, i]));
+  const cross = new Map();
+  for (const [a, b] of pairs) { const ga = gidx.get(genre[a]), gb = gidx.get(genre[b]); if (ga === gb) continue; const k = Math.min(ga, gb) + ',' + Math.max(ga, gb); cross.set(k, (cross.get(k) || 0) + 1); }
+  const links = [...cross.entries()].map(([k, w]) => { const [a, b] = k.split(',').map(Number); return [a, b, w]; });
+  for (let it = 0; it < 900; it++) {
+    const cool = 1 - it / 900;
+    for (const [a, b, w] of links) {
+      const A = regs[a], B = regs[b], dx = mi(B.x - A.x, PX), dy = mi(B.y - A.y, PY), d = Math.hypot(dx, dy) || 1;
+      const f = (d - (A.r + B.r + 30)) * 0.004 * Math.min(4, Math.sqrt(w / 10)) * cool;
+      A.x += dx / d * f; A.y += dy / d * f; B.x -= dx / d * f; B.y -= dy / d * f;
+    }
+    for (let a = 0; a < regs.length; a++) for (let b = a + 1; b < regs.length; b++) {
+      const A = regs[a], B = regs[b], dx = mi(B.x - A.x, PX), dy = mi(B.y - A.y, PY), d = Math.hypot(dx, dy) || 0.01, min = A.r + B.r + 24;
+      if (d >= min) continue;
+      const p = (min - d) / 2, wa = B.r / (A.r + B.r), wb = A.r / (A.r + B.r);
+      A.x -= dx / d * p * 2 * wa; A.y -= dy / d * p * 2 * wa; B.x += dx / d * p * 2 * wb; B.y += dy / d * p * 2 * wb;
+    }
+    regs.forEach((R) => { R.x = mi(R.x, PX); R.y = mi(R.y, PY); });
+  }
+  let overlaps = 0;
+  for (let a = 0; a < regs.length; a++) for (let b = a + 1; b < regs.length; b++) if (Math.hypot(mi(regs[b].x - regs[a].x, PX), mi(regs[b].y - regs[a].y, PY)) < regs[a].r + regs[b].r) overlaps++;
+  const xy = new Float64Array(2 * N), reg = stars.nodes.map((n) => n[3]);
+  stars.nodes.forEach((n, i) => { const S0 = stars.regions[n[3]], R = regs[n[3]]; xy[2 * i] = mi(R.x + (n[1] - S0.x), PX); xy[2 * i + 1] = mi(R.y + (n[2] - S0.y), PY); });
+  const regions = stars.regions.map((S0, ri) => {
+    const R = regs[ri];
+    return { x: round(R.x), y: round(R.y), r: S0.r, lx: round(R.x + (S0.lx - S0.x)), ly: round(R.y + (S0.ly - S0.y)), name: S0.name, genre: S0.genre, size: S0.size };
+  });
+  console.log(`  wrap: ${PX}×${PY} surface, ${overlaps} continent overlaps`);
+  return { xy, reg, regions, guides: { torus: { P: PX, PY } } };
 };
 
 // ---- blend: a core of the most connected, genre blobs around it ----
@@ -239,9 +322,9 @@ const fame = () => {
 };
 
 const out = { keys, deg, layouts: {} };
-for (const [name, fn] of [['spiral', spiral], ['petals', petals], ['blend', blend], ['fame', fame]]) {
+for (const [name, fn] of [['spiral', spiral], ['petals', petals], ['band', band], ['wrap', wrap], ['blend', blend], ['fame', fame]]) {
   const L = fn();
-  if (name !== 'fame') centre(L.xy);
+  if (name !== 'fame' && name !== 'band' && name !== 'wrap') centre(L.xy);
   out.layouts[name] = { xy: Array.from(L.xy, Math.round), reg: L.reg, regions: L.regions, guides: L.guides };
 }
 writeFileSync(join(ROOT, 'layouts-data.js'),
@@ -249,4 +332,4 @@ writeFileSync(join(ROOT, 'layouts-data.js'),
   + '// Point layouts for the ?v=lab network variants (spiral, petals, blend, fame).\n'
   + 'window.BookJumprLayouts = ' + JSON.stringify(out) + ';\n');
 const top = rank.slice(0, 10).map((i) => keys[i].split('/')[1]).join(', ');
-console.log(`✓ wrote layouts-data.js — ${N} books × 4 layouts · most connected: ${top}`);
+console.log(`✓ wrote layouts-data.js — ${N} books × ${Object.keys(out.layouts).length} layouts · most connected: ${top}`);

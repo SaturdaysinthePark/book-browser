@@ -636,9 +636,12 @@
       if (!data) return;
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
         root: el, data: data,
-        regions: !lk || lk === 'petals' || lk === 'blend' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
+        regions: !lk || lk === 'petals' || lk === 'band' || lk === 'wrap' || lk === 'blend' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals' && lk !== 'band', bundle: lk === 'fame',
+        wrapX: data.guides && data.guides.band ? data.guides.band.P : data.guides && data.guides.torus ? data.guides.torus.P : 0,
+        wrapY: data.guides && data.guides.torus ? data.guides.torus.PY : 0,
+        regionZoom: lk !== 'band' && lk !== 'wrap',
         regionColor: function (R) { return self.xGenreColor(R.genre); },
-        guides: data.guides && (data.guides.rings || data.guides.axes) ? data.guides : null,
+        guides: data.guides && (data.guides.rings || data.guides.axes || data.guides.band) ? data.guides : null,
         labelTop: lk ? (window.innerWidth < 760 ? 10 : 25) : 0,
         onFocus: function (k) { self.mapFocus(k); },
         topInset: function () {   // keep the framing clear of the search bar / switcher
@@ -665,7 +668,7 @@
     var nodes = D.keys.map(function (k, i) { return [k, L.xy[2 * i], L.xy[2 * i + 1], L.reg[i], D.deg[i]]; });
     return (this._layoutCache[lk] = { nodes: nodes, regions: L.regions, guides: L.guides });
   };
-  var LAB_VIEWS = [['spiral', 'Spiral'], ['petals', 'Petals'], ['blend', 'Blend'], ['fame', 'Fame'], ['stars', 'Stars']];
+  var LAB_VIEWS = [['spiral', 'Spiral'], ['petals', 'Petals'], ['band', 'Band'], ['wrap', 'Wrap'], ['blend', 'Blend'], ['fame', 'Fame'], ['stars', 'Stars']];
   P._labView = function () {
     var v = this.state.xView;
     if (!v) { try { v = sessionStorage.getItem('bj-lab'); } catch (e) {} }
@@ -726,7 +729,7 @@
       h('div', { className: 'bjx-fkey' }, sel
         ? [h('span', { key: 'lo' }, h('i', { className: 'ln out' }), 'mentions'), h('span', { key: 'li' }, h('i', { className: 'ln in' }), 'mentioned by'),
           h('span', { key: 'u' }, h('i', { className: 'sw', style: { background: MISC_DOT } }), 'genre unknown'), h('span', { key: 'h', className: 'hint' }, 'Esc to clear')]
-        : h('span', { className: 'hint' }, 'Scroll or pinch to zoom · click a star')),
+        : h('span', { className: 'hint' }, lk === 'band' || lk === 'wrap' ? 'Scroll or drag to travel — it never ends · pinch or +/− to zoom · click a star' : 'Scroll or pinch to zoom · click a star')),
       card, extra || null);
   };
 
@@ -768,7 +771,7 @@
   P._xStarPt = function (m, id) {
     var i = m.idx[id];
     if (i == null) return null;
-    var cr = m.canvas.getBoundingClientRect(), x = cr.left + m.sx(m.wx[i]), y = cr.top + m.sy(m.wy[i]), rad = Math.max(3, m._r(i));
+    var cr = m.canvas.getBoundingClientRect(), x = cr.left + m.sx(m._x ? m._x(i) : m.wx[i]), y = cr.top + m.sy(m._y ? m._y(i) : m.wy[i]), rad = Math.max(3, m._r(i));
     if (x < cr.left - 10 || x > cr.right + 10 || y < cr.top - 10 || y > cr.bottom + 10) return null;
     return { left: x - rad, top: y - rad, width: rad * 2, height: rad * 2 };
   };

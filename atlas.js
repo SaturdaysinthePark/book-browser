@@ -56,11 +56,15 @@
     //                        with a soft tint in regionColor(region) under the dots
     //   guides         { rings:[{r,t}] } concentric guide rings, or { axes } a chart frame (ticks, titles, captions)
     //   regionTint:false  no soft tint under continents (petals share one centre)
+    //   wrapX/wrapY    periods in world units: the map loops sideways (band) or both ways (wrap)
+    //   regionZoom:false  clicks never zoom into a region
     //   bundle         3+ links into one region draw as one thick line with a count (binned charts)
     //   labelTop       at overview, always label this many of the most connected books
     //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
     //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
     this.showRegions = o.regions !== false;
+    this.P = o.wrapX || 0;   // horizontal period: the map repeats every P world units (infinite sideways pan)
+    this.PY = o.wrapY || 0;  // vertical period (with wrapX: a surface whose edges join, pan any way forever)
     this.regionCircles = o.regionCircles !== false;
     this.mini = !!o.mini;
     if (o.colorOf) { this.col = []; for (i = 0; i < this.N; i++) this.col.push(o.colorOf(this.keys[i])); }
@@ -95,6 +99,11 @@
   };
   P.sx = function (x) { return (x - this.cam.x) * this.cam.k + this.W / 2; };
   P.sy = function (y) { return (y - this.cam.y) * this.cam.k + this.H / 2; };
+  // wrapped maps: the copy of world x nearest the camera (the view is never wider than one period)
+  P._wrap = function (x) { return this.P ? x + this.P * Math.round((this.cam.x - x) / this.P) : x; };
+  P._x = function (i) { return this._wrap(this.wx[i]); };
+  P._wrapY = function (y) { return this.PY ? y + this.PY * Math.round((this.cam.y - y) / this.PY) : y; };
+  P._y = function (i) { return this._wrapY(this.wy[i]); };
   // On phones the panel is a bottom sheet over the map; frame things in the visible area above it.
   P._inset = function () { return this.o.bottomInset ? Math.min(this.H * 0.6, this.o.bottomInset() || 0) : 0; };
   P._insetTop = function () { return this.o.topInset ? Math.min(this.H * 0.3, this.o.topInset() || 0) : 0; };
@@ -104,6 +113,18 @@
   };
   P.fit = function (anim) {
     var ins = this._inset() + this._insetTop();
+    if (this.P && this.PY) {   // a surface that wraps both ways: never show more than one period either way
+      this.minK = Math.max(this.W / this.P, (this.H - ins) / this.PY);
+      this._lookAt(this.cam.x || 0, this.cam.y || 0, this.minK * 1.25, anim);
+      return;
+    }
+    var BD = this.o.guides && this.o.guides.band;
+    if (BD) {   // a looping strip: fit its height; never wider than one period
+      var kb = Math.max(this.W / BD.P, (this.H - ins - 70) / (2 * BD.h + 40));
+      this.minK = this.W / BD.P;
+      this._lookAt(this.cam.x || 0, 0, kb, anim);
+      return;
+    }
     var A = this.o.guides && this.o.guides.axes;
     if (A) {   // a chart: fit its frame, keeping screen room for tick labels, axis titles and corner captions
       var hx = Math.max(Math.abs(A.x0), Math.abs(A.x1)), hy = Math.max(Math.abs(A.y0), Math.abs(A.y1));
@@ -120,6 +141,8 @@
   };
   P.flyTo = function (x, y, k, anim) {
     var self = this;
+    if (this.P) x = this._wrap(x);
+    if (this.PY) y = this._wrapY(y);
     k = Math.max(this.minK || 0.05, Math.min(6, k));
     cancelAnimationFrame(this._tw);
     if (anim === false || this.reduced) { this.cam = { x: x, y: y, k: k }; this.draw(); return; }
@@ -145,7 +168,9 @@
     var minX = 1e9, minY = 1e9, maxX = -1e9, maxY = -1e9;
     for (var j = 0; j < ids.length; j++) {
       var i = ids[j];
-      minX = Math.min(minX, this.wx[i]); maxX = Math.max(maxX, this.wx[i]); minY = Math.min(minY, this.wy[i]); maxY = Math.max(maxY, this.wy[i]);
+      var fx = this.P ? this.wx[i] + this.P * Math.round((this.wx[ids[0]] - this.wx[i]) / this.P) : this.wx[i];
+      var fy = this.PY ? this.wy[i] + this.PY * Math.round((this.wy[ids[0]] - this.wy[i]) / this.PY) : this.wy[i];
+      minX = Math.min(minX, fx); maxX = Math.max(maxX, fx); minY = Math.min(minY, fy); maxY = Math.max(maxY, fy);
     }
     var narrow = this.W < 640, padX = narrow ? 40 : 120, padY = narrow ? 50 : 90, ins = this._inset() + this._insetTop();
     var k = Math.min((this.W - padX * 2) / Math.max(80, maxX - minX), (this.H - ins - padY * 2) / Math.max(80, maxY - minY));
@@ -185,6 +210,15 @@
 
   P.pick = function (mx, my, tol) {
     var wx = (mx - this.W / 2) / this.cam.k + this.cam.x, wy = (my - this.H / 2) / this.cam.k + this.cam.y;
+    if (!this.P && !this.PY) return this._pickAt(wx, wy, tol).i;
+    // wrapped: stored positions live in one period; try the click there and across the seams
+    var xs = this.P ? [0, -1, 1].map(function (n) { return wx - this.P * Math.round(wx / this.P) + n * this.P; }, this) : [wx];
+    var ys = this.PY ? [0, -1, 1].map(function (n) { return wy - this.PY * Math.round(wy / this.PY) + n * this.PY; }, this) : [wy];
+    var best = { i: -1, d: 1e9 };
+    xs.forEach(function (cx) { ys.forEach(function (cy) { var r = this._pickAt(cx, cy, tol); if (r.d < best.d) best = r; }, this); }, this);
+    return best.i;
+  };
+  P._pickAt = function (wx, wy, tol) {
     var rad = (tol + 9) / this.cam.k, c = this.cell, best = -1, bd = 1e9;
     for (var gx = Math.floor((wx - rad) / c); gx <= Math.floor((wx + rad) / c); gx++) {
       for (var gy = Math.floor((wy - rad) / c); gy <= Math.floor((wy + rad) / c); gy++) {
@@ -196,7 +230,7 @@
         }
       }
     }
-    return best;
+    return { i: best, d: bd };
   };
   P.regionAt = function (mx, my) {
     var wx = (mx - this.W / 2) / this.cam.k + this.cam.x, wy = (my - this.H / 2) / this.cam.k + this.cam.y;
@@ -237,7 +271,7 @@
     // regions
     for (r = 0; this.showRegions && !this.regionCircles && this.o.regionColor && this.o.regionTint !== false && r < this.regions.length; r++) {
       R = this.regions[r]; if (R.tint === false) continue;
-      sx = this.sx(R.x); sy = this.sy(R.y); sr = R.r * k * 1.08;
+      sx = this.sx(this._wrap(R.x)); sy = this.sy(this._wrapY(R.y)); sr = R.r * k * 1.08;
       if (sx + sr < 0 || sx - sr > W || sy + sr < 0 || sy - sr > H) continue;
       var tc = this.o.regionColor(R), gr = c.createRadialGradient(sx, sy, 0, sx, sy, sr);
       gr.addColorStop(0, hexA(tc, 0.075)); gr.addColorStop(0.7, hexA(tc, 0.04)); gr.addColorStop(1, hexA(tc, 0));
@@ -257,7 +291,7 @@
 
     // dots
     for (i = 0; i < this.N; i++) {
-      sx = this.sx(this.wx[i]); sy = this.sy(this.wy[i]);
+      sx = this.sx(this._x(i)); sy = this.sy(this._y(i));
       if (sx < -12 || sx > W + 12 || sy < -12 || sy > H + 12) continue;
       R = this.regions[this.reg[i]];
       var rad = this._r(i), on = focus < 0 || i === focus || (nb && nb[i]);
@@ -275,7 +309,7 @@
     var hub = focus >= 0 ? focus : hover;
     var edgesOf = hub >= 0 ? (focus >= 0 ? nb : this._nbOf(hover)) : null;
     if (edgesOf) {
-      var hx = this.sx(this.wx[hub]), hy = this.sy(this.wy[hub]);
+      var hx = this.sx(this._x(hub)), hy = this.sy(this._y(hub));
       // bundle: 3+ links of one kind into one neighbourhood (not the hub's own) draw as a single
       // thicker line to that neighbourhood's edge, with a count
       var lines = [], groups = {};
@@ -295,7 +329,7 @@
       var badges = [];
       for (var li0 = 0; li0 < lines.length; li0++) {
         var LN = lines[li0], j = LN.j, kind = LN.kind;
-        var tx = j >= 0 ? this.sx(this.wx[j]) : LN.tx, ty = j >= 0 ? this.sy(this.wy[j]) : LN.ty;
+        var tx = j >= 0 ? this.sx(this._x(j)) : LN.tx, ty = j >= 0 ? this.sy(this._y(j)) : LN.ty;
         if (LN.n) badges.push(LN);
         var mx = (hx + tx) / 2, my = (hy + ty) / 2, dx = tx - hx, dy = ty - hy;
         var cx2 = mx - dy * 0.18, cy2 = my + dx * 0.18;
@@ -341,7 +375,7 @@
       var tl = self2.o.title(self2.keys[i2]); if (!tl) return;
       if (tl.length > 34) tl = tl.slice(0, 32) + '…';
       c.font = 'italic ' + weight + ' ' + size + 'px ' + SERIF;
-      var tw = c.measureText(tl).width, x0 = self2.sx(self2.wx[i2]), y0 = self2.sy(self2.wy[i2]) - self2._r(i2) - 5;
+      var tw = c.measureText(tl).width, x0 = self2.sx(self2._x(i2)), y0 = self2.sy(self2._y(i2)) - self2._r(i2) - 5;
       if (x0 < -40 || x0 > W + 40 || y0 < -10 || y0 > H + 20) return;
       if (!tryPlace(x0 - tw / 2 - 4, y0 - size, tw + 8, size + 5)) return;
       c.fillStyle = bg; c.fillRect(x0 - tw / 2 - 3, y0 - size + 1, tw + 6, size + 3);
@@ -375,7 +409,7 @@
       sr = R.r * k;
       var cont = !this.regionCircles;
       if (sr < 34 || (focus >= 0 && !cont)) continue;
-      sx = this.sx(R.lx != null ? R.lx : R.x); sy = R.ly != null ? this.sy(R.ly) - 9 : this.sy(R.y) - sr - 6;
+      sx = this.sx(this._wrap(R.lx != null ? R.lx : R.x)); sy = R.ly != null ? this.sy(this._wrapY(R.ly)) - 9 : this.sy(this._wrapY(R.y)) - sr - 6;
       if (sx < -100 || sx > W + 100 || sy < 0 || sy > H + 20) continue;
       var fs = Math.max(13, Math.min(22, sr / 7));
       c.font = fs + 'px ' + SERIF;
@@ -414,6 +448,24 @@
       c.setLineDash([3, 6]); c.beginPath(); c.arc(ox, oy, r, 0, 6.2832); c.stroke(); c.setLineDash([]);
       if (r > 30) { c.textAlign = 'center'; c.fillStyle = 'rgba(247,245,240,0.9)'; var tw = c.measureText(R.t).width; c.fillRect(ox - tw / 2 - 4, oy - r - 8, tw + 8, 15); c.fillStyle = 'rgba(20,20,20,0.55)'; c.fillText(R.t, ox, oy - r + 3); }
     });
+    var BD = G.band;
+    if (BD) {
+      var Wd = this.W, top = this.sy(-BD.h - 4), bot = this.sy(BD.h + 4);
+      c.strokeStyle = 'rgba(20,20,20,0.12)'; c.lineWidth = 1;
+      BD.cols.forEach(function (x0) {   // genre column separators, every copy on screen
+        for (var xx = self._wrap(x0) - self.P; xx <= self._wrap(x0) + self.P; xx += self.P) { var px = self.sx(xx); if (px < -2 || px > Wd + 2) continue; c.beginPath(); c.moveTo(px, top); c.lineTo(px, bot); c.stroke(); }
+      });
+      c.setLineDash([2, 6]); c.strokeStyle = 'rgba(20,20,20,0.2)';
+      c.beginPath(); c.moveTo(0, this.sy(0)); c.lineTo(Wd, this.sy(0)); c.stroke();
+      c.strokeStyle = 'rgba(20,20,20,0.12)';
+      var lastLbl = -1e9;
+      BD.lines.slice().reverse().forEach(function (L) {   // outermost first, so labels never pile up at the middle
+        [-1, 1].forEach(function (sg) { var py = self.sy(sg * L.y); c.beginPath(); c.moveTo(0, py); c.lineTo(Wd, py); c.stroke(); });
+        var py2 = self.sy(-L.y);
+        if (py2 - lastLbl >= 16 && self.sy(0) - py2 >= 9) { lastLbl = py2; c.textAlign = 'left'; c.fillStyle = 'rgba(247,245,240,0.9)'; var tw = c.measureText(L.t).width; c.fillRect(8, py2 - 7, tw + 8, 14); c.fillStyle = 'rgba(20,20,20,0.55)'; c.fillText(L.t, 12, py2 + 4); }
+      });
+      c.setLineDash([]);
+    }
     var A = G.axes;
     if (A) {
       var X = function (x) { return self.sx(x); }, Y = function (y) { return self.sy(y); };
@@ -453,7 +505,7 @@
   };
   P._ring = function (i, col, pad) {
     var c = this.ctx;
-    c.beginPath(); c.arc(this.sx(this.wx[i]), this.sy(this.wy[i]), this._r(i) + pad, 0, 6.2832);
+    c.beginPath(); c.arc(this.sx(this._x(i)), this.sy(this._y(i)), this._r(i) + pad, 0, 6.2832);
     c.lineWidth = 1.8; c.strokeStyle = col; c.globalAlpha = 1; c.stroke();
   };
   P._nbOf = function (i) {
@@ -502,6 +554,13 @@
     var local = function (e) { var r = cv.getBoundingClientRect(); return [e.clientX - r.left, e.clientY - r.top]; };
     this._onWheel = function (e) {
       e.preventDefault();
+      if (self.P && !e.ctrlKey && !e.metaKey) {   // wrapped maps: scrolling travels (pinch / ⌘-scroll zooms)
+        var u = (e.deltaMode === 1 ? 16 : 1) / self.cam.k;
+        if (self.PY) { self.cam.x += e.deltaX * u; self.cam.y += e.deltaY * u; }
+        else self.cam.x += (Math.abs(e.deltaX) > Math.abs(e.deltaY) ? e.deltaX : e.deltaY) * u;
+        self.draw();
+        return;
+      }
       var p = local(e);
       self.zoomBy(Math.exp(-e.deltaY * (e.deltaMode === 1 ? 0.05 : 0.0018)), p[0], p[1]);
     };
@@ -543,7 +602,7 @@
       if (!down) return;
       var d = down; down = null;
       if (d.moved || performance.now() - d.t > 600) return;
-      var p = local(e), ri = self.showRegions ? self.regionAt(p[0], p[1]) : -1;
+      var p = local(e), ri = self.showRegions && self.o.regionZoom !== false ? self.regionAt(p[0], p[1]) : -1;
       // Overview: while a neighbourhood is still small on screen, a click inside it zooms into it —
       // only a direct hit on a dot (no slop) selects a book. Zoomed in, normal forgiving picking.
       var small = ri >= 0 && self.focus < 0 && self.regions[ri].r * self.cam.k < Math.min(self.W, self.H) * 0.3;
