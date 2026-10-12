@@ -168,7 +168,7 @@ function main() {
       return b0;
     };
     for (var n = 1; n <= all.length && !lines; n++) { var r = best(all, n); if (r) lines = r.ls; }
-    var lh = fs * 1.12, y0 = cy - (lines.length - 1) * lh / 2 + fs * 0.32, words = [], k = 0;
+    var lh = fs * 1.45, y0 = cy - (lines.length - 1) * lh / 2 + fs * 0.32, words = [], k = 0;
     lines.forEach(function (ln, li) {
       var hot = function (w) { return w === F.accent; };
       var fonts = ln.map(function (w) { return (hot(w) ? 'italic ' : '') + fs + 'px ' + SERIF; });
@@ -178,7 +178,11 @@ function main() {
     words.forEach(function (w) { w.pop = 0.5 + w.k * 0.55; });
     return { fs: fs, words: words };
   })();
-  var wordTop = function (w) { return [w.x + w.w * (w.hot ? 0.93 : 0.5), w.y - QS.fs * 0.78]; };
+  // where the book stands on a word (on top of its letters, not in them); after the last word it stands on the
+  // baseline just past the "?", like a full stop. 6.9u / 5.94u: the tilted book's half height / half width
+  var QU = V ? 4.0 : 4.8, wordTop = function (w) {
+    return w === QS.words[QS.words.length - 1] ? [w.x + w.w + 5.94 * QU + 10, w.y - 6.9 * QU] : [w.x + w.w * 0.5, w.y - QS.fs * 0.76 - 6.9 * QU - 3];
+  };
 
   // 2 · the big view: a wall of covers, rippling in from the middle and drifting
   var WALL = (function () {
@@ -263,7 +267,12 @@ function main() {
     c.beginPath(); c.moveTo(p1[0], p1[1]); c.lineTo(tip[0], tip[1]); c.lineTo(p2[0], p2[1]); c.lineJoin = 'round'; c.strokeStyle = INK; c.lineWidth = lw; c.stroke(); c.lineJoin = 'miter';
   };
   // the point of a cover (centre x,y, width w) nearest to a card, a little outside it: where the tail aims
-  var aimAt = function (x, y, w, Cx, Cy) { return [clamp(Cx, x - w / 2 - 12, x + w / 2 + 12), clamp(Cy, y - w * 0.75 - 12, y + w * 0.75 + 12)]; };
+  // (a card above or below the cover and spanning its middle aims straight at the middle)
+  var aimAt = function (x, y, w, rx, ry, rw, rh) {
+    if (rx < x && x < rx + rw && ry > y + w * 0.75) return [x, y + w * 0.75 + 12];
+    if (rx < x && x < rx + rw && ry + rh < y - w * 0.75) return [x, y - w * 0.75 - 12];
+    return [clamp(rx + rw / 2, x - w / 2 - 12, x + w / 2 + 12), clamp(ry + rh / 2, y - w * 0.75 - 12, y + w * 0.75 + 12)];
+  };
   var drawCard = function (b, Cq, x3, y3, bw3, bh3, g3, gin3, s1, sb3, T) {
     var hs = Cq.hs || 1, lw3 = 2.5 * Math.max(1, hs * 0.8);
     c.fillStyle = 'rgba(20,20,20,0.92)'; rr(x3 + 5 * hs, y3 + 7 * hs, bw3, bh3, 18 * hs * g3); c.fill();
@@ -348,8 +357,8 @@ function main() {
   // time; then the hop to one of those books, whose own row hangs below it. The whole tree is on screen at once.
   // 9:16: the tree on top, the cards below it. 16:9: the tree on the left, the cards on the right
   var FN = !FAN ? null : (function () {
-    var fans = F.fans, NF = fans.length, tx = V ? cx : 540, tW = V ? W - 110 : 1000, RW = V ? 210 : 150, SW0 = V ? 180 : 140;
-    var LFS = V ? 36 : 25, LH = LFS * 1.12, GAPL = V ? 150 : 90, top = V ? 80 : 56;
+    var fans = F.fans, NF = fans.length, tx = V ? cx : 540, tW = V ? W - 60 : 1000, RW = V ? 250 : 150, SW0 = V ? 190 : 140, GX = V ? 18 : 26;
+    var LFS = V ? 36 : 25, LH = LFS * 1.12, GAPL = V ? 130 : 90, top = V ? 80 : 56;
     var pos = [], wid = [], fanOf = [], popAt = [], lineAt = [], rustAt = [], lab = [], rows = [];
     var r0 = fans[0].root; pos[r0] = [tx, top + RW * 0.75]; wid[r0] = RW;
     // a title under its cover, in at most two lines, as big as fits the slot
@@ -361,11 +370,13 @@ function main() {
       }
     };
     var labH = 0, bottomOf = function (k) { return pos[k][1] + wid[k] * 0.75 + (lab[k] ? 14 + lab[k].lines.length * lab[k].fs * 1.12 : 0); };
-    var y = pos[r0][1] + RW * 0.75;
+    var y = pos[r0][1] + RW * 0.75, placed = {};
+    // every row's covers the same size: the size the fullest row allows
+    var sw = fans.reduce(function (m, f) { var n = f.spokes.filter(function (k) { if (placed[k] || k === r0) return false; placed[k] = 1; return true; }).length; return Math.min(m, (tW - (n - 1) * GX) / Math.max(1, n)); }, SW0);
     fans.forEach(function (f, i) {
       var ft = FT.fans[i], fresh = f.spokes.filter(function (k) { return !pos[k]; }), n = fresh.length;
-      var sw = Math.min(SW0, (tW - (n - 1) * 26) / n), slot = Math.min(tW / n, sw + 60), rowTop = (i ? bottomOf(f.root) : y) + GAPL;
-      fresh.forEach(function (k, j) { pos[k] = [tx + (j - (n - 1) / 2) * (sw + Math.max(26, Math.min(70, (tW - n * sw) / Math.max(1, n - 1)))), rowTop + sw * 0.75]; wid[k] = sw; fanOf[k] = i; });
+      var slot = Math.min(tW / n, sw + 60), rowTop = (i ? bottomOf(f.root) : y) + GAPL;
+      fresh.forEach(function (k, j) { pos[k] = [tx + (j - (n - 1) / 2) * (sw + Math.max(GX, Math.min(70, (tW - n * sw) / Math.max(1, n - 1)))), rowTop + sw * 0.75]; wid[k] = sw; fanOf[k] = i; });
       rows.push({ top: rowTop, bot: rowTop + sw * 1.5 });
       lineAt[i] = {}; rustAt[i] = {};
       f.spokes.forEach(function (k, j) { lineAt[i][k] = ft.T + j * ft.ls; if (popAt[k] == null) popAt[k] = lineAt[i][k] + 0.45; });
@@ -381,15 +392,15 @@ function main() {
     var line = function (i, k, b) {
       var R = at(fans[i].root, b), S = at(k, b), y0 = i ? bottomOf(fans[i].root) + oy(b) + 6 : R[1] + R[2] * 0.75 + 6;
       if (S[1] <= R[1] + 1) { var ys = bottomOf(k) + oy(b) + 6, yd = Math.max(y0, ys) + 70; return function (t) { return cub([R[0], y0], [R[0], yd], [S[0], yd], [S[0], ys], t); }; }
-      var sx = R[0] + clamp((S[0] - R[0]) * 0.22, -R[2] * 0.4, R[2] * 0.4), y1 = S[1] - S[2] * 0.75 - 8, ym = (y0 + y1) / 2;
+      var sx = R[0], y1 = S[1] - S[2] * 0.75 - 8, ym = (y0 + y1) / 2;
       return function (t) { return cub([sx, y0], [sx, ym], [S[0], ym], [S[0], y1], t); };
     };
     // the cards: one at a time, as big as fits; each grows out of the book it names
     var cards = fans.map(function (f, i) {
       var ft = FT.fans[i], items = ft.slots.map(function (sl) { return { k: sl.k, s: sl.s }; });
       if (ft.H != null) items.push({ k: fans[i + 1].root, s: ft.H });
-      var bandT = V ? rows[i].bot + 70 : 60, bandB = H - (V ? 50 : 60), cw = V ? W - 100 : W - 1100 - 60, cs;
-      for (var fs = V ? 58 : 40; ; fs -= 2) {
+      var bandT = V ? rows[i].bot + 70 : 60, bandB = H - (V ? 50 : 60), cw = V ? W - 160 : W - 1100 - 60, cs;
+      for (var fs = V ? 50 : 40; ; fs -= 2) {
         var hs = fs / 30;
         cs = items.map(function (it) { var cd = layQuote({ quote: f.quotes[it.k], named: it.k, src: f.root }, fs, cw - (fs < 40 ? 48 : 80), Math.round(66 * hs)); cd.k = it.k; cd.s = it.s; cd.src = f.root; cd.hs = hs; return cd; });
         if (Math.max.apply(null, cs.map(function (cd) { return cd.h; })) <= bandB - bandT || fs <= 28) break;
@@ -440,7 +451,7 @@ function main() {
       var lastLand = ws[ws.length - 1].pop;
       var sq = b > lastLand + 0.4 ? squash(b, 5.0) : [hp.sx, hp.sy];                      // a little jump of joy on beat 5
       var joy = b > 4.6 && b < 5.0 ? Math.sin(PI * prog(b, 4.6, 5.0)) * 34 : 0;
-      bk = { p: [hp.p[0], hp.p[1] - joy], u: V ? 4.4 : 4.8, rot: BOOKROT * 0.6, sx: sq[0], sy: sq[1] };
+      bk = { p: [hp.p[0], hp.p[1] - joy], u: QU, rot: BOOKROT * 0.6, sx: sq[0], sy: sq[1] };
     }
 
     // ===== 2 · the big view, the tap, the zoom (b6–12.4) =====
@@ -594,7 +605,7 @@ function main() {
           if (gin <= 0.01 || al <= 0 || !sp) return;
           var layer = al < 1; if (layer) { c = OC; c.setTransform(1, 0, 0, 1, 0, 0); c.clearRect(0, 0, W, H); }
           var g = gin, bw = Cq.w * g, bh = Cq.h * g, x0 = lerp(sp[0], Cq.x + Cq.w / 2, g) - bw / 2, y0 = lerp(sp[1], Cq.y + Cq.h / 2, g) - bh / 2;
-          drawCard(b, Cq, x0, y0, bw, bh, g, gin, Cq.s, PATH[Cq.src], aimAt(sp[0], sp[1], sp[2], x0 + bw / 2, y0 + bh / 2));
+          drawCard(b, Cq, x0, y0, bw, bh, g, gin, Cq.s, PATH[Cq.src], aimAt(sp[0], sp[1], sp[2], x0, y0, bw, bh));
           if (layer) { c = CTX; c.globalAlpha = al; c.drawImage(OFF, 0, 0); c.globalAlpha = 1; }
         });
       });
@@ -608,7 +619,7 @@ function main() {
       var srcK = Cq.hp.src, sp3 = pathPos[srcK]; if (!sp3) continue;
       var cxq = Cq.x + Cq.w / 2, cyq = Cq.y + Cq.h / 2, bw3 = Cq.w * g3, bh3 = Cq.h * g3, x3 = lerp(sp3[0], cxq, g3) - bw3 / 2, y3 = lerp(sp3[1], cyq, g3) - bh3 / 2;
       // the tail points at the book that says the line
-      drawCard(b, Cq, x3, y3, bw3, bh3, g3, gin3, s1, PATH[srcK], aimAt(sp3[0], sp3[1], sp3[2], x3 + bw3 / 2, y3 + bh3 / 2));
+      drawCard(b, Cq, x3, y3, bw3, bh3, g3, gin3, s1, PATH[srcK], aimAt(sp3[0], sp3[1], sp3[2], x3, y3, bw3, bh3));
       if (layer) { c = CTX; c.globalAlpha = txtA; c.drawImage(OFF, 0, 0); c.globalAlpha = 1; }
     }
 
@@ -672,7 +683,7 @@ function main() {
       var si = 0; for (var i3 = 0; i3 < times.length - 1; i3++) if (b >= times[i3]) si = i3;
       var hb = hop(seq[si], seq[si + 1], b, times[si], times[si + 1] - 0.15, 90);
       if (b >= 10.15) { hb = { p: jeP, sx: squash(b, 10.15)[0], sy: squash(b, 10.15)[1] }; }
-      bk = { p: hb.p, u: b >= 10.15 && pathPos[0] ? bu(pathPos[0][2]) : lerp(V ? 4.4 : 4.8, bu(WALL.cw), eio(b, 6.3, 7.0)), rot: b >= 10.15 ? restRot : BOOKROT * 0.6, sx: hb.sx, sy: hb.sy };
+      bk = { p: hb.p, u: b >= 10.15 && pathPos[0] ? bu(pathPos[0][2]) : lerp(QU, bu(WALL.cw), eio(b, 6.3, 7.0)), rot: b >= 10.15 ? restRot : BOOKROT * 0.6, sx: hb.sx, sy: hb.sy };
     }
     if (!FAN && b >= 12.4 && b < (TN + 0)) {
       var hk = clamp(Math.floor((b - 12) / HL), 0, NH - 1), hs = hopStart(hk);
