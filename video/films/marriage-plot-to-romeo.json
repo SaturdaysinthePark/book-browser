@@ -1,0 +1,12 @@
+{
+  "question": "Have you ever wondered how books are connected?",
+  "accent": "connected?",
+  "path": [
+    "jeffrey-eugenides/the-marriage-plot",
+    "italo-calvino/invisible-cities",
+    "aldous-huxley/brave-new-world",
+    "william-shakespeare/romeo-and-juliet"
+  ],
+  "end": "bookjumpr.com",
+  "layout": "chain"
+}
