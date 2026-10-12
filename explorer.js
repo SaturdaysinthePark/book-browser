@@ -650,7 +650,7 @@
       }
       var m = self._stars = window.__stars = new window.BJAtlas(self._xStarOpts({
         root: el, data: data,
-        regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame',
+        regions: !lk || lk === 'petals' || lk === 'wrap' || lk === 'fame', regionCircles: false, regionTint: lk !== 'petals', bundle: lk === 'fame', bundleNarrow: !lk || lk === 'wrap',
         wrapX: data.guides && data.guides.torus ? data.guides.torus.P : 0,
         wrapY: data.guides && data.guides.torus ? data.guides.torus.PY : 0,
         regionZoom: lk !== 'wrap',

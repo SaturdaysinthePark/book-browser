@@ -573,6 +573,17 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   .bjx-fbar .atlas-q{min-width:0;}
   .bjx-flegend{display:none;}
   .bjx-fcard{left:12px;right:12px;width:auto;max-width:none;bottom:calc(12px + env(safe-area-inset-bottom));}
+  /* phones: a compact strip (cover · title, author, counts · Open / Clear) so the map keeps the screen */
+  .bjx-fcard{align-items:center;gap:12px;padding:10px 12px;border-radius:14px;box-shadow:0 4px 0 rgba(20,20,20,.9);}
+  .bjx-fcv{width:40px;}
+  .bjx-fmeta{flex:1;display:grid;grid-template-columns:minmax(0,1fr) auto;column-gap:10px;row-gap:2px;align-items:center;}
+  .bjx-fmeta>*{grid-column:1;}
+  .bjx-fmeta .eyebrow{display:none;}
+  .bjx-fmeta h3{font-size:19px;margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .bjx-fmeta .by{font-size:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+  .bjx-fmeta .cnt{font-size:9.5px;margin:1px 0 0;flex-wrap:nowrap;white-space:nowrap;}
+  .bjx-fmeta .bjx-act{grid-column:2;grid-row:1 / span 3;flex-direction:column;flex-wrap:nowrap;gap:6px;}
+  .bjx-fmeta .bjx-act .pill{justify-content:center;padding:7px 12px;font-size:11px;}
 }
 @media (prefers-reduced-motion:reduce){
   .bjx-plus .ng-flow{display:none;}
