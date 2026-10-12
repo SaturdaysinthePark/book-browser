@@ -23,3 +23,4 @@ tools/dict/*
 
 # Netlify build output (generated from the site files)
 _site/
+video/out/
