@@ -125,8 +125,8 @@ function main() {
   };
   var stretch = function (p) { var s = 0.14 * Math.sin(PI * p); return [1 - s * 0.5, 1 + s]; };
   // a hop from A to B between beats b0 and b1 (arc height h): position, rotation, scale
-  var hop = function (A, B, b, b0, b1, h) {
-    var p = eio(b, b0, b1), C = [(A[0] + B[0]) / 2, Math.min(A[1], B[1]) - h], P = q(A, C, B, p);
+  var hop = function (A, B, b, b0, b1, h, C) {
+    var p = eio(b, b0, b1); C = C || [(A[0] + B[0]) / 2, Math.min(A[1], B[1]) - h]; var P = q(A, C, B, p);
     var st = b < b1 ? stretch(p) : squash(b, b1);
     return { p: P, sx: st[0], sy: st[1], t: p };
   };
@@ -239,8 +239,8 @@ function main() {
       var gone = function (w) { return ein(b, 6.0 + w.k * 0.05, 6.5 + w.k * 0.05); };   // words shrink away as the wall arrives
       QS.words.forEach(function (w) {
         var s = spr(b, w.pop, 1.5), g = gone(w); if (s <= 0) return;
-        var wob = w.tilt * (1 - spr(b, w.pop, 2.2));
-        c.save(); c.translate(w.x + w.w / 2, w.y - QS.fs * 0.3); c.rotate(wob + g * w.tilt * 4); c.scale(s * (1 - g), s * (1 - g));
+        var wob = w.tilt * (1 - spr(b, w.pop, 2.2)), sc = (0.6 + 0.4 * s) * (1 - g);
+        c.save(); c.translate(w.x + w.w / 2, w.y - QS.fs * 0.3); c.rotate(wob + g * w.tilt * 4); c.scale(sc, sc);
         text(w.s, -w.w / 2, QS.fs * 0.3 + (1 - s) * 30, w.font, w.hot ? RUST : INK, 'left', clamp(s * 1.5, 0, 1));
         c.restore();
       });
@@ -326,7 +326,8 @@ function main() {
       var s0 = hopStart(h), Bq = BUB[h];
       if (b < s0 || b > s0 + 4.6) continue;
       var cur2 = toScreen(bookAt(h), cam, b), nxt = toScreen(bookAt(h + 1), cam, b), src = Bq.hp.src === h ? cur2 : nxt;
-      var gIn = spr(b, s0 + 0.7, 1.6), gOut = ein(b, s0 + 3.7, s0 + 4.3), g = gIn * (1 - gOut);
+      // 9:16: the leap swings out sideways across the bubble's space, so the bubble tucks away first
+      var gIn = spr(b, s0 + 0.7, 1.6), gOut = V ? ein(b, s0 + 2.65, s0 + 3.1) : ein(b, s0 + 3.7, s0 + 4.3), g = gIn * (1 - gOut);
       if (g > 0.01) {
         var bx = V ? cx : (cur2[0] + nxt[0]) / 2, by = V ? (cur2[1] + nxt[1]) / 2 : cy + 20;
         // grows out of the book that says it, and shrinks back into it
@@ -427,9 +428,10 @@ function main() {
       var pc = pathPos[hk], pn = pathPos[hk + 1];
       if (pc && pn) {
         var A2 = perch(pc[0], pc[1], pc[2]), B2 = perch(pn[0], pn[1], pn[2]);
-        var jb = hop(A2, B2, b, hs + 2.8, hs + 3.6, V ? 260 : 300);
+        // the leap's arc: up and over in 16:9; in 9:16 (books stacked) it swings out to the right, around the cover
+        var Cj = V ? [Math.max(A2[0], B2[0]) + CW * 1.1, (A2[1] + B2[1]) / 2 - CW * 0.5] : [(A2[0] + B2[0]) / 2, Math.min(A2[1], B2[1]) - 300];
+        var jb = hop(A2, B2, b, hs + 2.8, hs + 3.6, 0, Cj);
         // the dotted arc is drawn just ahead of the jump
-        var Cj = [(A2[0] + B2[0]) / 2, Math.min(A2[1], B2[1]) - (V ? 260 : 300)];
         var arcOn = eio(b, hs + 2.5, hs + 3.0) * (1 - eio(b, hs + 3.7, hs + 4.1));
         if (arcOn > 0) dashed(function (t) { return q(A2, Cj, B2, t); }, arcOn, INK, 3, 10, 9, 0, 0.6);
         var ride = b >= hs + 3.6 ? B2 : jb.p;
