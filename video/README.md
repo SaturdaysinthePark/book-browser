@@ -26,10 +26,11 @@ Any number of hops works: each takes 4.5 beats (stage) or 4.2 (chain), and the f
 ## Layouts
 
 - **chain** (the default) — every hop on one screen: the books in a row (a column in 9:16), each quote pinned beside its hop and left there, so by the end the whole path reads at once (held for 1.6 beats before the network).
-- **fan** — one book and the books it mentions, fanned out to its right, each title beside its cover; a quote card
-  for only some of them, one at a time; then the hop to one of those books, which fans out in turn (a book both
-  mention, like *The Great Gatsby* below, gets a line back to its existing cover). The camera pulls back to the whole
-  tree before the network. Made for 9:16; 16:9 works but isn't tuned.
+- **fan** — top down, like a book's page on the site: one book at the top, the books it mentions in a row below it
+  (titles underneath), joined by curved dotted lines that never cross; a quote card for only some of them, one at a
+  time; then the hop to one of those books, whose own row hangs below it (a book both mention, like *The Great
+  Gatsby* below, gets a loop to its existing cover). The whole tree fits one frame, then centres before the network.
+  Made for 9:16 (tree on top, cards below); 16:9 puts the cards on the right but isn't tuned.
 - **stage** — one hop at a time, big: the current book and the next, a speech bubble between them, then the leap; finished books slide into a trail along the bottom.
 
 ## Beat map — marriage-plot-to-romeo (120 BPM)
@@ -59,13 +60,14 @@ The three lines, verbatim from the data (each book mentions the next):
 ]
 ```
 Each fan's `from` must be in the previous fan's `to`, and every book in `to` must be one `from` mentions. Only the books in
-`quotes` (and the hop to the next fan's book) need a saved quote. **Keep each fan to about 5 books**: with more, the covers
-and titles shrink below what reads in a phone feed. Timing comes from the counts: lines 0.45 beat apart (0.3 over 5
+`quotes` (and the hop to the next fan's book) need a saved quote. **Keep each fan to about 5 books** (one row): with
+more, the covers and titles shrink below what reads in a phone feed. `to` order is left to right; put the book that
+fans out next in the middle. Timing comes from the counts: lines 0.45 beat apart (0.3 over 5
 books), 4.4 beats per quote (9:16), 4.4 for the hop, then the whole tree for 2.8 beats.
 
 ## Made for the phone feed
 
 On X and Instagram a 9:16 video plays at roughly a third of its size, and the platform re-encodes it, so the
 vertical cut uses big covers and type: the wall's covers are 190px, chain covers up to 200px with quotes up to 46px
-(long chains step down to fit, so 2–4 hops read best), fan titles 54px and quotes up to 58px. Render social cuts
+(long chains step down to fit, so 2–4 hops read best), fan covers 180px with 36px titles and quotes up to 58px. Render social cuts
 at `--fps 30` (X re-encodes to ~30 fps anyway, and fewer frames leave more bits for each).

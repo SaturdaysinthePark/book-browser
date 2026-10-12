@@ -65,10 +65,12 @@ In-copyright books can't be fetched: point to `docs/detector.md` (find mentions 
 
 ### Fan films (`"layout": "fan"`)
 
-One book fans out to the books it mentions, then one of those fans out in turn. Config: copy
+One book at the top, the books it mentions in a row below it (curved dotted lines, like the site's book page), then
+one of those fans out into a row of its own. Config: copy
 `video/films/norwegian-wood-fan.json` — `fans: [{ from, to: [ids], quotes: [ids] }, …]`. Find candidates with
 `node video/find-chains.mjs --fan "Norwegian Wood"` (★ = quote saved; "→ mentions 13, 3 quoted" shows which books
-can fan out next). Rules: about **5 books per fan** (more and nothing reads on a phone); quotes only on 1–3 of
+can fan out next). Rules: about **5 books per fan** (one row; more and nothing reads on a phone), listed left to right with the
+next fan's book in the middle; quotes only on 1–3 of
 them plus the hop to the next fan's book; each `to` book must be a forward mention of `from`. Timing for stills:
 fan 1 lines from beat 12, its first card at ≈ 12 + 0.45·n + 0.5, cards every 4.4 beats, then the hop (4.4); the
 tree is held 2.8 beats before the network (`window.FILM_META` in the page gives BEATS).
