@@ -1383,7 +1383,7 @@
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
     var srcs = this._xLive() ? ['atlas.js?v=7', 'stars-data.js?v=2', 'explorer.js?v=8'] : ['network-regions.js?v=1', 'explorer.js?v=8'];
-    if (this._vLab()) srcs.push('layouts-data.js?v=4');
+    if (this._vLab()) srcs.push('layouts-data.js?v=5');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {

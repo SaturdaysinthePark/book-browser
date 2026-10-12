@@ -62,7 +62,7 @@ vendored locally and the data loads via a classic script rather than an ES modul
   "Open →" morphs back into its fan. Without the flag the site is unchanged; the pill bottom-left flips to Classic.
 - **`?v=lab`** — `?v=next` plus point-layout variants of the network map to compare (switch at the top right):
   **Spiral** (most connected in the middle, spiralling out), **Petals** (the same, one wedge per genre), **Band** (the petals unrolled into an endlessly looping strip),
-  **Wrap** (the genre continents on a surface whose edges join, so you can pan forever),
+  **Wrap** (one even starfield on a surface whose edges join, so you can pan forever),
   **Blend** (a core of the 302 most connected with genre blobs around it), **Fame** (x = mentions, y = mentioned by,
   log scales) and **Stars** (the genre continents).
 - **About** — how the dataset works

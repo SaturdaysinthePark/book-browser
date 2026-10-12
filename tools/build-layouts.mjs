@@ -181,10 +181,11 @@ const band = () => {
   return { xy, reg, regions, guides: { band: { P, h: round(Hh), lines, cols: order.map((g) => round(col.get(g)[0] - GAP / 2)) } } };
 };
 
-// ---- wrap: the genre continents on a surface whose edges join ----
-// The continents from stars-data.js (same shapes), re-packed into a box with periodic edges: a
-// continent near the right edge is a neighbour of one near the left, so the map can be panned in
-// any direction forever without a border, and each book still appears once. Packing uses the
+// ---- wrap: one starfield on a surface whose edges join ----
+// Every book spread evenly across a box with periodic edges (left↔right, top↔bottom), so the map
+// fills the screen and can be panned in any direction forever, each book drawn once. Genres are
+// territories: the continents from stars-data.js are packed periodically as a starting arrangement,
+// then the stars spread out to fill the whole surface. Packing uses the
 // shortest way round for both collisions and the springs that pull related genres together.
 const wrap = () => {
   const regs = stars.regions.map((R, ri) => ({ ri, r: R.r + 10, x: 0, y: 0 }));
@@ -214,14 +215,56 @@ const wrap = () => {
   }
   let overlaps = 0;
   for (let a = 0; a < regs.length; a++) for (let b = a + 1; b < regs.length; b++) if (Math.hypot(mi(regs[b].x - regs[a].x, PX), mi(regs[b].y - regs[a].y, PY)) < regs[a].r + regs[b].r) overlaps++;
+  // Fill the surface: shrink it so the books exactly cover it at an even spacing D, start each book
+  // at its continent spot (scaled), then let every star push its neighbours apart (periodic, grid-
+  // hashed) while mention links pull gently. Blobs spread into one continuous starfield; genres end
+  // up as territories that share borders.
+  const D = 20, QX = Math.round(Math.sqrt(N * D * D * 1.6)), QY = Math.round(N * D * D / QX), sx0 = QX / PX, sy0 = QY / PY;
   const xy = new Float64Array(2 * N), reg = stars.nodes.map((n) => n[3]);
-  stars.nodes.forEach((n, i) => { const S0 = stars.regions[n[3]], R = regs[n[3]]; xy[2 * i] = mi(R.x + (n[1] - S0.x), PX); xy[2 * i + 1] = mi(R.y + (n[2] - S0.y), PY); });
+  const jr = mulberry32(23);
+  stars.nodes.forEach((n, i) => { const S0 = stars.regions[n[3]], R = regs[n[3]]; xy[2 * i] = mi((R.x + (n[1] - S0.x)) * sx0 + (jr() - 0.5) * 2, QX); xy[2 * i + 1] = mi((R.y + (n[2] - S0.y)) * sy0 + (jr() - 0.5) * 2, QY); });
+  const RAD = D * 1.7, cell = RAD, gx = Math.ceil(QX / cell), gy = Math.ceil(QY / cell);
+  const fx = new Float64Array(N), fy = new Float64Array(N);
+  for (let it = 0; it < 360; it++) {
+    const cool = 1 - it / 400;
+    fx.fill(0); fy.fill(0);
+    const grid = new Map();
+    for (let i = 0; i < N; i++) { const cxg = Math.floor((xy[2 * i] + QX / 2) / cell) % gx, cyg = Math.floor((xy[2 * i + 1] + QY / 2) / cell) % gy, gk = cxg * 10000 + cyg; (grid.get(gk) || grid.set(gk, []).get(gk)).push(i); }
+    for (const [gk, list] of grid) {
+      const cxg = Math.floor(gk / 10000), cyg = gk % 10000;
+      for (let ox = -1; ox <= 1; ox++) for (let oy = -1; oy <= 1; oy++) {
+        const other = grid.get(((cxg + ox + gx) % gx) * 10000 + ((cyg + oy + gy) % gy));
+        if (!other) continue;
+        for (const i of list) for (const j of other) {
+          if (j <= i) continue;
+          const dx = mi(xy[2 * j] - xy[2 * i], QX), dy = mi(xy[2 * j + 1] - xy[2 * i + 1], QY), d = Math.hypot(dx, dy) || 0.01;
+          if (d >= RAD) continue;
+          const f = (RAD - d) / RAD * 0.5, ux = dx / d, uy = dy / d;
+          fx[i] -= ux * f * D; fy[i] -= uy * f * D; fx[j] += ux * f * D; fy[j] += uy * f * D;
+        }
+      }
+    }
+    for (const [a, b] of pairs) {   // related books stay near each other
+      const dx = mi(xy[2 * b] - xy[2 * a], QX), dy = mi(xy[2 * b + 1] - xy[2 * a + 1], QY), d = Math.hypot(dx, dy) || 1;
+      if (d < D * 2) continue;
+      const f = Math.min(D * 0.3, (d - D * 2) * 0.003);
+      fx[a] += dx / d * f; fy[a] += dy / d * f; fx[b] -= dx / d * f; fy[b] -= dy / d * f;
+    }
+    for (let i = 0; i < N; i++) {
+      const m = Math.hypot(fx[i], fy[i]), cap = D * 0.5 * cool + 0.5, k = m > cap ? cap / m : 1;
+      xy[2 * i] = mi(xy[2 * i] + fx[i] * k * cool, QX); xy[2 * i + 1] = mi(xy[2 * i + 1] + fy[i] * k * cool, QY);
+    }
+  }
+  // genre names at each territory's (circular) centre of mass
   const regions = stars.regions.map((S0, ri) => {
-    const R = regs[ri];
-    return { x: round(R.x), y: round(R.y), r: S0.r, lx: round(R.x + (S0.lx - S0.x)), ly: round(R.y + (S0.ly - S0.y)), name: S0.name, genre: S0.genre, size: S0.size };
+    const R = regs[ri], ax = mi(R.x * sx0, QX), ay = mi(R.y * sy0, QY);
+    let sxs = 0, sys = 0, n = 0;
+    for (let i = 0; i < N; i++) if (reg[i] === ri) { sxs += mi(xy[2 * i] - ax, QX); sys += mi(xy[2 * i + 1] - ay, QY); n++; }
+    const cx = mi(ax + (n ? sxs / n : 0), QX), cy = mi(ay + (n ? sys / n : 0), QY), r = Math.sqrt(n * D * D / Math.PI);
+    return { x: round(cx), y: round(cy), r: round(r), lx: round(cx), ly: round(cy), name: S0.name, genre: S0.genre, size: S0.size };
   });
-  console.log(`  wrap: ${PX}×${PY} surface, ${overlaps} continent overlaps`);
-  return { xy, reg, regions, guides: { torus: { P: PX, PY } } };
+  console.log(`  wrap: ${QX}×${QY} surface filled evenly (spacing ${D})`);
+  return { xy, reg, regions, guides: { torus: { P: QX, PY: QY } } };
 };
 
 // ---- blend: a core of the most connected, genre blobs around it ----
