@@ -70,9 +70,9 @@ one of those fans out into a row of its own. Config: copy
 `video/films/norwegian-wood-fan.json` — `fans: [{ from, to: [ids], quotes: [ids] }, …]`. Find candidates with
 `node video/find-chains.mjs --fan "Norwegian Wood"` (★ = quote saved; "→ mentions 13, 3 quoted" shows which books
 can fan out next). Rules: about **5 books per fan** (one row; more and nothing reads on a phone), listed left to right with the
-next fan's book in the middle; quotes only on 1–3 of
-them plus the hop to the next fan's book; each `to` book must be a forward mention of `from`. Timing for stills:
-fan 1 lines from beat 12, its first card at ≈ 12 + 0.45·n + 0.5, cards every 4.4 beats, then the hop (4.4); the
+next fan's book in the middle; one quote card per fan — the hop
+to the next fan's book, and on the last fan the book the film ends on (more cards is too much); each `to` book must be a forward mention of `from`. Timing for stills:
+fan 1 lines from beat 12, its card at ≈ 12 + 0.45·n + 0.9, the leap 3.8 beats after, the next row 5.2 beats after; the
 tree is held 2.8 beats before the network (`window.FILM_META` in the page gives BEATS).
 
 ## 4. Check stills before rendering
