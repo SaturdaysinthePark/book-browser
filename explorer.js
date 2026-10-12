@@ -127,7 +127,9 @@
       return h('marker', { key: id, id: id, viewBox: '0 0 10 10', refX: 8, refY: 5, markerWidth: 6.5, markerHeight: 6.5, orient: 'auto-start-reverse' },
         h('path', { d: 'M0 1 L9 5 L0 9 z', fill: col }));
     };
-    var svgKids = [h('defs', { key: 'd' }, arrow('bjxA-out', '#9c3d22'), arrow('bjxA-in', '#2f5590'), arrow('bjxA-both', '#141414'))];
+    // the new site keeps the lines plain: colour says in / out, no arrowheads
+    var heads = !self._vNext();
+    var svgKids = heads ? [h('defs', { key: 'd' }, arrow('bjxA-out', '#9c3d22'), arrow('bjxA-in', '#2f5590'), arrow('bjxA-both', '#141414'))] : [];
     var pills = [];
     lay.items.forEach(function (n) {
       var it = n.it, k = it.k || 'more', id = it.id, isHot = id && id === hot;
@@ -135,7 +137,7 @@
       // Explorer+: a second dashed path streams along the line in the mention's direction (mutual stays still)
       if (n.d) svgKids.push(h('g', { key: 'e' + n.i, 'data-id': id, className: 'bjx-eg' + (isHot ? ' is-hot' : '') },
         h('path', { className: 'ng-e ' + k + (isHot ? ' is-hot' : ''), d: n.d, pathLength: 1, style: { '--i': n.i },
-          markerEnd: 'url(#bjxA-' + k + ')', markerStart: k === 'both' ? 'url(#bjxA-both)' : null }),
+          markerEnd: heads ? 'url(#bjxA-' + k + ')' : null, markerStart: heads && k === 'both' ? 'url(#bjxA-both)' : null }),
         plus && k !== 'both' ? h('path', { className: 'ng-flow ' + k, d: n.d, style: { '--i': n.i } }) : null));
       // the line's colour already says in / out; on the new site the pill's genre dot is the only dot
       if (!it.more && !self._vNext()) svgKids.push(h('circle', { key: 'c' + n.i, className: 'bjx-dot ' + k, cx: n.x, cy: n.y, r: 4.6, style: { '--i': n.i } }));
@@ -497,7 +499,7 @@
             h('div', { className: 't' }, hot.title), h('div', { className: 'a' }, [hot.author, hy].filter(Boolean).join('  ·  '))),
           h('button', { className: 'pill solid', onClick: function () { self.xJump(hot.id, document.querySelector('.bkp-cv[data-id="' + CSS.escape(hot.id) + '"]')); } }, 'Jump →')),
         isOut ? this.noteEl(b.id, hot.id) : this.noteEl(hot.id, b.id)));
-    } else kids.push(h('p', { key: 'tip', className: 'bkp-tip' }, 'Tap a cover to see how it connects · swipe the shelves for more'));
+    }
     kids.push(this.bookLists(b));
     return h('div', { className: 'bjx-page bjx-plus bkp-page' }, kids);
   };
@@ -524,7 +526,7 @@
     };
     return h('div', { key: 'shelves:' + b.id, className: 'bkp-shelves' + (st.xArriving ? ' arriving' : st.xLanded === b.id ? ' landed' : '') + (st.xHover ? ' has-hot' : ''), ref: this._bkpRef() },
       h('svg', { className: 'bkp-lines', 'aria-hidden': true }),
-      h('div', { className: 'bkp-lab in' }, h('i', { className: 'dot in' }), 'Mentioned by ' + top.length),
+      h('div', { className: 'bkp-lab in' }, h('i', { className: 'dot in' }), 'Mentioned by ' + top.length, h('span', { className: 'hint' }, 'tap a cover · swipe for more')),
       row(top, 'in'),
       h('div', { className: 'bkp-mid' }, h('div', { className: 'bjx-center' }, b.title)),
       row(bot, 'out'),
@@ -552,8 +554,7 @@
     svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
     var bookId = this._xCur();
     if (!this._bkpPaths || this._bkpFor !== bookId || !svg.firstChild) {
-      var mk = function (id, col) { return '<marker id="' + id + '" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 1 L9 5 L0 9 z" fill="' + col + '"/></marker>'; };
-      svg.innerHTML = '<defs>' + mk('bkpA-in', '#2f5590') + mk('bkpA-out', '#9c3d22') + mk('bkpA-both', '#141414') + '</defs>';
+      svg.innerHTML = '';
       this._bkpPaths = {}; this._bkpFor = bookId;
     }
     var c = cen.getBoundingClientRect(), cx = c.left - R.left + c.width / 2, ctop = c.top - R.top, cbot = c.bottom - R.top;
@@ -565,7 +566,6 @@
       if (!g) {
         g = document.createElementNS(NS, 'g'); g.setAttribute('class', 'bkp-eg'); g.setAttribute('data-id', id);
         var e = document.createElementNS(NS, 'path'); e.setAttribute('class', 'ng-e ' + k); e.setAttribute('pathLength', '1'); e.style.setProperty('--i', n);
-        e.setAttribute('marker-end', 'url(#bkpA-' + k + ')'); if (k === 'both') e.setAttribute('marker-start', 'url(#bkpA-both)');
         g.appendChild(e);
         if (k !== 'both') { var f = document.createElementNS(NS, 'path'); f.setAttribute('class', 'ng-flow ' + k); f.style.setProperty('--i', n); g.appendChild(f); }
         svg.appendChild(g); paths[id] = g;
@@ -573,9 +573,10 @@
       n++;
       g.style.display = vis ? '' : 'none';
       if (!vis) return;
-      var ex = cx + Math.max(-40, Math.min(40, (x - cx) * 0.14)), d;
-      if (k === 'in') { var y0 = r.bottom - R.top + 3; d = 'M' + x.toFixed(1) + ' ' + y0.toFixed(1) + ' C' + x.toFixed(1) + ' ' + (y0 + 44).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + (ctop - 46).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + (ctop - 3).toFixed(1); }
-      else { var y1 = r.top - R.top - 3; d = 'M' + ex.toFixed(1) + ' ' + (cbot + 3).toFixed(1) + ' C' + ex.toFixed(1) + ' ' + (cbot + 40).toFixed(1) + ' ' + x.toFixed(1) + ' ' + (y1 - 40).toFixed(1) + ' ' + x.toFixed(1) + ' ' + y1.toFixed(1); }
+      // lines meet the pill spread along its edge (not all in one point), and touch it
+      var half = Math.max(10, c.width / 2 - 18), ex = cx + Math.max(-half, Math.min(half, (x - cx) * 0.35)), d;
+      if (k === 'in') { var y0 = r.bottom - R.top + 2; d = 'M' + x.toFixed(1) + ' ' + y0.toFixed(1) + ' C' + x.toFixed(1) + ' ' + (y0 + 44).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + (ctop - 40).toFixed(1) + ' ' + ex.toFixed(1) + ' ' + ctop.toFixed(1); }
+      else { var y1 = r.top - R.top - 2; d = 'M' + ex.toFixed(1) + ' ' + cbot.toFixed(1) + ' C' + ex.toFixed(1) + ' ' + (cbot + 36).toFixed(1) + ' ' + x.toFixed(1) + ' ' + (y1 - 40).toFixed(1) + ' ' + x.toFixed(1) + ' ' + y1.toFixed(1); }
       for (var q = 0; q < g.childNodes.length; q++) g.childNodes[q].setAttribute('d', d);
       g.setAttribute('class', 'bkp-eg' + (id === hot ? ' is-hot' : ''));
     });

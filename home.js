@@ -556,7 +556,8 @@
   };
 
   // ---------------------------------------------------------------- public
-  // Shuffle = reseed the (lane, index) → book mapping and fling the wall so new books spin in.
+  // Shuffle = reseed the (lane, index) → book mapping and fling the wall so new books spin in
+  // (no fade: the fling alone carries it, and dimming the wall flashed white on the paper).
   P.shuffle = function (rows) {
     this.seed = (Math.random() * 100000) | 0;
     if (rows && this.v === 'c') { this.rows = rows; this._assignRows(); }
@@ -564,7 +565,6 @@
     if (this.cols) this.cols.forEach(function (c) { c.off = NaN; });
     if (this.lanes) this.lanes.forEach(function (l) { l.off = NaN; });
     if (!this.reduced) {
-      this.root.classList.remove('hw-reseed'); void this.root.offsetWidth; this.root.classList.add('hw-reseed');
       var a = Math.random() * Math.PI * 2;
       if (this.v === 'b') { this.vel.x = Math.cos(a) * 46; this.vel.y = Math.sin(a) * 46; }
       else this.vel.y = (this.W < 640 ? 38 : 52) * (Math.random() < 0.5 ? -1 : 1);

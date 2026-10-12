@@ -177,8 +177,6 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hw-card{border-radius:3px;box-shadow:0 0 0 1px rgba(242,236,221,.16),0 12px 26px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.3);transition:transform .32s var(--ease-spring),box-shadow .3s var(--ease-out);cursor:pointer;}
 .hw-slot.is-hot{z-index:4;}
 .hw-slot.is-hot .hw-card{transform:translateY(-8px) scale(1.07);box-shadow:0 0 0 1px rgba(242,236,221,.2),0 26px 44px rgba(0,0,0,.55),0 4px 8px rgba(0,0,0,.3);}
-.hw-reseed .hw-layer{animation:hwReseed .5s var(--ease-out);}
-@keyframes hwReseed{0%{opacity:.35;filter:blur(2px);}100%{opacity:1;filter:none;}}
 .hw-arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;}
 .hw-arcs path{fill:none;stroke:#f2ecdd;stroke-width:2.4;stroke-dasharray:3 6;stroke-linecap:round;opacity:.9;}
 .hw-arcs circle{fill:#f2ecdd;stroke:var(--wall);stroke-width:1.5;}
@@ -295,7 +293,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 }
 @media (prefers-reduced-motion:reduce){
   .hx-hero,.hx-card,.hx-x,.hx-bar,.hx-logo,.hx-search input,.hw-card,.hx-vignette,.hx-nav button,.hx-nav .lbl{transition:none;}
-  .hx-hint i,.hw-reseed .hw-layer{animation:none;}
+  .hx-hint i{animation:none;}
 }
 </style>
 <style>
@@ -628,7 +626,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 @media (max-width:999px){.net-switch.v-switch{display:none;}}
 .bkn-classic{margin:40px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10.5px;}
 .bkn-classic a{color:var(--mut);}
-.bkn-lists.tabbed{display:block;margin-top:28px;padding-top:0;border-top:none;}
+.bkn-lists.tabbed{display:block;margin-top:22px;padding-top:0;border-top:none;}
 .bkn-tabs{display:flex;border:1.5px solid var(--ink);border-radius:999px;padding:3px;gap:3px;background:var(--card);position:sticky;top:calc(var(--hdr-h) + 8px);z-index:4;box-shadow:0 3px 0 rgba(20,20,20,.9);}
 .bkn-tab{flex:1;border:none;background:none;border-radius:999px;padding:9px 6px;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--ink);cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;}
 .bkn-tab .n{font-size:10.5px;padding:1px 7px;border-radius:999px;color:var(--paper);}
@@ -653,26 +651,29 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .bkp-map-l{position:absolute;left:0;right:0;bottom:0;padding:2px 0 3px;text-align:center;font-family:'IBM Plex Mono',monospace;font-size:9px;background:rgba(247,245,240,.88);pointer-events:none;}
 .bkp-syn{margin:12px 0 0;font-size:14px;line-height:1.5;color:rgba(20,20,20,.82);display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;cursor:pointer;}
 .bkp-syn.open{-webkit-line-clamp:unset;display:block;}
-.bkp-shelves{position:relative;margin:14px -16px 0;padding:0;}
+.bkp-shelves{position:relative;margin:12px -16px 0;padding:0;}
 .bkp-lines{position:absolute;left:0;top:0;overflow:visible;pointer-events:none;z-index:0;}
 .bkp-lab{position:relative;z-index:1;display:flex;align-items:center;gap:6px;padding:0 16px;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--mut);}
 .bkp-lab .dot{margin:0 !important;}
-.bkp-lab.in{margin-bottom:8px;}.bkp-lab.out{margin-top:8px;}
-.bkp-row{position:relative;z-index:1;display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 16px 6px;scrollbar-width:none;min-height:74px;align-items:center;}
+.bkp-lab.in{margin-bottom:6px;}.bkp-lab.out{margin-top:6px;}
+.bkp-lab .hint{margin-left:auto;text-transform:none;letter-spacing:0;font-size:9.5px;opacity:.75;}
+.bkp-lines .ng-e{stroke-width:1.1;}
+.bkp-lines .ng-flow{stroke-width:1.5;stroke-dasharray:2 8;}
+.bkp-eg.is-hot .ng-e{stroke-width:2 !important;}
+.bkp-row{position:relative;z-index:1;display:flex;gap:10px;overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;padding:4px 16px 6px;scrollbar-width:none;min-height:88px;align-items:center;}
 .bkp-row::-webkit-scrollbar{display:none;}
-.bkp-cv{position:relative;flex:none;width:44px;padding:0;border:none;background:none;scroll-snap-align:start;cursor:pointer;transition:transform .25s var(--ease-spring),opacity .2s;
+.bkp-cv{position:relative;flex:none;width:52px;padding:0;border:none;background:none;scroll-snap-align:start;cursor:pointer;transition:transform .25s var(--ease-spring),opacity .2s;
   opacity:0;animation:ngIn .4s var(--ease-out) forwards;animation-delay:calc(min(var(--i), 10) * 28ms + 120ms);}
 .bkp-cv.is-hot{transform:translateY(-4px) scale(1.08);}
 .bkp-row.out .bkp-cv.is-hot{transform:translateY(4px) scale(1.08);}
 .bkp-shelves.has-hot .bkp-cv:not(.is-hot){opacity:.45 !important;}
 .bkp-shelves.has-hot .bkp-eg:not(.is-hot){opacity:.15;}
 .bkp-eg{transition:opacity .2s;}
-.bkp-eg.is-hot .ng-e{stroke-width:2.6;}
 .bkp-cv .mut{position:absolute;right:-5px;top:-6px;width:17px;height:17px;border-radius:50%;background:var(--ink);color:var(--paper);font-size:10px;line-height:17px;text-align:center;}
-.bkp-more{flex:none;width:64px;height:66px;border:1.4px dashed rgba(20,20,20,.5);border-radius:6px;background:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--mut);line-height:1.3;}
+.bkp-more{flex:none;width:68px;height:78px;border:1.4px dashed rgba(20,20,20,.5);border-radius:6px;background:none;font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:var(--mut);line-height:1.3;}
 .bkp-none{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--mut);padding:24px 0;}
-.bkp-mid{position:relative;z-index:1;height:150px;display:flex;align-items:center;justify-content:center;padding:0 16px;}
-.bkp-mid .bjx-center{position:relative;display:block;height:42px;line-height:42px;max-width:100%;padding:0 18px;text-overflow:ellipsis;}
+.bkp-mid{position:relative;z-index:1;height:118px;display:flex;align-items:center;justify-content:center;padding:0 16px;}
+.bkp-mid .bjx-center{position:relative;display:block;height:34px;line-height:34px;font-size:17.5px;max-width:100%;padding:0 15px;text-overflow:ellipsis;}
 .bkp-shelves.arriving .bkp-cv,.bkp-shelves.arriving .bjx-center{visibility:hidden;}
 .bkp-tip{margin:10px 0 0;font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);text-align:center;}
 .bkp-sheet{margin-top:12px;border:1.5px solid var(--ink);border-radius:14px;background:var(--card);padding:12px 14px;box-shadow:0 3px 0 rgba(20,20,20,.9);animation:cstlFade .2s ease;}
@@ -1491,7 +1492,7 @@ html,body{height:100%;}
      loaded lazily by app.js (P._loadConstellation) only when the #/network route is first hit,
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
-<script src="home.js?v=2"></script>
+<script src="home.js?v=3"></script>
 <script src="app.js?v=2"></script>
 </body>
 </html>
