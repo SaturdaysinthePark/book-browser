@@ -343,7 +343,10 @@
       if (self._xMini) { self._xMini.destroy(); self._xMini = null; }
       if (!el || !window.BJAtlas || !window.BookJumprStars) return;
       var wd = self._vLab() && window.BookJumprLayouts ? self._layoutData('wrap') : null, tor = wd && wd.guides && wd.guides.torus;
+      // the phone thumbnail's "Zoom out" strip covers its bottom edge: frame the links above it
+      var lab = el.parentNode && el.parentNode.querySelector('.bkp-map-l');
       self._xMini = new window.BJAtlas(self._xStarOpts({ root: el, mini: true, data: wd || window.BookJumprStars, wrapX: tor ? tor.P : 0, wrapY: tor ? tor.PY : 0,
+        bottomInset: lab ? function () { return lab.offsetHeight; } : null,
         onClick: function () { if (self._vNext()) self.xZoomOut(); else self.xOpenFull(); } }));
       var f = self._xCur();
       if (f) self._xMini.setFocus(f, false);
@@ -768,12 +771,12 @@
           h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'),
           h('button', { className: 'pill', onClick: function () { self.mapFocus(null); } }, 'Clear'))));
   };
-  // "Find a book…" for the map views; picking one selects it (mapFocus).
+  // "Search by book or author…" for the map views; picking one selects it (mapFocus).
   P.mapSearch = function () {
     var self = this, q = this.state.xFq || '', sugg = q.trim() ? this.matches(q).slice(0, 7) : [];
     var find = function (id) { self.setState({ xFq: '' }); self.mapFocus(id); };
     return h('div', { className: 'atlas-q' },
-      h('input', { className: 'atlas-input', placeholder: 'Find a book…', value: q, 'aria-label': 'Find a book on the map',
+      h('input', { className: 'atlas-input', placeholder: 'Search by book or author…', value: q, 'aria-label': 'Search the map by book or author',
         onChange: function (e) { self.setState({ xFq: e.target.value }); },
         onKeyDown: function (e) { if (e.key === 'Enter' && sugg[0]) find(sugg[0].id); if (e.key === 'Escape') self.setState({ xFq: '' }); } }),
       sugg.length ? h('div', { className: 'sg-pop atlas-sg' }, sugg.map(function (x) {

@@ -76,7 +76,7 @@
     this.regionCircles = o.regionCircles !== false;
     this.mini = !!o.mini;
     if (o.colorOf) { this.col = []; for (i = 0; i < this.N; i++) this.col.push(o.colorOf(this.keys[i])); }
-    if (o.twinkle) {
+    if (o.twinkle && !o.mini) {
       this.tw = new Float32Array(this.N);   // 0 = steady; otherwise an angular speed (about 1 star in 25, slow)
       for (i = 0; i < this.N; i++) { var hsh = Math.sin(i * 12.9898) * 43758.5453; hsh -= Math.floor(hsh); this.tw[i] = hsh < 0.04 && !(o.dust && this.deg[i] <= 1) ? 1.6 + hsh * 55 : 0; }
     }
@@ -174,6 +174,7 @@
       minX = Math.min(minX, fx); maxX = Math.max(maxX, fx); minY = Math.min(minY, fy); maxY = Math.max(maxY, fy);
     }
     var narrow = this.W < 640, padX = narrow ? 40 : 120, padY = narrow ? 50 : 90, ins = this._inset() + this._insetTop();
+    if (this.mini) { padX = Math.max(8, this.W * 0.09); padY = Math.max(8, this.H * 0.1); }   // thumbnails: small margins, or the links fall off the edges
     var k = Math.min((this.W - padX * 2) / Math.max(80, maxX - minX), (this.H - ins - padY * 2) / Math.max(80, maxY - minY));
     k = Math.min(k, 2.4);
     this._lookAt((minX + maxX) / 2, (minY + maxY) / 2, k, anim);
@@ -309,13 +310,15 @@
       // dust: single-link books stay faint unless lit (linked to the selection, near the cursor, zoomed in)
       var isDust = this.dust && this.deg[i] <= 1 && !linked && k < this._dustK(), glow = this.dust && this.deg[i] <= 4 ? this._glow(sx, sy) : 0;
       var rad = this._r(i, !isDust);
-      var a = on ? 1 : (this.mini ? 0.22 : this.col ? 0.2 : 0.13);
+      var a = on ? 1 : (this.mini ? 0.14 : this.col ? 0.2 : 0.13);
       if (on && this.dust && focus < 0) a = isDust ? 0.34 + 0.66 * glow : this.deg[i] <= 4 ? 0.8 + 0.2 * glow : 1;
       if (isDust && glow > 0) rad *= 1 + 0.6 * glow;
       if (this.tw && this.tw[i] && !this.reduced && !linked) a *= 0.75 + 0.25 * Math.sin(now * this.tw[i] + i);
       c.globalAlpha = a;
       c.beginPath(); c.arc(sx, sy, rad, 0, 6.2832);
       c.fillStyle = this.col ? this.col[i] : R.name ? hexA(PAL[this.reg[i] % PAL.length], 0.8) : 'rgba(110,104,92,0.6)';
+      // thumbnails: a linked book is drawn in its link's colour (in / out / both), so the ends of the lines read
+      if (this.mini && nb && nb[i]) { c.fillStyle = nb[i] === 'out' ? OUT : nb[i] === 'in' ? IN : INK; rad = Math.max(rad, 1.8); }
       c.fill();
       if (rad > 3.2 && !isDust) { c.lineWidth = 1; c.strokeStyle = 'rgba(20,20,20,0.55)'; c.stroke(); }
     }
@@ -353,10 +356,11 @@
         c.strokeStyle = kind === 'out' ? OUT : kind === 'in' ? IN : INK;
         c.globalAlpha = (focus >= 0 ? (hover >= 0 && focus >= 0 && !hot && hover !== focus ? 0.3 : 0.9) : 0.55) * (hot ? 1 : thin);
         c.lineWidth = (hot ? 3.2 : LN.n ? Math.min(8, 2.2 + Math.sqrt(LN.n) * 0.7) : focus >= 0 ? 2.2 : 1.3) * (W < 600 ? 0.55 : 1);   // phones: finer lines
+        if (this.mini) { c.lineWidth = W < 180 ? 0.8 : 1.1; c.globalAlpha = Math.min(c.globalAlpha, ne > 30 ? 0.45 : 0.7); }   // thumbnails: plain hairlines
         if (LN.n) c.globalAlpha = Math.max(c.globalAlpha, 0.7);
         // Flow (after the reveal): dashes travel in the mention's direction — out from the book for
         // books it mentions, in toward it for books that mention it. Mutual stays solid.
-        var flowing = this.o.flow && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
+        var flowing = this.o.flow && !this.mini && focus >= 0 && ip >= 1 && kind !== 'both' && !this.reduced;
         var rev = flowing && kind === 'in';
         if (flowing) { var dsh = W < 600 ? [5, 4] : [8, 6]; c.setLineDash(dsh); c.lineDashOffset = -((now * 18) % (dsh[0] + dsh[1])); }
         c.beginPath();
@@ -370,7 +374,7 @@
         c.stroke();
         if (flowing) c.setLineDash([]);
         // arrowhead at the curve's midpoint, pointing the way the mention goes (mutual: none)
-        if (focus >= 0 && ip >= 1 && kind !== 'both') {
+        if (focus >= 0 && ip >= 1 && kind !== 'both' && !this.mini) {
           var t1 = 0.5, t2 = 0.56, m1 = 1 - t1, m2 = 1 - t2;
           var ax1 = m1 * m1 * hx + 2 * m1 * t1 * cx2 + t1 * t1 * tx, ay1 = m1 * m1 * hy + 2 * m1 * t1 * cy2 + t1 * t1 * ty;
           var ax2 = m2 * m2 * hx + 2 * m2 * t2 * cx2 + t2 * t2 * tx, ay2 = m2 * m2 * hy + 2 * m2 * t2 * cy2 + t2 * t2 * ty;
@@ -522,7 +526,9 @@
   P._ring = function (i, col, pad) {
     var c = this.ctx;
     c.beginPath(); c.arc(this.sx(this._x(i)), this.sy(this._y(i)), this._r(i) + pad, 0, 6.2832);
-    c.lineWidth = 1.8; c.strokeStyle = col; c.globalAlpha = 1; c.stroke();
+    c.globalAlpha = 1;
+    if (this.mini) { c.lineWidth = 4.5; c.strokeStyle = PAPER; c.stroke(); }   // thumbnails: a paper halo keeps the ring clear of the lines
+    c.lineWidth = 1.8; c.strokeStyle = col; c.stroke();
   };
   P._nbOf = function (i) {
     if (this._nbCache && this._nbCache.i === i) return this._nbCache.set;
@@ -587,8 +593,8 @@
         return;
       }
       lastG = 0;
-      var flowing = self.o.flow && self.focus >= 0;
-      var every = flowing ? 33 : self.o.twinkle ? 66 : 0;
+      var flowing = self.o.flow && !self.mini && self.focus >= 0;
+      var every = flowing ? 33 : self.o.twinkle && !self.mini ? 66 : 0;
       if (!every || t - last < every) return;
       last = t;
       self._draw();
