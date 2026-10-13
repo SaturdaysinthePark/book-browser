@@ -1,0 +1,91 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>BookJumpr — social preview</title>
+<link href="https://fonts.googleapis.com/css2?family=Cabin:wght@700&family=Instrument+Serif:ital@0;1&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>html,body{margin:0;background:#f7f5f0;}canvas{display:block;}</style>
+</head>
+<body>
+<canvas id="c" width="1200" height="630"></canvas>
+<script src="../bookjumpr-data.js"></script>
+<script>
+// The link-preview card (og:image, 1200×630): the wordmark and line on the left, a book's fan on the right —
+// the book on top, the books it mentions in a row below, one jump highlighted. Same covers, lines and little
+// book as the films (video/flow.html). Rendered to social-preview.png by tools/render-social-preview.mjs.
+var ROOT = 'haruki-murakami/norwegian-wood', JUMP = 'j-d-salinger/the-catcher-in-the-rye';
+var ROW = ['karl-marx/das-kapital', 'f-scott-fitzgerald/the-great-gatsby', JUMP, 'thomas-mann/the-magic-mountain', 'leo-tolstoy/war-and-peace'];
+
+function main() {
+  var N = window.BookJumprData.NODES, M = window.BookJumprData.MENTIONS;
+  ROW.forEach(function (k) { if (!M.some(function (m) { return m[0] === ROOT && m[1] === k; })) throw new Error(N[ROOT][0] + ' does not mention ' + k); });
+  var GEN = { 'FICTION': '#c4682e', 'POETRY & EPICS': '#a34a9c', 'DRAMA & PLAYS': '#c33d2e', 'CRIME & MYSTERY': '#2e8156', 'SCI-FI': '#3d6fb0',
+    'FANTASY': '#7b5bb5', 'HORROR': '#4a3b52', 'ADVENTURE & TRAVEL': '#c04a70', 'HISTORY': '#8a5a3a', 'BIOGRAPHY & MEMOIR': '#2f5590',
+    'PHILOSOPHY': '#3f7d7d', 'PSYCHOLOGY': '#7ba03c', 'POLITICS & WORLD': '#6e6e6e', 'BUSINESS & ECONOMICS': '#8c6d24',
+    'ESSAYS & JOURNALISM': '#7d4a66', 'HUMOR & COMEDY': '#d9a62b', 'FOOD & COOKING': '#a04a2a' };
+  var bookOf = function (k) { return { t: N[k][0], c: GEN[N[k][4]] || '#b3ad9f' }; };
+
+  var c = document.getElementById('c').getContext('2d'), W = 1200, H = 630, PI = Math.PI;
+  var PAPER = '#f7f5f0', INK = '#141414', RUST = '#9c3d22', CREAM = '#f3ecdc';
+  var SERIF = "'Instrument Serif', serif", MONO = "'IBM Plex Mono', monospace", CABIN = "'Cabin', sans-serif";
+  c.fillStyle = PAPER; c.fillRect(0, 0, W, H);
+
+  var q = function (p0, p1, p2, t) { var a = 1 - t; return [a * a * p0[0] + 2 * a * t * p1[0] + t * t * p2[0], a * a * p0[1] + 2 * a * t * p1[1] + t * t * p2[1]]; };
+  var cub = function (p0, p1, p2, p3, t) { var a = 1 - t; return [a * a * a * p0[0] + 3 * a * a * t * p1[0] + 3 * a * t * t * p2[0] + t * t * t * p3[0], a * a * a * p0[1] + 3 * a * a * t * p1[1] + 3 * a * t * t * p2[1] + t * t * t * p3[1]]; };
+  var dashed = function (pt, col, lw, dash, gap) {
+    c.beginPath(); for (var i = 0; i <= 48; i++) { var p = pt(i / 48); if (i) c.lineTo(p[0], p[1]); else c.moveTo(p[0], p[1]); }
+    c.setLineDash([dash, gap]); c.lineWidth = lw; c.strokeStyle = col; c.lineCap = 'butt'; c.stroke(); c.setLineDash([]);
+  };
+  var tw = function (s, font, ls) { c.font = font; c.letterSpacing = ls || '0px'; var w = c.measureText(s).width; c.letterSpacing = '0px'; return w; };
+  // a flat BookJumpr cover (genre band · cream title panel · genre band), centred on x, y
+  var cover = function (x, y, w, b) {
+    var h = w * 1.5, x0 = x - w / 2, y0 = y - h / 2;
+    c.fillStyle = 'rgba(20,20,20,0.13)'; c.fillRect(x0 + w * 0.05, y0 + w * 0.05, w, h);
+    c.fillStyle = b.c; c.fillRect(x0, y0, w, h);
+    c.fillStyle = CREAM; c.fillRect(x0, y0 + h * 0.24, w, h * 0.52);
+    c.beginPath(); c.ellipse(x, y0 + h * 0.12, w * 0.15, h * 0.028, 0, 0, 2 * PI); c.fill();
+    c.beginPath(); var dy = y0 + h * 0.88, ds = w * 0.07; c.moveTo(x, dy - ds); c.lineTo(x + ds, dy); c.lineTo(x, dy + ds); c.lineTo(x - ds, dy); c.closePath(); c.fill();
+    var fs = Math.max(11, w * 0.125), font = '700 ' + fs + 'px ' + CABIN, words = b.t.toUpperCase().split(' '), lines = [], cur = '';
+    words.forEach(function (wd) { var t = cur ? cur + ' ' + wd : wd; if (tw(t, font, '0.02em') > w * 0.86 && cur) { lines.push(cur); cur = wd; } else cur = t; });
+    if (cur) lines.push(cur);
+    c.fillStyle = INK; c.font = font; c.textAlign = 'center'; c.letterSpacing = '0.02em';
+    lines.slice(0, 3).forEach(function (ln, i) { c.fillText(ln, x, y + (i - (Math.min(lines.length, 3) - 1) / 2) * fs * 1.18 + fs * 0.35); });
+    c.letterSpacing = '0px'; c.lineWidth = Math.max(1.5, w * 0.014); c.strokeStyle = INK; c.strokeRect(x0, y0, w, h);
+  };
+  // the little rust book (the logo's)
+  var book = function (x, y, u, rot) {
+    c.save(); c.translate(x, y); c.rotate(rot);
+    c.beginPath(); c.rect(-4 * u, -5.8 * u, 8 * u, 11.6 * u); c.fillStyle = RUST; c.fill(); c.lineWidth = 1.9 * u; c.strokeStyle = INK; c.stroke();
+    c.beginPath(); c.moveTo(-1.7 * u, -5.8 * u); c.lineTo(-1.7 * u, 5.8 * u); c.lineWidth = 1.5 * u; c.stroke(); c.restore();
+  };
+  // the BookJumpr mark: a dotted arc, a dot at its start
+  var mark = function (ox, oy, u) {
+    dashed(function (t) { var p = q([4, 30], [30, -8], [58, 23], t); return [ox + p[0] * u, oy + p[1] * u]; }, INK, 2 * u, 3 * u, 3.4 * u);
+    c.beginPath(); c.arc(ox + 4 * u, oy + 30 * u, 2.4 * u, 0, 2 * PI); c.fillStyle = INK; c.fill();
+  };
+
+  // left: the wordmark, the line, the address
+  var L = 76;
+  mark(L, 120, 1.6);
+  c.font = '58px ' + SERIF; c.fillStyle = INK; c.textAlign = 'left'; c.fillText('BookJumpr', L + 112, 168);
+  c.font = '66px ' + SERIF; ['Every book', 'is a door to', 'more books.'].forEach(function (s, i) { c.fillText(s, L, 300 + i * 72); });
+  c.font = '500 26px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('bookjumpr.com', L + 2, 530); c.letterSpacing = '0px';
+
+  // right: the fan
+  var fx = 868, RW = 132, rootY = 70 + RW * 0.75, sw = 98, gap = 12, n = ROW.length, rowY = 360 + sw * 0.75;
+  var y0 = rootY + RW * 0.75 + 6, y1 = rowY - sw * 0.75 - 8, ym = (y0 + y1) / 2;
+  var xs = ROW.map(function (k, j) { return fx + (j - (n - 1) / 2) * (sw + gap); });
+  ROW.forEach(function (k, j) {
+    var hot = k === JUMP;
+    dashed(function (t) { return cub([fx, y0], [fx, ym], [xs[j], ym], [xs[j], y1], t); }, hot ? RUST : 'rgba(20,20,20,0.5)', hot ? 3.4 : 2.4, 8, 7);
+  });
+  cover(fx, rootY, RW, bookOf(ROOT));
+  ROW.forEach(function (k, j) { cover(xs[j], rowY, sw, bookOf(k)); });
+  var j0 = ROW.indexOf(JUMP);
+  book(xs[j0] + sw * 0.26, rowY - sw * 0.75 - 13, 2.4, 0.38);
+}
+Promise.all([document.fonts.load('66px "Instrument Serif"'), document.fonts.load('700 12px "Cabin"'), document.fonts.load('500 26px "IBM Plex Mono"')])
+  .then(function () { return document.fonts.ready; }).then(main).then(function () { window.ready = true; });
+</script>
+</body>
+</html>
