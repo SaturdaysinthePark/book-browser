@@ -1,14 +1,19 @@
 // Writes the text crawlers and AI answer engines can read without running JavaScript (run from the repo root;
 // `npm run bj:build` also runs it):
-//   node tools/build-seo.mjs [--check]
+//   node --experimental-sqlite --no-warnings tools/build-seo.mjs [--check]
 // 1. index.html — a short block inside <div id="app"> (between the seo:start / seo:end markers): what BookJumpr is,
-//    the most-mentioned books, and a few real connections with their quotes. The app replaces #app's contents
-//    when it renders, and a class set before first paint hides the block, so visitors never see it.
-// 2. llms.txt — the same, as plain text, for AI crawlers.
-// Everything comes from bookjumpr-data.js / bookjumpr-notes.js, so it stays in step with the data.
+//    when the data was last updated, the most-mentioned books, and a few real connections with their quotes. The
+//    app replaces #app's contents when it renders, and a class set before first paint hides the block, so visitors
+//    never see it.
+// 2. llms.txt — the same as plain text for AI crawlers, plus question-and-answer pairs drawn from the data.
+// 3. llms-full.txt — every book that mentions another, with what it mentions and the quote.
+// 4. sitemap.xml — the homepage, with <lastmod> set to the data's last update.
+// Everything comes from bookjumpr-data.js / bookjumpr-notes.js; the "last updated" date is the newest book or
+// mention timestamp in bookjumpr.db, so rebuilding unchanged data changes nothing.
 import fs from 'node:fs';
 import vm from 'node:vm';
 import { fileURLToPath } from 'node:url';
+import { open } from './db.mjs';
 
 const SITE = 'https://bookjumpr.com';
 // a few real connections to show (each must be a quoted forward mention in the data)
@@ -19,9 +24,13 @@ const EXAMPLES = [
   ['j-d-salinger/the-catcher-in-the-rye', 'charles-dickens/oliver-twist'],
   ['jeffrey-eugenides/the-marriage-plot', 'italo-calvino/invisible-cities'],
 ];
+// books to answer "what books are mentioned in X?" for in llms.txt
+const QA_SOURCES = ['haruki-murakami/kafka-on-the-shore', 'haruki-murakami/norwegian-wood', 'j-d-salinger/the-catcher-in-the-rye', 'james-joyce/ulysses'];
+const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-const clean = q => q.trim().replace(/^"([^"]*)"$/, '$1');
+// notes are stored with their own quote marks (straight or curly) — drop the outer pair; the renderers add theirs
+const clean = q => q.trim().replace(/^"([^"]*)"$/, '$1').replace(/^“([^“”]*)”$/, '$1');
 
 function load() {
   const ctx = { window: {} }; vm.createContext(ctx);
@@ -31,7 +40,17 @@ function load() {
   return { NODES, MENTIONS, NOTES };
 }
 
-export function seoContent() {
+// newest book/mention timestamp in the DB, as YYYY-MM-DD
+export function lastUpdated(db) {
+  const r = db.prepare(`SELECT MAX(t) AS t FROM (SELECT MAX(COALESCE(updated_at, created_at)) AS t FROM books
+                                               UNION ALL SELECT MAX(created_at) FROM mentions)`).get();
+  return String(r.t || '').slice(0, 10);
+}
+
+const by = (NODES, k) => `${NODES[k][0]} by ${NODES[k][1] || 'an unknown author'}`;
+const listOf = (names, max) => names.length <= max ? names.join('; ') : names.slice(0, max).join('; ') + `; and ${names.length - max} more`;
+
+export function seoContent(updated) {
   const { NODES, MENTIONS, NOTES } = load();
   const indeg = {}; MENTIONS.forEach(([a, b]) => { if (a !== b && NODES[b]) indeg[b] = (indeg[b] || 0) + 1; });
   const top = Object.keys(indeg).sort((x, y) => indeg[y] - indeg[x] || NODES[x][0].localeCompare(NODES[y][0])).slice(0, 30);
@@ -40,14 +59,27 @@ export function seoContent() {
     if (i < 0 || !NOTES[i]) throw new Error('example is not a quoted mention: ' + a + ' → ' + b);
     return { a: NODES[a], b: NODES[b], q: clean(NOTES[i]) };
   });
-  return { books: Object.keys(NODES).length, mentions: MENTIONS.length, top: top.map(k => ({ t: NODES[k][0], a: NODES[k][1], n: indeg[k] })), examples };
+  // every source book, with what it mentions (and the quote where there is one)
+  const outs = {};
+  MENTIONS.forEach(([a, b], i) => { if (a !== b && NODES[a] && NODES[b]) (outs[a] = outs[a] || []).push({ k: b, q: NOTES[i] ? clean(NOTES[i]) : '' }); });
+  const mentioners = k => MENTIONS.filter(([a, b]) => b === k && a !== k && NODES[a]).map(([a]) => a);
+  const qa = [
+    { q: 'What is BookJumpr?', a: `BookJumpr (${SITE}) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers ${Object.keys(NODES).length.toLocaleString('en-US')} books and ${MENTIONS.length.toLocaleString('en-US')} mentions, most with the line where the mention happens.` },
+    { q: 'What is the most mentioned book in other books?', a: `In BookJumpr's data, ${by(NODES, top[0])} is the book most often named inside other books (${indeg[top[0]]} books), followed by ${by(NODES, top[1])} (${indeg[top[1]]}) and ${by(NODES, top[2])} (${indeg[top[2]]}).` },
+    ...top.slice(0, 3).map(k => ({ q: `Which books mention ${NODES[k][0]}?`, a: `${indeg[k]} books in BookJumpr mention ${by(NODES, k)}, including ${listOf(mentioners(k).map(m => by(NODES, m)), 8)}. Full list: ${SITE}/#/${k}` })),
+    ...QA_SOURCES.filter(k => NODES[k] && outs[k]).map(k => ({ q: `What books are mentioned in ${NODES[k][0]}?`, a: `${by(NODES, k)} mentions ${outs[k].length} books: ${listOf(outs[k].map(o => by(NODES, o.k)), 12)}. With quotes: ${SITE}/#/${k}` })),
+  ];
+  const full = Object.keys(outs).sort((x, y) => NODES[x][0].localeCompare(NODES[y][0]) || x.localeCompare(y))
+    .map(k => ({ k, head: by(NODES, k) + (NODES[k][2] ? ` (${NODES[k][2]})` : ''), outs: outs[k] }));
+  return { updated, books: Object.keys(NODES).length, mentions: MENTIONS.length, top: top.map(k => ({ t: NODES[k][0], a: NODES[k][1], n: indeg[k] })), examples, qa, full, NODES };
 }
 
 export function renderHtml(s) {
   return [
     '<!-- seo:start — generated by tools/build-seo.mjs; hidden once the app runs -->',
     '<div class="bj-seo">',
-    '<h1>BookJumpr — every book is a door to more books</h1>',
+    '<h1>BookJumpr: books mentioned inside other books</h1>',
+    `<p><time datetime="${s.updated}">Updated ${prettyDate(s.updated)}</time> · ${s.books.toLocaleString('en-US')} books · ${s.mentions.toLocaleString('en-US')} mentions</p>`,
     `<p>BookJumpr maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers ${s.books.toLocaleString('en-US')} books and ${s.mentions.toLocaleString('en-US')} mentions, most with the line where it happens. Pick a book, see every book it mentions and every book that mentions it, and jump from one to the next.</p>`,
     '<h2>A few connections</h2>',
     '<ul>',
@@ -62,13 +94,17 @@ export function renderHtml(s) {
   ].join('\n');
 }
 
+const prettyDate = d => { const [y, m, day] = d.split('-').map(Number); return `${MONTHS[m - 1]} ${day}, ${y}`; };
+
 export function renderLlms(s) {
   return [
     '# BookJumpr',
     '',
+    `Last updated: ${s.updated}. Updated whenever books are added.`,
+    '',
     `> BookJumpr (${SITE}) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. ${s.books.toLocaleString('en-US')} books, ${s.mentions.toLocaleString('en-US')} mentions.`,
     '',
-    'Each mention links a book to a book it names, usually with the line from the text where it happens (quoted verbatim, not paraphrased). On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.',
+    'Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.',
     '',
     `A book's page is at ${SITE}/#/<author-slug>/<title-slug>, e.g. ${SITE}/#/haruki-murakami/norwegian-wood. An author's page is at ${SITE}/#/<author-slug>.`,
     '',
@@ -80,24 +116,57 @@ export function renderLlms(s) {
     '',
     ...s.top.map(b => `- ${b.t} by ${b.a}: mentioned in ${b.n} books`),
     '',
+    '## Questions BookJumpr answers',
+    '',
+    ...s.qa.flatMap(x => [`Q: ${x.q}`, `A: ${x.a}`, '']),
+    `For every book and what it mentions, with quotes, see ${SITE}/llms-full.txt`,
+    '',
   ].join('\n');
 }
 
+export function renderLlmsFull(s) {
+  return [
+    '# BookJumpr: every book and the books it mentions',
+    '',
+    `> Generated from BookJumpr (${SITE}). Last updated: ${s.updated}. ${s.full.length.toLocaleString('en-US')} books that mention other books, ${s.mentions.toLocaleString('en-US')} mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.`,
+    '',
+    ...s.full.flatMap(b => [
+      `## ${b.head}`,
+      `${SITE}/#/${b.k}`,
+      ...b.outs.map(o => `- ${by(s.NODES, o.k)}${o.q ? `: "${o.q}"` : ''}`),
+      '',
+    ]),
+  ].join('\n');
+}
+
+export function renderSitemap(s) {
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>${SITE}/</loc>
+    <lastmod>${s.updated}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+</urlset>
+`;
+}
+
 // returns true if anything changed (or, with check, would change)
-export function writeSeo({ check = false } = {}) {
-  const s = seoContent();
+export function writeSeo(db, { check = false } = {}) {
+  const s = seoContent(lastUpdated(db));
   const html = fs.readFileSync('index.html', 'utf8');
   const re = /<!-- seo:start[\s\S]*?<!-- seo:end -->/;
   if (!re.test(html)) throw new Error('index.html: no seo:start / seo:end markers');
-  const nextHtml = html.replace(re, renderHtml(s)), nextLlms = renderLlms(s);
-  const prevLlms = fs.existsSync('llms.txt') ? fs.readFileSync('llms.txt', 'utf8') : null;
-  const changed = nextHtml !== html || nextLlms !== prevLlms;
-  if (!check && changed) { fs.writeFileSync('index.html', nextHtml); fs.writeFileSync('llms.txt', nextLlms); }
-  return changed;
+  const files = { 'index.html': html.replace(re, renderHtml(s)), 'llms.txt': renderLlms(s), 'llms-full.txt': renderLlmsFull(s), 'sitemap.xml': renderSitemap(s) };
+  const stale = Object.keys(files).filter(f => !fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== files[f]);
+  if (!check) stale.forEach(f => fs.writeFileSync(f, files[f]));
+  return stale.length > 0;
 }
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  const check = process.argv.includes('--check'), changed = writeSeo({ check });
-  console.log(check ? (changed ? '! seo text WOULD change' : '✓ seo text up to date') : (changed ? '✓ wrote the seo block in index.html + llms.txt' : '✓ seo text — no change'));
+  const check = process.argv.includes('--check'), db = open(), changed = writeSeo(db, { check });
+  db.close();
+  console.log(check ? (changed ? '! seo text WOULD change' : '✓ seo text up to date') : (changed ? '✓ wrote the seo block in index.html + llms.txt, llms-full.txt, sitemap.xml' : '✓ seo text — no change'));
   if (check && changed) process.exitCode = 1;
 }

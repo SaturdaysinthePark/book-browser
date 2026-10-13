@@ -3,3 +3,4 @@ Allow: /
 Disallow: /admin.html
 
 Sitemap: https://bookjumpr.com/sitemap.xml
+# AI-readable summaries: https://bookjumpr.com/llms.txt and https://bookjumpr.com/llms-full.txt
