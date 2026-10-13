@@ -11,10 +11,12 @@
 <script src="../bookjumpr-data.js"></script>
 <script>
 // The link-preview card (og:image, 1200×630): the wordmark and line on the left, a book's fan on the right —
-// the book on top, the books it mentions in a row below, one jump highlighted. Same covers, lines and little
-// book as the films (video/flow.html). Rendered to social-preview.png by tools/render-social-preview.mjs.
-var ROOT = 'haruki-murakami/norwegian-wood', JUMP = 'j-d-salinger/the-catcher-in-the-rye';
-var ROW = ['karl-marx/das-kapital', 'f-scott-fitzgerald/the-great-gatsby', JUMP, 'thomas-mann/the-magic-mountain', 'leo-tolstoy/war-and-peace'];
+// the book on top, the books it mentions in a row below, one line highlighted. Same covers and lines as the
+// films (video/flow.html). Rendered to social-preview.png by tools/render-social-preview.mjs.
+// ?root=<id>&row=<id>,<id>,… picks another book (the middle of the row gets the rust line)
+var QS = new URLSearchParams(location.search), ROOT = QS.get('root') || 'haruki-murakami/norwegian-wood';
+var ROW = QS.get('row') ? QS.get('row').split(',') : ['karl-marx/das-kapital', 'f-scott-fitzgerald/the-great-gatsby', 'j-d-salinger/the-catcher-in-the-rye', 'thomas-mann/the-magic-mountain', 'leo-tolstoy/war-and-peace'];
+var JUMP = ROW[Math.floor(ROW.length / 2)];
 
 function main() {
   var N = window.BookJumprData.NODES, M = window.BookJumprData.MENTIONS;
@@ -52,12 +54,6 @@ function main() {
     lines.slice(0, 3).forEach(function (ln, i) { c.fillText(ln, x, y + (i - (Math.min(lines.length, 3) - 1) / 2) * fs * 1.18 + fs * 0.35); });
     c.letterSpacing = '0px'; c.lineWidth = Math.max(1.5, w * 0.014); c.strokeStyle = INK; c.strokeRect(x0, y0, w, h);
   };
-  // the little rust book (the logo's)
-  var book = function (x, y, u, rot) {
-    c.save(); c.translate(x, y); c.rotate(rot);
-    c.beginPath(); c.rect(-4 * u, -5.8 * u, 8 * u, 11.6 * u); c.fillStyle = RUST; c.fill(); c.lineWidth = 1.9 * u; c.strokeStyle = INK; c.stroke();
-    c.beginPath(); c.moveTo(-1.7 * u, -5.8 * u); c.lineTo(-1.7 * u, 5.8 * u); c.lineWidth = 1.5 * u; c.stroke(); c.restore();
-  };
   // the BookJumpr mark: a dotted arc, a dot at its start
   var mark = function (ox, oy, u) {
     dashed(function (t) { var p = q([4, 30], [30, -8], [58, 23], t); return [ox + p[0] * u, oy + p[1] * u]; }, INK, 2 * u, 3 * u, 3.4 * u);
@@ -81,8 +77,6 @@ function main() {
   });
   cover(fx, rootY, RW, bookOf(ROOT));
   ROW.forEach(function (k, j) { cover(xs[j], rowY, sw, bookOf(k)); });
-  var j0 = ROW.indexOf(JUMP);
-  book(xs[j0] + sw * 0.26, rowY - sw * 0.75 - 13, 2.4, 0.38);
 }
 Promise.all([document.fonts.load('66px "Instrument Serif"'), document.fonts.load('700 12px "Cabin"'), document.fonts.load('500 26px "IBM Plex Mono"')])
   .then(function () { return document.fonts.ready; }).then(main).then(function () { window.ready = true; });
