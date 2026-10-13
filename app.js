@@ -2059,7 +2059,7 @@
     // this only ever affects document.title, never anything a link-unfurler reads).
     if (typeof document !== 'undefined') {
       var titleMap = {
-        home: 'BookJumpr — Every book is a door to more books',
+        home: 'BookJumpr: Books Mentioned Inside Other Books',
         book: (vals.b_title || 'Book') + ' — BookJumpr',
         author: (vals.a_name || 'Author') + ' — BookJumpr',
         search: '“' + (route.q || '') + '” — Search — BookJumpr',

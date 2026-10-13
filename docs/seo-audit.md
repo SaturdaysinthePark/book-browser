@@ -89,3 +89,17 @@ All canonical/OG/sitemap/robots URLs point at `https://bookjumpr.com/` (the cust
 Still the biggest lever: real URLs for the app's book and author pages (`/author/book` instead of `#/author/book`)
 with a saved copy of each page's text, so search engines can index every book. That's a routing change to the app
 itself, deliberately not part of this pass.
+
+## Search terms, AI answers and freshness
+
+- **Title**: "BookJumpr: Books Mentioned Inside Other Books" (`<title>`, `og:title`, `twitter:title`, and the app's
+  home-route tab title). It uses the phrases people search for; the tagline stays as the on-page headline.
+- **`llms.txt`** now has a "Last updated" date and question-and-answer pairs drawn from the data (the most-mentioned
+  books, which books mention them, and what a few well-known books mention).
+- **`llms-full.txt`**: every book that mentions another, with what it mentions and the note/quote. One text file,
+  about 1MB, so AI tools can answer "what books are mentioned in X" from BookJumpr's data.
+- **Freshness**: the crawler block shows "Updated <date> · N books · N mentions", and `sitemap.xml` carries
+  `<lastmod>`. The date is the newest book or mention timestamp in `bookjumpr.db`, so it moves only when the data
+  does.
+- All four outputs (the index.html block, `llms.txt`, `llms-full.txt`, `sitemap.xml`) come from
+  `tools/build-seo.mjs`, which `npm run bj:build` runs.
