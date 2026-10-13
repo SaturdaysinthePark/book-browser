@@ -1,0 +1,48 @@
+# BookJumpr
+
+> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,382 books, 7,764 mentions.
+
+Each mention links a book to a book it names, usually with the line from the text where it happens (quoted verbatim, not paraphrased). On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.
+
+A book's page is at https://bookjumpr.com/#/<author-slug>/<title-slug>, e.g. https://bookjumpr.com/#/haruki-murakami/norwegian-wood. An author's page is at https://bookjumpr.com/#/<author-slug>.
+
+## Example connections
+
+- Norwegian Wood (Haruki Murakami) mentions The Catcher in the Rye: "No War and Peace, no Kenzaburo Oe, no Catcher in the Rye."
+- Brave New World (Aldous Huxley) mentions Romeo and Juliet: "Upstairs in his room the Savage was reading Romeo and Juliet."
+- Franny and Zooey (J. D. Salinger) mentions Peter Pan: "Even before the curtain goes up at 'Peter Pan,' I'm a goddam puddle of tears."
+- The Catcher in the Rye (J. D. Salinger) mentions Oliver Twist: "He's carrying this copy of Oliver Twist and so's she."
+- The Marriage Plot (Jeffrey Eugenides) mentions Invisible Cities: "a girl ... was smoking a clove cigarette and reading Invisible Cities"
+
+## The most-mentioned books
+
+- Don Quixote by Miguel de Cervantes: mentioned in 75 books
+- Hamlet by William Shakespeare: mentioned in 68 books
+- Robinson Crusoe by Daniel Defoe: mentioned in 63 books
+- Romeo and Juliet by William Shakespeare: mentioned in 48 books
+- A Thousand and One Nights by Anonymous: mentioned in 45 books
+- Iliad by Homer: mentioned in 41 books
+- Paradise Lost by John Milton: mentioned in 39 books
+- King Lear by William Shakespeare: mentioned in 36 books
+- Anna Karenina by Leo Tolstoy: mentioned in 35 books
+- War and Peace by Leo Tolstoy: mentioned in 29 books
+- Moby-Dick by Herman Melville: mentioned in 28 books
+- The Odyssey by Homer: mentioned in 27 books
+- Alice's Adventures in Wonderland by Lewis Carroll: mentioned in 26 books
+- Madame Bovary by Gustave Flaubert: mentioned in 26 books
+- Faust by Johann Wolfgang von Goethe: mentioned in 25 books
+- Macbeth by William Shakespeare: mentioned in 25 books
+- The Divine Comedy by Dante Alighieri: mentioned in 23 books
+- Ivanhoe by Walter Scott: mentioned in 21 books
+- Julius Caesar by William Shakespeare: mentioned in 21 books
+- Oliver Twist by Charles Dickens: mentioned in 21 books
+- As You Like It by William Shakespeare: mentioned in 20 books
+- David Copperfield by Charles Dickens: mentioned in 20 books
+- The Great Gatsby by F Scott Fitzgerald: mentioned in 20 books
+- The Tempest by William Shakespeare: mentioned in 18 books
+- Wuthering Heights by Emily Bronte: mentioned in 18 books
+- Jane Eyre by Charlotte Brontë: mentioned in 17 books
+- Othello by William Shakespeare: mentioned in 17 books
+- The Aeneid by Virgil: mentioned in 17 books
+- The Pilgrim's Progress by John Bunyan: mentioned in 17 books
+- Gulliver's Travels by Jonathan Swift: mentioned in 16 books
