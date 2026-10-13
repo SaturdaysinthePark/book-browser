@@ -11,6 +11,14 @@
   NETLIFY_USE_YARN = "false"
   NPM_FLAGS = "--no-save"
 
+# Every path that isn't a file is the app: /<author>/<title>, /<author>, /about, … all load index.html, and the
+# app routes from the path. The edge function (netlify/edge-functions/seo.js) runs first and gives each page its
+# own title, description, canonical URL, crawler text and status.
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
 # Headers: basic hardening on every response. Caching stays Netlify's default (revalidate every visit, so a deploy
 # shows up at once), except images, which rarely change and are cache-busted with ?v= when they do.
 [[headers]]

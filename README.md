@@ -8,16 +8,17 @@ This is a standalone, dependency-free implementation of the **BookJumpr v2** des
 
 ## Run it
 
-It's a static site — no build step, no server-side code.
+It's a static site plus one small Netlify edge function (per-page titles and crawler text).
 
 ```bash
-# any static server works, e.g.
-python3 -m http.server 8917
-# then open http://localhost:8917/index.html
+npm run serve          # http://localhost:8917/ — serves like Netlify: every path loads the app, with its page's head
+node tools/check-seo.mjs [baseURL]   # what search engines get, no browser needed
+node tools/test-site.mjs [baseURL]   # clicks through the app in Chromium (needs Playwright)
 ```
 
-It also opens directly from `file://` (double-click `index.html`) because React is
-vendored locally and the data loads via a classic script rather than an ES module.
+A plain static server (`python3 -m http.server`) only works for the homepage now: book and author pages are real
+paths (`/haruki-murakami/norwegian-wood`) that need the "every path → index.html" fallback `tools/serve.mjs` and
+Netlify provide.
 
 ## What's here
 
@@ -63,9 +64,13 @@ vendored locally and the data loads via a classic script rather than an ES modul
   (Explorer, Atlas, Explorer+, classic constellation).
 - **About** — how the dataset works
 
-Routing is hash-based and author-first: a book lives at `#/<author>/<title>` (e.g.
-`#/fyodor-dostoevsky/crime-and-punishment`) and an author's page at `#/<author>`; plus
-`#/search/<q>`, `#/stats`, `#/network`, `#/about`. Deep links and the back button work.
+Routing uses real paths, author-first: a book lives at `/<author>/<title>` (e.g.
+`/fyodor-dostoevsky/crime-and-punishment`) and an author's page at `/<author>`; plus
+`/search/<q>`, `/stats`, `/network`, `/about`. Deep links and the back button work, and old `#/…` links are
+rewritten to their path on load. `netlify.toml` sends every path to `index.html`; the edge function
+`netlify/edge-functions/seo.js` (rendering via `netlify/seo/render.js`, data from `netlify/seo/data.js`, built by
+`tools/build-seo.mjs`) gives each page its own title, description, canonical URL, JSON-LD and crawler text, and a
+404 for books or authors that don't exist.
 
 ## How it was built
 

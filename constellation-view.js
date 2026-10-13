@@ -1119,7 +1119,7 @@
     }
 
     bookUrl(n) {
-      if (n && n.key) return 'index.html#/' + n.key;
+      if (n && n.key) return '/' + n.key;
       const pat = this.props.bookUrlPattern || '';
       if (!pat) return null;
       const slug = s => (s || '').toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '');

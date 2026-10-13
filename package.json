@@ -13,7 +13,7 @@
     "bj:dict": "node --experimental-sqlite --no-warnings tools/build-dict.mjs",
     "bj:graph": "node --experimental-sqlite --no-warnings tools/build-book-graph.mjs",
     "bj:detect": "node --no-warnings tools/detect.mjs",
-    "serve": "python3 -m http.server 8917",
+    "serve": "node tools/serve.mjs",
     "admin": "node --experimental-sqlite --no-warnings tools/admin-server.mjs",
     "bj:regions": "node --no-warnings tools/build-regions.mjs",
     "bj:atlas": "node --no-warnings tools/build-atlas.mjs",
