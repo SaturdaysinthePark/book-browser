@@ -5,6 +5,7 @@ import { open, counts, DB_PATH } from './db.mjs';
 import { slug } from './slug.mjs';
 import { seed } from './seed.mjs';
 import { writeBuild } from './build.mjs';
+import { writeSeo } from './build-seo.mjs';
 import {
   upsertBook, upsertMention, importJsonFile, exportCsv, importCsv,
   renameBook, removeMention, removeBook, mergeBook, setGenre,
@@ -127,9 +128,11 @@ async function run(cmd, args) {
           if (rep.errors.length) { console.log('⚠ building despite errors (--force):'); printReport(rep); }
         }
         const r = writeBuild(db, { check: !!args.check });
+        const seoChanged = writeSeo({ check: !!args.check });   // crawler text in index.html + llms.txt, from the new data
         if (args.check) {
           console.log(r.identical ? '✓ build --check: up to date (no change)' : '! build --check: bookjumpr-data.js WOULD change');
           if (!r.identical) process.exitCode = 1;
+          if (seoChanged) { console.log('! build --check: the seo text (index.html / llms.txt) WOULD change'); process.exitCode = 1; }
         } else {
           exportCsv(db); // keep the CSV backup in lockstep with each build
           console.log(`✓ wrote bookjumpr-data.js (${r.bytes} bytes) + bookjumpr-notes.js (${r.notesBytes} bytes)${r.changed ? '' : ' — no change'} + refreshed data/*.csv`);
