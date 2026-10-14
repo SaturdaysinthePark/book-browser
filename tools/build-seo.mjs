@@ -7,15 +7,26 @@
 //    never see it.
 // 2. llms.txt — the same as plain text for AI crawlers, plus question-and-answer pairs drawn from the data.
 // 3. llms-full.txt — every book that mentions another, with what it mentions and the quote.
-// 4. sitemap.xml — the homepage, with <lastmod> set to the data's last update.
-// Everything comes from bookjumpr-data.js / bookjumpr-notes.js; the "last updated" date is the newest book or
-// mention timestamp in bookjumpr.db, so rebuilding unchanged data changes nothing.
+// 4. sitemap.xml — the homepage, about/stats/network, and every book page with something on it (a synopsis, a
+//    mention, or two books mentioning it) plus their authors, each with <lastmod> from bookjumpr.db.
+// 5. netlify/seo/data.js — the data the edge function (netlify/edge-functions/seo.js) renders each page's head and
+//    crawler text from, including which books have their own preview card in og/ (rendered by tools/render-og.mjs).
+// The social profiles below go into the site's JSON-LD (index.html) and llms.txt.
+// Everything comes from bookjumpr-data.js / bookjumpr-notes.js; dates are book/mention timestamps in bookjumpr.db,
+// so rebuilding unchanged data changes nothing.
 import fs from 'node:fs';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { open } from './db.mjs';
+import { slug } from './slug.mjs';
 
 const SITE = 'https://bookjumpr.com';
+export const PROFILES = [
+  ['X', 'https://x.com/saturdaysonx'],
+  ['Instagram', 'https://www.instagram.com/saturdaysinabook/'],
+  ['TikTok', 'https://www.tiktok.com/@saturdaysinabook'],
+];
 // a few real connections to show (each must be a quoted forward mention in the data)
 const EXAMPLES = [
   ['haruki-murakami/norwegian-wood', 'j-d-salinger/the-catcher-in-the-rye'],
@@ -48,6 +59,8 @@ export function lastUpdated(db) {
 }
 
 const by = (NODES, k) => `${NODES[k][0]} by ${NODES[k][1] || 'an unknown author'}`;
+const yearLabel = y => (!y ? '' : y < 0 ? 'c. ' + -y + ' BC' : String(y));
+const authorSlug = a => slug(a || '') || 'anonymous';   // mirrors P.authorSlug in app.js
 const listOf = (names, max) => names.length <= max ? names.join('; ') : names.slice(0, max).join('; ') + `; and ${names.length - max} more`;
 
 export function seoContent(updated) {
@@ -66,12 +79,32 @@ export function seoContent(updated) {
   const qa = [
     { q: 'What is BookJumpr?', a: `BookJumpr (${SITE}) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers ${Object.keys(NODES).length.toLocaleString('en-US')} books and ${MENTIONS.length.toLocaleString('en-US')} mentions, most with the line where the mention happens.` },
     { q: 'What is the most mentioned book in other books?', a: `In BookJumpr's data, ${by(NODES, top[0])} is the book most often named inside other books (${indeg[top[0]]} books), followed by ${by(NODES, top[1])} (${indeg[top[1]]}) and ${by(NODES, top[2])} (${indeg[top[2]]}).` },
-    ...top.slice(0, 3).map(k => ({ q: `Which books mention ${NODES[k][0]}?`, a: `${indeg[k]} books in BookJumpr mention ${by(NODES, k)}, including ${listOf(mentioners(k).map(m => by(NODES, m)), 8)}. Full list: ${SITE}/#/${k}` })),
-    ...QA_SOURCES.filter(k => NODES[k] && outs[k]).map(k => ({ q: `What books are mentioned in ${NODES[k][0]}?`, a: `${by(NODES, k)} mentions ${outs[k].length} books: ${listOf(outs[k].map(o => by(NODES, o.k)), 12)}. With quotes: ${SITE}/#/${k}` })),
+    ...top.slice(0, 3).map(k => ({ q: `Which books mention ${NODES[k][0]}?`, a: `${indeg[k]} books in BookJumpr mention ${by(NODES, k)}, including ${listOf(mentioners(k).map(m => by(NODES, m)), 8)}. Full list: ${SITE}/${k}` })),
+    ...QA_SOURCES.filter(k => NODES[k] && outs[k]).map(k => ({ q: `What books are mentioned in ${NODES[k][0]}?`, a: `${by(NODES, k)} mentions ${outs[k].length} books: ${listOf(outs[k].map(o => by(NODES, o.k)), 12)}. With quotes: ${SITE}/${k}` })),
   ];
   const full = Object.keys(outs).sort((x, y) => NODES[x][0].localeCompare(NODES[y][0]) || x.localeCompare(y))
-    .map(k => ({ k, head: by(NODES, k) + (NODES[k][2] ? ` (${NODES[k][2]})` : ''), outs: outs[k] }));
-  return { updated, books: Object.keys(NODES).length, mentions: MENTIONS.length, top: top.map(k => ({ t: NODES[k][0], a: NODES[k][1], n: indeg[k] })), examples, qa, full, NODES };
+    .map(k => ({ k, head: by(NODES, k) + (NODES[k][2] ? ` (${yearLabel(NODES[k][2])})` : ''), outs: outs[k] }));
+  // the edge function's data (see netlify/seo/render.js for the shape); G: books with their own preview card, with a
+  // short hash of the image so a re-rendered card gets a fresh URL (link previews are cached by URL)
+  const edge = { B: {}, O: {}, I: {}, A: {}, G: {} };
+  for (const k of Object.keys(NODES)) {
+    const f = `og/${k}.png`;
+    if (fs.existsSync(f)) edge.G[k] = crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
+  }
+  for (const k of Object.keys(NODES)) {
+    const [t, a, y, syn] = NODES[k], as = authorSlug(a);
+    edge.B[k] = [t, a, y, syn, as];
+    (edge.A[as] = edge.A[as] || [a || 'Anonymous', []])[1].push(k);
+  }
+  MENTIONS.forEach(([a, b], i) => {
+    if (a === b || !NODES[a] || !NODES[b]) return;
+    if (!(edge.O[a] = edge.O[a] || []).some(([m]) => m === b)) edge.O[a].push([b, NOTES[i] ? clean(NOTES[i]) : '']);
+    if (!(edge.I[b] = edge.I[b] || []).includes(a)) edge.I[b].push(a);
+  });
+  // pages worth listing in the sitemap: a synopsis, at least one mention, or mentioned by two or more
+  const pages = Object.keys(NODES).filter(k => NODES[k][3] || edge.O[k] || (edge.I[k] || []).length >= 2);
+  return { updated, books: Object.keys(NODES).length, mentions: MENTIONS.length, top: top.map(k => ({ k, t: NODES[k][0], a: NODES[k][1], n: indeg[k] })),
+    examples: examples.map((e, i) => ({ ...e, ka: EXAMPLES[i][0], kb: EXAMPLES[i][1] })), qa, full, NODES, edge, pages };
 }
 
 export function renderHtml(s) {
@@ -83,12 +116,13 @@ export function renderHtml(s) {
     `<p>BookJumpr maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers ${s.books.toLocaleString('en-US')} books and ${s.mentions.toLocaleString('en-US')} mentions, most with the line where it happens. Pick a book, see every book it mentions and every book that mentions it, and jump from one to the next.</p>`,
     '<h2>A few connections</h2>',
     '<ul>',
-    ...s.examples.map(e => `<li><cite>${esc(e.a[0])}</cite> (${esc(e.a[1])}) mentions <cite>${esc(e.b[0])}</cite>: “${esc(e.q)}”</li>`),
+    ...s.examples.map(e => `<li><a href="/${e.ka}"><cite>${esc(e.a[0])}</cite></a> (${esc(e.a[1])}) mentions <a href="/${e.kb}"><cite>${esc(e.b[0])}</cite></a>: “${esc(e.q)}”</li>`),
     '</ul>',
     '<h2>The most-mentioned books</h2>',
     '<ol>',
-    ...s.top.map(b => `<li><cite>${esc(b.t)}</cite> by ${esc(b.a)}, mentioned in ${b.n} books</li>`),
+    ...s.top.map(b => `<li><a href="/${b.k}"><cite>${esc(b.t)}</cite></a> by ${esc(b.a)}, mentioned in ${b.n} books</li>`),
     '</ol>',
+    '<p><a href="/stats">All the most-mentioned books</a> · <a href="/about">About BookJumpr</a></p>',
     '</div>',
     '<!-- seo:end -->',
   ].join('\n');
@@ -106,7 +140,7 @@ export function renderLlms(s) {
     '',
     'Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.',
     '',
-    `A book's page is at ${SITE}/#/<author-slug>/<title-slug>, e.g. ${SITE}/#/haruki-murakami/norwegian-wood. An author's page is at ${SITE}/#/<author-slug>.`,
+    `A book's page is at ${SITE}/<author-slug>/<title-slug>, e.g. ${SITE}/haruki-murakami/norwegian-wood. An author's page is at ${SITE}/<author-slug>. The most-mentioned books are at ${SITE}/stats.`,
     '',
     '## Example connections',
     '',
@@ -121,6 +155,10 @@ export function renderLlms(s) {
     ...s.qa.flatMap(x => [`Q: ${x.q}`, `A: ${x.a}`, '']),
     `For every book and what it mentions, with quotes, see ${SITE}/llms-full.txt`,
     '',
+    '## Elsewhere',
+    '',
+    ...PROFILES.map(([name, url]) => `- ${name}: ${url}`),
+    '',
   ].join('\n');
 }
 
@@ -132,24 +170,37 @@ export function renderLlmsFull(s) {
     '',
     ...s.full.flatMap(b => [
       `## ${b.head}`,
-      `${SITE}/#/${b.k}`,
+      `${SITE}/${b.k}`,
       ...b.outs.map(o => `- ${by(s.NODES, o.k)}${o.q ? `: "${o.q}"` : ''}`),
       '',
     ]),
   ].join('\n');
 }
 
-export function renderSitemap(s) {
-  return `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>${SITE}/</loc>
-    <lastmod>${s.updated}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
-  </url>
-</urlset>
-`;
+// newest timestamp touching each book (the book row, or a mention from or to it), as YYYY-MM-DD
+export function bookDates(db) {
+  const d = {};
+  const bump = (k, t) => { t = String(t || '').slice(0, 10); if (k && t && !(d[k] >= t)) d[k] = t; };
+  for (const r of db.prepare('SELECT slug, COALESCE(updated_at, created_at) AS t FROM books').all()) bump(r.slug, r.t);
+  for (const r of db.prepare('SELECT source_slug AS a, mentioned_slug AS b, created_at AS t FROM mentions').all()) { bump(r.a, r.t); bump(r.b, r.t); }
+  return d;
+}
+
+export function renderSitemap(s, dates) {
+  const url = (loc, lastmod) => `  <url><loc>${SITE}${loc}</loc><lastmod>${lastmod}</lastmod></url>`;
+  const authors = {};
+  for (const k of s.pages) { const as = s.edge.B[k][4], t = dates[k] || s.updated; if (as !== 'anonymous' && !(authors[as] >= t)) authors[as] = t; }
+  return ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
+    url('/', s.updated), url('/about', s.updated), url('/stats', s.updated), url('/network', s.updated),
+    ...s.pages.slice().sort().map(k => url('/' + k, dates[k] || s.updated)),
+    ...Object.keys(authors).sort().map(a => url('/' + a, authors[a])),
+    '</urlset>', ''].join('\n');
+}
+
+export function renderEdgeData(s) {
+  return '// Generated by tools/build-seo.mjs from bookjumpr-data.js / bookjumpr-notes.js — do not edit.\n' +
+    '// Shape: see netlify/seo/render.js. Used by the edge function netlify/edge-functions/seo.js.\n' +
+    'export default ' + JSON.stringify(s.edge) + ';\n';
 }
 
 // returns true if anything changed (or, with check, would change)
@@ -158,7 +209,8 @@ export function writeSeo(db, { check = false } = {}) {
   const html = fs.readFileSync('index.html', 'utf8');
   const re = /<!-- seo:start[\s\S]*?<!-- seo:end -->/;
   if (!re.test(html)) throw new Error('index.html: no seo:start / seo:end markers');
-  const files = { 'index.html': html.replace(re, renderHtml(s)), 'llms.txt': renderLlms(s), 'llms-full.txt': renderLlmsFull(s), 'sitemap.xml': renderSitemap(s) };
+  const files = { 'index.html': html.replace(re, renderHtml(s)), 'llms.txt': renderLlms(s), 'llms-full.txt': renderLlmsFull(s),
+    'sitemap.xml': renderSitemap(s, bookDates(db)), 'netlify/seo/data.js': renderEdgeData(s) };
   const stale = Object.keys(files).filter(f => !fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== files[f]);
   if (!check) stale.forEach(f => fs.writeFileSync(f, files[f]));
   return stale.length > 0;
@@ -167,6 +219,6 @@ export function writeSeo(db, { check = false } = {}) {
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const check = process.argv.includes('--check'), db = open(), changed = writeSeo(db, { check });
   db.close();
-  console.log(check ? (changed ? '! seo text WOULD change' : '✓ seo text up to date') : (changed ? '✓ wrote the seo block in index.html + llms.txt, llms-full.txt, sitemap.xml' : '✓ seo text — no change'));
+  console.log(check ? (changed ? '! seo text WOULD change' : '✓ seo text up to date') : (changed ? '✓ wrote the seo block in index.html, llms.txt, llms-full.txt, sitemap.xml, netlify/seo/data.js' : '✓ seo text — no change'));
   if (check && changed) process.exitCode = 1;
 }

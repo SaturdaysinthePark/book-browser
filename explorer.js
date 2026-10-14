@@ -197,7 +197,7 @@
         h('div', { className: 'eyebrow' }, next ? 'Book' + (gl === 'MISC' ? '' : ' · ' + this.xGenreLabel(gl).toLowerCase()) : this._netMode && this._netMode() === 'atlas' ? 'Selected book' : 'In the middle'),
         h(next ? 'h1' : 'h2', null, b.title),
         next && hasAu
-          ? h('div', { className: 'by' }, h('button', { className: 'lnk', onClick: function () { self.goAuthor(self.authorSlug(b.author)); } }, b.author), yl ? '  ·  ' + yl : '')
+          ? h('div', { className: 'by' }, h('a', { className: 'lnk', href: '/' + self.authorSlug(b.author), onClick: self._linkGo(function () { self.goAuthor(self.authorSlug(b.author)); }) }, b.author), yl ? '  ·  ' + yl : '')
           : h('div', { className: 'by' }, [b.author, yl].filter(Boolean).join('  ·  ')),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + b.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + b.in.length))));
     if (b.synopsis) kids.push(h('p', { key: 'syn', className: 'bjx-syn' }, b.synopsis));
@@ -487,7 +487,7 @@
       h('div', { className: 'bkp-meta' },
         h('div', { className: 'eyebrow' }, 'Book' + (gl === 'MISC' ? '' : ' · ' + this.xGenreLabel(gl).toLowerCase())),
         h('h1', null, b.title),
-        h('div', { className: 'by' }, hasAu ? h('button', { className: 'lnk', onClick: function () { self.goAuthor(self.authorSlug(b.author)); } }, b.author) : (b.author || ''), yl ? (b.author ? '  ·  ' : '') + yl : ''),
+        h('div', { className: 'by' }, hasAu ? h('a', { className: 'lnk', href: '/' + self.authorSlug(b.author), onClick: self._linkGo(function () { self.goAuthor(self.authorSlug(b.author)); }) }, b.author) : (b.author || ''), yl ? (b.author ? '  ·  ' : '') + yl : ''),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), b.out.length, h('i', { className: 'dot in' }), b.in.length)),
       h('div', { className: 'bkp-map', role: 'button', tabIndex: 0, 'aria-label': 'Zoom out to the star map', onKeyDown: function (e) { if (e.key === 'Enter') self.xZoomOut(b.id); } },
         h('div', { className: 'bkp-map-c', ref: this._xMiniRef() }),
@@ -589,10 +589,10 @@
         return h('article', { key: id, className: 'bkn-card' + (hot ? ' is-hot' : ''),
           onMouseEnter: tabs ? null : function () { if (self.state.xHover !== id) self.setState({ xHover: id }); },
           onMouseLeave: tabs ? null : function () { if (self.state.xHover === id) self.setState({ xHover: null }); } },
-          h('button', { className: 'bkn-cv', 'aria-label': bk.title, onClick: function (e) { self.xJump(id, e.currentTarget); } }, self.cover(bk)),
+          h('a', { className: 'bkn-cv', href: '/' + id, 'aria-label': bk.title, onClick: self._linkGo(function (e) { self.xJump(id, e.currentTarget); }) }, self.cover(bk)),
           h('div', { className: 'bkn-body' },
-            h('button', { className: 'bkn-t', onFocus: tabs ? null : function () { self.setState({ xHover: id }); },
-              onClick: function (e) { self.xJump(id, e.currentTarget.closest('.bkn-card').querySelector('.bkn-cv')); } }, bk.title),
+            h('a', { className: 'bkn-t', href: '/' + id, onFocus: tabs ? null : function () { self.setState({ xHover: id }); },
+              onClick: self._linkGo(function (e) { self.xJump(id, e.currentTarget.closest('.bkn-card').querySelector('.bkn-cv')); }) }, bk.title),
             h('div', { className: 'bkn-a' }, (bk.author || 'author unknown') + (yl ? '  ·  ' + yl : ''), mutual ? h('span', { className: 'mut', title: 'they mention each other' }, ' ⇄') : null),
             out ? self.noteEl(b.id, id) : self.noteEl(id, b.id)));
       });
@@ -865,7 +865,7 @@
     this._pushTrail(route);
     window.ReactDOM.flushSync(function () { self.setState({ route: route, q: '', suggestFor: null, xHover: null, xPathOpen: false, xPathTo: null, xPathQ: '' }); });
     this._silent = true;
-    location.hash = hash;
+    this._setHash(hash);
     setTimeout(function () { self._silent = false; }, 0);
     window.scrollTo(0, 0);
   };
@@ -958,7 +958,7 @@
     this._xMorphing = true;
     this._pushTrail(route);
     window.ReactDOM.flushSync(function () { self.setState({ route: route, xArriving: true, xGenre: null, q: '', suggestFor: null, xHover: null, xPathOpen: false, xFq: '' }); });
-    this._silent = true; location.hash = hash; setTimeout(function () { self._silent = false; }, 0);
+    this._silent = true; this._setHash(hash); setTimeout(function () { self._silent = false; }, 0);
     window.scrollTo(0, 0);
     var items = this._xPillSnap(), D = 620, GROW = 340, last = 0;
     snap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 560, delay: 120, easing: 'ease-out', fill: 'forwards' });
@@ -1013,7 +1013,7 @@
     return h('div', { className: 'bjx-page' + (wide ? ' wide' : '') + (plus ? ' bjx-plus' : '') },
       h('div', { className: 'bjx-main' },
         h('div', { className: 'bjx-top' },
-          h('button', { className: 'bjx-back', onClick: function () { location.hash = '#/network'; } }, '← All starting points'),
+          h('button', { className: 'bjx-back', onClick: this._setHash.bind(this, '#/network') }, '← All starting points'),
           this.explorerTrail(b.id)),
         plus ? this.explorerGenres(b) : null,
         h('div', { className: 'bjx-stage' }, this.explorerFan(b, Math.max(300, W), availH)),

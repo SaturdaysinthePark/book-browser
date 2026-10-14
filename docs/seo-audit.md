@@ -103,3 +103,43 @@ itself, deliberately not part of this pass.
   does.
 - All four outputs (the index.html block, `llms.txt`, `llms-full.txt`, `sitemap.xml`) come from
   `tools/build-seo.mjs`, which `npm run bj:build` runs.
+
+## Real URLs and per-page heads
+
+Book and author pages now have real URLs (`/haruki-murakami/norwegian-wood` instead of `#/haruki-murakami/norwegian-wood`),
+so search engines can index each one. Nothing about how the app looks or navigates changed.
+
+- **Routing** (`app.js`, `explorer.js`): the router reads the path; navigation uses `history.pushState`; back/forward
+  use `popstate`. Old `#/…` links (already shared) are rewritten to their path on load. Query switches (`?v=classic`,
+  `?net=v2`, `?home=a`) are kept across navigation.
+- **Links**: book cards, author links, author-page books, search results and stats rows are real `<a href>` links
+  (crawlers follow them; ⌘/Ctrl-click opens a new tab). Screenshots of every page type, desktop and mobile, are
+  pixel-identical to before.
+- **Netlify**: `netlify.toml` rewrites every non-file path to `index.html`. The edge function
+  `netlify/edge-functions/seo.js` rewrites each page's `<title>`, description, canonical, Open Graph/Twitter tags, adds
+  JSON-LD (`Book` with its `mentions`, `Person`, `BreadcrumbList`) and fills the hidden crawler block with that page's
+  text and links. Unknown books/authors return 404 + noindex; search and `/network/<book>` pages are noindex;
+  `/book/<key>` 301s to `/<key>`. If the function errors, Netlify serves the plain page (`onError: 'bypass'`).
+- **Sitemap**: now lists ~3,100 pages (books with a synopsis, a mention, or two books mentioning them, plus their
+  authors), each with its own `<lastmod>`.
+
+### How to test
+
+- Locally: `npm run serve`, then `node tools/check-seo.mjs` (server output: statuses, titles, canonicals, JSON-LD,
+  crawler text — no browser needed) and `node tools/test-site.mjs` (clicks through the app in Chromium).
+- On a Netlify deploy preview or the live site: `node tools/check-seo.mjs https://<preview-url>`.
+- After it's live: in Search Console, URL-inspect `https://bookjumpr.com/haruki-murakami/norwegian-wood` and resubmit
+  the sitemap; paste a book link into iMessage/Slack to see its own preview title.
+
+## Per-book share images and social profiles
+
+- **A preview card per book** (`og/<author>/<title>.png`, ~890 of them, ~25KB each): every book that mentions another
+  gets its own 1200×630 card, with the title, author and mention count on the left and the book above up to five of the
+  books it mentions on the right. It's the same drawing as the site card (`tools/social-preview.html` with `&book=1`).
+  Render or refresh them with `npm run bj:og`, which only re-renders cards whose content changed and records what
+  each one shows in `og/manifest.json`. Then run `npm run bj:build` so the edge function's data (`netlify/seo/data.js`,
+  `G`) knows which books have a card. The edge function points `og:image`, `twitter:image` and the Book JSON-LD
+  `image` at the card, with `?v=<hash>` so a re-rendered card gets a fresh URL. Books without a card keep the site card.
+- **Social profiles**: the homepage's `Organization` JSON-LD lists X (@saturdaysonx), Instagram and TikTok
+  (saturdaysinabook) as `sameAs`, so search engines and AI tools tie them to the site. `twitter:site` is @saturdaysonx,
+  and `llms.txt` lists them.

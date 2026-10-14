@@ -324,7 +324,7 @@
     this.buildData(DATA.NODES || {}, DATA.MENTIONS || []);
     this.state.ready = true;
     this.state.vw = typeof window !== 'undefined' ? window.innerWidth : 1280;
-    if (typeof location !== 'undefined' && location.hash && location.hash.length > 2) {
+    if (typeof location !== 'undefined' && (this._legacyHash(), this._routePath())) {
       this.state.route = this._routeFromHash();
       this._pushTrail(this.state.route);
     }
@@ -348,8 +348,23 @@
   };
   P.componentDidMount = function () {
     var self = this;
-    this._onHash = function () { self.applyHash(); };
+    // Back/forward between app URLs, and old-style '#/…' links followed within the page.
+    this._onPop = function () { self.applyHash(); };
+    window.addEventListener('popstate', this._onPop);
+    this._onHash = function () { if (self._legacyHash()) self.applyHash(); };
     window.addEventListener('hashchange', this._onHash);
+    // Plain links to app routes (<a href="/author/title">) navigate in place, like the app's own buttons;
+    // modified clicks (new tab, etc.) and links with a query string (?home=…) load normally.
+    this._onLinkClick = function (e) {
+      if (e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+      var a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+      if (!a || a.target || a.hasAttribute('download')) return;
+      var href = a.getAttribute('href') || '';
+      if (!/^\/(?!\/)/.test(href) || /[?#]/.test(href) || /\.[a-z0-9]+$/i.test(href)) return;
+      e.preventDefault();
+      self._setHash('#' + href);
+    };
+    document.addEventListener('click', this._onLinkClick);
     this._onResize = function () { self.setState({ vw: window.innerWidth }); };
     window.addEventListener('resize', this._onResize);
     // ⌘F / Ctrl+F jumps to the page's own search box (the map's "Search by book or author…", the home or header
@@ -362,7 +377,7 @@
       el.focus(); if (el.select) el.select();
     };
     window.addEventListener('keydown', this._onFindKey);
-    if (location.hash && location.hash.length > 2) this.applyHash();
+    if (this._routePath()) this.applyHash();
     this._startWallPulse();
     this._startTilt();
     this._startHeaderAutohide();
@@ -371,7 +386,9 @@
     if (this.state.route.page === 'book') this._loadNotes();
   };
   P.componentWillUnmount = function () {
+    window.removeEventListener('popstate', this._onPop);
     window.removeEventListener('hashchange', this._onHash);
+    document.removeEventListener('click', this._onLinkClick);
     window.removeEventListener('resize', this._onResize);
     window.removeEventListener('keydown', this._onFindKey);
     clearTimeout(this._pulseTimer);
@@ -984,10 +1001,30 @@
   };
 
   // ---------- routing ----------
-  // URL scheme is author-first: a book is #/<author>/<title>, an author page is #/<author>.
-  // Reserved words keep their own routes; #/book/<key> stays as a legacy alias.
+  // URLs are real paths, author-first: a book is /<author>/<title>, an author page is /<author>. Netlify serves
+  // index.html for every path (netlify.toml), and the edge function there fills in each page's title and text.
+  // Inside the app routes are still written '#/…' (navigate, _setHash), which _setHash turns into the path.
+  // Reserved words keep their own routes; /book/<key> stays as a legacy alias.
+  P._routePath = function () {
+    var p = location.pathname.replace(/^\/+|\/+$/g, '');
+    try { p = decodeURIComponent(p); } catch (e) {}
+    return p === 'index.html' ? '' : p;
+  };
+  // Links shared before the switch (bookjumpr.com/#/<author>/<title>) are rewritten to their path.
+  P._legacyHash = function () {
+    if (!/^#\//.test(location.hash)) return false;
+    history.replaceState(null, '', '/' + location.hash.slice(2) + location.search);
+    return true;
+  };
+  // Puts a '#/…' route in the address bar as a path (keeping ?query switches) and, unless the caller has already
+  // rendered it (_silent), applies it.
+  P._setHash = function (hash) {
+    var path = '/' + String(hash || '').replace(/^#?\/?/, '');
+    if (path !== location.pathname) history.pushState(null, '', path + location.search);
+    if (!this._silent) this.applyHash();
+  };
   P._routeFromHash = function () {
-    var hh = decodeURIComponent(location.hash.replace(/^#\/?/, ''));
+    var hh = this._routePath();
     if (!hh) return { page: 'home' };
     if (hh.indexOf('search/') === 0) return { page: 'search', q: hh.slice(7) };
     if (hh === 'stats') return { page: 'stats' };
@@ -1034,7 +1071,7 @@
       window.scrollTo(0, 0);
     }, fromEl, post);
     this._silent = true;
-    location.hash = hash;
+    this._setHash(hash);
     setTimeout(function () { self._silent = false; }, 0);
   };
   P.applyHash = function () {
@@ -1045,6 +1082,15 @@
       self.setState({ route: route, suggestFor: null });
       window.scrollTo(0, 0);
     });
+  };
+  // A click handler for an <a href> to an app route: plain clicks navigate in place (fn), modified clicks
+  // (⌘/Ctrl/Shift — new tab or window) are left to the browser.
+  P._linkGo = function (fn) {
+    return function (e) {
+      if (e && (e.metaKey || e.ctrlKey || e.shiftKey || e.altKey || e.button > 0)) return;
+      if (e && e.preventDefault) e.preventDefault();
+      fn(e);
+    };
   };
   P.goBook = function (id, fromEl) { this.navigate({ page: 'book', id: id }, '#/' + id, fromEl); };
   P.goAuthor = function (aslug) { if (aslug && aslug !== 'anonymous') this.navigate({ page: 'author', slug: aslug }, '#/' + aslug); };
@@ -1257,7 +1303,7 @@
     if (this._notes || this._notesLoading) return;
     this._notesLoading = true;
     var self = this, sc = document.createElement('script');
-    sc.src = 'bookjumpr-notes.js?v=2';
+    sc.src = '/bookjumpr-notes.js?v=2';
     sc.onload = function () {
       var N = window.BookJumprNotes, M = DATA.MENTIONS || [], map = {};
       if (N && N.COUNT === M.length) N.NOTES.forEach(function (r) { var m = M[r[0]]; if (m) map[m[0] + '|' + m[1]] = r[1]; });
@@ -1349,10 +1395,10 @@
       cbs.forEach(function (fn) { fn(); });
     };
     var dataScript = document.createElement('script');
-    dataScript.src = 'constellation-data.js';
+    dataScript.src = '/constellation-data.js';
     dataScript.onload = function () {
       var viewScript = document.createElement('script');
-      viewScript.src = 'constellation-view.js?v=19';
+      viewScript.src = '/constellation-view.js?v=19';
       viewScript.onload = done;
       document.body.appendChild(viewScript);
     };
@@ -1365,7 +1411,7 @@
     this._constellation = new window.Constellation({
       root: el,
       data: window.BookGraph,
-      bookUrlPattern: 'index.html#/{author}/{title}',
+      bookUrlPattern: '/{author}/{title}',
       showRings: true, labelDensity: 1, ambientTours: true,
       onOpenPage: function (key) { self.navigate({ page: 'book', id: key }, '#/' + key); }
     });
@@ -1407,11 +1453,11 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=14', 'explorer.js?v=24'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=14', 'explorer.js?v=25'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
-      sc.src = src; sc.onload = done; sc.onerror = done;
+      sc.src = '/' + src; sc.onload = done; sc.onerror = done;
       document.body.appendChild(sc);
     });
   };
@@ -1436,7 +1482,7 @@
     this._pushTrail(route);
     this.setState({ route: route, xHover: null, xPathOpen: false, xPathTo: null, xPathQ: '' });
     this._silent = true;
-    location.hash = id ? '#/network/' + id : '#/network';
+    this._setHash(id ? '#/network/' + id : '#/network');
     var self = this;
     setTimeout(function () { self._silent = false; }, 0);
   };
@@ -1444,13 +1490,13 @@
     if (this._xReady() || this._xLoading) return;
     this._xLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=24'] : ['network-regions.js?v=2', 'explorer.js?v=24'];
+    var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=25'] : ['network-regions.js?v=2', 'explorer.js?v=25'];
     if (this._vLab()) srcs.push('layouts-data.js?v=8');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
-      sc.src = src; sc.onload = done; sc.onerror = done;
+      sc.src = '/' + src; sc.onload = done; sc.onerror = done;
       document.body.appendChild(sc);
     });
   };
@@ -1892,7 +1938,8 @@
         vals.hasAuthor = bHasAuthor;
         vals.noAuthor = !bHasAuthor;
         vals.b_author = b.author || '';
-        vals.b_authorGo = go((function (bk) { return function () { self.goAuthor(self.authorSlug(bk.author)); }; })(b));
+        vals.b_authorGo = this._linkGo((function (bk) { return function () { self.goAuthor(self.authorSlug(bk.author)); }; })(b));
+        vals.b_authorHref = '/' + this.authorSlug(b.author);
         vals.b_yearSuffix = yl ? '  ·  ' + yl : '';
         // Plain fallback used when the author isn't a clickable link (unknown/Anonymous).
         vals.b_byline = [b.author ? 'by ' + b.author : null, yl || null].filter(Boolean).join('  ·  ');
@@ -1905,7 +1952,7 @@
           var bk = books[id];
           var yl2 = self.yearLabel(bk.year);
           return { cv: self.cover(bk), title: bk.title, author: (bk.author || 'author unknown') + (yl2 ? '  ·  ' + yl2 : ''), sub: self.subFor(bk),
-            note: self.noteEl(src, ment), go: function (e) { self.goBook(id, e && e.currentTarget); } };
+            note: self.noteEl(src, ment), href: '/' + id, go: self._linkGo(function (e) { self.goBook(id, e && e.currentTarget); }) };
         };
         var byDeg = function (x, y) { return (books[y].in.length + books[y].out.length) - (books[x].in.length + books[x].out.length); };
         var outIds = b.out.slice().sort(byDeg), inIds = b.in.slice().sort(byDeg);
@@ -1926,7 +1973,7 @@
         var jump = function (sel) { return function () { var el = document.getElementById(sel); if (el) window.scrollTo({ top: el.getBoundingClientRect().top + window.scrollY - 80, behavior: 'smooth' }); }; };
         vals.jumpOut = jump('mentions-out'); vals.jumpIn = jump('mentions-in');
       } else {
-        vals.b_title = this.state.ready ? 'Book not found' : 'Opening the stacks…'; vals.b_byline = ''; vals.hasAuthor = false; vals.noAuthor = true; vals.b_author = ''; vals.b_authorGo = function () {}; vals.b_yearSuffix = ''; vals.b_synopsis = this.state.ready ? 'That book isn’t in the network yet.' : 'One moment.';
+        vals.b_title = this.state.ready ? 'Book not found' : 'Opening the stacks…'; vals.b_byline = ''; vals.hasAuthor = false; vals.noAuthor = true; vals.b_author = ''; vals.b_authorGo = function () {}; vals.b_authorHref = '/'; vals.b_yearSuffix = ''; vals.b_synopsis = this.state.ready ? 'That book isn’t in the network yet.' : 'One moment.';
         vals.b_cv = this.cover({ id: 'x', title: '?', author: '' }, 'vt-hero');
         vals.cntOut = 0; vals.cntIn = 0; vals.hasOut = false; vals.hasIn = false; vals.noOut = true; vals.noIn = true;
         vals.cardsOut = []; vals.cardsIn = []; vals.neighborhood = null; vals.jumpOut = function () {}; vals.jumpIn = function () {};
@@ -1947,8 +1994,8 @@
       vals.a_count = mine.length + (mine.length === 1 ? ' work' : ' works')
         + '  ·  ' + aMentions + (aMentions === 1 ? ' mention' : ' mentions') + ' of their books';
       vals.a_books = mine.map(function (b) {
-        var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block' };
-        return { cv: self.cover(b), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), go: function (e) { self.goBook(b.id, e && e.currentTarget); } };
+        var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block', color: 'inherit', textDecoration: 'none' };
+        return { cv: self.cover(b), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), href: '/' + b.id, go: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) };
       });
     }
 
@@ -1958,8 +2005,8 @@
       var res = this.matches(q).slice(0, 30);
       vals.s_query = q;
       vals.s_results = res.map(function (b) {
-        var rowStyle = { display: 'flex', alignItems: 'center', gap: m ? '12px' : '22px', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '16px 8px', fontFamily: 'inherit', width: '100%' };
-        return { cv: self.cover(b), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), go: function (e) { self.goBook(b.id, e && e.currentTarget); } };
+        var rowStyle = { display: 'flex', alignItems: 'center', gap: m ? '12px' : '22px', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '16px 8px', fontFamily: 'inherit', width: '100%', boxSizing: 'border-box', color: 'inherit', textDecoration: 'none' };
+        return { cv: self.cover(b), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), href: '/' + b.id, go: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) };
       });
       vals.s_has = res.length > 0; vals.s_none = res.length === 0;
       vals.s_count = res.length === 0 ? 'no matches' : res.length + (res.length === 1 ? ' match' : ' matches');
@@ -1982,7 +2029,7 @@
         return {
           rank: String(i + 1).padStart(2, '0'), title: b.title, author: b.author || '', count: b.in.length,
           bar: { height: '100%', width: (b.in.length / max * 100) + '%', background: 'var(--accent)', borderRadius: 3 },
-          go: function () { self.goBook(b.id); }
+          href: '/' + b.id, go: self._linkGo(function () { self.goBook(b.id); })
         };
       });
       vals.topAuthors = byAuthor.map(function (entry, i) {
@@ -1991,7 +2038,7 @@
         return {
           rank: String(i + 1).padStart(2, '0'), name: name, count: d.count,
           works: d.works.size + (d.works.size === 1 ? ' work' : ' works'),
-          go: function () { self.goAuthor(aslug); }
+          href: '/' + aslug, go: self._linkGo(function () { self.goAuthor(aslug); })
         };
       });
     } else { vals.topBooks = vals.topBooks || []; vals.topAuthors = vals.topAuthors || []; }
@@ -2020,10 +2067,10 @@
     // network: the Explorer variant (lazy) + the Map/Explorer switcher when ?net= is set
     vals.netCompare = page === 'network' && !!this._netCompare;
     var nf = route.focus ? '/' + route.focus : '';
-    vals.netSwMap = '?net=map#/network' + nf; vals.netSwX = '?net=v2#/network' + nf;
+    vals.netSwMap = '/network' + nf + '?net=map'; vals.netSwX = '/network' + nf + '?net=v2';
     vals.netSwMapCls = vals.pgNetMap ? 'on' : ''; vals.netSwXCls = vals.pgExplorer ? 'on' : '';
-    vals.netSwA = '?net=v3#/network' + nf; vals.netSwACls = vals.pgAtlas ? 'on' : '';
-    vals.netSwP = '?net=v4#/network' + nf; vals.netSwPCls = this._netMode() === 'plus' && page === 'network' ? 'on' : '';
+    vals.netSwA = '/network' + nf + '?net=v3'; vals.netSwACls = vals.pgAtlas ? 'on' : '';
+    vals.netSwP = '/network' + nf + '?net=v4'; vals.netSwPCls = this._netMode() === 'plus' && page === 'network' ? 'on' : '';
     if (vals.netSwXCls && vals.netSwPCls) vals.netSwXCls = '';
     vals.atlasHostRef = this._atlasRefFn || (this._atlasRefFn = function (el) {
       if (el) { self._atlasEl = el; self._mountAtlas(); }
@@ -2068,6 +2115,9 @@
         about: 'About — BookJumpr'
       };
       document.title = titleMap[page] || titleMap.home;
+      // keep the canonical URL in step with the address bar (the edge function sets it for the first page loaded)
+      var can = document.querySelector('link[rel="canonical"]');
+      if (can && /^(home|book|author|stats|about|network)$/.test(page)) can.href = 'https://bookjumpr.com' + (page === 'network' ? '/network' : '/' + this._routePath());
     }
 
     return vals;
