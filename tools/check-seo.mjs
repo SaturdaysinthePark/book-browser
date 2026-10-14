@@ -88,8 +88,34 @@ for (const path of ['/nobody/nothing-at-all', '/nobody-at-all']) {
   ok(status === 301 && location === '/haruki-murakami/norwegian-wood', `/book/<key> → 301 to ${location}`);
 }
 
+console.log('\nPage speed');
+{
+  const { html } = await get('/haruki-murakami/norwegian-wood');
+  ok(!/fonts\.googleapis|fonts\.gstatic/.test(html), 'fonts are served from the site (no Google Fonts request)');
+  const notes = tag(html, /<script>window\.BookJumprPageNotes=([\s\S]*?);<\/script>/);
+  let n = null; try { n = JSON.parse(notes); } catch (e) {}
+  ok(n && n.k === 'haruki-murakami/norwegian-wood' && Object.keys(n.n).length >= 9, `the book's quotes come with the page (${n ? Object.keys(n.n).length : 0} notes)`);
+  for (const f of ['/fonts/instrument-serif-400-latin.woff2', '/fonts/cabin-latin.woff2', '/fonts/ibm-plex-mono-400-latin.woff2']) {
+    const r = await fetch(BASE + f); await r.arrayBuffer();
+    ok(r.status === 200, `${f}: ${r.status}`);
+  }
+}
+
+console.log('\nMissing files are 404s, not the app page');
+for (const f of ['/ai-catalog.json', '/nothing-here.txt', '/old-page.html']) {
+  const r = await fetch(BASE + f, { redirect: 'manual' }); const body = await r.text();
+  ok(r.status === 404 && !/<!DOCTYPE html>/i.test(body), `${f}: ${r.status}`);
+}
+
+console.log('\nllms.txt');
+{
+  const t = await (await fetch(BASE + '/llms.txt')).text();
+  ok(/^# BookJumpr\n\n> /.test(t), 'starts with a title and a blockquote summary');
+  ok(/## Key pages\n\n- \[Home\]\(https:\/\/bookjumpr\.com\/\)/.test(t) && /## Optional\n\n- \[/.test(t), 'has "Key pages" and "Optional" link lists');
+}
+
 console.log('\nFiles');
-for (const path of ['/app.js?v=6', '/bookjumpr-data.js?v=2', '/vendor/react.production.min.js', '/llms.txt', '/llms-full.txt', '/robots.txt', '/sitemap.xml']) {
+for (const path of ['/app.js?v=7', '/bookjumpr-data.js?v=2', '/vendor/react.production.min.js', '/llms.txt', '/llms-full.txt', '/robots.txt', '/sitemap.xml']) {
   const r = await fetch(BASE + path);
   const body = await r.text();
   ok(r.status === 200 && !/^<!DOCTYPE html>/i.test(body), `${path}: ${r.status}, ${body.length.toLocaleString('en-US')} bytes, not the HTML page`);

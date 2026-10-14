@@ -1,53 +1,57 @@
 # BookJumpr
 
-Last updated: 2026-10-14. Updated whenever books are added.
+> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,401 books, 7,802 mentions, most with the line where the mention happens. Last updated 2026-10-14.
 
-> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,401 books, 7,802 mentions.
+Each book has a page at https://bookjumpr.com/<author-slug>/<title-slug> listing every book it mentions (with the line) and every book that mentions it; each author has a page at https://bookjumpr.com/<author-slug>.
 
-Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.
+## Key pages
 
-A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https://bookjumpr.com/haruki-murakami/norwegian-wood. An author's page is at https://bookjumpr.com/<author-slug>. The most-mentioned books are at https://bookjumpr.com/stats.
+- [Home](https://bookjumpr.com/): search any book and browse the network
+- [The most-mentioned books](https://bookjumpr.com/stats): books ranked by how many other books mention them
+- [About](https://bookjumpr.com/about): how mentions are collected and what counts as one
+- [Network](https://bookjumpr.com/network): every book as one map of who mentions whom
+- [Example book page: Norwegian Wood](https://bookjumpr.com/haruki-murakami/norwegian-wood): the books Murakami's novel mentions, with quotes
 
 ## Example connections
 
-- Norwegian Wood (Haruki Murakami) mentions The Catcher in the Rye: "No War and Peace, no Kenzaburo Oe, no Catcher in the Rye."
-- Brave New World (Aldous Huxley) mentions Romeo and Juliet: "Upstairs in his room the Savage was reading Romeo and Juliet."
-- Franny and Zooey (J. D. Salinger) mentions Peter Pan: "Even before the curtain goes up at 'Peter Pan,' I'm a goddam puddle of tears."
-- The Catcher in the Rye (J. D. Salinger) mentions Oliver Twist: "He's carrying this copy of Oliver Twist and so's she."
-- The Marriage Plot (Jeffrey Eugenides) mentions Invisible Cities: "a girl ... was smoking a clove cigarette and reading Invisible Cities"
+- [Norwegian Wood](https://bookjumpr.com/haruki-murakami/norwegian-wood) (Haruki Murakami) mentions [The Catcher in the Rye](https://bookjumpr.com/j-d-salinger/the-catcher-in-the-rye): "No War and Peace, no Kenzaburo Oe, no Catcher in the Rye."
+- [Brave New World](https://bookjumpr.com/aldous-huxley/brave-new-world) (Aldous Huxley) mentions [Romeo and Juliet](https://bookjumpr.com/william-shakespeare/romeo-and-juliet): "Upstairs in his room the Savage was reading Romeo and Juliet."
+- [Franny and Zooey](https://bookjumpr.com/j-d-salinger/franny-and-zooey) (J. D. Salinger) mentions [Peter Pan](https://bookjumpr.com/j-m-barrie/peter-pan): "Even before the curtain goes up at 'Peter Pan,' I'm a goddam puddle of tears."
+- [The Catcher in the Rye](https://bookjumpr.com/j-d-salinger/the-catcher-in-the-rye) (J. D. Salinger) mentions [Oliver Twist](https://bookjumpr.com/charles-dickens/oliver-twist): "He's carrying this copy of Oliver Twist and so's she."
+- [The Marriage Plot](https://bookjumpr.com/jeffrey-eugenides/the-marriage-plot) (Jeffrey Eugenides) mentions [Invisible Cities](https://bookjumpr.com/italo-calvino/invisible-cities): "a girl ... was smoking a clove cigarette and reading Invisible Cities"
 
 ## The most-mentioned books
 
-- Don Quixote by Miguel de Cervantes: mentioned in 75 books
-- Hamlet by William Shakespeare: mentioned in 71 books
-- Robinson Crusoe by Daniel Defoe: mentioned in 63 books
-- Romeo and Juliet by William Shakespeare: mentioned in 49 books
-- A Thousand and One Nights by Anonymous: mentioned in 45 books
-- Iliad by Homer: mentioned in 41 books
-- Paradise Lost by John Milton: mentioned in 39 books
-- Anna Karenina by Leo Tolstoy: mentioned in 37 books
-- King Lear by William Shakespeare: mentioned in 37 books
-- War and Peace by Leo Tolstoy: mentioned in 29 books
-- Moby-Dick by Herman Melville: mentioned in 28 books
-- Madame Bovary by Gustave Flaubert: mentioned in 27 books
-- The Odyssey by Homer: mentioned in 27 books
-- Alice's Adventures in Wonderland by Lewis Carroll: mentioned in 26 books
-- Faust by Johann Wolfgang von Goethe: mentioned in 25 books
-- Macbeth by William Shakespeare: mentioned in 25 books
-- The Divine Comedy by Dante Alighieri: mentioned in 23 books
-- David Copperfield by Charles Dickens: mentioned in 21 books
-- Ivanhoe by Walter Scott: mentioned in 21 books
-- Julius Caesar by William Shakespeare: mentioned in 21 books
-- Oliver Twist by Charles Dickens: mentioned in 21 books
-- The Great Gatsby by F. Scott Fitzgerald: mentioned in 21 books
-- As You Like It by William Shakespeare: mentioned in 20 books
-- Wuthering Heights by Emily Bronte: mentioned in 19 books
-- Jane Eyre by Charlotte Brontë: mentioned in 18 books
-- The Tempest by William Shakespeare: mentioned in 18 books
-- Othello by William Shakespeare: mentioned in 17 books
-- The Aeneid by Virgil: mentioned in 17 books
-- The Pilgrim's Progress by John Bunyan: mentioned in 17 books
-- Gulliver's Travels by Jonathan Swift: mentioned in 16 books
+- [Don Quixote](https://bookjumpr.com/miguel-de-cervantes/don-quixote): by Miguel de Cervantes, mentioned in 75 books
+- [Hamlet](https://bookjumpr.com/william-shakespeare/hamlet): by William Shakespeare, mentioned in 71 books
+- [Robinson Crusoe](https://bookjumpr.com/daniel-defoe/robinson-crusoe): by Daniel Defoe, mentioned in 63 books
+- [Romeo and Juliet](https://bookjumpr.com/william-shakespeare/romeo-and-juliet): by William Shakespeare, mentioned in 49 books
+- [A Thousand and One Nights](https://bookjumpr.com/anonymous/a-thousand-and-one-nights): by Anonymous, mentioned in 45 books
+- [Iliad](https://bookjumpr.com/homer/iliad): by Homer, mentioned in 41 books
+- [Paradise Lost](https://bookjumpr.com/john-milton/paradise-lost): by John Milton, mentioned in 39 books
+- [Anna Karenina](https://bookjumpr.com/leo-tolstoy/anna-karenina): by Leo Tolstoy, mentioned in 37 books
+- [King Lear](https://bookjumpr.com/william-shakespeare/king-lear): by William Shakespeare, mentioned in 37 books
+- [War and Peace](https://bookjumpr.com/leo-tolstoy/war-and-peace): by Leo Tolstoy, mentioned in 29 books
+- [Moby-Dick](https://bookjumpr.com/herman-melville/moby-dick): by Herman Melville, mentioned in 28 books
+- [Madame Bovary](https://bookjumpr.com/gustave-flaubert/madame-bovary): by Gustave Flaubert, mentioned in 27 books
+- [The Odyssey](https://bookjumpr.com/homer/the-odyssey): by Homer, mentioned in 27 books
+- [Alice's Adventures in Wonderland](https://bookjumpr.com/lewis-carroll/alice-s-adventures-in-wonderland): by Lewis Carroll, mentioned in 26 books
+- [Faust](https://bookjumpr.com/johann-wolfgang-von-goethe/faust): by Johann Wolfgang von Goethe, mentioned in 25 books
+- [Macbeth](https://bookjumpr.com/william-shakespeare/macbeth): by William Shakespeare, mentioned in 25 books
+- [The Divine Comedy](https://bookjumpr.com/dante-alighieri/the-divine-comedy): by Dante Alighieri, mentioned in 23 books
+- [David Copperfield](https://bookjumpr.com/charles-dickens/david-copperfield): by Charles Dickens, mentioned in 21 books
+- [Ivanhoe](https://bookjumpr.com/walter-scott/ivanhoe): by Walter Scott, mentioned in 21 books
+- [Julius Caesar](https://bookjumpr.com/william-shakespeare/julius-caesar): by William Shakespeare, mentioned in 21 books
+- [Oliver Twist](https://bookjumpr.com/charles-dickens/oliver-twist): by Charles Dickens, mentioned in 21 books
+- [The Great Gatsby](https://bookjumpr.com/f-scott-fitzgerald/the-great-gatsby): by F. Scott Fitzgerald, mentioned in 21 books
+- [As You Like It](https://bookjumpr.com/william-shakespeare/as-you-like-it): by William Shakespeare, mentioned in 20 books
+- [Wuthering Heights](https://bookjumpr.com/emily-bronte/wuthering-heights): by Emily Bronte, mentioned in 19 books
+- [Jane Eyre](https://bookjumpr.com/charlotte-bronte/jane-eyre): by Charlotte Brontë, mentioned in 18 books
+- [The Tempest](https://bookjumpr.com/william-shakespeare/the-tempest): by William Shakespeare, mentioned in 18 books
+- [Othello](https://bookjumpr.com/william-shakespeare/othello): by William Shakespeare, mentioned in 17 books
+- [The Aeneid](https://bookjumpr.com/virgil/the-aeneid): by Virgil, mentioned in 17 books
+- [The Pilgrim's Progress](https://bookjumpr.com/john-bunyan/the-pilgrim-s-progress): by John Bunyan, mentioned in 17 books
+- [Gulliver's Travels](https://bookjumpr.com/jonathan-swift/gulliver-s-travels): by Jonathan Swift, mentioned in 16 books
 
 ## Questions BookJumpr answers
 
@@ -78,10 +82,12 @@ A: The Catcher in the Rye by J. D. Salinger mentions 13 books: David Copperfield
 Q: What books are mentioned in Ulysses?
 A: Ulysses by James Joyce mentions 30 books: The Tempest by William Shakespeare; Measure for Measure by William Shakespeare; The Maid's Tragedy by Francis Beaumont and John Fletcher; Hamlet by William Shakespeare; King Lear by William Shakespeare; Robinson Crusoe by Daniel Defoe; Romeo and Juliet by William Shakespeare; Antony and Cleopatra by William Shakespeare; Paradise Lost by John Milton; The Descent of Man by Charles Darwin; The Taming of the Shrew by William Shakespeare; The Woman in White by Wilkie Collins; and 18 more. With quotes: https://bookjumpr.com/james-joyce/ulysses
 
-For every book and what it mentions, with quotes, see https://bookjumpr.com/llms-full.txt
-
 ## Elsewhere
 
-- X: https://x.com/saturdaysonx
-- Instagram: https://www.instagram.com/saturdaysinabook/
-- TikTok: https://www.tiktok.com/@saturdaysinabook
+- [BookJumpr on X](https://x.com/saturdaysonx)
+- [BookJumpr on Instagram](https://www.instagram.com/saturdaysinabook/)
+- [BookJumpr on TikTok](https://www.tiktok.com/@saturdaysinabook)
+
+## Optional
+
+- [Every book and what it mentions](https://bookjumpr.com/llms-full.txt): all 899 books that mention another, with the books they mention and the quotes (~1MB)

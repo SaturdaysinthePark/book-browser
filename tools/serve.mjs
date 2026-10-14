@@ -7,6 +7,7 @@
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import D from '../netlify/seo/data.js';
 import { renderPage } from '../netlify/seo/render.js';
 
@@ -19,12 +20,19 @@ http.createServer((req, res) => {
   let file;
   try { file = path.join(ROOT, decodeURIComponent(url.pathname)); } catch (e) { file = ROOT; }
   if (file.startsWith(ROOT + path.sep) && fs.existsSync(file) && fs.statSync(file).isFile()) {
-    res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream' });
+    const type = TYPES[path.extname(file)] || 'application/octet-stream';
+    // compress text the way Netlify does, so local page-speed measurements are realistic
+    if (/text|javascript|json|xml|svg/.test(type) && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+      res.writeHead(200, { 'content-type': type, 'content-encoding': 'gzip' });
+      return fs.createReadStream(file).pipe(zlib.createGzip()).pipe(res);
+    }
+    res.writeHead(200, { 'content-type': type });
     return fs.createReadStream(file).pipe(res);
   }
   // everything else is the app (netlify.toml's rewrite), with the edge function's per-page head
   const html = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
-  const out = /\.[a-z0-9]+$/i.test(url.pathname) ? null : renderPage(html, url.pathname, D);
+  if (/\.[a-z0-9]+$/i.test(url.pathname) && url.pathname !== '/index.html') { res.writeHead(404, { 'content-type': 'text/plain; charset=utf-8' }); return res.end('Not found\n'); }   // as the edge function does
+  const out = url.pathname === '/index.html' ? null : renderPage(html, url.pathname, D);
   if (out && out.location) { res.writeHead(out.status, { location: out.location + url.search }); return res.end(); }
   res.writeHead(out ? out.status : 200, { 'content-type': 'text/html; charset=utf-8' });
   res.end(out ? out.html : html);

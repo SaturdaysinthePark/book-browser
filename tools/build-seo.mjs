@@ -86,7 +86,7 @@ export function seoContent(updated) {
     .map(k => ({ k, head: by(NODES, k) + (NODES[k][2] ? ` (${yearLabel(NODES[k][2])})` : ''), outs: outs[k] }));
   // the edge function's data (see netlify/seo/render.js for the shape); G: books with their own preview card, with a
   // short hash of the image so a re-rendered card gets a fresh URL (link previews are cached by URL)
-  const edge = { B: {}, O: {}, I: {}, A: {}, G: {} };
+  const edge = { B: {}, O: {}, I: {}, A: {}, G: {}, N: {} };
   for (const k of Object.keys(NODES)) {
     const f = `og/${k}.png`;
     if (fs.existsSync(f)) edge.G[k] = crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
@@ -100,6 +100,7 @@ export function seoContent(updated) {
     if (a === b || !NODES[a] || !NODES[b]) return;
     if (!(edge.O[a] = edge.O[a] || []).some(([m]) => m === b)) edge.O[a].push([b, NOTES[i] ? clean(NOTES[i]) : '']);
     if (!(edge.I[b] = edge.I[b] || []).includes(a)) edge.I[b].push(a);
+    if (NOTES[i] && !edge.N[a + '|' + b]) edge.N[a + '|' + b] = NOTES[i];   // as the app shows it (see noteEl)
   });
   // pages worth listing in the sitemap: a synopsis, at least one mention, or mentioned by two or more
   const pages = Object.keys(NODES).filter(k => NODES[k][3] || edge.O[k] || (edge.I[k] || []).length >= 2);
@@ -130,34 +131,43 @@ export function renderHtml(s) {
 
 const prettyDate = d => { const [y, m, day] = d.split('-').map(Number); return `${MONTHS[m - 1]} ${day}, ${y}`; };
 
+// llms.txt in the llmstxt.org shape: an H1, a one-paragraph blockquote summary, then "##" sections whose entries
+// are markdown links ("- [name](url): notes"); "## Optional" holds what a reader can skip.
 export function renderLlms(s) {
+  const link = (k, t) => `[${t}](${SITE}/${k})`;
   return [
     '# BookJumpr',
     '',
-    `Last updated: ${s.updated}. Updated whenever books are added.`,
+    `> BookJumpr (${SITE}) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. ${s.books.toLocaleString('en-US')} books, ${s.mentions.toLocaleString('en-US')} mentions, most with the line where the mention happens. Last updated ${s.updated}.`,
     '',
-    `> BookJumpr (${SITE}) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. ${s.books.toLocaleString('en-US')} books, ${s.mentions.toLocaleString('en-US')} mentions.`,
+    `Each book has a page at ${SITE}/<author-slug>/<title-slug> listing every book it mentions (with the line) and every book that mentions it; each author has a page at ${SITE}/<author-slug>.`,
     '',
-    'Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.',
+    '## Key pages',
     '',
-    `A book's page is at ${SITE}/<author-slug>/<title-slug>, e.g. ${SITE}/haruki-murakami/norwegian-wood. An author's page is at ${SITE}/<author-slug>. The most-mentioned books are at ${SITE}/stats.`,
+    `- [Home](${SITE}/): search any book and browse the network`,
+    `- [The most-mentioned books](${SITE}/stats): books ranked by how many other books mention them`,
+    `- [About](${SITE}/about): how mentions are collected and what counts as one`,
+    `- [Network](${SITE}/network): every book as one map of who mentions whom`,
+    `- [Example book page: Norwegian Wood](${SITE}/haruki-murakami/norwegian-wood): the books Murakami's novel mentions, with quotes`,
     '',
     '## Example connections',
     '',
-    ...s.examples.map(e => `- ${e.a[0]} (${e.a[1]}) mentions ${e.b[0]}: "${e.q}"`),
+    ...s.examples.map(e => `- ${link(e.ka, e.a[0])} (${e.a[1]}) mentions ${link(e.kb, e.b[0])}: "${e.q}"`),
     '',
     '## The most-mentioned books',
     '',
-    ...s.top.map(b => `- ${b.t} by ${b.a}: mentioned in ${b.n} books`),
+    ...s.top.map(b => `- ${link(b.k, b.t)}: by ${b.a}, mentioned in ${b.n} books`),
     '',
     '## Questions BookJumpr answers',
     '',
     ...s.qa.flatMap(x => [`Q: ${x.q}`, `A: ${x.a}`, '']),
-    `For every book and what it mentions, with quotes, see ${SITE}/llms-full.txt`,
-    '',
     '## Elsewhere',
     '',
-    ...PROFILES.map(([name, url]) => `- ${name}: ${url}`),
+    ...PROFILES.map(([name, url]) => `- [BookJumpr on ${name}](${url})`),
+    '',
+    '## Optional',
+    '',
+    `- [Every book and what it mentions](${SITE}/llms-full.txt): all ${s.full.length.toLocaleString('en-US')} books that mention another, with the books they mention and the quotes (~1MB)`,
     '',
   ].join('\n');
 }
