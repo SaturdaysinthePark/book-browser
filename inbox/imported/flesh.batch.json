@@ -1,0 +1,15 @@
+{
+  "books": [
+    {
+      "title": "Flesh",
+      "author": "David Szalay",
+      "year": 2025,
+      "synopsis": "Following István from a Hungarian housing estate through army service, prison-adjacent drift and private security work, the novel traces his life through sparse, affectless scenes of sex, grief and money as he rises into London's wealthy circles.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    { "source": "Flesh", "mentioned": "Playing to Win: How Strategy Really Works", "author": "A. G. Lafley and Roger L. Martin", "note": "He’s reading Playing to Win: How Strategy Really Works by Alan G. Lafley and Roger Martin." },
+    { "source": "Flesh", "mentioned": "Hamlet", "author": "William Shakespeare", "note": "‘You mean last term?’ ‘For instance.’ ‘Hamlet,’ he says. ‘You were in that once weren’t you?’ ‘Yes,’ he says.", "confidence": "medium" }
+  ]
+}

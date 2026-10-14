@@ -1,0 +1,15 @@
+{
+  "books": [
+    {
+      "title": "Intermezzo",
+      "author": "Sally Rooney",
+      "year": 2024,
+      "synopsis": "Two brothers in Dublin, Peter, a successful barrister, and Ivan, a young chess prodigy, are left reeling after their father's death, each entangled in a complicated relationship with an older or younger woman while their own bond frays and slowly reforms.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    { "source": "Intermezzo", "mentioned": "Philosophical Investigations", "author": "Ludwig Wittgenstein", "note": "(epigraph) But don’t you feel grief now? (‘But aren’t you now playing chess?’) —LUDWIG WITTGENSTEIN, Philosophical Investigations" },
+    { "source": "Intermezzo", "mentioned": "My 60 Memorable Games", "author": "Bobby Fischer", "note": "What’s the book? Peter asks. My 60 Memorable Games." }
+  ]
+}

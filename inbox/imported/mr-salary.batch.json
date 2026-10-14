@@ -1,0 +1,12 @@
+{
+  "books": [
+    {
+      "title": "Mr Salary",
+      "author": "Sally Rooney",
+      "year": 2019,
+      "synopsis": "Home in Dublin for Christmas while her estranged father is dying of leukaemia, a young Boston graduate student stays with Nathan, the older relative who once housed and financed her, and presses him to turn their unspoken intimacy into something real.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": []
+}

@@ -1,0 +1,41 @@
+{
+  "books": [
+    {
+      "title": "Conversations with Friends",
+      "author": "Sally Rooney",
+      "year": 2017,
+      "synopsis": "Frances, a young Dublin poet and student, and her ex-girlfriend Bobbi perform spoken word together and become entangled with an older writer, Melissa, and her actor husband Nick. Frances begins an affair with Nick while examining her own detachment and the limits of intimacy.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "Conversations with Friends",
+      "mentioned": "Middlemarch",
+      "author": "George Eliot",
+      "note": "I went back out to the waiting room and saw my mother reading my copy of Middlemarch.",
+      "confidence": "high"
+    },
+    {
+      "source": "Conversations with Friends",
+      "mentioned": "Cat on a Hot Tin Roof",
+      "author": "Tennessee Williams",
+      "note": "Nick’s in the Royal this month, Melissa said. He’s doing Cat on a Hot Tin Roof.",
+      "confidence": "high"
+    },
+    {
+      "source": "Conversations with Friends",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare",
+      "note": "Nick had started rehearsing for a production of Hamlet",
+      "confidence": "high"
+    },
+    {
+      "source": "Conversations with Friends",
+      "mentioned": "The Lake Isle of Innisfree",
+      "author": "W. B. Yeats",
+      "note": "I practically had to stop him reciting ‘The Lake Isle of Innisfree’ in the bar.",
+      "confidence": "high"
+    }
+  ]
+}

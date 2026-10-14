@@ -1,0 +1,20 @@
+{
+  "books": [
+    {
+      "title": "Normal People",
+      "author": "Sally Rooney",
+      "year": 2018,
+      "synopsis": "Connell and Marianne grow up in the same small Irish town, he a popular schoolboy and she an isolated outsider, and begin a secret relationship. Over the following years at Trinity College Dublin they drift together and apart as class, confidence and misunderstanding shape their lives.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    { "source": "Normal People", "mentioned": "Daniel Deronda", "author": "George Eliot", "note": "(epigraph) It is one of the secrets in that change of mental poise which has been fitly named conversion, that to many among us neither heaven nor earth has any revelation till some personality touches theirs with a peculiar influence, subduing them into receptiveness. George Eliot, Daniel Deronda" },
+    { "source": "Normal People", "mentioned": "The Communist Manifesto", "author": "Karl Marx and Friedrich Engels", "note": "He told her she should try reading The Communist Manifesto, he thought she would like it, and he offered to write down the title for her so she wouldn’t forget." },
+    { "source": "Normal People", "mentioned": "The Fire Next Time", "author": "James Baldwin", "note": "He followed her into the study last week while she was looking for a copy of The Fire Next Time to lend him." },
+    { "source": "Normal People", "mentioned": "The Golden Notebook", "author": "Doris Lessing", "note": "I’ve read The Golden Notebook, he could tell them. It’s true, he has read it." },
+    { "source": "Normal People", "mentioned": "Emma", "author": "Jane Austen", "note": "One night the library started closing just as he reached the passage in Emma when it seems like Mr Knightley is going to marry Harriet, and he had to close the book and walk home in a state of strange emotional agitation." },
+    { "source": "Normal People", "mentioned": "Swann's Way", "author": "Marcel Proust", "note": "The copy of Swann’s Way she reads at lunchtime in the school cafeteria, with a dark French painting on the cover and a mint-coloured spine." },
+    { "source": "Normal People", "mentioned": "Selected Poems", "author": "Frank O'Hara", "note": "for Marianne, an edition of Frank O’Hara’s selected poems he found in an English-language bookshop in Berlin.", "confidence": "medium" }
+  ]
+}

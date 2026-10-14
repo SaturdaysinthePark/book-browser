@@ -1,0 +1,17 @@
+{
+  "books": [
+    {
+      "title": "The Great Gatsby",
+      "author": "F Scott Fitzgerald",
+      "year": 1925,
+      "synopsis": "Nick Carraway, a young Midwesterner newly arrived on Long Island, is drawn into the orbit of his mysterious millionaire neighbor Jay Gatsby, whose lavish parties are meant to win back the woman he has loved for years. A portrait of Jazz Age wealth, illusion and the corrosion of the American dream.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    {"source": "The Great Gatsby", "mentioned": "Simon Called Peter", "author": "Robert Keable", "note": "Several old copies of \"Town Tattle\" lay on the table together with a copy of \"Simon Called Peter\"", "confidence": "high"},
+    {"source": "The Great Gatsby", "mentioned": "Stoddard Lectures", "author": "John L. Stoddard", "note": "returned with Volume One of the \"Stoddard Lectures.\"", "confidence": "high"},
+    {"source": "The Great Gatsby", "mentioned": "Economics", "author": "Henry Clay", "note": "Gatsby looked with vacant eyes through a copy of Clay's \"Economics,\"", "confidence": "medium"},
+    {"source": "The Great Gatsby", "mentioned": "Hopalong Cassidy", "author": "Clarence E. Mulford", "note": "pulled from his pocket a ragged old copy of a book called \"Hopalong Cassidy.\"", "confidence": "high"}
+  ]
+}

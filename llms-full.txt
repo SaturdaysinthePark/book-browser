@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-11. 892 books that mention other books, 7,764 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-14. 899 books that mention other books, 7,802 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -285,7 +285,7 @@ https://bookjumpr.com/h-g-wells/a-modern-utopia
 https://bookjumpr.com/ernest-hemingway/a-moveable-feast
 - War and Peace by Leo Tolstoy
 - The Gambler by Fyodor Dostoevsky
-- The Great Gatsby by F Scott Fitzgerald
+- The Great Gatsby by F. Scott Fitzgerald
 - The Sun Also Rises by Ernest Hemingway
 - The Waste Land by T. S. Eliot
 - Crime and Punishment by Fyodor Dostoevsky
@@ -1207,6 +1207,16 @@ https://bookjumpr.com/herman-melville/bartleby-the-scrivener
 - The Freedom of the Will by Jonathan Edwards
 - The Doctrine of Philosophical Necessity Illustrated by Joseph Priestley
 
+## Beautiful World, Where Are You by Sally Rooney (2021)
+https://bookjumpr.com/sally-rooney/beautiful-world-where-are-you
+- My Vocation by Natalia Ginzburg: "(epigraph) —Natalia Ginzburg, ‘My Vocation’ (trans. Dick Davis)"
+- The Golden Bowl by Henry James: "Just remind me that I have an idea for an essay about ‘The Golden Bowl’ that I want to run by you."
+- David Copperfield by Charles Dickens: "afterwards I read him a chapter of ‘David Copperfield’ while we lie on the couch"
+- Anna Karenina by Leo Tolstoy: "No, I think at the time I’d just finished reading Anna Karenina."
+- The Brothers Karamazov by Fyodor Dostoevsky: "reading a copy of the novel The Karamazov Brothers."
+- The Uses of the Erotic by Audre Lorde: "I am attaching a PDF of Audre Lorde’s essay ‘Uses of the Erotic’, which I know for a fact you will greatly enjoy."
+- Documents in Mycenaean Greek by Michael Ventris and John Chadwick: "Ventris and the classical scholar and linguist John Chadwick wrote a book together on the translation of the script, entitled ‘Documents in Mycenaean Greek’."
+
 ## Becoming by Michelle Obama (2018)
 https://bookjumpr.com/michelle-obama/becoming
 - The Audacity of Hope by Barack Obama: "Barack was writing what would become The Audacity of Hope—thinking through his beliefs and his vision for the country, threshing them into words on his legal pads late at night."
@@ -1320,7 +1330,7 @@ https://bookjumpr.com/larry-mcmurtry/books-a-memoir
 - The Sun Also Rises by Ernest Hemingway: "the famous 'stoppped' on page 81, line 26, of Hemingway's The Sun Also Rises"
 - Lonesome Dove by Larry McMurtry: "the ultimate source of Gus and Call, in Lonesome Dove"
 - The Last Picture Show by Larry McMurtry: "a novelist whose books make excellent movies—Hud, The Last Picture Show, Terms of Endearment, Lonesome Dove"
-- The Great Gatsby by F Scott Fitzgerald: "For big-ticket books such as The Maltese Falcon, The Great Gatsby, or The Sound and the Fury"
+- The Great Gatsby by F. Scott Fitzgerald: "For big-ticket books such as The Maltese Falcon, The Great Gatsby, or The Sound and the Fury"
 - Terms of Endearment by Larry McMurtry: "a novelist whose books make excellent movies—Hud, The Last Picture Show, Terms of Endearment, Lonesome Dove"
 - The Sound and the Fury by William Faulkner: "For big-ticket books such as The Maltese Falcon, The Great Gatsby, or The Sound and the Fury"
 - On the Road by Jack Kerouac: "the novel by John Clellon Holmes that preceded On the Road in the chronology of Beatdom"
@@ -1589,6 +1599,13 @@ https://bookjumpr.com/carl-sagan/contact
 - Poems (poem no. 1741) by Emily Dickinson: "Chapter epigraph: "—EMILY DICKINSON Poem Number 1741""
 - Encyclopaedia Britannica by Anonymous: ""there's this couple lying naked in bed reading the Encyclopaedia Britannica to each other"; later she reaches for "Volume 16 of an old Encyclopaedia Britannica Macropaedia, titled 'Rubens to Somalia'" and reads the article "Sacred or Holy.""
 
+## Conversations with Friends by Sally Rooney (2017)
+https://bookjumpr.com/sally-rooney/conversations-with-friends
+- Middlemarch by George Eliot: "I went back out to the waiting room and saw my mother reading my copy of Middlemarch."
+- Cat on a Hot Tin Roof by Tennessee Williams: "Nick’s in the Royal this month, Melissa said. He’s doing Cat on a Hot Tin Roof."
+- Hamlet by William Shakespeare: "Nick had started rehearsing for a production of Hamlet"
+- The Lake Isle of Innisfree by W. B. Yeats: "I practically had to stop him reciting ‘The Lake Isle of Innisfree’ in the bar."
+
 ## Coraline by Neil Gaiman (2002)
 https://bookjumpr.com/neil-gaiman/coraline
 - Romeo and Juliet by William Shakespeare
@@ -1635,7 +1652,7 @@ https://bookjumpr.com/rachel-cusk/coventry
 - To Room Nineteen by Doris Lessing: "Doris Lessing enlarges on these themes in her story 'To Room Nineteen'"
 - Pride and Prejudice by Jane Austen: "it was because Austen wrote behind the door in the shared sitting room that Pride and Prejudice is the flawless novel it is"
 - The Beautiful and Damned by F. Scott Fitzgerald: "In F. Scott Fitzgerald's novel The Beautiful and Damned, the writer Dick Caramel tells of a conversation with his uncle from Kansas"
-- The Great Gatsby by F Scott Fitzgerald: "Scott Fitzgerald, for instance, virtually described his own funeral in The Great Gatsby"
+- The Great Gatsby by F. Scott Fitzgerald: "Scott Fitzgerald, for instance, virtually described his own funeral in The Great Gatsby"
 - Tender Is the Night by F. Scott Fitzgerald: "something other than hard work had produced Tender is the Night and The Great Gatsby"
 - Swann's Way by Marcel Proust: "'The past is hidden outside the realm,' writes Proust in Swann's Way"
 - The Divine Comedy by Dante Alighieri: "Dante summed up the situation in The Divine Comedy: Once, Cimabue thought to hold the field In painting"
@@ -2401,6 +2418,11 @@ https://bookjumpr.com/julian-barnes/flaubert-s-parrot
 - The Parson, Pen and Pencil by G. M. Musgrave: "I cite G. M. Musgrave... author of The Parson, Pen and Pencil, or, Reminiscences and Illustrations of an Excursion to Paris, Tours, and Rouen."
 - A Ramble Through Normandy by G. M. Musgrave: "and of A Ramble Through Normandy, or, Scenes, Characters and Incidents in a Sketching Excursion Through Calvados (David Bogue, London, 1855)."
 
+## Flesh by David Szalay (2025)
+https://bookjumpr.com/david-szalay/flesh
+- Playing to Win: How Strategy Really Works by A. G. Lafley and Roger L. Martin: "He’s reading Playing to Win: How Strategy Really Works by Alan G. Lafley and Roger Martin."
+- Hamlet by William Shakespeare: "‘You mean last term?’ ‘For instance.’ ‘Hamlet,’ he says. ‘You were in that once weren’t you?’ ‘Yes,’ he says."
+
 ## Flight Behavior by Barbara Kingsolver (2012)
 https://bookjumpr.com/barbara-kingsolver/flight-behavior
 - Ulysses by James Joyce: "he knew the difference between Homer’s Ulysses and the one by James Joyce, and how to get down to business with a metaphor"
@@ -2623,6 +2645,21 @@ https://bookjumpr.com/sinclair-lewis/free-air
 - The Congo by Vachel Lindsay: "In Vachel Lindsay's Congo, in a poem called "The Santa Fe Trail," he found his own modern pilgrimage"
 - The Santa Fe Trail by Vachel Lindsay: "in a poem called "The Santa Fe Trail," he found his own modern pilgrimage from another point of view"
 - Merchants from Cathay by William Rose Benet: "William Rose Benet's Merchants of Cathay, which Claire had given him in the Yellowstone"
+
+## Free Food for Millionaires by Min Jin Lee (2007)
+https://bookjumpr.com/min-jin-lee/free-food-for-millionaires
+- Middlemarch by George Eliot: "reread Middlemarch or began another volume of Trollope borrowed"
+- Wuthering Heights by Emily Bronte: "copies of Middlemarch and Wuthering Heights that she read and reread for comfort"
+- Sister Carrie by Theodore Dreiser: "A Sony Dream Machine clock-radio sat on top of a copy of Sister Carrie."
+- King Lear by William Shakespeare: "Jay explained the plot of King Lear, which was playing at Lincoln Center"
+- The Great Gatsby by F. Scott Fitzgerald: "“Daisy Buchanan,” he said, referring to the coldhearted girl from The Great Gatsby."
+- Jane Eyre by Charlotte Brontë: "He handed her a copy of Jane Eyre"
+- Hamlet by William Shakespeare: "Casey had read only Hamlet and Romeo and Juliet."
+- Romeo and Juliet by William Shakespeare: "Casey had read only Hamlet and Romeo and Juliet."
+- Anna Karenina by Leo Tolstoy: "Last year, you read Anna Karenina for a long time."
+- Madame Bovary by Gustave Flaubert: "“I love Madame Bovary and Cousin Bette,” she said finally"
+- Cousin Bette by Honoré de Balzac: "“I love Madame Bovary and Cousin Bette,” she said finally"
+- Sonnets by William Shakespeare: "Well, it’s based on a set of poems by Shakespeare. Sonnets."
 
 ## From the Earth to the Moon by Jules Verne (1865)
 https://bookjumpr.com/jules-verne/from-the-earth-to-the-moon
@@ -3075,7 +3112,7 @@ https://bookjumpr.com/harold-bloom/how-to-read-and-why
 - Patience by W. S. Gilbert: "Wilde had been satirized as Bun thorne, the "aesthetic sham" of Gilbert and Sullivan's Patience."
 - Robinson Crusoe by Daniel Defoe: "He is reminiscent of Swift's Lemuel Gulliver and Defoe's Robinson Crusoe; like them, the Mariner seems an accurate observer"
 - She Stoops to Conquer by Oliver Goldsmith: "Oliver Goldsmith's She Stoops to Conquer, Richard Brinsley Sheridan's The School for Scandal"
-- The Great Gatsby by F Scott Fitzgerald: "Fitzgerald's The Great Gatsby begins with Nick Carraway's father telling him: "Just remember that all the people in this world haven't had the advantages that you've had,""
+- The Great Gatsby by F. Scott Fitzgerald: "Fitzgerald's The Great Gatsby begins with Nick Carraway's father telling him: "Just remember that all the people in this world haven't had the advantages that you've had,""
 - The Man Who Was Thursday by G. K. Chesterton: "Chesterton's The Man Who Was Thursday."
 - The Princess Casamassima by Henry James: "rather like the London underground movement of Joseph Conrad's The Secret Agent and Henry James's The Princess Casamassima"
 - The School for Scandal by Richard Brinsley Sheridan: "Richard Brinsley Sheridan's The School for Scandal, were joined in later rimes by Oscar Wilde's The Importance of Being Earnest"
@@ -3282,6 +3319,11 @@ https://bookjumpr.com/david-foster-wallace/infinite-jest
 - Maggie: A Girl of the Streets by Stephen Crane: "read depressing book after depressing book—Good Morning, Midnight and Maggie: A Girl of the Streets and Giovanni's Room and Under the Volcano, plus a truly ghastly Bret Ellis period during Lent..."
 - Giovanni's Room by James Baldwin: "read depressing book after depressing book—Good Morning, Midnight and Maggie: A Girl of the Streets and Giovanni's Room and Under the Volcano, plus a truly ghastly Bret Ellis period during Lent..."
 - Under the Volcano by Malcolm Lowry: "read depressing book after depressing book—Good Morning, Midnight and Maggie: A Girl of the Streets and Giovanni's Room and Under the Volcano, plus a truly ghastly Bret Ellis period during Lent..."
+
+## Intermezzo by Sally Rooney (2024)
+https://bookjumpr.com/sally-rooney/intermezzo
+- Philosophical Investigations by Ludwig Wittgenstein: "(epigraph) But don’t you feel grief now? (‘But aren’t you now playing chess?’) —LUDWIG WITTGENSTEIN, Philosophical Investigations"
+- My 60 Memorable Games by Bobby Fischer: "What’s the book? Peter asks. My 60 Memorable Games."
 
 ## Invisible Cities by Italo Calvino (1972)
 https://bookjumpr.com/italo-calvino/invisible-cities
@@ -4220,7 +4262,7 @@ https://bookjumpr.com/joanna-rakoff/my-salinger-year
 - Oliver Twist by Charles Dickens: ""Oliver Twist—" "This isn't Oliver Twist," she informed me, with a mirthless laugh."
 - Persuasion by Jane Austen: "An hour later, as the sky darkened and the city emptied for the holiday, I lay on the couch rereading Persuasion, hoping I'd never have to put that suit back on again."
 - Peter Pan by J. M. Barrie: "I was close enough to the glass now to make out some of the titles: a beautiful, ornate copy of Don Juan; an oversized edition of Peter Pan with what appeared to be the original illustrations; the moss-green binding of Alice in Wonderland."
-- The Great Gatsby by F Scott Fitzgerald: "So if I want to write a book and call it The Great Gatsby, I can."
+- The Great Gatsby by F. Scott Fitzgerald: "So if I want to write a book and call it The Great Gatsby, I can."
 - Don Juan by George Gordon Byron: "I was close enough to the glass now to make out some of the titles: a beautiful, ornate copy of Don Juan; an oversized edition of Peter Pan with what appeared to be the original illustrations..."
 - Freckle Juice by Judy Blume: "Dutifully, I gathered copies of Tales of a Fourth Grade Nothing, Freckle Juice, Blubber, Forever …, and my favorite, Starring Sally J."
 - Tales of a Fourth Grade Nothing by Judy Blume: "Dutifully, I gathered copies of Tales of a Fourth Grade Nothing, Freckle Juice, Blubber, Forever …, and my favorite, Starring Sally J."
@@ -4345,6 +4387,16 @@ https://bookjumpr.com/wilkie-collins/no-name
 https://bookjumpr.com/james-clavell/noble-house
 - The Art of War by Sun Tzu: ""Have you read Sun Tzu's The Art of War?" "The best book on war I've ever read," Bartlett said enthusiastically."
 
+## Normal People by Sally Rooney (2018)
+https://bookjumpr.com/sally-rooney/normal-people
+- Daniel Deronda by George Eliot: "(epigraph) It is one of the secrets in that change of mental poise which has been fitly named conversion, that to many among us neither heaven nor earth has any revelation till some personality touches theirs with a peculiar influence, subduing them into receptiveness. George Eliot, Daniel Deronda"
+- The Communist Manifesto by Karl Marx and Friedrich Engels: "He told her she should try reading The Communist Manifesto, he thought she would like it, and he offered to write down the title for her so she wouldn’t forget."
+- The Fire Next Time by James Baldwin: "He followed her into the study last week while she was looking for a copy of The Fire Next Time to lend him."
+- The Golden Notebook by Doris Lessing: "I’ve read The Golden Notebook, he could tell them. It’s true, he has read it."
+- Emma by Jane Austen: "One night the library started closing just as he reached the passage in Emma when it seems like Mr Knightley is going to marry Harriet, and he had to close the book and walk home in a state of strange emotional agitation."
+- Swann's Way by Marcel Proust: "The copy of Swann’s Way she reads at lunchtime in the school cafeteria, with a dark French painting on the cover and a mint-coloured spine."
+- Selected Poems by Frank O'Hara: "for Marianne, an edition of Frank O’Hara’s selected poems he found in an English-language bookshop in Berlin."
+
 ## North and South by Elizabeth Gaskell (1855)
 https://bookjumpr.com/elizabeth-gaskell/north-and-south
 - The Divine Comedy by Dante Alighieri
@@ -4377,7 +4429,7 @@ https://bookjumpr.com/haruki-murakami/norwegian-wood
 - The Magic Mountain by Thomas Mann: "Thomas Mann's The Magic Mountain, I told her. ... Then I picked up The Magic Mountain again, reading and sipping brandy and waiting to get sleepy."
 - Light in August by William Faulkner: "I bought a copy of Faulkner's Light in August and went to the noisiest jazz cafe I could think of, reading my new book while listening to Ornette Coleman and Bud Powell."
 - The Centaur by John Updike: "At 18 my favourite book was John Updike's The Centaur, but after I had read it a number of times, it began to lose some of its initial lustre and yielded first place to The Great Gatsby."
-- The Great Gatsby by F Scott Fitzgerald: "I wanted to tell people what a wonderful novel it was, but no one around me had read The Great Gatsby or was likely to."
+- The Great Gatsby by F. Scott Fitzgerald: "I wanted to tell people what a wonderful novel it was, but no one around me had read The Great Gatsby or was likely to."
 - Lord Jim by Joseph Conrad: "I went back to the dorm and stretched out on my bed reading Lord Jim, which I'd borrowed from Nagasawa."
 - Beneath the Wheel by Hermann Hesse: "I picked a discoloured copy of Hermann Hesse's Beneath the Wheel that must have been hanging around the shop unsold for a long time, and left the money for it by the till."
 - Das Kapital by Karl Marx: ""Have you ever read Das Kapital?" "Yeah.""
@@ -5265,7 +5317,7 @@ https://bookjumpr.com/john-locke/second-treatise-of-government
 
 ## Secret Son by Laila Lalami (2009)
 https://bookjumpr.com/laila-lalami/secret-son
-- The Great Gatsby by F Scott Fitzgerald: "He took his copy of The Great Gatsby out of his briefcase and, in an accent that... sounded perfectly American, asked, 'I assume you've all read the book'"
+- The Great Gatsby by F. Scott Fitzgerald: "He took his copy of The Great Gatsby out of his briefcase and, in an accent that... sounded perfectly American, asked, 'I assume you've all read the book'"
 - The Secret Agent by Joseph Conrad: "chapter epigraph: JOSEPH CONRAD, The Secret Agent"
 
 ## Self-Reliance by Ralph Waldo Emerson (1841)
@@ -5447,7 +5499,7 @@ https://bookjumpr.com/marisha-pessl/special-topics-in-calamity-physics
 - The Powers That Be by David Halberstam
 - The Motorcycle Diaries by Ernesto Che Guevara
 - On the Road by Jack Kerouac
-- The Great Gatsby by F Scott Fitzgerald
+- The Great Gatsby by F. Scott Fitzgerald
 - The Importance of Being Earnest by Oscar Wilde
 - The Sound and Fury by William Faulkner
 
@@ -5468,7 +5520,7 @@ https://bookjumpr.com/edgar-lee-masters/spoon-river-anthology
 https://bookjumpr.com/mary-beard/spqr-a-history-of-ancient-rome
 - The Odyssey by Homer: "brought the renowned Odysseus and echoes of Homer's Odyssey into the story by suggesting that Rome's real founding father was a man called Romus"
 - Iliad by Homer: "the mythical war between Greeks and Trojans that is the backdrop of Homer's Iliad"
-- The Great Gatsby by F Scott Fitzgerald: "Scott Fitzgerald's The Great Gatsby was Trimalchio at West Egg"
+- The Great Gatsby by F. Scott Fitzgerald: "Scott Fitzgerald's The Great Gatsby was Trimalchio at West Egg"
 - Julius Caesar by William Shakespeare: "this is the festival that the opening scene of Shakespeare's Julius Caesar re-creates"
 - Coriolanus by William Shakespeare: "Gaius Marcius Coriolanus, by contrast, who inspired Shakespeare's Coriolanus"
 - Aesop's Fables by Aesop: "still gives his name to many modern collections of them (Aesop's Fables)"
@@ -5840,7 +5892,7 @@ https://bookjumpr.com/john-green/the-anthropocene-reviewed
 - Jurassic Park by Michael Crichton: "Until 1990, when Michael Crichton's novel Jurassic Park was published, velociraptors were not particularly well-known dinosaurs."
 - The Fault in Our Stars by John Green: "A scene in the movie adaptation of my book The Fault in Our Stars was filmed on a bench in Amsterdam; that bench now has hundreds of Google reviews."
 - Jane Eyre by Charlotte Brontë: "On page 84 of my copy of Jane Eyre, why did I write, "You have never been so lonely"?"
-- The Great Gatsby by F Scott Fitzgerald: "An entire essay reviews the novel's history and revival via the Armed Services Edition, e.g. "Scott Fitzgerald's novel The Great Gatsby, the narrator is sprawled out on a beach at night...""
+- The Great Gatsby by F. Scott Fitzgerald: "An entire essay reviews the novel's history and revival via the Armed Services Edition, e.g. "Scott Fitzgerald's novel The Great Gatsby, the narrator is sprawled out on a beach at night...""
 - Looking for Alaska by John Green: "Her Encyclopedia came out just a few months before my first novel, Looking for Alaska."
 - An Abundance of Katherines by John Green: "FERAL HOG HUNT, scrawled in the margins of Our Southern Highlanders, became part of the climactic scene in my book An Abundance of Katherines."
 - On the Road by Jack Kerouac: "As Kerouac does in On the Road when he writes, "Soon it got dusk, a grapy dusk, a purple dusk over tangerine groves and long melon fields.""
@@ -6360,7 +6412,7 @@ https://bookjumpr.com/j-d-salinger/the-catcher-in-the-rye
 - Romeo and Juliet by William Shakespeare
 - Julius Caesar by William Shakespeare
 - A Farewell to Arms by Ernest Hemingway
-- The Great Gatsby by F Scott Fitzgerald
+- The Great Gatsby by F. Scott Fitzgerald
 - Hamlet by William Shakespeare
 - Oliver Twist by Charles Dickens: "He's carrying this copy of Oliver Twist and so's she."
 - Lord Randal, My Son by Traditional: "Beowulf, and old Grendel, and Lord Randal My Son, and all those things. But we had to read outside books for extra credit once in a while."
@@ -7054,6 +7106,13 @@ https://bookjumpr.com/rebecca-makkai/the-great-believers
 - Hamlet by William Shakespeare: "Yale and Charlie had long held tickets to see Julian in Hamlet at Victory Gardens... "It's Hamlet," Yale said. "It's supposed to be unnerving." (also quoted on-page: "In this harsh world draw thy breath in pain, to tell my story.")"
 - Leaves of Grass by Walt Whitman: "on the kitchen counter, in a shopping bag, were other things: a half-empty vodka bottle, Nico's blue Top-Siders, a blank postcard from Vancouver, pewter cuff links in a velvety box, Leaves of Grass."
 
+## The Great Gatsby by F. Scott Fitzgerald (1925)
+https://bookjumpr.com/f-scott-fitzgerald/the-great-gatsby
+- Simon Called Peter by Robert Keable: "Several old copies of "Town Tattle" lay on the table together with a copy of "Simon Called Peter""
+- Stoddard Lectures by John L. Stoddard: "returned with Volume One of the "Stoddard Lectures.""
+- Economics by Henry Clay: "Gatsby looked with vacant eyes through a copy of Clay's "Economics,""
+- Hopalong Cassidy by Clarence E. Mulford: "pulled from his pocket a ragged old copy of a book called "Hopalong Cassidy.""
+
 ## The Green Mummy by Fergus Hume (1908)
 https://bookjumpr.com/fergus-hume/the-green-mummy
 - The White Cat by Madame d'Aulnoy: "resembled the Fairy Garden in Madame D'Aulnoy's story of The White Cat"
@@ -7381,7 +7440,7 @@ https://bookjumpr.com/barbara-kingsolver/the-lacuna
 - The Life and Opinions of Tristram Shandy, Gentleman by Laurence Sterne: "Like poor old Tristram Shandy trying to remember his whole story helter-skelter?"
 - Gone with the Wind by Margaret Mitchell: "This format, I was told, worked well for Gone With the Wind."
 - The Big Money by John Dos Passos: "Oh, and this one by Dos Passos, it's called The Big Money."
-- The Great Gatsby by F Scott Fitzgerald: "He might have written Gatsby in the very room where I'm sleeping tonight."
+- The Great Gatsby by F. Scott Fitzgerald: "He might have written Gatsby in the very room where I'm sleeping tonight."
 - The Crack-Up by F. Scott Fitzgerald: "More likely The Crack-Up. If he was here in town for the reason you say."
 - The Hucksters by Frederic Wakeman: "Now you want to be Llewelyn Evans in The Hucksters, selling Beautee Soap to unsuspecting housewives?"
 - Look Homeward, Angel by Thomas Wolfe: "carrying Look Homeward, Angel and Tropic of Cancer without raising an eyebrow"
@@ -7776,7 +7835,7 @@ https://bookjumpr.com/ernesto-che-guevara/the-motorcycle-diaries
 ## The Museum of Innocence by Orhan Pamuk (2008)
 https://bookjumpr.com/orhan-pamuk/the-museum-of-innocence
 - Madame Bovary by Gustave Flaubert: "While Flaubert was writing Madame Bovary, inspired by his beloved Louise Collet... he kept in a drawer a lock of her hair, as well as a handkerchief and a slipper of hers"
-- The Great Gatsby by F Scott Fitzgerald: "You'll all have to promise to wear white, as in The Great Gatsby. Have you seen it yet?"
+- The Great Gatsby by F. Scott Fitzgerald: "You'll all have to promise to wear white, as in The Great Gatsby. Have you seen it yet?"
 - The Three Musketeers by Alexandre Dumas: "those plots about bands of sergeants that were 'rip-offs of a French adaptation' of The Three Musketeers, as Feridun would tell me with a smile"
 
 ## The Mysterious Island by Jules Verne (1874)
@@ -7901,7 +7960,7 @@ https://bookjumpr.com/jhumpa-lahiri/the-namesake
 - Fathers and Sons by Ivan Turgenev
 - The Brothers Karamazov by Fyodor Dostoevsky
 - The Good Earth by Pearl S Buck
-- The Great Gatsby by F Scott Fitzgerald
+- The Great Gatsby by F. Scott Fitzgerald
 - The Red Badge of Courage by Stephen Crane
 - Pride and Prejudice by Jane Austen
 - The Cat in the Hat by Seuss
@@ -8070,7 +8129,7 @@ https://bookjumpr.com/stephen-chbosky/the-perks-of-being-a-wallflower
 - This Side of Paradise by F. Scott Fitzgerald: "“This Side of Paradise by F.” Scott Fitzgerald."
 - Walden by Henry David Thoreau: "Kelly’s favorite book just happens to be Walden by Henry David Thoreau."
 - The Fountainhead by Ayn Rand: "I gave Sam To Kill a Mockingbird, The Catcher in the Rye, The Great Gatsby, Hamlet, Walden, and The Fountainhead."
-- The Great Gatsby by F Scott Fitzgerald: "I gave Sam To Kill a Mockingbird, The Catcher in the Rye, The Great Gatsby, Hamlet, Walden, and The Fountainhead."
+- The Great Gatsby by F. Scott Fitzgerald: "I gave Sam To Kill a Mockingbird, The Catcher in the Rye, The Great Gatsby, Hamlet, Walden, and The Fountainhead."
 - To Kill a Mockingbird by Harper Lee: "Incidentally, the book is To Kill a Mockingbird."
 - Naked Lunch by William S. Burroughs: "It’s called Naked Lunch."
 - The Stranger by Albert Camus: "It’s called The Stranger."
@@ -8363,7 +8422,7 @@ https://bookjumpr.com/arthur-conan-doyle/the-refugees
 ## The Reluctant Fundamentalist by Mohsin Hamid (2007)
 https://bookjumpr.com/mohsin-hamid/the-reluctant-fundamentalist
 - Mr Palomar by Italo Calvino
-- The Great Gatsby by F Scott Fitzgerald
+- The Great Gatsby by F. Scott Fitzgerald
 - The Legend of Sleepy Hollow by Washington Irving
 
 ## The Return of Sherlock Holmes by Arthur Conan Doyle (1905)
@@ -8565,7 +8624,7 @@ https://bookjumpr.com/donna-tartt/the-secret-history
 - The Divine Comedy by Dante Alighieri: ""Do you know," he said, "what Julian says about the Divine Comedy?" "No, Henry, I don't." "That it's incomprehensible to someone who isn't a Christian? ... if one is to read Dante, and understand him, one must become a—""
 - Paradise Lost by John Milton: ""A translation of Paradise Lost." "Into what language?" "Latin," he said solemnly."
 - Lycidas by John Milton: "Of the poem Henry read at Bunny's funeral: "It would have been so easy for him to choose something else ... from Lycidas or the Upanishads or anything, really.""
-- The Great Gatsby by F Scott Fitzgerald: "When I could no longer concentrate on Greek ... I read The Great Gatsby."
+- The Great Gatsby by F. Scott Fitzgerald: "When I could no longer concentrate on Greek ... I read The Great Gatsby."
 - Our Mutual Friend by Charles Dickens: "I'd been reading to Francis, Our Mutual Friend—funny, now I think about it, how much my time with Francis at the hospital in Boston was like the time that Henry spent at the hospital in Vermont with me."
 - Ivanhoe by Walter Scott: ""There's a first edition of Ivanhoe here." "Actually, I think they sold that one," said Francis."
 - Treasure Island by Robert Louis Stevenson: "He stayed in his room eating peanuts, and drinking, and looking out the window like the old pirate in Treasure Island."
@@ -8759,7 +8818,7 @@ https://bookjumpr.com/gabrielle-zevin/the-storied-life-of-a-j-fikry
 - In Search of Lost Time by Marcel Proust: "...has only ever read the first volume of In Search of Lost Time."
 - Our Town by Thornton Wilder: "'I'll probably need about fifty copies of Our Town.' 'It's a classic,' A.J."
 - The Grapes of Wrath by John Steinbeck: "Or last week I called The Grapes of Wrath 'The Grapefruit Rag.' Obviously, this poses a problem in my line of work."
-- The Great Gatsby by F Scott Fitzgerald: "The Great Gatsby is unquestionably dazzling, but that novel occasionally seems overgroomed to me, like a garden topiary."
+- The Great Gatsby by F. Scott Fitzgerald: "The Great Gatsby is unquestionably dazzling, but that novel occasionally seems overgroomed to me, like a garden topiary."
 - The Paris Wife by Paula McLain: "In April, The Paris Wife."
 - Where the Wild Things Are by Maurice Sendak: "On the floor sits a baby with the store's lone copy of Where the Wild Things Are...in its lap and opened to the middle."
 - Wuthering Heights by Emily Bronte: "...some years Wuthering Heights, Silas Marner, Their Eyes Were Watching God, or I Capture the Castle."
@@ -9379,7 +9438,7 @@ https://bookjumpr.com/joan-didion/the-white-album
 - As I See It by J. Paul Getty: "In his posthumous book, As I See It, he advises us that he never wanted 'one of those concrete-bunker-type structures that are the fad among museum architects.'"
 - Briefing for a Descent into Hell by Doris Lessing: "much of the time Briefing for a Descent into Hell read like a selective case study from an R. D. Laing casebook"
 - Children of Violence by Doris Lessing: "Not until the end of the five-volume Children of Violence series did one sense a weakening of that compulsion to remember"
-- The Great Gatsby by F Scott Fitzgerald: "'Tom and Gatsby, Daisy and Jordan and I, were all Westerners,' as Nick Carraway said, 'and perhaps we possessed some deficiency in common which made us subtly unadaptable to Eastern life.'"
+- The Great Gatsby by F. Scott Fitzgerald: "'Tom and Gatsby, Daisy and Jordan and I, were all Westerners,' as Nick Carraway said, 'and perhaps we possessed some deficiency in common which made us subtly unadaptable to Eastern life.'"
 - The Company She Keeps by Mary McCarthy: "The narrator of Mary McCarthy's The Company She Keeps could be seen as 'enslaved because she persists in looking for her identity in a man.'"
 - The Group by Mary McCarthy: "Similarly, Miss McCarthy's The Group could serve to illustrate 'what happens to women who have been educated at first-rate women's colleges'"
 - Wonderland by Joyce Carol Oates: "a woman from Detroit who told me that the Joyce Carol Oates novel with which she identified most closely was Wonderland."
@@ -9956,7 +10015,7 @@ https://bookjumpr.com/charles-kingsley/westward-ho
 
 ## What I Talk About When I Talk About Running by Haruki Murakami (2007)
 https://bookjumpr.com/haruki-murakami/what-i-talk-about-when-i-talk-about-running
-- The Great Gatsby by F Scott Fitzgerald: "In Scott Fitzgerald's The Great Gatsby, one of the characters, Tom Buchanan... says, 'I've heard of making a garage out of a stable, but I'm the first man who ever made a stable out of a garage.'"
+- The Great Gatsby by F. Scott Fitzgerald: "In Scott Fitzgerald's The Great Gatsby, one of the characters, Tom Buchanan... says, 'I've heard of making a garage out of a stable, but I'm the first man who ever made a stable out of a garage.'"
 - What We Talk About When We Talk About Love by Raymond Carver: "The title of this book is taken from the title of a short-story collection by a writer beloved to me, Raymond Carver, What We Talk About When We Talk About Love."
 - The Possessed by Fyodor Dostoevsky: "Dostoyevsky, for instance, wrote two of his most profound novels, The Possessed and The Brothers Karamazov, in the last few years of his life before his death at age sixty."
 - The Brothers Karamazov by Fyodor Dostoevsky: "Dostoyevsky, for instance, wrote two of his most profound novels, The Possessed and The Brothers Karamazov, in the last few years of his life before his death at age sixty."

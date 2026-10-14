@@ -1,0 +1,20 @@
+{
+  "books": [
+    {
+      "title": "Beautiful World, Where Are You",
+      "author": "Sally Rooney",
+      "year": 2021,
+      "synopsis": "Two old friends, novelist Alice and literary editor Eileen, trade long emails about desire, faith, art and a world in crisis while their own love lives with Felix and Simon stumble toward uncertain footing.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    { "source": "Beautiful World, Where Are You", "mentioned": "My Vocation", "author": "Natalia Ginzburg", "note": "(epigraph) —Natalia Ginzburg, ‘My Vocation’ (trans. Dick Davis)" },
+    { "source": "Beautiful World, Where Are You", "mentioned": "The Golden Bowl", "author": "Henry James", "note": "Just remind me that I have an idea for an essay about ‘The Golden Bowl’ that I want to run by you." },
+    { "source": "Beautiful World, Where Are You", "mentioned": "David Copperfield", "author": "Charles Dickens", "note": "afterwards I read him a chapter of ‘David Copperfield’ while we lie on the couch" },
+    { "source": "Beautiful World, Where Are You", "mentioned": "Anna Karenina", "author": "Leo Tolstoy", "note": "No, I think at the time I’d just finished reading Anna Karenina." },
+    { "source": "Beautiful World, Where Are You", "mentioned": "The Brothers Karamazov", "author": "Fyodor Dostoevsky", "note": "reading a copy of the novel The Karamazov Brothers." },
+    { "source": "Beautiful World, Where Are You", "mentioned": "The Uses of the Erotic", "author": "Audre Lorde", "note": "I am attaching a PDF of Audre Lorde’s essay ‘Uses of the Erotic’, which I know for a fact you will greatly enjoy." },
+    { "source": "Beautiful World, Where Are You", "mentioned": "Documents in Mycenaean Greek", "author": "Michael Ventris and John Chadwick", "note": "Ventris and the classical scholar and linguist John Chadwick wrote a book together on the translation of the script, entitled ‘Documents in Mycenaean Greek’." }
+  ]
+}

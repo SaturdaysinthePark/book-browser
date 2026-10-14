@@ -1,0 +1,97 @@
+{
+  "books": [
+    {
+      "title": "Free Food for Millionaires",
+      "author": "Min Jin Lee",
+      "year": 2007,
+      "synopsis": "Casey Han, a Korean American Princeton graduate raised in Queens, struggles to find her footing in 1990s Manhattan among wealthy friends, Wall Street ambition, immigrant family duty, and a fraught love life. The novel follows her and the people around her across New York's Korean church and finance worlds.",
+      "genre": "FICTION"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Middlemarch",
+      "author": "George Eliot",
+      "note": "reread Middlemarch or began another volume of Trollope borrowed",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Wuthering Heights",
+      "author": "Emily Brontë",
+      "note": "copies of Middlemarch and Wuthering Heights that she read and reread for comfort",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Sister Carrie",
+      "author": "Theodore Dreiser",
+      "note": "A Sony Dream Machine clock-radio sat on top of a copy of Sister Carrie.",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "King Lear",
+      "author": "William Shakespeare",
+      "note": "Jay explained the plot of King Lear, which was playing at Lincoln Center",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "The Great Gatsby",
+      "author": "F. Scott Fitzgerald",
+      "note": "“Daisy Buchanan,” he said, referring to the coldhearted girl from The Great Gatsby.",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Jane Eyre",
+      "author": "Charlotte Brontë",
+      "note": "He handed her a copy of Jane Eyre",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare",
+      "note": "Casey had read only Hamlet and Romeo and Juliet.",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Romeo and Juliet",
+      "author": "William Shakespeare",
+      "note": "Casey had read only Hamlet and Romeo and Juliet.",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Anna Karenina",
+      "author": "Leo Tolstoy",
+      "note": "Last year, you read Anna Karenina for a long time.",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Madame Bovary",
+      "author": "Gustave Flaubert",
+      "note": "“I love Madame Bovary and Cousin Bette,” she said finally",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Cousin Bette",
+      "author": "Honoré de Balzac",
+      "note": "“I love Madame Bovary and Cousin Bette,” she said finally",
+      "confidence": "high"
+    },
+    {
+      "source": "Free Food for Millionaires",
+      "mentioned": "Sonnets",
+      "author": "William Shakespeare",
+      "note": "“Well, it’s based on a set of poems by Shakespeare. Sonnets.”",
+      "confidence": "high"
+    }
+  ]
+}
