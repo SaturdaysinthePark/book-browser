@@ -15,7 +15,7 @@ import { execFileSync } from 'node:child_process';
 
 const args = process.argv.slice(2), FORCE = args.includes('--force'), ONLY = args.filter((a) => !a.startsWith('--'));
 // bump when the drawing in tools/social-preview.html changes, so every card is re-rendered
-const CARD_VERSION = 2;
+const CARD_VERSION = 3;
 const root = path.resolve('.'), OUT = path.join(root, 'og'), MANIFEST = path.join(OUT, 'manifest.json');
 
 const ctx = { window: {} }; vm.createContext(ctx);
