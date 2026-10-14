@@ -9,9 +9,15 @@ import { renderPage } from '../seo/render.js';
 
 export default async (request, context) => {
   const url = new URL(request.url);
-  if (/\.[a-z0-9]+$/i.test(url.pathname) || url.pathname === '/') return;   // files, and the homepage, pass through
+  if (url.pathname === '/') return;                            // the homepage passes through
   const res = await context.next();
-  if (!(res.headers.get('content-type') || '').includes('text/html')) return res;
+  const isHtml = (res.headers.get('content-type') || '').includes('text/html');
+  // A missing file (/ai-catalog.json, /foo.txt …) would otherwise get the app page with a 200 (netlify.toml's
+  // catch-all rewrite): answer 404 instead. Real files never come back as HTML, except index.html itself.
+  if (/\.[a-z0-9]+$/i.test(url.pathname)) {
+    return isHtml && url.pathname !== '/index.html' ? new Response('Not found\n', { status: 404, headers: { 'content-type': 'text/plain; charset=utf-8' } }) : res;
+  }
+  if (!isHtml) return res;
   const html = await res.text(), out = renderPage(html, url.pathname, D);
   if (!out) return new Response(html, { status: res.status, headers: res.headers });
   if (out.location) return new Response(null, { status: out.status, headers: { location: out.location + url.search } });
@@ -23,6 +29,8 @@ export default async (request, context) => {
 
 export const config = {
   path: '/*',
-  excludedPath: ['/*.js', '/*.css', '/*.png', '/*.svg', '/*.json', '/*.txt', '/*.xml', '/*.ico', '/*.html', '/*.mp4', '/vendor/*'],
+  // the site's own scripts, images and fonts skip the function (they exist, and they're on every page's critical
+  // path); other file paths still run it, so a missing one gets a 404
+  excludedPath: ['/*.js', '/*.png', '/*.svg', '/*.woff2', '/vendor/*', '/og/*', '/fonts/*'],
   onError: 'bypass',
 };

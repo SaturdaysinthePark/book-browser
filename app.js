@@ -1299,8 +1299,20 @@
   };
 
   // ---------- mention notes (lazy: bookjumpr-notes.js) ----------
+  // A book page's own quotes come with the page (window.BookJumprPageNotes, from the edge function), so the first
+  // page shows them without the 630KB notes file; that loads once the page has settled, or on the next book.
   P._loadNotes = function () {
     if (this._notes || this._notesLoading) return;
+    var self = this, S = window.BookJumprPageNotes, r = this.state.route;
+    if (S && r.page === 'book' && r.id === S.k) {
+      if (!this._notesTimer) this._notesTimer = setTimeout(function () { self._notesTimer = null; self._fetchNotes(); }, 4000);
+      return;
+    }
+    this._fetchNotes();
+  };
+  P._fetchNotes = function () {
+    if (this._notes || this._notesLoading) return;
+    clearTimeout(this._notesTimer); this._notesTimer = null;
     this._notesLoading = true;
     var self = this, sc = document.createElement('script');
     sc.src = '/bookjumpr-notes.js?v=2';
@@ -1316,8 +1328,10 @@
   // A note as a React node: quotes (anything quoted) render as a pull-quote, paraphrase as a caption;
   // the mentioned book's title is marked wherever it appears.
   P.noteEl = function (src, ment) {
-    if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
-    var note = this._notes[src + '|' + ment];
+    var note, S = window.BookJumprPageNotes;
+    if (this._notes) note = this._notes[src + '|' + ment];
+    else if (S && (src === S.k || ment === S.k)) note = S.n[src + '|' + ment];
+    else return h('div', { className: 'mc-q wait', 'aria-hidden': true });
     if (!note) return null;
     var t = this.books[ment].title, short = t.split(/[:(]/)[0].trim();
     var esc = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
@@ -1450,6 +1464,9 @@
   P._xPlus = function () { return this._netMode() === 'plus'; };
   P._xLive = function () { return this._xPlus() || this._vNext(); };   // living fan + star map layers
   P._xReady = function () { return !!(window.__BJ.explorerReady && (!this._xLive() || (window.BJAtlas && window.BookJumprStars)) && (!this._vLab() || window.BookJumprLayouts)); };
+  // The book page only needs explorer.js to draw: its mini map is the one part that uses the star map
+  // (atlas.js + stars-data.js + layouts-data.js, ~290KB), which fills in when those arrive (_loadExplorer).
+  P._xBookReady = function () { return !!window.__BJ.explorerReady; };
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
@@ -1493,10 +1510,21 @@
     var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=25'] : ['network-regions.js?v=2', 'explorer.js?v=25'];
     if (this._vLab()) srcs.push('layouts-data.js?v=8');
     var self = this, left = srcs.length;
-    var done = function () { if (--left === 0) self.forceUpdate(); };
+    // explorer.js first, so the book page can draw while the star-map data is still downloading; when everything
+    // is in, re-render and mount the book page's mini map (its ref ran before the map code existed)
+    srcs.sort(function (a, b) { return (b.indexOf('explorer.js') === 0) - (a.indexOf('explorer.js') === 0); });
+    var done = function (src) {
+      return function () {
+        if (src.indexOf('explorer.js') === 0 && left > 1) self.forceUpdate();
+        if (--left > 0) return;
+        self.forceUpdate();
+        var el = !self._xMini && self._xMiniFn && document.querySelector('.bjx-mini-map, .bkp-map-c');
+        if (el) self._xMiniFn(el);
+      };
+    };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
-      sc.src = '/' + src; sc.onload = done; sc.onerror = done;
+      sc.src = '/' + src; sc.onload = done(src); sc.onerror = done(src);
       document.body.appendChild(sc);
     });
   };
@@ -2085,7 +2113,8 @@
     // ?v=next: the book page (fan + panel + lists) and the star-map network page
     if (vals.pgBookNext || vals.pgStars) {
       this._loadNotes();
-      if (!this._xReady()) { this._loadExplorer(); vals.bookNext = vals.starMap = h('div', { className: 'bjx-loading' }, 'Opening…'); }
+      if (!this._xReady()) this._loadExplorer();
+      if (vals.pgStars ? !this._xReady() : !this._xBookReady()) vals.bookNext = vals.starMap = h('div', { className: 'bjx-loading' }, 'Opening…');
       else {
         vals.bookNext = vals.pgBookNext ? (books[route.id] ? this.bookNext(books[route.id]) : h('div', { className: 'bjx-empty' }, this.state.ready ? 'That book isn’t in the network yet.' : 'Opening the stacks…')) : null;
         vals.starMap = vals.pgStars ? (this._vLab() && this.labMap ? this.labMap(route.focus) : this.starMap(route.focus)) : null;

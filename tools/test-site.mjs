@@ -54,6 +54,31 @@ for (const [p, want, wantPath] of [['/#/haruki-murakami/norwegian-wood', /Norweg
   await page.close();
 }
 
+console.log('\nA book page draws before the map data and the notes file');
+{
+  const page = await ctx.newPage();
+  const seen = [];
+  page.on('request', (r) => seen.push(new URL(r.url()).pathname));
+  page.on('pageerror', (e) => errors.push(`fast book page: ${e.message}`));
+  // hold back the star-map data and the notes file, as a slow connection would
+  let release;
+  const gate = new Promise((r) => { release = r; });
+  await page.route(/\/(stars-data|layouts-data|bookjumpr-notes)\.js/, async (route) => { await gate; await route.continue(); });
+  await page.goto(BASE + '/haruki-murakami/norwegian-wood');
+  await page.waitForTimeout(2500);
+  const txt = await page.evaluate(() => document.body.innerText);
+  ok(/Norwegian Wood/.test(await h1(page)) && /The Catcher in the Rye/.test(txt), 'the book page is drawn while the map data is still downloading');
+  ok(/No War and Peace, no Kenzaburo Oe/.test(txt), "its quotes show without the notes file");
+  ok(!(await page.evaluate(() => !!document.querySelector('.bjx-mini-map canvas, .bkp-map-c canvas'))), 'the mini map waits for its data');
+  release();
+  await page.waitForTimeout(2500);
+  ok(await page.evaluate(() => !!document.querySelector('.bjx-mini-map canvas, .bkp-map-c canvas')), 'the mini map appears once its data arrives');
+  ok(await page.evaluate(() => !!document.querySelector('main')), 'the page has a <main> landmark');
+  await page.locator('a.bkn-t').first().click(); await page.waitForTimeout(2000);
+  ok(seen.some((p) => p.endsWith('/bookjumpr-notes.js')) && /“|"/.test(await page.evaluate(() => document.body.innerText)), `the next book (${path(page)}) loads the full notes file`);
+  await page.close();
+}
+
 console.log('\nClicking around a book page');
 {
   const page = await open('/haruki-murakami/norwegian-wood');

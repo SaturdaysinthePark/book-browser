@@ -10,6 +10,8 @@
 //   B: { key: [title, author, year, synopsis, authorSlug] }   O: { key: [[mentionedKey, note], …] }
 //   I: { key: [mentioningKey, …] }                              A: { authorSlug: [name, [key, …]] }
 //   G: { key: imageHash }  — books with their own preview card at /og/<key>.png (tools/render-og.mjs)
+//   N: { 'src|ment': note } — mention notes exactly as the app's notes file has them; a book page carries its own
+//                              (as window.BookJumprPageNotes) so its quotes show without that 630KB file
 // Routes mirror P._routeFromHash in app.js.
 
 export const SITE = 'https://bookjumpr.com';
@@ -86,7 +88,10 @@ function bookPage(D, k) {
   trail.push([t, `${SITE}/${k}`]);
   const image = D.G && D.G[k] ? { url: `${SITE}/og/${k}.png?v=${D.G[k]}`, alt: `${who}, and the books it mentions` } : null;
   if (image) ld.image = image.url;
-  return { title, desc, canonical: `/${k}`, ogType: 'book', body, ld: [ld, crumbs(trail)], image };
+  const notes = {};
+  for (const [m] of out) if (D.N[`${k}|${m}`]) notes[`${k}|${m}`] = D.N[`${k}|${m}`];
+  for (const m of inn) if (D.N[`${m}|${k}`]) notes[`${m}|${k}`] = D.N[`${m}|${k}`];
+  return { title, desc, canonical: `/${k}`, ogType: 'book', body, ld: [ld, crumbs(trail)], image, pageNotes: { k, n: notes } };
 }
 
 function authorPage(D, slug) {
@@ -197,6 +202,7 @@ export function renderPage(html, pathname, D) {
   const extra = [];
   if (p.noindex) extra.push('<meta name="robots" content="noindex, follow">');
   if (p.ld.length) extra.push(`<script type="application/ld+json">${jsonLd({ '@context': 'https://schema.org', '@graph': p.ld })}</script>`);
+  if (p.pageNotes) extra.push(`<script>window.BookJumprPageNotes=${jsonLd(p.pageNotes).replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029')};</script>`);
   if (extra.length) out = out.replace('</head>', extra.join('\n') + '\n</head>');
   const block = ['<!-- seo:start — filled per page by netlify/seo/render.js; hidden once the app runs -->', '<div class="bj-seo">',
     ...p.body.filter(Boolean), '</div>', '<!-- seo:end -->'].join('\n');

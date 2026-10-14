@@ -143,3 +143,26 @@ so search engines can index each one. Nothing about how the app looks or navigat
 - **Social profiles**: the homepage's `Organization` JSON-LD lists X (@saturdaysonx), Instagram and TikTok
   (saturdaysinabook) as `sameAs`, so search engines and AI tools tie them to the site. `twitter:site` is @saturdaysonx,
   and `llms.txt` lists them.
+
+## Page speed (PageSpeed mobile 63 → re-measure after deploy)
+
+PageSpeed on a book page (mobile, Oct 2026): first paint 4.6s, largest paint 9.0s. In a local throttled-phone test
+the book's text waited for files it didn't need. Fixed:
+
+- **The book page draws as soon as `explorer.js` arrives** (`P._xBookReady`), not after the star-map data
+  (`atlas.js`, `stars-data.js`, `layouts-data.js`, ~290KB compressed). The mini map mounts when that data lands.
+- **A book page carries its own quotes** (`window.BookJumprPageNotes`, injected by the edge function from
+  `netlify/seo/data.js` → `N`), so they show without the 630KB notes file. That file loads 4s later, or on the next
+  book.
+- **Fonts are self-hosted** (`fonts/`, inline `@font-face`, OFL): no render-blocking Google Fonts stylesheet and no
+  third-party connections. They're deliberately not preloaded: preloading competed with the book data and delayed the
+  first paint by ~0.3s.
+- Local throttled test, book page: largest paint 6.5s → 4.5s; first paint unchanged (~3.8s; the floor is the 450KB
+  book data file). Home page unchanged. Every page is pixel-identical to before, desktop and mobile.
+
+Also from the same report: a `<main>` landmark around the page content; missing files (`/ai-catalog.json`, …) now
+return 404 instead of the app page (edge function + `tools/serve.mjs`); `llms.txt` follows the llmstxt.org shape
+(blockquote summary, `## Key pages` and `## Optional` link lists).
+
+The next lever, if mobile still needs it: split synopses and other book-page-only fields out of `bookjumpr-data.js`
+so the first paint waits on less than 450KB.
