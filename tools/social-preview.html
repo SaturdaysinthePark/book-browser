@@ -13,10 +13,12 @@
 // The link-preview card (og:image, 1200×630): the wordmark and line on the left, a book's fan on the right —
 // the book on top, the books it mentions in a row below, one line highlighted. Same covers and lines as the
 // films (video/flow.html). Rendered to social-preview.png by tools/render-social-preview.mjs.
-// ?root=<id>&row=<id>,<id>,… picks another book (the middle of the row gets the rust line)
+// ?root=<id>&row=<id>,<id>,… picks another book (the middle of the row gets the rust line).
+// &book=1 is a book's own card (og/<author>/<title>.png, rendered by tools/render-og.mjs): the left side names the
+// book, its author and how many books it mentions instead of the site's tagline.
 var QS = new URLSearchParams(location.search), ROOT = QS.get('root') || 'haruki-murakami/norwegian-wood';
 var ROW = QS.get('row') ? QS.get('row').split(',') : ['karl-marx/das-kapital', 'f-scott-fitzgerald/the-great-gatsby', 'j-d-salinger/the-catcher-in-the-rye', 'thomas-mann/the-magic-mountain', 'leo-tolstoy/war-and-peace'];
-var JUMP = ROW[Math.floor(ROW.length / 2)];
+var JUMP = ROW[Math.floor(ROW.length / 2)], BOOK = QS.get('book') === '1';
 
 function main() {
   var N = window.BookJumprData.NODES, M = window.BookJumprData.MENTIONS;
@@ -25,7 +27,7 @@ function main() {
     'FANTASY': '#7b5bb5', 'HORROR': '#4a3b52', 'ADVENTURE & TRAVEL': '#c04a70', 'HISTORY': '#8a5a3a', 'BIOGRAPHY & MEMOIR': '#2f5590',
     'PHILOSOPHY': '#3f7d7d', 'PSYCHOLOGY': '#7ba03c', 'POLITICS & WORLD': '#6e6e6e', 'BUSINESS & ECONOMICS': '#8c6d24',
     'ESSAYS & JOURNALISM': '#7d4a66', 'HUMOR & COMEDY': '#d9a62b', 'FOOD & COOKING': '#a04a2a' };
-  var bookOf = function (k) { return { t: N[k][0], c: GEN[N[k][4]] || '#b3ad9f' }; };
+  var bookOf = function (k) { return { t: N[k][0].split(/:\s/)[0], c: GEN[N[k][4]] || '#b3ad9f' }; };   // covers drop a subtitle
 
   var c = document.getElementById('c').getContext('2d'), W = 1200, H = 630, PI = Math.PI;
   var PAPER = '#f7f5f0', INK = '#141414', RUST = '#9c3d22', CREAM = '#f3ecdc';
@@ -47,9 +49,15 @@ function main() {
     c.fillStyle = CREAM; c.fillRect(x0, y0 + h * 0.24, w, h * 0.52);
     c.beginPath(); c.ellipse(x, y0 + h * 0.12, w * 0.15, h * 0.028, 0, 0, 2 * PI); c.fill();
     c.beginPath(); var dy = y0 + h * 0.88, ds = w * 0.07; c.moveTo(x, dy - ds); c.lineTo(x + ds, dy); c.lineTo(x, dy + ds); c.lineTo(x - ds, dy); c.closePath(); c.fill();
-    var fs = Math.max(11, w * 0.125), font = '700 ' + fs + 'px ' + CABIN, words = b.t.toUpperCase().split(' '), lines = [], cur = '';
-    words.forEach(function (wd) { var t = cur ? cur + ' ' + wd : wd; if (tw(t, font, '0.02em') > w * 0.86 && cur) { lines.push(cur); cur = wd; } else cur = t; });
-    if (cur) lines.push(cur);
+    var fs = Math.max(11, w * 0.125), font, words = b.t.toUpperCase().split(' '), lines;
+    // wrap to the panel; a single word too long for it (SLAUGHTERHOUSE-FIVE) shrinks the type until it fits
+    for (;;) {
+      font = '700 ' + fs + 'px ' + CABIN; lines = []; var cur = '';
+      words.forEach(function (wd) { var t = cur ? cur + ' ' + wd : wd; if (tw(t, font, '0.02em') > w * 0.86 && cur) { lines.push(cur); cur = wd; } else cur = t; });
+      if (cur) lines.push(cur);
+      if (fs <= 7 || !lines.slice(0, 3).some(function (ln) { return tw(ln, font, '0.02em') > w * 0.9; })) break;
+      fs -= 0.5;
+    }
     c.fillStyle = INK; c.font = font; c.textAlign = 'center'; c.letterSpacing = '0.02em';
     lines.slice(0, 3).forEach(function (ln, i) { c.fillText(ln, x, y + (i - (Math.min(lines.length, 3) - 1) / 2) * fs * 1.18 + fs * 0.35); });
     c.letterSpacing = '0px'; c.lineWidth = Math.max(1.5, w * 0.014); c.strokeStyle = INK; c.strokeRect(x0, y0, w, h);
@@ -60,12 +68,37 @@ function main() {
     c.beginPath(); c.arc(ox + 4 * u, oy + 30 * u, 2.4 * u, 0, 2 * PI); c.fillStyle = INK; c.fill();
   };
 
-  // left: the wordmark, the line, the address
+  // left: the wordmark, the line (or, on a book's card, the book), the address
   var L = 76;
-  mark(L, 120, 1.6);
-  c.font = '58px ' + SERIF; c.fillStyle = INK; c.textAlign = 'left'; c.fillText('BookJumpr', L + 112, 168);
-  c.font = '66px ' + SERIF; ['Every book', 'is a door to', 'more books.'].forEach(function (s, i) { c.fillText(s, L, 300 + i * 72); });
-  c.font = '500 26px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('bookjumpr.com', L + 2, 530); c.letterSpacing = '0px';
+  if (!BOOK) {
+    mark(L, 120, 1.6);
+    c.font = '58px ' + SERIF; c.fillStyle = INK; c.textAlign = 'left'; c.fillText('BookJumpr', L + 112, 168);
+    c.font = '66px ' + SERIF; ['Every book', 'is a door to', 'more books.'].forEach(function (s, i) { c.fillText(s, L, 300 + i * 72); });
+  } else {
+    mark(L, 86, 1.1);
+    c.font = '40px ' + SERIF; c.fillStyle = INK; c.textAlign = 'left'; c.fillText('BookJumpr', L + 78, 120);
+    // the title: as large as fits in three lines across the left column
+    var maxW = 470, size = 72, lines;
+    var wrap = function (fs) {
+      var out = [], cur = '';
+      N[ROOT][0].split(' ').forEach(function (wd) { var t = cur ? cur + ' ' + wd : wd; if (tw(t, fs + 'px ' + SERIF) > maxW && cur) { out.push(cur); cur = wd; } else cur = t; });
+      if (cur) out.push(cur);
+      return out;
+    };
+    while (size > 36 && ((lines = wrap(size)).length > 3 || lines.some(function (ln) { return tw(ln, size + 'px ' + SERIF) > maxW; }))) size -= 4;
+    lines = wrap(size).slice(0, 3);
+    var ty = 236 + (3 - lines.length) * size * 0.35;
+    c.font = size + 'px ' + SERIF; c.fillStyle = INK;
+    lines.forEach(function (ln, i) { c.fillText(ln, L, ty + i * size * 1.02); });
+    var by = [N[ROOT][1] && N[ROOT][1] !== 'Anonymous' ? 'by ' + N[ROOT][1] : '', N[ROOT][2] ? (N[ROOT][2] < 0 ? 'c. ' + -N[ROOT][2] + ' BC' : String(N[ROOT][2])) : ''].filter(Boolean).join(' · ');
+    var afterTitle = ty + (lines.length - 1) * size * 1.02;
+    c.font = 'italic 30px ' + SERIF; c.fillStyle = 'rgba(20,20,20,0.72)';
+    while (tw(by, c.font) > maxW && by.length > 4) by = by.slice(0, -2).replace(/\s+\S*$/, '') + '…';
+    c.fillText(by, L, afterTitle + 52);
+    var cnt = (QS.get('n') || ROW.length) + (Number(QS.get('n') || ROW.length) === 1 ? ' book' : ' books');
+    c.font = '500 22px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('MENTIONS ' + cnt.toUpperCase() + ' →', L + 2, afterTitle + 104); c.letterSpacing = '0px';
+  }
+  c.font = '500 26px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('bookjumpr.com', L + 2, BOOK ? 566 : 530); c.letterSpacing = '0px';
 
   // right: the fan
   var fx = 868, RW = 132, rootY = 70 + RW * 0.75, sw = 98, gap = 12, n = ROW.length, rowY = 360 + sw * 0.75;

@@ -14,6 +14,7 @@ It's a static site plus one small Netlify edge function (per-page titles and cra
 npm run serve          # http://localhost:8917/ — serves like Netlify: every path loads the app, with its page's head
 node tools/check-seo.mjs [baseURL]   # what search engines get, no browser needed
 node tools/test-site.mjs [baseURL]   # clicks through the app in Chromium (needs Playwright)
+npm run bj:og        # renders each book's share card into og/ (then npm run bj:build)
 ```
 
 A plain static server (`python3 -m http.server`) only works for the homepage now: book and author pages are real

@@ -8,6 +8,7 @@
     "bj": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs",
     "bj:seed": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs seed --verify",
     "bj:build": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs build",
+    "bj:og": "node tools/render-og.mjs",
     "bj:doctor": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs doctor",
     "bj:export": "node --experimental-sqlite --no-warnings tools/bookjumpr.mjs export-csv",
     "bj:dict": "node --experimental-sqlite --no-warnings tools/build-dict.mjs",

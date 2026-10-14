@@ -130,3 +130,16 @@ so search engines can index each one. Nothing about how the app looks or navigat
 - On a Netlify deploy preview or the live site: `node tools/check-seo.mjs https://<preview-url>`.
 - After it's live: in Search Console, URL-inspect `https://bookjumpr.com/haruki-murakami/norwegian-wood` and resubmit
   the sitemap; paste a book link into iMessage/Slack to see its own preview title.
+
+## Per-book share images and social profiles
+
+- **A preview card per book** (`og/<author>/<title>.png`, ~890 of them, ~25KB each): every book that mentions another
+  gets its own 1200×630 card, with the title, author and mention count on the left and the book above up to five of the
+  books it mentions on the right. It's the same drawing as the site card (`tools/social-preview.html` with `&book=1`).
+  Render or refresh them with `npm run bj:og`, which only re-renders cards whose content changed and records what
+  each one shows in `og/manifest.json`. Then run `npm run bj:build` so the edge function's data (`netlify/seo/data.js`,
+  `G`) knows which books have a card. The edge function points `og:image`, `twitter:image` and the Book JSON-LD
+  `image` at the card, with `?v=<hash>` so a re-rendered card gets a fresh URL. Books without a card keep the site card.
+- **Social profiles**: the homepage's `Organization` JSON-LD lists X (@saturdaysonx), Instagram and TikTok
+  (saturdaysinabook) as `sameAs`, so search engines and AI tools tie them to the site. `twitter:site` is @saturdaysonx,
+  and `llms.txt` lists them.

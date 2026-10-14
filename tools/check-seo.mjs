@@ -20,6 +20,7 @@ const ogUrl = (h) => tag(h, /<meta property="og:url" content="([^"]*)"/);
 const block = (h) => tag(h, /<!-- seo:start[\s\S]*?(<div class="bj-seo">[\s\S]*?)<!-- seo:end -->/) || '';
 const ld = (h) => [...h.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((m) => JSON.parse(m[1]));
 const robots = (h) => tag(h, /<meta name="robots" content="([^"]*)"/);
+const ogImage = (h) => tag(h, /<meta property="og:image" content="([^"]*)"/);
 
 console.log(`Checking ${BASE}\n`);
 
@@ -30,6 +31,9 @@ console.log('Homepage /');
   ok(title(html) === 'BookJumpr: Books Mentioned Inside Other Books', `title: ${title(html)}`);
   ok(canonical(html) === `${SITE}/`, `canonical: ${canonical(html)}`);
   ok(/href="\/miguel-de-cervantes\/don-quixote"/.test(block(html)), 'crawler text links to book pages');
+  const org = ld(html).flatMap((x) => x['@graph'] || [x]).find((x) => x['@type'] === 'Organization');
+  ok(org && org.sameAs && org.sameAs.length === 3, `Organization lists its profiles: ${(org && org.sameAs || []).join(', ')}`);
+  ok(ogImage(html) === `${SITE}/social-preview.png?v=2`, `share image: the site card`);
 }
 
 console.log('\nBook page /haruki-murakami/norwegian-wood');
@@ -46,6 +50,11 @@ console.log('\nBook page /haruki-murakami/norwegian-wood');
   const book = ld(html).flatMap((x) => x['@graph'] || [x]).find((x) => x['@type'] === 'Book');
   ok(book && book.name === 'Norwegian Wood' && book.mentions && book.mentions.length === 9, 'JSON-LD Book with its 9 mentions');
   ok(!robots(html), 'indexable (no robots noindex)');
+  const img = ogImage(html) || '';
+  ok(/^https:\/\/bookjumpr\.com\/og\/haruki-murakami\/norwegian-wood\.png\?v=[0-9a-f]{8}$/.test(img), `share image is the book's own card: ${img}`);
+  const r = await fetch(BASE + img.replace(SITE, ''));
+  ok(r.status === 200 && /image\/png/.test(r.headers.get('content-type') || ''), `…and it loads: ${r.status} ${r.headers.get('content-type')}`);
+  await r.arrayBuffer();
 }
 
 console.log('\nAuthor page /haruki-murakami');

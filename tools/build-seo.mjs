@@ -10,16 +10,23 @@
 // 4. sitemap.xml — the homepage, about/stats/network, and every book page with something on it (a synopsis, a
 //    mention, or two books mentioning it) plus their authors, each with <lastmod> from bookjumpr.db.
 // 5. netlify/seo/data.js — the data the edge function (netlify/edge-functions/seo.js) renders each page's head and
-//    crawler text from.
+//    crawler text from, including which books have their own preview card in og/ (rendered by tools/render-og.mjs).
+// The social profiles below go into the site's JSON-LD (index.html) and llms.txt.
 // Everything comes from bookjumpr-data.js / bookjumpr-notes.js; dates are book/mention timestamps in bookjumpr.db,
 // so rebuilding unchanged data changes nothing.
 import fs from 'node:fs';
 import vm from 'node:vm';
+import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { open } from './db.mjs';
 import { slug } from './slug.mjs';
 
 const SITE = 'https://bookjumpr.com';
+export const PROFILES = [
+  ['X', 'https://x.com/saturdaysonx'],
+  ['Instagram', 'https://www.instagram.com/saturdaysinabook/'],
+  ['TikTok', 'https://www.tiktok.com/@saturdaysinabook'],
+];
 // a few real connections to show (each must be a quoted forward mention in the data)
 const EXAMPLES = [
   ['haruki-murakami/norwegian-wood', 'j-d-salinger/the-catcher-in-the-rye'],
@@ -77,8 +84,13 @@ export function seoContent(updated) {
   ];
   const full = Object.keys(outs).sort((x, y) => NODES[x][0].localeCompare(NODES[y][0]) || x.localeCompare(y))
     .map(k => ({ k, head: by(NODES, k) + (NODES[k][2] ? ` (${yearLabel(NODES[k][2])})` : ''), outs: outs[k] }));
-  // the edge function's data (see netlify/seo/render.js for the shape)
-  const edge = { B: {}, O: {}, I: {}, A: {} };
+  // the edge function's data (see netlify/seo/render.js for the shape); G: books with their own preview card, with a
+  // short hash of the image so a re-rendered card gets a fresh URL (link previews are cached by URL)
+  const edge = { B: {}, O: {}, I: {}, A: {}, G: {} };
+  for (const k of Object.keys(NODES)) {
+    const f = `og/${k}.png`;
+    if (fs.existsSync(f)) edge.G[k] = crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
+  }
   for (const k of Object.keys(NODES)) {
     const [t, a, y, syn] = NODES[k], as = authorSlug(a);
     edge.B[k] = [t, a, y, syn, as];
@@ -142,6 +154,10 @@ export function renderLlms(s) {
     '',
     ...s.qa.flatMap(x => [`Q: ${x.q}`, `A: ${x.a}`, '']),
     `For every book and what it mentions, with quotes, see ${SITE}/llms-full.txt`,
+    '',
+    '## Elsewhere',
+    '',
+    ...PROFILES.map(([name, url]) => `- ${name}: ${url}`),
     '',
   ].join('\n');
 }
