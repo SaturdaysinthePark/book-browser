@@ -75,33 +75,40 @@ function main() {
     c.font = '58px ' + SERIF; c.fillStyle = INK; c.textAlign = 'left'; c.fillText('BookJumpr', L + 112, 168);
     c.font = '66px ' + SERIF; ['Every book', 'is a door to', 'more books.'].forEach(function (s, i) { c.fillText(s, L, 300 + i * 72); });
   } else {
-    mark(L, 86, 1.1);
-    c.font = '40px ' + SERIF; c.fillStyle = INK; c.textAlign = 'left'; c.fillText('BookJumpr', L + 78, 120);
+    // a book's card: the site's name as the address (no separate URL line), then the book, its author and its count
+    L = 64;
+    mark(L, 62, 1.5);
+    c.font = '54px ' + SERIF; c.textAlign = 'left'; c.fillStyle = INK; c.fillText('BookJumpr', L + 104, 108);
+    c.fillStyle = RUST; c.fillText('.com', L + 104 + tw('BookJumpr', '54px ' + SERIF), 108);
     // the title: as large as fits in three lines across the left column
-    var maxW = 470, size = 72, lines;
+    var maxW = 440, size = 84, lines;
     var wrap = function (fs) {
       var out = [], cur = '';
       N[ROOT][0].split(' ').forEach(function (wd) { var t = cur ? cur + ' ' + wd : wd; if (tw(t, fs + 'px ' + SERIF) > maxW && cur) { out.push(cur); cur = wd; } else cur = t; });
       if (cur) out.push(cur);
       return out;
     };
-    while (size > 36 && ((lines = wrap(size)).length > 3 || lines.some(function (ln) { return tw(ln, size + 'px ' + SERIF) > maxW; }))) size -= 4;
+    while (size > 40 && ((lines = wrap(size)).length > 3 || lines.some(function (ln) { return tw(ln, size + 'px ' + SERIF) > maxW; }))) size -= 4;
     lines = wrap(size).slice(0, 3);
-    var ty = 236 + (3 - lines.length) * size * 0.35;
+    var by = N[ROOT][1] && N[ROOT][1] !== 'Anonymous' ? 'by ' + N[ROOT][1] : '';
+    var blockH = (lines.length - 1) * size * 1.02 + (by ? 60 : 0) + 64;   // title lines, byline, count
+    var ty = 372 - blockH / 2 + size * 0.35;
     c.font = size + 'px ' + SERIF; c.fillStyle = INK;
     lines.forEach(function (ln, i) { c.fillText(ln, L, ty + i * size * 1.02); });
-    var by = [N[ROOT][1] && N[ROOT][1] !== 'Anonymous' ? 'by ' + N[ROOT][1] : '', N[ROOT][2] ? (N[ROOT][2] < 0 ? 'c. ' + -N[ROOT][2] + ' BC' : String(N[ROOT][2])) : ''].filter(Boolean).join(' · ');
     var afterTitle = ty + (lines.length - 1) * size * 1.02;
-    c.font = 'italic 30px ' + SERIF; c.fillStyle = 'rgba(20,20,20,0.72)';
-    while (tw(by, c.font) > maxW && by.length > 4) by = by.slice(0, -2).replace(/\s+\S*$/, '') + '…';
-    c.fillText(by, L, afterTitle + 52);
-    var cnt = (QS.get('n') || ROW.length) + (Number(QS.get('n') || ROW.length) === 1 ? ' book' : ' books');
-    c.font = '500 22px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('MENTIONS ' + cnt.toUpperCase() + ' →', L + 2, afterTitle + 104); c.letterSpacing = '0px';
+    if (by) {
+      c.font = 'italic 36px ' + SERIF; c.fillStyle = 'rgba(20,20,20,0.72)';
+      while (tw(by, c.font) > maxW && by.length > 4) by = by.slice(0, -2).replace(/\s+\S*$/, '') + '…';
+      c.fillText(by, L, afterTitle + 60); afterTitle += 60;
+    }
+    var nn = Number(QS.get('n') || ROW.length);
+    c.font = '500 26px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('MENTIONS ' + nn + (nn === 1 ? ' BOOK' : ' BOOKS') + ' →', L + 2, afterTitle + 64); c.letterSpacing = '0px';
   }
-  c.font = '500 26px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('bookjumpr.com', L + 2, BOOK ? 566 : 530); c.letterSpacing = '0px';
+  if (!BOOK) { c.font = '500 26px ' + MONO; c.fillStyle = RUST; c.letterSpacing = '0.04em'; c.fillText('bookjumpr.com', L + 2, 530); c.letterSpacing = '0px'; }
 
-  // right: the fan
+  // right: the fan (bigger on a book's card, which has no tagline to make room for)
   var fx = 868, RW = 132, rootY = 70 + RW * 0.75, sw = 98, gap = 12, n = ROW.length, rowY = 360 + sw * 0.75;
+  if (BOOK) { fx = 862; RW = 168; rootY = 34 + RW * 0.75; sw = 116; gap = 12; rowY = 596 - sw * 0.75; }
   var y0 = rootY + RW * 0.75 + 6, y1 = rowY - sw * 0.75 - 8, ym = (y0 + y1) / 2;
   var xs = ROW.map(function (k, j) { return fx + (j - (n - 1) / 2) * (sw + gap); });
   ROW.forEach(function (k, j) {
