@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 924 books that mention other books, 7,920 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 934 books that mention other books, 8,096 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -1923,6 +1923,12 @@ https://bookjumpr.com/charles-dickens/david-copperfield
 - Tales of the Genii by James Ridley: "They kept alive my fancy, and my hope of something beyond that place and time,--they, and the Arabian Nights, and the Tales of the Genii,--and did me no harm; for whatever harm was in some of them was not there for me; I knew nothing of it."
 - The Book of Martyrs by John Foxe: "Of all the moveables in it, I must have been impressed by a certain old bureau of some dark wood in the parlour (the tile-floored kitchen was the general sitting-room), with a retreating top which opened, let down, and became a desk, within which was a large quarto edition of Foxe's Book of Martyrs."
 
+## Dead Souls by Nikolai Gogol (1842)
+https://bookjumpr.com/nikolai-gogol/dead-souls
+- Night Thoughts by Edward Young: "For his part, the Postmaster went in more for philosophy, and diligently perused such works as Young's Night Thoughts, and Eckharthausen's A Key to the Mysteries of Nature; of which latter work he would make copious extracts, though no one had the slightest notion what they referred to."
+- A Key to the Mysteries of Nature by Karl von Eckartshausen: "For his part, the Postmaster went in more for philosophy, and diligently perused such works as Young's Night Thoughts, and Eckharthausen's A Key to the Mysteries of Nature; of which latter work he would make copious extracts, though no one had the slightest notion what they referred to."
+- The Georgics by Virgil: "None the less, he said, he meant to peg away until every peasant on the estate should, as he walked behind the plough, indulge in a regular course of reading Franklin's Notes on Electricity, Virgil's Georgics, or some work on the chemical properties of soil."
+
 ## Death and the Dervish by Meša Selimović (1966)
 https://bookjumpr.com/mesa-selimovic/death-and-the-dervish
 - Book of Tales by Abu Faraj: "I tried to read Abu Faraj... I opened the book, picking a passage at random, and came across a tale about Alexander the Great."
@@ -2312,6 +2318,41 @@ https://bookjumpr.com/philip-roth/exit-ghost
 - Wuthering Heights by Emily Bronte: "Sturmhöhe. Ach, Sturmhöhe habe ich geliebt."
 - Jane Eyre by Charlotte Brontë: "Ich bin durch Jane Eyre darauf gekommen."
 - Little Gidding by T. S. Eliot: "erinnerte mich, dass diese Worte in Eliots »Little Gidding« vorkommen"
+
+## Extraordinary Popular Delusions and the Madness of Crowds by Charles Mackay, LL. D (1841)
+https://bookjumpr.com/charles-mackay-ll-d/extraordinary-popular-delusions-and-the-madness-of-crowds
+- De Constantia by Justus Lipsius: "Many learned men, including Pompeius de Angelis and the celebrated Lipsius of Leyden, the author of the treatise "De Constantia," were passionately fond of tulips."
+- Lives of the Necromancers by William Godwin: "Lenglet, Histoire de la Philosophie Hermetique. See also Godwin's Lives of the Necromancers."
+- Le Roman de la Rose by Guillaume de Lorris and Jean de Meun: "Among the works written by Nicholas Flamel on the subject of alchymy is The Philosophic Summary, a poem, reprinted in 1735, as an appendix to the third volume of the Roman de la Rose."
+- De Incertitudine et Vanitate Scientiarum by Heinrich Cornelius Agrippa von Nettesheim: "Louvain, in which city he wrote his famous work on the Vanity and Nothingness of Human Knowledge. He also wrote to please his royal mistress, a treatise upon the Superiority of the Female Sex, which he dedicated to her in token of his gratitude"
+- Summum Bonum by Robert Fludd: "This book was published at Frankfort, and was entitled Summum Bonum, quod est Magiae, Cabalae, Alchimiae, Fratrum, Roseae-Crucis verorum, et adversus Mersenium Calumniatorem."
+- Aurora by Jakob Boehme: "In the year 1612, after a meditation of four years, he published his first work, entitled Aurora, or the Rising of the Sun; embodying the ridiculous notions of Paracelsus"
+- The Rape of the Lock by Alexander Pope: "From the same source Pope drew the airy tenants of Belinda's dressing-room, in his charming Rape of the Lock"
+- Miscellanies by Jonathan Swift: "A satirical account of this folly is given in Swift's Miscellanies, vol. iii., entitled A true and faithful Narrative of what passed in London on a Rumour of the Day of Judgment."
+- The Life of Merlin by Thomas Heywood: "In a Life of Merlin, with his Prophecies and Predictions interpreted and made good by our English Annals, by Thomas Heywood, published in the reign of Charles I., we find several of these pretended prophecies."
+- Grafton's Chronicle by Richard Grafton: "A very graphic and amusing account of this pretended prophet is given by Grafton, in his Chronicles of England."
+- The Faerie Queene by Edmund Spenser: "How beautiful is the description of it given by Spenser in his Faerie Queene! The lines need no apology for their repetition here, and any sketch of the great prophet of Britain would be incomplete without them:"
+- Hudibras by Samuel Butler: "From Butler's Hudibras, and its curious notes, we may learn what immense numbers of these fellows lived upon the credulity of mankind in that age of witchcraft and diablerie."
+- The Lay of the Last Minstrel by Walter Scott: "Reginald Scott, quoted by Sir Walter Scott, in the notes to the Lay of the last Minstrel, c. iii. v. xxiii."
+- Of the Imagination, as a Cause and as a Cure of Disorders of the Body by John Haygarth: "An account of these matters was published by Dr. Haygarth, in a small volume entitled, Of the Imagination, as a Cause and Cure of Disorders, exemplified by fictitious Tractors. The exposure was a coup de grace to the system of Mr. Perkins."
+- Histoire critique du magnétisme animal by J. P. F. Deleuze: "not dispersed until M. Deleuze published, in 1813, his Histoire Critique du Magnetisme Animal. This work gave a new impulse to the half-forgotten fancy."
+- Paradise Lost by John Milton: "A forest huge of spears; and thronging helms Appear'd, and serried shields, in thick array, Of depth immeasurable. Paradise Lost."
+- History of the Crusades by Joseph François Michaud: "M. Michaud, in his History of the Crusades, M. Guinguene, in his Literary History of Italy, and some other critics, have objected to Tasso's poem, that"
+- Satan's Invisible World Discovered by George Sinclair: "Satan's Invisible World Discovered, by the Rev. G. Sinclair."
+- Daemonologie by King James VI and I: "In the year 1597, he published in Edinburgh his famous treatise on Demonology."
+- Saducismus Triumphatus by Joseph Glanvill: "To convince them, the learned and Reverend Joseph Glanvil wrote his well-known work, Sadducismus Triumphatus, and The Collection of Relations; the first part intended as a philosophical inquiry into witchcraft, and the power of the devil "to assume a mortal shape:" the latter containing what he considered a multitude of…"
+- Malleus Maleficarum by Heinrich Kramer: "The commissioners named by Innocent VIII. to prosecute the witch-trials in Germany were, Jacob Sprenger, so notorious for his work on demonology, entitled the Malleus Maleficarum, or Hammer to knock down Witches;"
+- Cinq-Mars by Alfred de Vigny: "A very graphic account of the execution of this unfortunate gentleman is to be found in the excellent romance of M. Alfred de Vigny, entitled Cinq Mars;"
+- Histoire des diables de Loudun by Nicolas Aubin: "he is referred to a work published anonymously, at Amsterdam, in 1693, entitled Histoire des Diables de Loudun, ou de la Possession des Religieuses Ursulines, et de la Condemnation et du Supplice d'Urbain Grandier."
+- Cautio Criminalis by Friedrich Spee: "One of these Jesuits was Frederick Spee, the author of the Cautio Criminalis, published in 1631. This work, exposing the horrors of the witch-trials, had a most salutary effect in Germany:"
+- The Forerunner of Revenge by George Eglisham: "In the second volume of the Harleian Miscellany, there is a tract, entitled the Forerunner of Revenge, written by George Eglisham, doctor of medicine, and one of the physicians to King James."
+- The Age of Louis XIV by Voltaire: "This is denied by Voltaire in his Age of Louis XIV.; but he does not state for what reason."
+- Macbeth by William Shakespeare: "Here's a knocking indeed!... Knock! knock! knock!... Who's there, i' the name o' Beelzebub?... Who's there, i' the devil's name? Knock! knock! knock!--Never at quiet?--Macbeth."
+- The Monastery by Walter Scott: "and the worst of it was, that, like good Father Philip in the romance of The Monastery, they seemed utterly unable to change their tune."
+- The Rape of Lucrece by William Shakespeare: "Shakspeare's Rape of Lucretia."
+- The Dunciad by Alexander Pope: "the following account is given in the notes to The Dunciad, and quoted by Johnson in his Lives of the Poets: "This piece was received with greater applause than was ever known."
+- Lives of the Most Eminent English Poets by Samuel Johnson: "the following account is given in the notes to The Dunciad, and quoted by Johnson in his Lives of the Poets: "This piece was received with greater applause than was ever known."
+- News from Scotland by Anonymous: "News from Scotland, declaring the Damnable Life of Dr. Fian."
 
 ## Fahrenheit 451 by Ray Bradbury (1953)
 https://bookjumpr.com/ray-bradbury/fahrenheit-451
@@ -6004,6 +6045,55 @@ https://bookjumpr.com/philip-roth/the-anatomy-lesson
 - Of Time and the River by Thomas Wolfe: "the Gantian goat cry he'd read about in Of Time and the River"
 - Fiddler on the Roof by Joseph Stein: "Appel's disgust for the happy millions who worship at the shrine of the delicatessen and cherish Fiddler on the Roof"
 
+## The Anatomy of Melancholy by Robert Burton (1621)
+https://bookjumpr.com/robert-burton/the-anatomy-of-melancholy
+- Utopia by Thomas More: "Sir Thomas More in his Utopia commends voluntary death, if he be sibi aut aliis molestus, troublesome to himself or others,"
+- The City of God by Augustine of Hippo: "He that is desirous to hear of this disease, or more examples, let him read Austin in his 18th book de Civitate Dei, cap. 5."
+- Metamorphoses by Ovid: "6500. As true as Homer's Iliad, Ovid's Metamorphoses, Aesop's Fables."
+- Aesop's Fables by Aesop: "6500. As true as Homer's Iliad, Ovid's Metamorphoses, Aesop's Fables."
+- Iliad by Homer: "Homer, Iliad. 1, brings in Achilles eating of his own heart in his idleness, because he might not fight."
+- The Odyssey by Homer: "Plutarch saith as much of Homer, for which cause belike Niceratus, in Xenophon, was made by his parents to con Homer's Iliads and Odysseys without book, ut in virum bonum evaderet,"
+- The Aeneid by Virgil: "A company of stern readers dislike the second of the Aeneids, and Virgil's gravity, for inserting such amorous passions in an heroical subject;"
+- Arcadia by Philip Sidney: "4998. Sidney's Arcadia."
+- Essays by Michel de Montaigne: "Montaigne, in his Essays, gives instate in Caesar, Mahomet the Turk, that sacked Constantinople, and Ladislaus, king of Naples, that besieged Florence:"
+- Natural History by Pliny the Elder: "Uncle Pliny, lib. 2. cap. 7. nat. hist. and lib. 7. cap. 55, in express words denies the immortality of the soul."
+- Amadis de Gaul by Garci Rodriguez de Montalvo: "or such inamoratos as read nothing but play-books, idle poems, jests, Amadis de Gaul, the Knight of the Sun, the Seven Champions, Palmerin de Oliva, Huon of Bordeaux, &c."
+- The Seven Champions of Christendom by Richard Johnson: "or such inamoratos as read nothing but play-books, idle poems, jests, Amadis de Gaul, the Knight of the Sun, the Seven Champions, Palmerin de Oliva, Huon of Bordeaux, &c."
+- Palmerín de Oliva by Anonymous: "or such inamoratos as read nothing but play-books, idle poems, jests, Amadis de Gaul, the Knight of the Sun, the Seven Champions, Palmerin de Oliva, Huon of Bordeaux, &c."
+- Huon of Bordeaux by Anonymous: "or such inamoratos as read nothing but play-books, idle poems, jests, Amadis de Gaul, the Knight of the Sun, the Seven Champions, Palmerin de Oliva, Huon of Bordeaux, &c."
+- The Faerie Queene by Edmund Spenser: "4899. Spenser in his Faerie Queene."
+- The Canterbury Tales by Geoffrey Chaucer: "their symptoms are well expressed by Sir Geoffrey Chaucer in his first Canterbury Tale."
+- De Consolatione by Gerolamo Cardano: "Cardan professeth he wrote his book, De Consolatione after his son's death, to comfort himself;"
+- Art of Love by Ovid: "4979. Ovid de arte amandi."
+- The Satyricon by Petronius: "saith Petronius in his fragment of pure impurities, I mean his Satyricon,"
+- Timaeus by Plato: "as Plato in his Timaeus, Plotinus in his Enneades more largely discuss,"
+- Enneads by Plotinus: "as Plato in his Timaeus, Plotinus in his Enneades more largely discuss,"
+- Phaedo by Plato: "and Socrates himself defends it, in Plato's Phaedon, "if any man labour of an incurable disease, he may despatch himself, if it be to his good.""
+- Phaedrus by Plato: "as Plato disputes at large in his Dialogue de pulchro, Phaedro, Hyppias, and after many sophistical errors confuted, concludes that beauty is a grace in all things,"
+- Laws by Plato: "and which Plato 9. de legibus approves, if old age, poverty, ignominy, &c. oppress,"
+- The Nicomachean Ethics by Aristotle: "Aristotle in his Ethics holds felix idemque sapiens, to be wise and happy, are reciprocal terms,"
+- Politics by Aristotle: "Aristotle, Polit. lib. 3, cap. 4, calls Commune bonum,"
+- Tusculan Disputations by Cicero: "'Tis the same which Tully maintains in the second of his Tusculans, omnium insipientum animi in morbo sunt, et perturbatorum,"
+- Cyropaedia by Xenophon: "5656. Cyropaedia. cum Pantheae forman evexisset Araspus, tanto magis, inquit Cyrus abstinere oportet, quanto pulchrior est."
+- The Discoverie of Witchcraft by Reginald Scot: "many are deceived by legerdemain, as Scot hath well showed in his book of the discovery of witchcraft,"
+- The Golden Legend by Jacobus de Voragine: "Had he read the Golden Legend, the Turks' Alcoran, or Jews' Talmud, the Rabbins' Comments, what would he have thought?"
+- The Koran by Anonymous: "Had he read the Golden Legend, the Turks' Alcoran, or Jews' Talmud, the Rabbins' Comments, what would he have thought?"
+- Talmud by Anonymous: "Had he read the Golden Legend, the Turks' Alcoran, or Jews' Talmud, the Rabbins' Comments, what would he have thought?"
+- Euphues by John Lyly: ""And hard is the choice" (as it is in Euphues) "when one is compelled either by silence to die with grief, or by speaking to live with shame.""
+- De Locis Affectis by Galen: "and Galen lib. 6. de locis affectis, cap. 5. they will be sick for love;"
+- De Rerum Varietate by Gerolamo Cardano: "saith Cardan, lib. 8. cap. 4. de rerum varietate:"
+- De Occulta Philosophia by Heinrich Cornelius Agrippa von Nettesheim: "Cornelius Agrippa hath discoursed lib. 1. de occult. Philos. cap. 63, 64, 65."
+- Of the Vanity and Uncertainty of Arts and Sciences by Heinrich Cornelius Agrippa von Nettesheim: "Read Lucian's Piscator, and tell how he esteemed them; Agrippa's Tract of the vanity of Sciences;"
+- The Fisherman (Piscator) by Lucian: "Read Lucian's Piscator, and tell how he esteemed them; Agrippa's Tract of the vanity of Sciences;"
+- The Confessions by Augustine of Hippo: "A mere temptation is our life, (Austin, confess. lib. 10. cap. 28,)"
+- The City of the Sun by Tommaso Campanella: "Respub. Christianopolitana, Campanella's city of the Sun, and that new Atlantis, witty fictions, but mere chimeras;"
+- New Atlantis by Francis Bacon: "Respub. Christianopolitana, Campanella's city of the Sun, and that new Atlantis, witty fictions, but mere chimeras;"
+- Saturnalia by Macrobius: "and as Macrobius records, l. 10. Saturnalium;"
+- Valentine and Orson by Anonymous: "this is the original belike of that common tale of Valentine and Orson:"
+- Letters to Lucilius by Seneca: "great-witted Aristotle's works are as much authentical to them as Scriptures, subtle Seneca's Epistles as canonical as St. Paul's, Pindarus' Odes as good as the Prophet David's Psalms, Epictetus' Enchiridion equivalent to wise Solomon's Proverbs."
+- Odes by Pindar: "great-witted Aristotle's works are as much authentical to them as Scriptures, subtle Seneca's Epistles as canonical as St. Paul's, Pindarus' Odes as good as the Prophet David's Psalms, Epictetus' Enchiridion equivalent to wise Solomon's Proverbs."
+- The Enchiridion by Epictetus: "great-witted Aristotle's works are as much authentical to them as Scriptures, subtle Seneca's Epistles as canonical as St. Paul's, Pindarus' Odes as good as the Prophet David's Psalms, Epictetus' Enchiridion equivalent to wise Solomon's Proverbs."
+
 ## The Anthropocene Reviewed by John Green (2021)
 https://bookjumpr.com/john-green/the-anthropocene-reviewed
 - A Tree Grows in Brooklyn by Betty Smith: "Armed Services Editions were paperback books that fit into a soldier's pocket; they popularized several books now considered classics, including Betty Smith's A Tree Grows in Brooklyn."
@@ -7045,6 +7135,11 @@ https://bookjumpr.com/philip-roth/the-facts
 - Goodbye, Columbus by Philip Roth: "After Goodbye, Columbus won the 1960 National Book Award for Fiction"
 - Letting Go by Philip Roth: "Random House was publishing Letting Go, my second book, later in the year"
 
+## The Faerie Queene by Edmund Spenser (1590)
+https://bookjumpr.com/edmund-spenser/the-faerie-queene
+- Iliad by Homer: "In which I have followed all the antique poets historicall: first Homer, who in the persons of Agamemnon and Ulysses hath ensampled a good governour and a vertuous man, the one in his Ilias, the other in his Odysseis:"
+- The Odyssey by Homer: "In which I have followed all the antique poets historicall: first Homer, who in the persons of Agamemnon and Ulysses hath ensampled a good governour and a vertuous man, the one in his Ilias, the other in his Odysseis:"
+
 ## The Fall by Albert Camus (1956)
 https://bookjumpr.com/albert-camus/the-fall
 - A Hero of Our Time by Mikhail Lermontov: "epigraph: "Some were dreadfully insulted...to have held up as a model such an immoral character as A Hero of Our Time""
@@ -7168,6 +7263,10 @@ https://bookjumpr.com/anatole-france/the-gods-are-athirst
 - L'Ami des Lois by Jean-Louis Laya: "the people has not forgotten the scandal of the _Ami des Lois_"
 - The Last Judgment of Kings by Sylvain Marechal: "'Have you seen The Last Judgment of Kings played?' Delourmel asked his companions; 'the piece is worth seeing.'"
 - Memoir on the Origin of the Constellations by Charles-Francois Dupuis: "he also thought highly of the astronomer Lalande and of Dupuis, author of a _Memoir on the origin of the Constellations_"
+
+## The Gods of Mars by Edgar Rice Burroughs (1913)
+https://bookjumpr.com/edgar-rice-burroughs/the-gods-of-mars
+- Inferno by Dante Alighieri: "As they lay sprawled about the floor, sometimes overlapping one another, again in heaps of several bodies, they suggested instantly to me the grotesque illustrations that I had seen in copies of Dante's INFERNO, and what more fitting comparison?"
 
 ## The Golden Ass by Apuleius (160)
 https://bookjumpr.com/apuleius/the-golden-ass
@@ -7394,6 +7493,59 @@ https://bookjumpr.com/h-g-wells/the-history-of-mr-polly
 - The Canterbury Tales by Geoffrey Chaucer: "He was stirred to read the Canterbury Tales, but he could not get on with Chaucer's old-fashioned English; it fatigued his attention, and he would have given all the story telling very readily for a few adventures on the road."
 - The Quest of the Golden Girl by Richard Le Gallienne: "Richard Le Gallienne's very detrimental book, _The Quest of the Golden Girl_, which he had read at Canterbury, but he had no confidence they would happen in England--to him."
 - Travels in Tartary, Thibet, and China by Evariste Regis Huc and Joseph Gabet
+
+## The History of the Decline and Fall of the Roman Empire by Edward Gibbon (1776)
+https://bookjumpr.com/edward-gibbon/the-history-of-the-decline-and-fall-of-the-roman-empire
+- The Annals by Tacitus: "See the first book of the Annals of Tacitus."
+- Germania by Tacitus: "Such, in particular, was the state of the Batavians. Tacit. Germania, c. 29."
+- Historia Augusta by Anonymous: "that for the most part I have quoted them without distinction, under the general and well-known title of the Augustan History."
+- The Secret History by Procopius: "The strain of the Anecdotes of Procopius, (c. 11, 13, 18, 27, 28,) with the learned remarks of Alemannus, is confirmed, rather than contradicted, by the Acts of the Councils"
+- Ecclesiastical History by Johann Lorenz von Mosheim: "See Mosheim's Ecclesiastical History, vol. i. p. 101, and Spanheim, Remarques sur les Caesars de Julien, p. 468, &c."
+- The City of God by Augustine of Hippo: "Yet the Pagans of Africa complained, that the times would not allow them to answer with freedom the City of God; nor does St. Augustin (v. 26) deny the charge."
+- The Confessions by Augustine of Hippo: "My personal acquaintance with the bishop of Hippo does not extend beyond the Confessions, and the City of God."
+- The Spirit of the Laws by Montesquieu: "Esprit des Loix, l. xxx. c. 3. The brilliant imagination of Montesquieu is corrected, however, by the dry, cold reason of the Abbe de Mably."
+- Observations sur l'Histoire de France by Gabriel Bonnot de Mably: "the good sense and diligence of the Abbe de Mably, (Observations sur l'Histoire de France, 2 vols. 12mo.)"
+- Histoire des Empereurs by Louis-Sébastien Le Nain de Tillemont: "Tillemont, Histoire des Empereurs, tom. iii. p. 598."
+- Annali d'Italia by Lodovico Antonio Muratori: "or consult the Annali d'Italia of the learned Muratori, tom. xiv. p. 230-244, octavo edition."
+- The History of the Reign of the Emperor Charles V by William Robertson: "The reader who wishes to inform himself of the circumstances of his famous event, may peruse an admirable narrative in Dr. Robertson's History of Charles V. vol. ii. p. 283;"
+- The History of England by David Hume: "Many ages afterwards, Edward J. practised, with great success, the same mode of persecution against the clergy of England. See Hume's History of England, vol. ii. p. 300, last 4to edition."
+- The Natural History of Religion by David Hume: "Mr. Hume, in the Natural History of Religion, sagaciously remarks, that the most refined and philosophic sects are constantly the most intolerant."
+- Iliad by Homer: "The rights, powers, and pretensions of the sovereign of Olympus are very clearly described in the xvth book of the Iliad; in the Greek original, I mean; for Mr. Pope, without perceiving it, has improved the theology of Homer."
+- The Odyssey by Homer: "The xith book of the Odyssey gives a very dreary and incoherent account of the infernal shades."
+- The Aeneid by Virgil: "The progress of a Phrygian colony, from the Tyber to the Thames, was easily ingrafted on the fable of the Aeneid; and the royal ancestors of Arthur derived their origin from Troy, and claimed their alliance with the Caesars."
+- Histoire Naturelle by Comte de Buffon: "Read (it is no unpleasing task) the incomparable articles of the Horse and the Camel, in the Natural History of M. de Buffon."
+- Cyropaedia by Xenophon: "Xenophon, in the preface to the Cyropaedia, gives a clear and magnificent idea of the extent of the empire of Cyrus."
+- Anabasis by Xenophon: "The fact is confirmed by a soldier and a philosopher, who had experienced the intense cold of Thrace. See Xenophon, Anabasis, l. vii. p. 560, edit. Hutchinson."
+- Paradise Lost by John Milton: "Paradise Lost was published in the year 1667; and the famous lines (l. ii. 708, &c.) which startled the licenser, may allude to the recent comet of 1664"
+- Meditations by Marcus Aurelius: "In his Meditations, he thanks the gods, who had bestowed on him a wife so faithful, so gentle, and of such a wonderful simplicity of manners."
+- Pharsalia by Lucan: "Though it is not, most assuredly, the intention of Lucan to exalt the character of Caesar, yet the idea he gives of that hero, in the tenth book of the Pharsalia, … is, in reality, the noblest panegyric."
+- Metamorphoses by Ovid: "In the history of insects (far more wonderful than Ovid's Metamorphoses) the silk-worm holds a conspicuous place."
+- The Consolation of Philosophy by Boethius: "While Boethius, oppressed with fetters, expected each moment the sentence or the stroke of death, he composed, in the tower of Pavia, the Consolation of Philosophy; a golden volume not unworthy of the leisure of Plato or Tully"
+- Misopogon by Julian: "See Julian. in Misopogon, p. 340, 341."
+- The Caesars by Julian: "Trajan's sentiments are represented in a very just and lively manner in the Caesars of Julian."
+- The Wealth of Nations by Adam Smith: "Smith's Inquiry into the Nature and Causes of the Wealth of Nations, vol. i. p 246. This last I am proud to quote as the work of a sage and a friend."
+- Don Quixote by Miguel de Cervantes: "(Don Quixote, part ii. l. iii. c. 1.)"
+- Orlando Furioso by Ludovico Ariosto: "The Paladin Astolpho found it in the moon, among the things that were lost upon earth, (Orlando Furioso, xxxiv. 80.)"
+- The Decameron by Giovanni Boccaccio: "That popular writer, who derives his reputation from the Decameron, a hundred novels of pleasantry and love, may aspire to the more serious praise of restoring in Italy the study of the Greek language."
+- La Henriade by Voltaire: "For the latter, compare the tenth book of the Henriade, and the Journal de Henri IV. tom. i. p. 47-83;"
+- The Age of Louis XIV by Voltaire: "Voltaire, Siecle de Louis XIV. c. 29."
+- Candide by Voltaire: "Compare Dr. Jortin's Remarks on Ecclesiastical History, vol. iv. p. 3 with a certain genealogy in Candide, (ch. iv.,) which ends with one of the first companions of Christopher Columbus."
+- The Poems of Ossian by James Macpherson: "See Appian (in Prooem.) and the uniform imagery of Ossian's Poems, which, according to every hypothesis, were composed by a native Caledonian."
+- A Thousand and One Nights by Anonymous: "The Arabian Nights, a faithful and amusing picture of the Oriental world, represent in the most odious colors of the Magians, or worshippers of fire"
+- Bibliothèque Orientale by Barthélemy d'Herbelot: "D'Herbelot, Bibliotheque Orientale, Ardshir."
+- Codex Justinianus by Justinian I: "See the Code of Justinian, l. viii. tit. lii. leg. 2."
+- Institutes of Justinian by Justinian I: "The celebrated Institutes of Justinian are addressed to the youth of his dominions, who had devoted themselves to the study of Roman jurisprudence;"
+- The Digest (Pandects) by Justinian I: "The Pandects (l. xlviii. tit. xviii.) contain the sentiments of the most celebrated civilians on the subject of torture."
+- Theodosian Code by Theodosius II: "See the Theodosian Code, l. vi. tit. ii. with Godefroy's commentary."
+- Notitia Dignitatum by Anonymous: "One hundred and fifteen cities appear in the Notitia of Gaul;"
+- Gesta Dei per Francos by Jacques Bongars: "two large and original passages of William archbishop of Tyre, (l. i. c. 1-10, l. xviii. c. 5, 6,) the principal author of the Gesta Dei per Francos."
+- Saturnalia by Macrobius: "Macrob. Saturnalia, l. iii. c. 9. He gives us a form of evocation."
+- Utopia by Thomas More: "The community instituted by Plato is more perfect than that which Sir Thomas More had imagined for his Utopia."
+- Getica by Jordanes: "Aurelius Victor. Jornandes de Rebus Geticis, c. 21."
+- Christian Topography by Cosmas Indicopleustes: "See the Topographia Christiana of Cosmas, surnamed Indicopleustes, or the Indian navigator, l. iii. p. 178, 179, l. xi. p. 337."
+- Historical and Critical Dictionary by Pierre Bayle: "See Dictionnaire de Bayle, au mot Balbus, where he distinguishes the several persons of that name, and rectifies, with his usual accuracy, the mistakes of former writers concerning them."
+- Florentine Histories by Niccolò Machiavelli: "Machiavel, Hist. di Firenze, l. i."
+- Il Sacco di Roma by Luigi Guicciardini: "But the account which most truly deserves the name of authentic and original, is a little book, entitled, Il Sacco di Roma, composed, within less than a month after the assault of the city, by the brother of the historian Guicciardini"
 
 ## The Hitchhiker's Guide to the Galaxy by Douglas Adams (1979)
 https://bookjumpr.com/douglas-adams/the-hitchhiker-s-guide-to-the-galaxy
@@ -7957,6 +8109,19 @@ https://bookjumpr.com/hilary-mantel/the-mirror-and-the-light
 - New Tenures by Thomas Littleton: "I have set aside Linacre’s Grammars, but now I must look into Littleton’s New Tenures, and be educated in the law."
 - The Way of Dying Well by Thomas Lupset: "Thomas Lupset, The Way of Dying Well.’ Lupset was tutor to the cardinal’s son."
 - Magnificence by John Skelton: "The players are Collusion and Abusion, Folly and Mischief, and Magnificence himself, who proclaims: ‘I reign in my robes, I rule as me list, I drive down these dastards with a dint of my fist.’ But at length Magnificence is brought low. (Low confidence: the play's title is never stated outright in the passage — it's identified only via…"
+
+## The Monk by Matthew Lewis (1796)
+https://bookjumpr.com/matthew-lewis/the-monk
+- Measure for Measure by William Shakespeare: "----Lord Angelo is precise; Stands at a guard with envy; Scarce confesses That his blood flows, or that his appetite Is more to bread than stone. Measure for Measure."
+- The Two Gentlemen of Verona by William Shakespeare: "----These are the Villains Whom all the Travellers do fear so much. --------Some of them are Gentlemen Such as the fury of ungoverned Youth Thrust from the company of awful Men. Two Gentlemen of Verona."
+- Macbeth by William Shakespeare: "Avaunt! and quit my sight! Let the Earth hide thee! Thy bones are marrowless, thy blood is cold! Thou hast no speculation in those eyes Which Thou dost glare with! Hence, horrible shadow! Unreal mockery hence! Macbeth."
+- Cymbeline by William Shakespeare: "The crickets sing, and Man's o'er-laboured sense Repairs itself by rest: Our Tarquin thus Did softly press the rushes, ere He wakened The chastity He wounded--Cytherea, How bravely thou becom'st thy bed! Fresh Lily! And whiter than the sheets! Cymbeline."
+- Don Quixote by Miguel de Cervantes: "And Belerma and Durandarte is translated from some stanzas to be found in a collection of old Spanish poetry, which contains also the popular song of Gayferos and Melesindra, mentioned in Don Quixote."
+- Perceforest by Anonymous: "I read the wearisome adventures of 'Perceforest,' 'Tirante the White,' 'Palmerin of England,' and 'the Knight of the Sun,' till the Book was on the point of falling from my hands through Ennui."
+- Tirant lo Blanc by Joanot Martorell: "I read the wearisome adventures of 'Perceforest,' 'Tirante the White,' 'Palmerin of England,' and 'the Knight of the Sun,' till the Book was on the point of falling from my hands through Ennui."
+- Palmerin of England by Francisco de Moraes: "I read the wearisome adventures of 'Perceforest,' 'Tirante the White,' 'Palmerin of England,' and 'the Knight of the Sun,' till the Book was on the point of falling from my hands through Ennui."
+- Diana by Jorge de Montemayor: "Antonia sat by her embroidery frame, and Leonella, in a pastoral dress, held 'Montemayor's Diana.'"
+- Amadis of Gaul by Garci Rodríguez de Montalvo: "Of this was Elvira so fully convinced, that She would have preferred putting into her Daughter's hands 'Amadis de Gaul,' or 'The Valiant Champion, Tirante the White;' and would sooner have authorised her studying the lewd exploits of 'Don Galaor,' or the lascivious jokes of the 'Damsel Plazer di mi vida.'"
 
 ## The Monk of Mokha by Dave Eggers (2018)
 https://bookjumpr.com/dave-eggers/the-monk-of-mokha
@@ -9553,6 +9718,37 @@ https://bookjumpr.com/h-g-wells/the-war-in-the-air
 https://bookjumpr.com/h-g-wells/the-war-of-the-worlds
 - The Anatomy of Melancholy by Robert Burton
 
+## The Waste Land by T. S. Eliot (1922)
+https://bookjumpr.com/t-s-eliot/the-waste-land
+- From Ritual to Romance by Jessie L. Weston: "Not only the title, but the plan and a good deal of the incidental symbolism of the poem were suggested by Miss Jessie L. Weston’s book on the Grail legend: From Ritual to Romance (Macmillan, Cambridge)"
+- The Golden Bough by James George Frazer: "To another work of anthropology I am indebted in general, one which has influenced our generation profoundly; I mean The Golden Bough; I have used especially the two volumes Adonis, Attis, Osiris."
+- Adonis, Attis, Osiris by James George Frazer: "I mean The Golden Bough; I have used especially the two volumes Adonis, Attis, Osiris."
+- Inferno by Dante Alighieri: "63. Cf. Inferno, iii. 55-7."
+- The White Devil by John Webster: "74. Cf. the Dirge in Webster’s White Devil."
+- Les Fleurs du mal by Charles Baudelaire: "76. V. Baudelaire, Preface to Fleurs du Mal."
+- Antony and Cleopatra by William Shakespeare: "77. Cf. Antony and Cleopatra, II. ii., l. 190."
+- The Aeneid by Virgil: "92. Laquearia. V. Aeneid, I. 726:"
+- Paradise Lost by John Milton: "98. Sylvan scene. V. Milton, Paradise Lost, iv. 140."
+- Metamorphoses by Ovid: "99. V. Ovid, Metamorphoses, vi, Philomela."
+- Women Beware Women by Thomas Middleton: "138. Cf. the game of chess in Middleton’s Women beware Women."
+- Prothalamion by Edmund Spenser: "176. V. Spenser, Prothalamion."
+- The Tempest by William Shakespeare: "192. Cf. The Tempest, I. ii."
+- To His Coy Mistress by Andrew Marvell: "196. Cf. Marvell, To His Coy Mistress."
+- The Parliament of Bees by John Day: "197. Cf. Day, Parliament of Bees:"
+- Parsifal by Paul Verlaine: "202. V. Verlaine, Parsifal."
+- The Vicar of Wakefield by Oliver Goldsmith: "253. V. Goldsmith, the song in The Vicar of Wakefield."
+- Purgatorio by Dante Alighieri: "293. Cf. Purgatorio, v. 133:"
+- The Confessions by Augustine of Hippo: "307. V. St. Augustine’s Confessions: “to Carthage then I came, where a cauldron of unholy loves sang all about mine ears.”"
+- Buddhism in Translations by Henry Clarke Warren: "The complete text of the Buddha’s Fire Sermon (which corresponds in importance to the Sermon on the Mount) from which these words are taken, will be found translated in the late Henry Clarke Warren’s Buddhism in Translation (Harvard Oriental Series)."
+- Handbook of Birds of Eastern North America by Frank M. Chapman: "Chapman says (Handbook of Birds of Eastern North America) “it is most at home in secluded woodland and thickety retreats. . . ."
+- Blick ins Chaos by Hermann Hesse: "366-76. Cf. Hermann Hesse, Blick ins Chaos:"
+- Brihadaranyaka Upanishad by Anonymous: "The fable of the meaning of the Thunder is found in the Brihadaranyaka—Upanishad, 5, 1."
+- Sechzig Upanishads des Veda by Paul Deussen: "A translation is found in Deussen’s Sechzig Upanishads des Veda, p. 489."
+- Appearance and Reality by F. H. Bradley: "Also F. H. Bradley, Appearance and Reality, p. 346:"
+- Pervigilium Veneris by Anonymous: "428. V. Pervigilium Veneris. Cf. Philomela in Parts II and III."
+- El Desdichado by Gérard de Nerval: "429. V. Gerard de Nerval, Sonnet El Desdichado."
+- The Spanish Tragedy by Thomas Kyd: "431. V. Kyd’s Spanish Tragedy."
+
 ## The Water-Babies by Charles Kingsley (1863)
 https://bookjumpr.com/charles-kingsley/the-water-babies
 - Peter Simple by Frederick Marryat: "In the first picture they saw these Doasyoulikes living in the land of Readymade, at the foot of the Happy-go-lucky Mountains, where flapdoodle grows wild; and if you want to know what that is, you must read Peter Simple."
@@ -10079,6 +10275,12 @@ https://bookjumpr.com/booker-t-washington/up-from-slavery
 - Life and Times of Frederick Douglass by Frederick Douglass
 - Uncle Remus by Joel Chandler Harris
 
+## Utilitarianism by John Stuart Mill (1863)
+https://bookjumpr.com/john-stuart-mill/utilitarianism
+- The Annals of the Parish by John Galt: "The author of this essay has reason for believing himself to be the first person who brought the word utilitarian into use. He did not invent it, but adopted it from a passing expression in Mr. Galt's Annals of the Parish. After using it as a designation for several years, he and others abandoned it from a growing dislike to anything…"
+- Système de politique positive by Auguste Comte: "To any ethical student who finds the realization difficult, I recommend, as a means of facilitating it, the second of M. Comte's two principal works, the Systeme de Politique Positive. I entertain the strongest objections to the system of politics and morals set forth in that treatise;"
+- Social Statics by Herbert Spencer: "This implication, in the first principle of the utilitarian scheme, of perfect impartiality between persons, is regarded by Mr. Herbert Spencer (in his Social Statics) as a disproof of the pretentions of utility to be a sufficient guide to right; since (he says) the principle of utility presupposes the anterior principle, that everybody…"
+
 ## Utopia by Thomas More (1516)
 https://bookjumpr.com/thomas-more/utopia
 - The Republic by Plato
@@ -10112,6 +10314,10 @@ https://bookjumpr.com/ivan-turgenev/virgin-soil
 - The Duties of Man by Giuseppe Mazzini: "like Swinburne's Songs Before Sunrise, Mazzini's Duties of Man, and other congenial documents"
 - Yevgenia Onegin by Alexander Pushkin: "Take up our immortal Pushkin and read over the description of the death of Lensky in 'Yevgenia Onegin.'"
 - The Story of the Four Brothers by Anonymous: "'The Story of the Four Brothers,' and then the ordinary, well-known ones, which are far better I think."
+
+## Volpone by Ben Jonson (1606)
+https://bookjumpr.com/ben-jonson/volpone
+- Il Pastor Fido by Battista Guarini: "LADY P: Here's pastor Fido-- VOLP [ASIDE.]: Profess obstinate silence, That's now my safest. LADY P: All our English writers, I mean such as are happy in the Italian, Will deign to steal out of this author, mainly:"
 
 ## Walden by Henry David Thoreau (1854)
 https://bookjumpr.com/henry-david-thoreau/walden
@@ -10408,7 +10614,7 @@ https://bookjumpr.com/italo-calvino/why-read-the-classics
 - Les Fleurs du mal by Charles Baudelaire: "Balzac essay: named within a quoted Walter Benjamin passage"
 - Our Mutual Friend by Charles Dickens: "Essay 'Charles Dickens, Our Mutual Friend' (primary subject)"
 - Great Expectations by Charles Dickens: "Dickens essay: 'his masterpiece Great Expectations'"
-- The Decline and Fall of the Roman Empire by Edward Gibbon: "Dickens essay: Boffin buys 'the eight volumes'"
+- The History of the Decline and Fall of the Roman Empire by Edward Gibbon: "Dickens essay: Boffin buys 'the eight volumes'"
 - Crime and Punishment by Fyodor Dostoevsky: "Dickens essay: composition-date comparison"
 - Three Tales by Gustave Flaubert: "Essay 'Gustave Flaubert, Trois Contes' (primary subject)"
 - The Legend of St Julian the Hospitaller by Gustave Flaubert: "Flaubert essay: one of the three tales, discussed individually"
