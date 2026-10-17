@@ -107,6 +107,11 @@ Fetching the file is not enough; actually read it before writing anything. For e
     this and it's a common false-positive source)
   - generic/interchangeable reference-series mentions ("and so on" style categories) —
     keep specific singular quoted works instead
+  - anything outside the main text written by the book's own author: a preface, introduction,
+    dedication or notes by anyone else (printer, editor, translator, publisher) never counts, e.g.
+    Caxton's preface to Le Morte d'Arthur
+  - operas, ballets, songs, hymns and tunes, even when named by title
+  - the Bible (owner's call; other scriptures such as the Vedas and Upanishads do count)
   - fictional/in-world books that don't exist outside the story (e.g. Lovecraft's
     Necronomicon, an invented novel-within-the-novel)
   - loose personality similes ("he was a regular Don Quixote") that don't cite an actual

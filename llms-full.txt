@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 925 books that mention other books, 7,922 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 924 books that mention other books, 7,920 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -3684,11 +3684,6 @@ https://bookjumpr.com/mary-elizabeth-braddon/lady-audley-s-secret
 ## Lady into Fox by David Garnett (1922)
 https://bookjumpr.com/david-garnett/lady-into-fox
 - Clarissa by Samuel Richardson: "he went to the shelf and fetched down a volume of the "History of Clarissa Harlowe," which he had begun to read aloud to her"
-
-## Le Morte d'Arthur by Thomas Malory (1485)
-https://bookjumpr.com/thomas-malory/le-morte-d-arthur
-- Polychronicon by Ranulf Higden: "And also in Policronicon, in the fifth book the sixth chapter, and in the seventh book the twenty-third chapter, where his body was buried, and after found, and translated into the said monastery."
-- De Casibus Virorum Illustrium by Giovanni Boccaccio: "Ye shall see also in the history of Bochas, in his book De Casu Principum, part of his noble acts, and also of his fall."
 
 ## Leaves of Grass by Walt Whitman (1855)
 https://bookjumpr.com/walt-whitman/leaves-of-grass
