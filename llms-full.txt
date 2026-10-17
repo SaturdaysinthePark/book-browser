@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-14. 899 books that mention other books, 7,802 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 903 books that mention other books, 7,807 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -4872,6 +4872,10 @@ https://bookjumpr.com/george-du-maurier/peter-ibbetson
 - The Mysteries of Paris by Eugène Sue
 - The Wandering Jew by Eugene Sue
 
+## Peter Pan by J. M. Barrie (1911)
+https://bookjumpr.com/j-m-barrie/peter-pan
+- Cinderella by Anonymous: ""Peter," said Wendy excitedly, "that was Cinderella, and he found her, and they lived happily ever after.""
+
 ## Phantastes by George MacDonald (1858)
 https://bookjumpr.com/george-macdonald/phantastes
 - The White Cat by Madame d'Aulnoy: "Why, my wife actually believes the story of the 'White Cat."
@@ -5766,6 +5770,10 @@ https://bookjumpr.com/tobias-smollett/the-adventures-of-roderick-random
 - Colonel Jack by Daniel Defoe: "…me if I had got never a piece of secret history, thrown into a series of letters, or a volume of adventures, such as those of Robinson Crusoe, and Colonel Jack, or a collection of Conundrums, wherewith to entertain the plantations."
 - Odes by Horace
 - Don Quixote by Miguel de Cervantes: "A third sort swore, that no other cause could be assigned for this undertaking than that which induced Don Quixote to attack the windmill."
+
+## The Adventures of Sherlock Holmes by Arthur Conan Doyle (1892)
+https://bookjumpr.com/arthur-conan-doyle/the-adventures-of-sherlock-holmes
+- Encyclopaedia Britannica by Anonymous: "'Is to copy out the "Encyclopaedia Britannica." There is the first volume of it in that press."
 
 ## The Adventures of Tom Sawyer by Mark Twain (1876)
 https://bookjumpr.com/mark-twain/the-adventures-of-tom-sawyer
@@ -7262,6 +7270,10 @@ https://bookjumpr.com/graham-greene/the-honorary-consul
 - Martin Fierro by José Hernández: "The subject was the bad effect of the epic poem, 'Martin Fierro', on the Argentine novel."
 - Oliver Twist by Charles Dickens: ""...like a Russian who believes that the bailiff and the coffin-maker still follow their unchanged vocations in a world where Oliver Twist is somewhere imprisoned in a London cellar asking for more." — following "When Doctor Plarr as a boy read a novel of Dickens...""
 
+## The Hound of the Baskervilles by Arthur Conan Doyle (1902)
+https://bookjumpr.com/arthur-conan-doyle/the-hound-of-the-baskervilles
+- The History of the Rebellion and Civil Wars in England by Edward Hyde, Earl of Clarendon: "Know then that in the time of the Great Rebellion (the history of which by the learned Lord Clarendon I most earnestly commend to your attention) this Manor of Baskerville was held by Hugo of that name, nor can it be gainsaid that he was a most wild, profane, and godless man."
+
 ## The House of Mirth by Edith Wharton (1905)
 https://bookjumpr.com/edith-wharton/the-house-of-mirth
 - Rubáiyát of Omar Khayyám by Omar Khayyám
@@ -8424,6 +8436,11 @@ https://bookjumpr.com/mohsin-hamid/the-reluctant-fundamentalist
 - Mr Palomar by Italo Calvino
 - The Great Gatsby by F. Scott Fitzgerald
 - The Legend of Sleepy Hollow by Washington Irving
+
+## The Republic by Plato (c. 375 BC)
+https://bookjumpr.com/plato/the-republic
+- Iliad by Homer: "You know the first lines of the Iliad, in which the poet says that Chryses prayed Agamemnon to release his daughter, and that Agamemnon flew into a passion with him; whereupon Chryses, failing of his object, invoked the anger of the God against the Achaeans."
+- The Odyssey by Homer: "But in what follows he takes the person of Chryses, and then he does all that he can to make us believe that the speaker is not Homer, but the aged priest himself. And in this double form he has cast the entire narrative of the events which occurred at Troy and in Ithaca and throughout the Odyssey."
 
 ## The Return of Sherlock Holmes by Arthur Conan Doyle (1905)
 https://bookjumpr.com/arthur-conan-doyle/the-return-of-sherlock-holmes
