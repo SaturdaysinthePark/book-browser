@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 952 books that mention other books, 8,271 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 960 books that mention other books, 8,289 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -295,6 +295,12 @@ https://bookjumpr.com/ernest-hemingway/a-moveable-feast
 - Women in Love by D. H. Lawrence
 - The Prussian Officer by D. H. Lawrence
 - The Lodger by Marie Belloc Lowndes
+
+## A Pair of Blue Eyes by Thomas Hardy (1873)
+https://bookjumpr.com/thomas-hardy/a-pair-of-blue-eyes
+- Ivanhoe by Walter Scott: "…which read like flat copies of like scenes in the stories of Mr. G. P. R. James, and the most unreal portions of IVANHOE."
+- The Three Graves by Samuel Taylor Coleridge: "she could not help thinking of Coleridge's morbid poem 'The Three Graves,' and shuddering as she wondered if Mrs. Jethway were cursing her, she wept as if her heart would break."
+- Paradise Lost by John Milton: "Knight could not keep from his mind the words of Adam's reproach to Eve in PARADISE LOST, and at last whispered them to himself--"
 
 ## A People's History of the United States by Howard Zinn (1980)
 https://bookjumpr.com/howard-zinn/a-people-s-history-of-the-united-states
@@ -1213,6 +1219,12 @@ https://bookjumpr.com/anthony-trollope/barchester-towers
 https://bookjumpr.com/charles-dickens/barnaby-rudge
 - Letters to His Son by Philip Dormer Stanhope, Earl of Chesterfield
 - The Merry Wives of Windsor by William Shakespeare
+
+## Barry Lyndon by William Makepeace Thackeray (1844)
+https://bookjumpr.com/william-makepeace-thackeray/barry-lyndon
+- Hamlet by William Shakespeare: "He used to quote passages of 'Hamlet' to his mother, which made her very angry."
+- Iliad by Homer: "the child starting back from my helmet like what-d'ye-call'im--Hector's son, as described by Mr. Pope in his 'Iliad');"
+- The Whole Duty of Man by Richard Allestree: "The she-dragon read the "Whole Duty of Man" all the evening till bedtime;"
 
 ## Bartleby, the Scrivener by Herman Melville (1853)
 https://bookjumpr.com/herman-melville/bartleby-the-scrivener
@@ -4073,6 +4085,10 @@ https://bookjumpr.com/sinclair-lewis/main-street
 - The Two Orphans by Adolphe d'Ennery: "Once, strolling companies had used it for performances of "The Two Orphans," and "Nellie the Beautiful Cloak Model," and "Othello" with specialties between acts, but now the motion-pictures had ousted the gipsy drama."
 - Nellie the Beautiful Cloak Model by Owen Davis: "Once, strolling companies had used it for performances of "The Two Orphans," and "Nellie the Beautiful Cloak Model," and "Othello" with specialties between acts, but now the motion-pictures had ousted the gipsy drama."
 
+## Major Barbara by George Bernard Shaw (1905)
+https://bookjumpr.com/george-bernard-shaw/major-barbara
+- The Republic by Plato: "My parting gift to him was not a copy of Plato's Republic, but a revolver and a hundred Undershaft cartridges."
+
 ## Man and Superman by George Bernard Shaw (1903)
 https://bookjumpr.com/george-bernard-shaw/man-and-superman
 - Faust by Johann Wolfgang von Goethe: "Mozart's is the last of the true Don Juans; for by the time he was of age, his cousin Faust had, in the hands of Goethe, taken his place and carried both his warfare and his reconciliation with the gods far beyond mere lovemaking into politics, high art, schemes for reclaiming new continents from…"
@@ -4954,6 +4970,10 @@ https://bookjumpr.com/rachel-cusk/outline
 - The Odyssey by Homer: "You might remember in the Odyssey ... the character of Elpenor, Odysseus's crewmate who falls off the roof of Circe's house"
 - Encyclopaedia Britannica by Anonymous: ""any more than I would spend the afternoon reading the Encyclopaedia Britannica" (simile)"
 
+## Ozma of Oz by L. Frank Baum (1907)
+https://bookjumpr.com/l-frank-baum/ozma-of-oz
+- The Marvelous Land of Oz by L. Frank Baum: "My friends the children are responsible for this new "Oz Book," as they were for the last one, which was called The Land of Oz."
+
 ## Pachinko by Min Jin Lee (2017)
 https://bookjumpr.com/min-jin-lee/pachinko
 - Imagined Communities by Benedict Anderson: "Epigraph opening Book III: "I propose the following definition of the nation: it is an imagined political community..." —Benedict Anderson"
@@ -5148,6 +5168,12 @@ https://bookjumpr.com/aristotle/politics
 https://bookjumpr.com/eleanor-h-porter/pollyanna
 - The Turn of the Tides by Eleanor H. Porter
 - The Lost Heir by G. A. Henty: "Why, that's just like a book--I've read lots of 'em; 'Lady Maud's Secret,' and 'The Lost Heir,' and 'Hidden for Years'--all of 'em had mysteries and things just like this."
+
+## Poor Folk by Fyodor Dostoevsky (1846)
+https://bookjumpr.com/fyodor-dostoevsky/poor-folk
+- The Tales of Belkin by Alexander Pushkin: "Also, Thedora has brought me a book--"The Stories of Bielkin"--which I will forward you, if you would care to read it. Only, do not soil it, nor yet retain it, for it does not belong to me. It is by Pushkin."
+- The Station Master by Alexander Pushkin: "But now I have also read "The Station Overseer" in your little volume; and it is wonderful to think that one may live and yet be ignorant of the fact that under one's very nose there may be a book in which one's whole life is described as in a picture."
+- The Overcoat by Nikolai Gogol: "Also I am sending you a book of stories; some of which I have read myself, particularly one called "The Cloak.""
 
 ## Possession by A. S. Byatt (1990)
 https://bookjumpr.com/a-s-byatt/possession
@@ -6595,6 +6621,13 @@ https://bookjumpr.com/philip-roth/the-breast
 - The Necklace by Guy de Maupassant: "...beginning with 'The Necklace' and running through to 'The Luck of Roaring Camp.'"
 - The Luck of Roaring Camp by Bret Harte: "...beginning with 'The Necklace' and running through to 'The Luck of Roaring Camp.'"
 - Archaic Torso of Apollo by Rainer Maria Rilke: ""And now to conclude the hour with the poem by Rainer Maria Rilke entitled 'Archaic Torso of Apollo' written in Paris in 1908," followed by the poem quoted in full in the narrative."
+
+## The Bride of Lammermoor by Walter Scott (1819)
+https://bookjumpr.com/walter-scott/the-bride-of-lammermoor
+- Memorialls; or, The Memorable Things that Fell Out within this Island of Brittain from 1638 to 1684 by Robert Law: "But as he finds an account of the circumstances given in the Notes to Law's Memorials, by his ingenious friend, Charles Kirkpatrick Sharpe, Esq., and also indicated in his reprint of the Rev. Mr. Symson's poems appended to the Large Description of Galloway, as the original of the Bride of Lammermoor, the Author feels himself now at…"
+- A Large Description of Galloway by Andrew Symson: "But as he finds an account of the circumstances given in the Notes to Law's Memorials, by his ingenious friend, Charles Kirkpatrick Sharpe, Esq., and also indicated in his reprint of the Rev. Mr. Symson's poems appended to the Large Description of Galloway, as the original of the Bride of Lammermoor, the Author feels himself now at…"
+- Wit's Interpreter by John Cotgrave: "He is really in much need of Wit's Interpreter, or the Complete Letter-Writer, and were I you, I would send him a copy by the bearer."
+- The Complete Letter-Writer by Anonymous: "He is really in much need of Wit's Interpreter, or the Complete Letter-Writer, and were I you, I would send him a copy by the bearer."
 
 ## The Brothers Karamazov by Fyodor Dostoevsky (1880)
 https://bookjumpr.com/fyodor-dostoevsky/the-brothers-karamazov
@@ -8445,6 +8478,10 @@ https://bookjumpr.com/jhumpa-lahiri/the-namesake
 - The Communist Manifesto by Karl Marx and Friedrich Engels
 - The Comedians by Graham Greene
 
+## The Napoleon of Notting Hill by G. K. Chesterton (1904)
+https://bookjumpr.com/g-k-chesterton/the-napoleon-of-notting-hill
+- Iliad by Homer: "This one poor rhymster, having burnt his own rhymes, began to live that life of open air and acted poetry of which all the poets of the earth have dreamed in vain; the life for which the Iliad is only a cheap substitute."
+
 ## The Nature of Alexander by Mary Renault (1975)
 https://bookjumpr.com/mary-renault/the-nature-of-alexander
 - Cyropaedia by Xenophon: "The most picturesque subplot of Xenophon's Cyropaedia is the story of Cyrus and the Lady of Susa"
@@ -9849,6 +9886,11 @@ https://bookjumpr.com/william-james/the-varieties-of-religious-experience
 - Character in Birth and Parentage by Furneaux Jordan
 - Endeavours after a Christian Life by James Martineau
 - Cautionary Verses for Children by Anonymous
+
+## The Vicar of Wakefield by Oliver Goldsmith (1766)
+https://bookjumpr.com/oliver-goldsmith/the-vicar-of-wakefield
+- Religious Courtship by Daniel Defoe: "I have read the disputes between Thwackum and Square; the controversy between Robinson Crusoe and Friday the savage, and I am now employed in reading the controversy in Religious courtship'"
+- The Fair Penitent by Nicholas Rowe: "I mentioned before, who was come to dispose of tickets for the Fair Penitent, which was to be acted that evening, the part of Horatio by a young gentleman who had never appeared on any stage."
 
 ## The Vicomte de Bragelonne by Alexandre Dumas (1847)
 https://bookjumpr.com/alexandre-dumas/the-vicomte-de-bragelonne
