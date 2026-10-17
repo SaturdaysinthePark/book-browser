@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 934 books that mention other books, 8,096 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 943 books that mention other books, 8,152 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -4223,6 +4223,10 @@ https://bookjumpr.com/herman-melville/moby-dick
 - On the Queen's Visit to London by William Cowper
 - Miriam Coffin, or The Whale-Fisherman by Joseph C. Hart: "Ross Browne; the Author of Miriam Coffin; Olmstead; and the Rev."
 
+## Moll Flanders by Daniel Defoe (1722)
+https://bookjumpr.com/daniel-defoe/moll-flanders
+- Book of Common Prayer by Anonymous: "Landlord, have you a Common Prayer Book?"
+
 ## Monsieur Bergeret in Paris by Anatole France (1901)
 https://bookjumpr.com/anatole-france/monsieur-bergeret-in-paris
 - A Thousand and One Nights by Anonymous: "I was reading the story of the porter and the young girls in The Arabian Nights, newly translated"
@@ -4611,6 +4615,33 @@ https://bookjumpr.com/willa-cather/o-pioneers
 - The Golden Legend by Henry Wadsworth Longfellow: "She knew long portions of the "Frithjof Saga" by heart, and, like most Swedes who read at all, she was fond of Longfellow's verse,--the ballads and the "Golden Legend" and "The Spanish Student.""
 - The Spanish Student by Henry Wadsworth Longfellow: "She knew long portions of the "Frithjof Saga" by heart, and, like most Swedes who read at all, she was fond of Longfellow's verse,--the ballads and the "Golden Legend" and "The Spanish Student.""
 - Robinson Crusoe by Daniel Defoe: "Oh, hunting pictures in Germany, and Robinson Crusoe and funny pictures about cannibals."
+
+## Of Human Bondage by Somerset Maugham (1915)
+https://bookjumpr.com/somerset-maugham/of-human-bondage
+- The Lancashire Witches by William Harrison Ainsworth: "He chose them by their titles, and the first he read was The Lancashire Witches, and then he read The Admirable Crichton, and then many more."
+- Eric, or, Little by Little by Frederic W. Farrar: "He had also read Eric, or Little by Little."
+- Faust by Johann Wolfgang von Goethe: "He made out a list of books which Philip was to read till he was ready for the final achievement of Faust, and meanwhile, ingeniously enough, started him on a German translation of one of the plays by Shakespeare which Philip had studied at school."
+- A Doll's House by Henrik Ibsen: "The play was The Doll's House and the author was Henrik Ibsen."
+- Marius the Epicurean by Walter Pater: "Don't you remember the chapter in Marius where Pater talks of the gentle exercise of walking as the best incentive to conversation?"
+- The Ordeal of Richard Feverel by George Meredith: "Hayward talked of Richard Feverel and Madame Bovary, of Verlaine, Dante, and Matthew Arnold."
+- Madame Bovary by Gustave Flaubert: "Hayward talked of Richard Feverel and Madame Bovary, of Verlaine, Dante, and Matthew Arnold."
+- Rubáiyát of Omar Khayyám by Omar Khayyám: "In those days Fitzgerald's translation of Omar Khayyam was known only to the elect, and Hayward repeated it to Philip."
+- Apologia Pro Vita Sua by John Henry Newman: "He gave Philip Newman's Apologia to read, and Philip, finding it very dull, nevertheless read it to the end."
+- Vie de Jesus by Ernest Renan: "Philip thanked him and, taking the book, looked at the title. It was Renan's Vie de Jesus."
+- Die Ehre by Hermann Sudermann: "Several of Ibsen's plays were on the repertory for the winter; Sudermann's Die Ehre was then a new play, and on its production in the quiet university town caused the greatest excitement;"
+- Der Trompeter von Säkkingen by Joseph Victor von Scheffel: "Fraulein Anna gave him a copy of Der Trompeter von Sackingen and in return he presented her with a volume of William Morris. Very wisely neither of them ever read the other's present."
+- Sappho by Alphonse Daudet: "Alphonse Daudet had come also, and he had given her a copy of Sappho: he had promised to write her name in it, but she had forgotten to remind him."
+- Scènes de la vie de bohème by Henri Murger: "One day Miss Wilkinson gave Philip La Vie de Boheme."
+- Romeo and Juliet by William Shakespeare: "Miss Wilkinson oddly enough had suggested that they should read Romeo and Juliet together; but Philip had firmly declined."
+- Lives of the Most Excellent Painters by Giorgio Vasari: "He read many of Vasari's lives of the painters."
+- Poems and Ballads by Algernon Charles Swinburne: "What a genius we should think Swinburne if he had perished on the day the first series of Poems and Ballads was published!""
+- On the Origin of Species by Charles Darwin: "He read The Origin of Species. It seemed to offer an explanation of much that troubled him."
+- Don Juan by George Gordon Byron: "Lord Byron in a stanza of Don Juan, aiming at the impossible, might have achieved the sublime;"
+- Personal Narrative of a Pilgrimage to Al-Madinah and Meccah by Richard Francis Burton: "It was Burton's Journey to Meccah, which he had just got out of the Westminster Public Library;"
+- Don Quixote by Miguel de Cervantes: "Athelny, with picturesque expressions and the fire of a real enthusiasm, described to him the rich delight of reading Don Quixote in the original"
+- The Principles and Practice of Medicine by William Osler: "He was reading Osler's Medicine, which had recently taken the place in the students' favour of Taylor's work, for many years the text-book most in use."
+- New Arabian Nights by Robert Louis Stevenson: "He went to the free library, and looked at the papers till they wearied him, then he took out Stevenson's New Arabian Nights;"
+- Peregrine Pickle by Tobias Smollett: "I happen to know that Smollett wrote Peregrine Pickle."
 
 ## Old Mortality by Walter Scott (1816)
 https://bookjumpr.com/walter-scott/old-mortality
@@ -6905,6 +6936,10 @@ https://bookjumpr.com/neal-stephenson/the-diamond-age
 - Gone with the Wind by Margaret Mitchell: "Scarlett O'Hara in the ractive Gone With the Wind"
 - The Taming of the Shrew by William Shakespeare: "standing bids on Kate in the ractive version of Taming of the Shrew"
 
+## The Diary of a Nobody by George Grossmith (1892)
+https://bookjumpr.com/george-grossmith/the-diary-of-a-nobody
+- Macbeth by William Shakespeare: "Hulloh! Have you seen a ghost? You look scared to death, like Irving in Macbeth."
+
 ## The Disappearers by Marlon James (2026)
 https://bookjumpr.com/marlon-james/the-disappearers
 - Fortune and Men's Eyes by John Herbert: "the name of the play: Fortune and Men's Eyes, a play by John Herbert"
@@ -7749,6 +7784,19 @@ https://bookjumpr.com/barbara-kingsolver/the-lacuna
 - Look Homeward, Angel by Thomas Wolfe: "carrying Look Homeward, Angel and Tropic of Cancer without raising an eyebrow"
 - Tropic of Cancer by Henry Miller: "carrying Look Homeward, Angel and Tropic of Cancer without raising an eyebrow. All of Henry Miller in fact"
 
+## The Lady of the Lake by Walter Scott (1810)
+https://bookjumpr.com/walter-scott/the-lady-of-the-lake
+- Marmion by Walter Scott: "After the success of Marmion, I felt inclined to exclaim with Ulysses in the Odyssey:"
+- The Odyssey by Homer: "After the success of Marmion, I felt inclined to exclaim with Ulysses in the Odyssey:"
+- The Poems of Ossian by James Macpherson: "The Poems of Ossian had by their popularity sufficiently shown that, if writings on Highland subjects were qualified to interest the reader, mere national prejudices were, in the present day, very unlikely to interfere with their success."
+- Rokeby by Walter Scott: "Accordingly, those who choose to look at the Introduction to Rokeby, will be able to trace the steps by which I declined as a poet to figure as a novelist; as the ballad says, Queen Eleanor sunk at Charing Cross to rise again at Queenhithe."
+- Bevis of Hampton by Anonymous: "Ascapart, or Ascabart, makes a very material figure in the History of Bevis of Hampton, by whom he was conquered."
+- Letters from a Gentleman in the North of Scotland by Edmund Burt: "The author of the Letters from the North of Scotland, an officer of engineers, quartered at Inverness about 1720, who certainly cannot be deemed a favorable witness, gives the following account of the office, and of a bard, whom he heard exercise his talent of recitation:"
+- The History of the Rebellion and Civil Wars in England by Edward Hyde, Earl of Clarendon: "In a word, the law and humanity were alike: the one being more fallacious, and the other more barbarous, than in any age had been vented in such an authority' (Clarendon's History of the Rebellion)."
+- Military Antiquities by Francis Grose: "In the civil war of 1745 most of the front rank of the clans were thus armed; and Captain Grose (Military Antiquities, vol. i. p. 164) informs us that in 1747 the privates of the 42d regiment, then in Flanders, were for the most part permitted to carry targets."
+- A Tour in Scotland by Thomas Pennant: "The skirmish is detailed in a curious memoir of Sir Ewan's life, printed in the Appendix of Pennant's Scottish Tour (vol. i. p. 375):"
+- The History of Scotland by John Pinkerton: "Therefore, we using such manner of shoes, the rough hairy side outwards, in your grace's dominions of England, we be called Rough-footed Scots' (Pinkerton's History, vol."
+
 ## The Lair of the White Worm by Bram Stoker (1911)
 https://bookjumpr.com/bram-stoker/the-lair-of-the-white-worm
 - Popular Errors by Thomas Browne: "he must have read it in Sir Thomas Brown's Popular Errors, a book of the seventeenth century"
@@ -7972,6 +8020,10 @@ https://bookjumpr.com/john-galsworthy/the-man-of-property
 https://bookjumpr.com/g-k-chesterton/the-man-who-was-thursday
 - Alice's Adventures in Wonderland by Lewis Carroll
 
+## The Marble Faun by Nathaniel Hawthorne (1860)
+https://bookjumpr.com/nathaniel-hawthorne/the-marble-faun
+- The Autobiography of Benvenuto Cellini by Benvenuto Cellini: ""Do you remember that veritable scene in Benvenuto Cellini's autobiography, in which a necromancer of his acquaintance draws a magic circle--just where the black cross stands now, I suppose--and raises myriads of demons?"
+
 ## The Marriage of Heaven and Hell by William Blake (1790)
 https://bookjumpr.com/william-blake/the-marriage-of-heaven-and-hell
 - Paradise Lost by John Milton
@@ -8036,6 +8088,10 @@ https://bookjumpr.com/jeffrey-eugenides/the-marriage-plot
 - Pearl by Anonymous: "a so-so paper on the linking words in Pearl"
 - Bus Stop by William Inge: "Dee Michaels, who played the Marilyn Monroe part in a campus production of Bus Stop"
 - The Vietnamization of New Jersey by Christopher Durang: "interesting bits from The Vietnamization of New Jersey and Mamet's Sexual Perversity in Chicago"
+
+## The Marvelous Land of Oz by L. Frank Baum (1904)
+https://bookjumpr.com/l-frank-baum/the-marvelous-land-of-oz
+- The Wonderful Wizard of Oz by L. Frank Baum: "After the publication of "The Wonderful Wizard of OZ" I began to receive letters from children, telling me of their pleasure in reading the story and asking me to "write something more" about the Scarecrow and the Tin Woodman."
 
 ## The Mask of Apollo by Mary Renault (1966)
 https://bookjumpr.com/mary-renault/the-mask-of-apollo
@@ -8153,6 +8209,22 @@ https://bookjumpr.com/orhan-pamuk/the-museum-of-innocence
 - Madame Bovary by Gustave Flaubert: "While Flaubert was writing Madame Bovary, inspired by his beloved Louise Collet... he kept in a drawer a lock of her hair, as well as a handkerchief and a slipper of hers"
 - The Great Gatsby by F. Scott Fitzgerald: "You'll all have to promise to wear white, as in The Great Gatsby. Have you seen it yet?"
 - The Three Musketeers by Alexandre Dumas: "those plots about bands of sergeants that were 'rip-offs of a French adaptation' of The Three Musketeers, as Feridun would tell me with a smile"
+
+## The Mysteries of Udolpho by Ann Radcliffe (1794)
+https://bookjumpr.com/ann-radcliffe/the-mysteries-of-udolpho
+- The Minstrel by James Beattie: "And love, and gentleness, and joy, impart. THE MINSTREL"
+- Macbeth by William Shakespeare: "Without our special wonder? MACBETH"
+- The Castle of Indolence by James Thomson: "Then all at once in air dissolves the wondrous show. CASTLE OF INDOLENCE"
+- A Midsummer Night's Dream by William Shakespeare: "And see our moon-light revels, go with us. MIDSUMMER NIGHT'S DREAM"
+- Julius Caesar by William Shakespeare: "While they behold a greater than themselves. JULIUS CAESAR"
+- Ode to Fear by William Collins: "Hold each strange tale devoutly true. COLLINS' ODE TO FEAR"
+- King John by William Shakespeare: "Does shew the mood of a much-troubled breast. KING JOHN"
+- Il Penseroso by John Milton: "Her mansion in this fleshly nook! IL PENSEROSO"
+- Richard II by William Shakespeare: "To lengthen out the worst that must be spoken. RICHARD II"
+- Sacred Dramas by Hannah More: "And all is lovely! SACRED DRAMAS"
+- Romeo and Juliet by William Shakespeare: "Come, weep with me;--past hope, past cure, past help! ROMEO AND JULIET"
+- Hamlet by William Shakespeare: "I will speak to thee. HAMLET"
+- Pleasures of Memory by Samuel Rogers: "Each stamps its image as the other flies! PLEASURES OF MEMORY"
 
 ## The Mysterious Island by Jules Verne (1874)
 https://bookjumpr.com/jules-verne/the-mysterious-island
@@ -8710,6 +8782,11 @@ https://bookjumpr.com/d-h-lawrence/the-rainbow
 - As You Like It by William Shakespeare: "one afternoon, reading As You Like It"
 - Wuthering Heights by Emily Bronte: "He bought her a copy of Wuthering Heights from a bookstall."
 - The Invisible Man by H. G. Wells: "She was reminded of the Invisible Man, who was a piece of darkness made visible only by his clothes."
+
+## The Rape of the Lock by Alexander Pope (1714)
+https://bookjumpr.com/alexander-pope/the-rape-of-the-lock
+- Comte de Gabalis by Montfaucon de Villars: "The best account I know of them is in a French book call'd 'Le Comte de Gabalis', which both in its title and size is so like a Novel, that many of the Fair Sex have read it for one by mistake."
+- The New Atalantis by Delarivier Manley: "As long as Atalantis shall be read,"
 
 ## The Rebel by Albert Camus (1951)
 https://bookjumpr.com/albert-camus/the-rebel
@@ -9314,6 +9391,12 @@ https://bookjumpr.com/john-stuart-mill/the-subjection-of-women
 https://bookjumpr.com/ernest-hemingway/the-sun-also-rises
 - The Purple Land by W. H. Hudson: "Cohn had read and reread “The Purple Land.” “The Purple Land” is a very sinister book if read too late in life."
 - A Sportsman's Sketches by Ivan Turgenev: "It was one of the stories in “A Sportsman’s Sketches.” I had read it before, but it seemed quite new."
+
+## The Swiss Family Robinson by Johann David Wyss (1812)
+https://bookjumpr.com/johann-david-wyss/the-swiss-family-robinson
+- Robinson Crusoe by Daniel Defoe: ""It is," said I; "but we must not call Robinson Crusoe a romance; though Robinson himself, and all the circumstances of his history are probably fictitious, the details are all founded on truth--on the adventures and descriptions of voyagers who may be depended on, and unfortunate individuals who have actually been wrecked on unknown…"
+- Gulliver's Travels by Jonathan Swift: ""As if Gulliver's Travels was true!" said Fritz, in a tone of derision."
+- Captain Cook's Voyages by James Cook: "Fritz appearing much interested in examining this cloth, Ernest said gravely, "I can teach you how to make it;" and immediately bringing Cook's Voyages, where a detailed description is given, he proceeded to read it."
 
 ## The Talisman by Walter Scott (1825)
 https://bookjumpr.com/walter-scott/the-talisman
