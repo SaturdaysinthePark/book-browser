@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 919 books that mention other books, 7,909 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 925 books that mention other books, 7,922 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -923,6 +923,11 @@ https://bookjumpr.com/h-g-wells/ann-veronica
 ## Anna Karenina by Leo Tolstoy (1877)
 https://bookjumpr.com/leo-tolstoy/anna-karenina
 - King Lear by William Shakespeare: "One was a fantasia, _King Lear;_ the other was a quartette dedicated to the memory of Bach."
+
+## Anne of Avonlea by L. M. Montgomery (1909)
+https://bookjumpr.com/l-m-montgomery/anne-of-avonlea
+- Paradise Lost by John Milton: "Isn't it something to have started a soul along a path that may end in Shakespeare and Paradise Lost?""
+- Bluebeard by Charles Perrault: "She made frequent trips to the gate and looked as anxiously down the lane as ever her namesake in the Bluebeard story peered from the tower casement."
 
 ## Anne of Green Gables by L. M. Montgomery (1908)
 https://bookjumpr.com/l-m-montgomery/anne-of-green-gables
@@ -2218,7 +2223,6 @@ https://bookjumpr.com/jean-jacques-rousseau/emile
 - Discourse on the Origin of Inequality by Jean-Jacques Rousseau
 - The Spirit of the Laws by Montesquieu
 - Symposium (The Banquet) by Plato
-- The Adventures of Telemachus by François Fénelon: "Her mother took the book and opened it; it was The Adventures of Telemachus."
 - Cléopâtre by La Calprenède
 - Cassandre by La Calprenède
 - Monsieur de Pourceaugnac by Molière
@@ -3681,6 +3685,11 @@ https://bookjumpr.com/mary-elizabeth-braddon/lady-audley-s-secret
 https://bookjumpr.com/david-garnett/lady-into-fox
 - Clarissa by Samuel Richardson: "he went to the shelf and fetched down a volume of the "History of Clarissa Harlowe," which he had begun to read aloud to her"
 
+## Le Morte d'Arthur by Thomas Malory (1485)
+https://bookjumpr.com/thomas-malory/le-morte-d-arthur
+- Polychronicon by Ranulf Higden: "And also in Policronicon, in the fifth book the sixth chapter, and in the seventh book the twenty-third chapter, where his body was buried, and after found, and translated into the said monastery."
+- De Casibus Virorum Illustrium by Giovanni Boccaccio: "Ye shall see also in the history of Bochas, in his book De Casu Principum, part of his noble acts, and also of his fall."
+
 ## Leaves of Grass by Walt Whitman (1855)
 https://bookjumpr.com/walt-whitman/leaves-of-grass
 - Iliad by Homer: "…priests, and those of Ethiopia, The Hindu epics, the Grecian, Chinese, Persian, The Biblic books and prophets, and deep idyls of the Nazarene, The Iliad, Odyssey, plots, doings, wanderings of Eneas, Hesiod, Eschylus, Sophocles, Merlin, Arthur, The Cid, Roland at Roncesvalles, the Nibelungen,…"
@@ -4422,7 +4431,7 @@ https://bookjumpr.com/george-gissing/new-grub-street
 ## News from Nowhere by William Morris (1890)
 https://bookjumpr.com/william-morris/news-from-nowhere
 - Vanity Fair by William Makepeace Thackeray: "I like reading a good old book with plenty of fun in it, like Thackeray's 'Vanity Fair.'"
-- King Richard III by William Shakespeare: "the Bishop of Ely's house is mentioned in Shakespeare's play of King Richard III"
+- Richard III by William Shakespeare: "the Bishop of Ely's house is mentioned in Shakespeare's play of King Richard III"
 - Song of the Shirt by Thomas Hood: "singing Hood's Song of the Shirt"
 
 ## Nicholas Nickleby by Charles Dickens (1839)
@@ -4887,6 +4896,13 @@ https://bookjumpr.com/vladimir-nabokov/pale-fire
 - Little Red Riding Hood by Brothers Grimm: "The little cap of red velvet in the German version of Little Red Riding Hood is a symbol of menstruation"
 - The Poetic Edda by Anonymous: "a charming quatrain from our Zemblan counterpart of the Elder Edda, in an anonymous English translation (Kirby's?)"
 - Der Erlkönig by Johann Wolfgang von Goethe: "allude to the wellknown poem by Goethe about the erlking, hoary enchanter of the elf-haunted alderwood"
+
+## Pamela by Samuel Richardson (1740)
+https://bookjumpr.com/samuel-richardson/pamela
+- Aesop's Fables by Aesop: "Why, no more nor less, than that I am like the grasshopper in the fable, which I have read of in my lady's book, as follows:--[See the Aesop's Fables which have lately been selected and reformed from those of Sir R. L'Estrange, and the most eminent mythologists.]"
+- Telemachus by François Fénelon: "What are you reading? Sir, said he, and stammered with the surprise, it is the French Telemachus; for I am about perfecting myself, if I can, in the French tongue."
+- The Whole Duty of Man by Richard Allestree: "pray, when you take leave of them, present them with three guineas worth of good books; such as a family bible, a common prayer, a whole duty of man, or any other you think will be acceptable"
+- Book of Common Prayer by Anonymous: "pray, when you take leave of them, present them with three guineas worth of good books; such as a family bible, a common prayer, a whole duty of man, or any other you think will be acceptable"
 
 ## Pan Michael by Henryk Sienkiewicz (1888)
 https://bookjumpr.com/henryk-sienkiewicz/pan-michael
@@ -8299,6 +8315,11 @@ https://bookjumpr.com/jo-walton/the-philosopher-kings
 - Iliad by Homer: "No Amorgians were mentioned in Homer's Catalog of Ships."
 - Homeric Hymn to Apollo by Homer: "'How now shall I sing of you, though you are a worthy subject for song?' That's from the Homeric hymn to me—the same line is in both Homeric hymns to me actually, the Delphian and the Delian."
 
+## The Pickwick Papers by Charles Dickens (1837)
+https://bookjumpr.com/charles-dickens/the-pickwick-papers
+- Encyclopaedia Britannica by Anonymous: "'He _crammed _for it, to use a technical but expressive term; he read up for the subject, at my desire, in the "Encyclopaedia Britannica."'"
+- Richard III by William Shakespeare: "He had never had a sword in his hand before, except once when he played Richard the Third at a private theatre, upon which occasion it was arranged with Richmond that he was to be run through, from behind, without showing fight at all."
+
 ## The Picture of Dorian Gray by Oscar Wilde (1890)
 https://bookjumpr.com/oscar-wilde/the-picture-of-dorian-gray
 - Manon Lescaut by Abbé Prévost: "So the lad was looking rather sulky, as with listless fingers he turned over the pages of an elaborately illustrated edition of Manon Lescaut that he had found in one of the book-cases."
@@ -8928,6 +8949,12 @@ https://bookjumpr.com/willa-cather/the-song-of-the-lark
 - Standard Recitations by Anonymous: "She had a complete set of "Standard Recitations," which she conned on Sundays."
 - Polar Explorations by Anonymous: "…plunged in between her red blankets, the cold sometimes kept her awake for a good while, and she comforted herself by remembering all she could of "Polar Explorations," a fat, calf-bound volume her father had bought from a book-agent, and by thinking about the members of Greely's party: how they…"
 
+## The Sorrows of Young Werther by Johann Wolfgang von Goethe (1774)
+https://bookjumpr.com/johann-wolfgang-von-goethe/the-sorrows-of-young-werther
+- The Vicar of Wakefield by Oliver Goldsmith: "I endeavoured to conceal the emotion which these words occasioned, but it was of slight avail; for, when she had expressed so truly her opinion of "The Vicar of Wakefield," and of other works, the names of which I omit"
+- Emilia Galotti by Gotthold Ephraim Lessing: "He had drunk only one glass of the wine. "Emilia Galotti" lay open upon his bureau."
+- The Poems of Ossian by James Macpherson: ""There in my drawer," she continued, "you will find your own translation of some of the songs of Ossian. I have not yet read them, as I have still hoped to hear you recite them; but, for some time past, I have not been able to accomplish such a wish.""
+
 ## The Souls of Black Folk by W. E. B. Du Bois (1903)
 https://bookjumpr.com/w-e-b-du-bois/the-souls-of-black-folk
 - Foxe's Book of Martyrs by John Foxe
@@ -9175,6 +9202,10 @@ https://bookjumpr.com/diane-setterfield/the-thirteenth-tale
 - Hard Times by Charles Dickens: "Wuthering Heights ran into Emma, which gave way to The Eustace Diamonds, which faded into Hard Times, which ceded to The Woman in White."
 - The Eustace Diamonds by Anthony Trollope: "Wuthering Heights ran into Emma, which gave way to The Eustace Diamonds, which faded into Hard Times, which ceded to The Woman in White."
 - Lady Audley's Secret by Mary Elizabeth Braddon: "Let us return to Lady Audley and her secret, shall we?"
+
+## The Thirty-Nine Steps by John Buchan (1915)
+https://bookjumpr.com/john-buchan/the-thirty-nine-steps
+- A Thousand and One Nights by Anonymous: "My father had brought me out from Scotland at the age of six, and I had never been home since; so England was a sort of Arabian Nights to me, and I counted on stopping there for the rest of my days."
 
 ## The Thorn Birds by Colleen McCullough (1977)
 https://bookjumpr.com/colleen-mccullough/the-thorn-birds
@@ -9751,7 +9782,7 @@ https://bookjumpr.com/ali-smith/there-but-for-the
 ## Thérèse Raquin by Émile Zola (1867)
 https://bookjumpr.com/emile-zola/therese-raquin
 - Tom Thumb by Charles Perrault: "listened...with the affrighted and gaping countenances of small children listening to 'Blue Beard' or 'Tom Thumb.'"
-- Blue Beard by Charles Perrault: "listened...with the affrighted and gaping countenances of small children listening to 'Blue Beard' or 'Tom Thumb.'"
+- Bluebeard by Charles Perrault: "listened...with the affrighted and gaping countenances of small children listening to 'Blue Beard' or 'Tom Thumb.'"
 
 ## Thinking, Fast and Slow by Daniel Kahneman (2011)
 https://bookjumpr.com/daniel-kahneman/thinking-fast-and-slow
