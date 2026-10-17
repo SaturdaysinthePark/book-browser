@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 943 books that mention other books, 8,152 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 952 books that mention other books, 8,271 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -1242,6 +1242,16 @@ https://bookjumpr.com/michelle-obama/becoming
 https://bookjumpr.com/jerzy-kosinski/being-there
 - Fables by Ivan Krylov: "In addition, he had a rare first edition of Krylov's Fables, with Krylov's own notes handwritten on many of the pages, inserted into Gardiner's package."
 
+## Ben-Hur by Lew Wallace (1880)
+https://bookjumpr.com/lew-wallace/ben-hur
+- Childe Harold's Pilgrimage by Byron: "Preys upon high adventure, nor can tire Of aught but rest." Childe Harold."
+- Antony and Cleopatra by William Shakespeare: "Diomedes. His death's upon him, but not dead." Antony and Cleopatra (act iv., sc. xiii.)."
+- Don Carlos by Friedrich Schiller: "Whose consciences may calmly wait their right." Schiller, Don Carlos (act iv., sc. xv.)"
+- Endymion by John Keats: "I bow'd a tranced vassal."--KEATS, Endymion."
+- The Ramayana by Valmiki: "therein also are the Ramayana and the Mahabharata, heroic poems, designed for the perpetuation of our gods and demi-gods."
+- Mahabharata by Anonymous: "therein also are the Ramayana and the Mahabharata, heroic poems, designed for the perpetuation of our gods and demi-gods."
+- Talmud by Anonymous: ""These four are accounted as dead--the blind, the leper, the poor, and the childless." Thus the Talmud."
+
 ## Between the World and Me by Ta-Nehisi Coates (2015)
 https://bookjumpr.com/ta-nehisi-coates/between-the-world-and-me
 - Destruction of Black Civilization by Chancellor Williams
@@ -1542,6 +1552,10 @@ https://bookjumpr.com/kevin-kwan/china-rich-girlfriend
 - Can You Forgive Her? by Anthony Trollope: "Anthony Trollope—all the books in the Palliser series, beginning with Can You Forgive Her?"
 - Lean In by Sheryl Sandberg: "I noticed many magazines but not a single book in your entire house, with the exception of a Chinese-language translation of Sheryl Sandberg's Lean In found in one of the maid's bedrooms."
 - A Storm of Swords by George R.R. Martin: "Actually, everyone knows that Tommen Baratheon, age seven, is the youngest man to sit on the Iron Throne. (See George R. R. Martin's A Storm of Swords.)"
+
+## Civil Disobedience by Henry David Thoreau (1849)
+https://bookjumpr.com/henry-david-thoreau/civil-disobedience
+- My Prisons by Silvio Pellico: "This is the whole history of "My Prisons.""
 
 ## Clarissa by Samuel Richardson (1748)
 https://bookjumpr.com/samuel-richardson/clarissa
@@ -4089,6 +4103,11 @@ https://bookjumpr.com/jane-austen/mansfield-park
 - The Task by William Cowper
 - Tales by George Crabbe
 
+## Martin Chuzzlewit by Charles Dickens (1844)
+https://bookjumpr.com/charles-dickens/martin-chuzzlewit
+- Robinson Crusoe by Daniel Defoe: "where children's books were sold, and where poor Robinson Crusoe stood alone in his might, with dog and hatchet, goat-skin cap and fowling-pieces;"
+- A Thousand and One Nights by Anonymous: "and there the mighty talisman, the rare Arabian Nights, with Cassim Baba, divided by four, like the ghost of a dreadful sum, hanging up, all gory, in the robbers' cave."
+
 ## Martin Eden by Jack London (1909)
 https://bookjumpr.com/jack-london/martin-eden
 - First Principles by Herbert Spencer: "Martin was puzzled as to what the discussion was about, but when he rode on to the library he carried with him a new-born interest in Herbert Spencer, and because of the frequency with which the tramp had mentioned "First Principles," Martin drew out that volume."
@@ -4426,6 +4445,11 @@ https://bookjumpr.com/frederick-douglass/narrative-of-the-life-of-frederick-doug
 - The American Spelling Book by Noah Webster
 - The Columbian Orator by Caleb Bingham: "Just about this time, I got hold of a book entitled "The Columbian Orator.""
 - The Lady of the Lake by Walter Scott: "Johnson had just been reading the "Lady of the Lake," and at once suggested that my name be "Douglass.""
+
+## Nature by Ralph Waldo Emerson (1836)
+https://bookjumpr.com/ralph-waldo-emerson/nature
+- The Tempest by William Shakespeare: "…might be illustrated by a thousand examples from his Plays. I have before me the Tempest, and will cite only these few lines."
+- Antigone by Sophocles: "Is not the charm of one of Plato's or Aristotle's definitions, strictly like that of the Antigone of Sophocles?"
 
 ## Necessity by Jo Walton (2016)
 https://bookjumpr.com/jo-walton/necessity
@@ -5093,6 +5117,12 @@ https://bookjumpr.com/rudyard-kipling/plain-tales-from-the-hills
 https://bookjumpr.com/joan-didion/play-it-as-it-lays
 - I Ching by Anonymous: "I watch a hummingbird, throw the I Ching but never read the coins, keep my mind in the now."
 
+## Plutarch's Lives by Plutarch (100)
+https://bookjumpr.com/plutarch/plutarch-s-lives
+- Works and Days by Hesiod: "made the reputation of Hesiod, in the collection of maxims known as the 'Works and Days.'"
+- Iliad by Homer: "Most writers say that Solon brought the great authority of Homer's 'Iliad' to his aid, by interpolating in the catologue of ships"
+- The Suppliants by Euripides: "Euripides's play of the 'Suppliants' is contradicted by that of Aeschylus, the 'Eleusinians,' in which Theseus is introduced giving orders for this to be done."
+
 ## Poetics by Aristotle (c. 335 BC)
 https://bookjumpr.com/aristotle/poetics
 - Iliad by Homer
@@ -5467,6 +5497,20 @@ https://bookjumpr.com/yuval-noah-harari/sapiens-a-brief-history-of-humankind
 - Jurassic Park by Michael Crichton: "And not just dinosaurs, as in Jurassic Park"
 - Harry Potter by J. K. Rowling: "Harry Potter is a good example"
 - Alice's Adventures in Wonderland by Lewis Carroll: "from the adventures of Alice in Wonderland to the paradoxes of quantum physics"
+
+## Sartor Resartus by Thomas Carlyle (1836)
+https://bookjumpr.com/thomas-carlyle/sartor-resartus
+- The Spirit of the Laws by Montesquieu: ""As Montesquieu wrote a Spirit of Laws," observes our Professor, "so could I write a Spirit of Clothes; thus, with an Esprit des Lois, properly an Esprit de Coutumes"
+- Orbis Pictus by John Amos Comenius: "(as the Nurnbergers give an Orbis Pictus) an Orbis Vestitus"
+- Faust by Johann Wolfgang von Goethe: "or what the Earth-Spirit in Faust names it, the living visible Garment of God"
+- Mécanique Céleste by Pierre-Simon Laplace: "from Sanchoniathon to Dr. Lingard, from your Oriental Shasters, and Talmuds, and Korans, with Cassini's Siamese fables, and Laplace's Mecanique Celeste, down to Robinson Crusoe and the Belfast Town and Country Almanack, are familiar to him"
+- Robinson Crusoe by Daniel Defoe: "from Sanchoniathon to Dr. Lingard, from your Oriental Shasters, and Talmuds, and Korans, with Cassini's Siamese fables, and Laplace's Mecanique Celeste, down to Robinson Crusoe and the Belfast Town and Country Almanack, are familiar to him"
+- Wilhelm Tell by Friedrich Schiller: "It was then that, independently of Schiller's Wilhelm Tell, I made this not quite insignificant reflection (so true also in spiritual things): Any road, this simple Entepfuhl road, will lead you to the end of the World!"
+- The Sorrows of Young Werther by Johann Wolfgang von Goethe: "even as the great Goethe, in passionate words, had to write his Sorrows of Werter, before the spirit freed herself, and he could become a Man."
+- The Enchiridion by Epictetus: "The Enchiridion of Epictetus I had ever with me, often as my sole rational companion; and regret to mention that the nourishment it yielded was trifling."
+- Wissenschaftslehre by Johann Gottlieb Fichte: "If Fichte's Wissenschaftslehre be, 'to a certain extent, Applied Christianity,' surely to a still greater extent, so is this."
+- Wilhelm Meister's Apprenticeship by Johann Wolfgang von Goethe: "like the Lothario in Wilhelm Meister, that your 'America is here or nowhere'?"
+- The Taming of the Shrew by William Shakespeare: "Why of Shakspeare, in his Taming of the Shrew, and elsewhere?"
 
 ## Saving Agnes by Rachel Cusk (1993)
 https://bookjumpr.com/rachel-cusk/saving-agnes
@@ -6924,6 +6968,46 @@ https://bookjumpr.com/elena-ferrante/the-days-of-abandonment
 ## The Death of Ivan Ilyich by Leo Tolstoy (1886)
 https://bookjumpr.com/leo-tolstoy/the-death-of-ivan-ilyich
 - Adrienne Lecouvreur by Eugene Scribe and Ernest Legouve: ""No, have you seen her before?" "Yes, in Adrienne Lecouvreur." Praskovya Fedorovna mentioned some roles in which Sarah Bernhardt was particularly good."
+
+## The Descent of Man by Charles Darwin (1871)
+https://bookjumpr.com/charles-darwin/the-descent-of-man
+- On the Origin of Species by Charles Darwin: "I may take this opportunity of remarking that my critics frequently assume that I attribute all changes of corporeal structure and mental power exclusively to the natural selection of such variations as are often called spontaneous; whereas, even in the first edition of the 'Origin of Species,' I…"
+- The Variation of Animals and Plants Under Domestication by Charles Darwin: "I have given the evidence on this head in my 'Variation of Animals and Plants under Domestication,' vol."
+- The Expression of the Emotions in Man and Animals by Charles Darwin: "See my 'Expression of the Emotions in Man and Animals,' 1872, p."
+- Journal of Researches (The Voyage of a Naturalist) by Charles Darwin: "See, with respect to birds on oceanic islands, my 'Journal of Researches during the Voyage of the "Beagle,"' 1845, p."
+- Hereditary Genius by Francis Galton: "10. 'Hereditary Genius: an Inquiry into its Laws and Consequences,' 1869.)"
+- Prehistoric Times by John Lubbock: "Lubbock ('Prehistoric Times,' 1865, p. 479) in reference to this paper, namely, that Mr."
+- The Origin of Civilisation by John Lubbock: "Lubbock, 'Origin of Civilisation,' 1870, p. 278.) Nor, as we have seen, does the faculty of articulate speech in itself offer any insuperable objection to the belief that man has been developed from some lower form."
+- The Malay Archipelago by Alfred Russel Wallace: "Wallace (41. 'The Malay Archipelago,' vol. i."
+- Contributions to the Theory of Natural Selection by Alfred Russel Wallace: "Wallace's 'Contributions to the Theory of Natural Selection,' 1870, in which all the essays referred to in this work are re-published."
+- The Naturalist on the River Amazons by Henry Walter Bates: "Bates remarks ('The Naturalist on the Amazons,' 1863, vol. ii p."
+- The Naturalist in Nicaragua by Thomas Belt: "Belt, in his most interesting work, 'The Naturalist in Nicaragua,' 1874, (p."
+- The Geological Evidences of the Antiquity of Man by Charles Lyell: "On the Australians, see Huxley, in Lyell's 'Antiquity of Man,' 1863, p."
+- Principles of Geology by Charles Lyell: "Lyell had already ('Principles of Geology,' vol. ii."
+- Evidence as to Man's Place in Nature by Thomas Henry Huxley: "Huxley, 'Man's Place in Nature,' 1863, p. 34.) Man differs from woman in size, bodily strength, hairiness, etc., as well as in mind, in the same manner as do the two sexes of many mammals."
+- Utilitarianism by John Stuart Mill: "Mill speaks, in his celebrated work, 'Utilitarianism,' (1864, pp. 45, 46), of the social feelings as a "powerful natural sentiment," and as "the natural basis of sentiment for utilitarian morality." Again he says, "Like the other acquired capacities above referred"
+- Physics and Politics by Walter Bagehot: "Bagehot, 'Physics and Politics,' 1872, p. 72.), is a great crime; yet it was not so regarded until quite recently, even by the most civilised nations."
+- The Reign of Law by George Campbell, Duke of Argyll: "The ocelli on the wing-feathers are wonderful objects; for they are so shaded that, as the Duke of Argyll remarks (90. 'The Reign of Law,' 1867, p. 203.), they stand out like balls lying loosely within sockets."
+- Primitive Marriage by John Ferguson McLennan: "M'Lennan (61. 'Primitive Marriage,' 1865.) has shewn, on a still more extensive scale."
+- Researches into the Early History of Mankind by Edward Burnett Tylor: "Tylor, 'Early History of Mankind,' 1865, p. 6."
+- The Principles of Psychology by Herbert Spencer: "Herbert Spencer (4. 'The Principles of Psychology,' 2nd edit., 1870, pp. 418- 443.), have been developed through the multiplication and co-ordination of reflex actions, and although many of the simpler instincts graduate into reflex actions, and can hardly be distinguishe"
+- The Principles of Biology by Herbert Spencer: "Herbert Spencer (27. 'Principles of Biology,' vol. i."
+- The Martyrdom of Man by Winwood Reade: "Winwood Reade, 'The Martyrdom of Man,' 1872, p. 441, and 'African Sketch Book,' 1873, vol."
+- The Natural History of Selborne by Gilbert White: "Gilbert White, 'Natural History of Selborne,' vol. ii."
+- The Physiology and Pathology of Mind by Henry Maudsley: "Maudsley's 'Physiology and Pathology of Mind,' 1868, pp. 19, 220.), "who must reflect whether he shall make a character say yes or no--to the devil with him; he is only a stupid corpse." Dreaming gives us the best notion of this power; as Jean Paul again s"
+- Body and Mind by Henry Maudsley: "Maudsley, 'Body and Mind,' 1870, pp. 46-51."
+- The Emotions and the Will by Alexander Bain: "see, for instance, 'The Emotions and the Will,' 1865, p."
+- Mental and Moral Science by Alexander Bain: "Bain gives a list ('Mental and Moral Science,' 1868, pp. 543-725) of twenty-six British authors who have written on this subject, and whose names are familiar to every reader; to these, Mr."
+- Primeval Man by George Campbell, Duke of Argyll: "The Duke of Argyll, for instance, insists (96. 'Primeval Man,' 1869, p. 66.) that "the human frame has diverged from the structure of brutes, in the direction of greater physical helplessness and weakness."
+- Researches into the Physical History of Mankind by James Cowles Prichard: "For the Polynesians, see Prichard's 'Physical History of Mankind,' vol."
+- Ornithological Biography by John James Audubon: "Now the young males at first entirely resemble the females, and have a greyish-white speculum, which becomes pure white at an earlier age than that at which the adult male acquires his other and more strongly-marked sexual differences: see Audubon, 'Ornithological Biography,' vol."
+- The Birds of India by Thomas C. Jerdon: "Jerdon, 'Birds of India,' vol. i."
+- Illustrirtes Thierleben by Alfred Brehm: "Brehm, 'Thierleben,' B. i."
+- An Introduction to Entomology by William Kirby and William Spence: "Kirby and Spence, 'Introduction to Entomology,' vol. iii."
+- Handbook to the Birds of Australia by John Gould: "Gould, 'Handbook to the Birds of Australia,' vol. i."
+- Lectures on Man by Carl Vogt: "This rudiment apparently is somewhat larger in Negroes and Australians than in Europeans, see Carl Vogt, 'Lectures on Man,' Eng."
+- On the Anatomy of Vertebrates by Richard Owen: "Owen, 'Anatomy of Vertebrates,' vol. i."
+- Le Règne Animal by Georges Cuvier: "Cuvier, 'Regne Animal,' vol. ii."
 
 ## The Diamond Age by Neal Stephenson (1995)
 https://bookjumpr.com/neal-stephenson/the-diamond-age
@@ -9143,6 +9227,30 @@ https://bookjumpr.com/kurt-vonnegut/the-sirens-of-titan
 - The City of God by Augustine of Hippo: "Constant sees Rumfoord's palace "shining out there like St. Augustine's City of God.""
 - Les Misérables by Victor Hugo: "A comic book aboard the ship, given as "The Miserable Ones" (a literal translation of the French title), "about a man who stole some gold candlesticks from a priest who had been nice to him" — unmistakably Jean Valjean and the Bishop."
 
+## The Sketch Book of Geoffrey Crayon by Washington Irving (1820)
+https://bookjumpr.com/washington-irving/the-sketch-book-of-geoffrey-crayon
+- The Flower and the Leaf by Geoffrey Chaucer: "those incomparable descriptions of Nature, that abound in the British poets--that have continued down from "The Flower and the Leaf," of Chaucer, and have brought into our closets all the freshness and fragrance of the dewy landscape."
+- The Paradise of Dainty Devices by Richard Edwards: "had stuck a nosegay in his bosom, culled from "The Paradise of Dainty Devices," and having put Sir Philip Sidney's hat on one side of his head,"
+- Jerusalem Delivered by Torquato Tasso: "lived round Tasso in his dismal cell at Ferrara, when he conceived the splendid scenes of his Jerusalem;"
+- The Kingis Quair by James I of Scotland: "we may consider The King's Quair,* composed by James during his captivity at Windsor, as another of those beautiful breakings forth of the soul from the restraint and gloom of the prison-house."
+- The Knight's Tale by Geoffrey Chaucer: "There is, in this charming scene, an evident resemblance to the early part of Chaucer's Knight's Tale, where Palamon and Arcite fall in love with Emilia, whom they see walking in the garden of their prison."
+- Christ's Kirk on the Green by James I of Scotland: "one, which is still preserved, called "Christ's Kirk of the Green," shows how diligently he had made himself acquainted with the rustic sports and pastimes,"
+- Henry IV, Part 1 by William Shakespeare: "casually opened upon the comic scenes of Henry IV., and was, in a moment, completely lost in the madcap revelry of the Boar's Head Tavern."
+- Arcadia by Philip Sidney: "nothing is read nowadays but Sir Philip Sidney's Arcadia, Sackville's stately plays and Mirror for Magistrates, or the fine-spun euphuisms of the 'unparalleled John Lyly.'""
+- Mirror for Magistrates by William Baldwin: "nothing is read nowadays but Sir Philip Sidney's Arcadia, Sackville's stately plays and Mirror for Magistrates, or the fine-spun euphuisms of the 'unparalleled John Lyly.'""
+- The Maid's Tragedy by Francis Beaumont and John Fletcher: "In The Maid's Tragedy, by Beaumont and Fletcher, there is a beautiful instance of the kind describing the capricious melancholy of a broken-hearted girl:"
+- Sylva by John Evelyn: ""We adorn their graves," says Evelyn, in his Sylva, "with flowers and redolent plants, just emblems of the life of man,"
+- The City Madam by Philip Massinger: "Massinger, in his "City Madam," gives some idea of the extravagance with which this, as well as other dishes, was prepared for the gorgeous revels of the olden times:"
+- The Masque of Christmas by Ben Jonson: "I strongly suspect Master Simon to have taken the idea of his from Ben Jonson's "Masque of Christmas.""
+- Gammer Gurton's Needle by William Stevenson: "sing his "Confession of Faith," which is the famous old drinking trowl from "Gammer Gurton's Needle.""
+- Picturesque Views on the Avon by Samuel Ireland: "picked up at Stratford by the elder Ireland, and mentioned in his "Picturesque Views on the Avon.""
+- The Discoverie of Witchcraft by Reginald Scot: "Scot, in his "Discoverie of Witchcraft," enumerates a of these fireside fancies:"
+- As You Like It by William Shakespeare: "some of Shakepeare's commentators have supposed he derived his noble forest meditations of Jaques and the enchanting woodland pictures in "As You Like It.""
+- The Merry Wives of Windsor by William Shakespeare: "They are mentioned in the first scene of the "Merry Wives of Windsor," where the justice, is in a rage with Falstaff for having "beaten his men,"
+- Robinson Crusoe by Daniel Defoe: "many an unlucky urchin is induced to run away from his family and betake himself to a seafaring life from reading the history of Robinson Crusoe;"
+- The Compleat Angler by Izaak Walton: "I recollect studying his Complete Angler several years since in company with a knot of friends in America,"
+- Macbeth by William Shakespeare: "The contents of his book seemed to be as heterogeneous as those of the witches' cauldron in Macbeth."
+
 ## The Small House at Allington by Anthony Trollope (1864)
 https://bookjumpr.com/anthony-trollope/the-small-house-at-allington
 - Robinson Crusoe by Daniel Defoe: "What do you say to Robinson Crusoe?" said Bell."
@@ -10459,6 +10567,44 @@ https://bookjumpr.com/ron-chernow/washington-a-life
 ## Water for Elephants by Sara Gruen (2006)
 https://bookjumpr.com/sara-gruen/water-for-elephants
 - Othello by William Shakespeare: "I'm lounging on my bedroll reading Othello and Walter is on his cot reading Wordsworth."
+
+## Waverley by Walter Scott (1814)
+https://bookjumpr.com/walter-scott/waverley
+- Commentaries on the Gallic War by Julius Caesar: "which may be observed less or more in every work in which the third person is used, from the Commentaries of Caesar to the Autobiography of Alexander the Corrector."
+- Artamène, ou le Grand Cyrus by Madeleine de Scudéry: "It exhibited specimens of every kind, from the romances of chivalry and the ponderous folios of Cyrus and Cassandra, down to the most approved works of later times."
+- Cassandre by La Calprenède: "It exhibited specimens of every kind, from the romances of chivalry and the ponderous folios of Cyrus and Cassandra, down to the most approved works of later times."
+- Queenhoo-Hall by Joseph Strutt: "amongst which was an unfinished romance, entitled Queenhoo Hall."
+- Ane Satyre of the Thrie Estaitis by David Lindsay: "A similar burlesque sermon is pronounced by the Fool in Sir David Lindesay's satire of the "Three Estates.""
+- Twelfth Night by William Shakespeare: "The nonsense and vulgar burlesque of that composition illustrate the ground of Sir Andrew, Aguecheek's eulogy on the exploits of the jester in "Twelfth Night,""
+- The Famous Historie of Fryer Bacon by Anonymous: "The following song, which has been since borrowed by the worshipful author of the famous "History of Fryar Bacon," has been with difficulty deciphered."
+- The Decameron by Giovanni Boccaccio: "sought gratification in the numerous collections of novelle, which were brought forth by the genius of that elegant though luxurious nation, in emulation of the 'Decameron.'"
+- Natural History by Pliny the Elder: "nor would I utterly accede to the objurgation of the younger Plinius, in the fourteenth book of his 'Historia Naturalis.'"
+- Delitiae Poetarum Scotorum by Arthur Johnston: "and the 'Deliciae Poetarum Scotorum,' and Sir David Lindsay's 'Works', and Barbour's 'Brace', and Blind Harry's 'Wallace', and 'The Gentle Shepherd', and 'The Cherry and The Slae.'"
+- The Bruce by John Barbour: "and Barbour's 'Brace', and Blind Harry's 'Wallace', and 'The Gentle Shepherd', and 'The Cherry and The Slae.'"
+- The Wallace by Blind Harry: "and Barbour's 'Brace', and Blind Harry's 'Wallace', and 'The Gentle Shepherd', and 'The Cherry and The Slae.'"
+- The Gentle Shepherd by Allan Ramsay: "and Barbour's 'Brace', and Blind Harry's 'Wallace', and 'The Gentle Shepherd', and 'The Cherry and The Slae.'"
+- The Cherrie and the Slae by Alexander Montgomerie: "and Barbour's 'Brace', and Blind Harry's 'Wallace', and 'The Gentle Shepherd', and 'The Cherry and The Slae.'"
+- Hieroglyphica Animalium by Archibald Simson: "as might be read in Archibald Simson, pastor of Dalkeith's 'Hieroglyphica Animalium'"
+- La Pícara Justina by Francisco López de Úbeda: "The ingenious licentiate Francisco de Ubeda, when he commenced his history of 'La Picara Justina Diez,'--which, by the way, is one of the most rare books of Spanish literature,"
+- De Jurejurando by Tomás Sánchez: "This is something like the brocard expressed by the learned Sanchez in his work "De Jure-jurando" which you have questionless consulted upon this occasion."
+- Verrine Orations by Cicero: "which is prelected upon by Tullius in his oration "In Verrem.""
+- The Art of English Poetry by Edward Bysshe: "to any more splendid illustration with which Byshe's 'Art of Poetry' might supply me."
+- The Anatomy of Melancholy by Robert Burton: "or, as Burton's "Anatomia" hath it, a phrenesiac or lethargic patient,"
+- Romeo and Juliet by William Shakespeare: "'Romeo and Juliet' was selected, and Edward read with taste, feeling, and spirit several scenes from that play."
+- The Constant Couple, or A Trip to the Jubilee by George Farquhar: "but my young bravo whips out his pistol, like Beau Clincher in the "Trip to the Jubilee,""
+- Styles of Writs by George Dallas: "whipped down Dallas of St. Martin's 'Styles' from a shelf, where that venerable work roosted with Stair's 'Institutions,' Dirleton's 'Doubts,' Balfour's 'Practiques,'"
+- The Institutions of the Law of Scotland by James Dalrymple, Viscount Stair: "where that venerable work roosted with Stair's 'Institutions,' Dirleton's 'Doubts,' Balfour's 'Practiques,' and a parcel of old account-books,"
+- Doubts and Questions in the Law by John Nisbet, Lord Dirleton: "where that venerable work roosted with Stair's 'Institutions,' Dirleton's 'Doubts,' Balfour's 'Practiques,' and a parcel of old account-books,"
+- Practicks by James Balfour: "where that venerable work roosted with Stair's 'Institutions,' Dirleton's 'Doubts,' Balfour's 'Practiques,' and a parcel of old account-books,"
+- The Cottagers of Glenburnie by Elizabeth Hamilton: "I mean Mrs. Hamilton's 'Glenburnie' and the late account of 'Highland Superstitions.'"
+- Essays on the Superstitions of the Highlanders of Scotland by Anne Grant: "I mean Mrs. Hamilton's 'Glenburnie' and the late account of 'Highland Superstitions.'"
+- The History of the Rebellion in the Year 1745 by John Home: "corrected from the 'History of the Rebellion' by the late venerable author of 'Douglas.'"
+- Douglas by John Home: "corrected from the 'History of the Rebellion' by the late venerable author of 'Douglas.'"
+- King Lear by William Shakespeare: "which reminded Waverley of a rhyme quoted by Edgar in King Lear;"
+- The Odyssey by Homer: "He was not, indeed, so luxuriously attended upon this occasion as the heroic travellers in the Odyssey;"
+- The Merry Wives of Windsor by William Shakespeare: "who often resembled, in his quaint humour, mine Host of the Garter in the Merry Wives of Windsor; or Blague of the George in the Merry Devil of Edmonton."
+- The Merry Devil of Edmonton by Anonymous: "who often resembled, in his quaint humour, mine Host of the Garter in the Merry Wives of Windsor; or Blague of the George in the Merry Devil of Edmonton."
+- The Gypsies Metamorphosed by Ben Jonson: "Love a horse and a hound, but no part of a swine. The Gipsies Metamorphosed."
 
 ## We Have Always Lived in the Castle by Shirley Jackson (1962)
 https://bookjumpr.com/shirley-jackson/we-have-always-lived-in-the-castle
