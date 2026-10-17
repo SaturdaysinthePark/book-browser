@@ -1610,7 +1610,7 @@ https://bookjumpr.com/carl-sagan/contact
 - Poems by Ralph Waldo Emerson: "Chapter epigraph: "—RALPH WALDO EMERSON 'Merlin,' Poems (1847)""
 - Politics by Aristotle: "Chapter epigraph: "—ARISTOTLE The Politics Book 2, Chapter 5""
 - De Natura Deorum by Cicero: "Chapter epigraph: "—CICERO De Natura Deorum, I, 1""
-- Confessions by Augustine: "Chapter epigraph: "—AUGUSTINE Confessions, II, 3""
+- The Confessions by Augustine of Hippo: "Chapter epigraph: "—AUGUSTINE Confessions, II, 3""
 - The City of God by Augustine: "Chapter epigraph: "—AUGUSTINE The City of God, VIII, 22""
 - Skeptical Essays by Bertrand Russell: "Chapter epigraph: "—BERTRAND RUSSELL Skeptical Essays, I (1928)""
 - Cinna by Pierre Corneille: "Chapter epigraph: "—PIERRE CORNEILLE Cinna (1640), Act IV, Scene II""
@@ -9468,7 +9468,7 @@ https://bookjumpr.com/william-james/the-varieties-of-religious-experience
 - Cherubinischer Wandersmann by Angelus Silesius
 - Iliad by Homer
 - The Confessions by Augustine of Hippo
-- Buddhism in Translation by Henry Clarke Warren
+- Buddhism in Translations by Henry Clarke Warren
 - The Life of Trust by George Mueller
 - La Religion by Etienne Vacherot
 - Leaves of Grass by Walt Whitman
