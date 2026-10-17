@@ -153,6 +153,7 @@
   <url><loc>https://bookjumpr.com/anonymous/the-egyptian-book-of-the-dead</loc><lastmod>2026-07-18</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/the-epic-of-gilgamesh</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/the-koran</loc><lastmod>2026-07-14</lastmod></url>
+  <url><loc>https://bookjumpr.com/anonymous/the-newgate-calendar</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/the-nibelungenlied</loc><lastmod>2026-07-26</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/the-poetic-edda</loc><lastmod>2026-07-19</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/the-song-of-roland</loc><lastmod>2026-08-01</lastmod></url>
@@ -345,7 +346,7 @@
   <url><loc>https://bookjumpr.com/charles-dickens/little-dorrit</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-dickens/martin-chuzzlewit</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-dickens/nicholas-nickleby</loc><lastmod>2026-08-01</lastmod></url>
-  <url><loc>https://bookjumpr.com/charles-dickens/oliver-twist</loc><lastmod>2026-10-11</lastmod></url>
+  <url><loc>https://bookjumpr.com/charles-dickens/oliver-twist</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-dickens/our-mutual-friend</loc><lastmod>2026-07-20</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-dickens/the-mystery-of-edwin-drood</loc><lastmod>2026-07-17</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-dickens/the-old-curiosity-shop</loc><lastmod>2026-07-17</lastmod></url>
@@ -918,7 +919,7 @@
   <url><loc>https://bookjumpr.com/herman-wouk/marjorie-morningstar</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/hermann-hesse/demian</loc><lastmod>2026-07-17</lastmod></url>
   <url><loc>https://bookjumpr.com/hermann-hesse/narcissus-and-goldmund</loc><lastmod>2026-07-18</lastmod></url>
-  <url><loc>https://bookjumpr.com/hermann-hesse/siddhartha</loc><lastmod>2026-08-10</lastmod></url>
+  <url><loc>https://bookjumpr.com/hermann-hesse/siddhartha</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/hermann-hesse/steppenwolf</loc><lastmod>2026-07-26</lastmod></url>
   <url><loc>https://bookjumpr.com/hermann-hesse/wandering</loc><lastmod>2026-07-17</lastmod></url>
   <url><loc>https://bookjumpr.com/herodotus/histories</loc><lastmod>2026-07-14</lastmod></url>
@@ -1322,7 +1323,6 @@
   <url><loc>https://bookjumpr.com/leo-tolstoy/the-kreutzer-sonata</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/leo-tolstoy/war-and-peace</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/lew-wallace/ben-hur</loc><lastmod>2026-07-20</lastmod></url>
-  <url><loc>https://bookjumpr.com/lewis-carroll/alice-in-wonderland</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/lewis-carroll/alice-s-adventures-in-wonderland</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/lewis-carroll/the-hunting-of-the-snark</loc><lastmod>2026-07-25</lastmod></url>
   <url><loc>https://bookjumpr.com/lewis-carroll/through-the-looking-glass</loc><lastmod>2026-10-11</lastmod></url>
@@ -2285,7 +2285,7 @@
   <url><loc>https://bookjumpr.com/charles-baudelaire</loc><lastmod>2026-08-01</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-brockden-brown</loc><lastmod>2026-07-22</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-darwin</loc><lastmod>2026-10-11</lastmod></url>
-  <url><loc>https://bookjumpr.com/charles-dickens</loc><lastmod>2026-10-14</lastmod></url>
+  <url><loc>https://bookjumpr.com/charles-dickens</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-johnstone</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-kingsley</loc><lastmod>2026-08-01</lastmod></url>
   <url><loc>https://bookjumpr.com/charles-lamb</loc><lastmod>2026-07-20</lastmod></url>
@@ -2560,7 +2560,7 @@
   <url><loc>https://bookjumpr.com/herbert-spencer</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/herman-melville</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/herman-wouk</loc><lastmod>2026-08-10</lastmod></url>
-  <url><loc>https://bookjumpr.com/hermann-hesse</loc><lastmod>2026-08-10</lastmod></url>
+  <url><loc>https://bookjumpr.com/hermann-hesse</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/herodotus</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/hesiod</loc><lastmod>2026-07-18</lastmod></url>
   <url><loc>https://bookjumpr.com/hilaire-belloc</loc><lastmod>2026-08-02</lastmod></url>

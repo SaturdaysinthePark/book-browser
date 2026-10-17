@@ -10,6 +10,10 @@ bookjumpr. It replaces ad-hoc one-off searches with a resilient, repeatable proc
 
 ## 1. Dedup-check BEFORE doing any fetching
 
+First skip anything in `data/checked-sources.csv`: books whose full text was already read for
+mentions, including ones that turned out to name no other book. After scanning a book, append it
+there (`slug,title,checked,text_source,mentions_found`) even when `mentions_found` is 0.
+
 Check every candidate title against the **full identity set**, not just the metadata CSV:
 
 ```js

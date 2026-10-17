@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 903 books that mention other books, 7,807 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 905 books that mention other books, 7,811 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -577,7 +577,7 @@ https://bookjumpr.com/robin-sloan/ajax-penumbra-1969
 - Foundation by Isaac Asimov: "It is Isaac Asimov’s Foundation; Claude has spoken of this one often."
 - Dune by Frank Herbert: "Midway through, a fuzzy-chinned young man approaches the desk with a battered copy of Dune and a motley handful of coins."
 - Stand on Zanzibar by John Brunner: "Claude wanders through the store, pausing to peruse the table marked SCIENCE FICTION. He finds a book there and brings it to the desk. Stand on Zanzibar."
-- Through the Looking-Glass, and What Alice Found There by Lewis Carroll: "The note: “To my darling boy, on the occasion of Lewis Carroll’s 93rd birthday.” Through the Looking-Glass, and What Alice Found There."
+- Through the Looking-Glass by Lewis Carroll: "The note: “To my darling boy, on the occasion of Lewis Carroll’s 93rd birthday.” Through the Looking-Glass, and What Alice Found There."
 - The Electric Kool-Aid Acid Test by Tom Wolfe: "Penumbra is halfway through The Electric Kool-Aid Acid Test; he feels like he understands the overnight crowd better with every page."
 - Naked Came the Stranger by Penelope Ashe: "The woman with the portable radio is hoisting a book up above the crowd, jabbing a finger at its cover: Naked Came the Stranger."
 - The Drowned World by J. G. Ballard: "Felix presents his now preposterously tattered copy of Dune and asks if he can trade it in for The Drowned World."
@@ -2085,7 +2085,7 @@ https://bookjumpr.com/john-steinbeck/east-of-eden
 - The Winning of Barbara Worth by Harold Bell Wright: "He sat up in bed and read seven chapters of The Winning of Barbara Worth, and when it was daylight he went down to the silent kitchen and made a pot of coffee."
 - Principles of Psychology by William James: "It's called The Principles of Psychology and it's by an Eastern man named William James."
 - Book of Common Prayer by Anonymous: "And on the floor were two books, the hymnal and the Book of Common Prayer, one on top of the other."
-- Alice in Wonderland by Lewis Carroll: "“What’s that book you’re hiding?” “Here, I’m not hiding it.” “Oh! Alice in Wonderland. You’re too big for that.” Cathy said, “I can get to be so little you can’t even see me.”"
+- Alice's Adventures in Wonderland by Lewis Carroll: "“What’s that book you’re hiding?” “Here, I’m not hiding it.” “Oh! Alice in Wonderland. You’re too big for that.” Cathy said, “I can get to be so little you can’t even see me.”"
 
 ## East, West by Salman Rushdie (1994)
 https://bookjumpr.com/salman-rushdie/east-west
@@ -4497,6 +4497,10 @@ https://bookjumpr.com/walter-scott/old-mortality
 - Henry IV by William Shakespeare
 - Elegy on Habbie Simpson by Robert Sempill of Beltrees
 
+## Oliver Twist by Charles Dickens (1838)
+https://bookjumpr.com/charles-dickens/oliver-twist
+- The Newgate Calendar by Anonymous: "'cause it can't come out in the 'dictment; 'cause nobody will never know half of what he was. How will he stand in the Newgate Calendar?"
+
 ## On Beauty by Zadie Smith (2005)
 https://bookjumpr.com/zadie-smith/on-beauty
 - Alice's Adventures in Wonderland by Lewis Carroll: "With his free hand Howard took a turn-of-the-century edition of Alice in Wonderland off the shelf and brought it with Murdoch to the couch."
@@ -5386,6 +5390,12 @@ https://bookjumpr.com/james-clavell/shogun
 - Romeo and Juliet by William Shakespeare: ""I took my wife to Romeo and Juliet and she liked it very much." He explained the plots to her."
 - The Taming of the Shrew by William Shakespeare: "Perhaps we'd see The Taming of the Shrew or A Midsummer Night's Dream or Romeo and Juliet."
 - A Midsummer Night's Dream by William Shakespeare: "Perhaps we'd see The Taming of the Shrew or A Midsummer Night's Dream or Romeo and Juliet."
+
+## Siddhartha by Hermann Hesse (1922)
+https://bookjumpr.com/hermann-hesse/siddhartha
+- Rig Veda by Anonymous: "Dreams and restless thoughts came into his mind, flowing from the water of the river, sparkling from the stars of the night, melting from the beams of the sun, dreams came to him and a restlessness of the soul, fuming from the sacrifices, breathing forth from the verses of the Rig-Veda, being infused into him, drop by drop, from the…"
+- Atharva Veda by Anonymous: "Neither Yoga-Veda shall teach me any more, nor Atharva-Veda, nor the ascetics, nor any kind of teachings. I want to learn from myself, want to be my student, want to get to know myself, the secret of Siddhartha."
+- Chandogya Upanishad by Anonymous: "Often he spoke to himself from a Chandogya-Upanishad the words: "Truly, the name of the Brahman is satyam--verily, he who knows such a thing, will enter the heavenly world every day.""
 
 ## Sister Carrie by Theodore Dreiser (1900)
 https://bookjumpr.com/theodore-dreiser/sister-carrie
@@ -9195,7 +9205,7 @@ https://bookjumpr.com/italo-calvino/the-uses-of-literature
 - Demons by Fyodor Dostoevsky: "If I read Turgenev's Fathers and Sons or Dostoyevsky's The Possessed, I cannot help thinking how the characters have continued to be reincarnated"
 - Fathers and Sons by Ivan Turgenev: "Paired with Dostoyevsky's The Possessed in the same passage about recurring character types"
 - The Nose by Nikolai Gogol: "Grouped with Alice in Wonderland and Kafka's Metamorphoses as fantasy that unravels a logic with rules"
-- Alice in Wonderland by Lewis Carroll: "Cited in the same passage as an example of fantasy readers' pleasure in unraveling internal logic"
+- Alice's Adventures in Wonderland by Lewis Carroll: "Cited in the same passage as an example of fantasy readers' pleasure in unraveling internal logic"
 - The Fables of La Fontaine by Jean de La Fontaine: "Calvino mentions not knowing Marianne Moore's translation of the Fables but suspecting it would be illuminating"
 - The Charterhouse of Parma by Stendhal: "Subject of the essay "Guide to The Charterhouse of Parma for the Use of New Readers""
 - Don Quixote by Miguel de Cervantes: "Discussed repeatedly, including as a philosophical novel and via the device of the fictional Arab chronicler Cid Hamet Benengeli"

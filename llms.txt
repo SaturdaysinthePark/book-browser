@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-17. Updated whenever books are added.
 
-> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,401 books, 7,807 mentions.
+> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,402 books, 7,811 mentions.
 
 Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.
 
@@ -28,10 +28,10 @@ A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https
 - Anna Karenina by Leo Tolstoy: mentioned in 37 books
 - King Lear by William Shakespeare: mentioned in 37 books
 - War and Peace by Leo Tolstoy: mentioned in 29 books
+- Alice's Adventures in Wonderland by Lewis Carroll: mentioned in 28 books
 - Moby-Dick by Herman Melville: mentioned in 28 books
 - The Odyssey by Homer: mentioned in 28 books
 - Madame Bovary by Gustave Flaubert: mentioned in 27 books
-- Alice's Adventures in Wonderland by Lewis Carroll: mentioned in 26 books
 - Faust by Johann Wolfgang von Goethe: mentioned in 25 books
 - Macbeth by William Shakespeare: mentioned in 25 books
 - The Divine Comedy by Dante Alighieri: mentioned in 23 books
@@ -52,7 +52,7 @@ A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https
 ## Questions BookJumpr answers
 
 Q: What is BookJumpr?
-A: BookJumpr (https://bookjumpr.com) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers 5,401 books and 7,807 mentions, most with the line where the mention happens.
+A: BookJumpr (https://bookjumpr.com) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers 5,402 books and 7,811 mentions, most with the line where the mention happens.
 
 Q: What is the most mentioned book in other books?
 A: In BookJumpr's data, Don Quixote by Miguel de Cervantes is the book most often named inside other books (75 books), followed by Hamlet by William Shakespeare (71) and Robinson Crusoe by Daniel Defoe (63).
