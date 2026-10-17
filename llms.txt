@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-17. Updated whenever books are added.
 
-> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,454 books, 7,909 mentions.
+> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,449 books, 7,909 mentions.
 
 Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.
 
@@ -21,8 +21,8 @@ A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https
 - Don Quixote by Miguel de Cervantes: mentioned in 76 books
 - Hamlet by William Shakespeare: mentioned in 71 books
 - Robinson Crusoe by Daniel Defoe: mentioned in 63 books
+- A Thousand and One Nights by Anonymous: mentioned in 55 books
 - Romeo and Juliet by William Shakespeare: mentioned in 49 books
-- A Thousand and One Nights by Anonymous: mentioned in 46 books
 - Iliad by Homer: mentioned in 45 books
 - Paradise Lost by John Milton: mentioned in 39 books
 - Anna Karenina by Leo Tolstoy: mentioned in 37 books
@@ -52,7 +52,7 @@ A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https
 ## Questions BookJumpr answers
 
 Q: What is BookJumpr?
-A: BookJumpr (https://bookjumpr.com) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers 5,454 books and 7,909 mentions, most with the line where the mention happens.
+A: BookJumpr (https://bookjumpr.com) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers 5,449 books and 7,909 mentions, most with the line where the mention happens.
 
 Q: What is the most mentioned book in other books?
 A: In BookJumpr's data, Don Quixote by Miguel de Cervantes is the book most often named inside other books (76 books), followed by Hamlet by William Shakespeare (71) and Robinson Crusoe by Daniel Defoe (63).

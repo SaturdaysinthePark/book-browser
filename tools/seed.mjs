@@ -5,6 +5,7 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 import { DATA_JS, counts } from './db.mjs';
 import { buildText } from './build.mjs';
+import { slug } from './slug.mjs';
 
 // Read window.BookJumprData out of the generated JS by running it in a sandbox.
 export function loadDataJs(file = DATA_JS) {
@@ -25,7 +26,7 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
     throw new Error(`DB is not empty (books=${c0.books}, mentions=${c0.mentions}). Re-run with --reset to overwrite.`);
   }
 
-  const { NODES, MENTIONS } = loadDataJs(file);
+  const { NODES, MENTIONS, ALIASES = {} } = loadDataJs(file);
   const insBook = db.prepare(
     `INSERT INTO books (slug, title, author, year, synopsis, genre, has_meta, sort_order)
      VALUES (?, ?, ?, ?, ?, ?, ?, ?)`
@@ -40,6 +41,7 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
   try {
     if (reset) {
       db.exec('DELETE FROM mentions');
+      db.exec('DELETE FROM aliases');
       db.exec('DELETE FROM books');
       db.exec("DELETE FROM sqlite_sequence WHERE name = 'mentions'");
     }
@@ -57,6 +59,8 @@ export function seed(db, { reset = false, verify = false, file = DATA_JS } = {})
       const res = insMention.run(s, t, mentAuthor, st, mt);
       if (res.changes === 0) { dupes++; if (dupeExamples.length < 5) dupeExamples.push([s, t]); }
     }
+    const insAlias = db.prepare('INSERT OR IGNORE INTO aliases (alias_slug, book_slug, alias) VALUES (?, ?, ?)');
+    for (const [key, list] of Object.entries(ALIASES)) for (const a of list) if (NODES[key]) insAlias.run(slug(a), key, a);
     db.exec('COMMIT');
   } catch (e) {
     db.exec('ROLLBACK');

@@ -46,9 +46,9 @@ const clean = q => q.trim().replace(/^"([^"]*)"$/, '$1').replace(/^“([^“”]
 function load() {
   const ctx = { window: {} }; vm.createContext(ctx);
   for (const f of ['bookjumpr-data.js', 'bookjumpr-notes.js']) vm.runInContext(fs.readFileSync(f, 'utf8'), ctx);
-  const { NODES, MENTIONS } = ctx.window.BookJumprData, NOTES = {};
+  const { NODES, MENTIONS, ALIASES = {} } = ctx.window.BookJumprData, NOTES = {};
   ctx.window.BookJumprNotes.NOTES.forEach(([i, n]) => { NOTES[i] = n; });
-  return { NODES, MENTIONS, NOTES };
+  return { NODES, MENTIONS, NOTES, ALIASES };
 }
 
 // newest book/mention timestamp in the DB, as YYYY-MM-DD
@@ -64,7 +64,7 @@ const authorSlug = a => slug(a || '') || 'anonymous';   // mirrors P.authorSlug 
 const listOf = (names, max) => names.length <= max ? names.join('; ') : names.slice(0, max).join('; ') + `; and ${names.length - max} more`;
 
 export function seoContent(updated) {
-  const { NODES, MENTIONS, NOTES } = load();
+  const { NODES, MENTIONS, NOTES, ALIASES } = load();
   const indeg = {}; MENTIONS.forEach(([a, b]) => { if (a !== b && NODES[b]) indeg[b] = (indeg[b] || 0) + 1; });
   const top = Object.keys(indeg).sort((x, y) => indeg[y] - indeg[x] || NODES[x][0].localeCompare(NODES[y][0])).slice(0, 30);
   const examples = EXAMPLES.map(([a, b]) => {
@@ -86,7 +86,7 @@ export function seoContent(updated) {
     .map(k => ({ k, head: by(NODES, k) + (NODES[k][2] ? ` (${yearLabel(NODES[k][2])})` : ''), outs: outs[k] }));
   // the edge function's data (see netlify/seo/render.js for the shape); G: books with their own preview card, with a
   // short hash of the image so a re-rendered card gets a fresh URL (link previews are cached by URL)
-  const edge = { B: {}, O: {}, I: {}, A: {}, G: {} };
+  const edge = { B: {}, O: {}, I: {}, A: {}, G: {}, L: ALIASES };   // L: a book's other titles
   for (const k of Object.keys(NODES)) {
     const f = `og/${k}.png`;
     if (fs.existsSync(f)) edge.G[k] = crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);

@@ -143,7 +143,6 @@
   <url><loc>https://bookjumpr.com/anonymous/jack-and-the-beanstalk</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/les-cent-nouvelles-nouvelles</loc><lastmod>2026-07-17</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/mother-goose</loc><lastmod>2026-07-27</lastmod></url>
-  <url><loc>https://bookjumpr.com/anonymous/one-thousand-and-one-nights</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/popol-vuh</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/queen-elizabeth</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/robert-the-devil</loc><lastmod>2026-10-17</lastmod></url>
@@ -1676,7 +1675,6 @@
   <url><loc>https://bookjumpr.com/richard-brinsley-sheridan/the-school-for-scandal</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-dawkins/the-god-delusion</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-dawkins/the-selfish-gene</loc><lastmod>2026-07-14</lastmod></url>
-  <url><loc>https://bookjumpr.com/richard-francis-burton/the-arabian-nights</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-harris-barham/ingoldsby-legends</loc><lastmod>2026-07-17</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-head/the-english-rogue</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-henry-dana/two-years-before-the-mast</loc><lastmod>2026-07-14</lastmod></url>
@@ -1978,7 +1976,6 @@
   <url><loc>https://bookjumpr.com/umberto-eco/foucault-s-pendulum</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/umberto-eco/on-literature</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/umberto-eco/the-name-of-the-rose</loc><lastmod>2026-10-11</lastmod></url>
-  <url><loc>https://bookjumpr.com/unknown/one-thousand-and-one-nights</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/unknown/the-epic-of-gilgamesh</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/upton-sinclair/the-jungle</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/ursula-k-le-guin/the-dispossessed</loc><lastmod>2026-08-10</lastmod></url>
@@ -1992,8 +1989,7 @@
   <url><loc>https://bookjumpr.com/vicesimus-knox/elegant-extracts</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/vicomte-d-arlincourt/le-solitaire</loc><lastmod>2026-07-22</lastmod></url>
   <url><loc>https://bookjumpr.com/victor-hugo/les-miserables</loc><lastmod>2026-10-11</lastmod></url>
-  <url><loc>https://bookjumpr.com/victor-hugo/notre-dame-de-paris</loc><lastmod>2026-08-02</lastmod></url>
-  <url><loc>https://bookjumpr.com/victor-hugo/the-hunchback-of-notre-dame</loc><lastmod>2026-07-27</lastmod></url>
+  <url><loc>https://bookjumpr.com/victor-hugo/the-hunchback-of-notre-dame</loc><lastmod>2026-08-02</lastmod></url>
   <url><loc>https://bookjumpr.com/vikram-seth/a-suitable-boy</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/virgil/eclogues</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/virgil/the-aeneid</loc><lastmod>2026-10-17</lastmod></url>
@@ -2907,7 +2903,6 @@
   <url><loc>https://bookjumpr.com/richard-baxter</loc><lastmod>2026-07-26</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-brinsley-sheridan</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-dawkins</loc><lastmod>2026-07-14</lastmod></url>
-  <url><loc>https://bookjumpr.com/richard-francis-burton</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-harris-barham</loc><lastmod>2026-07-17</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-head</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/richard-henry-dana</loc><lastmod>2026-07-14</lastmod></url>
@@ -3056,7 +3051,7 @@
   <url><loc>https://bookjumpr.com/ueda-akinari</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/ulysses-s-grant</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/umberto-eco</loc><lastmod>2026-10-11</lastmod></url>
-  <url><loc>https://bookjumpr.com/unknown</loc><lastmod>2026-08-10</lastmod></url>
+  <url><loc>https://bookjumpr.com/unknown</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/upton-sinclair</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/ursula-k-le-guin</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/v-s-naipaul</loc><lastmod>2026-07-14</lastmod></url>

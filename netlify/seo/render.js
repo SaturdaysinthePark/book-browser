@@ -10,6 +10,7 @@
 //   B: { key: [title, author, year, synopsis, authorSlug] }   O: { key: [[mentionedKey, note], …] }
 //   I: { key: [mentioningKey, …] }                              A: { authorSlug: [name, [key, …]] }
 //   G: { key: imageHash }  — books with their own preview card at /og/<key>.png (tools/render-og.mjs)
+//   L: { key: [other titles] }  — alternate titles, emitted as the Book's alternateName
 // Routes mirror P._routeFromHash in app.js.
 
 export const SITE = 'https://bookjumpr.com';
@@ -52,6 +53,7 @@ const bookLd = (D, k) => {
   const [t, a, y] = D.B[k], o = { '@type': 'Book', name: t, url: `${SITE}/${k}` };
   if (known(a)) o.author = { '@type': 'Person', name: a };
   if (y > 0) o.datePublished = String(y);
+  if (D.L && D.L[k]) o.alternateName = D.L[k];
   return o;
 };
 const crumbs = (items) => ({

@@ -40,6 +40,11 @@ Also watch for:
   fairy-tale duplicate, "The French Revolution" vs "The French Revolution: A History" —
   all real duplicates found and merged this way. Group NODES by author and eyeball
   near-identical titles before adding anything new for a heavily-covered author.
+- **Alternate titles**: a book can carry other titles it's known by (`npm run bj -- aliases --title T` lists them,
+  `bj -- alias --title T --alias A` adds one). Imports resolve an alternate title to its book, so once
+  "Alice in Wonderland" is an alias, a mention written that way lands on "Alice's Adventures in Wonderland".
+  When you merge a duplicate (`merge-book`, which takes exact keys like `author/title`), its title becomes an
+  alias automatically.
 - **Same title, different author is FINE, not a duplicate** — books key on
   `slug(author)/slug(title)`, so e.g. three different "Antigone"s (Sophocles, Alfieri,
   Anouilh) coexist without collision. Just make sure the `author` field is present and

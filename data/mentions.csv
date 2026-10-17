@@ -553,7 +553,7 @@ A Connecticut Yankee in King Arthur's Court,Mark Twain,Robinson Crusoe,Daniel De
 The Prince and the Pauper,Mark Twain,The English Rogue,Richard Head
 Three Men in a Boat,Jerome K. Jerome,The History of Sandford and Merton,Thomas Day
 Madame Bovary,Gustave Flaubert,Paul and Virginia,Bernardin de Saint-Pierre
-Madame Bovary,Gustave Flaubert,Notre Dame de Paris,Victor Hugo
+Madame Bovary,Gustave Flaubert,The Hunchback of Notre-Dame,Victor Hugo
 Madame Bovary,Gustave Flaubert,La Tour de Nesle,Alexandre Dumas
 Madame Bovary,Gustave Flaubert,La Guerre des Dieux,Evariste de Parny
 Anna Karenina,Leo Tolstoy,King Lear,William Shakespeare
@@ -627,7 +627,7 @@ Crime and Punishment,Fyodor Dostoevsky,Confessions,Jean-Jacques Rousseau
 War and Peace,Leo Tolstoy,Les Chevaliers du Cygne,Stephanie Felicite de Genlis
 War and Peace,Leo Tolstoy,The Social Contract,Jean-Jacques Rousseau
 The Brothers Karamazov,Fyodor Dostoevsky,Dead Souls,Nikolai Gogol
-The Brothers Karamazov,Fyodor Dostoevsky,Notre Dame de Paris,Victor Hugo
+The Brothers Karamazov,Fyodor Dostoevsky,The Hunchback of Notre-Dame,Victor Hugo
 The Brothers Karamazov,Fyodor Dostoevsky,Candide,Voltaire
 The Brothers Karamazov,Fyodor Dostoevsky,The Robbers,Friedrich Schiller
 The Idiot,Fyodor Dostoevsky,Don Quixote,Miguel de Cervantes
@@ -1311,7 +1311,7 @@ The Kingdom of God Is Within You,Leo Tolstoy,On War,Jonathan Dymond
 The Kingdom of God Is Within You,Leo Tolstoy,Hamlet,William Shakespeare
 The Kingdom of God Is Within You,Leo Tolstoy,The Net of Faith,Petr Chelčický
 The Kingdom of God Is Within You,Leo Tolstoy,Non-resistance Asserted,Daniel Musser
-The Kingdom of God Is Within You,Leo Tolstoy,Notre Dame de Paris,Victor Hugo
+The Kingdom of God Is Within You,Leo Tolstoy,The Hunchback of Notre-Dame,Victor Hugo
 L'Assommoir,Émile Zola,Histoire de Dix Ans,Louis Blanc
 L'Assommoir,Émile Zola,Histoire des Girondins,Alphonse de Lamartine
 L'Assommoir,Émile Zola,The Mysteries of Paris,Eugène Sue
@@ -1325,7 +1325,7 @@ Sentimental Education,Gustave Flaubert,Les Caractères,Jean de La Bruyère
 Sentimental Education,Gustave Flaubert,Le Chevalier de Maison-Rouge,Alexandre Dumas
 Sentimental Education,Gustave Flaubert,L'Art de n'être jamais tué ni blessé en duel,La Fougère
 The Charterhouse of Parma,Stendhal,The Prince,Niccolò Machiavelli
-The Charterhouse of Parma,Stendhal,Notre Dame de Paris,Victor Hugo
+The Charterhouse of Parma,Stendhal,The Hunchback of Notre-Dame,Victor Hugo
 The Charterhouse of Parma,Stendhal,Manon Lescaut,Abbé Prévost
 The Charterhouse of Parma,Stendhal,Don Quixote,Miguel de Cervantes
 The Charterhouse of Parma,Stendhal,Clarissa,Samuel Richardson
@@ -4177,7 +4177,7 @@ The Silent Patient,Alex Michaelides,All My Sons,Arthur Miller
 The Silent Patient,Alex Michaelides,The Winter's Tale,William Shakespeare
 The Silent Patient,Alex Michaelides,Introductory Lectures on Psychoanalysis,Sigmund Freud
 If on a Winter's Night a Traveler,Italo Calvino,Crime and Punishment,Fyodor Dostoevsky
-If on a Winter's Night a Traveler,Italo Calvino,The Arabian Nights,Anonymous
+If on a Winter's Night a Traveler,Italo Calvino,A Thousand and One Nights,Anonymous
 If on a Winter's Night a Traveler,Italo Calvino,Popol Vuh,Anonymous
 If on a Winter's Night a Traveler,Italo Calvino,Ars Magna Lucis et Umbrae,Athanasius Kircher
 If on a Winter's Night a Traveler,Italo Calvino,A Treatise on New Philosophical Instruments,David Brewster
@@ -4901,7 +4901,7 @@ Swann's Way,Marcel Proust,La Mare au Diable,George Sand
 Swann's Way,Marcel Proust,La Petite Fadette,George Sand
 Swann's Way,Marcel Proust,Les Maîtres Sonneurs,George Sand
 Swann's Way,Marcel Proust,Indiana,George Sand
-Swann's Way,Marcel Proust,Notre Dame de Paris,Victor Hugo
+Swann's Way,Marcel Proust,The Hunchback of Notre-Dame,Victor Hugo
 Swann's Way,Marcel Proust,Athalie,Jean Racine
 Swann's Way,Marcel Proust,Phèdre,Jean Racine
 Swann's Way,Marcel Proust,Le Cid,Pierre Corneille
@@ -4952,14 +4952,14 @@ White-Jacket,Herman Melville,Don Quixote,Miguel de Cervantes
 White-Jacket,Herman Melville,Paradise Lost,John Milton
 The Confidence-Man,Herman Melville,Don Quixote,Miguel de Cervantes
 The Confidence-Man,Herman Melville,Hamlet,William Shakespeare
-Redburn,Herman Melville,The Arabian Nights,Anonymous
+Redburn,Herman Melville,A Thousand and One Nights,Anonymous
 Redburn,Herman Melville,Robinson Crusoe,Daniel Defoe
-The Ebb-Tide,Robert Louis Stevenson and Lloyd Osbourne,The Arabian Nights,Anonymous
+The Ebb-Tide,Robert Louis Stevenson and Lloyd Osbourne,A Thousand and One Nights,Anonymous
 Three Men on the Bummel,Jerome K. Jerome,Alice's Adventures in Wonderland,Lewis Carroll
 Peter Ibbetson,George du Maurier,To a Waterfowl,William Cullen Bryant
 Peter Ibbetson,George du Maurier,The Three Musketeers,Alexandre Dumas
 Peter Ibbetson,George du Maurier,Ivanhoe,Walter Scott
-Peter Ibbetson,George du Maurier,Notre Dame de Paris,Victor Hugo
+Peter Ibbetson,George du Maurier,The Hunchback of Notre-Dame,Victor Hugo
 Peter Ibbetson,George du Maurier,The Swiss Family Robinson,Johann David Wyss
 Peter Ibbetson,George du Maurier,The History of Sandford and Merton,Thomas Day
 Peter Ibbetson,George du Maurier,Evenings at Home,John Aikin and Anna Laetitia Barbauld
@@ -5201,7 +5201,7 @@ Cloud Atlas,David Mitchell,All Quiet on the Western Front,Erich Maria Remarque
 Cloud Atlas,David Mitchell,The Jungle Book,Rudyard Kipling
 Cloud Atlas,David Mitchell,Moby-Dick,Herman Melville
 Cloud Atlas,David Mitchell,The Island of Doctor Moreau,H. G. Wells
-Cloud Atlas,David Mitchell,One Thousand and One Nights,Anonymous
+Cloud Atlas,David Mitchell,A Thousand and One Nights,Anonymous
 Cloud Atlas,David Mitchell,The Drowned and the Saved,Primo Levi
 David and Goliath,Malcolm Gladwell,Seven Pillars of Wisdom,T. E. Lawrence
 David and Goliath,Malcolm Gladwell,Options as a Strategic Investment,Lawrence G. McMillan
@@ -5583,7 +5583,7 @@ The Satanic Verses,Salman Rushdie,Discourses on Livy,Niccolò Machiavelli
 The Satanic Verses,Salman Rushdie,Ubu Roi,Alfred Jarry
 The Satanic Verses,Salman Rushdie,The Marriage of Heaven and Hell,William Blake
 The Satanic Verses,Salman Rushdie,The Millionairess,George Bernard Shaw
-The Satanic Verses,Salman Rushdie,The Arabian Nights,Richard Francis Burton
+The Satanic Verses,Salman Rushdie,A Thousand and One Nights,Richard Francis Burton
 The Satanic Verses,Salman Rushdie,The Ocean of the Streams of Story,Somadeva
 The Satanic Verses,Salman Rushdie,Gitanjali,Rabindranath Tagore
 The Satanic Verses,Salman Rushdie,Othello,William Shakespeare
@@ -6018,7 +6018,7 @@ The Art of Fiction,Ayn Rand,The Fountainhead,Ayn Rand
 The Art of Fiction,Ayn Rand,We the Living,Ayn Rand
 The Art of Fiction,Ayn Rand,Anthem,Ayn Rand
 The Art of Fiction,Ayn Rand,Nineteen Eighty-Four,George Orwell
-The Art of Fiction,Ayn Rand,Notre Dame de Paris,Victor Hugo
+The Art of Fiction,Ayn Rand,The Hunchback of Notre-Dame,Victor Hugo
 The Art of Fiction,Ayn Rand,Les Misérables,Victor Hugo
 The Art of Fiction,Ayn Rand,Main Street,Sinclair Lewis
 The Art of Fiction,Ayn Rand,Babbitt,Sinclair Lewis
@@ -6898,7 +6898,7 @@ The Diamond Age,Neal Stephenson,The Prelude,William Wordsworth
 The Diamond Age,Neal Stephenson,The Adventures of Sherlock Holmes,Arthur Conan Doyle
 The Diamond Age,Neal Stephenson,Gone with the Wind,Margaret Mitchell
 The Diamond Age,Neal Stephenson,The Taming of the Shrew,William Shakespeare
-The Duniazat,Salman Rushdie,One Thousand and One Nights,Unknown
+The Duniazat,Salman Rushdie,A Thousand and One Nights,Unknown
 The Duniazat,Salman Rushdie,The Incoherence of the Philosophers,Al-Ghazali
 The Duniazat,Salman Rushdie,The Incoherence of the Incoherence,Ibn Rushd
 The Facts,Philip Roth,Big Two-Hearted River,Ernest Hemingway
@@ -7022,7 +7022,7 @@ The Naive and the Sentimental Novelist,Orhan Pamuk,Three Trapped Tigers,Guillerm
 The Naive and the Sentimental Novelist,Orhan Pamuk,Hopscotch,Julio Cortázar
 The Naive and the Sentimental Novelist,Orhan Pamuk,The Wild Palms,William Faulkner
 The Naive and the Sentimental Novelist,Orhan Pamuk,Cevdet Bey and Sons,Orhan Pamuk
-The Naive and the Sentimental Novelist,Orhan Pamuk,One Thousand and One Nights,Anonymous
+The Naive and the Sentimental Novelist,Orhan Pamuk,A Thousand and One Nights,Anonymous
 The Naive and the Sentimental Novelist,Orhan Pamuk,Père Goriot,Honoré de Balzac
 The Naive and the Sentimental Novelist,Orhan Pamuk,The Golden Bowl,Henry James
 The Naive and the Sentimental Novelist,Orhan Pamuk,Buddenbrooks,Thomas Mann
@@ -7091,7 +7091,7 @@ The Uses of Literature,Italo Calvino,Don Quixote,Miguel de Cervantes
 The Uses of Literature,Italo Calvino,Madame Bovary,Gustave Flaubert
 The Uses of Literature,Italo Calvino,The Odyssey,Homer
 The Uses of Literature,Italo Calvino,Orlando Furioso,Ludovico Ariosto
-The Uses of Literature,Italo Calvino,The Arabian Nights,traditional
+The Uses of Literature,Italo Calvino,A Thousand and One Nights,traditional
 The Uses of Literature,Italo Calvino,Robinson Crusoe,Daniel Defoe
 The Uses of Literature,Italo Calvino,Lucien Leuwen,Stendhal
 The Uses of Literature,Italo Calvino,The Baron in the Trees,Italo Calvino
@@ -7372,7 +7372,7 @@ Babel,R. F. Kuang,Gulliver's Travels,Jonathan Swift
 Babel,R. F. Kuang,The Rape of the Lock,Alexander Pope
 Babel,R. F. Kuang,Iliad,Homer
 Babel,R. F. Kuang,A Vindication of the Rights of Woman,Mary Wollstonecraft
-Babel,R. F. Kuang,One Thousand and One Nights,Anonymous
+Babel,R. F. Kuang,A Thousand and One Nights,Anonymous
 Babel,R. F. Kuang,Bhagavad Gita,Anonymous
 Babel,R. F. Kuang,The Waste Land,T. S. Eliot
 Babel,R. F. Kuang,Essay on the Principles of Translation,Alexander Fraser Tytler

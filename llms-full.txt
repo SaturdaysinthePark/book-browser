@@ -1082,7 +1082,7 @@ https://bookjumpr.com/r-f-kuang/babel
 - The Rape of the Lock by Alexander Pope: "for a full year Robin thought The Rape of the Lock was about fornication with an iron bolt instead of the theft of hair"
 - Iliad by Homer: "You take things too far, and you get something like Pope's translation of the Iliad"
 - A Vindication of the Rights of Woman by Mary Wollstonecraft: "Mary Wollstonecraft's Vindication of the Rights of Woman, published only forty years ago, had inspired waves of loud, proud feminists"
-- One Thousand and One Nights by Anonymous: "'I've read Arabian Nights,' Robin offered, drunk on excitement"
+- A Thousand and One Nights by Anonymous: "'I've read Arabian Nights,' Robin offered, drunk on excitement"
 - Bhagavad Gita by Anonymous: "I'm currently working on a better Latin version of the Bhagavad Gita"
 - The Waste Land by T. S. Eliot: "T. S. Eliot had supplied some of the more recent and detailed landscape descriptions on record, but The Waste Land was so self-referential"
 - Essay on the Principles of Translation by Alexander Fraser Tytler: "They'd been assigned the introductory chapter of Essay on Principles of Translation by Lord Alexander Fraser Tytler Woodhouselee"
@@ -1566,7 +1566,7 @@ https://bookjumpr.com/david-mitchell/cloud-atlas
 - The Jungle Book by Rudyard Kipling: "His old-school English accent reminds Luisa of the tiger in The Jungle Book."
 - Moby-Dick by Herman Melville: "I explained, yet again, that the gangster-chic market was saturated; and that even Moby-Dick bombed in Melville’s lifetime, though I did not deploy that particular verb."
 - The Island of Doctor Moreau by H. G. Wells: "Some music will be drawn from an abortive opera based on The Island of Doctor Moreau, whose Viennese production was canceled by the war"
-- One Thousand and One Nights by Unknown: "I’ve thought of this balcony as my own belvedere, from A Thousand and One Nights."
+- A Thousand and One Nights by Anonymous: "I’ve thought of this balcony as my own belvedere, from A Thousand and One Nights."
 - The Drowned and the Saved by Primo Levi: "I thought of Primo Levi’s Drowned and the Saved."
 
 ## Common Sense by Thomas Paine (1776)
@@ -3287,7 +3287,7 @@ https://bookjumpr.com/rebecca-makkai/i-have-some-questions-for-you
 ## If on a Winter's Night a Traveler by Italo Calvino (1979)
 https://bookjumpr.com/italo-calvino/if-on-a-winter-s-night-a-traveler
 - Crime and Punishment by Fyodor Dostoevsky: "Silas Flannery's diary: "I stop before I succumb to the temptation to copy out all of Crime and Punishment," quoting its opening lines about Raskolnikov."
-- The Arabian Nights by Richard Francis Burton: ""That story of which I spoke... It must be a story of the Arabian Nights." / "Would it set the beginning of one tale inside another, as in the Arabian Nights?" (referenced multiple times as a real structural model)"
+- A Thousand and One Nights by Anonymous: ""That story of which I spoke... It must be a story of the Arabian Nights." / "Would it set the beginning of one tale inside another, as in the Arabian Nights?" (referenced multiple times as a real structural model)"
 - Popol Vuh by Anonymous: "The legendary "Father of Stories" is said to be "the reincarnation of Homer, of the storyteller of the Arabian Nights, of the author of the Popol Vuh, as well as of Alexandre Dumas and James Joyce.""
 - Ars Magna Lucis et Umbrae by Athanasius Kircher: "The kaleidoscope-collecting narrator aims "to reconstruct the museum assembled by the Jesuit Athanasius Kircher, author of Ars Magna Lucis et Umbrae (1646) and inventor of the 'polydyptic theater.'""
 - A Treatise on New Philosophical Instruments by David Brewster: "The kaleidoscope was patented in 1817 by the Scottish physicist Sir David Brewster, author of a Treatise on New Philosophical Instruments, among other works."
@@ -3987,7 +3987,7 @@ https://bookjumpr.com/gabriel-garcia-marquez/love-in-the-time-of-cholera
 ## Madame Bovary by Gustave Flaubert (1857)
 https://bookjumpr.com/gustave-flaubert/madame-bovary
 - Paul and Virginia by Bernardin de Saint-Pierre: "She had read "Paul and Virginia," and she had dreamed of the little bamboo-house, the nigger Domingo, the dog Fidele, but above all of the sweet friendship of some dear little brother, who seeks red fruit for you on trees taller than steeples, or who runs barefoot over the sand, bringing you a bird's nest."
-- Notre Dame de Paris by Victor Hugo: "She declared she adored children; this was her consolation, her joy, her passion, and she accompanied her caresses with lyrical outburst which would have reminded anyone but the Yonville people of Sachette in "Notre Dame de Paris.""
+- The Hunchback of Notre-Dame by Victor Hugo: "She declared she adored children; this was her consolation, her joy, her passion, and she accompanied her caresses with lyrical outburst which would have reminded anyone but the Yonville people of Sachette in "Notre Dame de Paris.""
 - La Tour de Nesle by Alexandre Dumas
 - La Guerre des Dieux by Evariste de Parny: "This mockery of the first of the sacraments made the Abbe Bournisien angry; old Bovary replied by a quotation from "La Guerre des Dieux"; the cure wanted to leave; the ladies implored, Homais interfered; and they succeeded in making the priest sit down again, and he quietly went on with the…"
 
@@ -4953,7 +4953,7 @@ https://bookjumpr.com/george-du-maurier/peter-ibbetson
 - To a Waterfowl by William Cullen Bryant
 - The Three Musketeers by Alexandre Dumas
 - Ivanhoe by Walter Scott
-- Notre Dame de Paris by Victor Hugo: "So sang the old hag in _Notre Dame de Paris!"
+- The Hunchback of Notre-Dame by Victor Hugo: "So sang the old hag in _Notre Dame de Paris!"
 - The Swiss Family Robinson by Johann David Wyss
 - The History of Sandford and Merton by Thomas Day
 - Evenings at Home by John Aikin and Anna Laetitia Barbauld
@@ -5235,7 +5235,7 @@ https://bookjumpr.com/kate-douglas-wiggin/rebecca-of-sunnybrook-farm
 
 ## Redburn by Herman Melville (1849)
 https://bookjumpr.com/herman-melville/redburn
-- The Arabian Nights by Richard Francis Burton
+- A Thousand and One Nights by Anonymous
 - Robinson Crusoe by Daniel Defoe
 
 ## Representative Men by Ralph Waldo Emerson (1850)
@@ -5744,7 +5744,7 @@ https://bookjumpr.com/marcel-proust/swann-s-way
 - La Petite Fadette by George Sand: "It contained _La Mare au Diable_, _Francois le Champi_, _La Petite Fadette_, and _Les Maitres Sonneurs_."
 - Les Maîtres Sonneurs by George Sand: "It contained _La Mare au Diable_, _Francois le Champi_, _La Petite Fadette_, and _Les Maitres Sonneurs_."
 - Indiana by George Sand: "My grandmother, as I learned afterwards, had at first chosen Mussel's poems, a volume of Rousseau, and _Indiana_; for while she considered light reading as unwholesome as sweets and cakes, she did not reflect that the strong breath of genius must have upon the very soul of a child an influence at…"
-- Notre Dame de Paris by Victor Hugo
+- The Hunchback of Notre-Dame by Victor Hugo
 - Athalie by Jean Racine: "Whenever he spoke of something whose beauty had until then remained hidden from me, of pine-forests or of hailstorms, of _Notre-Dame de Paris_, of _Athalie_, or of _Phedre_, by some piece of imagery he would make their beauty explode and drench me with its essence."
 - Phèdre by Jean Racine: "Whenever he spoke of something whose beauty had until then remained hidden from me, of pine-forests or of hailstorms, of _Notre-Dame de Paris_, of _Athalie_, or of _Phedre_, by some piece of imagery he would make their beauty explode and drench me with its essence."
 - Le Cid by Pierre Corneille
@@ -6088,7 +6088,7 @@ https://bookjumpr.com/ayn-rand/the-art-of-fiction
 - We the Living by Ayn Rand: "In We the Living, I had a lot of journalistic references: specific dates, the Lenin-Trotsky split, and so forth."
 - Anthem by Ayn Rand: "To begin with, there are stories laid in the future, as, for instance, Atlas Shrugged and Anthem, Orwell's Nineteen Eighty-four, and a whole string of older books."
 - Nineteen Eighty-Four by George Orwell: "...as, for instance, Atlas Shrugged and Anthem, Orwell's Nineteen Eighty-four, and a whole string of older books."
-- Notre Dame de Paris by Victor Hugo: ""What I have so far described of Notre-Dame de Paris is not the plot, but the plot-theme." — plus a full excerpt ("From Notre-Dame de Paris by Victor Hugo [translated by Ayn Rand]")."
+- The Hunchback of Notre-Dame by Victor Hugo: ""What I have so far described of Notre-Dame de Paris is not the plot, but the plot-theme." — plus a full excerpt ("From Notre-Dame de Paris by Victor Hugo [translated by Ayn Rand]")."
 - Les Misérables by Victor Hugo: "The theme of Victor Hugo's Les Misérables is: the injustice done to the lower classes of society."
 - Main Street by Sinclair Lewis: "The theme of Sinclair Lewis's Main Street is the presentation of a typical American small town."
 - Babbitt by Sinclair Lewis: "The theme of Sinclair Lewis's Babbitt is the characterization of an average American small businessman."
@@ -6423,7 +6423,7 @@ https://bookjumpr.com/philip-roth/the-breast
 ## The Brothers Karamazov by Fyodor Dostoevsky (1880)
 https://bookjumpr.com/fyodor-dostoevsky/the-brothers-karamazov
 - Dead Souls by Nikolai Gogol
-- Notre Dame de Paris by Victor Hugo
+- The Hunchback of Notre-Dame by Victor Hugo
 - Candide by Voltaire
 - The Robbers by Friedrich Schiller
 
@@ -6538,7 +6538,7 @@ https://bookjumpr.com/mary-renault/the-charioteer
 ## The Charterhouse of Parma by Stendhal (1839)
 https://bookjumpr.com/stendhal/the-charterhouse-of-parma
 - The Prince by Niccolò Machiavelli
-- Notre Dame de Paris by Victor Hugo
+- The Hunchback of Notre-Dame by Victor Hugo
 - Manon Lescaut by Abbé Prévost
 - Don Quixote by Miguel de Cervantes
 - Clarissa by Samuel Richardson
@@ -6881,7 +6881,7 @@ https://bookjumpr.com/anthony-trollope/the-duke-s-children
 
 ## The Duniazat by Salman Rushdie (2015)
 https://bookjumpr.com/salman-rushdie/the-duniazat
-- One Thousand and One Nights by Unknown: "There was a Persian book called "Hazar Afsaneh," or "One Thousand Stories," which had been translated into Arabic... Ibn Rushd had not seen the book, but several of its stories had been told to him at court. The story of the fisherman and the jinni appealed to him..."
+- A Thousand and One Nights by Anonymous: "There was a Persian book called "Hazar Afsaneh," or "One Thousand Stories," which had been translated into Arabic... Ibn Rushd had not seen the book, but several of its stories had been told to him at court. The story of the fisherman and the jinni appealed to him..."
 - The Incoherence of the Philosophers by Al-Ghazali: "A hundred years earlier, Ghazali had written a book called "The Incoherence of the Philosophers," in which he attacked Greeks like Aristotle, the Neoplatonists, and their allies, Ibn Rushd's great precursors Ibn Sina and al-Farabi."
 - The Incoherence of the Incoherence by Ibn Rushd: "He had written his own book, "The Incoherence of the Incoherence," replying to Ghazali across a hundred years and thousands of miles, but in spite of its snappy title it had not diminished the dead Persian's influence."
 
@@ -6900,7 +6900,7 @@ https://bookjumpr.com/ann-patchett/the-dutch-house
 
 ## The Ebb-Tide by Robert Louis Stevenson and Lloyd Osbourne (1894)
 https://bookjumpr.com/robert-louis-stevenson-and-lloyd-osbourne/the-ebb-tide
-- The Arabian Nights by Richard Francis Burton: "I am a magician out of the Arabian Nights, and this mat that I have under my arm is the original carpet of Mohammed Ben Somebody-or-other."
+- A Thousand and One Nights by Anonymous: "I am a magician out of the Arabian Nights, and this mat that I have under my arm is the original carpet of Mohammed Ben Somebody-or-other."
 
 ## The Education of Henry Adams by Henry Adams (1918)
 https://bookjumpr.com/henry-adams/the-education-of-henry-adams
@@ -7546,7 +7546,7 @@ https://bookjumpr.com/leo-tolstoy/the-kingdom-of-god-is-within-you
 - Hamlet by William Shakespeare
 - The Net of Faith by Petr Chelčický
 - Non-resistance Asserted by Daniel Musser
-- Notre Dame de Paris by Victor Hugo
+- The Hunchback of Notre-Dame by Victor Hugo
 
 ## The Kite Runner by Khaled Hosseini (2003)
 https://bookjumpr.com/khaled-hosseini/the-kite-runner
@@ -8056,7 +8056,7 @@ https://bookjumpr.com/orhan-pamuk/the-naive-and-the-sentimental-novelist
 - Hopscotch by Julio Cortázar: "Julio Cortázar's Hopscotch (1963), Guillermo Cabrera Infante's Three Trapped Tigers"
 - The Wild Palms by William Faulkner: "Faulkner's novel The Wild Palms is actually composed of a pair of stories"
 - Cevdet Bey and Sons by Orhan Pamuk: "Yet in my first novel, Cevdet Bey and Sons, I had created a hero who explicitly takes Rastignac as his role model"
-- One Thousand and One Nights by Anonymous: "the Arabian Nights (the Thousand and One Nights) and In Search of Lost Time"
+- A Thousand and One Nights by Anonymous: "the Arabian Nights (the Thousand and One Nights) and In Search of Lost Time"
 - Père Goriot by Honoré de Balzac: "which Flaubert published thirty-five years after Balzac wrote Le Père Goriot"
 - The Golden Bowl by Henry James: "In his preface to The Golden Bowl, he explains how he decided which minor character he would choose"
 - Buddenbrooks by Thomas Mann: "conservatively followed the template of nineteenth-century realist novels such as Buddenbrooks or Anna Karenina"
@@ -8670,7 +8670,7 @@ https://bookjumpr.com/salman-rushdie/the-satanic-verses
 - Ubu Roi by Alfred Jarry: "a stuffed monkey which he claimed was a 'first draft' of the notorious Portrait of Cézanne, Portrait of Rembrandt, Portrait of Renoir, numerous mechanical contraptions including sexual stimulators that delivered small electric shocks, and a first edition of Jarry's Ubu Roi."
 - The Marriage of Heaven and Hell by William Blake: "One morning Allie, awaking from spent and dreamless sleep, found him immersed in her long-unopened copy of Blake's Marriage of Heaven and Hell, in which her younger self, disrespectful of books, had made a number of marks: underlinings, ticks in the margins, exclamations, multiple queries."
 - The Millionairess by George Bernard Shaw: "Years passed; and then Saladin Chamcha, actor, self-made man, returned to Bombay with the Prospero Players, to interpret the role of the Indian doctor in The Millionairess by George Bernard Shaw."
-- The Arabian Nights by Richard Francis Burton: "On a shelf of Changez Chamchawala's teak-lined study, beside a ten-volume set of the Richard Burton translation of the Arabian Nights, which was being slowly devoured by mildew and bookworm"
+- A Thousand and One Nights by Anonymous: "On a shelf of Changez Chamchawala's teak-lined study, beside a ten-volume set of the Richard Burton translation of the Arabian Nights, which was being slowly devoured by mildew and bookworm"
 - The Ocean of the Streams of Story by Somadeva: "thanks to a string of surprise box-office hits based on old fables drawn from the Katha-Sarit-Sagar compendium -- the 'Ocean of the Streams of Story', longer than the Arabian Nights and equally as fantasticated"
 - Gitanjali by Rabindranath Tagore: "What was it that made them a living ... His book learning? His Gitanjali, Eclogues, or that play Othello that he explained was really Attallah or Attaullah except the writer couldn't spell, what sort of writer was that, anyway? (author inferred: Gitanjali is Tagore's well-known collection, not attributed by name in the text)"
 - Othello by William Shakespeare: "His Gitanjali, Eclogues, or that play Othello that he explained was really Attallah or Attaullah except the writer couldn't spell, what sort of writer was that, anyway? (author inferred: not named in text, but Othello is unambiguously Shakespeare's)"
@@ -9352,7 +9352,7 @@ https://bookjumpr.com/italo-calvino/the-uses-of-literature
 - Madame Bovary by Gustave Flaubert: "Discussed as a work in which Flaubert excludes the language and visions of his other novels"
 - The Odyssey by Homer: "Subject of the essay "Within the Odyssey," discussing the narrator and the poem's mythic layers"
 - Orlando Furioso by Ludovico Ariosto: "Subject of "The Structure of Orlando Furioso," analyzed at length including the enchanted-palace episode with Atlante and Astolfo"
-- The Arabian Nights by traditional: "Discussed as the framework tale of Shahryar and Scheherazade, exemplifying nested storytelling"
+- A Thousand and One Nights by Anonymous: "Discussed as the framework tale of Shahryar and Scheherazade, exemplifying nested storytelling"
 - Robinson Crusoe by Daniel Defoe: "Called a philosophical novel without knowing it, and discussed as the basis for Michel Tournier's Vendredi"
 - Lucien Leuwen by Stendhal: "Calvino quotes Stendhal's marginal note in the manuscript about the best sporting dog and the hunter's gun"
 - The Baron in the Trees by Italo Calvino: "Calvino refers to his own earlier novel, describing its protagonist as a kind of Don Quixote of the Philosophy of the Enlightenment"
