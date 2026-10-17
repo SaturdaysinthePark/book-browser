@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 905 books that mention other books, 7,811 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 910 books that mention other books, 7,845 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -2014,6 +2014,24 @@ https://bookjumpr.com/charles-dickens/dombey-and-son
 - Macbeth by William Shakespeare: "…with effervescent noises; and where the most domestic and confidential garments of coachmen and their wives and families, usually hung, like Macbeth's banners, on the outward walls."
 - Robinson Crusoe by Daniel Defoe: "Well, Wally,' resumed the old man, after a short pause: 'not being like the Savages who came on Robinson Crusoe's Island, we can't live on a man who asks for change for a sovereign, and a woman who inquires the way to Mile-End Turnpike."
 
+## Don Juan by George Gordon Byron
+https://bookjumpr.com/george-gordon-byron/don-juan
+- The Excursion by William Wordsworth: "And Wordsworth in a rather long Excursion (I think the quarto holds five hundred pages) Has given a sample from the vasty version Of his new system to perplex the sages."
+- Iliad by Homer: "His reverend tutors had at times a tussle, And for their AEneids, Iliads, and Odysseys, Were forced to make an odd sort! of apology, For Donna Inez dreaded the Mythology."
+- The Odyssey by Homer: "His reverend tutors had at times a tussle, And for their AEneids, Iliads, and Odysseys, Were forced to make an odd sort! of apology, For Donna Inez dreaded the Mythology."
+- The Aeneid by Virgil: "His reverend tutors had at times a tussle, And for their AEneids, Iliads, and Odysseys, Were forced to make an odd sort! of apology, For Donna Inez dreaded the Mythology."
+- The Confessions by Augustine of Hippo: "But how faith is acquired, and then ensured, So well not one of the aforesaid paints As Saint Augustine in his fine Confessions, Which make the reader envy his transgressions."
+- Coelebs in Search of a Wife by Hannah More: "Miss Edgeworth's novels stepping from their covers, Or Mrs. Trimmer's books on education, Or 'Coelebs' Wife' set out in quest of lovers,"
+- Narrative of the Honourable John Byron by John Byron: "Had suffer'd more--his hardships were comparative To those related in my grand-dad's 'Narrative.'"
+- Peter Bell by William Wordsworth: "'Pedlars,' and 'Boats,' and 'Waggons!' Oh! ye shades Of Pope and Dryden, are we come to this? … The 'little boatman' and his 'Peter Bell' Can sneer at him who drew 'Achitophel'!"
+- The Waggoner by William Wordsworth: "We learn from Horace, 'Homer sometimes sleeps;' We feel without him, Wordsworth sometimes wakes,-- To show with what complacency he creeps, With his dear 'Waggoners,' around his lakes."
+- Absalom and Achitophel by John Dryden: "The 'little boatman' and his 'Peter Bell' Can sneer at him who drew 'Achitophel'!"
+- Don Quixote by Miguel de Cervantes: "Had not Cervantes, in that too true tale Of Quixote, shown how all such efforts fail. Of all tales 't is the saddest--and more sad, Because it makes us smile"
+- A View of the State of Europe during the Middle Ages by Henry Hallam: "But sixteen dowagers, ten unwed she sages, Whose tale belongs to 'Hallam's Middle Ages,'"
+- Hercules Furens by Seneca: "That prodigy, Miss Araminta Smith (Who at sixteen translated 'Hercules Furens' Into as furious English), with her best look,"
+- The New Bath Guide by Christopher Anstey: "Though once she was seen reading the 'Bath Guide,' And 'Hayley's Triumphs,' which she deem'd pathetic,"
+- The Triumphs of Temper by William Hayley: "Though once she was seen reading the 'Bath Guide,' And 'Hayley's Triumphs,' which she deem'd pathetic,"
+
 ## Don Quixote by Miguel de Cervantes (1605)
 https://bookjumpr.com/miguel-de-cervantes/don-quixote
 - La Galatea by Miguel de Cervantes
@@ -2311,6 +2329,11 @@ https://bookjumpr.com/ivan-turgenev/fathers-and-sons
 - The Streltsy by Konstantin Masalsky
 - Notions Generales de Chimie by Theophile-Jules Pelouse and Edmond Fremy
 - Alexis, or the Cottage in the Forest by Anonymous
+
+## Faust by Johann Wolfgang von Goethe (1808)
+https://bookjumpr.com/johann-wolfgang-von-goethe/faust
+- Dies Irae by Thomas of Celano: "CHORUS Diesira, dies illa, Solvet soeclum in favilla! (Sound of the organ.)"
+- The Key of Solomon by Anonymous: "O, now am I sure of thee! For all of thy half-hellish brood The Key of Solomon is good."
 
 ## Felix Holt, the Radical by George Eliot (1866)
 https://bookjumpr.com/george-eliot/felix-holt-the-radical
@@ -3707,6 +3730,21 @@ https://bookjumpr.com/philip-roth/letting-go
 - The Turn of the Screw by Henry James: ""Neither of us know anything really outside the Edmund Wilson one—" she said, "the ghost story." "Turn of the Screw," I said."
 - The Tempest by William Shakespeare: ""And what do you feel like instead?" "A—the girl in The Tempest. What's her name?" ... "Prospero's daughter—""
 
+## Leviathan by Thomas Hobbes (1651)
+https://bookjumpr.com/thomas-hobbes/leviathan
+- Politics by Aristotle: "I know that Aristotle in the first booke of his Politiques, for a foundation of his doctrine, maketh men by Nature, some more worthy to Command, meaning the wiser sort (such as he thought himselfe to be for his Philosophy;) others to Serve…"
+- Metaphysics by Aristotle: "Lastly, the Metaphysiques, Ethiques, and Politiques of Aristotle, the frivolous Distinctions, barbarous Terms, and obscure Language of the Schoolmen, taught in the Universities, (which have been all erected and regulated by the Popes Authority,) serve them to keep these Errors from being detected…"
+- The Nicomachean Ethics by Aristotle: "Lastly, the Metaphysiques, Ethiques, and Politiques of Aristotle, the frivolous Distinctions, barbarous Terms, and obscure Language of the Schoolmen, taught in the Universities… serve them to keep these Errors from being detected…"
+- The Republic by Plato: "I am at the point of believing this my labour, as uselesse, and the Common-wealth of Plato; For he also is of opinion that it is impossible for the disorders of State, and change of Governments by Civill Warre, ever to be taken away, till Soveraigns be Philosophers."
+- Titles of Honor by John Selden: "But he that would know more particularly the originall of Titles of Honour, may find it, as I have done this, in Mr. Seldens most excellent Treatise of that subject."
+- Commentary upon Littleton by Edward Coke: "Somewhat like to a piece of Law in Cokes Commentaries on Litleton; where he sayes, If the right Heire of the Crown be attainted of Treason; yet the Crown shall descend to him, and Eo Instante the Atteynder be voyd…"
+- Institutes of Justinian by Justinian I: "In the Institutions of Justinian, we find seven sorts of Civill Lawes."
+- Theogony by Hesiod: "What kind of things they were, to whom they attributed the name of Daemons, appeareth partly in the Genealogie of their Gods, written by Hesiod, one of the most ancient Poets of the Graecians…"
+- History of Rome (Ab Urbe Condita) by Livy: "For in titles of Books, the subject is marked, as often as the writer. The History Of Livy, denotes the Writer; but the History Of Scanderbeg, is denominated from the subject."
+- Andromeda by Euripides: "There was once a great conflux of people in Abdera, a City of the Greeks, at the acting of the Tragedy of Andromeda, upon an extream hot day: whereupon, a great many of the spectators falling into Fevers… did nothing but pronounce Iambiques, with the names of Perseus and Andromeda…"
+- Disputationes de Controversiis (De Summo Pontifice) by Robert Bellarmine: "yet because the Pope of Romes challenge to that Power universally, hath been maintained chiefly, and I think as strongly as is possible, by Cardinall Bellarmine, in his Controversie De Summo Pontifice; I have thought it necessary, as briefly as I can, to examine the grounds, and strength of his Discourse."
+- De Concursu, Motione et Auxilio Dei by Francisco Suárez: "They are the Translation of the Title of the sixth chapter of Suarez first Booke, Of The Concourse, Motion, And Help Of God. When men write whole volumes of such stuffe, are they not Mad, or intend to make others so?"
+
 ## Life of Pi by Yann Martel (2001)
 https://bookjumpr.com/yann-martel/life-of-pi
 - Robinson Crusoe by Daniel Defoe: ""You can't possibly have read all of Narayan?" "These matters are important to me, Mother." "Robinson Crusoe!" "Mother!" "But Piscine!" she said."
@@ -4585,6 +4623,13 @@ https://bookjumpr.com/colm-toibin/on-james-baldwin
 - The Year of Magical Thinking by Joan Didion: "listed among Didion's works discussed alongside Salvador and Blue Nights"
 - A Portrait of the Artist as a Young Man by James Joyce: "Even the religion in James Joyce's A Portrait of the Artist as a Young Man seemed remote"
 - "Or Does It Explode?": Black Harlem in the Great Depression by Cheryl Greenberg: "In Or Does It Explode?, Cheryl Greenberg wrote: "By the end of the night 697 plate glass windows in some 300 business establishments were shattered""
+
+## On Liberty by John Stuart Mill (1859)
+https://bookjumpr.com/john-stuart-mill/on-liberty
+- Système de politique positive by Auguste Comte: "M. Comte, in particular, whose social system, as unfolded in his Traité de Politique Positive, aims at establishing (though by moral more than by legal appliances) a despotism of society over the individual, surpassing anything contemplated in the political ideal of the most rigid disciplinarian among the ancient philosophers."
+- Apology by Plato: "Impiety, in denying the gods recognised by the State; indeed his accuser asserted (see the "Apologia") that he believed in no gods at all."
+- The Sphere and Duties of Government by Wilhelm von Humboldt: "Few persons, out of Germany, even comprehend the meaning of the doctrine which Wilhelm von Humboldt, so eminent both as a savant and as a politician, made the text of a treatise… [11] The Sphere and Duties of Government, from the German of Baron Wilhelm von Humboldt, pp. 11-13."
+- Essays and Tales by John Sterling: ""Pagan self-assertion" is one of the elements of human worth, as well as "Christian self-denial."[12] … [12] Sterling's Essays."
 
 ## On Literature by Umberto Eco (2002)
 https://bookjumpr.com/umberto-eco/on-literature
@@ -7859,6 +7904,10 @@ https://bookjumpr.com/orhan-pamuk/the-museum-of-innocence
 - Madame Bovary by Gustave Flaubert: "While Flaubert was writing Madame Bovary, inspired by his beloved Louise Collet... he kept in a drawer a lock of her hair, as well as a handkerchief and a slipper of hers"
 - The Great Gatsby by F. Scott Fitzgerald: "You'll all have to promise to wear white, as in The Great Gatsby. Have you seen it yet?"
 - The Three Musketeers by Alexandre Dumas: "those plots about bands of sergeants that were 'rip-offs of a French adaptation' of The Three Musketeers, as Feridun would tell me with a smile"
+
+## The Mysterious Affair at Styles by Agatha Christie (1920)
+https://bookjumpr.com/agatha-christie/the-mysterious-affair-at-styles
+- Hamlet by William Shakespeare: "'To speak or not to speak,' as your so great Shakespeare says, 'that is the question.'"
 
 ## The Mysterious Island by Jules Verne (1874)
 https://bookjumpr.com/jules-verne/the-mysterious-island
