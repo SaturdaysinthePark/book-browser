@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 910 books that mention other books, 7,845 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 909 books that mention other books, 7,844 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -7904,10 +7904,6 @@ https://bookjumpr.com/orhan-pamuk/the-museum-of-innocence
 - Madame Bovary by Gustave Flaubert: "While Flaubert was writing Madame Bovary, inspired by his beloved Louise Collet... he kept in a drawer a lock of her hair, as well as a handkerchief and a slipper of hers"
 - The Great Gatsby by F. Scott Fitzgerald: "You'll all have to promise to wear white, as in The Great Gatsby. Have you seen it yet?"
 - The Three Musketeers by Alexandre Dumas: "those plots about bands of sergeants that were 'rip-offs of a French adaptation' of The Three Musketeers, as Feridun would tell me with a smile"
-
-## The Mysterious Affair at Styles by Agatha Christie (1920)
-https://bookjumpr.com/agatha-christie/the-mysterious-affair-at-styles
-- Hamlet by William Shakespeare: "'To speak or not to speak,' as your so great Shakespeare says, 'that is the question.'"
 
 ## The Mysterious Island by Jules Verne (1874)
 https://bookjumpr.com/jules-verne/the-mysterious-island
