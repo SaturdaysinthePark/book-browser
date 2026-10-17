@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 960 books that mention other books, 8,289 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 973 books that mention other books, 8,356 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -216,6 +216,11 @@ https://bookjumpr.com/mikhail-lermontov/a-hero-of-our-time
 - Confessions by Jean-Jacques Rousseau: "Rousseau's Confessions has precisely this defect--he read it to his friends."
 - Jerusalem Delivered by Torquato Tasso: "By the way: the other day, Werner compared women to the enchanted forest of which Tasso tells in his "Jerusalem Delivered.""
 - Eugene Onegin by Alexander Pushkin
+
+## A House of Gentlefolk by Ivan Turgenev (1859)
+https://bookjumpr.com/ivan-turgenev/a-house-of-gentlefolk
+- Symbols and Emblems by Nestor Maksimovich-Ambodik: "On Sundays, after mass, he was allowed to play, that is to say, he was given a thick book, a mysterious book, the work of a certain Maimovitch-Ambodik, entitled "Symbols and Emblems." This book was a medley of about a thousand mostly very enigmatical pictures, and as many enigmatical interpretations of them in five languages."
+- Obermann by Étienne Pivert de Senancour: ""Have you read Obermann, Lisaveta Mihalovna?" Panshin asked her pensively."
 
 ## A Laodicean by Thomas Hardy (1881)
 https://bookjumpr.com/thomas-hardy/a-laodicean
@@ -1397,7 +1402,7 @@ https://bookjumpr.com/larry-mcmurtry/books-a-memoir
 ## Born in Exile by George Gissing (1892)
 https://bookjumpr.com/george-gissing/born-in-exile
 - The World before the Deluge by Louis Figuier: "His schoolmaster, aware of the unusual pursuits which he added to the routine of lessons, gave him as a prize the English translation of a book by Figuier--_The World before the Deluge_."
-- The Origin of Species by Charles Darwin: "The day has gone by for downright assaults on science; to be marketable, you must prove that _The Origin of Species_ was approvingly foreseen in the first chapter of Genesis, and that the Apostles' Creed conflicts in no single point with the latest results of biblical criticism."
+- On the Origin of Species by Charles Darwin: "The day has gone by for downright assaults on science; to be marketable, you must prove that _The Origin of Species_ was approvingly foreseen in the first chapter of Genesis, and that the Apostles' Creed conflicts in no single point with the latest results of biblical criticism."
 - Bridgewater Treatise by William Buckland: "Among the books which he induced her to read were Buckland's Bridgewater Treatise and the works of Hugh Miller."
 - The Soul, Her Sorrows and Her Aspirations by Francis William Newman: "I wonder whether you ever read Francis Newman's book on _The Soul_?"
 - A Monograph of the British Fossil Brachiopoda by Thomas Davidson
@@ -1475,6 +1480,15 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 https://bookjumpr.com/john-williams/butcher-s-crossing
 - The Confidence-Man by Herman Melville: "Epigraph before Part One: "The Confidence Man, Herman Melville" attributed alongside the Emerson epigraph."
 - Nature by Ralph Waldo Emerson: "Epigraph: "Nature, Ralph Waldo Emerson / Aye, and poets send out the sick spirit to green pastures, like lame horses turned out unshod to the turf to renew their hoofs.""
+
+## Camilla by Frances Burney (1796)
+https://bookjumpr.com/frances-burney/camilla
+- The Seasons by James Thomson: "She stole softly round to look over the shoulder of the reader, and her respect for his raptures increased, when she saw they were raised by Thomson's Seasons."
+- Eclogues by Virgil: "A circumstance in the scenery before him now struck Dr. Orkborne with some resemblance to a verse in one of Virgil's Eclogues, which he thought might be happily applied to illustrate a passage in his own work;"
+- Absalom and Achitophel by John Dryden: "He's every thing by turns, and nothing long. [Footnote 3: Dryden's Absalom and Achitophel.]"
+- Othello by William Shakespeare: "The play was Othello; and so miserably represented, that Lavinia would willingly have retired after the first scene:"
+- Macbeth by William Shakespeare: "And Amelia was fain to content herself with the habit of the first witch in Macbeth."
+- Hamlet by William Shakespeare: "Camilla recollected her own'almost blunted purpose,' and fearfully asked if their Mother were yet at Belfont. [Footnote 6: Hamlet]"
 
 ## Camille by Alexandre Dumas fils (1848)
 https://bookjumpr.com/alexandre-dumas-fils/camille
@@ -1661,7 +1675,7 @@ https://bookjumpr.com/alexander-von-humboldt/cosmos
 - Elements of Geometry by Euclid: "So he found a copy of Euclid's Elements of Geometry, and began to read."
 - Natural Questions by Seneca: "Chapter epigraph: "Our universe is a sorry little affair unless it has in it something for every age to investigate... —Seneca, Natural Questions, Book 7""
 - Tao Te Ching by Laozi: "Twelve lines from Lao Tzu, Tao Te Ching, translated by D. C. Lau, quoted as a chapter epigraph."
-- The Origin of Species by Charles Darwin: "Chapter epigraph: "...endless forms most beautiful and most wonderful have been, and are being, evolved. —Charles Darwin, The Origin of Species, 1859""
+- On the Origin of Species by Charles Darwin: "Chapter epigraph: "...endless forms most beautiful and most wonderful have been, and are being, evolved. —Charles Darwin, The Origin of Species, 1859""
 - De Stella Nova by Johannes Kepler: "Kepler published in 1606 a book called De Stella Nova, "On the New Star," in which he wonders if a supernova is the result of some random concatenation of atoms in the heavens."
 - Popol Vuh by Anonymous: "Quoted as chapter epigraph: "...Are they not by nature simple creatures of our making? Must they also be gods?" —The Popol Vuh of the Quiche Maya"
 - Somnium by Johannes Kepler: "Kepler wrote one of the first works of science fiction... It was called the Somnium, "The Dream." He imagined a journey to the Moon."
@@ -1684,6 +1698,12 @@ https://bookjumpr.com/alexander-von-humboldt/cosmos
 https://bookjumpr.com/honore-de-balzac/cousin-bette
 - Manon Lescaut by Abbé Prévost
 - Les Chouans by Honoré de Balzac
+
+## Cousin Pons by Honoré de Balzac (1847)
+https://bookjumpr.com/honore-de-balzac/cousin-pons
+- Les Deux Amis by Jean de La Fontaine: "But for La Fontaine's fable, Les Deux Amis, this sketch should have borne the title of The Two Friends; but to take the name of this divine story would surely be a deed of violence, a profanation from which every true man of letters would shrink."
+- Chronicles of the Canongate by Walter Scott: "The Highland widow, in The Chronicles of the Canongate, sent her son to his death to have him beside her for twenty-four hours; and Schmucke could have sacrificed Pons for the sake of seeing his face every day across the dinner-table."
+- Cousin Bette by Honoré de Balzac: "Every one, no doubt, wishes to know what became of the heroine of a story only too veracious in its details; a chronicle which, taken with its twin sister the preceding volume, La Cousine Bette, proves that Character is a great social force."
 
 ## Coventry by Rachel Cusk (2019)
 https://bookjumpr.com/rachel-cusk/coventry
@@ -4113,6 +4133,10 @@ https://bookjumpr.com/wilkie-collins/man-and-wife
 - The Newgate Calendar by Anonymous: "It was the ghastly popular record of Criminal Trials in England, called the Newgate Calendar."
 - Report of the Royal Commissioners on the Laws of Marriage by Anonymous
 
+## Manon Lescaut by Abbé Prévost (1731)
+https://bookjumpr.com/abbe-prevost/manon-lescaut
+- The Aeneid by Virgil: "The light I had already derived from love, enabled me to comprehend many passages in Horace and Virgil which had before appeared obscure. I wrote an amatory commentary upon the fourth book of the AEneid."
+
 ## Mansfield Park by Jane Austen (1814)
 https://bookjumpr.com/jane-austen/mansfield-park
 - Lovers' Vows by Elizabeth Inchbald: "The play had been Lovers' Vows, and Mr."
@@ -5038,6 +5062,10 @@ https://bookjumpr.com/philip-roth/patrimony-a-true-story
 - Survival in Auschwitz by Primo Levi: "made me think of that chapter in Survival in Auschwitz in which Primo Levi describes the forbidden bartering and bargaining among the prisoners"
 - The Facts by Philip Roth: "The piece, which, as 'Safe at Home,' became the opening chapter of The Facts, described my Newark neighborhood..."
 
+## Paul and Virginia by Bernardin de Saint-Pierre (1788)
+https://bookjumpr.com/bernardin-de-saint-pierre/paul-and-virginia
+- Telemachus by François Fénelon: "Thus, no book gave him so much pleasure as Telemachus, from the pictures it draws of pastoral life, and of the passions which are most natural to the human breast."
+
 ## Pendennis by William Makepeace Thackeray (1850)
 https://bookjumpr.com/william-makepeace-thackeray/pendennis
 - Robinson Crusoe by Daniel Defoe
@@ -5506,6 +5534,10 @@ https://bookjumpr.com/mark-twain/roughing-it
 https://bookjumpr.com/arthur-conan-doyle/round-the-red-lamp
 - A Dictionary of Medicine by Richard Quain: "He laid out his large Quain's Dictionary of Medicine in the forefront of the table so as to impress the casual patient that he had ever the best authorities at his elbow."
 
+## Rudin by Ivan Turgenev (1856)
+https://bookjumpr.com/ivan-turgenev/rudin
+- Faust by Johann Wolfgang von Goethe: "What sweet moments Natalya passed when at times in the garden on the seat, in the transparent shade of the aspen tree, Rudin began to read Goethe's Faust, Hoffman, or Bettina's letters, or Novalis, constantly stopping and explaining what seemed obscure to her. Like almost all Russian"
+
 ## Ruth by Elizabeth Gaskell (1853)
 https://bookjumpr.com/elizabeth-gaskell/ruth
 - Lexicon totius Latinitatis (Facciolati's Latin Lexicon) by Jacopo Facciolati
@@ -5958,6 +5990,10 @@ https://bookjumpr.com/malcolm-gladwell/talking-to-strangers
 - When Montezuma Met Cortés: The True Story of the Meeting That Changed History by Matthew Restall: "“The impossibility of adequately translating…Spanish surrender”: Matthew Restall, When Montezuma Met Cortés: The True Story of the Meeting That Changed History (New York: Harper Collins, 2018), p."
 - The Neville Chamberlain Diary Letters: Volume Four: The Downing Street Years, 1934–1940 by Neville Chamberlain: "“Halfway down the steps…the house painter he was”: Neville Chamberlain to Ida Chamberlain, September 19, 1938, in Robert Self, ed., The Neville Chamberlain Diary Letters: Volume Four: The Downing Street Years, 1934–1940 (Aldershot, UK: Ashgate, 2005), p."
 - Death in Perugia by John Follain: "Just listen to a handful of quotations that I’ve taken—at random—from the British journalist John Follain’s Death in Perugia."
+
+## Tartarin de Tarascon by Alphonse Daudet (1872)
+https://bookjumpr.com/alphonse-daudet/tartarin-de-tarascon
+- Don Quixote by Miguel de Cervantes: "Three minutes later the boat reached land and Tartarin set foot on the little Barbary quay, where three hundred years earlier a galley-slave named Michael Cervantes, under the whip of an Algerian galley-master, had begun to plan the wonderful story of Don Quixote."
 
 ## Team of Rivals by Doris Kearns Goodwin (2005)
 https://bookjumpr.com/doris-kearns-goodwin/team-of-rivals
@@ -6479,6 +6515,21 @@ https://bookjumpr.com/oliver-wendell-holmes/the-autocrat-of-the-breakfast-table
 - Synopsis Criticorum by Matthew Poole
 - Political Poems by Thomas Moore: "The simile is a very obvious, and, I suppose I may now say, a happy one; for it has just been shown me that it occurs in a Preface to certain Political Poems of Thomas Moore's published long before my remark was repeated."
 - Don Quixote by Miguel de Cervantes: "I remember only three,--Don Quixote, Tom Jones, and _Watts on the Mind_."
+
+## The Awkward Age by Henry James (1899)
+https://bookjumpr.com/henry-james/the-awkward-age
+- Denise by Alexandre Dumas fils: "What earthly intellectual distinction, what'prestige' of achievement, would have attached to the substance of such things as'Denise,' as'Monsieur Alphonse,' as'Francillon' (and we take the Dumas of the supposedly subtler period)"
+- Monsieur Alphonse by Alexandre Dumas fils: "What earthly intellectual distinction, what'prestige' of achievement, would have attached to the substance of such things as'Denise,' as'Monsieur Alphonse,' as'Francillon' (and we take the Dumas of the supposedly subtler period)"
+- Francillon by Alexandre Dumas fils: "What earthly intellectual distinction, what'prestige' of achievement, would have attached to the substance of such things as'Denise,' as'Monsieur Alphonse,' as'Francillon' (and we take the Dumas of the supposedly subtler period)"
+- The Pillars of Society by Henrik Ibsen: "What virtues of the same order would have attached to'The Pillars of Society,' to'An Enemy of the People,' to'Ghosts,' to'Rosmersholm' (or taking also Ibsen's'subtler period') to'John Gabriel Borkmann,' to'The Master-Builder'?"
+- An Enemy of the People by Henrik Ibsen: "What virtues of the same order would have attached to'The Pillars of Society,' to'An Enemy of the People,' to'Ghosts,' to'Rosmersholm' (or taking also Ibsen's'subtler period') to'John Gabriel Borkmann,' to'The Master-Builder'?"
+- Ghosts by Henrik Ibsen: "What virtues of the same order would have attached to'The Pillars of Society,' to'An Enemy of the People,' to'Ghosts,' to'Rosmersholm' (or taking also Ibsen's'subtler period') to'John Gabriel Borkmann,' to'The Master-Builder'?"
+- Rosmersholm by Henrik Ibsen: "What virtues of the same order would have attached to'The Pillars of Society,' to'An Enemy of the People,' to'Ghosts,' to'Rosmersholm' (or taking also Ibsen's'subtler period') to'John Gabriel Borkmann,' to'The Master-Builder'?"
+- John Gabriel Borkman by Henrik Ibsen: "What virtues of the same order would have attached to'The Pillars of Society,' to'An Enemy of the People,' to'Ghosts,' to'Rosmersholm' (or taking also Ibsen's'subtler period') to'John Gabriel Borkmann,' to'The Master-Builder'?"
+- The Master Builder by Henrik Ibsen: "What virtues of the same order would have attached to'The Pillars of Society,' to'An Enemy of the People,' to'Ghosts,' to'Rosmersholm' (or taking also Ibsen's'subtler period') to'John Gabriel Borkmann,' to'The Master-Builder'?"
+- A Doll's House by Henrik Ibsen: "Ibsen is in fact wonderfully a case in point, since from the moment he's clear, from the moment he's'amusing,' it's on the footing of a thesis as simple and superficial as that of'A Doll's House'--while from the moment he's by apparent intention comprehensive and searching it's on the footing of an effect as confused and obscure as'The…"
+- The Wild Duck by Henrik Ibsen: "Ibsen is in fact wonderfully a case in point, since from the moment he's clear, from the moment he's'amusing,' it's on the footing of a thesis as simple and superficial as that of'A Doll's House'--while from the moment he's by apparent intention comprehensive and searching it's on the footing of an effect as confused and obscure as'The…"
+- Hedda Gabler by Henrik Ibsen: "The terms here used, obviously, are matters of appreciation, and there is no short cut to proof (luckily for us all round) either that "Monsieur Alphonse" develops itself on the highest plane of irony or that "Ghosts" simplifies almost to excruciation. If "John Gabriel Borkmann" is but a pennyworth of effect as to a character we can…"
 
 ## The Baron in the Trees by Italo Calvino (1957)
 https://bookjumpr.com/italo-calvino/the-baron-in-the-trees
@@ -7545,6 +7596,25 @@ https://bookjumpr.com/shirley-jackson/the-haunting-of-hill-house
 - Clarissa by Samuel Richardson: "I have three volumes to go, and then I shall begin Clarissa Harlowe, I think."
 - Sir Charles Grandison by Samuel Richardson: "They talked together and played chess; the doctor finished Pamela and began on Sir Charles Grandison."
 
+## The Heir of Redclyffe by Charlotte M. Yonge (1853)
+https://bookjumpr.com/charlotte-m-yonge/the-heir-of-redclyffe
+- The Tempest by William Shakespeare: "CHAPTER 2 If the ill spirit have so fair a house, Good things will strive to dwell with't. --THE TEMPEST"
+- Thoughts in Past Years by Isaac Williams: "I sat in solitude; I know not how--I know not why, But round my soul all drearily There was a silent shroud. --THOUGHTS IN PAST YEARS"
+- The Winter's Tale by William Shakespeare: "* * * * * He sings several times faster than you'll tell money; he utters them as he had eaten ballads, and all men's ears grow to his tunes. --WINTER'S TALE"
+- Sintram and His Companions by Friedrich de la Motte Fouqué: "'Nothing has affected him so much as Sintram,' said Laura.'I never saw"
+- Thalaba the Destroyer by Robert Southey: "impressions which stirred him profoundly. He was just now enchanted with his first reading of'Thalaba,' where he found all manner of deep"
+- Torquato Tasso by Johann Wolfgang von Goethe: "Tasso. Thou meanest with forbearance, prudent, subtle,'Tis that annoys me, for he knows to use Language so smooth and so conditional, That seeming praise from him is actual blame. --GOETHE'S Tasso"
+- The Analogy of Religion by Joseph Butler: "An interval passed long enough for her not to be alone in her surprise at his absenting himself before he at length made his appearance, just before luncheon, so as to miss the unconstrained morning hours he used so much to enjoy. He found Guy, Charles, and Amy, deep in Butler's Analogy.'Are you making poor little Amy read that?' said he."
+- The Pickwick Papers by Charles Dickens: "'Bravo!' cried Charles;'he is so disappointed that it is not Pickwick that he does not know what else to say.'"
+- King Lear by William Shakespeare: "'"Lavender--steadfastness--Strafford--Cordelia in'King Lear'--the"
+- Le Morte d'Arthur by Thomas Malory: "'What! Don't you know the Morte d'Arthur! I thought every one did! Don't"
+- The Merchant of Venice by William Shakespeare: "'Tis not unknown to you, Antonio, How much I have disabled mine estate, By something showing a more swelling port Than my faint means would grant continuance. --Merchant of Venice"
+- Lyra Innocentium by John Keble: "The smile of heaven comes on. So waits the Lord behind the veil, His light on frenzied cheek, or pale, To shed when the dark hour is gone. --LYRA INNOCENTIUM"
+- The Christian Year by John Keble: "CHAPTER 33 From darkness here and dreariness, We ask not full repose. --CHRISTIAN YEAR"
+- Cymbeline by William Shakespeare: "It is your fault I have loved Posthumus; You bred him as my playfellow; and he is A man worth any woman, over-buys me Almost the sum he pays. --CYMBELINE"
+- The Baptistery by Isaac Williams: "Around the very place doth brood A strange and holy quietude. --BAPTISTERY"
+- The Betrothed by Alessandro Manzoni: "The day was chiefly spent in an excursion on the lake, landing at the most beautiful spots, walking a little way and admiring, or while in the boat, smoothly moving over the deep blue waters, gaining lovely views of the banks, and talking over the book with which their acquaintance had begun, "I Promessi Sposi". Never did tourists spend…"
+
 ## The Help by Kathryn Stockett (2009)
 https://bookjumpr.com/kathryn-stockett/the-help
 - Peyton Place by Grace Metalious
@@ -7645,6 +7715,10 @@ https://bookjumpr.com/h-g-wells/the-history-of-mr-polly
 - The Canterbury Tales by Geoffrey Chaucer: "He was stirred to read the Canterbury Tales, but he could not get on with Chaucer's old-fashioned English; it fatigued his attention, and he would have given all the story telling very readily for a few adventures on the road."
 - The Quest of the Golden Girl by Richard Le Gallienne: "Richard Le Gallienne's very detrimental book, _The Quest of the Golden Girl_, which he had read at Canterbury, but he had no confidence they would happen in England--to him."
 - Travels in Tartary, Thibet, and China by Evariste Regis Huc and Joseph Gabet
+
+## The History of Sandford and Merton by Thomas Day (1783)
+https://bookjumpr.com/thomas-day/the-history-of-sandford-and-merton
+- Plutarch's Lives by Plutarch: ""No," answered Mr Barlow, "it is now time to retire, and you may at any time read the particulars of this extraordinary siege in'Plutarch's life of Marcellus.'""
 
 ## The History of the Decline and Fall of the Roman Empire by Edward Gibbon (1776)
 https://bookjumpr.com/edward-gibbon/the-history-of-the-decline-and-fall-of-the-roman-empire
@@ -9041,7 +9115,7 @@ https://bookjumpr.com/salman-rushdie/the-satanic-verses
 - Tamburlaine the Great by Christopher Marlowe: "an antique theatre review in which the English critic, Kenneth Tynan, had imagined the polysyllabic characters in Marlowe's Tamburlaine the Great as 'a horde of pills and wonder drugs bent on decimating one another'"
 - Finnegans Wake by James Joyce: "So comprehend, please, that I am an intelligent female. I have read Finnegans Wake and am conversant with postmodernist critiques of the West, e.g. that we have here a society capable only of pastiche: a 'flattened' world."
 - The Defense by Vladimir Nabokov: "she tried, once, referring to Nabokov's doomed chess-player Luzhin, who came to feel that in life as in chess there were certain combinations that would inevitably arise to defeat him ... but he fixed her with a hurt stare that told her he'd never heard of the writer, let alone The Defence."
-- The Origin of Species by Charles Darwin: "Sufyan, sucking teeth, made reference to the last edition of The Origin of Species. 'In which even great Charles accepted the notion of mutation in extremis, to ensure survival of species...'"
+- On the Origin of Species by Charles Darwin: "Sufyan, sucking teeth, made reference to the last edition of The Origin of Species. 'In which even great Charles accepted the notion of mutation in extremis, to ensure survival of species...'"
 - Vanity Fair by William Makepeace Thackeray: "the dream flies him at high speed past Barkers department store and the small grey house with double bay windows where Thackeray wrote Vanity Fair"
 - On the Nature of Things by Lucretius: "'Question of mutability of the essence of the self,' he began, awkwardly, 'has long been subject of profound debate. For example, great Lucretius tells us, in De Rerum Natura, this following thing: quodcumque suis mutatum finibus exit, continuo hoc mors est illius quod fuit ante.'"
 - The Prince by Niccolò Machiavelli: "if Niccolò could survive such tribulation and live to write that perhaps embittered, perhaps sardonic parody of the sycophantic mirror-of-princes literature then so much in vogue, Il Principe, following it with the magisterial Discorsi, then he, Chamcha, need certainly not permit himself the luxury of defeat."
@@ -9671,7 +9745,7 @@ https://bookjumpr.com/henry-james/the-tragic-muse
 - Il ne faut jurer de rien by Alfred de Musset
 - Les Trois Mousquetaires by Alexandre Dumas
 - Les Nuits by Alfred de Musset
-- La Cousine Bette by Honoré de Balzac: "I read Balzac for instance--I encounter the admirable portrait of Valérie Marneffe in _La Cousine Bette_.""
+- Cousin Bette by Honoré de Balzac: "I read Balzac for instance--I encounter the admirable portrait of Valérie Marneffe in _La Cousine Bette_.""
 - The Lotus-Eaters by Alfred Tennyson: "I think he's much deeper than La Fontaine"; and after some deliberation and delay Miriam broke into "The Lotus-Eaters," from which she passed directly, almost breathlessly, to "Edward Gray.""
 - Edward Gray by Alfred Tennyson: "I think he's much deeper than La Fontaine"; and after some deliberation and delay Miriam broke into "The Lotus-Eaters," from which she passed directly, almost breathlessly, to "Edward Gray.""
 - Mary Stuart by Friedrich Schiller: "She shook her head with stately sadness; she might have been trying some effect for Mary Stuart in Schiller's play."
@@ -9938,7 +10012,7 @@ https://bookjumpr.com/virginia-woolf/the-voyage-out
 - Man and Superman by George Bernard Shaw: "from _Wuthering Heights_ to _Man and Superman_, and the plays of Ibsen"
 - Henry V by William Shakespeare: ""I wonder if it's the same as mine?" "_Henry the Fifth_," said Mr."
 - The History of the Decline and Fall of the Roman Empire by Edward Gibbon: ""Gibbon's _History of the Roman Empire_." "D'you mean to tell me you've reached the age of twenty-four without reading Gibbon?""
-- La Cousine Bette by Honoré de Balzac: "seeing that it was _La Cousine bette_, bade her throw it away if she found it too horrible"
+- Cousin Bette by Honoré de Balzac: "seeing that it was _La Cousine bette_, bade her throw it away if she found it too horrible"
 - Persuasion by Jane Austen: "'Sir Walter Elliott, of Kellynch Hall, in Somersetshire, was a man who... never took up any book but the _Baronetage_'... She does write well, doesn't she?"
 - The Prelude by William Wordsworth: "She was reading the 'Prelude'... engaged in writing a short _Primer of English Literature_... a paragraph on Wordsworth."
 - Modern Love by George Meredith: "Not Gibbon; no; d'you happen to have _Modern Love_ or _John Donne_?"
@@ -9991,6 +10065,27 @@ https://bookjumpr.com/charles-kingsley/the-water-babies
 - Ode to Duty by William Wordsworth
 - Beauty and the Beast by Jeanne-Marie Leprince de Beaumont
 - Triumph of Antimony by Basil Valentine: "Sympathy, after the method of Basil Valentine his Triumph of Antimony, and Kenelm Digby his Weapon-salve, which some call a hair of the dog that bit him."
+
+## The Way of All Flesh by Samuel Butler (1903)
+https://bookjumpr.com/samuel-butler/the-way-of-all-flesh
+- Hamlet by William Shakespeare: "The result of his experience was that women had never done him any good and he was not accustomed to associate them with any pleasure; if there was a part of Hamlet in connection with them it had been so completely cut out in the edition of the play in which he was required to act that he had come to disbelieve in its existence. As for…"
+- The Pilgrim's Progress by John Bunyan: "I had also dramatised "The Pilgrim's Progress" for a Christmas Pantomime, and made an important scene of Vanity Fair, with Mr Greatheart, Apollyon, Christiana, Mercy, and Hopeful as the principal characters."
+- A History of England by Markham: "not long since he had been reading Mrs Markham's history of England and had come upon the words "John of Gaunt had several natural children" he"
+- Vestiges of the Natural History of Creation by Robert Chambers: "Pryer not being at home, he lounged to the British Museum Reading Room, then recently opened, sent for the "Vestiges of Creation," which he had never yet seen, and spent the rest of the afternoon in reading it. Ernest did not see Pryer on the day of his conversation with Mr Shaw, but he did so next morning and found him in a good temper,…"
+- Essays and Reviews by Frederick Temple et al.: "1844, when "Vestiges of Creation" appeared, and 1859, when "Essays and Reviews" marked the commencement of that storm which raged until many years afterwards, there was not a single book published in England that"
+- History of Civilization in England by Henry Thomas Buckle: "caused serious commotion within the bosom of the Church. Perhaps Buckle's "History of Civilisation" and Mill's "Liberty" were the most alarming, but they neither of them reached the substratum of the reading"
+- On Liberty by John Stuart Mill: "caused serious commotion within the bosom of the Church. Perhaps Buckle's "History of Civilisation" and Mill's "Liberty" were the most alarming, but they neither of them reached the substratum of the reading"
+- On the Origin of Species by Charles Darwin: "Ernest had hardly been ordained before three works in quick succession arrested the attention even of those who paid least heed to theological controversy. I mean "Essays and Reviews," Charles Darwin's "Origin of Species," and Bishop Colenso's "Criticisms on the Pentateuch.""
+- The Pentateuch and Book of Joshua Critically Examined by John William Colenso: "Ernest had hardly been ordained before three works in quick succession arrested the attention even of those who paid least heed to theological controversy. I mean "Essays and Reviews," Charles Darwin's "Origin of Species," and Bishop Colenso's "Criticisms on the Pentateuch.""
+- An Explanation of the Grand Mystery of Godliness by Henry More: "They got up Beveridge on the Thirty-nine Articles, and Pearson on the Creed; in their hours of recreation they read More's "Mystery of Godliness," which Ernest thought was charming, and Taylor's "Holy Living and Dying," which also impressed him deeply, through what he thought was the splendour of its language."
+- Holy Living and Holy Dying by Jeremy Taylor: "They got up Beveridge on the Thirty-nine Articles, and Pearson on the Creed; in their hours of recreation they read More's "Mystery of Godliness," which Ernest thought was charming, and Taylor's "Holy Living and Dying," which also impressed him deeply, through what he thought was the splendour of its language. They handed"
+- Alton Locke by Charles Kingsley: "Kingsley's "Alton Locke," which, High Churchman though he for the nonce was, he had devoured as he had devoured Stanley's Life of Arnold,"
+- The Life and Correspondence of Thomas Arnold by Arthur Penrhyn Stanley: "Kingsley's "Alton Locke," which, High Churchman though he for the nonce was, he had devoured as he had devoured Stanley's Life of Arnold,"
+- Evidences of Christianity by William Paley: "CHAPTER LIX Before going down into the kitchen to convert the tinker Ernest ran hurriedly over his analysis of Paley's evidences, and put into his pocket a copy of Archbishop Whateley's "Historic Doubts." Then he descended the dark rotten old stairs and knocked at the tinker's door."
+- Historic Doubts Relative to Napoleon Buonaparte by Richard Whately: "CHAPTER LIX Before going down into the kitchen to convert the tinker Ernest ran hurriedly over his analysis of Paley's evidences, and put into his pocket a copy of Archbishop Whateley's "Historic Doubts." Then he descended the dark rotten old stairs and knocked at the tinker's door."
+- The Odyssey by Homer: "I am not very familiar with the writer of the Odyssey (who, by the way, I suspect strongly of having been a clergyman), but he assuredly hit the right nail on the head when he epitomised his typical wise man as knowing "the ways and farings of many men."
+- Paradise Lost by John Milton: "He said: "Oh, don't talk about rewards. Look at Milton, who only got 5 pounds for'Paradise Lost.'""
+- Les Provinciales by Blaise Pascal: "One of the most gushing weeklies had a fit over it, and declared it to be the finest thing that had been done since the "Provincial Letters" of Pascal. Once a month or so that weekly always found some picture which was the finest that had been done since the old masters, or some satire that was the finest that had appeared since Swift or…"
 
 ## The Way We Live Now by Anthony Trollope (1875)
 https://bookjumpr.com/anthony-trollope/the-way-we-live-now
@@ -10119,6 +10214,10 @@ https://bookjumpr.com/haruki-murakami/the-wind-up-bird-chronicle
 - A Farewell to Arms by Ernest Hemingway: ""After thinking long and hard about it, I concluded that it was from Hemingway's A Farewell to Arms. The hero ... manages to escape from Italy to Switzerland by boat..." — discussed at length as a remembered story about a man who keeps eati"
 - Gulliver's Travels by Jonathan Swift: "This meaningless response hovered in the air above the table like the floating island in Gulliver's Travels."
 - The Brothers Karamazov by Fyodor Dostoevsky: ""I knew the names of all the brothers Karamazov" — offered as one of the narrator's distinguishing characteristics."
+
+## The Wings of the Dove by Henry James (1902)
+https://bookjumpr.com/henry-james/the-wings-of-the-dove
+- The Newcomes by William Makepeace Thackeray: "She could relate to Susie later on, late the same evening, that the legend, before she had done with it, had run clear, that the adored author of The Newcomes, in fine, had been on the whole the note: the picture lacking thus more than she had hoped, or rather perhaps showing less than she had feared, a certain possibility of Pickwickian…"
 
 ## The Wisdom of Father Brown by G. K. Chesterton (1914)
 https://bookjumpr.com/g-k-chesterton/the-wisdom-of-father-brown
@@ -10428,6 +10527,13 @@ https://bookjumpr.com/richard-henry-dana/two-years-before-the-mast
 https://bookjumpr.com/herman-melville/typee
 - A History of the Earth and Animated Nature by Oliver Goldsmith
 - Robinson Crusoe by Daniel Defoe: "Robinson Crusoe could not have been more startled at the footprint in the sand than we were at this unwelcome discovery."
+
+## Typhoon by Joseph Conrad (1902)
+https://bookjumpr.com/joseph-conrad/typhoon
+- The End of the Tether by Joseph Conrad: "The period is that which follows on my connection with Blackwood's Magazine. I had just finished writing "The End of the Tether" and was casting about for some subject which could be developed in a shorter form than the tales in the volume of "Youth"…"
+- Tales of Unrest by Joseph Conrad: ""Falk" shares with one other of my stories ("The Return" in the "Tales of Unrest" volume) the distinction of never having been serialized."
+- The Return by Joseph Conrad: ""Falk" shares with one other of my stories ("The Return" in the "Tales of Unrest" volume) the distinction of never having been serialized."
+- One Day More by Joseph Conrad: "Of that story I will only say that it struck many people by its adaptability to the stage and that I was induced to dramatize it under the title of "One Day More"; up to the present my only effort in that direction."
 
 ## Ulysses by James Joyce (1922)
 https://bookjumpr.com/james-joyce/ulysses

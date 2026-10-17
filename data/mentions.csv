@@ -1855,7 +1855,7 @@ The Tragic Muse,Henry James,Mademoiselle de la Seiglière,Jules Sandeau
 The Tragic Muse,Henry James,Il ne faut jurer de rien,Alfred de Musset
 The Tragic Muse,Henry James,Les Trois Mousquetaires,Alexandre Dumas
 The Tragic Muse,Henry James,Les Nuits,Alfred de Musset
-The Tragic Muse,Henry James,La Cousine Bette,Honoré de Balzac
+The Tragic Muse,Henry James,Cousin Bette,Honoré de Balzac
 The Tragic Muse,Henry James,The Lotus-Eaters,Alfred Tennyson
 The Tragic Muse,Henry James,Edward Gray,Alfred Tennyson
 The Tragic Muse,Henry James,Mary Stuart,Friedrich Schiller
@@ -2266,7 +2266,7 @@ The Voyage Out,Virginia Woolf,Wuthering Heights,Emily Bronte
 The Voyage Out,Virginia Woolf,Man and Superman,George Bernard Shaw
 The Voyage Out,Virginia Woolf,Henry V,William Shakespeare
 The Voyage Out,Virginia Woolf,The History of the Decline and Fall of the Roman Empire,Edward Gibbon
-The Voyage Out,Virginia Woolf,La Cousine Bette,Honore de Balzac
+The Voyage Out,Virginia Woolf,Cousin Bette,Honore de Balzac
 The Voyage Out,Virginia Woolf,Persuasion,Jane Austen
 The Voyage Out,Virginia Woolf,The Prelude,William Wordsworth
 The Voyage Out,Virginia Woolf,Modern Love,George Meredith
@@ -5574,7 +5574,7 @@ The Satanic Verses,Salman Rushdie,The Martian Chronicles,Ray Bradbury
 The Satanic Verses,Salman Rushdie,Tamburlaine the Great,Christopher Marlowe
 The Satanic Verses,Salman Rushdie,Finnegans Wake,James Joyce
 The Satanic Verses,Salman Rushdie,The Defense,Vladimir Nabokov
-The Satanic Verses,Salman Rushdie,The Origin of Species,Charles Darwin
+The Satanic Verses,Salman Rushdie,On the Origin of Species,Charles Darwin
 The Satanic Verses,Salman Rushdie,Vanity Fair,William Makepeace Thackeray
 The Satanic Verses,Salman Rushdie,On the Nature of Things,Lucretius
 The Satanic Verses,Salman Rushdie,The Prince,Niccolò Machiavelli
@@ -5687,7 +5687,7 @@ The Duke's Children,Anthony Trollope,Irish Melodies,Thomas Moore
 Demos,George Gissing,Das Kapital,Karl Marx
 Demos,George Gissing,Vita Nuova,Dante Alighieri
 Born in Exile,George Gissing,The World before the Deluge,Louis Figuier
-Born in Exile,George Gissing,The Origin of Species,Charles Darwin
+Born in Exile,George Gissing,On the Origin of Species,Charles Darwin
 Born in Exile,George Gissing,Bridgewater Treatise,William Buckland
 Born in Exile,George Gissing,"The Soul, Her Sorrows and Her Aspirations",Francis William Newman
 Born in Exile,George Gissing,A Monograph of the British Fossil Brachiopoda,Thomas Davidson
@@ -6366,7 +6366,7 @@ Contact,Carl Sagan,Encyclopaedia Britannica,Anonymous
 Cosmos,Alexander von Humboldt,Elements of Geometry,Euclid
 Cosmos,Alexander von Humboldt,Natural Questions,Seneca
 Cosmos,Alexander von Humboldt,Tao Te Ching,Laozi
-Cosmos,Alexander von Humboldt,The Origin of Species,Charles Darwin
+Cosmos,Alexander von Humboldt,On the Origin of Species,Charles Darwin
 Cosmos,Alexander von Humboldt,De Stella Nova,Johannes Kepler
 Cosmos,Alexander von Humboldt,Popol Vuh,Anonymous
 Cosmos,Alexander von Humboldt,Somnium,Johannes Kepler
@@ -8288,3 +8288,70 @@ The Bride of Lammermoor,Walter Scott,Wit's Interpreter,John Cotgrave
 The Bride of Lammermoor,Walter Scott,The Complete Letter-Writer,Anonymous
 The Napoleon of Notting Hill,G. K. Chesterton,Iliad,Homer
 Major Barbara,George Bernard Shaw,The Republic,Plato
+Manon Lescaut,Abbé Prévost,The Aeneid,Virgil
+The Wings of the Dove,Henry James,The Newcomes,William Makepeace Thackeray
+Paul and Virginia,Bernardin de Saint-Pierre,Telemachus,François Fénelon
+The History of Sandford and Merton,Thomas Day,Plutarch's Lives,Plutarch
+The Way of All Flesh,Samuel Butler,Hamlet,William Shakespeare
+The Way of All Flesh,Samuel Butler,The Pilgrim's Progress,John Bunyan
+The Way of All Flesh,Samuel Butler,A History of England,Markham
+The Way of All Flesh,Samuel Butler,Vestiges of the Natural History of Creation,Robert Chambers
+The Way of All Flesh,Samuel Butler,Essays and Reviews,Frederick Temple et al.
+The Way of All Flesh,Samuel Butler,History of Civilization in England,Henry Thomas Buckle
+The Way of All Flesh,Samuel Butler,On Liberty,John Stuart Mill
+The Way of All Flesh,Samuel Butler,On the Origin of Species,Charles Darwin
+The Way of All Flesh,Samuel Butler,The Pentateuch and Book of Joshua Critically Examined,John William Colenso
+The Way of All Flesh,Samuel Butler,An Explanation of the Grand Mystery of Godliness,Henry More
+The Way of All Flesh,Samuel Butler,Holy Living and Holy Dying,Jeremy Taylor
+The Way of All Flesh,Samuel Butler,Alton Locke,Charles Kingsley
+The Way of All Flesh,Samuel Butler,The Life and Correspondence of Thomas Arnold,Arthur Penrhyn Stanley
+The Way of All Flesh,Samuel Butler,Evidences of Christianity,William Paley
+The Way of All Flesh,Samuel Butler,Historic Doubts Relative to Napoleon Buonaparte,Richard Whately
+The Way of All Flesh,Samuel Butler,The Odyssey,Homer
+The Way of All Flesh,Samuel Butler,Paradise Lost,John Milton
+The Way of All Flesh,Samuel Butler,Les Provinciales,Blaise Pascal
+Tartarin de Tarascon,Alphonse Daudet,Don Quixote,Miguel de Cervantes
+Typhoon,Joseph Conrad,The End of the Tether,Joseph Conrad
+Typhoon,Joseph Conrad,Tales of Unrest,Joseph Conrad
+Typhoon,Joseph Conrad,The Return,Joseph Conrad
+Typhoon,Joseph Conrad,One Day More,Joseph Conrad
+The Heir of Redclyffe,Charlotte M. Yonge,The Tempest,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Thoughts in Past Years,Isaac Williams
+The Heir of Redclyffe,Charlotte M. Yonge,The Winter's Tale,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Sintram and His Companions,Friedrich de la Motte Fouqué
+The Heir of Redclyffe,Charlotte M. Yonge,Thalaba the Destroyer,Robert Southey
+The Heir of Redclyffe,Charlotte M. Yonge,Torquato Tasso,Johann Wolfgang von Goethe
+The Heir of Redclyffe,Charlotte M. Yonge,The Analogy of Religion,Joseph Butler
+The Heir of Redclyffe,Charlotte M. Yonge,The Pickwick Papers,Charles Dickens
+The Heir of Redclyffe,Charlotte M. Yonge,King Lear,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Le Morte d'Arthur,Thomas Malory
+The Heir of Redclyffe,Charlotte M. Yonge,The Merchant of Venice,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Lyra Innocentium,John Keble
+The Heir of Redclyffe,Charlotte M. Yonge,The Christian Year,John Keble
+The Heir of Redclyffe,Charlotte M. Yonge,Cymbeline,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,The Baptistery,Isaac Williams
+The Heir of Redclyffe,Charlotte M. Yonge,The Betrothed,Alessandro Manzoni
+The Awkward Age,Henry James,Denise,Alexandre Dumas fils
+The Awkward Age,Henry James,Monsieur Alphonse,Alexandre Dumas fils
+The Awkward Age,Henry James,Francillon,Alexandre Dumas fils
+The Awkward Age,Henry James,The Pillars of Society,Henrik Ibsen
+The Awkward Age,Henry James,An Enemy of the People,Henrik Ibsen
+The Awkward Age,Henry James,Ghosts,Henrik Ibsen
+The Awkward Age,Henry James,Rosmersholm,Henrik Ibsen
+The Awkward Age,Henry James,John Gabriel Borkman,Henrik Ibsen
+The Awkward Age,Henry James,The Master Builder,Henrik Ibsen
+The Awkward Age,Henry James,A Doll's House,Henrik Ibsen
+The Awkward Age,Henry James,The Wild Duck,Henrik Ibsen
+The Awkward Age,Henry James,Hedda Gabler,Henrik Ibsen
+Cousin Pons,Honoré de Balzac,Les Deux Amis,Jean de La Fontaine
+Cousin Pons,Honoré de Balzac,Chronicles of the Canongate,Walter Scott
+Cousin Pons,Honoré de Balzac,Cousin Bette,Honoré de Balzac
+Camilla,Frances Burney,The Seasons,James Thomson
+Camilla,Frances Burney,Eclogues,Virgil
+Camilla,Frances Burney,Absalom and Achitophel,John Dryden
+Camilla,Frances Burney,Othello,William Shakespeare
+Camilla,Frances Burney,Macbeth,William Shakespeare
+Camilla,Frances Burney,Hamlet,William Shakespeare
+Rudin,Ivan Turgenev,Faust,Johann Wolfgang von Goethe
+A House of Gentlefolk,Ivan Turgenev,Symbols and Emblems,Nestor Maksimovich-Ambodik
+A House of Gentlefolk,Ivan Turgenev,Obermann,Étienne Pivert de Senancour
