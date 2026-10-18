@@ -352,7 +352,7 @@ Little Women,Louisa May Alcott,Mary Stuart,Friedrich Schiller
 Little Women,Louisa May Alcott,Belsham's Essays,William Belsham
 Little Women,Louisa May Alcott,Uncle Tom's Cabin,Harriet Beecher Stowe
 Little Women,Louisa May Alcott,Romeo and Juliet,William Shakespeare
-David Copperfield,Charles Dickens,Roderick Random,Tobias Smollett
+David Copperfield,Charles Dickens,The Adventures of Roderick Random,Tobias Smollett
 David Copperfield,Charles Dickens,Peregrine Pickle,Tobias Smollett
 David Copperfield,Charles Dickens,Humphry Clinker,Tobias Smollett
 David Copperfield,Charles Dickens,Tom Jones,Henry Fielding
@@ -548,7 +548,7 @@ The Professor,Charlotte Bronte,Othello,William Shakespeare
 The Professor,Charlotte Bronte,The Vicar of Wakefield,Oliver Goldsmith
 A Connecticut Yankee in King Arthur's Court,Mark Twain,Le Morte d'Arthur,Thomas Malory
 A Connecticut Yankee in King Arthur's Court,Mark Twain,Tom Jones,Henry Fielding
-A Connecticut Yankee in King Arthur's Court,Mark Twain,Roderick Random,Tobias Smollett
+A Connecticut Yankee in King Arthur's Court,Mark Twain,The Adventures of Roderick Random,Tobias Smollett
 A Connecticut Yankee in King Arthur's Court,Mark Twain,Robinson Crusoe,Daniel Defoe
 The Prince and the Pauper,Mark Twain,The English Rogue,Richard Head
 Three Men in a Boat,Jerome K. Jerome,The History of Sandford and Merton,Thomas Day
@@ -618,7 +618,7 @@ Martin Eden,Jack London,Progress and Poverty,Henry George
 Martin Eden,Jack London,The Quintessence of Socialism,Albert Schäffle
 Martin Eden,Jack London,The Princess,Alfred Tennyson
 Martin Eden,Jack London,The Bottle Imp,Robert Louis Stevenson
-Martin Eden,Jack London,The Magic Skin,Honoré de Balzac
+Martin Eden,Jack London,The Wild Ass's Skin,Honoré de Balzac
 Martin Eden,Jack London,An Essay Concerning Human Understanding,John Locke
 Martin Eden,Jack London,The Cycle of Life,C. W. Saleeby
 Martin Eden,Jack London,The Age of Fable,Thomas Bulfinch
@@ -2284,7 +2284,7 @@ The Enormous Room,E. E. Cummings,As You Like It,William Shakespeare
 The Enormous Room,E. E. Cummings,Hamlet,William Shakespeare
 The Enormous Room,E. E. Cummings,Julius Caesar,William Shakespeare
 The Enormous Room,E. E. Cummings,The Pilgrim's Progress,John Bunyan
-Zuleika Dobson,Max Beerbohm,Clarissa Harlowe,Samuel Richardson
+Zuleika Dobson,Max Beerbohm,Clarissa,Samuel Richardson
 Zuleika Dobson,Max Beerbohm,The Invasion of the Crimea,Alexander William Kinglake
 Zuleika Dobson,Max Beerbohm,Politics,Aristotle
 Alice Adams,Booth Tarkington,Romeo and Juliet,William Shakespeare
@@ -3821,7 +3821,7 @@ Possession,A. S. Byatt,As You Like It,William Shakespeare
 Possession,A. S. Byatt,Idylls of the King,Alfred Tennyson
 Possession,A. S. Byatt,Paradiso,Dante Alighieri
 Possession,A. S. Byatt,Moby-Dick,Herman Melville
-Possession,A. S. Byatt,Roderick Random,Tobias Smollett
+Possession,A. S. Byatt,The Adventures of Roderick Random,Tobias Smollett
 Possession,A. S. Byatt,Samson Agonistes,John Milton
 Possession,A. S. Byatt,Silas Marner,George Eliot
 Possession,A. S. Byatt,The Bostonians,Henry James
@@ -4827,7 +4827,7 @@ Virgin Soil,Ivan Turgenev,Songs Before Sunrise,Algernon Charles Swinburne
 Virgin Soil,Ivan Turgenev,The Duties of Man,Giuseppe Mazzini
 Virgin Soil,Ivan Turgenev,Yevgenia Onegin,Alexander Pushkin
 Virgin Soil,Ivan Turgenev,The Story of the Four Brothers,
-The Wild Ass's Skin,Honoré de Balzac,Clarissa Harlowe,Samuel Richardson
+The Wild Ass's Skin,Honoré de Balzac,Clarissa,Samuel Richardson
 The Wild Ass's Skin,Honoré de Balzac,Manfred,Byron
 The Wild Ass's Skin,Honoré de Balzac,Childe Harold's Pilgrimage,Byron
 The Wild Ass's Skin,Honoré de Balzac,Don Quixote,Miguel de Cervantes
@@ -5607,7 +5607,7 @@ The Uncommon Reader,Alan Bennett,My Father and Myself,J.R. Ackerley
 The Uncommon Reader,Alan Bennett,Love in a Cold Climate,Nancy Mitford
 The Uncommon Reader,Alan Bennett,A Tale of Two Cities,Charles Dickens
 The Uncommon Reader,Alan Bennett,Alice's Adventures in Wonderland,Lewis Carroll
-The Uncommon Reader,Alan Bennett,"The Life and Opinions of Tristram Shandy, Gentleman",Laurence Sterne
+The Uncommon Reader,Alan Bennett,Tristram Shandy,Laurence Sterne
 The Uncommon Reader,Alan Bennett,The Convergence of the Twain,Thomas Hardy
 The Uncommon Reader,Alan Bennett,Kama Sutra,Vātsyāyana
 The Uncommon Reader,Alan Bennett,Tell All the Truth but Tell It Slant,Emily Dickinson
@@ -7396,7 +7396,7 @@ The Lacuna,Barbara Kingsolver,Don Quixote,Miguel de Cervantes
 The Lacuna,Barbara Kingsolver,Zozobra,Ramón López Velarde
 The Lacuna,Barbara Kingsolver,Romancero gitano,Federico García Lorca
 The Lacuna,Barbara Kingsolver,The Odyssey,Homer
-The Lacuna,Barbara Kingsolver,"The Life and Opinions of Tristram Shandy, Gentleman",Laurence Sterne
+The Lacuna,Barbara Kingsolver,Tristram Shandy,Laurence Sterne
 The Lacuna,Barbara Kingsolver,Gone with the Wind,Margaret Mitchell
 The Lacuna,Barbara Kingsolver,The Big Money,John Dos Passos
 The Lacuna,Barbara Kingsolver,The Great Gatsby,F. Scott Fitzgerald
@@ -7483,7 +7483,7 @@ Crossing the Wine-Dark Sea,Emily Wilson,Ode to a Nightingale,John Keats
 Crossing the Wine-Dark Sea,Emily Wilson,Twenty Love Poems and a Song of Despair,Pablo Neruda
 Crossing the Wine-Dark Sea,Emily Wilson,Sappho's Leap,Erica Jong
 Crossing the Wine-Dark Sea,Emily Wilson,Sparrow,Carol Muske-Dukes
-Crossing the Wine-Dark Sea,Emily Wilson,"The Life and Opinions of Tristram Shandy, Gentleman",Laurence Sterne
+Crossing the Wine-Dark Sea,Emily Wilson,Tristram Shandy,Laurence Sterne
 Crossing the Wine-Dark Sea,Emily Wilson,Nana,Émile Zola
 Crossing the Wine-Dark Sea,Emily Wilson,The Vegetarian,Han Kang
 Crossing the Wine-Dark Sea,Emily Wilson,Orientalism,Edward Said
@@ -8332,3 +8332,56 @@ Camilla,Frances Burney,Hamlet,William Shakespeare
 Rudin,Ivan Turgenev,Faust,Johann Wolfgang von Goethe
 A House of Gentlefolk,Ivan Turgenev,Symbols and Emblems,Nestor Maksimovich-Ambodik
 A House of Gentlefolk,Ivan Turgenev,Obermann,Étienne Pivert de Senancour
+Tom Brown's School Days,Thomas Hughes,Kenilworth,Walter Scott
+Tom Brown's School Days,Thomas Hughes,Ingoldsby Legends,Richard Harris Barham
+Tom Brown's School Days,Thomas Hughes,Yeast,Charles Kingsley
+Tom Brown's School Days,Thomas Hughes,Eclogues,Virgil
+Tom Brown's School Days,Thomas Hughes,Hecuba,Euripides
+Tom Brown's School Days,Thomas Hughes,The Pickwick Papers,Charles Dickens
+Tom Brown's School Days,Thomas Hughes,Iliad,Homer
+Tom Brown's School Days,Thomas Hughes,Agamemnon,Aeschylus
+Tom Brown's School Days,Thomas Hughes,The Birds,Aristophanes
+Tom Brown's School Days,Thomas Hughes,Don Quixote,Miguel de Cervantes
+The Damnation of Theron Ware,Harold Frederic,Evidences of Christianity,William Paley
+The Damnation of Theron Ware,Harold Frederic,The Life of Christ,Frederic W. Farrar
+The Damnation of Theron Ware,Harold Frederic,A Thousand and One Nights,Anonymous
+The Adventures of Peregrine Pickle,Tobias Smollett,Elements,Euclid
+The Adventures of Peregrine Pickle,Tobias Smollett,Commentaries on the Gallic War,Julius Caesar
+The Adventures of Peregrine Pickle,Tobias Smollett,The Adventures of Roderick Random,Tobias Smollett
+The Adventures of Peregrine Pickle,Tobias Smollett,Iliad,Homer
+The Adventures of Peregrine Pickle,Tobias Smollett,Ion,Euripides
+The Adventures of Peregrine Pickle,Tobias Smollett,The Republic,Plato
+The Adventures of Peregrine Pickle,Tobias Smollett,Odes,Horace
+The Adventures of Peregrine Pickle,Tobias Smollett,The Rehearsal,"George Villiers, Duke of Buckingham"
+The Adventures of Peregrine Pickle,Tobias Smollett,Gil Blas,Alain-René Lesage
+The Adventures of Peregrine Pickle,Tobias Smollett,Le Cid,Pierre Corneille
+The Adventures of Peregrine Pickle,Tobias Smollett,The Plain Dealer,William Wycherley
+The Adventures of Peregrine Pickle,Tobias Smollett,Othello,William Shakespeare
+A Journal of the Plague Year,Daniel Defoe,Britain's Remembrancer,George Wither
+The Wild Ass's Skin,Honoré de Balzac,Venice Preserv'd,Thomas Otway
+The Wild Ass's Skin,Honoré de Balzac,Donkeyskin,Charles Perrault
+The Wild Ass's Skin,Honoré de Balzac,The Red Inn,Honoré de Balzac
+The Wild Ass's Skin,Honoré de Balzac,The Provincial Letters,Blaise Pascal
+The Wild Ass's Skin,Honoré de Balzac,A Thousand and One Nights,Anonymous
+The Wild Ass's Skin,Honoré de Balzac,The Marriage of Figaro,Pierre Beaumarchais
+Smoke,Ivan Turgenev,Uncle Tom's Cabin,Harriet Beecher Stowe
+Smoke,Ivan Turgenev,Mademoiselle La Quintinie,George Sand
+The Torrents of Spring,Ivan Turgenev,The Sorrows of Young Werther,Johann Wolfgang von Goethe
+The Torrents of Spring,Ivan Turgenev,Eugene Onegin,Alexander Pushkin
+The Torrents of Spring,Ivan Turgenev,The Aeneid,Virgil
+Under Western Eyes,Joseph Conrad,The Social Contract,Jean-Jacques Rousseau
+Under Western Eyes,Joseph Conrad,Corinne,Madame de Stael
+The Trumpet-Major,Thomas Hardy,Hamlet,William Shakespeare
+What Maisie Knew,Henry James,A Thousand and One Nights,Anonymous
+"John Halifax, Gentleman",Dinah Mulock Craik,The Pilgrim's Progress,John Bunyan
+"John Halifax, Gentleman",Dinah Mulock Craik,Robinson Crusoe,Daniel Defoe
+"John Halifax, Gentleman",Dinah Mulock Craik,A Thousand and One Nights,Anonymous
+"John Halifax, Gentleman",Dinah Mulock Craik,Romeo and Juliet,William Shakespeare
+"John Halifax, Gentleman",Dinah Mulock Craik,The Purple Island,Phineas Fletcher
+"John Halifax, Gentleman",Dinah Mulock Craik,Lyrical Ballads,William Wordsworth
+"John Halifax, Gentleman",Dinah Mulock Craik,Inferno,Dante Alighieri
+The Gilded Age,Mark Twain and Charles Dudley Warner,The Princess,Alfred Tennyson
+The Gilded Age,Mark Twain and Charles Dudley Warner,The Faerie Queene,Edmund Spenser
+The Gilded Age,Mark Twain and Charles Dudley Warner,Notes on England,Hippolyte Taine
+The Gilded Age,Mark Twain and Charles Dudley Warner,The Autocrat of the Breakfast-Table,Oliver Wendell Holmes
+The Gilded Age,Mark Twain and Charles Dudley Warner,Venetian Life,William Dean Howells

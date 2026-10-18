@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 968 books that mention other books, 8,333 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 979 books that mention other books, 8,386 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -173,7 +173,7 @@ https://bookjumpr.com/charles-dickens/a-christmas-carol
 https://bookjumpr.com/mark-twain/a-connecticut-yankee-in-king-arthur-s-court
 - Le Morte d'Arthur by Thomas Malory
 - Tom Jones by Henry Fielding: "However, I had read "Tom Jones," and "Roderick Random," and other books of that kind, and knew that the highest and first ladies and gentlemen in England had remained little or no cleaner in their talk, and in the morals and conduct which such talk implies, clear up to a hundred years ago; in fact…"
-- Roderick Random by Tobias Smollett: "However, I had read "Tom Jones," and "Roderick Random," and other books of that kind, and knew that the highest and first ladies and gentlemen in England had remained little or no cleaner in their talk, and in the morals and conduct which such talk implies, clear up to a hundred years ago; in fact…"
+- The Adventures of Roderick Random by Tobias Smollett: "However, I had read "Tom Jones," and "Roderick Random," and other books of that kind, and knew that the highest and first ladies and gentlemen in England had remained little or no cleaner in their talk, and in the morals and conduct which such talk implies, clear up to a hundred years ago; in fact…"
 - Robinson Crusoe by Daniel Defoe: "I saw that I was just another Robinson Crusoe cast away on an uninhabited island, with no society but some more or less tame animals, and if I wanted to make life bearable I must do as he did--invent, contrive, create, reorganize things; set brain and hand to work, and keep them busy."
 
 ## A Country Doctor's Notebook by Mikhail Bulgakov (1926)
@@ -221,6 +221,10 @@ https://bookjumpr.com/mikhail-lermontov/a-hero-of-our-time
 https://bookjumpr.com/ivan-turgenev/a-house-of-gentlefolk
 - Symbols and Emblems by Nestor Maksimovich-Ambodik: "On Sundays, after mass, he was allowed to play, that is to say, he was given a thick book, a mysterious book, the work of a certain Maimovitch-Ambodik, entitled "Symbols and Emblems." This book was a medley of about a thousand mostly very enigmatical pictures, and as many enigmatical interpretations of them in five languages."
 - Obermann by Étienne Pivert de Senancour: ""Have you read Obermann, Lisaveta Mihalovna?" Panshin asked her pensively."
+
+## A Journal of the Plague Year by Daniel Defoe (1722)
+https://bookjumpr.com/daniel-defoe/a-journal-of-the-plague-year
+- Britain's Remembrancer by George Wither: "…tled, Come out of her, my People, lest you be Partaker of her Plagues; another called, Fair Warning; another, Britain's Remembrancer; and many such, all, or most part of which, foretold, directly or covertly, the ruin of the city."
 
 ## A Laodicean by Thomas Hardy (1881)
 https://bookjumpr.com/thomas-hardy/a-laodicean
@@ -1825,7 +1829,7 @@ https://bookjumpr.com/emily-wilson/crossing-the-wine-dark-sea
 - Twenty Love Poems and a Song of Despair by Pablo Neruda: "adapted Pablo Neruda's 'Twenty Love Poems' and combined them with a jazz track by Tony Kinsey"
 - Sappho's Leap by Erica Jong: "Erica Jong's novel, Sappho's Leap (2003), corrects the legend by describing a Sappho who is unharmed"
 - Sparrow by Carol Muske-Dukes: "to Carol Muske-Dukes' collection Sparrow (2003)"
-- The Life and Opinions of Tristram Shandy, Gentleman by Laurence Sterne: "Lawrence Sterne's rollicking comic novel, The Life and Opinions of Tristram Shandy"
+- Tristram Shandy by Laurence Sterne: "Lawrence Sterne's rollicking comic novel, The Life and Opinions of Tristram Shandy"
 - Nana by Émile Zola: "Émile Zola's gripping novel Nana (1880) evokes the rise, fall and early death of a sexy blonde teenager"
 - The Vegetarian by Han Kang: "the International Booker Prize was awarded for the first time to a single novel, The Vegetarian, which was translated from the Korean"
 - Orientalism by Edward Said: "Edward Said's influential study of the concept he popularised, 'Orientalism'"
@@ -1956,7 +1960,7 @@ https://bookjumpr.com/malcolm-gladwell/david-and-goliath
 
 ## David Copperfield by Charles Dickens (1850)
 https://bookjumpr.com/charles-dickens/david-copperfield
-- Roderick Random by Tobias Smollett: "From that blessed little room, Roderick Random, Peregrine Pickle, Humphrey Clinker, Tom Jones, the Vicar of Wakefield, Don Quixote, Gil Blas, and Robinson Crusoe, came out, a glorious host, to keep me company."
+- The Adventures of Roderick Random by Tobias Smollett: "From that blessed little room, Roderick Random, Peregrine Pickle, Humphrey Clinker, Tom Jones, the Vicar of Wakefield, Don Quixote, Gil Blas, and Robinson Crusoe, came out, a glorious host, to keep me company."
 - Peregrine Pickle by Tobias Smollett: "From that blessed little room, Roderick Random, Peregrine Pickle, Humphrey Clinker, Tom Jones, the Vicar of Wakefield, Don Quixote, Gil Blas, and Robinson Crusoe, came out, a glorious host, to keep me company."
 - Humphry Clinker by Tobias Smollett
 - Tom Jones by Henry Fielding: "From that blessed little room, Roderick Random, Peregrine Pickle, Humphrey Clinker, Tom Jones, the Vicar of Wakefield, Don Quixote, Gil Blas, and Robinson Crusoe, came out, a glorious host, to keep me company."
@@ -3576,6 +3580,16 @@ https://bookjumpr.com/jack-london/john-barleycorn
 - Oliver Twist by Charles Dickens: "Unlike Oliver Twist, I was incapable of asking for more."
 - Tales of the Alhambra by Washington Irving
 
+## John Halifax, Gentleman by Dinah Mulock Craik
+https://bookjumpr.com/dinah-mulock-craik/john-halifax-gentleman
+- The Pilgrim's Progress by John Bunyan: ""What books have you got through?" "All you sent--Pilgrim's Progress, Robinson Crusoe, and the Arabian Nights."
+- Robinson Crusoe by Daniel Defoe: ""What books have you got through?" "All you sent--Pilgrim's Progress, Robinson Crusoe, and the Arabian Nights."
+- A Thousand and One Nights by Anonymous: ""What books have you got through?" "All you sent--Pilgrim's Progress, Robinson Crusoe, and the Arabian Nights."
+- Romeo and Juliet by William Shakespeare: "We finished the morning by reading Shakspeare--Romeo and Juliet--at which the old folio seemed naturally to open."
+- The Purple Island by Phineas Fletcher: "And though he himself, and his father before him, had both been working men, still, I think, Abel Fletcher never forgot that we originally came of a good stock, and that it pleased him to call me, his only son, after one of our forefathers, not unknown--Phineas Fletcher, who wrote the "Purple Island.""
+- Lyrical Ballads by William Wordsworth: "…in fact, a collection of Lyrical Ballads, brought out that year by a young man named Mr. William Wordsworth, and some anonymous friend, conjointly."
+- Inferno by Dante Alighieri: "For a single instant they gazed at one another--besotted husband, dishonoured, divorced wife--gazed with horror and fear, as two sinners who had been each other's undoing, might meet in the poetic torments of Dante's "Inferno," or the tangible fire and brimstone of many a blind but honest Christian's hell."
+
 ## Jonathan Strange & Mr Norrell by Susanna Clarke (2004)
 https://bookjumpr.com/susanna-clarke/jonathan-strange-mr-norrell
 - Belinda by Maria Edgeworth: "Sir Walter shewed Arabella the novels in the bookcase, and recommended Mrs Edgeworth's Belinda in particular as being likely to amuse her."
@@ -4148,7 +4162,7 @@ https://bookjumpr.com/jack-london/martin-eden
 - The Quintessence of Socialism by Albert Schäffle: "And when he left the library, he carried under his arm four volumes: Madam Blavatsky's "Secret Doctrine," "Progress and Poverty," "The Quintessence of Socialism," and, "Warfare of Religion and Science.""
 - The Princess by Alfred Tennyson: "She read to him much from "The Princess," and often he saw her eyes swimming with tears, so finely was her aesthetic nature strung."
 - The Bottle Imp by Robert Louis Stevenson: "The critics were unanimous in the belief that it would take its place with those two classics by two great writers, "The Bottle Imp" and "The Magic Skin.""
-- The Magic Skin by Honoré de Balzac: "The critics were unanimous in the belief that it would take its place with those two classics by two great writers, "The Bottle Imp" and "The Magic Skin.""
+- The Wild Ass's Skin by Honoré de Balzac: "The critics were unanimous in the belief that it would take its place with those two classics by two great writers, "The Bottle Imp" and "The Magic Skin.""
 - An Essay Concerning Human Understanding by John Locke
 - The Cycle of Life by C. W. Saleeby: "He drew out "The Cycle of Life," and on the car turned to the essay Norton had mentioned on Spencer."
 - The Age of Fable by Thomas Bulfinch: "Then he stumbled upon Gayley's "Classic Myths" and Bulfinch's "Age of Fable," side by side on a library shelf."
@@ -5198,7 +5212,7 @@ https://bookjumpr.com/a-s-byatt/possession
 - Idylls of the King by Alfred Tennyson: "demanding that the poem be taught... instead of the Idylls of the King, or Ragnarök."
 - Paradiso by Dante Alighieri: "he had compared it to Dante's Paradiso, in which the saints and patriarchs and virgins sat in orderly ranks."
 - Moby-Dick by Herman Melville: "Elsewhere in his chapter, almost inevitably, Cropper had quoted Moby Dick."
-- Roderick Random by Tobias Smollett: "he remembered reading Roderick Random, an English work, full of robust and genial disgust at the human condition."
+- The Adventures of Roderick Random by Tobias Smollett: "he remembered reading Roderick Random, an English work, full of robust and genial disgust at the human condition."
 - Samson Agonistes by John Milton: "I have been reading Samson Agonistes and came upon the dragon I always thought you were."
 - Silas Marner by George Eliot: "I have since read Silas Marner, the story of an old bachelor who attaches a foundling to his loom."
 - The Bostonians by Henry James: "His little book on harmony and discord in The Bostonians had come at just the wrong time."
@@ -5713,6 +5727,11 @@ https://bookjumpr.com/barbara-kingsolver/small-wonder
 - The Bean Trees by Barbara Kingsolver: "This great apple that had fallen into my lap became my first novel, The Bean Trees."
 - Roget’s Thesaurus by Peter Mark Roget: "My St. Martin’s Roget’s Thesaurus obligingly offers up … a whopping fifteen synonyms for copulation"
 
+## Smoke by Ivan Turgenev (1867)
+https://bookjumpr.com/ivan-turgenev/smoke
+- Uncle Tom's Cabin by Harriet Beecher Stowe: "Well, he was once at some friend's house in Paris, and suddenly in comes Madame Beecher Stowe--you know, _Uncle Tom's Cabin_."
+- Mademoiselle La Quintinie by George Sand: "Have you read _Mlle. de la Quintinie_? That's something charming now!"
+
 ## Snow by Orhan Pamuk (2002)
 https://bookjumpr.com/orhan-pamuk/snow
 - The Spanish Tragedy by Thomas Kyd: "the drama originally inspired by Thomas Kyd's The Spanish Tragedy but which in its final form showed many other influences"
@@ -6035,6 +6054,21 @@ https://bookjumpr.com/ali-smith/the-accidental
 - Little Women by Louisa May Alcott: "She opened a book and pretended to read. Little Women, Eve said. Which are you, then? Married, tomboy, vain or dead?"
 - An Arundel Tomb by Philip Larkin: "Larkin ... knew the power of cliché. What will survive of us is love."
 - At Grass by Philip Larkin: "His old racehorses in that horse poem didn't 'gallop for joy' but for what must be joy."
+
+## The Adventures of Peregrine Pickle by Tobias Smollett
+https://bookjumpr.com/tobias-smollett/the-adventures-of-peregrine-pickle
+- Elements by Euclid: "So inordinate was his desire of making speedy advances in the paths of learning, that within the compass of three months, he diligently perused the writings of Locke and Malebranche, and made himself master of the first six and of the eleventh and twelfth books of Euclid's Elements."
+- Commentaries on the Gallic War by Julius Caesar: "The North Briton, who was as great a pedant as the physician, having studied fortification, and made himself master of Caesar's Commentaries and Polybius, with the observations of Folard, affirmed, that all the methods of besieging practised by the ancients would be utterly ineffectual against such a plan a…"
+- The Adventures of Roderick Random by Tobias Smollett: "In the course of the conversation, Peregrine learned that the Welshman was a surgeon of Canterbury, who had been called in to a consultation at Dover; and, understanding that his name was Morgan, took the liberty of asking if he was not the person so respectfully mentioned in the "Adventures of Roderick Random.""
+- Iliad by Homer: "The self-sufficient physician, who did not expect such a repartee from a youth of Peregrine's appearance, looked upon his reply as a fair challenge, and instantly rehearsed forty or fifty lines of the Iliad in a breath."
+- Ion by Euripides: "He desired him to produce a collection equal to that in the temple of Delphos, mentioned in the "Ion" of Euripides; where Hercules and his companion Iolaus, are represented in the act of killing the Lernaean hydra with golden sickles, kruseais harpais, where Bellerophon appea…"
+- The Republic by Plato: "…ull hour on the absurdity of Jolter's proposition, and the beauty of the democratic administration; canvassed the whole scheme of Plato's republic, with many quotations from that ideal author, touching the to kalon: from thence he made a transition to the moral sense of Shaftesbury, and concluded hi…"
+- Odes by Horace: "… of this truth, he immediately produced a sample of each, which, though in spirit and versification as different as the Odes of Horace and our present poet-laureat, Peregrine did not scruple to pronounce altogether congenial, notwithstanding the violence he by this sentence offered to his own consci…"
+- The Rehearsal by George Villiers, Duke of Buckingham: "…erving, that the image was, without all doubt, very grand and magnificent; but that he had been obliged for the idea to Mr. Bayes in "The Rehearsal," who values himself upon the same figure, conveyed in these words, "But all these clouds, when by the eye of reason grasp'd, etc.""
+- Gil Blas by Alain-René Lesage: "…traps for diversion at his neighbour's expense, laid hold on the declaration; and, recollecting the story of Scipio and the muleteer in Gil Blas, resolved to perpetrate a joke upon the stomach of Pallet, which seemed well disposed to a hearty supper."
+- Le Cid by Pierre Corneille: "The rest of the company proceeded to the arsenal, which having viewed, together with some remarkable churches, they, in their return, went to the comedy, and saw the Cid of Corneille tolerably well represented."
+- The Plain Dealer by William Wycherley: "…ities, is an admirable Falstaff, exhibits the character of the eighth Henry to the life, is reasonably applauded in the Plain Dealer, excels in the part of Sir John Brute, and would be equal to many humorous situations in low comedy, which his pride will not allow him to undertake."
+- Othello by William Shakespeare: "In Pierre he is great, in Othello excellent, but in Zanga beyond all imitation."
 
 ## The Adventures of Roderick Random by Tobias Smollett (1748)
 https://bookjumpr.com/tobias-smollett/the-adventures-of-roderick-random
@@ -7013,6 +7047,12 @@ https://bookjumpr.com/mark-haddon/the-curious-incident-of-the-dog-in-the-night-t
 https://bookjumpr.com/edith-wharton/the-custom-of-the-country
 - The Hound of the Baskervilles by Arthur Conan Doyle: "But for this ornament, and a copy of "The Hound of the Baskervilles" which lay beside it, the room showed no traces of human use, and Mrs."
 
+## The Damnation of Theron Ware by Harold Frederic
+https://bookjumpr.com/harold-frederic/the-damnation-of-theron-ware
+- Evidences of Christianity by William Paley: "Finally he did take down "Paley's Evidences," and seated himself in the big armchair--that costly and oversized anomaly among his humble house-hold gods; but the book lay unopened on his knee, and his eyelids half closed themselves in sign of revery."
+- The Life of Christ by Frederic W. Farrar: "Latterly his fancy had been stimulated by reading an account of the profits which Canon Farrar had derived from his "Life of Christ." If such a book could command such a bewildering multitude of readers, Theron felt there ought to be a chance for him."
+- A Thousand and One Nights by Anonymous: "THAT was all exhausted by collectors who bought it for its supposed obscenity, like Burton's 'Arabian Nights.' Come this way, and I will show you my laboratory.""
+
 ## The Dark Flower by John Galsworthy (1913)
 https://bookjumpr.com/john-galsworthy/the-dark-flower
 - Sartor Resartus by Thomas Carlyle: "Her present was on the sideboard, a book called 'Sartor Resartus.'"
@@ -7405,6 +7445,14 @@ https://bookjumpr.com/philip-roth/the-ghost-writer
 - The Swiss Family Robinson by Johann David Wyss: "something boys and girls could read in bed at night along with the adventures of the Swiss Family Robinson"
 - The Middle Years by Henry James: "Sentiments ascribed to a story I did not know by Henry James called "The Middle Years""
 - Macbeth by William Shakespeare: "1050, Shakespeare's Macbeth, where Duncan was murdered"
+
+## The Gilded Age by Mark Twain and Charles Dudley Warner
+https://bookjumpr.com/mark-twain-and-charles-dudley-warner/the-gilded-age
+- The Princess by Alfred Tennyson: "O lift your natures up: Embrace our aims: work out your freedom. Girls, Knowledge is now no more a fountain sealed; Drink deep until the habits of the slave, The sins of emptiness, gossip and spite And slander, die. The Princess."
+- The Faerie Queene by Edmund Spenser: "She, the gracious lady, yet no paines did spare To doe him ease, or doe him remedy: Many restoratives of vertues rare And costly cordialles she did apply, To mitigate his stubborne malady. Spenser's Faerie Queens."
+- Notes on England by Hippolyte Taine: "A dapper clerk of perhaps nineteen or twenty years, with hair accurately parted and surprisingly slick, came bustling up and leaned over with a pretty smile and an affable-- “Can I--was there any particular book you wished to see?” “Have you Taine's England?” “Beg pardon?” “Taine's Notes on England.”"
+- The Autocrat of the Breakfast-Table by Oliver Wendell Holmes: "Then she asked the clerk for the Autocrat of the Breakfast Table--and was pained to see the admiration her beauty had inspired in him fade out of his face."
+- Venetian Life by William Dean Howells: "Presently, while she was holding a copy of “Venetian Life” in her hand and running over a familiar passage here and there, the clerk said, briskly, snatching up a paper-covered volume and striking the counter a smart blow with it to dislodge the dust: “Now here is a work that we've sold a lot of."
 
 ## The Girl from the Marsh Croft by Selma Lagerlöf (1908)
 https://bookjumpr.com/selma-lagerlof/the-girl-from-the-marsh-croft
@@ -7948,7 +7996,7 @@ https://bookjumpr.com/barbara-kingsolver/the-lacuna
 - Zozobra by Ramón López Velarde: "A few were all right, Zozobra, and also Romancero Gitano, poems by a young man who loved gypsies"
 - Romancero gitano by Federico García Lorca: "It sounds like it would be in Romancero Gitano. But it isn't."
 - The Odyssey by Homer: "Or sit on the bed with The Odyssey."
-- The Life and Opinions of Tristram Shandy, Gentleman by Laurence Sterne: "Like poor old Tristram Shandy trying to remember his whole story helter-skelter?"
+- Tristram Shandy by Laurence Sterne: "Like poor old Tristram Shandy trying to remember his whole story helter-skelter?"
 - Gone with the Wind by Margaret Mitchell: "This format, I was told, worked well for Gone With the Wind."
 - The Big Money by John Dos Passos: "Oh, and this one by Dos Passos, it's called The Big Money."
 - The Great Gatsby by F. Scott Fitzgerald: "He might have written Gatsby in the very room where I'm sleeping tonight."
@@ -9709,6 +9757,12 @@ https://bookjumpr.com/ben-lerner/the-topeka-school
 - How the Grinch Stole Christmas! by Seuss: "'Mrs. Lewis demands he read aloud from How the Grinch Stole Christmas! in fourth grade'"
 - A Portrait of the Artist as a Young Man by James Joyce: "'Once upon a time and a very good time it was there was a moocow... In the opening of Joyce's Portrait'"
 
+## The Torrents of Spring by Ivan Turgenev (1872)
+https://bookjumpr.com/ivan-turgenev/the-torrents-of-spring
+- The Sorrows of Young Werther by Johann Wolfgang von Goethe: "He went in to look at Danneker's Ariadne, which he did not much care for, visited the house of Goethe, of whose works he had, however, only read _Werter_, and that in the French translation."
+- Eugene Onegin by Alexander Pushkin: "He recollected for some reason Lensky's parting from Olga in _Oniegin_."
+- The Aeneid by Virgil: "I read the _AEneid_ with him."
+
 ## The Tragic Muse by Henry James (1890)
 https://bookjumpr.com/henry-james/the-tragic-muse
 - Antony and Cleopatra by William Shakespeare: "I'm afraid they don't want _King John_, and I don't believe they hunger for _Antony and Cleopatra_," Basil Dashwood suggested."
@@ -9742,6 +9796,10 @@ https://bookjumpr.com/euripides/the-trojan-women
 - The Song of Roland by Anonymous
 - Encomium of Helen by Isocrates
 - Prolegomena to the Study of Greek Religion by Jane Ellen Harrison
+
+## The Trumpet-Major by Thomas Hardy (1880)
+https://bookjumpr.com/thomas-hardy/the-trumpet-major
+- Hamlet by William Shakespeare: "'This warm day has quite upset me!' There was a regular collapse of the tea-party, like that of the Hamlet play scene."
 
 ## The Turn of the Screw by Henry James (1898)
 https://bookjumpr.com/henry-james/the-turn-of-the-screw
@@ -9791,7 +9849,7 @@ https://bookjumpr.com/alan-bennett/the-uncommon-reader
 - Love in a Cold Climate by Nancy Mitford: "Having finished the Nancy Mitford sequel, Love in a Cold Climate, the Queen was delighted to see she had written others, and though some of them seemed to be history she put them on her (newly started) reading list, which she kept in her desk."
 - A Tale of Two Cities by Charles Dickens: "she began her Christmas broadcast with the opening paragraph of A Tale of Two Cities ('It was the best of times.'"
 - Alice's Adventures in Wonderland by Lewis Carroll: "Sitting there with his hands pressed together like something out of Alice in Wonderland, he gave no hint of what he was thinking. Low confidence: this is a passing simile/comparison rather than a scene of the Queen actually reading the book, but the title named is specific and unambiguous, so kept per the project's generosity rule for…"
-- The Life and Opinions of Tristram Shandy, Gentleman by Laurence Sterne: "She flew to Scotland happy in the (occasionally exasperating) company of Tristram Shandy, and when she got bored with him Trollope (Anthony) was never far away."
+- Tristram Shandy by Laurence Sterne: "She flew to Scotland happy in the (occasionally exasperating) company of Tristram Shandy, and when she got bored with him Trollope (Anthony) was never far away."
 - The Convergence of the Twain by Thomas Hardy: "It's called "The Convergence of the Twain". (Same broadcast episode as: 'though she did not read the Hardy poem (rejected as not "forward-looking")' -- the two candidate excerpts describe the same scene, giving both the title and the poet.)"
 - Kama Sutra by Vātsyāyana: "The Kama Sutra?' Sir Kevin sighed. Low confidence: this is a sarcastic rhetorical aside (the Queen mocking a suggestion of 'ethnic classics'), not an account of her reading it, and traditional authorship of this ancient text is itself disputed -- kept because a specific, real, singular work is named outright."
 - Tell All the Truth but Tell It Slant by Emily Dickinson: "Forster who said: "Tell all the truth but tell it slant, success in circuit lies." Or was it', she asked the room, 'Emily Dickinson?' Unsurprisingly, the room did not answer."
@@ -10172,11 +10230,17 @@ https://bookjumpr.com/anatole-france/the-wicker-work-woman
 
 ## The Wild Ass's Skin by Honoré de Balzac (1831)
 https://bookjumpr.com/honore-de-balzac/the-wild-ass-s-skin
-- Clarissa Harlowe by Samuel Richardson: "One would need to be very much in love to share the furious transports of Lovelace, as one reads Clarissa Harlowe."
+- Clarissa by Samuel Richardson: "One would need to be very much in love to share the furious transports of Lovelace, as one reads Clarissa Harlowe."
 - Manfred by Byron: "he had come on a Manfred when he looked to find Childe Harold"
 - Childe Harold's Pilgrimage by Byron: "he had come on a Manfred when he looked to find Childe Harold"
 - Don Quixote by Miguel de Cervantes: "very much like Sancho Panza giving to Don Quixote the history of the goats"
 - Tristram Shandy by Laurence Sterne: "STERNE--Tristram Shandy, ch."
+- Venice Preserv'd by Thomas Otway: ""Aquilina." "Out of _Venice Preserved_!""
+- Donkeyskin by Charles Perrault: "As with the heroine of the fable of '_Peau-d'Ane_,' a dainty foot peeped out of the clumsy shoes."
+- The Red Inn by Honoré de Balzac: "His darkly flushed, perspiring countenance loomed upon this pandemonium, like the image of a crime that knows no remorse (see _L'Auberge rouge_)."
+- The Provincial Letters by Blaise Pascal: "What! the author of the _Lettres provinciales_ invented it?"
+- A Thousand and One Nights by Anonymous: "Unable to analyze Foedora by any other process, I told her this fanciful story; but no hint of her resemblance to this poetry of the impossible crossed her--it simply diverted her; she was like a child over a story from the _Arabian Nights_."
+- The Marriage of Figaro by Pierre-Augustin Caron de Beaumarchais: "For a year past I had beheld myself well dressed, in a carriage, with a pretty woman by my side, playing the great lord, dining at Very's, deciding not to go back home till the morrow; but was prepared for my father with a plot more intricate than the Marriage of Figaro, which he could not possibly have unraveled."
 
 ## The Wild Duck by Henrik Ibsen (1884)
 https://bookjumpr.com/henrik-ibsen/the-wild-duck
@@ -10393,6 +10457,19 @@ https://bookjumpr.com/john-galsworthy/to-let
 https://bookjumpr.com/virginia-woolf/to-the-lighthouse
 - Anna Karenina by Leo Tolstoy
 
+## Tom Brown's School Days by Thomas Hughes
+https://bookjumpr.com/thomas-hughes/tom-brown-s-school-days
+- Kenilworth by Walter Scott: "This is Wayland Smith's cave, a place of classic fame now; but as Sir Walter has touched it, I may as well let it alone, and refer you to "Kenilworth" for the legend."
+- Ingoldsby Legends by Richard Harris Barham: "Did you ever read Thomas Ingoldsby's "Legend of Hamilton Tighe"?"
+- Yeast by Charles Kingsley: "What village feasts have come to, I fear, in many cases, may be read in the pages of "Yeast" (though I never saw one so bad--thank God!)."
+- Eclogues by Virgil: "Young gentlemen of all ages from nine to fifteen were to be found there, who expended such part of their energies as was devoted to Latin and Greek upon a book of Livy, the "Bucolics" of Virgil, and the "Hecuba" of Euripides, which were ground out in small daily portions."
+- Hecuba by Euripides: "Young gentlemen of all ages from nine to fifteen were to be found there, who expended such part of their energies as was devoted to Latin and Greek upon a book of Livy, the "Bucolics" of Virgil, and the "Hecuba" of Euripides, which were ground out in small daily portions."
+- The Pickwick Papers by Charles Dickens: "…h-form boys to fag us as they do?" "No more right than you have to fag them," answered East, without looking up from an early number of "Pickwick," which was just coming out, and which he was luxuriously devouring, stretched on his back on the sofa."
+- Iliad by Homer: "The shell, in which form all our dramatis personae now are, were reading, amongst other things, the last book of Homer's "Iliad," and had worked through it as far as the speeches of the women over Hector's body."
+- Agamemnon by Aeschylus: "We're in the middle of that long crabbed chorus in the Agamemnon."
+- The Birds by Aristophanes: "Then there's Pericles's speech coming on in Thucydides, and 'The Birds' to get up for the examination, besides the Tacitus.""
+- Don Quixote by Miguel de Cervantes: "Why, when he first came I remember he used to read Herodotus for pleasure as I did Don Quixote, and couldn't have made a false concord if he'd tried ever so hard; and then I looked after his cricket.""
+
 ## Tomorrow, and Tomorrow, and Tomorrow by Gabrielle Zevin (2022)
 https://bookjumpr.com/gabrielle-zevin/tomorrow-and-tomorrow-and-tomorrow
 - Iliad by Homer: "A player asks an NPC "What's your favorite part of The Iliad?" and the NPC recites lines describing Andromache"
@@ -10548,6 +10625,11 @@ https://bookjumpr.com/harriet-beecher-stowe/uncle-tom-s-cabin
 ## Under Fire by Henri Barbusse (1916)
 https://bookjumpr.com/henri-barbusse/under-fire
 - Don Quixote by Miguel de Cervantes: "He has bent his long Don Quixote carcase down in the shadow, and outstretched the lean neck"
+
+## Under Western Eyes by Joseph Conrad (1911)
+https://bookjumpr.com/joseph-conrad/under-western-eyes
+- The Social Contract by Jean-Jacques Rousseau: "These glances were needless; the people crossing over in the distance seemed unwilling even to look at the islet where the exiled effigy of the author of the _Social Contract_ sat enthroned above the bowed head of Razumov in the sombre immobility of bronze."
+- Corinne by Madame de Stael: "And Madame de S-- was very far from resembling the gifted author of _Corinne_."
 
 ## Une Vie by Guy de Maupassant (1883)
 https://bookjumpr.com/guy-de-maupassant/une-vie
@@ -10764,6 +10846,10 @@ https://bookjumpr.com/haruki-murakami/what-i-talk-about-when-i-talk-about-runnin
 - Pinball, 1973 by Haruki Murakami: "Both Hear the Wind Sing and Pinball, 1973 were nominated for the prestigious Akutagawa Prize. (Murakami's own second novel)"
 - Blind Willow, Sleeping Woman by Haruki Murakami: "I have to write a long introduction to the short-story collection Blind Willow, Sleeping Woman, which will be published next year in the U.S."
 - Strange Tales from Tokyo by Haruki Murakami: "A new short-story collection of mine, Strange Tales from Tokyo, has come out, and I have to do several interviews about the book."
+
+## What Maisie Knew by Henry James (1897)
+https://bookjumpr.com/henry-james/what-maisie-knew
+- A Thousand and One Nights by Anonymous: "It was still at any rate the Arabian Nights."
 
 ## What the Dog Saw by Malcolm Gladwell (2009)
 https://bookjumpr.com/malcolm-gladwell/what-the-dog-saw
@@ -11235,6 +11321,6 @@ https://bookjumpr.com/neal-stephenson/zodiac-an-eco-thriller
 
 ## Zuleika Dobson by Max Beerbohm (1911)
 https://bookjumpr.com/max-beerbohm/zuleika-dobson
-- Clarissa Harlowe by Samuel Richardson: "after the publication of “Clarissa Harlowe” she spent practically all her time in reading novels"
+- Clarissa by Samuel Richardson: "after the publication of “Clarissa Harlowe” she spent practically all her time in reading novels"
 - The Invasion of the Crimea by Alexander William Kinglake: "he flashed down in the semblance of Kinglake’s “Invasion of the Crimea” (four vols., large 8vo, half-calf)"
 - Politics by Aristotle: "“You have been to a lecture?” “Aristotle’s Politics,” nodded Noaks"

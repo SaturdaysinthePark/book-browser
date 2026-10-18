@@ -115,6 +115,12 @@ Fetching the file is not enough; actually read it before writing anything. For e
     the work itself count
   - operas, ballets, songs, hymns and tunes, even when named by title
   - the Bible (owner's call; other scriptures such as the Vedas and Upanishads do count)
+  - church books treated like the Bible: prayer books (Book of Common Prayer), liturgy, church rulebooks
+    (the Methodist Discipline) and Bible commentaries
+  - reference manuals: dictionaries, thesauri, school textbooks, almanacs, medical/household manuals
+  - titles inferred from a quoted line or an author's name alone ("a copy of Josephus")
+  - an explicitly named title used in a comparison DOES count ("a plot more intricate than the Marriage
+    of Figaro"); only a character simile with no title ("a regular Don Quixote") is excluded
   - fictional/in-world books that don't exist outside the story (e.g. Lovecraft's
     Necronomicon, an invented novel-within-the-novel)
   - loose personality similes ("he was a regular Don Quixote") that don't cite an actual
