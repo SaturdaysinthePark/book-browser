@@ -1,0 +1,375 @@
+{
+ "mentions": [
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "Kenilworth",
+   "author": "Walter Scott",
+   "note": "This is Wayland Smith's cave, a place of classic fame now; but as Sir Walter has touched it, I may as well let it alone, and refer you to \"Kenilworth\" for the legend.",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "The Ingoldsby Legends",
+   "author": "Richard Harris Barham",
+   "note": "Did you ever read Thomas Ingoldsby's \"Legend of Hamilton Tighe\"?",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "Yeast",
+   "author": "Charles Kingsley",
+   "note": "What village feasts have come to, I fear, in many cases, may be read in the pages of \"Yeast\" (though I never saw one so bad--thank God!).",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "Eclogues",
+   "author": "Virgil",
+   "note": "Young gentlemen of all ages from nine to fifteen were to be found there, who expended such part of their energies as was devoted to Latin and Greek upon a book of Livy, the \"Bucolics\" of Virgil, and the \"Hecuba\" of Euripides, which were ground out in small daily portions.",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "Hecuba",
+   "author": "Euripides",
+   "note": "Young gentlemen of all ages from nine to fifteen were to be found there, who expended such part of their energies as was devoted to Latin and Greek upon a book of Livy, the \"Bucolics\" of Virgil, and the \"Hecuba\" of Euripides, which were ground out in small daily portions.",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "The Pickwick Papers",
+   "author": "Charles Dickens",
+   "note": "…h-form boys to fag us as they do?\" \"No more right than you have to fag them,\" answered East, without looking up from an early number of \"Pickwick,\" which was just coming out, and which he was luxuriously devouring, stretched on his back on the sofa.",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "Iliad",
+   "author": "Homer",
+   "note": "The shell, in which form all our dramatis personae now are, were reading, amongst other things, the last book of Homer's \"Iliad,\" and had worked through it as far as the speeches of the women over Hector's body.",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "Agamemnon",
+   "author": "Aeschylus",
+   "note": "We're in the middle of that long crabbed chorus in the Agamemnon.",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "The Birds",
+   "author": "Aristophanes",
+   "note": "Then there's Pericles's speech coming on in Thucydides, and 'The Birds' to get up for the examination, besides the Tacitus.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "Tom Brown's School Days",
+   "mentioned": "Don Quixote",
+   "author": "Miguel de Cervantes",
+   "note": "Why, when he first came I remember he used to read Herodotus for pleasure as I did Don Quixote, and couldn't have made a false concord if he'd tried ever so hard; and then I looked after his cricket.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Damnation of Theron Ware",
+   "mentioned": "Evidences of Christianity",
+   "author": "William Paley",
+   "note": "Finally he did take down \"Paley's Evidences,\" and seated himself in the big armchair--that costly and oversized anomaly among his humble house-hold gods; but the book lay unopened on his knee, and his eyelids half closed themselves in sign of revery.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Damnation of Theron Ware",
+   "mentioned": "The Life of Christ",
+   "author": "Frederic W. Farrar",
+   "note": "Latterly his fancy had been stimulated by reading an account of the profits which Canon Farrar had derived from his \"Life of Christ.\" If such a book could command such a bewildering multitude of readers, Theron felt there ought to be a chance for him.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Damnation of Theron Ware",
+   "mentioned": "A Thousand and One Nights",
+   "author": "Anonymous",
+   "note": "THAT was all exhausted by collectors who bought it for its supposed obscenity, like Burton's 'Arabian Nights.' Come this way, and I will show you my laboratory.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Elements",
+   "author": "Euclid",
+   "note": "So inordinate was his desire of making speedy advances in the paths of learning, that within the compass of three months, he diligently perused the writings of Locke and Malebranche, and made himself master of the first six and of the eleventh and twelfth books of Euclid's Elements.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Commentaries on the Gallic War",
+   "author": "Julius Caesar",
+   "note": "The North Briton, who was as great a pedant as the physician, having studied fortification, and made himself master of Caesar's Commentaries and Polybius, with the observations of Folard, affirmed, that all the methods of besieging practised by the ancients would be utterly ineffectual against such a plan a…",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "The Adventures of Roderick Random",
+   "author": "Tobias Smollett",
+   "note": "In the course of the conversation, Peregrine learned that the Welshman was a surgeon of Canterbury, who had been called in to a consultation at Dover; and, understanding that his name was Morgan, took the liberty of asking if he was not the person so respectfully mentioned in the \"Adventures of Roderick Random.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Iliad",
+   "author": "Homer",
+   "note": "The self-sufficient physician, who did not expect such a repartee from a youth of Peregrine's appearance, looked upon his reply as a fair challenge, and instantly rehearsed forty or fifty lines of the Iliad in a breath.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Ion",
+   "author": "Euripides",
+   "note": "He desired him to produce a collection equal to that in the temple of Delphos, mentioned in the \"Ion\" of Euripides; where Hercules and his companion Iolaus, are represented in the act of killing the Lernaean hydra with golden sickles, kruseais harpais, where Bellerophon appea…",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "The Republic",
+   "author": "Plato",
+   "note": "…ull hour on the absurdity of Jolter's proposition, and the beauty of the democratic administration; canvassed the whole scheme of Plato's republic, with many quotations from that ideal author, touching the to kalon: from thence he made a transition to the moral sense of Shaftesbury, and concluded hi…",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Odes",
+   "author": "Horace",
+   "note": "… of this truth, he immediately produced a sample of each, which, though in spirit and versification as different as the Odes of Horace and our present poet-laureat, Peregrine did not scruple to pronounce altogether congenial, notwithstanding the violence he by this sentence offered to his own consci…",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "The Rehearsal",
+   "author": "George Villiers, Duke of Buckingham",
+   "note": "…erving, that the image was, without all doubt, very grand and magnificent; but that he had been obliged for the idea to Mr. Bayes in \"The Rehearsal,\" who values himself upon the same figure, conveyed in these words, \"But all these clouds, when by the eye of reason grasp'd, etc.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Gil Blas",
+   "author": "Alain-René Lesage",
+   "note": "…traps for diversion at his neighbour's expense, laid hold on the declaration; and, recollecting the story of Scipio and the muleteer in Gil Blas, resolved to perpetrate a joke upon the stomach of Pallet, which seemed well disposed to a hearty supper.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Le Cid",
+   "author": "Pierre Corneille",
+   "note": "The rest of the company proceeded to the arsenal, which having viewed, together with some remarkable churches, they, in their return, went to the comedy, and saw the Cid of Corneille tolerably well represented.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "The Plain Dealer",
+   "author": "William Wycherley",
+   "note": "…ities, is an admirable Falstaff, exhibits the character of the eighth Henry to the life, is reasonably applauded in the Plain Dealer, excels in the part of Sir John Brute, and would be equal to many humorous situations in low comedy, which his pride will not allow him to undertake.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Adventures of Peregrine Pickle",
+   "mentioned": "Othello",
+   "author": "William Shakespeare",
+   "note": "In Pierre he is great, in Othello excellent, but in Zanga beyond all imitation.",
+   "confidence": "high"
+  },
+  {
+   "source": "A Journal of the Plague Year",
+   "mentioned": "Britain's Remembrancer",
+   "author": "George Wither",
+   "note": "…tled, Come out of her, my People, lest you be Partaker of her Plagues; another called, Fair Warning; another, Britain's Remembrancer; and many such, all, or most part of which, foretold, directly or covertly, the ruin of the city.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Wild Ass's Skin",
+   "mentioned": "Venice Preserv'd",
+   "author": "Thomas Otway",
+   "note": "\"Aquilina.\" \"Out of _Venice Preserved_!\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Wild Ass's Skin",
+   "mentioned": "Donkeyskin",
+   "author": "Charles Perrault",
+   "note": "As with the heroine of the fable of '_Peau-d'Ane_,' a dainty foot peeped out of the clumsy shoes.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Wild Ass's Skin",
+   "mentioned": "The Red Inn",
+   "author": "Honoré de Balzac",
+   "note": "His darkly flushed, perspiring countenance loomed upon this pandemonium, like the image of a crime that knows no remorse (see _L'Auberge rouge_).",
+   "confidence": "high"
+  },
+  {
+   "source": "The Wild Ass's Skin",
+   "mentioned": "The Provincial Letters",
+   "author": "Blaise Pascal",
+   "note": "\"What! the author of the _Lettres provinciales_ invented it?\"",
+   "confidence": "high"
+  },
+  {
+   "source": "The Wild Ass's Skin",
+   "mentioned": "A Thousand and One Nights",
+   "author": "Anonymous",
+   "note": "Unable to analyze Foedora by any other process, I told her this fanciful story; but no hint of her resemblance to this poetry of the impossible crossed her--it simply diverted her; she was like a child over a story from the _Arabian Nights_.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Wild Ass's Skin",
+   "mentioned": "The Marriage of Figaro",
+   "author": "Pierre Beaumarchais",
+   "note": "For a year past I had beheld myself well dressed, in a carriage, with a pretty woman by my side, playing the great lord, dining at Very's, deciding not to go back home till the morrow; but was prepared for my father with a plot more intricate than the Marriage of Figaro, which he could not possibly have unraveled.",
+   "confidence": "high"
+  },
+  {
+   "source": "Smoke",
+   "mentioned": "Uncle Tom's Cabin",
+   "author": "Harriet Beecher Stowe",
+   "note": "Well, he was once at some friend's house in Paris, and suddenly in comes Madame Beecher Stowe--you know, _Uncle Tom's Cabin_.",
+   "confidence": "high"
+  },
+  {
+   "source": "Smoke",
+   "mentioned": "Mademoiselle La Quintinie",
+   "author": "George Sand",
+   "note": "Have you read _Mlle. de la Quintinie_? That's something charming now!",
+   "confidence": "high"
+  },
+  {
+   "source": "The Torrents of Spring",
+   "mentioned": "The Sorrows of Young Werther",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "He went in to look at Danneker's Ariadne, which he did not much care for, visited the house of Goethe, of whose works he had, however, only read _Werter_, and that in the French translation.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Torrents of Spring",
+   "mentioned": "Eugene Onegin",
+   "author": "Alexander Pushkin",
+   "note": "He recollected for some reason Lensky's parting from Olga in _Oniegin_.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Torrents of Spring",
+   "mentioned": "Aeneid",
+   "author": "Virgil",
+   "note": "I read the _AEneid_ with him.",
+   "confidence": "high"
+  },
+  {
+   "source": "Under Western Eyes",
+   "mentioned": "The Social Contract",
+   "author": "Jean-Jacques Rousseau",
+   "note": "These glances were needless; the people crossing over in the distance seemed unwilling even to look at the islet where the exiled effigy of the author of the _Social Contract_ sat enthroned above the bowed head of Razumov in the sombre immobility of bronze.",
+   "confidence": "high"
+  },
+  {
+   "source": "Under Western Eyes",
+   "mentioned": "Corinne",
+   "author": "Madame de Stael",
+   "note": "And Madame de S-- was very far from resembling the gifted author of _Corinne_.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Trumpet-Major",
+   "mentioned": "Hamlet",
+   "author": "William Shakespeare",
+   "note": "'This warm day has quite upset me!' There was a regular collapse of the tea-party, like that of the Hamlet play scene.",
+   "confidence": "high"
+  },
+  {
+   "source": "What Maisie Knew",
+   "mentioned": "A Thousand and One Nights",
+   "author": "Anonymous",
+   "note": "It was still at any rate the Arabian Nights.",
+   "confidence": "high"
+  },
+  {
+   "source": "John Halifax, Gentleman",
+   "mentioned": "The Pilgrim's Progress",
+   "author": "John Bunyan",
+   "note": "\"What books have you got through?\" \"All you sent--Pilgrim's Progress, Robinson Crusoe, and the Arabian Nights.",
+   "confidence": "high"
+  },
+  {
+   "source": "John Halifax, Gentleman",
+   "mentioned": "Robinson Crusoe",
+   "author": "Daniel Defoe",
+   "note": "\"What books have you got through?\" \"All you sent--Pilgrim's Progress, Robinson Crusoe, and the Arabian Nights.",
+   "confidence": "high"
+  },
+  {
+   "source": "John Halifax, Gentleman",
+   "mentioned": "A Thousand and One Nights",
+   "author": "Anonymous",
+   "note": "\"What books have you got through?\" \"All you sent--Pilgrim's Progress, Robinson Crusoe, and the Arabian Nights.",
+   "confidence": "high"
+  },
+  {
+   "source": "John Halifax, Gentleman",
+   "mentioned": "Romeo and Juliet",
+   "author": "William Shakespeare",
+   "note": "We finished the morning by reading Shakspeare--Romeo and Juliet--at which the old folio seemed naturally to open.",
+   "confidence": "high"
+  },
+  {
+   "source": "John Halifax, Gentleman",
+   "mentioned": "The Purple Island",
+   "author": "Phineas Fletcher",
+   "note": "And though he himself, and his father before him, had both been working men, still, I think, Abel Fletcher never forgot that we originally came of a good stock, and that it pleased him to call me, his only son, after one of our forefathers, not unknown--Phineas Fletcher, who wrote the \"Purple Island.\"",
+   "confidence": "high"
+  },
+  {
+   "source": "John Halifax, Gentleman",
+   "mentioned": "Lyrical Ballads",
+   "author": "William Wordsworth",
+   "note": "…in fact, a collection of Lyrical Ballads, brought out that year by a young man named Mr. William Wordsworth, and some anonymous friend, conjointly.",
+   "confidence": "high"
+  },
+  {
+   "source": "John Halifax, Gentleman",
+   "mentioned": "Inferno",
+   "author": "Dante Alighieri",
+   "note": "For a single instant they gazed at one another--besotted husband, dishonoured, divorced wife--gazed with horror and fear, as two sinners who had been each other's undoing, might meet in the poetic torments of Dante's \"Inferno,\" or the tangible fire and brimstone of many a blind but honest Christian's hell.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Gilded Age",
+   "mentioned": "The Princess",
+   "author": "Alfred Tennyson",
+   "note": "O lift your natures up: Embrace our aims: work out your freedom. Girls, Knowledge is now no more a fountain sealed; Drink deep until the habits of the slave, The sins of emptiness, gossip and spite And slander, die. The Princess.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Gilded Age",
+   "mentioned": "The Faerie Queene",
+   "author": "Edmund Spenser",
+   "note": "She, the gracious lady, yet no paines did spare To doe him ease, or doe him remedy: Many restoratives of vertues rare And costly cordialles she did apply, To mitigate his stubborne malady. Spenser's Faerie Queens.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Gilded Age",
+   "mentioned": "Notes on England",
+   "author": "Hippolyte Taine",
+   "note": "A dapper clerk of perhaps nineteen or twenty years, with hair accurately parted and surprisingly slick, came bustling up and leaned over with a pretty smile and an affable-- “Can I--was there any particular book you wished to see?” “Have you Taine's England?” “Beg pardon?” “Taine's Notes on England.”",
+   "confidence": "high"
+  },
+  {
+   "source": "The Gilded Age",
+   "mentioned": "The Autocrat of the Breakfast-Table",
+   "author": "Oliver Wendell Holmes",
+   "note": "Then she asked the clerk for the Autocrat of the Breakfast Table--and was pained to see the admiration her beauty had inspired in him fade out of his face.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Gilded Age",
+   "mentioned": "Venetian Life",
+   "author": "William Dean Howells",
+   "note": "Presently, while she was holding a copy of “Venetian Life” in her hand and running over a familiar passage here and there, the clerk said, briskly, snatching up a paper-covered volume and striking the counter a smart blow with it to dislodge the dust: “Now here is a work that we've sold a lot of.",
+   "confidence": "high"
+  }
+ ]
+}

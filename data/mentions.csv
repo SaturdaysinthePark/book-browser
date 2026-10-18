@@ -352,7 +352,7 @@ Little Women,Louisa May Alcott,Mary Stuart,Friedrich Schiller
 Little Women,Louisa May Alcott,Belsham's Essays,William Belsham
 Little Women,Louisa May Alcott,Uncle Tom's Cabin,Harriet Beecher Stowe
 Little Women,Louisa May Alcott,Romeo and Juliet,William Shakespeare
-David Copperfield,Charles Dickens,Roderick Random,Tobias Smollett
+David Copperfield,Charles Dickens,The Adventures of Roderick Random,Tobias Smollett
 David Copperfield,Charles Dickens,Peregrine Pickle,Tobias Smollett
 David Copperfield,Charles Dickens,Humphry Clinker,Tobias Smollett
 David Copperfield,Charles Dickens,Tom Jones,Henry Fielding
@@ -548,12 +548,12 @@ The Professor,Charlotte Bronte,Othello,William Shakespeare
 The Professor,Charlotte Bronte,The Vicar of Wakefield,Oliver Goldsmith
 A Connecticut Yankee in King Arthur's Court,Mark Twain,Le Morte d'Arthur,Thomas Malory
 A Connecticut Yankee in King Arthur's Court,Mark Twain,Tom Jones,Henry Fielding
-A Connecticut Yankee in King Arthur's Court,Mark Twain,Roderick Random,Tobias Smollett
+A Connecticut Yankee in King Arthur's Court,Mark Twain,The Adventures of Roderick Random,Tobias Smollett
 A Connecticut Yankee in King Arthur's Court,Mark Twain,Robinson Crusoe,Daniel Defoe
 The Prince and the Pauper,Mark Twain,The English Rogue,Richard Head
 Three Men in a Boat,Jerome K. Jerome,The History of Sandford and Merton,Thomas Day
 Madame Bovary,Gustave Flaubert,Paul and Virginia,Bernardin de Saint-Pierre
-Madame Bovary,Gustave Flaubert,Notre Dame de Paris,Victor Hugo
+Madame Bovary,Gustave Flaubert,The Hunchback of Notre-Dame,Victor Hugo
 Madame Bovary,Gustave Flaubert,La Tour de Nesle,Alexandre Dumas
 Madame Bovary,Gustave Flaubert,La Guerre des Dieux,Evariste de Parny
 Anna Karenina,Leo Tolstoy,King Lear,William Shakespeare
@@ -618,7 +618,7 @@ Martin Eden,Jack London,Progress and Poverty,Henry George
 Martin Eden,Jack London,The Quintessence of Socialism,Albert Schäffle
 Martin Eden,Jack London,The Princess,Alfred Tennyson
 Martin Eden,Jack London,The Bottle Imp,Robert Louis Stevenson
-Martin Eden,Jack London,The Magic Skin,Honoré de Balzac
+Martin Eden,Jack London,The Wild Ass's Skin,Honoré de Balzac
 Martin Eden,Jack London,An Essay Concerning Human Understanding,John Locke
 Martin Eden,Jack London,The Cycle of Life,C. W. Saleeby
 Martin Eden,Jack London,The Age of Fable,Thomas Bulfinch
@@ -627,7 +627,7 @@ Crime and Punishment,Fyodor Dostoevsky,Confessions,Jean-Jacques Rousseau
 War and Peace,Leo Tolstoy,Les Chevaliers du Cygne,Stephanie Felicite de Genlis
 War and Peace,Leo Tolstoy,The Social Contract,Jean-Jacques Rousseau
 The Brothers Karamazov,Fyodor Dostoevsky,Dead Souls,Nikolai Gogol
-The Brothers Karamazov,Fyodor Dostoevsky,Notre Dame de Paris,Victor Hugo
+The Brothers Karamazov,Fyodor Dostoevsky,The Hunchback of Notre-Dame,Victor Hugo
 The Brothers Karamazov,Fyodor Dostoevsky,Candide,Voltaire
 The Brothers Karamazov,Fyodor Dostoevsky,The Robbers,Friedrich Schiller
 The Idiot,Fyodor Dostoevsky,Don Quixote,Miguel de Cervantes
@@ -745,9 +745,6 @@ The Portrait of a Lady,Henry James,The Mill on the Floss,George Eliot
 The Portrait of a Lady,Henry James,Middlemarch,George Eliot
 The Portrait of a Lady,Henry James,Adam Bede,George Eliot
 The Portrait of a Lady,Henry James,Romeo and Juliet,William Shakespeare
-The Portrait of a Lady,Henry James,The Ambassadors,Henry James
-The Portrait of a Lady,Henry James,Roderick Hudson,Henry James
-The Portrait of a Lady,Henry James,The American,Henry James
 Sister Carrie,Theodore Dreiser,King Lear,William Shakespeare
 Sister Carrie,Theodore Dreiser,Père Goriot,Honoré de Balzac
 Sister Carrie,Theodore Dreiser,Dora Thorne,Charlotte M. Brame
@@ -1311,7 +1308,7 @@ The Kingdom of God Is Within You,Leo Tolstoy,On War,Jonathan Dymond
 The Kingdom of God Is Within You,Leo Tolstoy,Hamlet,William Shakespeare
 The Kingdom of God Is Within You,Leo Tolstoy,The Net of Faith,Petr Chelčický
 The Kingdom of God Is Within You,Leo Tolstoy,Non-resistance Asserted,Daniel Musser
-The Kingdom of God Is Within You,Leo Tolstoy,Notre Dame de Paris,Victor Hugo
+The Kingdom of God Is Within You,Leo Tolstoy,The Hunchback of Notre-Dame,Victor Hugo
 L'Assommoir,Émile Zola,Histoire de Dix Ans,Louis Blanc
 L'Assommoir,Émile Zola,Histoire des Girondins,Alphonse de Lamartine
 L'Assommoir,Émile Zola,The Mysteries of Paris,Eugène Sue
@@ -1325,7 +1322,7 @@ Sentimental Education,Gustave Flaubert,Les Caractères,Jean de La Bruyère
 Sentimental Education,Gustave Flaubert,Le Chevalier de Maison-Rouge,Alexandre Dumas
 Sentimental Education,Gustave Flaubert,L'Art de n'être jamais tué ni blessé en duel,La Fougère
 The Charterhouse of Parma,Stendhal,The Prince,Niccolò Machiavelli
-The Charterhouse of Parma,Stendhal,Notre Dame de Paris,Victor Hugo
+The Charterhouse of Parma,Stendhal,The Hunchback of Notre-Dame,Victor Hugo
 The Charterhouse of Parma,Stendhal,Manon Lescaut,Abbé Prévost
 The Charterhouse of Parma,Stendhal,Don Quixote,Miguel de Cervantes
 The Charterhouse of Parma,Stendhal,Clarissa,Samuel Richardson
@@ -1363,16 +1360,10 @@ Lost Illusions,Honoré de Balzac,Robert the Devil,Anonymous
 Lost Illusions,Honoré de Balzac,La Belle Maguelonne,Anonymous
 Carmen,Prosper Mérimée,Bellum Hispaniense,Anonymous
 Carmen,Prosper Mérimée,Commentaries,Julius Caesar
-Hunger,Knut Hamsun,In Wonderland,Knut Hamsun
-Hunger,Knut Hamsun,The Spiritual Life of Modern America,Knut Hamsun
 Growth of the Soil,Knut Hamsun,Sex and Character,Otto Weininger
 Growth of the Soil,Knut Hamsun,The Cloister and the Hearth,Charles Reade
-Growth of the Soil,Knut Hamsun,Beneath the Autumn Star,Knut Hamsun
-Growth of the Soil,Knut Hamsun,The Last Joy,Knut Hamsun
-Growth of the Soil,Knut Hamsun,New Ground,Knut Hamsun
 Growth of the Soil,Knut Hamsun,A Sentimental Journey Through France and Italy,Laurence Sterne
 Growth of the Soil,Knut Hamsun,Tristram Shandy,Laurence Sterne
-Growth of the Soil,Knut Hamsun,Vendt the Monk,Knut Hamsun
 Quo Vadis,Henryk Sienkiewicz,Iliad,Homer
 Quo Vadis,Henryk Sienkiewicz,Prometheus Bound,Aeschylus
 Quo Vadis,Henryk Sienkiewicz,Eclogues,Virgil
@@ -1547,7 +1538,6 @@ Emile,Jean-Jacques Rousseau,"Julie, or the New Heloise",Jean-Jacques Rousseau
 Emile,Jean-Jacques Rousseau,Discourse on the Origin of Inequality,Jean-Jacques Rousseau
 Emile,Jean-Jacques Rousseau,The Spirit of the Laws,Montesquieu
 Emile,Jean-Jacques Rousseau,Symposium (The Banquet),Plato
-Emile,Jean-Jacques Rousseau,The Adventures of Telemachus,François Fénelon
 Emile,Jean-Jacques Rousseau,Cléopâtre,La Calprenède
 Emile,Jean-Jacques Rousseau,Cassandre,La Calprenède
 Emile,Jean-Jacques Rousseau,Monsieur de Pourceaugnac,Molière
@@ -1854,9 +1844,9 @@ The Tragic Muse,Henry James,Phèdre,Jean Racine
 The Tragic Muse,Henry James,King John,William Shakespeare
 The Tragic Muse,Henry James,Mademoiselle de la Seiglière,Jules Sandeau
 The Tragic Muse,Henry James,Il ne faut jurer de rien,Alfred de Musset
-The Tragic Muse,Henry James,Les Trois Mousquetaires,Alexandre Dumas
+The Tragic Muse,Henry James,The Three Musketeers,Alexandre Dumas
 The Tragic Muse,Henry James,Les Nuits,Alfred de Musset
-The Tragic Muse,Henry James,La Cousine Bette,Honoré de Balzac
+The Tragic Muse,Henry James,Cousin Bette,Honoré de Balzac
 The Tragic Muse,Henry James,The Lotus-Eaters,Alfred Tennyson
 The Tragic Muse,Henry James,Edward Gray,Alfred Tennyson
 The Tragic Muse,Henry James,Mary Stuart,Friedrich Schiller
@@ -1948,7 +1938,7 @@ The Varieties of Religious Experience,William James,Interior Castle,Teresa of Av
 The Varieties of Religious Experience,William James,Cherubinischer Wandersmann,Angelus Silesius
 The Varieties of Religious Experience,William James,Iliad,Homer
 The Varieties of Religious Experience,William James,The Confessions,Augustine of Hippo
-The Varieties of Religious Experience,William James,Buddhism in Translation,Henry Clarke Warren
+The Varieties of Religious Experience,William James,Buddhism in Translations,Henry Clarke Warren
 The Varieties of Religious Experience,William James,The Life of Trust,George Mueller
 The Varieties of Religious Experience,William James,La Religion,Etienne Vacherot
 The Varieties of Religious Experience,William James,Leaves of Grass,Walt Whitman
@@ -2251,11 +2241,9 @@ The Firm of Girdlestone,Arthur Conan Doyle,A Chronicle of the Conquest of Granad
 The Mystery of Cloomber,Arthur Conan Doyle,Inferno,Dante Alighieri
 The Mystery of Cloomber,Arthur Conan Doyle,Researches on Magnetism and Vital Force,Karl von Reichenbach
 The Mystery of Cloomber,Arthur Conan Doyle,Letters on Animal Magnetism,William Gregory
-Victory,Joseph Conrad,Lord Jim,Joseph Conrad
 The Secret Agent,Joseph Conrad,Don Quixote,Miguel de Cervantes
 The Secret Agent,Joseph Conrad,The Malay Archipelago,Alfred Russel Wallace
 Nostromo,Joseph Conrad,King John,William Shakespeare
-Nostromo,Joseph Conrad,Typhoon,Joseph Conrad
 Jacob's Room,Virginia Woolf,Phaedrus,Plato
 Jacob's Room,Virginia Woolf,Hamlet,William Shakespeare
 Jacob's Room,Virginia Woolf,Tom Jones,Henry Fielding
@@ -2267,7 +2255,7 @@ The Voyage Out,Virginia Woolf,Wuthering Heights,Emily Bronte
 The Voyage Out,Virginia Woolf,Man and Superman,George Bernard Shaw
 The Voyage Out,Virginia Woolf,Henry V,William Shakespeare
 The Voyage Out,Virginia Woolf,The History of the Decline and Fall of the Roman Empire,Edward Gibbon
-The Voyage Out,Virginia Woolf,La Cousine Bette,Honore de Balzac
+The Voyage Out,Virginia Woolf,Cousin Bette,Honore de Balzac
 The Voyage Out,Virginia Woolf,Persuasion,Jane Austen
 The Voyage Out,Virginia Woolf,The Prelude,William Wordsworth
 The Voyage Out,Virginia Woolf,Modern Love,George Meredith
@@ -2296,7 +2284,7 @@ The Enormous Room,E. E. Cummings,As You Like It,William Shakespeare
 The Enormous Room,E. E. Cummings,Hamlet,William Shakespeare
 The Enormous Room,E. E. Cummings,Julius Caesar,William Shakespeare
 The Enormous Room,E. E. Cummings,The Pilgrim's Progress,John Bunyan
-Zuleika Dobson,Max Beerbohm,Clarissa Harlowe,Samuel Richardson
+Zuleika Dobson,Max Beerbohm,Clarissa,Samuel Richardson
 Zuleika Dobson,Max Beerbohm,The Invasion of the Crimea,Alexander William Kinglake
 Zuleika Dobson,Max Beerbohm,Politics,Aristotle
 Alice Adams,Booth Tarkington,Romeo and Juliet,William Shakespeare
@@ -2403,7 +2391,6 @@ Captain Blood,Rafael Sabatini,The Buccaneers of America,Alexandre Exquemelin
 Pan Michael,Henryk Sienkiewicz,With Fire and Sword,Henryk Sienkiewicz
 Pan Michael,Henryk Sienkiewicz,The Deluge,Henryk Sienkiewicz
 The Miracles of Antichrist,Selma Lagerlöf,The Old Martyrdom,Filippo Orioles
-The Girl from the Marsh Croft,Selma Lagerlöf,The Story of Gösta Berling,Selma Lagerlöf
 The Girl from the Marsh Croft,Selma Lagerlöf,Five Weeks in a Balloon,Jules Verne
 The Girl from the Marsh Croft,Selma Lagerlöf,A Thousand and One Nights,
 The Girl from the Marsh Croft,Selma Lagerlöf,Heimskringla,Snorri Sturluson
@@ -2447,7 +2434,6 @@ The Island Pharisees,John Galsworthy,Madame Bovary,Gustave Flaubert
 The Island Pharisees,John Galsworthy,A Thousand and One Nights,
 The Island Pharisees,John Galsworthy,Market Harborough,George John Whyte-Melville
 The Island Pharisees,John Galsworthy,King John,William Shakespeare
-Shallow Soil,Knut Hamsun,Hunger,Knut Hamsun
 Shallow Soil,Knut Hamsun,King Lear,William Shakespeare
 Shallow Soil,Knut Hamsun,Niels Lyhne,J. P. Jacobsen
 The Job,Sinclair Lewis,Snow-Bound,John Greenleaf Whittier
@@ -2617,7 +2603,6 @@ Prester John,John Buchan,The Pilgrim's Progress,John Bunyan
 Prester John,John Buchan,Antony and Cleopatra,William Shakespeare
 Prester John,John Buchan,Anabasis,Xenophon
 Mr. Standfast,John Buchan,The Pilgrim's Progress,John Bunyan
-Mr. Standfast,John Buchan,The Thirty-Nine Steps,John Buchan
 Mr. Standfast,John Buchan,Ghost Stories of an Antiquary,M. R. James
 Mr. Standfast,John Buchan,The Golden Treasury,Francis Turner Palgrave
 The Amateur Cracksman,E. W. Hornung,Patience,W. S. Gilbert
@@ -3382,7 +3367,7 @@ Why Read the Classics,Italo Calvino,La Comédie humaine,Honoré de Balzac
 Why Read the Classics,Italo Calvino,Les Fleurs du mal,Charles Baudelaire
 Why Read the Classics,Italo Calvino,Our Mutual Friend,Charles Dickens
 Why Read the Classics,Italo Calvino,Great Expectations,Charles Dickens
-Why Read the Classics,Italo Calvino,The Decline and Fall of the Roman Empire,Edward Gibbon
+Why Read the Classics,Italo Calvino,The History of the Decline and Fall of the Roman Empire,Edward Gibbon
 Why Read the Classics,Italo Calvino,Crime and Punishment,Fyodor Dostoevsky
 Why Read the Classics,Italo Calvino,Three Tales,Gustave Flaubert
 Why Read the Classics,Italo Calvino,The Legend of St Julian the Hospitaller,Gustave Flaubert
@@ -3836,7 +3821,7 @@ Possession,A. S. Byatt,As You Like It,William Shakespeare
 Possession,A. S. Byatt,Idylls of the King,Alfred Tennyson
 Possession,A. S. Byatt,Paradiso,Dante Alighieri
 Possession,A. S. Byatt,Moby-Dick,Herman Melville
-Possession,A. S. Byatt,Roderick Random,Tobias Smollett
+Possession,A. S. Byatt,The Adventures of Roderick Random,Tobias Smollett
 Possession,A. S. Byatt,Samson Agonistes,John Milton
 Possession,A. S. Byatt,Silas Marner,George Eliot
 Possession,A. S. Byatt,The Bostonians,Henry James
@@ -4177,7 +4162,7 @@ The Silent Patient,Alex Michaelides,All My Sons,Arthur Miller
 The Silent Patient,Alex Michaelides,The Winter's Tale,William Shakespeare
 The Silent Patient,Alex Michaelides,Introductory Lectures on Psychoanalysis,Sigmund Freud
 If on a Winter's Night a Traveler,Italo Calvino,Crime and Punishment,Fyodor Dostoevsky
-If on a Winter's Night a Traveler,Italo Calvino,The Arabian Nights,Anonymous
+If on a Winter's Night a Traveler,Italo Calvino,A Thousand and One Nights,Anonymous
 If on a Winter's Night a Traveler,Italo Calvino,Popol Vuh,Anonymous
 If on a Winter's Night a Traveler,Italo Calvino,Ars Magna Lucis et Umbrae,Athanasius Kircher
 If on a Winter's Night a Traveler,Italo Calvino,A Treatise on New Philosophical Instruments,David Brewster
@@ -4822,12 +4807,12 @@ Père Goriot,Honoré de Balzac,Le Mont Sauvage,René-Charles Guilbert de Pixér�
 Père Goriot,Honoré de Balzac,Le Solitaire,Vicomte d'Arlincourt
 Père Goriot,Honoré de Balzac,Don Quixote,Miguel de Cervantes
 Thérèse Raquin,Émile Zola,Tom Thumb,Charles Perrault
-Thérèse Raquin,Émile Zola,Blue Beard,Charles Perrault
+Thérèse Raquin,Émile Zola,Bluebeard,Charles Perrault
 Second Treatise of Government,John Locke,"Observations on Hobbes, Milton, &c.",Robert Filmer
 The Interesting Narrative of Olaudah Equiano,Olaudah Equiano,The Dying Negro,Thomas Day and John Bicknell
 The Interesting Narrative of Olaudah Equiano,Olaudah Equiano,The Conversion of an Indian,
 News from Nowhere,William Morris,Vanity Fair,William Makepeace Thackeray
-News from Nowhere,William Morris,King Richard III,William Shakespeare
+News from Nowhere,William Morris,Richard III,William Shakespeare
 News from Nowhere,William Morris,Song of the Shirt,Thomas Hood
 Demons,Fyodor Dostoevsky,Vie de Jesus,Ernest Renan
 Demons,Fyodor Dostoevsky,Henry IV,William Shakespeare
@@ -4842,7 +4827,7 @@ Virgin Soil,Ivan Turgenev,Songs Before Sunrise,Algernon Charles Swinburne
 Virgin Soil,Ivan Turgenev,The Duties of Man,Giuseppe Mazzini
 Virgin Soil,Ivan Turgenev,Yevgenia Onegin,Alexander Pushkin
 Virgin Soil,Ivan Turgenev,The Story of the Four Brothers,
-The Wild Ass's Skin,Honoré de Balzac,Clarissa Harlowe,Samuel Richardson
+The Wild Ass's Skin,Honoré de Balzac,Clarissa,Samuel Richardson
 The Wild Ass's Skin,Honoré de Balzac,Manfred,Byron
 The Wild Ass's Skin,Honoré de Balzac,Childe Harold's Pilgrimage,Byron
 The Wild Ass's Skin,Honoré de Balzac,Don Quixote,Miguel de Cervantes
@@ -4901,7 +4886,7 @@ Swann's Way,Marcel Proust,La Mare au Diable,George Sand
 Swann's Way,Marcel Proust,La Petite Fadette,George Sand
 Swann's Way,Marcel Proust,Les Maîtres Sonneurs,George Sand
 Swann's Way,Marcel Proust,Indiana,George Sand
-Swann's Way,Marcel Proust,Notre Dame de Paris,Victor Hugo
+Swann's Way,Marcel Proust,The Hunchback of Notre-Dame,Victor Hugo
 Swann's Way,Marcel Proust,Athalie,Jean Racine
 Swann's Way,Marcel Proust,Phèdre,Jean Racine
 Swann's Way,Marcel Proust,Le Cid,Pierre Corneille
@@ -4952,14 +4937,14 @@ White-Jacket,Herman Melville,Don Quixote,Miguel de Cervantes
 White-Jacket,Herman Melville,Paradise Lost,John Milton
 The Confidence-Man,Herman Melville,Don Quixote,Miguel de Cervantes
 The Confidence-Man,Herman Melville,Hamlet,William Shakespeare
-Redburn,Herman Melville,The Arabian Nights,Anonymous
+Redburn,Herman Melville,A Thousand and One Nights,Anonymous
 Redburn,Herman Melville,Robinson Crusoe,Daniel Defoe
-The Ebb-Tide,Robert Louis Stevenson and Lloyd Osbourne,The Arabian Nights,Anonymous
+The Ebb-Tide,Robert Louis Stevenson and Lloyd Osbourne,A Thousand and One Nights,Anonymous
 Three Men on the Bummel,Jerome K. Jerome,Alice's Adventures in Wonderland,Lewis Carroll
 Peter Ibbetson,George du Maurier,To a Waterfowl,William Cullen Bryant
 Peter Ibbetson,George du Maurier,The Three Musketeers,Alexandre Dumas
 Peter Ibbetson,George du Maurier,Ivanhoe,Walter Scott
-Peter Ibbetson,George du Maurier,Notre Dame de Paris,Victor Hugo
+Peter Ibbetson,George du Maurier,The Hunchback of Notre-Dame,Victor Hugo
 Peter Ibbetson,George du Maurier,The Swiss Family Robinson,Johann David Wyss
 Peter Ibbetson,George du Maurier,The History of Sandford and Merton,Thomas Day
 Peter Ibbetson,George du Maurier,Evenings at Home,John Aikin and Anna Laetitia Barbauld
@@ -5201,7 +5186,7 @@ Cloud Atlas,David Mitchell,All Quiet on the Western Front,Erich Maria Remarque
 Cloud Atlas,David Mitchell,The Jungle Book,Rudyard Kipling
 Cloud Atlas,David Mitchell,Moby-Dick,Herman Melville
 Cloud Atlas,David Mitchell,The Island of Doctor Moreau,H. G. Wells
-Cloud Atlas,David Mitchell,One Thousand and One Nights,Anonymous
+Cloud Atlas,David Mitchell,A Thousand and One Nights,Anonymous
 Cloud Atlas,David Mitchell,The Drowned and the Saved,Primo Levi
 David and Goliath,Malcolm Gladwell,Seven Pillars of Wisdom,T. E. Lawrence
 David and Goliath,Malcolm Gladwell,Options as a Strategic Investment,Lawrence G. McMillan
@@ -5575,7 +5560,7 @@ The Satanic Verses,Salman Rushdie,The Martian Chronicles,Ray Bradbury
 The Satanic Verses,Salman Rushdie,Tamburlaine the Great,Christopher Marlowe
 The Satanic Verses,Salman Rushdie,Finnegans Wake,James Joyce
 The Satanic Verses,Salman Rushdie,The Defense,Vladimir Nabokov
-The Satanic Verses,Salman Rushdie,The Origin of Species,Charles Darwin
+The Satanic Verses,Salman Rushdie,On the Origin of Species,Charles Darwin
 The Satanic Verses,Salman Rushdie,Vanity Fair,William Makepeace Thackeray
 The Satanic Verses,Salman Rushdie,On the Nature of Things,Lucretius
 The Satanic Verses,Salman Rushdie,The Prince,Niccolò Machiavelli
@@ -5583,7 +5568,7 @@ The Satanic Verses,Salman Rushdie,Discourses on Livy,Niccolò Machiavelli
 The Satanic Verses,Salman Rushdie,Ubu Roi,Alfred Jarry
 The Satanic Verses,Salman Rushdie,The Marriage of Heaven and Hell,William Blake
 The Satanic Verses,Salman Rushdie,The Millionairess,George Bernard Shaw
-The Satanic Verses,Salman Rushdie,The Arabian Nights,Richard Francis Burton
+The Satanic Verses,Salman Rushdie,A Thousand and One Nights,Richard Francis Burton
 The Satanic Verses,Salman Rushdie,The Ocean of the Streams of Story,Somadeva
 The Satanic Verses,Salman Rushdie,Gitanjali,Rabindranath Tagore
 The Satanic Verses,Salman Rushdie,Othello,William Shakespeare
@@ -5622,7 +5607,7 @@ The Uncommon Reader,Alan Bennett,My Father and Myself,J.R. Ackerley
 The Uncommon Reader,Alan Bennett,Love in a Cold Climate,Nancy Mitford
 The Uncommon Reader,Alan Bennett,A Tale of Two Cities,Charles Dickens
 The Uncommon Reader,Alan Bennett,Alice's Adventures in Wonderland,Lewis Carroll
-The Uncommon Reader,Alan Bennett,"The Life and Opinions of Tristram Shandy, Gentleman",Laurence Sterne
+The Uncommon Reader,Alan Bennett,Tristram Shandy,Laurence Sterne
 The Uncommon Reader,Alan Bennett,The Convergence of the Twain,Thomas Hardy
 The Uncommon Reader,Alan Bennett,Kama Sutra,Vātsyāyana
 The Uncommon Reader,Alan Bennett,Tell All the Truth but Tell It Slant,Emily Dickinson
@@ -5688,7 +5673,7 @@ The Duke's Children,Anthony Trollope,Irish Melodies,Thomas Moore
 Demos,George Gissing,Das Kapital,Karl Marx
 Demos,George Gissing,Vita Nuova,Dante Alighieri
 Born in Exile,George Gissing,The World before the Deluge,Louis Figuier
-Born in Exile,George Gissing,The Origin of Species,Charles Darwin
+Born in Exile,George Gissing,On the Origin of Species,Charles Darwin
 Born in Exile,George Gissing,Bridgewater Treatise,William Buckland
 Born in Exile,George Gissing,"The Soul, Her Sorrows and Her Aspirations",Francis William Newman
 Born in Exile,George Gissing,A Monograph of the British Fossil Brachiopoda,Thomas Davidson
@@ -5954,7 +5939,6 @@ Against Interpretation and Other Essays,Susan Sontag,The Theatre and Its Double,
 Against Interpretation and Other Essays,Susan Sontag,The Deputy,Rolf Hochhuth
 Against Interpretation and Other Essays,Susan Sontag,Eros and Civilization,Herbert Marcuse
 Against Interpretation and Other Essays,Susan Sontag,Marco Millions,Eugene O'Neill
-Against Interpretation and Other Essays,Susan Sontag,The Benefactor,Susan Sontag
 Against Interpretation and Other Essays,Susan Sontag,The Killer,Eugène Ionesco
 Against Interpretation and Other Essays,Susan Sontag,Metatheatre: A New View of Dramatic Form,Lionel Abel
 Against Interpretation and Other Essays,Susan Sontag,The Burning Brand: Diaries 1935-1950,Cesare Pavese
@@ -6018,7 +6002,7 @@ The Art of Fiction,Ayn Rand,The Fountainhead,Ayn Rand
 The Art of Fiction,Ayn Rand,We the Living,Ayn Rand
 The Art of Fiction,Ayn Rand,Anthem,Ayn Rand
 The Art of Fiction,Ayn Rand,Nineteen Eighty-Four,George Orwell
-The Art of Fiction,Ayn Rand,Notre Dame de Paris,Victor Hugo
+The Art of Fiction,Ayn Rand,The Hunchback of Notre-Dame,Victor Hugo
 The Art of Fiction,Ayn Rand,Les Misérables,Victor Hugo
 The Art of Fiction,Ayn Rand,Main Street,Sinclair Lewis
 The Art of Fiction,Ayn Rand,Babbitt,Sinclair Lewis
@@ -6356,7 +6340,7 @@ Contact,Carl Sagan,Leaves of Grass,Walt Whitman
 Contact,Carl Sagan,Poems,Ralph Waldo Emerson
 Contact,Carl Sagan,Politics,Aristotle
 Contact,Carl Sagan,De Natura Deorum,Cicero
-Contact,Carl Sagan,Confessions,Augustine
+Contact,Carl Sagan,The Confessions,Augustine
 Contact,Carl Sagan,The City of God,Augustine
 Contact,Carl Sagan,Skeptical Essays,Bertrand Russell
 Contact,Carl Sagan,Cinna,Pierre Corneille
@@ -6367,7 +6351,7 @@ Contact,Carl Sagan,Encyclopaedia Britannica,Anonymous
 Cosmos,Alexander von Humboldt,Elements of Geometry,Euclid
 Cosmos,Alexander von Humboldt,Natural Questions,Seneca
 Cosmos,Alexander von Humboldt,Tao Te Ching,Laozi
-Cosmos,Alexander von Humboldt,The Origin of Species,Charles Darwin
+Cosmos,Alexander von Humboldt,On the Origin of Species,Charles Darwin
 Cosmos,Alexander von Humboldt,De Stella Nova,Johannes Kepler
 Cosmos,Alexander von Humboldt,Popol Vuh,Anonymous
 Cosmos,Alexander von Humboldt,Somnium,Johannes Kepler
@@ -6898,7 +6882,7 @@ The Diamond Age,Neal Stephenson,The Prelude,William Wordsworth
 The Diamond Age,Neal Stephenson,The Adventures of Sherlock Holmes,Arthur Conan Doyle
 The Diamond Age,Neal Stephenson,Gone with the Wind,Margaret Mitchell
 The Diamond Age,Neal Stephenson,The Taming of the Shrew,William Shakespeare
-The Duniazat,Salman Rushdie,One Thousand and One Nights,Unknown
+The Duniazat,Salman Rushdie,A Thousand and One Nights,Unknown
 The Duniazat,Salman Rushdie,The Incoherence of the Philosophers,Al-Ghazali
 The Duniazat,Salman Rushdie,The Incoherence of the Incoherence,Ibn Rushd
 The Facts,Philip Roth,Big Two-Hearted River,Ernest Hemingway
@@ -7022,7 +7006,7 @@ The Naive and the Sentimental Novelist,Orhan Pamuk,Three Trapped Tigers,Guillerm
 The Naive and the Sentimental Novelist,Orhan Pamuk,Hopscotch,Julio Cortázar
 The Naive and the Sentimental Novelist,Orhan Pamuk,The Wild Palms,William Faulkner
 The Naive and the Sentimental Novelist,Orhan Pamuk,Cevdet Bey and Sons,Orhan Pamuk
-The Naive and the Sentimental Novelist,Orhan Pamuk,One Thousand and One Nights,Anonymous
+The Naive and the Sentimental Novelist,Orhan Pamuk,A Thousand and One Nights,Anonymous
 The Naive and the Sentimental Novelist,Orhan Pamuk,Père Goriot,Honoré de Balzac
 The Naive and the Sentimental Novelist,Orhan Pamuk,The Golden Bowl,Henry James
 The Naive and the Sentimental Novelist,Orhan Pamuk,Buddenbrooks,Thomas Mann
@@ -7091,7 +7075,7 @@ The Uses of Literature,Italo Calvino,Don Quixote,Miguel de Cervantes
 The Uses of Literature,Italo Calvino,Madame Bovary,Gustave Flaubert
 The Uses of Literature,Italo Calvino,The Odyssey,Homer
 The Uses of Literature,Italo Calvino,Orlando Furioso,Ludovico Ariosto
-The Uses of Literature,Italo Calvino,The Arabian Nights,traditional
+The Uses of Literature,Italo Calvino,A Thousand and One Nights,traditional
 The Uses of Literature,Italo Calvino,Robinson Crusoe,Daniel Defoe
 The Uses of Literature,Italo Calvino,Lucien Leuwen,Stendhal
 The Uses of Literature,Italo Calvino,The Baron in the Trees,Italo Calvino
@@ -7372,7 +7356,7 @@ Babel,R. F. Kuang,Gulliver's Travels,Jonathan Swift
 Babel,R. F. Kuang,The Rape of the Lock,Alexander Pope
 Babel,R. F. Kuang,Iliad,Homer
 Babel,R. F. Kuang,A Vindication of the Rights of Woman,Mary Wollstonecraft
-Babel,R. F. Kuang,One Thousand and One Nights,Anonymous
+Babel,R. F. Kuang,A Thousand and One Nights,Anonymous
 Babel,R. F. Kuang,Bhagavad Gita,Anonymous
 Babel,R. F. Kuang,The Waste Land,T. S. Eliot
 Babel,R. F. Kuang,Essay on the Principles of Translation,Alexander Fraser Tytler
@@ -7412,7 +7396,7 @@ The Lacuna,Barbara Kingsolver,Don Quixote,Miguel de Cervantes
 The Lacuna,Barbara Kingsolver,Zozobra,Ramón López Velarde
 The Lacuna,Barbara Kingsolver,Romancero gitano,Federico García Lorca
 The Lacuna,Barbara Kingsolver,The Odyssey,Homer
-The Lacuna,Barbara Kingsolver,"The Life and Opinions of Tristram Shandy, Gentleman",Laurence Sterne
+The Lacuna,Barbara Kingsolver,Tristram Shandy,Laurence Sterne
 The Lacuna,Barbara Kingsolver,Gone with the Wind,Margaret Mitchell
 The Lacuna,Barbara Kingsolver,The Big Money,John Dos Passos
 The Lacuna,Barbara Kingsolver,The Great Gatsby,F. Scott Fitzgerald
@@ -7499,7 +7483,7 @@ Crossing the Wine-Dark Sea,Emily Wilson,Ode to a Nightingale,John Keats
 Crossing the Wine-Dark Sea,Emily Wilson,Twenty Love Poems and a Song of Despair,Pablo Neruda
 Crossing the Wine-Dark Sea,Emily Wilson,Sappho's Leap,Erica Jong
 Crossing the Wine-Dark Sea,Emily Wilson,Sparrow,Carol Muske-Dukes
-Crossing the Wine-Dark Sea,Emily Wilson,"The Life and Opinions of Tristram Shandy, Gentleman",Laurence Sterne
+Crossing the Wine-Dark Sea,Emily Wilson,Tristram Shandy,Laurence Sterne
 Crossing the Wine-Dark Sea,Emily Wilson,Nana,Émile Zola
 Crossing the Wine-Dark Sea,Emily Wilson,The Vegetarian,Han Kang
 Crossing the Wine-Dark Sea,Emily Wilson,Orientalism,Edward Said
@@ -7908,3 +7892,562 @@ Gargantua and Pantagruel,Francois Rabelais,On the Obsolescence of Oracles,Plutar
 The Satyricon,Petronius,Iliad,Homer
 The Satyricon,Petronius,The Odyssey,Homer
 The Communist Manifesto,Karl Marx and Friedrich Engels,The Philosophy of Poverty,Pierre-Joseph Proudhon
+The Pickwick Papers,Charles Dickens,Encyclopaedia Britannica,Anonymous
+The Pickwick Papers,Charles Dickens,Richard III,William Shakespeare
+The Thirty-Nine Steps,John Buchan,A Thousand and One Nights,Anonymous
+The Sorrows of Young Werther,Johann Wolfgang von Goethe,The Vicar of Wakefield,Oliver Goldsmith
+The Sorrows of Young Werther,Johann Wolfgang von Goethe,Emilia Galotti,Gotthold Ephraim Lessing
+The Sorrows of Young Werther,Johann Wolfgang von Goethe,The Poems of Ossian,James Macpherson
+Anne of Avonlea,L. M. Montgomery,Paradise Lost,John Milton
+Anne of Avonlea,L. M. Montgomery,Bluebeard,Charles Perrault
+Pamela,Samuel Richardson,Aesop's Fables,Aesop
+Pamela,Samuel Richardson,Telemachus,François Fénelon
+Pamela,Samuel Richardson,The Whole Duty of Man,Richard Allestree
+Pamela,Samuel Richardson,Book of Common Prayer,Anonymous
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Annals,Tacitus
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Germania,Tacitus
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Historia Augusta,Anonymous
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Secret History,Procopius
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Ecclesiastical History,Johann Lorenz von Mosheim
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The City of God,Augustine of Hippo
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Confessions,Augustine of Hippo
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Spirit of the Laws,Montesquieu
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Observations sur l'Histoire de France,Gabriel Bonnot de Mably
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Histoire des Empereurs,Louis-Sébastien Le Nain de Tillemont
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Annali d'Italia,Lodovico Antonio Muratori
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The History of the Reign of the Emperor Charles V,William Robertson
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The History of England,David Hume
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Natural History of Religion,David Hume
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Iliad,Homer
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Odyssey,Homer
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Aeneid,Virgil
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Histoire Naturelle,Comte de Buffon
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Cyropaedia,Xenophon
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Anabasis,Xenophon
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Paradise Lost,John Milton
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Meditations,Marcus Aurelius
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Pharsalia,Lucan
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Metamorphoses,Ovid
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Consolation of Philosophy,Boethius
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Misopogon,Julian
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Caesars,Julian
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Wealth of Nations,Adam Smith
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Don Quixote,Miguel de Cervantes
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Orlando Furioso,Ludovico Ariosto
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Decameron,Giovanni Boccaccio
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,La Henriade,Voltaire
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Age of Louis XIV,Voltaire
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Candide,Voltaire
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Poems of Ossian,James Macpherson
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,A Thousand and One Nights,Anonymous
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Bibliothèque Orientale,Barthélemy d'Herbelot
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Codex Justinianus,Justinian I
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Institutes of Justinian,Justinian I
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,The Digest (Pandects),Justinian I
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Theodosian Code,Theodosius II
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Notitia Dignitatum,Anonymous
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Gesta Dei per Francos,Jacques Bongars
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Saturnalia,Macrobius
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Utopia,Thomas More
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Getica,Jordanes
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Christian Topography,Cosmas Indicopleustes
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Historical and Critical Dictionary,Pierre Bayle
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Florentine Histories,Niccolò Machiavelli
+The History of the Decline and Fall of the Roman Empire,Edward Gibbon,Il Sacco di Roma,Luigi Guicciardini
+The Waste Land,T. S. Eliot,From Ritual to Romance,Jessie L. Weston
+The Waste Land,T. S. Eliot,The Golden Bough,James George Frazer
+The Waste Land,T. S. Eliot,"Adonis, Attis, Osiris",James George Frazer
+The Waste Land,T. S. Eliot,Inferno,Dante Alighieri
+The Waste Land,T. S. Eliot,The White Devil,John Webster
+The Waste Land,T. S. Eliot,Les Fleurs du mal,Charles Baudelaire
+The Waste Land,T. S. Eliot,Antony and Cleopatra,William Shakespeare
+The Waste Land,T. S. Eliot,The Aeneid,Virgil
+The Waste Land,T. S. Eliot,Paradise Lost,John Milton
+The Waste Land,T. S. Eliot,Metamorphoses,Ovid
+The Waste Land,T. S. Eliot,Women Beware Women,Thomas Middleton
+The Waste Land,T. S. Eliot,Prothalamion,Edmund Spenser
+The Waste Land,T. S. Eliot,The Tempest,William Shakespeare
+The Waste Land,T. S. Eliot,To His Coy Mistress,Andrew Marvell
+The Waste Land,T. S. Eliot,The Parliament of Bees,John Day
+The Waste Land,T. S. Eliot,Parsifal,Paul Verlaine
+The Waste Land,T. S. Eliot,The Vicar of Wakefield,Oliver Goldsmith
+The Waste Land,T. S. Eliot,Purgatorio,Dante Alighieri
+The Waste Land,T. S. Eliot,The Confessions,Augustine of Hippo
+The Waste Land,T. S. Eliot,Buddhism in Translations,Henry Clarke Warren
+The Waste Land,T. S. Eliot,Handbook of Birds of Eastern North America,Frank M. Chapman
+The Waste Land,T. S. Eliot,Blick ins Chaos,Hermann Hesse
+The Waste Land,T. S. Eliot,Brihadaranyaka Upanishad,Anonymous
+The Waste Land,T. S. Eliot,Sechzig Upanishads des Veda,Paul Deussen
+The Waste Land,T. S. Eliot,Appearance and Reality,F. H. Bradley
+The Waste Land,T. S. Eliot,Pervigilium Veneris,Anonymous
+The Waste Land,T. S. Eliot,El Desdichado,Gérard de Nerval
+The Waste Land,T. S. Eliot,The Spanish Tragedy,Thomas Kyd
+The Anatomy of Melancholy,Robert Burton,Utopia,Thomas More
+The Anatomy of Melancholy,Robert Burton,The City of God,Augustine of Hippo
+The Anatomy of Melancholy,Robert Burton,Metamorphoses,Ovid
+The Anatomy of Melancholy,Robert Burton,Aesop's Fables,Aesop
+The Anatomy of Melancholy,Robert Burton,Iliad,Homer
+The Anatomy of Melancholy,Robert Burton,The Odyssey,Homer
+The Anatomy of Melancholy,Robert Burton,The Aeneid,Virgil
+The Anatomy of Melancholy,Robert Burton,Arcadia,Philip Sidney
+The Anatomy of Melancholy,Robert Burton,Essays,Michel de Montaigne
+The Anatomy of Melancholy,Robert Burton,Natural History,Pliny the Elder
+The Anatomy of Melancholy,Robert Burton,Amadis de Gaul,Garci Rodriguez de Montalvo
+The Anatomy of Melancholy,Robert Burton,The Seven Champions of Christendom,Richard Johnson
+The Anatomy of Melancholy,Robert Burton,Palmerín de Oliva,Anonymous
+The Anatomy of Melancholy,Robert Burton,Huon of Bordeaux,Anonymous
+The Anatomy of Melancholy,Robert Burton,The Faerie Queene,Edmund Spenser
+The Anatomy of Melancholy,Robert Burton,The Canterbury Tales,Geoffrey Chaucer
+The Anatomy of Melancholy,Robert Burton,De Consolatione,Gerolamo Cardano
+The Anatomy of Melancholy,Robert Burton,Art of Love,Ovid
+The Anatomy of Melancholy,Robert Burton,The Satyricon,Petronius
+The Anatomy of Melancholy,Robert Burton,Timaeus,Plato
+The Anatomy of Melancholy,Robert Burton,Enneads,Plotinus
+The Anatomy of Melancholy,Robert Burton,Phaedo,Plato
+The Anatomy of Melancholy,Robert Burton,Phaedrus,Plato
+The Anatomy of Melancholy,Robert Burton,Laws,Plato
+The Anatomy of Melancholy,Robert Burton,The Nicomachean Ethics,Aristotle
+The Anatomy of Melancholy,Robert Burton,Politics,Aristotle
+The Anatomy of Melancholy,Robert Burton,Tusculan Disputations,Cicero
+The Anatomy of Melancholy,Robert Burton,Cyropaedia,Xenophon
+The Anatomy of Melancholy,Robert Burton,The Discoverie of Witchcraft,Reginald Scot
+The Anatomy of Melancholy,Robert Burton,The Golden Legend,Jacobus de Voragine
+The Anatomy of Melancholy,Robert Burton,The Koran,Anonymous
+The Anatomy of Melancholy,Robert Burton,Talmud,Anonymous
+The Anatomy of Melancholy,Robert Burton,Euphues,John Lyly
+The Anatomy of Melancholy,Robert Burton,De Locis Affectis,Galen
+The Anatomy of Melancholy,Robert Burton,De Rerum Varietate,Gerolamo Cardano
+The Anatomy of Melancholy,Robert Burton,De Occulta Philosophia,Heinrich Cornelius Agrippa von Nettesheim
+The Anatomy of Melancholy,Robert Burton,Of the Vanity and Uncertainty of Arts and Sciences,Heinrich Cornelius Agrippa von Nettesheim
+The Anatomy of Melancholy,Robert Burton,The Fisherman (Piscator),Lucian
+The Anatomy of Melancholy,Robert Burton,The Confessions,Augustine of Hippo
+The Anatomy of Melancholy,Robert Burton,The City of the Sun,Tommaso Campanella
+The Anatomy of Melancholy,Robert Burton,New Atlantis,Francis Bacon
+The Anatomy of Melancholy,Robert Burton,Saturnalia,Macrobius
+The Anatomy of Melancholy,Robert Burton,Valentine and Orson,Anonymous
+The Anatomy of Melancholy,Robert Burton,Letters to Lucilius,Seneca
+The Anatomy of Melancholy,Robert Burton,Odes,Pindar
+The Anatomy of Melancholy,Robert Burton,The Enchiridion,Epictetus
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",De Constantia,Justus Lipsius
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Lives of the Necromancers,William Godwin
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Le Roman de la Rose,Guillaume de Lorris and Jean de Meun
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",De Incertitudine et Vanitate Scientiarum,Heinrich Cornelius Agrippa von Nettesheim
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Summum Bonum,Robert Fludd
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Aurora,Jakob Boehme
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Rape of the Lock,Alexander Pope
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Miscellanies,Jonathan Swift
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Life of Merlin,Thomas Heywood
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Grafton's Chronicle,Richard Grafton
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Faerie Queene,Edmund Spenser
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Hudibras,Samuel Butler
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Lay of the Last Minstrel,Walter Scott
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D","Of the Imagination, as a Cause and as a Cure of Disorders of the Body",John Haygarth
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Histoire critique du magnétisme animal,J. P. F. Deleuze
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Paradise Lost,John Milton
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",History of the Crusades,Joseph François Michaud
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Satan's Invisible World Discovered,George Sinclair
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Daemonologie,King James VI and I
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Saducismus Triumphatus,Joseph Glanvill
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Malleus Maleficarum,Heinrich Kramer
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Cinq-Mars,Alfred de Vigny
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Histoire des diables de Loudun,Nicolas Aubin
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Cautio Criminalis,Friedrich Spee
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Forerunner of Revenge,George Eglisham
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Age of Louis XIV,Voltaire
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Macbeth,William Shakespeare
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Monastery,Walter Scott
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Rape of Lucrece,William Shakespeare
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",The Dunciad,Alexander Pope
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",Lives of the Most Eminent English Poets,Samuel Johnson
+Extraordinary Popular Delusions and the Madness of Crowds,"Charles Mackay, LL. D",News from Scotland,Anonymous
+Utilitarianism,John Stuart Mill,The Annals of the Parish,John Galt
+Utilitarianism,John Stuart Mill,Système de politique positive,Auguste Comte
+Utilitarianism,John Stuart Mill,Social Statics,Herbert Spencer
+Volpone,Ben Jonson,Il Pastor Fido,Battista Guarini
+The Gods of Mars,Edgar Rice Burroughs,Inferno,Dante Alighieri
+Dead Souls,Nikolai Gogol,Night Thoughts,Edward Young
+Dead Souls,Nikolai Gogol,A Key to the Mysteries of Nature,Karl von Eckartshausen
+Dead Souls,Nikolai Gogol,The Georgics,Virgil
+The Monk,Matthew Lewis,Measure for Measure,William Shakespeare
+The Monk,Matthew Lewis,The Two Gentlemen of Verona,William Shakespeare
+The Monk,Matthew Lewis,Macbeth,William Shakespeare
+The Monk,Matthew Lewis,Cymbeline,William Shakespeare
+The Monk,Matthew Lewis,Don Quixote,Miguel de Cervantes
+The Monk,Matthew Lewis,Perceforest,Anonymous
+The Monk,Matthew Lewis,Tirant lo Blanc,Joanot Martorell
+The Monk,Matthew Lewis,Palmerin of England,Francisco de Moraes
+The Monk,Matthew Lewis,Diana,Jorge de Montemayor
+The Monk,Matthew Lewis,Amadis of Gaul,Garci Rodríguez de Montalvo
+The Faerie Queene,Edmund Spenser,Iliad,Homer
+The Faerie Queene,Edmund Spenser,The Odyssey,Homer
+The Mysteries of Udolpho,Ann Radcliffe,The Minstrel,James Beattie
+The Mysteries of Udolpho,Ann Radcliffe,Macbeth,William Shakespeare
+The Mysteries of Udolpho,Ann Radcliffe,The Castle of Indolence,James Thomson
+The Mysteries of Udolpho,Ann Radcliffe,A Midsummer Night's Dream,William Shakespeare
+The Mysteries of Udolpho,Ann Radcliffe,Julius Caesar,William Shakespeare
+The Mysteries of Udolpho,Ann Radcliffe,Ode to Fear,William Collins
+The Mysteries of Udolpho,Ann Radcliffe,King John,William Shakespeare
+The Mysteries of Udolpho,Ann Radcliffe,Il Penseroso,John Milton
+The Mysteries of Udolpho,Ann Radcliffe,Richard II,William Shakespeare
+The Mysteries of Udolpho,Ann Radcliffe,Sacred Dramas,Hannah More
+The Mysteries of Udolpho,Ann Radcliffe,Romeo and Juliet,William Shakespeare
+The Mysteries of Udolpho,Ann Radcliffe,Hamlet,William Shakespeare
+The Mysteries of Udolpho,Ann Radcliffe,Pleasures of Memory,Samuel Rogers
+The Lady of the Lake,Walter Scott,The Odyssey,Homer
+The Lady of the Lake,Walter Scott,The Poems of Ossian,James Macpherson
+The Lady of the Lake,Walter Scott,Bevis of Hampton,Anonymous
+The Lady of the Lake,Walter Scott,Letters from a Gentleman in the North of Scotland,Edmund Burt
+The Lady of the Lake,Walter Scott,The History of the Rebellion and Civil Wars in England,"Edward Hyde, Earl of Clarendon"
+The Lady of the Lake,Walter Scott,Military Antiquities,Francis Grose
+The Lady of the Lake,Walter Scott,A Tour in Scotland,Thomas Pennant
+The Lady of the Lake,Walter Scott,The History of Scotland,John Pinkerton
+Of Human Bondage,Somerset Maugham,The Lancashire Witches,William Harrison Ainsworth
+Of Human Bondage,Somerset Maugham,"Eric, or, Little by Little",Frederic W. Farrar
+Of Human Bondage,Somerset Maugham,Faust,Johann Wolfgang von Goethe
+Of Human Bondage,Somerset Maugham,A Doll's House,Henrik Ibsen
+Of Human Bondage,Somerset Maugham,Marius the Epicurean,Walter Pater
+Of Human Bondage,Somerset Maugham,The Ordeal of Richard Feverel,George Meredith
+Of Human Bondage,Somerset Maugham,Madame Bovary,Gustave Flaubert
+Of Human Bondage,Somerset Maugham,Rubáiyát of Omar Khayyám,Omar Khayyám
+Of Human Bondage,Somerset Maugham,Apologia Pro Vita Sua,John Henry Newman
+Of Human Bondage,Somerset Maugham,Vie de Jesus,Ernest Renan
+Of Human Bondage,Somerset Maugham,Die Ehre,Hermann Sudermann
+Of Human Bondage,Somerset Maugham,Der Trompeter von Säkkingen,Joseph Victor von Scheffel
+Of Human Bondage,Somerset Maugham,Sappho,Alphonse Daudet
+Of Human Bondage,Somerset Maugham,Scènes de la vie de bohème,Henri Murger
+Of Human Bondage,Somerset Maugham,Romeo and Juliet,William Shakespeare
+Of Human Bondage,Somerset Maugham,Lives of the Most Excellent Painters,Giorgio Vasari
+Of Human Bondage,Somerset Maugham,Poems and Ballads,Algernon Charles Swinburne
+Of Human Bondage,Somerset Maugham,On the Origin of Species,Charles Darwin
+Of Human Bondage,Somerset Maugham,Don Juan,George Gordon Byron
+Of Human Bondage,Somerset Maugham,Personal Narrative of a Pilgrimage to Al-Madinah and Meccah,Richard Francis Burton
+Of Human Bondage,Somerset Maugham,Don Quixote,Miguel de Cervantes
+Of Human Bondage,Somerset Maugham,The Principles and Practice of Medicine,William Osler
+Of Human Bondage,Somerset Maugham,New Arabian Nights,Robert Louis Stevenson
+Of Human Bondage,Somerset Maugham,Peregrine Pickle,Tobias Smollett
+The Rape of the Lock,Alexander Pope,Comte de Gabalis,Montfaucon de Villars
+The Rape of the Lock,Alexander Pope,The New Atalantis,Delarivier Manley
+The Swiss Family Robinson,Johann David Wyss,Robinson Crusoe,Daniel Defoe
+The Swiss Family Robinson,Johann David Wyss,Gulliver's Travels,Jonathan Swift
+The Swiss Family Robinson,Johann David Wyss,Captain Cook's Voyages,James Cook
+The Marble Faun,Nathaniel Hawthorne,The Autobiography of Benvenuto Cellini,Benvenuto Cellini
+The Diary of a Nobody,George Grossmith,Macbeth,William Shakespeare
+Moll Flanders,Daniel Defoe,Book of Common Prayer,Anonymous
+Plutarch's Lives,Plutarch,Works and Days,Hesiod
+Plutarch's Lives,Plutarch,Iliad,Homer
+Plutarch's Lives,Plutarch,The Suppliants,Euripides
+Civil Disobedience,Henry David Thoreau,My Prisons,Silvio Pellico
+Martin Chuzzlewit,Charles Dickens,Robinson Crusoe,Daniel Defoe
+Martin Chuzzlewit,Charles Dickens,A Thousand and One Nights,Anonymous
+Sartor Resartus,Thomas Carlyle,The Spirit of the Laws,Montesquieu
+Sartor Resartus,Thomas Carlyle,Orbis Pictus,John Amos Comenius
+Sartor Resartus,Thomas Carlyle,Faust,Johann Wolfgang von Goethe
+Sartor Resartus,Thomas Carlyle,Mécanique Céleste,Pierre-Simon Laplace
+Sartor Resartus,Thomas Carlyle,Robinson Crusoe,Daniel Defoe
+Sartor Resartus,Thomas Carlyle,Wilhelm Tell,Friedrich Schiller
+Sartor Resartus,Thomas Carlyle,The Sorrows of Young Werther,Johann Wolfgang von Goethe
+Sartor Resartus,Thomas Carlyle,The Enchiridion,Epictetus
+Sartor Resartus,Thomas Carlyle,Wissenschaftslehre,Johann Gottlieb Fichte
+Sartor Resartus,Thomas Carlyle,Wilhelm Meister's Apprenticeship,Johann Wolfgang von Goethe
+Sartor Resartus,Thomas Carlyle,The Taming of the Shrew,William Shakespeare
+Waverley,Walter Scott,Commentaries on the Gallic War,Julius Caesar
+Waverley,Walter Scott,"Artamène, ou le Grand Cyrus",Madeleine de Scudéry
+Waverley,Walter Scott,Cassandre,La Calprenède
+Waverley,Walter Scott,Queenhoo-Hall,Joseph Strutt
+Waverley,Walter Scott,Ane Satyre of the Thrie Estaitis,David Lindsay
+Waverley,Walter Scott,Twelfth Night,William Shakespeare
+Waverley,Walter Scott,The Famous Historie of Fryer Bacon,Anonymous
+Waverley,Walter Scott,The Decameron,Giovanni Boccaccio
+Waverley,Walter Scott,Natural History,Pliny the Elder
+Waverley,Walter Scott,Delitiae Poetarum Scotorum,Arthur Johnston
+Waverley,Walter Scott,The Bruce,John Barbour
+Waverley,Walter Scott,The Wallace,Blind Harry
+Waverley,Walter Scott,The Gentle Shepherd,Allan Ramsay
+Waverley,Walter Scott,The Cherrie and the Slae,Alexander Montgomerie
+Waverley,Walter Scott,Hieroglyphica Animalium,Archibald Simson
+Waverley,Walter Scott,La Pícara Justina,Francisco López de Úbeda
+Waverley,Walter Scott,De Jurejurando,Tomás Sánchez
+Waverley,Walter Scott,Verrine Orations,Cicero
+Waverley,Walter Scott,The Art of English Poetry,Edward Bysshe
+Waverley,Walter Scott,The Anatomy of Melancholy,Robert Burton
+Waverley,Walter Scott,Romeo and Juliet,William Shakespeare
+Waverley,Walter Scott,"The Constant Couple, or A Trip to the Jubilee",George Farquhar
+Waverley,Walter Scott,Styles of Writs,George Dallas
+Waverley,Walter Scott,The Institutions of the Law of Scotland,"James Dalrymple, Viscount Stair"
+Waverley,Walter Scott,Doubts and Questions in the Law,"John Nisbet, Lord Dirleton"
+Waverley,Walter Scott,Practicks,James Balfour
+Waverley,Walter Scott,The Cottagers of Glenburnie,Elizabeth Hamilton
+Waverley,Walter Scott,Essays on the Superstitions of the Highlanders of Scotland,Anne Grant
+Waverley,Walter Scott,The History of the Rebellion in the Year 1745,John Home
+Waverley,Walter Scott,Douglas,John Home
+Waverley,Walter Scott,King Lear,William Shakespeare
+Waverley,Walter Scott,The Odyssey,Homer
+Waverley,Walter Scott,The Merry Wives of Windsor,William Shakespeare
+Waverley,Walter Scott,The Merry Devil of Edmonton,Anonymous
+Waverley,Walter Scott,The Gypsies Metamorphosed,Ben Jonson
+Nature,Ralph Waldo Emerson,The Tempest,William Shakespeare
+Nature,Ralph Waldo Emerson,Antigone,Sophocles
+The Descent of Man,Charles Darwin,On the Origin of Species,Charles Darwin
+The Descent of Man,Charles Darwin,The Variation of Animals and Plants Under Domestication,Charles Darwin
+The Descent of Man,Charles Darwin,The Expression of the Emotions in Man and Animals,Charles Darwin
+The Descent of Man,Charles Darwin,Journal of Researches (The Voyage of a Naturalist),Charles Darwin
+The Descent of Man,Charles Darwin,Hereditary Genius,Francis Galton
+The Descent of Man,Charles Darwin,Prehistoric Times,John Lubbock
+The Descent of Man,Charles Darwin,The Origin of Civilisation,John Lubbock
+The Descent of Man,Charles Darwin,The Malay Archipelago,Alfred Russel Wallace
+The Descent of Man,Charles Darwin,Contributions to the Theory of Natural Selection,Alfred Russel Wallace
+The Descent of Man,Charles Darwin,The Naturalist on the River Amazons,Henry Walter Bates
+The Descent of Man,Charles Darwin,The Naturalist in Nicaragua,Thomas Belt
+The Descent of Man,Charles Darwin,The Geological Evidences of the Antiquity of Man,Charles Lyell
+The Descent of Man,Charles Darwin,Principles of Geology,Charles Lyell
+The Descent of Man,Charles Darwin,Evidence as to Man's Place in Nature,Thomas Henry Huxley
+The Descent of Man,Charles Darwin,Utilitarianism,John Stuart Mill
+The Descent of Man,Charles Darwin,Physics and Politics,Walter Bagehot
+The Descent of Man,Charles Darwin,The Reign of Law,"George Campbell, Duke of Argyll"
+The Descent of Man,Charles Darwin,Primitive Marriage,John Ferguson McLennan
+The Descent of Man,Charles Darwin,Researches into the Early History of Mankind,Edward Burnett Tylor
+The Descent of Man,Charles Darwin,The Principles of Psychology,Herbert Spencer
+The Descent of Man,Charles Darwin,The Principles of Biology,Herbert Spencer
+The Descent of Man,Charles Darwin,The Martyrdom of Man,Winwood Reade
+The Descent of Man,Charles Darwin,The Natural History of Selborne,Gilbert White
+The Descent of Man,Charles Darwin,The Physiology and Pathology of Mind,Henry Maudsley
+The Descent of Man,Charles Darwin,Body and Mind,Henry Maudsley
+The Descent of Man,Charles Darwin,The Emotions and the Will,Alexander Bain
+The Descent of Man,Charles Darwin,Mental and Moral Science,Alexander Bain
+The Descent of Man,Charles Darwin,Primeval Man,"George Campbell, Duke of Argyll"
+The Descent of Man,Charles Darwin,Researches into the Physical History of Mankind,James Cowles Prichard
+The Descent of Man,Charles Darwin,Ornithological Biography,John James Audubon
+The Descent of Man,Charles Darwin,The Birds of India,Thomas C. Jerdon
+The Descent of Man,Charles Darwin,Illustrirtes Thierleben,Alfred Brehm
+The Descent of Man,Charles Darwin,An Introduction to Entomology,William Kirby and William Spence
+The Descent of Man,Charles Darwin,Handbook to the Birds of Australia,John Gould
+The Descent of Man,Charles Darwin,Lectures on Man,Carl Vogt
+The Descent of Man,Charles Darwin,On the Anatomy of Vertebrates,Richard Owen
+The Descent of Man,Charles Darwin,Le Règne Animal,Georges Cuvier
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Flower and the Leaf,Geoffrey Chaucer
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Paradise of Dainty Devices,Richard Edwards
+The Sketch Book of Geoffrey Crayon,Washington Irving,Jerusalem Delivered,Torquato Tasso
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Kingis Quair,James I of Scotland
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Knight's Tale,Geoffrey Chaucer
+The Sketch Book of Geoffrey Crayon,Washington Irving,Christ's Kirk on the Green,James I of Scotland
+The Sketch Book of Geoffrey Crayon,Washington Irving,"Henry IV, Part 1",William Shakespeare
+The Sketch Book of Geoffrey Crayon,Washington Irving,Arcadia,Philip Sidney
+The Sketch Book of Geoffrey Crayon,Washington Irving,Mirror for Magistrates,William Baldwin
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Maid's Tragedy,Francis Beaumont and John Fletcher
+The Sketch Book of Geoffrey Crayon,Washington Irving,Sylva,John Evelyn
+The Sketch Book of Geoffrey Crayon,Washington Irving,The City Madam,Philip Massinger
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Masque of Christmas,Ben Jonson
+The Sketch Book of Geoffrey Crayon,Washington Irving,Gammer Gurton's Needle,William Stevenson
+The Sketch Book of Geoffrey Crayon,Washington Irving,Picturesque Views on the Avon,Samuel Ireland
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Discoverie of Witchcraft,Reginald Scot
+The Sketch Book of Geoffrey Crayon,Washington Irving,As You Like It,William Shakespeare
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Merry Wives of Windsor,William Shakespeare
+The Sketch Book of Geoffrey Crayon,Washington Irving,Robinson Crusoe,Daniel Defoe
+The Sketch Book of Geoffrey Crayon,Washington Irving,The Compleat Angler,Izaak Walton
+The Sketch Book of Geoffrey Crayon,Washington Irving,Macbeth,William Shakespeare
+Ben-Hur,Lew Wallace,Childe Harold's Pilgrimage,Byron
+Ben-Hur,Lew Wallace,Antony and Cleopatra,William Shakespeare
+Ben-Hur,Lew Wallace,Don Carlos,Friedrich Schiller
+Ben-Hur,Lew Wallace,Endymion,John Keats
+Ben-Hur,Lew Wallace,The Ramayana,Valmiki
+Ben-Hur,Lew Wallace,Mahabharata,Anonymous
+Ben-Hur,Lew Wallace,Talmud,Anonymous
+A Pair of Blue Eyes,Thomas Hardy,Ivanhoe,Walter Scott
+A Pair of Blue Eyes,Thomas Hardy,The Three Graves,Samuel Taylor Coleridge
+A Pair of Blue Eyes,Thomas Hardy,Paradise Lost,John Milton
+The Vicar of Wakefield,Oliver Goldsmith,Religious Courtship,Daniel Defoe
+The Vicar of Wakefield,Oliver Goldsmith,The Fair Penitent,Nicholas Rowe
+Barry Lyndon,William Makepeace Thackeray,Hamlet,William Shakespeare
+Barry Lyndon,William Makepeace Thackeray,Iliad,Homer
+Barry Lyndon,William Makepeace Thackeray,The Whole Duty of Man,Richard Allestree
+Poor Folk,Fyodor Dostoevsky,The Tales of Belkin,Alexander Pushkin
+Poor Folk,Fyodor Dostoevsky,The Station Master,Alexander Pushkin
+Poor Folk,Fyodor Dostoevsky,The Overcoat,Nikolai Gogol
+The Bride of Lammermoor,Walter Scott,"Memorialls; or, The Memorable Things that Fell Out within this Island of Brittain from 1638 to 1684",Robert Law
+The Bride of Lammermoor,Walter Scott,A Large Description of Galloway,Andrew Symson
+The Bride of Lammermoor,Walter Scott,Wit's Interpreter,John Cotgrave
+The Bride of Lammermoor,Walter Scott,The Complete Letter-Writer,Anonymous
+The Napoleon of Notting Hill,G. K. Chesterton,Iliad,Homer
+Major Barbara,George Bernard Shaw,The Republic,Plato
+Manon Lescaut,Abbé Prévost,The Aeneid,Virgil
+The Wings of the Dove,Henry James,The Newcomes,William Makepeace Thackeray
+Paul and Virginia,Bernardin de Saint-Pierre,Telemachus,François Fénelon
+The History of Sandford and Merton,Thomas Day,Plutarch's Lives,Plutarch
+The Way of All Flesh,Samuel Butler,Hamlet,William Shakespeare
+The Way of All Flesh,Samuel Butler,The Pilgrim's Progress,John Bunyan
+The Way of All Flesh,Samuel Butler,A History of England,Markham
+The Way of All Flesh,Samuel Butler,Vestiges of the Natural History of Creation,Robert Chambers
+The Way of All Flesh,Samuel Butler,Essays and Reviews,Frederick Temple et al.
+The Way of All Flesh,Samuel Butler,History of Civilization in England,Henry Thomas Buckle
+The Way of All Flesh,Samuel Butler,On Liberty,John Stuart Mill
+The Way of All Flesh,Samuel Butler,On the Origin of Species,Charles Darwin
+The Way of All Flesh,Samuel Butler,The Pentateuch and Book of Joshua Critically Examined,John William Colenso
+The Way of All Flesh,Samuel Butler,An Explanation of the Grand Mystery of Godliness,Henry More
+The Way of All Flesh,Samuel Butler,Holy Living and Holy Dying,Jeremy Taylor
+The Way of All Flesh,Samuel Butler,Alton Locke,Charles Kingsley
+The Way of All Flesh,Samuel Butler,The Life and Correspondence of Thomas Arnold,Arthur Penrhyn Stanley
+The Way of All Flesh,Samuel Butler,Evidences of Christianity,William Paley
+The Way of All Flesh,Samuel Butler,Historic Doubts Relative to Napoleon Buonaparte,Richard Whately
+The Way of All Flesh,Samuel Butler,The Odyssey,Homer
+The Way of All Flesh,Samuel Butler,Paradise Lost,John Milton
+The Way of All Flesh,Samuel Butler,Les Provinciales,Blaise Pascal
+Tartarin de Tarascon,Alphonse Daudet,Don Quixote,Miguel de Cervantes
+The Heir of Redclyffe,Charlotte M. Yonge,The Tempest,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Thoughts in Past Years,Isaac Williams
+The Heir of Redclyffe,Charlotte M. Yonge,The Winter's Tale,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Sintram and His Companions,Friedrich de la Motte Fouqué
+The Heir of Redclyffe,Charlotte M. Yonge,Thalaba the Destroyer,Robert Southey
+The Heir of Redclyffe,Charlotte M. Yonge,Torquato Tasso,Johann Wolfgang von Goethe
+The Heir of Redclyffe,Charlotte M. Yonge,The Analogy of Religion,Joseph Butler
+The Heir of Redclyffe,Charlotte M. Yonge,The Pickwick Papers,Charles Dickens
+The Heir of Redclyffe,Charlotte M. Yonge,King Lear,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Le Morte d'Arthur,Thomas Malory
+The Heir of Redclyffe,Charlotte M. Yonge,The Merchant of Venice,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,Lyra Innocentium,John Keble
+The Heir of Redclyffe,Charlotte M. Yonge,The Christian Year,John Keble
+The Heir of Redclyffe,Charlotte M. Yonge,Cymbeline,William Shakespeare
+The Heir of Redclyffe,Charlotte M. Yonge,The Baptistery,Isaac Williams
+The Heir of Redclyffe,Charlotte M. Yonge,The Betrothed,Alessandro Manzoni
+The Awkward Age,Henry James,Denise,Alexandre Dumas fils
+The Awkward Age,Henry James,Monsieur Alphonse,Alexandre Dumas fils
+The Awkward Age,Henry James,Francillon,Alexandre Dumas fils
+The Awkward Age,Henry James,The Pillars of Society,Henrik Ibsen
+The Awkward Age,Henry James,An Enemy of the People,Henrik Ibsen
+The Awkward Age,Henry James,Ghosts,Henrik Ibsen
+The Awkward Age,Henry James,Rosmersholm,Henrik Ibsen
+The Awkward Age,Henry James,John Gabriel Borkman,Henrik Ibsen
+The Awkward Age,Henry James,The Master Builder,Henrik Ibsen
+The Awkward Age,Henry James,A Doll's House,Henrik Ibsen
+The Awkward Age,Henry James,The Wild Duck,Henrik Ibsen
+The Awkward Age,Henry James,Hedda Gabler,Henrik Ibsen
+Cousin Pons,Honoré de Balzac,Les Deux Amis,Jean de La Fontaine
+Cousin Pons,Honoré de Balzac,Chronicles of the Canongate,Walter Scott
+Cousin Pons,Honoré de Balzac,Cousin Bette,Honoré de Balzac
+Camilla,Frances Burney,The Seasons,James Thomson
+Camilla,Frances Burney,Eclogues,Virgil
+Camilla,Frances Burney,Absalom and Achitophel,John Dryden
+Camilla,Frances Burney,Othello,William Shakespeare
+Camilla,Frances Burney,Macbeth,William Shakespeare
+Camilla,Frances Burney,Hamlet,William Shakespeare
+Rudin,Ivan Turgenev,Faust,Johann Wolfgang von Goethe
+A House of Gentlefolk,Ivan Turgenev,Symbols and Emblems,Nestor Maksimovich-Ambodik
+A House of Gentlefolk,Ivan Turgenev,Obermann,Étienne Pivert de Senancour
+Tom Brown's School Days,Thomas Hughes,Kenilworth,Walter Scott
+Tom Brown's School Days,Thomas Hughes,Ingoldsby Legends,Richard Harris Barham
+Tom Brown's School Days,Thomas Hughes,Yeast,Charles Kingsley
+Tom Brown's School Days,Thomas Hughes,Eclogues,Virgil
+Tom Brown's School Days,Thomas Hughes,Hecuba,Euripides
+Tom Brown's School Days,Thomas Hughes,The Pickwick Papers,Charles Dickens
+Tom Brown's School Days,Thomas Hughes,Iliad,Homer
+Tom Brown's School Days,Thomas Hughes,Agamemnon,Aeschylus
+Tom Brown's School Days,Thomas Hughes,The Birds,Aristophanes
+Tom Brown's School Days,Thomas Hughes,Don Quixote,Miguel de Cervantes
+The Damnation of Theron Ware,Harold Frederic,Evidences of Christianity,William Paley
+The Damnation of Theron Ware,Harold Frederic,The Life of Christ,Frederic W. Farrar
+The Damnation of Theron Ware,Harold Frederic,A Thousand and One Nights,Anonymous
+The Adventures of Peregrine Pickle,Tobias Smollett,Elements,Euclid
+The Adventures of Peregrine Pickle,Tobias Smollett,Commentaries on the Gallic War,Julius Caesar
+The Adventures of Peregrine Pickle,Tobias Smollett,The Adventures of Roderick Random,Tobias Smollett
+The Adventures of Peregrine Pickle,Tobias Smollett,Iliad,Homer
+The Adventures of Peregrine Pickle,Tobias Smollett,Ion,Euripides
+The Adventures of Peregrine Pickle,Tobias Smollett,The Republic,Plato
+The Adventures of Peregrine Pickle,Tobias Smollett,Odes,Horace
+The Adventures of Peregrine Pickle,Tobias Smollett,The Rehearsal,"George Villiers, Duke of Buckingham"
+The Adventures of Peregrine Pickle,Tobias Smollett,Gil Blas,Alain-René Lesage
+The Adventures of Peregrine Pickle,Tobias Smollett,Le Cid,Pierre Corneille
+The Adventures of Peregrine Pickle,Tobias Smollett,The Plain Dealer,William Wycherley
+The Adventures of Peregrine Pickle,Tobias Smollett,Othello,William Shakespeare
+A Journal of the Plague Year,Daniel Defoe,Britain's Remembrancer,George Wither
+The Wild Ass's Skin,Honoré de Balzac,Venice Preserv'd,Thomas Otway
+The Wild Ass's Skin,Honoré de Balzac,Donkeyskin,Charles Perrault
+The Wild Ass's Skin,Honoré de Balzac,The Red Inn,Honoré de Balzac
+The Wild Ass's Skin,Honoré de Balzac,The Provincial Letters,Blaise Pascal
+The Wild Ass's Skin,Honoré de Balzac,A Thousand and One Nights,Anonymous
+The Wild Ass's Skin,Honoré de Balzac,The Marriage of Figaro,Pierre Beaumarchais
+Smoke,Ivan Turgenev,Uncle Tom's Cabin,Harriet Beecher Stowe
+Smoke,Ivan Turgenev,Mademoiselle La Quintinie,George Sand
+The Torrents of Spring,Ivan Turgenev,The Sorrows of Young Werther,Johann Wolfgang von Goethe
+The Torrents of Spring,Ivan Turgenev,Eugene Onegin,Alexander Pushkin
+The Torrents of Spring,Ivan Turgenev,The Aeneid,Virgil
+Under Western Eyes,Joseph Conrad,The Social Contract,Jean-Jacques Rousseau
+Under Western Eyes,Joseph Conrad,Corinne,Madame de Stael
+The Trumpet-Major,Thomas Hardy,Hamlet,William Shakespeare
+What Maisie Knew,Henry James,A Thousand and One Nights,Anonymous
+"John Halifax, Gentleman",Dinah Mulock Craik,The Pilgrim's Progress,John Bunyan
+"John Halifax, Gentleman",Dinah Mulock Craik,Robinson Crusoe,Daniel Defoe
+"John Halifax, Gentleman",Dinah Mulock Craik,A Thousand and One Nights,Anonymous
+"John Halifax, Gentleman",Dinah Mulock Craik,Romeo and Juliet,William Shakespeare
+"John Halifax, Gentleman",Dinah Mulock Craik,The Purple Island,Phineas Fletcher
+"John Halifax, Gentleman",Dinah Mulock Craik,Lyrical Ballads,William Wordsworth
+"John Halifax, Gentleman",Dinah Mulock Craik,Inferno,Dante Alighieri
+The Gilded Age,Mark Twain and Charles Dudley Warner,The Princess,Alfred Tennyson
+The Gilded Age,Mark Twain and Charles Dudley Warner,The Faerie Queene,Edmund Spenser
+The Gilded Age,Mark Twain and Charles Dudley Warner,Notes on England,Hippolyte Taine
+The Gilded Age,Mark Twain and Charles Dudley Warner,The Autocrat of the Breakfast-Table,Oliver Wendell Holmes
+The Gilded Age,Mark Twain and Charles Dudley Warner,Venetian Life,William Dean Howells
+The Monastery,Walter Scott,Euphues and His England,John Lyly
+The Monastery,Walter Scott,Don Quixote,Miguel de Cervantes
+The Monastery,Walter Scott,Every Man out of His Humour,Ben Jonson
+The Monastery,Walter Scott,British Monachism,Thomas Dudley Fosbroke
+The Monastery,Walter Scott,The Battle of Alcazar,George Peele
+The Monastery,Walter Scott,Don Sebastian,John Dryden
+The Monastery,Walter Scott,The Monk and the Miller's Wife,Allan Ramsay
+The Monastery,Walter Scott,Ode to Fear,William Collins
+The Monastery,Walter Scott,Macbeth,William Shakespeare
+The Monastery,Walter Scott,The Magnetic Lady,Ben Jonson
+The Monastery,Walter Scott,The Comedy of Errors,William Shakespeare
+The Monastery,Walter Scott,The Two Noble Kinsmen,William Shakespeare and John Fletcher
+The Pirate,Walter Scott,The Tempest,William Shakespeare
+The Pirate,Walter Scott,Rasselas,Samuel Johnson
+The Pirate,Walter Scott,Julius Caesar,William Shakespeare
+The Pirate,Walter Scott,The Odyssey,Homer
+The Pirate,Walter Scott,Romeo and Juliet,William Shakespeare
+The Pirate,Walter Scott,The Battle of the Summer Islands,Edmund Waller
+The Pirate,Walter Scott,A Midsummer Night's Dream,William Shakespeare
+The Pirate,Walter Scott,The Library,George Crabbe
+The Pirate,Walter Scott,The Corsair,Byron
+The Pirate,Walter Scott,The Faerie Queene,Edmund Spenser
+The Pirate,Walter Scott,The Duchess of Malfi,John Webster
+The Pirate,Walter Scott,"Henry IV, Part 2",William Shakespeare
+The Pirate,Walter Scott,Henry and Emma,Matthew Prior
+The Pirate,Walter Scott,The Georgics,Virgil
+The Pirate,Walter Scott,Eclogues,Virgil
+The Pirate,Walter Scott,The Aeneid,Virgil
+The Pirate,Walter Scott,The Rehearsal,"George Villiers, Duke of Buckingham"
+The Pirate,Walter Scott,The Fatal Sisters,Thomas Gray
+The Pirate,Walter Scott,The Descent of Odin,Thomas Gray
+The Pirate,Walter Scott,A Description of the Shetland Islands,Samuel Hibbert
+The Pirate,Walter Scott,All's Well That Ends Well,William Shakespeare
+The Pirate,Walter Scott,Eyrbyggja Saga,Anonymous
+The Abbot,Walter Scott,The Life of John Knox,Thomas M'Crie
+The Abbot,Walter Scott,Women Pleased,John Fletcher
+The Abbot,Walter Scott,Christabel,Samuel Taylor Coleridge
+The Abbot,Walter Scott,The History of Prince Soly,Henri Pajon
+The Abbot,Walter Scott,Count Basil,Joanna Baillie
+The Abbot,Walter Scott,Richard II,William Shakespeare
+The Abbot,Walter Scott,Henry VI,William Shakespeare
+The Abbot,Walter Scott,King John,William Shakespeare
+Roderick Hudson,Henry James,Inferno,Dante Alighieri
+Roderick Hudson,Henry James,The Imitation of Christ,Thomas a Kempis
+Roderick Hudson,Henry James,Corinne,Madame de Stael
+Roderick Hudson,Henry James,History of the Italian Republics,J. C. L. Simonde de Sismondi
+Roderick Hudson,Henry James,Faust,Johann Wolfgang von Goethe
+The Wheels of Chance,H. G. Wells,Stephen Langton,Martin Farquhar Tupper
+The Wheels of Chance,H. G. Wells,The Story of an African Farm,Olive Schreiner
+The Wheels of Chance,H. G. Wells,Essays,Ralph Waldo Emerson
+The Wheels of Chance,H. G. Wells,The Rise of the Dutch Republic,John Lothrop Motley
+In the Days of the Comet,H. G. Wells,Bleak House,Charles Dickens
+The Corsican Brothers,Alexandre Dumas,Les Orientales,Victor Hugo
+L'Homme qui Rit,Victor Hugo,Absalom and Achitophel,John Dryden
+L'Homme qui Rit,Victor Hugo,Paradise Lost,John Milton
+L'Homme qui Rit,Victor Hugo,Othello,William Shakespeare
+L'Homme qui Rit,Victor Hugo,King Lear,William Shakespeare
+L'Homme qui Rit,Victor Hugo,The Tempest,William Shakespeare
+L'Homme qui Rit,Victor Hugo,Funeral Orations,Jacques-Bénigne Bossuet
+L'Homme qui Rit,Victor Hugo,The Dream of Scipio,Cicero
+In Search of the Castaways,Jules Verne,The Lusiads,Luís de Camões
+In Search of the Castaways,Jules Verne,The Tempest,William Shakespeare
+Orley Farm,Anthony Trollope,Rasselas,Samuel Johnson
+Ayala's Angel,Anthony Trollope,Idylls of the King,Alfred Tennyson
+"Psmith, Journalist",P. G. Wodehouse,Inferno,Dante Alighieri
+The Black Robe,Wilkie Collins,Paradise Lost,John Milton

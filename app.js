@@ -321,7 +321,7 @@
     this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false,
       xHover: null, xAll: null, xQ: '', xPathOpen: false, xPathQ: '', xPathTo: null };
     // Data is available synchronously via the vendored global, so build it up front.
-    this.buildData(DATA.NODES || {}, DATA.MENTIONS || []);
+    this.buildData(DATA.NODES || {}, DATA.MENTIONS || [], DATA.ALIASES || {});
     this.state.ready = true;
     this.state.vw = typeof window !== 'undefined' ? window.innerWidth : 1280;
     if (typeof location !== 'undefined' && (this._legacyHash(), this._routePath())) {
@@ -670,15 +670,15 @@
 
   // NODES: { key: [title, author, year, synopsis, genre] }; MENTIONS: [[srcKey, mentKey]].
   // Identity is the explicit key from the data file — no slug(title) derivation here.
-  P.buildData = function (NODES, MENTIONS) {
-    NODES = NODES || {};
+  P.buildData = function (NODES, MENTIONS, ALIASES) {
+    NODES = NODES || {}; ALIASES = ALIASES || {};
     var books = {};
     var ids = Object.keys(NODES);
     for (var i = 0; i < ids.length; i++) {
       var id = ids[i], n = NODES[id];
       books[id] = {
         id: id, title: n[0], author: n[1] || '', year: n[2] || 0,
-        synopsis: n[3] || '', genre: n[4] || null,
+        synopsis: n[3] || '', genre: n[4] || null, aliases: ALIASES[id] || [],
         out: [], in: [], isSource: false
       };
     }
@@ -1112,8 +1112,9 @@
     for (var i = 0; i < this.all.length; i++) {
       var b = this.all[i];
       var t = this.norm(b.title), a = this.norm(b.author || '');
-      if (t.indexOf(n) === 0) starts.push(b);
-      else if (t.indexOf(n) !== -1) incl.push(b);
+      var names = b.aliases.length ? [t].concat(b.aliases.map(this.norm, this)) : [t];
+      if (names.some(function (x) { return x.indexOf(n) === 0; })) starts.push(b);
+      else if (names.some(function (x) { return x.indexOf(n) !== -1; })) incl.push(b);
       else if (a && a.indexOf(n) !== -1) auth.push(b);
     }
     var rank = function (b) { return (b.out.length + b.in.length) * -1; };
@@ -1127,7 +1128,9 @@
     if (!q) return;
     var n = this.norm(q);
     var self = this;
-    var exact = this.all && this.all.filter(function (b) { return self.norm(b.title) === n; })[0];
+    var isN = function (x) { return self.norm(x) === n; };
+    var exact = this.all && (this.all.filter(function (b) { return isN(b.title); })[0] ||
+      this.all.filter(function (b) { return b.aliases.some(isN); })[0]);
     if (exact) this.goBook(exact.id);
     else this.navigate({ page: 'search', q: q }, '#/search/' + encodeURIComponent(q));
   };
@@ -1320,9 +1323,11 @@
     if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
     var note = this._notes[src + '|' + ment];
     if (!note) return null;
-    var t = this.books[ment].title, short = t.split(/[:(]/)[0].trim();
+    var b = this.books[ment], t = b.title, short = t.split(/[:(]/)[0].trim();
     var esc = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
-    var parts = note.split(new RegExp('(' + esc(t) + (short.length > 3 && short !== t ? '|' + esc(short) : '') + ')', 'i'));
+    var names = [t].concat(short.length > 3 && short !== t ? [short] : [], b.aliases)
+      .sort(function (x, y) { return y.length - x.length; });   // longest first, so the fullest title wins
+    var parts = note.split(new RegExp('(' + names.map(esc).join('|') + ')', 'i'));
     var kids = parts.map(function (p, i) { return i % 2 ? h('mark', { key: i }, p) : p; });
     var editorial = /^\s*((chapter )?epigraph\b|(Referenced|Cited|Mentioned|Alluded|Discussed|Quoted (by|with|from))\b|—)/i.test(note) &&
       !/^\s*(referenced|cited|mentioned|alluded|discussed|quoted)/.test(note);   // lowercase = an excerpt of the book itself

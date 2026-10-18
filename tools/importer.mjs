@@ -34,6 +34,8 @@ function resolveKey(db, title, canon) {
   if (canon) {
     const hit = fam.find((r) => r.author && sameAuthor(r.author, canon));
     if (hit) return hit.slug;
+    const alias = aliasKey(db, ts, canon);
+    if (alias) return alias;
     const anon = fam.find((r) => isAnon(r.author));
     if (anon) {
       const nk = bookKey(title, canon);
@@ -46,7 +48,36 @@ function resolveKey(db, title, canon) {
     return bookKey(title, canon);
   }
   if (fam.length) return (fam.find((r) => isAnon(r.author)) || fam[0]).slug;
+  const alias = aliasKey(db, ts, '');
+  if (alias) return alias;
   return bookKey(title, 'Anonymous');
+}
+
+// A book this title is an alias of, if exactly one fits (same author when one is given).
+function aliasKey(db, ts, canon) {
+  const rows = db.prepare('SELECT a.book_slug AS slug, b.author FROM aliases a JOIN books b ON b.slug = a.book_slug WHERE a.alias_slug = ?').all(ts);
+  const fit = canon && canon !== 'Anonymous' ? rows.filter((r) => r.author && sameAuthor(r.author, canon)) : rows;
+  return fit.length === 1 ? fit[0].slug : null;
+}
+
+// Record another title a book is known by. A title that is already some book's own title is refused,
+// since it would be ambiguous.
+export function addAlias(db, title, alias, { author = '' } = {}) {
+  const key = keyFor(db, title, author);
+  if (!key) throw new Error(`no book matching ${JSON.stringify(title)}`);
+  const a = cleanStr(alias), as = titleSlug(a);
+  if (!as) throw new Error(`alias has no usable slug: ${JSON.stringify(alias)}`);
+  if (as === key.split('/')[1]) return { key, added: 0 };
+  const own = db.prepare('SELECT slug FROM books WHERE slug = ? OR slug GLOB ?').get(as, '*/' + as);
+  if (own) throw new Error(`"${a}" is already the title of ${own.slug}`);
+  const r = db.prepare('INSERT OR IGNORE INTO aliases (alias_slug, book_slug, alias) VALUES (?, ?, ?)').run(as, key, a);
+  return { key, added: r.changes };
+}
+
+export function removeAlias(db, title, alias, { author = '' } = {}) {
+  const key = keyFor(db, title, author);
+  if (!key) return { removed: 0 };
+  return { removed: db.prepare('DELETE FROM aliases WHERE alias_slug = ? AND book_slug = ?').run(titleSlug(alias), key).changes };
 }
 
 // Ensure a book row exists for (title, author); returns its key. Backfills a blank author.
@@ -250,6 +281,11 @@ export function renameBook(db, from, to) {
   return { slugChanged: true, from: fromId, slug: toId };
 }
 
+// An exact key ("author/title") as-is, else the book a title (+author) resolves to.
+function keyFor(db, x, author = '') {
+  return db.prepare('SELECT 1 FROM books WHERE slug = ?').get(x) ? x : existingKey(db, x, author);
+}
+
 // Resolve a book to an existing key by title (+ optional author to disambiguate a collision).
 function existingKey(db, title, author = '') {
   const canon = canonicalAuthor(author);
@@ -284,7 +320,9 @@ export function removeBook(db, title, { cascade = false, author = '' } = {}) {
 // become a self-mention are dropped. `from` is then deleted. Refuses to discard metadata:
 // `from` may only carry a synopsis if `into` has one too (otherwise swap the arguments).
 export function mergeBook(db, from, into, { author = '' } = {}) {
-  const fid = existingKey(db, from, author), tid = existingKey(db, into, author);
+  // an exact key ("author/title") is taken as-is, so twins under different authors can be merged
+  // without title resolution re-keying either one
+  const fid = keyFor(db, from, author), tid = keyFor(db, into, author);
   if (!fid) throw new Error(`no book matching ${JSON.stringify(from)}`);
   if (!tid) throw new Error(`no book matching ${JSON.stringify(into)}`);
   if (fid === tid) throw new Error(`"${from}" and "${into}" are the same book`);
@@ -302,7 +340,11 @@ export function mergeBook(db, from, into, { author = '' } = {}) {
       else { db.prepare('UPDATE mentions SET source_slug = ?, mentioned_slug = ? WHERE id = ?').run(s, m, r.id); res.moved++; }
     }
     if (!t.genre && f.genre) db.prepare("UPDATE books SET genre = ?, updated_at = datetime('now') WHERE slug = ?").run(f.genre, tid);
+    // the duplicate's title (and its aliases) become aliases of the canonical book
+    const ftitle = db.prepare('SELECT title FROM books WHERE slug = ?').get(fid).title;
+    db.prepare('UPDATE OR IGNORE aliases SET book_slug = ? WHERE book_slug = ?').run(tid, fid);
     db.prepare('DELETE FROM books WHERE slug = ?').run(fid);
+    if (titleSlug(ftitle) !== tid.split('/')[1]) db.prepare('INSERT OR IGNORE INTO aliases (alias_slug, book_slug, alias) VALUES (?, ?, ?)').run(titleSlug(ftitle), tid, ftitle);
     db.exec('COMMIT');
   } catch (e) { db.exec('ROLLBACK'); throw e; }
   return res;

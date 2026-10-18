@@ -1,4 +1,4 @@
-// DB -> bookjumpr-data.js. Reproduces the site's exact 7-line output contract.
+// DB -> bookjumpr-data.js. Reproduces the site's output contract (NODES, MENTIONS, ALIASES).
 import fs from 'node:fs';
 import path from 'node:path';
 import { DATA_JS, ROOT } from './db.mjs';
@@ -13,6 +13,7 @@ const NOTE_MAX = 340;
 // site consumes them (no re-deriving identity from title).
 //   NODES:    { key: [title, author, year, synopsis, genre] }  (every book)
 //   MENTIONS: [[sourceKey, mentionedKey], ...]                 (row order = mentions.id)
+//   ALIASES:  { key: [other titles] }                          (books that have any)
 // NODES order: metadata books first (by sort_order), then the rest by key — deterministic.
 export function computeData(db) {
   const nodeRows = db.prepare(`
@@ -32,7 +33,11 @@ export function computeData(db) {
     SELECT source_slug AS s, mentioned_slug AS t FROM mentions ORDER BY id
   `).all().map((r) => [r.s, r.t]);
 
-  return { nodes, mentions };
+  // ALIASES: { key: [other titles] } — only books that have any
+  const aliases = {};
+  for (const r of db.prepare('SELECT book_slug AS k, alias FROM aliases ORDER BY book_slug, alias').all()) (aliases[r.k] = aliases[r.k] || []).push(r.alias);
+
+  return { nodes, mentions, aliases };
 }
 
 // NOTES: [[mentionIndex, note], ...] — only rows that carry a note, trimmed on a word boundary.
@@ -56,14 +61,16 @@ window.BookJumprNotes = { COUNT: ${count}, NOTES: ${JSON.stringify(notes)} };
 }
 
 // The bytes app.js expects. JSON.stringify (no spaces); unicode passes through unescaped.
-export function renderFile({ nodes, mentions }) {
+export function renderFile({ nodes, mentions, aliases = {} }) {
   return `// BookJumpr data — generated from the book graph (bookjumpr.db).
 // NODES: key -> [title, author, year, synopsis, genre]
 const NODES = ${JSON.stringify(nodes)};
 // MENTIONS: [sourceKey, mentionedKey]
 const MENTIONS = ${JSON.stringify(mentions)};
+// ALIASES: key -> [other titles the book is known by]
+const ALIASES = ${JSON.stringify(aliases)};
 
-window.BookJumprData = { NODES: NODES, MENTIONS: MENTIONS };
+window.BookJumprData = { NODES: NODES, MENTIONS: MENTIONS, ALIASES: ALIASES };
 `;
 }
 

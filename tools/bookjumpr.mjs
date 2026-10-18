@@ -8,7 +8,7 @@ import { writeBuild } from './build.mjs';
 import { writeSeo } from './build-seo.mjs';
 import {
   upsertBook, upsertMention, importJsonFile, exportCsv, importCsv,
-  renameBook, removeMention, removeBook, mergeBook, setGenre,
+  renameBook, removeMention, removeBook, mergeBook, setGenre, addAlias, removeAlias,
 } from './importer.mjs';
 import { doctor, printReport } from './doctor.mjs';
 import { GENRES } from './genres.mjs';
@@ -49,7 +49,11 @@ Usage: npm run bj -- <command> [options]
   rename --from OLD --to NEW    Rename a book (cascades its key)
   remove-mention --source S --mentioned M [--author A] [--source-author SA]
   remove-book --title T [--cascade] [--author A]
-  merge-book --from DUP --into CANON [--author A]   Fold a duplicate into its twin (re-points mentions)
+  merge-book --from DUP --into CANON [--author A]   Fold a duplicate into its twin (re-points mentions);
+                               DUP/CANON may be exact keys ("author/title")
+  alias --title T --alias A [--author AU]     Add another title the book is known by
+  unalias --title T --alias A [--author AU]   Remove one
+  aliases [--title T] [--author AU]           List alternate titles (all, or one book's)
   # keys are author-first (slug(author)/slug(title)); --author disambiguates a shared title
   doctor [--fix]               Validate the dataset
 `;
@@ -262,6 +266,31 @@ async function run(cmd, args) {
       withDb((db) => {
         const r = mergeBook(db, args.from, args.into, { author: args.author });
         console.log(`✓ merged ${r.from} → ${r.into}: ${r.moved} mention(s) re-pointed, ${r.dropped} duplicate(s) dropped${r.droppedMeta ? ' (discarded its synopsis)' : ''}`);
+      });
+      return;
+
+    case 'alias':
+      if (!args.title || !args.alias) throw new Error('usage: alias --title "Book" --alias "Other Title" [--author A]');
+      withDb((db) => {
+        const r = addAlias(db, args.title, args.alias, { author: args.author });
+        console.log(r.added ? `✓ "${args.alias}" now resolves to ${r.key}` : `• "${args.alias}" was already known for ${r.key}`);
+      });
+      return;
+
+    case 'unalias':
+      if (!args.title || !args.alias) throw new Error('usage: unalias --title "Book" --alias "Other Title" [--author A]');
+      withDb((db) => {
+        const r = removeAlias(db, args.title, args.alias, { author: args.author });
+        console.log(r.removed ? `✓ removed "${args.alias}"` : '• no such alias');
+      });
+      return;
+
+    case 'aliases':
+      withDb((db) => {
+        const rows = db.prepare('SELECT a.alias, b.title, b.slug FROM aliases a JOIN books b ON b.slug = a.book_slug ORDER BY b.title, a.alias').all();
+        const want = args.title ? rows.filter((r) => r.title.toLowerCase() === String(args.title).toLowerCase()) : rows;
+        for (const r of want) console.log(`${r.title}  ←  ${r.alias}`);
+        console.log(`${want.length} alias(es)`);
       });
       return;
 

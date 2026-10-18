@@ -40,6 +40,11 @@ Also watch for:
   fairy-tale duplicate, "The French Revolution" vs "The French Revolution: A History" —
   all real duplicates found and merged this way. Group NODES by author and eyeball
   near-identical titles before adding anything new for a heavily-covered author.
+- **Alternate titles**: a book can carry other titles it's known by (`npm run bj -- aliases --title T` lists them,
+  `bj -- alias --title T --alias A` adds one). Imports resolve an alternate title to its book, so once
+  "Alice in Wonderland" is an alias, a mention written that way lands on "Alice's Adventures in Wonderland".
+  When you merge a duplicate (`merge-book`, which takes exact keys like `author/title`), its title becomes an
+  alias automatically.
 - **Same title, different author is FINE, not a duplicate** — books key on
   `slug(author)/slug(title)`, so e.g. three different "Antigone"s (Sophocles, Alfieri,
   Anouilh) coexist without collision. Just make sure the `author` field is present and
@@ -102,6 +107,20 @@ Fetching the file is not enough; actually read it before writing anything. For e
     this and it's a common false-positive source)
   - generic/interchangeable reference-series mentions ("and so on" style categories) —
     keep specific singular quoted works instead
+  - anything outside the main text written by the book's own author: a preface, introduction,
+    dedication or notes by anyone else (printer, editor, translator, publisher) never counts, e.g.
+    Caxton's preface to Le Morte d'Arthur
+  - the author's own preface, introduction or Author's Note listing their other books or publishing
+    history (e.g. Conrad's Author's Note to Typhoon, Baum's notes in the Oz books): only titles named in
+    the work itself count
+  - operas, ballets, songs, hymns and tunes, even when named by title
+  - the Bible (owner's call; other scriptures such as the Vedas and Upanishads do count)
+  - church books treated like the Bible: prayer books (Book of Common Prayer), liturgy, church rulebooks
+    (the Methodist Discipline) and Bible commentaries
+  - reference manuals: dictionaries, thesauri, school textbooks, almanacs, medical/household manuals
+  - titles inferred from a quoted line or an author's name alone ("a copy of Josephus")
+  - an explicitly named title used in a comparison DOES count ("a plot more intricate than the Marriage
+    of Figaro"); only a character simile with no title ("a regular Don Quixote") is excluded
   - fictional/in-world books that don't exist outside the story (e.g. Lovecraft's
     Necronomicon, an invented novel-within-the-novel)
   - loose personality similes ("he was a regular Don Quixote") that don't cite an actual

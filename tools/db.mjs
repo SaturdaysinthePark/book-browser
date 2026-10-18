@@ -42,6 +42,15 @@ CREATE TABLE IF NOT EXISTS mentions (
   UNIQUE(source_slug, mentioned_slug)
 );
 
+-- Other titles a book is known by ("Alice in Wonderland" for "Alice's Adventures in Wonderland").
+-- The importer resolves them to the book; the site searches and highlights them.
+CREATE TABLE IF NOT EXISTS aliases (
+  alias_slug TEXT NOT NULL,              -- slug(alias), the lookup key
+  book_slug  TEXT NOT NULL REFERENCES books(slug) ON UPDATE CASCADE ON DELETE CASCADE,
+  alias      TEXT NOT NULL,              -- the title as written
+  PRIMARY KEY (alias_slug, book_slug)
+);
+
 CREATE INDEX IF NOT EXISTS idx_mentions_mentioned ON mentions(mentioned_slug);
 CREATE INDEX IF NOT EXISTS idx_books_meta ON books(has_meta);
 `;
