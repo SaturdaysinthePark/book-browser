@@ -8,6 +8,14 @@ Each mention links a book to a book it names, usually with the line from the tex
 
 A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https://bookjumpr.com/haruki-murakami/norwegian-wood. An author's page is at https://bookjumpr.com/<author-slug>. The most-mentioned books are at https://bookjumpr.com/stats.
 
+## Links
+
+- [Home](https://bookjumpr.com/): pick a book and jump
+- [Most-mentioned books](https://bookjumpr.com/stats)
+- [About](https://bookjumpr.com/about)
+- [Full index for LLMs](https://bookjumpr.com/llms-full.txt)
+- [Sitemap](https://bookjumpr.com/sitemap.xml)
+
 ## Example connections
 
 - Norwegian Wood (Haruki Murakami) mentions The Catcher in the Rye: "No War and Peace, no Kenzaburo Oe, no Catcher in the Rye."

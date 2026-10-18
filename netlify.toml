@@ -14,6 +14,13 @@
 # Every path that isn't a file is the app: /<author>/<title>, /<author>, /about, … all load index.html, and the
 # app routes from the path. The edge function (netlify/edge-functions/seo.js) runs first and gives each page its
 # own title, description, canonical URL, crawler text and status.
+# Agent manifests we don't publish (e.g. /.well-known/ai-catalog.json) get a real 404, not the app's HTML.
+[[redirects]]
+  from = "/.well-known/*"
+  to = "/404"
+  status = 404
+  force = true
+
 [[redirects]]
   from = "/*"
   to = "/index.html"
