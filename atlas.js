@@ -188,6 +188,7 @@
   // ---- focus / hover ---------------------------------------------------------------------
   P.setFocus = function (key, anim) {
     var i = key != null && this.idx[key] != null ? this.idx[key] : -1;
+    if (i < 0 && this.focus >= 0) this._fadeOut();
     this.focus = i;
     this.nb = null;
     if (i >= 0) {
@@ -201,6 +202,18 @@
       this._animateIn();
     }
     this.draw();
+  };
+  // Clearing a focus: lay a snapshot of the lit-up map over the canvas and fade it away, so the links,
+  // labels and dimmed stars ease back instead of snapping.
+  P._fadeOut = function () {
+    if (this.reduced || this.mini || !this.canvas || !this.canvas.width) return;
+    var cv = this.canvas, o = document.createElement('canvas');
+    o.width = cv.width; o.height = cv.height;
+    o.getContext('2d').drawImage(cv, 0, 0);
+    o.style.cssText = 'position:absolute;pointer-events:none;left:' + cv.offsetLeft + 'px;top:' + cv.offsetTop + 'px;width:' + cv.offsetWidth + 'px;height:' + cv.offsetHeight + 'px;';
+    cv.parentNode.insertBefore(o, cv.nextSibling);
+    var a = o.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 320, easing: 'ease-out', fill: 'forwards' });
+    a.onfinish = function () { o.remove(); };
   };
   P._animateIn = function () {
     if (this.reduced) return;
