@@ -188,7 +188,8 @@
   // ---- focus / hover ---------------------------------------------------------------------
   P.setFocus = function (key, anim) {
     var i = key != null && this.idx[key] != null ? this.idx[key] : -1;
-    if (i < 0 && this.focus >= 0) this._fadeOut();
+    if (this._outT0) { if (i < 0) return; cancelAnimationFrame(this._ao); this._outT0 = 0; }   // already clearing / picked another mid-way
+    if (i < 0 && this.focus >= 0 && !this.reduced && !this.mini) { this._animateOut(); return; }
     this.focus = i;
     this.nb = null;
     if (i >= 0) {
@@ -203,17 +204,18 @@
     }
     this.draw();
   };
-  // Clearing a focus: lay a snapshot of the lit-up map over the canvas and fade it away, so the links,
-  // labels and dimmed stars ease back instead of snapping.
-  P._fadeOut = function () {
-    if (this.reduced || this.mini || !this.canvas || !this.canvas.width) return;
-    var cv = this.canvas, o = document.createElement('canvas');
-    o.width = cv.width; o.height = cv.height;
-    o.getContext('2d').drawImage(cv, 0, 0);
-    o.style.cssText = 'position:absolute;pointer-events:none;left:' + cv.offsetLeft + 'px;top:' + cv.offsetTop + 'px;width:' + cv.offsetWidth + 'px;height:' + cv.offsetHeight + 'px;';
-    cv.parentNode.insertBefore(o, cv.nextSibling);
-    var a = o.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 320, easing: 'ease-out', fill: 'forwards' });
-    a.onfinish = function () { o.remove(); };
+  // Clearing a focus plays the reveal backwards: the links draw back into the star, their labels go,
+  // the dimmed stars come back up; then the focus really clears.
+  var OUT_MS = 420;
+  P._animateOut = function () {
+    var self = this;
+    this._outT0 = performance.now();
+    cancelAnimationFrame(this._ai);
+    var step = function () {
+      if (performance.now() - self._outT0 < OUT_MS) { self.draw(); self._ao = requestAnimationFrame(step); return; }
+      self._outT0 = 0; self.focus = -1; self.nb = null; self.draw();
+    };
+    this._ao = requestAnimationFrame(step);
   };
   P._animateIn = function () {
     if (this.reduced) return;
@@ -283,7 +285,8 @@
     c.setTransform(this.dpr, 0, 0, this.dpr, 0, 0);
     c.fillStyle = PAPER; c.fillRect(0, 0, W, H);
     var focus = this.focus, nb = this.nb, hover = this.hover, now = performance.now() / 1000;
-    var ip = focus >= 0 && !this.reduced ? Math.min(1, (performance.now() - (this.t0 || 0)) / 600) : 1;
+    var ip = this._outT0 ? Math.max(0, 1 - (performance.now() - this._outT0) / OUT_MS)
+      : focus >= 0 && !this.reduced ? Math.min(1, (performance.now() - (this.t0 || 0)) / 600) : 1;
     var ease = 1 - Math.pow(1 - ip, 3);
     var placed = [];
     var tryPlace = function (x, y, w, h) {
@@ -324,6 +327,7 @@
       var isDust = this.dust && this.deg[i] <= 1 && !linked && k < this._dustK(), glow = this.dust && this.deg[i] <= 4 ? this._glow(sx, sy) : 0;
       var rad = this._r(i, !isDust);
       var a = on ? 1 : (this.mini ? 0.14 : this.col ? 0.2 : 0.13);
+      if (!on && this._outT0) a += (1 - a) * (1 - ease);   // clearing: the dimmed stars come back up
       if (on && this.dust && focus < 0) a = isDust ? 0.34 + 0.66 * glow : this.deg[i] <= 4 ? 0.8 + 0.2 * glow : 1;
       if (isDust && glow > 0) rad *= 1 + 0.6 * glow;
       if (this.tw && this.tw[i] && !this.reduced && !linked) a *= 0.75 + 0.25 * Math.sin(now * this.tw[i] + i);
