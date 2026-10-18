@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 969 books that mention other books, 8,342 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 968 books that mention other books, 8,333 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -566,7 +566,6 @@ https://bookjumpr.com/susan-sontag/against-interpretation-and-other-essays
 - The Deputy by Rolf Hochhuth: "...Rolf Hochhuth's The Deputy fails because of its intellectual simplicity and artistic naïveté."
 - Eros and Civilization by Herbert Marcuse: "Together with Herbert Marcuse's Eros and Civilization (1955), it represents a new seriousness about Freudian ideas..."
 - Marco Millions by Eugene O'Neill: "...just as belabored, trite, and dated in a few years as O'Neill's Marco Millions, the second play in the Lincoln Center Repertory..."
-- The Benefactor by Susan Sontag: ""In early 1962 I finished my first novel, The Benefactor." — Sontag's own authorial preface referencing her own separately-published first novel."
 - The Killer by Eugène Ionesco: "...the Bérenger plays—The Killer (1957), Rhinoceros (1960), and The Pedestrian of the Air (1962)"
 - Metatheatre: A New View of Dramatic Form by Lionel Abel: "Metatheatre: A New View of Dramatic Form, by Lionel Abel."
 - The Burning Brand: Diaries 1935-1950 by Cesare Pavese: "The Burning Brand: Diaries 1935-1950 by Cesare Pavese."
@@ -2975,8 +2974,6 @@ https://bookjumpr.com/salman-rushdie/grimus
 https://bookjumpr.com/knut-hamsun/growth-of-the-soil
 - Sex and Character by Otto Weininger: "Otto Weininger, the author of _Sex and Character_, said of _Pan_ that it was "perhaps the most beautiful novel ever written.""
 - The Cloister and the Hearth by Charles Reade: "The book is a harmless picaresque, a _geste_ of innocent rogue-errantry; its place is with _Lavengro_ and _The Cloister and the Hearth_, in that ancient, endless order of tales which link up age with age and land with land in the unaltering, unfrontiered fellowship of the road that kept the spirit…"
-- Beneath the Autumn Star by Knut Hamsun
-- New Ground by Knut Hamsun
 - A Sentimental Journey Through France and Italy by Laurence Sterne
 - Tristram Shandy by Laurence Sterne: "There is a touch of Sterne about the book; not the exaggerated super-Sterne of Tristram Shandy, with eighteenth-century-futurist blanks and marbled pages, but the fluent, casual, follow-your-fancy Sterne of the _Sentimental Journey_."
 
@@ -3359,11 +3356,6 @@ https://bookjumpr.com/e-m-forster/howards-end
 - Imaginary Conversations by Walter Savage Landor
 - The Open Road by E. V. Lucas: "He asked whether they had ever read E. V. Lucas's Open Road."
 - The Ordeal of Richard Feverel by George Meredith: "Yes, but I want--I wanted--have you ever read The Ordeal of Richard Feverel?""
-
-## Hunger by Knut Hamsun (1890)
-https://bookjumpr.com/knut-hamsun/hunger
-- In Wonderland by Knut Hamsun
-- The Spiritual Life of Modern America by Knut Hamsun
 
 ## I Have Some Questions for You by Rebecca Makkai (2023)
 https://bookjumpr.com/rebecca-makkai/i-have-some-questions-for-you
@@ -4346,7 +4338,6 @@ https://bookjumpr.com/miguel-angel-asturias/mr-president
 ## Mr. Standfast by John Buchan (1919)
 https://bookjumpr.com/john-buchan/mr-standfast
 - The Pilgrim's Progress by John Bunyan: "It was from the Pilgrim's Progress that I read next morning ... beside his grave."
-- The Thirty-Nine Steps by John Buchan: "The earlier adventures of Richard Hannay ... are recounted in The Thirty-Nine Steps and Greenmantle."
 - Ghost Stories of an Antiquary by M. R. James: "One man had been reading a book called the Ghost Stories of an Antiquary."
 - The Golden Treasury by Francis Turner Palgrave: "We had all the same edition—the one in the Golden Treasury series."
 
@@ -8801,9 +8792,6 @@ https://bookjumpr.com/henry-james/the-portrait-of-a-lady
 - Middlemarch by George Eliot
 - Adam Bede by George Eliot
 - Romeo and Juliet by William Shakespeare
-- The Ambassadors by Henry James
-- Roderick Hudson by Henry James
-- The American by Henry James: "…enlarged; and how, finally, after having been remodelled and disfigured in the eighteenth century, it had passed into the careful keeping of a shrewd American banker, who had bought it originally because (owing to circumstances too complicated to set forth) it was offered at a great bargain:…"
 
 ## The Posthumous Memoirs of Brás Cubas by Machado de Assis (1881)
 https://bookjumpr.com/machado-de-assis/the-posthumous-memoirs-of-bras-cubas
@@ -9728,7 +9716,7 @@ https://bookjumpr.com/henry-james/the-tragic-muse
 - King John by William Shakespeare: "He recognised one of the great tirades of Shakespeare's Constance and saw she had just begun the magnificent scene at the beginning of the third act of _King John_, in which the passionate, injured mother and widow sweeps in wild organ-tones the entire scale of her irony and wrath."
 - Mademoiselle de la Seiglière by Jules Sandeau
 - Il ne faut jurer de rien by Alfred de Musset
-- Les Trois Mousquetaires by Alexandre Dumas
+- The Three Musketeers by Alexandre Dumas
 - Les Nuits by Alfred de Musset
 - Cousin Bette by Honoré de Balzac: "I read Balzac for instance--I encounter the admirable portrait of Valérie Marneffe in _La Cousine Bette_.""
 - The Lotus-Eaters by Alfred Tennyson: "I think he's much deeper than La Fontaine"; and after some deliberation and delay Miriam broke into "The Lotus-Eaters," from which she passed directly, almost breathlessly, to "Edward Gray.""
