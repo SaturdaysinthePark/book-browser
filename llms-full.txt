@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 979 books that mention other books, 8,386 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 992 books that mention other books, 8,452 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -1077,6 +1077,10 @@ https://bookjumpr.com/mary-elizabeth-braddon/aurora-floyd
 - George Barnwell by George Lillo
 - Jane Shore by Nicholas Rowe
 - Lady Audley's Secret by Mary Elizabeth Braddon
+
+## Ayala's Angel by Anthony Trollope (1881)
+https://bookjumpr.com/anthony-trollope/ayala-s-angel
+- Idylls of the King by Alfred Tennyson: "Though she was reading the "Idylls of the King," or pretending to read them, she was, in truth, thinking of all that had gone from her."
 
 ## Babbitt by Sinclair Lewis (1922)
 https://bookjumpr.com/sinclair-lewis/babbitt
@@ -3449,6 +3453,15 @@ https://bookjumpr.com/graham-greene/in-search-of-a-character
 - Outward Bound by Sutton Vane: "You felt he was the chief character in a play like Outward Bound."
 - Orient Express by Graham Greene: "Somebody last night left on board a copy of Orient Express for me to sign."
 
+## In Search of the Castaways by Jules Verne (1868)
+https://bookjumpr.com/jules-verne/in-search-of-the-castaways
+- The Lusiads by Luís de Camões: "Yes, my friend, the LUSIADES of the great Camoens, neither more nor less."
+- The Tempest by William Shakespeare: "He reminds me of your great Shakespeare's boatswain in the 'Tempest,' who says to the king on board: 'Hence! What care these roarers for the name of king? To cabin! Silence! Trouble us not.'"
+
+## In the Days of the Comet by H. G. Wells (1906)
+https://bookjumpr.com/h-g-wells/in-the-days-of-the-comet
+- Bleak House by Charles Dickens: "If so, you will find them rendered with a note of hostile exaggeration by Dickens in "Bleak House," with a mingling of gross flattery and keen ridicule by Disraeli, who ruled among them accidentally by misunderstanding them and pleasing the court,…"
+
 ## In the Fold by Rachel Cusk (2005)
 https://bookjumpr.com/rachel-cusk/in-the-fold
 - The Cherry Orchard by Anton Chekhov: "Epigraph: Liubov Andreyevna's speech, 'Chekhov, The Cherry Orchard' (epigraph)"
@@ -3765,6 +3778,16 @@ https://bookjumpr.com/emile-zola/l-assommoir
 - Histoire des Girondins by Alphonse de Lamartine
 - The Mysteries of Paris by Eugène Sue: "He had "The History of Ten Years" by Louis Blanc (except for the first volume), Lamartine's "The Girondins" in installments, "The Mysteries of Paris" and "The Wandering Jew" by Eugene Sue, and a quantity of booklets on philosophic and humanitarian subjects picked up from used book dealers."
 - The Wandering Jew by Eugene Sue: "He had "The History of Ten Years" by Louis Blanc (except for the first volume), Lamartine's "The Girondins" in installments, "The Mysteries of Paris" and "The Wandering Jew" by Eugene Sue, and a quantity of booklets on philosophic and humanitarian subjects picked up from used book dealers."
+
+## L'Homme qui Rit by Victor Hugo
+https://bookjumpr.com/victor-hugo/l-homme-qui-rit
+- Absalom and Achitophel by John Dryden: ""_Dryden is the greatest poet of England, and of the century_," said Atterbury, the translator of "Achitophel.""
+- Paradise Lost by John Milton: "It was about the time when M. Huet, Bishop of Avranches, wrote to Saumaise, who had done the author of "Paradise Lost" the honour to refute and abuse him, "_How can you trouble yourself about so mean a thing as that Milton?_""
+- Othello by William Shakespeare: "It was very like the Globe, where they played "Othello," "King Lear," and "The Tempest.""
+- King Lear by William Shakespeare: "It was very like the Globe, where they played "Othello," "King Lear," and "The Tempest.""
+- The Tempest by William Shakespeare: "It was very like the Globe, where they played "Othello," "King Lear," and "The Tempest.""
+- Funeral Orations by Jacques-Bénigne Bossuet: "He greatly admired those celebrated discourses which are called the funeral orations of Bossuet."
+- The Dream of Scipio by Cicero: "For my part, I have believed in it since I read, in Cicero, Scipio's dream."
 
 ## Lady Audley's Secret by Mary Elizabeth Braddon (1862)
 https://bookjumpr.com/mary-elizabeth-braddon/lady-audley-s-secret
@@ -4918,6 +4941,10 @@ https://bookjumpr.com/virginia-woolf/orlando
 - The Rape of the Lock by Alexander Pope
 - Gulliver's Travels by Jonathan Swift
 
+## Orley Farm by Anthony Trollope (1862)
+https://bookjumpr.com/anthony-trollope/orley-farm
+- Rasselas by Samuel Johnson: "And then she went on with the history of "Rasselas" in his happy valley, by which study Mrs. Thomas intended to initiate her into that course of novel-reading which has become necessary for a British lady."
+
 ## Orthodoxy by G. K. Chesterton (1908)
 https://bookjumpr.com/g-k-chesterton/orthodoxy
 - Robinson Crusoe by Daniel Defoe
@@ -5261,6 +5288,10 @@ https://bookjumpr.com/john-buchan/prester-john
 https://bookjumpr.com/jane-austen/pride-and-prejudice
 - Fordyce's Sermons by James Fordyce: "Other books were produced, and after some deliberation he chose Fordyce's Sermons."
 
+## Psmith, Journalist by P. G. Wodehouse (1915)
+https://bookjumpr.com/p-g-wodehouse/psmith-journalist
+- Inferno by Dante Alighieri: "Burned deeply into my memory is a certain hot bath I took after one of the foulest cross-country runs that ever occurred outside Dante's Inferno."
+
 ## Puck of Pook's Hill by Rudyard Kipling (1906)
 https://bookjumpr.com/rudyard-kipling/puck-of-pook-s-hill
 - Lays of Ancient Rome by Thomas Babington Macaulay: "They had named the place out of the verse in _Lays of Ancient Rome_:"
@@ -5506,6 +5537,14 @@ https://bookjumpr.com/walter-scott/rob-roy
 ## Robert Elsmere by Humphry Ward (1888)
 https://bookjumpr.com/humphry-ward/robert-elsmere
 - It is a beauteous evening, calm and free by William Wordsworth: "It is a beauteous evening, calm and free, The holy time is quiet as a nun Breathless with adoration!"
+
+## Roderick Hudson by Henry James
+https://bookjumpr.com/henry-james/roderick-hudson
+- Inferno by Dante Alighieri: "So he lent him the Inferno, which he had brought with him, and advised him to look into it."
+- The Imitation of Christ by Thomas a Kempis: "I read the Imitation and the Life of Saint Catherine."
+- Corinne by Madame de Stael: "Last winter Mary used to read 'Corinne' to me in the evenings,"
+- History of the Italian Republics by J. C. L. Simonde de Sismondi: ""It was Sismondi's Italian Republics," said Mary, simply."
+- Faust by Johann Wolfgang von Goethe: "Nay, he too may be a grotesque phantom, like the black dog in Faust."
 
 ## Rodney Stone by Arthur Conan Doyle (1896)
 https://bookjumpr.com/arthur-conan-doyle/rodney-stone
@@ -6042,6 +6081,17 @@ https://bookjumpr.com/thomas-hardy/tess-of-the-d-urbervilles
 https://bookjumpr.com/anatole-france/thais
 - Lucius, or The Ass by Lucian: "We divert ourselves with them, as we do with the stories of _The Ass_, _The Tub_, and _The Ephesian Matron_, or any other Milesian fable."
 - The Widow of Ephesus by Petronius: "the stories of _The Ass_, _The Tub_, and _The Ephesian Matron_, or any other Milesian fable."
+
+## The Abbot by Walter Scott
+https://bookjumpr.com/walter-scott/the-abbot
+- The Life of John Knox by Thomas M'Crie: "See M'Crie's _Life of Knox_, p. 258.]"
+- Women Pleased by John Fletcher: "There is a very comic scene in Beaumont and Fletcher's play of "Woman Pleased," where Hope-on-high Bombye, a puritan cobbler, refuses to dance with the hobby-horse."
+- Christabel by Samuel Taylor Coleridge: "Coleridge's beautiful and tantalizing fragment of Christabel."
+- The History of Prince Soly by Henri Pajon: "Monsieur Pajon, author of the History of Prince Soly, has set a diverting example of the same machinery,"
+- Count Basil by Joanna Baillie: "How steadfastly he fix'd his eyes on me-- His dark eyes shining through forgotten tears-- Then stretch'd his little arms, and call'd me mother! What could I do? I took the bantling home-- I could not tell the imp he had no mother. COUNT BASIL."
+- Richard II by William Shakespeare: "I give this heavy weight from off my head, And this unwieldy sceptre from my hand; With mine own tears I wash away my balm, With mine own hand I give away my crown, With mine own tongue deny my sacred state, With mine own breath release all duteous oaths. RICHARD II."
+- Henry VI by William Shakespeare: "Pray God she prove not masculine ere long! KING HENRY VI."
+- King John by William Shakespeare: "Poison'd--ill fare!--dead, forsook, cast off!-- KING JOHN."
 
 ## The Accidental by Ali Smith (2005)
 https://bookjumpr.com/ali-smith/the-accidental
@@ -6594,6 +6644,10 @@ https://bookjumpr.com/aristophanes/the-birds
 https://bookjumpr.com/robert-louis-stevenson/the-black-arrow
 - Ali Baba and the Forty Thieves by Anonymous
 
+## The Black Robe by Wilkie Collins (1881)
+https://bookjumpr.com/wilkie-collins/the-black-robe
+- Paradise Lost by John Milton: "high church and choral service in the town on Sundays--recitations in the evening from Paradise Lost, by an amateur elocutionist--oh, you foolish, headstrong child!"
+
 ## The Blithedale Romance by Nathaniel Hawthorne (1852)
 https://bookjumpr.com/nathaniel-hawthorne/the-blithedale-romance
 - Essays by Ralph Waldo Emerson
@@ -6989,6 +7043,10 @@ https://bookjumpr.com/boethius/the-consolation-of-philosophy
 ## The Coral Island by R. M. Ballantyne (1857)
 https://bookjumpr.com/r-m-ballantyne/the-coral-island
 - Captain Cook's Voyages by James Cook
+
+## The Corsican Brothers by Alexandre Dumas
+https://bookjumpr.com/alexandre-dumas/the-corsican-brothers
+- Les Orientales by Victor Hugo: "I undressed deliberately, and having taken down a volume of Victor Hugo's works, I lay down and enjoyed myself thoroughly with _Les Orientales._"
 
 ## The Cossacks by Leo Tolstoy (1863)
 https://bookjumpr.com/leo-tolstoy/the-cossacks
@@ -8381,6 +8439,21 @@ https://bookjumpr.com/hilary-mantel/the-mirror-and-the-light
 - The Way of Dying Well by Thomas Lupset: "Thomas Lupset, The Way of Dying Well.’ Lupset was tutor to the cardinal’s son."
 - Magnificence by John Skelton: "The players are Collusion and Abusion, Folly and Mischief, and Magnificence himself, who proclaims: ‘I reign in my robes, I rule as me list, I drive down these dastards with a dint of my fist.’ But at length Magnificence is brought low. (Low confidence: the play's title is never stated outright in the passage — it's identified only via…"
 
+## The Monastery by Walter Scott
+https://bookjumpr.com/walter-scott/the-monastery
+- Euphues and His England by John Lyly: "he, in short, who wrote that singularly coxcomical work, called _Euphues and his England_, was in the very zenith of his absurdity and his reputation."
+- Don Quixote by Miguel de Cervantes: "Thus I shame to tell how the sage Cid Hamet Benengeli was induced by one Juan Avellaneda to play the Turk with the ingenious Miguel Cervantes, and to publish a Second Part of the adventures of his hero the renowned Don Quixote,"
+- Every Man out of His Humour by Ben Jonson: "There is a scene in Jonson's "Every Man out of his Humour," (Act IV. Scene 6.) in which a Euphuist of the time gives an account of the"
+- British Monachism by Thomas Dudley Fosbroke: "[Footnote: The rest of this doggerel rhyme may be found in Fosbrooke's Learned work on British Monachism.]"
+- The Battle of Alcazar by George Peele: "His fate is also introduced in a tragedy, by George Peel, as has been supposed, called the Battle of Alcazar, from which play Dryden is alleged to have taken the idea of Don Sebastian;"
+- Don Sebastian by John Dryden: "from which play Dryden is alleged to have taken the idea of Don Sebastian;"
+- The Monk and the Miller's Wife by Allan Ramsay: "I told, indeed, Allan Ramsay's story of the Monk and Miller's Wife, in order to retreat with some honour under cover of a parting volley."
+- Ode to Fear by William Collins: "Ne'er be I found by thee unawed, On that thrice hallow'd eve abroad. When goblins haunt from flood and fen, The steps of men. COLLINS'S _Ode to Fear_."
+- Macbeth by William Shakespeare: "Raze out the written troubles of the brain, Cleanse the foul bosom of the perilous stuff That weighs upon the heart. MACBETH."
+- The Magnetic Lady by Ben Jonson: "A courtier extraordinary, who by diet Of meats and drinks, his temperate exercise, Choice music, frequent bath, his horary shifts Of shirts and waistcoats, means to immortalize Mortality itself, and makes the essence Of his whole happiness the trim of court. MAGNETIC LADY."
+- The Comedy of Errors by William Shakespeare: "Why, what an intricate impeach is this! I think you all have drank of Circe's cup. If here you housed him, here he would have been; If he were mad, he would not plead so coldly. COMEDY OF ERRORS."
+- The Two Noble Kinsmen by William Shakespeare and John Fletcher: "He is at liberty, I have ventured for him! -----------------------------if the law Find and condemn me for't, some living wenches, Some honest-hearted maids will sing my dirge, And tell to memory my death was noble, Dying almost a martyr. THE TWO NOBLE KINSMEN."
+
 ## The Monk by Matthew Lewis (1796)
 https://bookjumpr.com/matthew-lewis/the-monk
 - Measure for Measure by William Shakespeare: "----Lord Angelo is precise; Stands at a guard with envy; Scarce confesses That his blood flows, or that his appetite Is more to bread than stone. Measure for Measure."
@@ -8807,6 +8880,31 @@ https://bookjumpr.com/james-fenimore-cooper/the-pioneers
 - The Heliogabaliad by Anonymous: "Now all admire, in each high-flavored dish The capabilities of flesh--fowl--fish; In order due each guest assumes his station, Throbs high his breast with fond anticipation, And prelibates the joys of mastication." --Heliogabaliad."
 - The American Spelling Book by Noah Webster
 - The Indian Student by Philip Freneau
+
+## The Pirate by Walter Scott (1822)
+https://bookjumpr.com/walter-scott/the-pirate
+- The Tempest by William Shakespeare: "Nothing in him---- But doth suffer a sea-change. _Tempest._"
+- Rasselas by Samuel Johnson: "I have possessed the regulation of the weather and the distribution of the seasons. The sun has listened to my dictates, and passed from tropic to tropic by my direction; the clouds, at my command, have poured forth their waters. RASSELAS."
+- Julius Caesar by William Shakespeare: "----Thou hast described A hot friend cooling. Ever note, Lucilius, When love begins to sicken and decay, It useth an enforced ceremony. There are no tricks in plain and simple faith. _Julius Caesar._"
+- The Odyssey by Homer: "Full in the midst the polish'd table shines, And the bright goblets, rich with generous wines; Now each partakes the feast, the wine prepares, Portions the food, and each the portion shares; Nor till the rage of thirst and hunger ceased, To the high host approach'd the sagacious guest. _Odyssey._"
+- Romeo and Juliet by William Shakespeare: "A torch for me--let wantons, light of heart, Tickle the useless rushes with their heels: For I am proverb'd with a grandsire phrase-- I'll be a candle-holder, and look on. _Romeo and Juliet._"
+- The Battle of the Summer Islands by Edmund Waller: "Pikes, halberds, spits, and darts, that wound afar, The tools of peace, and implements of war. Now was the time for vigorous lads to show What love or honour could incite them to;-- A goodly theatre, where rocks are round With reverend age and lovely lasses crown'd. _Battle of the Summer Islands._"
+- A Midsummer Night's Dream by William Shakespeare: "Is all the counsel that we two have shared-- The sisters' vows, the hours that we have spent, When we have chid the hasty-footed time For parting us--O, and is all forgot? _Midsummer-Night's Dream._"
+- The Library by George Crabbe: "But lost to me, for ever lost those joys, Which reason scatters, and which time destroys. No more the midnight fairy-train I view, All in the merry moonlight tippling dew. Even the last lingering fiction of the brain, The churchyard ghost, is now at rest again. _The Library._"
+- The Corsair by Byron: "There was a laughing devil in his sneer, That raised emotions both of rage and fear; And where his frown of hatred darkly fell, Hope withering fled--and Mercy sigh'd farewell. _The Corsair, Canto I._"
+- The Faerie Queene by Edmund Spenser: "But this sad evil which doth her infest, Doth course of natural cause far exceed, And housed is within her hollow breast, That either seems some cursed witch's deed, Or evill spright that in her doth such torment breed. _Fairy Queen, Book III., Canto III._"
+- The Duchess of Malfi by John Webster: "Of stormy weather,) some men lie interr'd, Loved the Church so well, and gave so largely to it, They thought it should have canopied their bones Till doomsday;--but all things have their end-- Churches and cities, which have diseases like to men, Must have like death which we have. _Duchess of Malfy._"
+- Henry IV, Part 2 by William Shakespeare: ""By this hand, thou think'st me as far in the devil's book as thou and Falstaff, for obduracy and persistency. Let the end try the man.... Albeit I could tell to thee, (as to one it pleases me, for fault of a better, to call my friend,) I could be sad, and sad indeed too." _Henry IV., Part 2d._"
+- Henry and Emma by Matthew Prior: "Now, Emma, now the last reflection make, What thou wouldst follow, what thou must forsake By our ill-omen'd stars and adverse Heaven, No middle object to thy choice is given. _Henry and Emma._"
+- The Georgics by Virgil: "He endured the Bucolics of Virgil--the Georgics he had by heart--but the Aeneid he could not away with;"
+- Eclogues by Virgil: "He endured the Bucolics of Virgil--the Georgics he had by heart--but the Aeneid he could not away with;"
+- The Aeneid by Virgil: "He endured the Bucolics of Virgil--the Georgics he had by heart--but the Aeneid he could not away with;"
+- The Rehearsal by George Villiers, Duke of Buckingham: ""the Rehearsal is the best farce ever was written--and I'll make him kiss the gunner's daughter that denies it."
+- The Fatal Sisters by Thomas Gray: "When Gray's Ode, entitled the "Fatal Sisters," was first published, or at least first reached that remote island, the reverend gentleman had the well-judged curiosity to read it to some of the old"
+- The Descent of Odin by Thomas Gray: "who, as in the legend called by Gray the Descent of Odin, awakens by the force of Runic rhyme the unwilling revealer of the doom of fate,"
+- A Description of the Shetland Islands by Samuel Hibbert: "Mr. Hibbert has, in his Description of the Zetland Islands, given an account of the sword-dance, but somewhat less full than the following:"
+- All's Well That Ends Well by William Shakespeare: "as in the interlude presented in "All's Well that Ends Well.""
+- Eyrbyggja Saga by Anonymous: "The _Northern Popular Antiquities_ contain, in an abstract of the Eyrbiggia Saga, a particular account of the manner in which the Helga Fels, or Holy Rock, was set apart by the Pontiff Thorolf for solemn occasions."
 
 ## The Pit by Frank Norris (1903)
 https://bookjumpr.com/frank-norris/the-pit
@@ -10162,6 +10260,13 @@ https://bookjumpr.com/anatole-france/the-well-of-saint-clare
 - La Vedova by Niccolo Buonaparte: "Niccolo, author of a Comedy entitled La Vedova that was declared the work of another Terence"
 - La Promenade by Marie-Joseph Chenier: "(Marie-Joseph Chenier, La Promenade.)"
 - Mémorial de Sainte-Hélène by Emmanuel de Las Cases: "(Memorial de Saint-Helene, par le comte de Las Cases)"
+
+## The Wheels of Chance by H. G. Wells (1896)
+https://bookjumpr.com/h-g-wells/the-wheels-of-chance
+- Stephen Langton by Martin Farquhar Tupper: "Guildford is an altogether charming old town, famous, so he learnt from a Guide Book, as the scene of Master Tupper's great historical novel of Stephen Langton,"
+- The Story of an African Farm by Olive Schreiner: "What made me think of South Africa was that novel of Olive Schreiner's, you know--'The Story of an African Farm.' Gregory Rose is so like you."
+- Essays by Ralph Waldo Emerson: "Miss Mergle had told her at parting to live fearlessly and truly, and had further given her a volume of Emerson's Essays and Motley's "Dutch Republic," to help her through the rapids of adolescence."
+- The Rise of the Dutch Republic by John Lothrop Motley: "Miss Mergle had told her at parting to live fearlessly and truly, and had further given her a volume of Emerson's Essays and Motley's "Dutch Republic," to help her through the rapids of adolescence."
 
 ## The White Album by Joan Didion (1979)
 https://bookjumpr.com/joan-didion/the-white-album
