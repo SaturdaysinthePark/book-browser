@@ -1,0 +1,15 @@
+{
+ "_readme": [
+  "Exception: the Savage Detectives cites the film adaptation of The Shining; user approved adding it as a mention of the book."
+ ],
+ "books": [],
+ "mentions": [
+  {
+   "source": "The Savage Detectives",
+   "mentioned": "The Shining",
+   "author": "Stephen King",
+   "note": "The bad guy in the movie, in The Shining, Jack Nicholson. That's right, the son of a bitch was writing a novel",
+   "confidence": "high"
+  }
+ ]
+}

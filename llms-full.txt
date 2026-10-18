@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,227 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,228 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -9060,6 +9060,7 @@ https://bookjumpr.com/roberto-bolano/the-savage-detectives
 - Religion innerhalb der Grenzen der Humanität by Paul Natorp: "Natorp's Religion at the Limits of Humanity, and sat facing him on the sofa."
 - Tractatus Logico-Philosophicus by Ludwig Wittgenstein: "At the time I was reading Wittgenstein's Tractatus, and everything I saw or did only heightened my sense of vulnerability."
 - L'Homme de désir by Louis-Claude de Saint-Martin: "he meant Louis Claude de Saint-Martin, author of The Man of Aspiration"
+- The Shining by Stephen King: "The bad guy in the movie, in The Shining, Jack Nicholson. That's right, the son of a bitch was writing a novel"
 
 ## The Scarlet Letter by Nathaniel Hawthorne (1850)
 https://bookjumpr.com/nathaniel-hawthorne/the-scarlet-letter
