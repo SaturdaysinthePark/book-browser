@@ -278,12 +278,12 @@
         h('div', { className: 'eyebrow' }, 'Start with'), top.map(function (b) { return row(b.id); })));
       return h('aside', { className: 'bjx-side bjx-mapside' }, kids);
     }
+    kids.push(h('button', { key: 'x', className: 'bjx-sx', 'aria-label': 'Close', title: 'Close (Esc)', onClick: function () { self.mapFocus(null); } }, '×'));
     kids.push(this.bookHead(sel, { href: true }));
     if (sel.synopsis) kids.push(h('p', { key: 'syn', className: 'bjx-syn' }, sel.synopsis));
     var open = this._linkGo(function () { self.xOpenBook(sel.id); });
     kids.push(h('div', { key: 'act', className: 'bjx-act bjx-sact' },
-      h('a', { className: 'pill solid bjx-open', href: '/' + sel.id, onClick: open }, 'Open book page →'),
-      h('button', { className: 'pill', onClick: function () { self.mapFocus(null); } }, 'Clear')));
+      h('a', { className: 'pill solid bjx-open', href: '/' + sel.id, onClick: open }, 'Open book page →')));
     var rank = function (x, y) { return (books[y].in.length + books[y].out.length) - (books[x].in.length + books[x].out.length); };
     [['out', 'Mentions'], ['in', 'Mentioned by']].forEach(function (d) {
       var ids = sel[d[0]].filter(function (id) { return books[id]; }).sort(rank);
