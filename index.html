@@ -1325,7 +1325,8 @@ html,body{height:100%;}
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Author</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6vw,46px);line-height:1.06;margin:10px 0 8px;">{{ a_name }}</h1>
       <sc-if value="{{ a_found }}" hint-placeholder-val="{{ true }}">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:34px;">{{ a_count }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:6px;">{{ a_count }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:34px;">{{ a_net }}</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;align-items:start;">
           <sc-for list="{{ a_books }}" as="m" hint-placeholder-count="6">
             <a href="{{ m.href }}" onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
@@ -1337,6 +1338,7 @@ html,body{height:100%;}
             </a>
           </sc-for>
         </div>
+        {{ a_netEl }}
       </sc-if>
       <sc-if value="{{ a_none }}" hint-placeholder-val="{{ false }}">
         <div style="border:1.5px dashed var(--ink);border-radius:16px;padding:34px;margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;">No books on file for this author yet.</div>
@@ -1349,7 +1351,24 @@ html,body{height:100%;}
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Search</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,6vw,40px);margin:10px 0 6px;">&ldquo;{{ s_query }}&rdquo;</h1>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:30px;">{{ s_count }}</div>
+      <sc-if value="{{ s_hasAuthors }}" hint-placeholder-val="{{ false }}">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;">Authors</div>
+        <div style="display:flex;flex-direction:column;border-top:1.5px solid var(--ink);margin-bottom:34px;">
+          <sc-for list="{{ s_authors }}" as="r" hint-placeholder-count="1">
+            <a href="{{ r.href }}" onClick="{{ r.go }}" style="{{ r.rowStyle }}" style-hover="background:var(--card);">
+              <div style="width:52px;flex-shrink:0;display:flex;justify-content:center;">
+                {{ r.cv }}
+              </div>
+              <div style="flex:1;min-width:0;font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;">{{ r.name }}</div>
+              <div style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.65;white-space:nowrap;">{{ r.sub }}</div>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
       <sc-if value="{{ s_has }}" hint-placeholder-val="{{ true }}">
+        <sc-if value="{{ s_hasAuthors }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;">Books</div>
+        </sc-if>
         <div style="display:flex;flex-direction:column;border-top:1.5px solid var(--ink);">
           <sc-for list="{{ s_results }}" as="r" hint-placeholder-count="3">
             <a href="{{ r.href }}" onClick="{{ r.go }}" style="{{ r.rowStyle }}" style-hover="background:var(--card);">

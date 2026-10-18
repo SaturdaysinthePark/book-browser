@@ -91,16 +91,52 @@ function bookPage(D, k) {
   return { title, desc, canonical: `/${k}`, ogType: 'book', body, ld: [ld, crumbs(trail)], image };
 }
 
+// One author's mentions rolled up by the other author: { out, in }, each [[otherSlug, name, [[fromKey, toKey], …]], …]
+// biggest first, plus the count of mentions between their own books. Mirrors P.authorAgg in app.js.
+function authorAgg(D, slug) {
+  const keys = D.A[slug][1], aslug = (k) => D.B[k][4] || k.split('/')[0];
+  const side = (pairs) => {
+    const by = new Map(); let own = 0;
+    for (const [from, to, other] of pairs) {
+      const s = aslug(other);
+      if (s === slug) { own++; continue; }
+      if (!by.has(s)) by.set(s, [s, (D.A[s] || [D.B[other][1]])[0], []]);
+      by.get(s)[2].push([from, to]);
+    }
+    return { groups: [...by.values()].sort((x, y) => y[2].length - x[2].length || x[1].localeCompare(y[1])), own };
+  };
+  return {
+    out: side(keys.flatMap((k) => (D.O[k] || []).filter(([m]) => D.B[m]).map(([m]) => [k, m, m]))),
+    in: side(keys.flatMap((k) => (D.I[k] || []).filter((m) => D.B[m]).map((m) => [m, k, m]))),
+  };
+}
+
 function authorPage(D, slug) {
   const [name, keys] = D.A[slug];
   const mentioned = keys.reduce((n, k) => n + (D.I[k] || []).length, 0);
+  const agg = authorAgg(D, slug);
+  const authorLink = ([s, n]) => (D.A[s] && known(n) ? `<a href="/${esc(s)}">${esc(n)}</a>` : esc(n || 'Unknown author'));
+  const groupNames = (sd) => sd.groups.filter(([s, n]) => known(n)).map(([, n]) => n);
   const title = `${name}: books, and the books they mention | BookJumpr`;
-  const desc = `${plural(keys.length, 'book', 'books')} by ${name} on BookJumpr` + (mentioned ? `, mentioned ${plural(mentioned, 'time', 'times')} in other books` : '') +
-    `: ${names(keys.map((k) => D.B[k][0]), 3)}. See what each one mentions, and what mentions it.`;
+  const outN = groupNames(agg.out), inN = groupNames(agg.in);
+  const desc = outN.length || inN.length
+    ? `${name}'s ${plural(keys.length, 'book', 'books')}` +
+      (outN.length ? ` mention ${names(outN, 3)}` : '') + (outN.length && inN.length ? ', and are' : inN.length ? ' are' : '') +
+      (inN.length ? ` mentioned by ${names(inN, 3)}` : '') + '. See every book-to-book link, with the quotes.'
+    : `${plural(keys.length, 'book', 'books')} by ${name} on BookJumpr` + (mentioned ? `, mentioned ${plural(mentioned, 'time', 'times')} in other books` : '') +
+      `: ${names(keys.map((k) => D.B[k][0]), 3)}. See what each one mentions, and what mentions it.`;
+  const section = (sd, heading) => (sd.groups.length ? [
+    `<h2>${esc(heading)}</h2>`, '<ul>',
+    ...sd.groups.map((g) => `<li>${authorLink(g)} (${g[2].length}): ` +
+      g[2].map(([f, t]) => `${link(D, f)} mentions ${link(D, t)}`).join('; ') + '</li>'),
+    '</ul>',
+    sd.own ? `<p>Plus ${plural(sd.own, 'mention', 'mentions')} between ${esc(name)}'s own books.</p>` : '',
+  ] : []);
   const body = [
     `<nav><a href="/">BookJumpr</a></nav>`,
     `<h1>${esc(name)}</h1>`,
     `<p>${plural(keys.length, 'book', 'books')} on BookJumpr${mentioned ? `, mentioned ${plural(mentioned, 'time', 'times')} in other books` : ''}.</p>`,
+    `<h2>Books by ${esc(name)}</h2>`,
     '<ul>',
     ...keys.map((k) => {
       const o = (D.O[k] || []).length, i = (D.I[k] || []).length, yl = yearLabel(D.B[k][2]);
@@ -108,8 +144,14 @@ function authorPage(D, slug) {
       return `<li>${link(D, k)}${yl ? ` (${esc(yl)})` : ''}${bits ? `: ${bits}` : ''}</li>`;
     }),
     '</ul>',
-  ];
-  const ld = [{ '@type': 'Person', name, url: `${SITE}/${slug}` }, crumbs([['BookJumpr', `${SITE}/`], [name, `${SITE}/${slug}`]])];
+    ...section(agg.out, `Authors ${name}'s books mention`),
+    ...section(agg.in, `Authors who mention ${name}`),
+  ].filter(Boolean);
+  const url = `${SITE}/${slug}`;
+  const person = { '@type': 'Person', name, url, mainEntityOfPage: url };
+  const works = { '@type': 'ItemList', name: `Books by ${name}`,
+    itemListElement: keys.map((k, i) => ({ '@type': 'ListItem', position: i + 1, item: bookLd(D, k) })) };
+  const ld = [person, works, crumbs([['BookJumpr', `${SITE}/`], [name, url]])];
   return { title, desc, canonical: `/${slug}`, ogType: 'profile', body, ld };
 }
 

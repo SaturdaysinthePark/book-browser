@@ -1096,6 +1096,64 @@
   P.goAuthor = function (aslug) { if (aslug && aslug !== 'anonymous') this.navigate({ page: 'author', slug: aslug }, '#/' + aslug); };
   // Author segment of a key: slug(author) or "anonymous" (mirrors tools/bookkey.mjs authorSlug).
   P.authorSlug = function (author) { return this.slug(author || '') || 'anonymous'; };
+  // Every author with at least one book: [{ slug, name, books[], mentions }] (mentions = incoming, summed).
+  P.authorList = function () {
+    if (this._authors && this._authors.n === this.all.length) return this._authors.list;
+    var by = {}, list = [];
+    for (var i = 0; i < this.all.length; i++) {
+      var b = this.all[i], s = b.id.split('/')[0];
+      if (s === 'anonymous' || !b.author) continue;
+      var a = by[s];
+      if (!a) { a = by[s] = { slug: s, name: b.author, books: [], mentions: 0 }; list.push(a); }
+      a.books.push(b); a.mentions += b.in.length;
+    }
+    this._authors = { n: this.all.length, list: list };
+    return list;
+  };
+  // Author-level view of one author's mentions: who their books mention, and who mentions them.
+  // Each side is [{ slug, name, books: [{ from, to }] }] grouped by the other author, biggest first.
+  P.authorAgg = function (aslug) {
+    var self = this;
+    var mine = this.all.filter(function (b) { return b.id.split('/')[0] === aslug; });
+    var side = function (dir) {
+      var by = {}, out = [], self_ = [];
+      mine.forEach(function (b) {
+        b[dir].forEach(function (id) {
+          var o = self.books[id], s = id.split('/')[0];
+          var pair = dir === 'out' ? { from: b, to: o } : { from: o, to: b };
+          if (s === aslug) { self_.push(pair); return; }
+          var g = by[s] || (by[s] = out[out.push({ slug: s, name: o.author || 'Unknown author', books: [] }) - 1]);
+          g.books.push(pair);
+        });
+      });
+      out.sort(function (x, y) { return y.books.length - x.books.length || (x.name < y.name ? -1 : 1); });
+      return { groups: out, own: self_, total: out.reduce(function (n, g) { return n + g.books.length; }, 0) };
+    };
+    return { mine: mine, out: side('out'), in: side('in') };
+  };
+  // Authors whose name matches the query: prefix of any word first, then anywhere; ranked by mentions.
+  P.authorMatches = function (q) {
+    if (!this.all || !q.trim()) return [];
+    var n = this.norm(q), self = this, pre = [], inc = [];
+    this.authorList().forEach(function (a) {
+      var nm = self.norm(a.name);
+      if (nm.indexOf(n) === 0 || nm.indexOf(' ' + n) !== -1) pre.push(a);
+      else if (n.length > 2 && nm.indexOf(n) !== -1) inc.push(a);
+    });
+    var rank = function (x, y) { return y.mentions - x.mentions || y.books.length - x.books.length; };
+    return pre.sort(rank).concat(inc.sort(rank));
+  };
+  P.authorSub = function (a) {
+    return a.books.length + (a.books.length === 1 ? ' work' : ' works') + (a.mentions ? ' · cited ' + a.mentions : '');
+  };
+  // Initials badge standing in for a cover on author rows.
+  P.authorBadge = function (name, size) {
+    var ini = String(name).split(/\s+/).filter(Boolean).map(function (w) { return w[0]; });
+    ini = (ini.length > 1 ? ini[0] + ini[ini.length - 1] : ini[0] || '?').toUpperCase();
+    size = size || 26;
+    return h('div', { style: { width: size + 'px', height: size + 'px', borderRadius: '50%', border: '1.5px solid var(--ink)', background: 'var(--accent)', color: 'var(--paper, #fff)',
+      display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: "'IBM Plex Mono', monospace", fontWeight: 700, fontSize: Math.round(size * 0.38) + 'px', boxSizing: 'border-box' } }, ini);
+  };
   // Resolve a display title to its book (keys are author/title now, so slug(title) alone won't hit).
   P.bookByTitle = function (title) {
     var s = this.slug(title), all = this.all || [];
@@ -1131,7 +1189,9 @@
     var isN = function (x) { return self.norm(x) === n; };
     var exact = this.all && (this.all.filter(function (b) { return isN(b.title); })[0] ||
       this.all.filter(function (b) { return b.aliases.some(isN); })[0]);
+    var auth = !exact && this.authorList().filter(function (a) { return isN(a.name); })[0];
     if (exact) this.goBook(exact.id);
+    else if (auth) this.goAuthor(auth.slug);
     else this.navigate({ page: 'search', q: q }, '#/search/' + encodeURIComponent(q));
   };
   P.subFor = function (b) {
@@ -1728,7 +1788,7 @@
         var n = (self._sugg || []).length, i = self.state.sugIdx == null ? -1 : self.state.sugIdx;
         if (e.key === 'ArrowDown' && n) { e.preventDefault(); self.setState({ sugIdx: (i + 1) % n }); return; }
         if (e.key === 'ArrowUp' && n) { e.preventDefault(); self.setState({ sugIdx: i <= 0 ? n - 1 : i - 1 }); return; }
-        if (e.key === 'Enter') { if (i >= 0 && i < n) self.goBook(self._sugg[i].id); else self.submitSearch(); }
+        if (e.key === 'Enter') { if (i >= 0 && i < n) self._sugg[i].pick(); else self.submitSearch(); }
         if (e.key === 'Escape') self.setState({ suggestFor: null, sugIdx: -1 });
       },
       onFocusHome: function () { self.setState({ suggestFor: 'home' }); },
@@ -1814,13 +1874,20 @@
     vals.statCapWorks = m ? { display: 'none' } : { fontFamily: "'IBM Plex Mono', monospace", fontSize: '10px', opacity: 0.55 };
 
     // suggestions
-    var sugg = this.state.suggestFor && this.state.q.trim() ? this.matches(this.state.q).slice(0, 7) : [];
+    // Up to two matching authors lead the list, then books fill the rest (7 rows total).
+    var sq = this.state.suggestFor && this.state.q.trim() ? this.state.q : '';
+    var sAuth = sq ? this.authorMatches(sq).slice(0, 2) : [];
+    var sugg = sAuth.map(function (a) {
+      return { title: a.name, author: 'Author', sub: self.authorSub(a), cv: self.authorBadge(a.name), pick: function () { self.goAuthor(a.slug); } };
+    }).concat((sq ? this.matches(sq).slice(0, 7 - sAuth.length) : []).map(function (b) {
+      return { title: b.title, author: b.author || '', sub: self.subFor(b), cv: self.cover(b), pick: function () { self.goBook(b.id); } };
+    }));
     this._sugg = sugg;
     var sIdx = this.state.sugIdx == null ? -1 : this.state.sugIdx;
-    vals.suggestions = sugg.map(function (b, i) {
-      return { title: b.title, author: b.author || '', sub: self.subFor(b), cv: self.cover(b), cls: i === sIdx ? 'on' : '',
+    vals.suggestions = sugg.map(function (s, i) {
+      return { title: s.title, author: s.author, sub: s.sub, cv: s.cv, cls: i === sIdx ? 'on' : '',
         hover: function () { if (self.state.sugIdx !== i) self.setState({ sugIdx: i }); },
-        go: function () { self.goBook(b.id); } };
+        go: s.pick };
     });
     vals.showHomeSuggest = this.state.suggestFor === 'home' && sugg.length > 0;
     vals.showHeaderSuggest = this.state.suggestFor === 'header' && sugg.length > 0;
@@ -2001,6 +2068,41 @@
       var aMentions = mine.reduce(function (n, b) { return n + b.in.length; }, 0);
       vals.a_count = mine.length + (mine.length === 1 ? ' work' : ' works')
         + '  ·  ' + aMentions + (aMentions === 1 ? ' mention' : ' mentions') + ' of their books';
+      var agg = this.authorAgg(aslug), aName = vals.a_name;
+      var nAuth = function (sd) { return sd.groups.length + (sd.groups.length === 1 ? ' author' : ' authors'); };
+      vals.a_net = (agg.out.total || agg.in.total) ? [
+        agg.out.total ? 'Mentions ' + agg.out.total + (agg.out.total === 1 ? ' book' : ' books') + ' by ' + nAuth(agg.out) : '',
+        agg.in.total ? 'mentioned in ' + agg.in.total + (agg.in.total === 1 ? ' book' : ' books') + ' by ' + nAuth(agg.in) : ''
+      ].filter(Boolean).join('  ·  ').replace(/^m/, 'M') : '';
+      var bookA = function (b) {
+        return h('a', { href: '/' + b.id, onClick: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }), style: { color: 'inherit', fontStyle: 'italic' } }, b.title);
+      };
+      var groupEl = function (g, dir) {
+        return h('li', { key: g.slug, style: { padding: '12px 0', borderBottom: '1px solid var(--ink)', listStyle: 'none' } },
+          h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px' } },
+            self.authorBadge(g.name, 28),
+            h('a', { href: '/' + g.slug, onClick: self._linkGo(function () { self.goAuthor(g.slug); }), style: { color: 'inherit', fontWeight: 700, fontSize: '15px', textDecoration: 'none', flex: 1, minWidth: 0 } }, g.name),
+            h('span', { style: { fontFamily: "'IBM Plex Mono', monospace", fontSize: '11px', color: dir === 'out' ? 'var(--accent)' : 'var(--inbound)' } }, '×' + g.books.length)),
+          h('div', { style: { fontSize: '13px', lineHeight: 1.55, marginTop: '6px', paddingLeft: '38px', opacity: 0.85 } },
+            g.books.slice(0, 6).map(function (p, i) {
+              return h('div', { key: i }, bookA(p.from), h('span', { style: { opacity: 0.5 } }, ' → '), bookA(p.to));
+            }),
+            g.books.length > 6 ? h('div', { style: { opacity: 0.55 } }, '+ ' + (g.books.length - 6) + ' more') : null));
+      };
+      var sideEl = function (sd, dir, label) {
+        if (!sd.groups.length && !sd.own.length) return null;
+        var top = sd.groups.slice(0, 8), rest = sd.groups.slice(8);
+        return h('section', { style: { flex: '1 1 340px', minWidth: 0 } },
+          h('h2', { style: { fontFamily: "'Instrument Serif', serif", fontWeight: 400, fontSize: '26px', margin: '0 0 8px', paddingBottom: '8px', borderBottom: '1.5px solid var(--ink)' } }, label),
+          h('ul', { style: { margin: 0, padding: 0 } }, top.map(function (g) { return groupEl(g, dir); })),
+          rest.length ? h('details', { style: { marginTop: '10px' } },
+            h('summary', { style: { cursor: 'pointer', fontFamily: "'IBM Plex Mono', monospace", fontSize: '12px' } }, rest.length + ' more ' + (rest.length === 1 ? 'author' : 'authors')),
+            h('ul', { style: { margin: 0, padding: 0 } }, rest.map(function (g) { return groupEl(g, dir); }))) : null,
+          sd.own.length ? h('div', { style: { fontFamily: "'IBM Plex Mono', monospace", fontSize: '11px', opacity: 0.6, marginTop: '10px' } },
+            'Plus ' + sd.own.length + (sd.own.length === 1 ? ' mention' : ' mentions') + ' between their own books') : null);
+      };
+      var outEl = sideEl(agg.out, 'out', aName + '\u2019s books mention'), inEl = sideEl(agg.in, 'in', aName + ' is mentioned by');
+      vals.a_netEl = (outEl || inEl) ? h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '30px 48px', marginTop: '56px' } }, outEl, inEl) : null;
       vals.a_books = mine.map(function (b) {
         var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block', color: 'inherit', textDecoration: 'none' };
         return { cv: self.cover(b), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), href: '/' + b.id, go: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) };
@@ -2016,8 +2118,17 @@
         var rowStyle = { display: 'flex', alignItems: 'center', gap: m ? '12px' : '22px', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '16px 8px', fontFamily: 'inherit', width: '100%', boxSizing: 'border-box', color: 'inherit', textDecoration: 'none' };
         return { cv: self.cover(b), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), href: '/' + b.id, go: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) };
       });
-      vals.s_has = res.length > 0; vals.s_none = res.length === 0;
-      vals.s_count = res.length === 0 ? 'no matches' : res.length + (res.length === 1 ? ' match' : ' matches');
+      var sa = this.authorMatches(q).slice(0, 6);
+      vals.s_authors = sa.map(function (a) {
+        var rowStyle = { display: 'flex', alignItems: 'center', gap: m ? '12px' : '22px', textAlign: 'left', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '14px 8px', boxSizing: 'border-box', color: 'inherit', textDecoration: 'none' };
+        return { cv: self.authorBadge(a.name, 44), rowStyle: rowStyle, name: a.name, sub: self.authorSub(a), href: '/' + a.slug, go: self._linkGo(function () { self.goAuthor(a.slug); }) };
+      });
+      vals.s_hasAuthors = sa.length > 0;
+      vals.s_has = res.length > 0; vals.s_none = res.length === 0 && sa.length === 0;
+      var nRes = res.length + sa.length;
+      vals.s_count = nRes === 0 ? 'no matches'
+        : (sa.length ? sa.length + (sa.length === 1 ? ' author' : ' authors') + (res.length ? ' · ' : '') : '')
+          + (res.length || !sa.length ? res.length + (res.length === 1 ? ' book' : ' books') : '');
     }
 
     // stats page: on narrow screens the two lists become Books / Authors tabs
