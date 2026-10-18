@@ -38,7 +38,6 @@ Slaughterhouse-Five,Kurt Vonnegut,The Destruction of Dresden,David Irving
 The Outsiders,S. E. Hinton,Gone with the Wind,Margaret Mitchell
 The Outsiders,S. E. Hinton,The Carpetbaggers,Harold Robbins
 Breakfast of Champions,Kurt Vonnegut,Romeo and Juliet,William Shakespeare
-Breakfast of Champions,Kurt Vonnegut,Moby-Dick,Herman Melville
 Breakfast of Champions,Kurt Vonnegut,A Tale of Two Cities,Charles Dickens
 Breakfast of Champions,Kurt Vonnegut,Ivanhoe,Walter Scott
 Breakfast of Champions,Kurt Vonnegut,The Good Earth,Pearl S Buck
@@ -56,7 +55,6 @@ The Autobiography of Red,Anne Carson,Helen,Isocrates
 The Reluctant Fundamentalist,Mohsin Hamid,Mr Palomar,Italo Calvino
 The Reluctant Fundamentalist,Mohsin Hamid,The Great Gatsby,F. Scott Fitzgerald
 The Reluctant Fundamentalist,Mohsin Hamid,The Legend of Sleepy Hollow,Washington Irving
-Coraline,Neil Gaiman,Romeo and Juliet,William Shakespeare
 The Book Thief,Markus Zusak,Mein Kampf,Adolph Hitler
 Hard Boiled Wonderland and the End of the World,Haruki Murakami,Time Traveler,Norman and Jeanne MacKenzie
 Hard Boiled Wonderland and the End of the World,Haruki Murakami,Book of Imaginary Beings,Jorge Luis Borges
@@ -116,10 +114,6 @@ The Righteous Mind,Jonathan Haidt,God is Not Great: How Religion Poisons Everyth
 The Righteous Mind,Jonathan Haidt,Darwin's Cathedrals,David Sloan Wilson
 The Righteous Mind,Jonathan Haidt,The Faith Instinct,Nicholas Wade
 The Righteous Mind,Jonathan Haidt,American Grace: How Religion Divides and Unites Us,David E. Campbell and Robert D. Putnam
-The Righteous Mind,Jonathan Haidt,"Moral, Believing Animals",Christian Smith
-The Righteous Mind,Jonathan Haidt,The Political Brain,Drew Westen
-The Righteous Mind,Jonathan Haidt,Conservatism,Jerry Muller
-The Righteous Mind,Jonathan Haidt,Bowling Alone,Robert Putnam
 The Motorcycle Diaries,Ernesto Che Guevara,A Thousand and One Nights,Anonymous
 The Motorcycle Diaries,Ernesto Che Guevara,Cousin Basilo,José Maria de Eça de Queirós
 The Hitchhiker's Guide to the Galaxy,Douglas Adams,Hamlet,William Shakespeare
@@ -163,12 +157,10 @@ The Philosopher Kings,Jo Walton,Timaeus,Plato
 The Philosopher Kings,Jo Walton,Critias,Plato
 The Philosopher Kings,Jo Walton,The Aeneid,Virgil
 The Philosopher Kings,Jo Walton,Summa Tehologica,Thomas Aquinas
-The Philosopher Kings,Jo Walton,Phaedrus,Plato
 The Kite Runner,Khaled Hosseini,Masnawi,Rumi
 The Kite Runner,Khaled Hosseini,Shahnameh,Ferdowsi
 The Kite Runner,Khaled Hosseini,Ivanhoe,Walter Scott
 The Kite Runner,Khaled Hosseini,Wuthering Heights,Emily Bronte
-The Kite Runner,Khaled Hosseini,Les Misérables,Victor Hugo
 Queen Elizabeth,Anonymous,The First Blast of the Trumpet Against the Monstruous Regiment of Women,John Knox
 The Autobiography of Benjamin Franklin,Benjamin Franklin,The Pilgrim's Progress,John Bunyan
 The Autobiography of Benjamin Franklin,Benjamin Franklin,Plutarch's Lives,Plutarch
@@ -372,18 +364,15 @@ Jane Eyre,Charlotte Brontë,Marmion,Walter Scott
 Jane Eyre,Charlotte Brontë,The History of Rome,Oliver Goldsmith
 Jane Eyre,Charlotte Brontë,Pamela,Samuel Richardson
 Jane Eyre,Charlotte Brontë,"The History of Henry, Earl of Moreland",Henry Brooke
-Jane Eyre,Charlotte Brontë,Vanity Fair,William Makepeace Thackeray
 Jane Eyre,Charlotte Brontë,A Thousand and One Nights,Anonymous
 Persuasion,Jane Austen,Marmion,Walter Scott
 Persuasion,Jane Austen,The Lady of the Lake,Walter Scott
 Persuasion,Jane Austen,The Giaour,Byron
 Persuasion,Jane Austen,The Bride of Abydos,Byron
-A Study in Scarlet,Arthur Conan Doyle,The Murders in the Rue Morgue,Edgar Allan Poe
 A Study in Scarlet,Arthur Conan Doyle,Monsieur Lecoq,Émile Gaboriau
 The Picture of Dorian Gray,Oscar Wilde,Manon Lescaut,Abbé Prévost
 The Picture of Dorian Gray,Oscar Wilde,The Satyricon,Petronius
 The Picture of Dorian Gray,Oscar Wilde,Émaux et Camées,Théophile Gautier
-The Picture of Dorian Gray,Oscar Wilde,À Rebours,Joris-Karl Huysmans
 Emma,Jane Austen,The Vicar of Wakefield,Oliver Goldsmith
 Emma,Jane Austen,The Romance of the Forest,Ann Radcliffe
 Emma,Jane Austen,The Children of the Abbey,Regina Maria Roche
@@ -438,7 +427,6 @@ The Age of Innocence,Edith Wharton,Chastelard,Algernon Charles Swinburne
 The Age of Innocence,Edith Wharton,The House of Life,Dante Gabriel Rossetti
 The Age of Innocence,Edith Wharton,Sonnets from the Portuguese,Elizabeth Barrett Browning
 The Age of Innocence,Edith Wharton,The Culprit Fay,Joseph Rodman Drake
-The Age of Innocence,Edith Wharton,Idylls of the King,Alfred Tennyson
 The Age of Innocence,Edith Wharton,Contes Drolatiques,Honore de Balzac
 The Age of Innocence,Edith Wharton,The Renaissance,Walter Pater
 The Age of Innocence,Edith Wharton,Euphorion,Vernon Lee
@@ -504,9 +492,7 @@ The Mayor of Casterbridge,Thomas Hardy,The Whole Duty of Man,Richard Allestree
 Kim,Rudyard Kipling,King Lear,William Shakespeare
 Kim,Rudyard Kipling,Julius Caesar,William Shakespeare
 Kim,Rudyard Kipling,The Excursion,William Wordsworth
-Kim,Rudyard Kipling,A Thousand and One Nights,Anonymous
 A Room with a View,E. M. Forster,The Decameron,Giovanni Boccaccio
-A Room with a View,E. M. Forster,The Betrothed,Alessandro Manzoni
 A Room with a View,E. M. Forster,A Shropshire Lad,A. E. Housman
 A Room with a View,E. M. Forster,The Way of All Flesh,Samuel Butler
 My Ántonia,Willa Cather,The Georgics,Virgil
@@ -573,7 +559,6 @@ Tristram Shandy,Laurence Sterne,The Essays,Michel de Montaigne
 The Island of Doctor Moreau,H. G. Wells,L'Homme qui Rit,Victor Hugo
 The First Men in the Moon,H. G. Wells,The Works of William Shakespeare,William Shakespeare
 Twenty Thousand Leagues Under the Sea,Jules Verne,Iliad,Homer
-King Solomon's Mines,H. Rider Haggard,Paradise Lost,John Milton
 King Solomon's Mines,H. Rider Haggard,Ingoldsby Legends,Richard Harris Barham
 King Solomon's Mines,H. Rider Haggard,The Jackdaw of Rheims,Richard Harris Barham
 She,H. Rider Haggard,Hamlet,William Shakespeare
@@ -740,11 +725,6 @@ Moby-Dick,Herman Melville,Sixth Circumnavigation,Willem Schouten
 Moby-Dick,Herman Melville,Ten Voyages to Spitzbergen,Thomas Edge
 Moby-Dick,Herman Melville,On the Queen's Visit to London,William Cowper
 Moby-Dick,Herman Melville,"Miriam Coffin, or The Whale-Fisherman",Joseph C. Hart
-The Portrait of a Lady,Henry James,Daniel Deronda,George Eliot
-The Portrait of a Lady,Henry James,The Mill on the Floss,George Eliot
-The Portrait of a Lady,Henry James,Middlemarch,George Eliot
-The Portrait of a Lady,Henry James,Adam Bede,George Eliot
-The Portrait of a Lady,Henry James,Romeo and Juliet,William Shakespeare
 Sister Carrie,Theodore Dreiser,King Lear,William Shakespeare
 Sister Carrie,Theodore Dreiser,Père Goriot,Honoré de Balzac
 Sister Carrie,Theodore Dreiser,Dora Thorne,Charlotte M. Brame
@@ -768,14 +748,10 @@ The Hunchback of Notre-Dame,Victor Hugo,Dialogus de Energia et Operatione Daemon
 The Hunchback of Notre-Dame,Victor Hugo,Adversus Avaritiam,Salvian of Marseille
 The Hunchback of Notre-Dame,Victor Hugo,Sentences,Peter Lombard
 Ivanhoe,Walter Scott,The Odyssey,Homer
-Ivanhoe,Walter Scott,A Thousand and One Nights,Anonymous
 Ivanhoe,Walter Scott,The City of God,Augustine of Hippo
 Ivanhoe,Walter Scott,The Blazon of Gentrie,John Ferne
 Ivanhoe,Walter Scott,Britannia,William Camden
-Ivanhoe,Walter Scott,Specimens of Early English Metrical Romances,George Ellis
-Ivanhoe,Walter Scott,"Eboracum, or the History and Antiquities of York",Francis Drake
 Ivanhoe,Walter Scott,Sir John Oldcastle,Anonymous
-Ivanhoe,Walter Scott,Ancient Engleish Metrical Romanceës,Joseph Ritson
 Dubliners,James Joyce,Thus Spoke Zarathustra,Friedrich Nietzsche
 Dubliners,James Joyce,The Gay Science,Friedrich Nietzsche
 Dubliners,James Joyce,The Abbot,Walter Scott
@@ -792,8 +768,6 @@ A Portrait of the Artist as a Young Man,James Joyce,Peter Parley's Tales about G
 A Portrait of the Artist as a Young Man,James Joyce,Cornwell's Spelling Book,James Cornwell
 A Portrait of the Artist as a Young Man,James Joyce,Diseases of the Ox,Anonymous
 A Portrait of the Artist as a Young Man,James Joyce,Synopsis Philosophiæ Scholasticæ ad mentem divi Thomæ,Anonymous
-Candide,Voltaire,Hamlet,William Shakespeare
-Candide,Voltaire,Le Comte d'Essex,Thomas Corneille
 The Prisoner of Zenda,Anthony Hope,The Critic,Richard Brinsley Sheridan
 The Last of the Mohicans,James Fenimore Cooper,A Midsummer Night's Dream,William Shakespeare
 The Last of the Mohicans,James Fenimore Cooper,Much Ado about Nothing,William Shakespeare
@@ -806,34 +780,25 @@ The Last of the Mohicans,James Fenimore Cooper,Julius Caesar,William Shakespeare
 The Last of the Mohicans,James Fenimore Cooper,Iliad,Homer
 The War of the Worlds,H. G. Wells,The Anatomy of Melancholy,Robert Burton
 Beyond Good and Evil,Friedrich Nietzsche,Faust,Johann Wolfgang von Goethe
-Beyond Good and Evil,Friedrich Nietzsche,William Tell,Friedrich Schiller
 Beyond Good and Evil,Friedrich Nietzsche,On the Basis of Morality,Arthur Schopenhauer
-Meditations,Marcus Aurelius,The Republic,Plato
 Walden,Henry David Thoreau,Iliad,Homer
 Walden,Henry David Thoreau,De Re Rustica,Cato the Elder
 Walden,Henry David Thoreau,Gulistan,Saadi
-Walden,Henry David Thoreau,Shakuntala,Kalidasa
 Walden,Henry David Thoreau,Wonder-Working Providence,Edward Johnson
 Walden,Henry David Thoreau,Dialogues,Plato
 Walden,Henry David Thoreau,My Prisons,Silvio Pellico
 Walden,Henry David Thoreau,Memoirs of Benvenuto Cellini,Benvenuto Cellini
 Walden,Henry David Thoreau,Cinderella,Anonymous
 The Prince,Niccolò Machiavelli,De Officiis,Marcus Tullius Cicero
-The Prince,Niccolò Machiavelli,The Art of War,Niccolò Machiavelli
-The Prince,Niccolò Machiavelli,The History of the Reign of King Henry VII,Francis Bacon
 The Prince,Niccolò Machiavelli,Russia,Donald Mackenzie Wallace
 The Prince,Niccolò Machiavelli,Catherine Sforza,Pier Desiderio Pasolini
 The Prince,Niccolò Machiavelli,The Eastern Question,Albert Sorel
-The Prince,Niccolò Machiavelli,The Private Correspondence of Niccolò Machiavelli,Niccolò Machiavelli
 Utopia,Thomas More,The Republic,Plato
-Utopia,Thomas More,The History of King Richard III,Thomas More
 Utopia,Thomas More,Octavia,Anonymous
 The Souls of Black Folk,W. E. B. Du Bois,Foxe's Book of Martyrs,John Foxe
 The Souls of Black Folk,W. E. B. Du Bois,The Whole Duty of Man,Richard Allestree
 The Souls of Black Folk,W. E. B. Du Bois,Pro Archia Poeta,Cicero
 The Souls of Black Folk,W. E. B. Du Bois,Uncle Tom's Cabin,Harriet Beecher Stowe
-Narrative of the Life of Frederick Douglass,Frederick Douglass,My Bondage and My Freedom,Frederick Douglass
-Narrative of the Life of Frederick Douglass,Frederick Douglass,Life and Times of Frederick Douglass,Frederick Douglass
 Narrative of the Life of Frederick Douglass,Frederick Douglass,The American Spelling Book,Noah Webster
 Narrative of the Life of Frederick Douglass,Frederick Douglass,The Columbian Orator,Caleb Bingham
 Narrative of the Life of Frederick Douglass,Frederick Douglass,The Lady of the Lake,Walter Scott
@@ -845,7 +810,6 @@ The History of Henry Esmond,William Makepeace Thackeray,The Christian Hero,Richa
 The History of Henry Esmond,William Makepeace Thackeray,"Artamène, or the Grand Cyrus",Madeleine de Scudéry
 The History of Henry Esmond,William Makepeace Thackeray,Love in a Wood,William Wycherley
 The History of Henry Esmond,William Makepeace Thackeray,The Campaign,Joseph Addison
-The History of Henry Esmond,William Makepeace Thackeray,The Beggar's Opera,John Gay
 Romola,George Eliot,Miscellanea,Angelo Poliziano
 Romola,George Eliot,Inferno,Dante Alighieri
 Romola,George Eliot,Carnival Song,Lorenzo de' Medici
@@ -867,12 +831,7 @@ Cranford,Elizabeth Gaskell,A Thousand and One Nights,Anonymous
 Ruth,Elizabeth Gaskell,Lexicon totius Latinitatis (Facciolati's Latin Lexicon),Jacopo Facciolati
 Phineas Finn,Anthony Trollope,The Fair Maid of Perth,Walter Scott
 Phineas Finn,Anthony Trollope,Don Juan,George Gordon Byron
-Phineas Finn,Anthony Trollope,Henry V,William Shakespeare
 The Egoist,George Meredith,Satires and Epistles,Horace
-The Egoist,George Meredith,Mother Goose,Anonymous
-Erewhon,Samuel Butler,The Coming Race,Edward Bulwer-Lytton
-Erewhon,Samuel Butler,Life and Habit,Samuel Butler
-Erewhon,Samuel Butler,Erewhon Revisited,Samuel Butler
 New Grub Street,George Gissing,Oedipus Rex,Sophocles
 New Grub Street,George Gissing,Cousin Pons,Honoré de Balzac
 New Grub Street,George Gissing,Absalom and Achitophel,John Dryden
@@ -880,12 +839,10 @@ New Grub Street,George Gissing,"Absalom Senior; or, Achitophel Transpros'd",Elka
 New Grub Street,George Gissing,Epsom Wells,Thomas Shadwell
 New Grub Street,George Gissing,The Divine Comedy,Dante Alighieri
 New Grub Street,George Gissing,Oceana,James Harrington
-The Old Wives' Tale,Arnold Bennett,Fort Comme la Mort,Guy de Maupassant
 The Old Wives' Tale,Arnold Bennett,La Débâcle,Émile Zola
 The Old Wives' Tale,Arnold Bennett,The Experience of Life,Elizabeth Missing Sewell
 The Old Wives' Tale,Arnold Bennett,The Days of Bruce,Grace Aguilar
 The Old Wives' Tale,Arnold Bennett,The Harvest of a Quiet Eye,Anonymous
-Green Mansions,W. H. Hudson,Idle Days in Patagonia,W. H. Hudson
 The Riddle of the Sands,Erskine Childers,Treasure Island,Robert Louis Stevenson
 The Riddle of the Sands,Erskine Childers,New Arabian Nights,Robert Louis Stevenson
 The Riddle of the Sands,Erskine Childers,The Influence of Sea Power upon History,Alfred Thayer Mahan
@@ -904,7 +861,6 @@ Trilby,George du Maurier,David Copperfield,Charles Dickens
 Trilby,George du Maurier,Quentin Durward,Walter Scott
 Trilby,George du Maurier,Oliver Twist,Charles Dickens
 Trilby,George du Maurier,The Cup,Alfred Tennyson
-The Man Who Was Thursday,G. K. Chesterton,Alice's Adventures in Wonderland,Lewis Carroll
 The Innocence of Father Brown,G. K. Chesterton,The Invisible Man,H. G. Wells
 Orthodoxy,G. K. Chesterton,Robinson Crusoe,Daniel Defoe
 Orthodoxy,G. K. Chesterton,Heretics,G. K. Chesterton
@@ -1006,7 +962,6 @@ The Pioneers,James Fenimore Cooper,The Lord of the Isles,Walter Scott
 The Pioneers,James Fenimore Cooper,The Heliogabaliad,Anonymous
 The Pioneers,James Fenimore Cooper,The American Spelling Book,Noah Webster
 The Pioneers,James Fenimore Cooper,The Indian Student,Philip Freneau
-The Prairie,James Fenimore Cooper,The Last of the Mohicans,James Fenimore Cooper
 The Prairie,James Fenimore Cooper,As You Like It,William Shakespeare
 The Prairie,James Fenimore Cooper,Richard III,William Shakespeare
 The Prairie,James Fenimore Cooper,Romeo and Juliet,William Shakespeare
@@ -1028,8 +983,6 @@ The Octopus,Frank Norris,Snow-Bound,John Greenleaf Whittier
 The Octopus,Frank Norris,The Marble Faun,Nathaniel Hawthorne
 The Octopus,Frank Norris,Tartarin de Tarascon,Alphonse Daudet
 The Country of the Pointed Firs,Sarah Orne Jewett,Paradise Lost,John Milton
-"Winesburg, Ohio",Sherwood Anderson,The Man Who Became a Woman,Sherwood Anderson
-"Winesburg, Ohio",Sherwood Anderson,Jude the Obscure,Thomas Hardy
 O Pioneers!,Willa Cather,The Swiss Family Robinson,Johann David Wyss
 O Pioneers!,Willa Cather,Frithiof's Saga,Esaias Tegnér
 O Pioneers!,Willa Cather,The Golden Legend,Henry Wadsworth Longfellow
@@ -1054,7 +1007,6 @@ The Song of the Lark,Willa Cather,The Polish Boy,Ann S. Stephens
 The Song of the Lark,Willa Cather,Standard Recitations,Anonymous
 The Song of the Lark,Willa Cather,Polar Explorations,Anonymous
 The Custom of the Country,Edith Wharton,The Hound of the Baskervilles,Arthur Conan Doyle
-Looking Backward,Edward Bellamy,Dr. Heidenhoff's Process,Edward Bellamy
 The Innocents Abroad,Mark Twain,The Toilers of the Sea,Victor Hugo
 The Innocents Abroad,Mark Twain,A Thousand and One Nights,Anonymous
 The Innocents Abroad,Mark Twain,The Land and the Book,William M. Thomson
@@ -1064,7 +1016,6 @@ The Innocents Abroad,Mark Twain,Tam o' Shanter,Robert Burns
 The Innocents Abroad,Mark Twain,Life in the Holy Land,Anonymous
 Life on the Mississippi,Mark Twain,Uncle Remus,Joel Chandler Harris
 Life on the Mississippi,Mark Twain,Ivanhoe,Walter Scott
-Life on the Mississippi,Mark Twain,Robinson Crusoe,Daniel Defoe
 Life on the Mississippi,Mark Twain,Julius Caesar,William Shakespeare
 Life on the Mississippi,Mark Twain,Richard III,William Shakespeare
 Life on the Mississippi,Mark Twain,Alonzo and Melissa,Anonymous
@@ -1125,7 +1076,6 @@ Rebecca of Sunnybrook Farm,Kate Douglas Wiggin,The Mill on the Floss,George Elio
 Rebecca of Sunnybrook Farm,Kate Douglas Wiggin,"John Halifax, Gentleman",Dinah Mulock Craik
 Rebecca of Sunnybrook Farm,Kate Douglas Wiggin,Aladdin and the Wonderful Lamp,Anonymous
 Rebecca of Sunnybrook Farm,Kate Douglas Wiggin,A Thousand and One Nights,Anonymous
-Pollyanna,Eleanor H. Porter,The Turn of the Tides,Eleanor H. Porter
 Pollyanna,Eleanor H. Porter,The Lost Heir,G. A. Henty
 The Water-Babies,Charles Kingsley,Peter Simple,Frederick Marryat
 The Water-Babies,Charles Kingsley,Malleus Maleficarum,Heinrich Kramer
@@ -1151,11 +1101,9 @@ Westward Ho!,Charles Kingsley,A View of the State of Ireland,Edmund Spenser
 Westward Ho!,Charles Kingsley,Much Ado about Nothing,William Shakespeare
 Westward Ho!,Charles Kingsley,Palamon and Arcite,Anonymous
 Westward Ho!,Charles Kingsley,The Tempest,William Shakespeare
-Westward Ho!,Charles Kingsley,Sleeping Beauty,Anonymous
 Westward Ho!,Charles Kingsley,Theologia Germanica,Anonymous
 At the Back of the North Wind,George MacDonald,Kilmeny,James Hogg
 At the Back of the North Wind,George MacDonald,Sleeping Beauty,Anonymous
-At the Back of the North Wind,George MacDonald,Ranald Bannerman's Boyhood,George MacDonald
 Phantastes,George MacDonald,The White Cat,Madame d'Aulnoy
 Phantastes,George MacDonald,The Faerie Queene,Edmund Spenser
 Phantastes,George MacDonald,The Revenger's Tragedy,Cyril Tourneur
@@ -1178,37 +1126,16 @@ The Canterbury Tales,Geoffrey Chaucer,Inferno,Dante Alighieri
 The Canterbury Tales,Geoffrey Chaucer,Purgatorio,Dante Alighieri
 The Canterbury Tales,Geoffrey Chaucer,The Parliament of Fowls,Geoffrey Chaucer
 The Canterbury Tales,Geoffrey Chaucer,Remedia Amoris,Ovid
-The Canterbury Tales,Geoffrey Chaucer,A Treatise on the Astrolabe,Geoffrey Chaucer
-The Canterbury Tales,Geoffrey Chaucer,Il Penseroso,John Milton
-The Canterbury Tales,Geoffrey Chaucer,A Familiar History of Birds,Edward Stanley
 The Canterbury Tales,Geoffrey Chaucer,Adversus Jovinianum,Jerome
-The Canterbury Tales,Geoffrey Chaucer,De Ira,Seneca
-The Canterbury Tales,Geoffrey Chaucer,De Claris Mulieribus,Giovanni Boccaccio
-The Canterbury Tales,Geoffrey Chaucer,De Casibus Virorum Illustrium,Giovanni Boccaccio
-The Canterbury Tales,Geoffrey Chaucer,Fasti,Ovid
-The Canterbury Tales,Geoffrey Chaucer,Ars Poetica,Horace
 The Canterbury Tales,Geoffrey Chaucer,Commentary on the Dream of Scipio,Macrobius
 The Canterbury Tales,Geoffrey Chaucer,De Causa Dei,Thomas Bradwardine
-The Canterbury Tales,Geoffrey Chaucer,De Contemptu Mundi,Pope Innocent III
-The Canterbury Tales,Geoffrey Chaucer,De Divinatione,Cicero
-The Canterbury Tales,Geoffrey Chaucer,Disciplina Clericalis,Petrus Alphonsi
-The Canterbury Tales,Geoffrey Chaucer,Legenda Aurea,Jacobus de Voragine
 The Canterbury Tales,Geoffrey Chaucer,Liber Aureolus Theophrasti de Nuptiis,Theophrastus
 The Canterbury Tales,Geoffrey Chaucer,Distichs of Cato,Anonymous
 The Canterbury Tales,Geoffrey Chaucer,Speculum Speculorum,Nigellus Wireker
-The Canterbury Tales,Geoffrey Chaucer,Of Queen Annelida and False Arcite,Geoffrey Chaucer
-The Canterbury Tales,Geoffrey Chaucer,Romance of Renard,Anonymous
 The Canterbury Tales,Geoffrey Chaucer,Rosarium Philosophorum,Arnaldus de Villanova
-The Canterbury Tales,Geoffrey Chaucer,The Game and Playe of the Chesse,Anonymous
 The Canterbury Tales,Geoffrey Chaucer,De Raptu Proserpinae,Claudian
-The Canterbury Tales,Geoffrey Chaucer,Theatrum Chemicum,Anonymous
-The Song of Hiawatha,Henry Wadsworth Longfellow,Kalevala,Elias Lönnrot
-The Song of Hiawatha,Henry Wadsworth Longfellow,Algic Researches,Henry Rowe Schoolcraft
-The Song of Hiawatha,Henry Wadsworth Longfellow,The Myth of Hiawatha,Henry Rowe Schoolcraft
 The Marriage of Heaven and Hell,William Blake,Paradise Lost,John Milton
-Childe Harold's Pilgrimage,Byron,The Aeneid,Virgil
 Endymion,John Keats,Troilus and Criseyde,Geoffrey Chaucer
-Gitanjali,Rabindranath Tagore,Troilus and Criseyde,Geoffrey Chaucer
 Spoon River Anthology,Edgar Lee Masters,East Lynne,Henry Wood
 Spoon River Anthology,Edgar Lee Masters,Poems,John Milton
 Spoon River Anthology,Edgar Lee Masters,Faust,Johann Wolfgang von Goethe
@@ -1218,38 +1145,16 @@ Spoon River Anthology,Edgar Lee Masters,The Analogy of Religion,Joseph Butler
 Spoon River Anthology,Edgar Lee Masters,Iliad,Homer
 Spoon River Anthology,Edgar Lee Masters,Hamlet,William Shakespeare
 Spoon River Anthology,Edgar Lee Masters,"Tears, Idle Tears",Alfred Tennyson
-The Golden Ass,Apuleius,Meteorology,Aristotle
-The Golden Ass,Apuleius,The Dialogue of Trismegistus,Anonymous
-The Trojan Women,Euripides,The Song of Roland,Anonymous
-The Trojan Women,Euripides,Encomium of Helen,Isocrates
-The Trojan Women,Euripides,Prolegomena to the Study of Greek Religion,Jane Ellen Harrison
 The Frogs,Aristophanes,Andromeda,Euripides
 The Clouds,Aristophanes,The Shearing of the Ram,Simonides
-The Birds,Aristophanes,The Knights,Aristophanes
-The Birds,Aristophanes,The Odyssey,Homer
-The Birds,Aristophanes,Niobe,Aeschylus
-The Birds,Aristophanes,The Myrmidons,Aeschylus
-The Birds,Aristophanes,The Comastoe (Revellers),Amipsias
 The Wild Duck,Henrik Ibsen,Harrison's History of London,Anonymous
-The Playboy of the Western World,J. M. Synge,The Shadow of the Glen,J. M. Synge
 Arms and the Man,George Bernard Shaw,Don Quixote,Miguel de Cervantes
-Arms and the Man,George Bernard Shaw,The Man of Destiny,George Bernard Shaw
-Arms and the Man,George Bernard Shaw,You Never Can Tell,George Bernard Shaw
-Arms and the Man,George Bernard Shaw,The Egoist,George Meredith
-Arms and the Man,George Bernard Shaw,Candida,George Bernard Shaw
 Man and Superman,George Bernard Shaw,Faust,Johann Wolfgang von Goethe
 Man and Superman,George Bernard Shaw,Inferno,Dante Alighieri
 Man and Superman,George Bernard Shaw,Everyman,Anonymous
 Man and Superman,George Bernard Shaw,Don Quixote,Miguel de Cervantes
 Man and Superman,George Bernard Shaw,Henry V,William Shakespeare
-Man and Superman,George Bernard Shaw,Richard III,William Shakespeare
-Man and Superman,George Bernard Shaw,The Chimes,Charles Dickens
 Man and Superman,George Bernard Shaw,El Burlador de Sevilla,Tirso de Molina
-Man and Superman,George Bernard Shaw,Dom Juan (Le Festin de Pierre),Molière
-Man and Superman,George Bernard Shaw,The World as Will and Representation,Arthur Schopenhauer
-Man and Superman,George Bernard Shaw,Three Plays for Puritans,George Bernard Shaw
-Man and Superman,George Bernard Shaw,Socialism for Millionaires,George Bernard Shaw
-Man and Superman,George Bernard Shaw,The Rime of the Ancient Mariner,Samuel Taylor Coleridge
 Man and Superman,George Bernard Shaw,The Autocrat of the Breakfast-Table,Oliver Wendell Holmes
 Mrs Warren's Profession,George Bernard Shaw,Julius Caesar,William Shakespeare
 Mrs Warren's Profession,George Bernard Shaw,Antony and Cleopatra,William Shakespeare
@@ -1257,27 +1162,12 @@ Mrs Warren's Profession,George Bernard Shaw,Measure for Measure,William Shakespe
 Mrs Warren's Profession,George Bernard Shaw,Timon of Athens,William Shakespeare
 Mrs Warren's Profession,George Bernard Shaw,Troilus and Cressida,William Shakespeare
 Mrs Warren's Profession,George Bernard Shaw,Henry IV,William Shakespeare
-Mrs Warren's Profession,George Bernard Shaw,Romeo and Juliet,William Shakespeare
-Mrs Warren's Profession,George Bernard Shaw,Our Mutual Friend,Charles Dickens
-Mrs Warren's Profession,George Bernard Shaw,The Power of Darkness,Leo Tolstoy
 Mrs Warren's Profession,George Bernard Shaw,The Notorious Mrs Ebbsmith,Arthur Wing Pinero
 Mrs Warren's Profession,George Bernard Shaw,The Second Mrs Tanqueray,Arthur Wing Pinero
 Mrs Warren's Profession,George Bernard Shaw,The Gay Lord Quex,Arthur Wing Pinero
-Mrs Warren's Profession,George Bernard Shaw,The Profligate,Arthur Wing Pinero
-Mrs Warren's Profession,George Bernard Shaw,Ghosts,Henrik Ibsen
-Mrs Warren's Profession,George Bernard Shaw,The Wild Duck,Henrik Ibsen
 Mrs Warren's Profession,George Bernard Shaw,The Lady of the Camellias,Alexandre Dumas fils
-Mrs Warren's Profession,George Bernard Shaw,Damaged Goods,Eugene Brieux
-Mrs Warren's Profession,George Bernard Shaw,The History of the Decline and Fall of the Roman Empire,Edward Gibbon
 Cyrano de Bergerac,Edmond Rostand,Don Quixote,Miguel de Cervantes
 Cyrano de Bergerac,Edmond Rostand,La Clorise,Balthazar Baro
-Fathers and Sons,Ivan Turgenev,The Mysteries of Udolpho,Ann Radcliffe
-Fathers and Sons,Ivan Turgenev,Punin and Baburin,Ivan Turgenev
-Fathers and Sons,Ivan Turgenev,Russian Life in the Interior (A Sportsman's Sketches),Ivan Turgenev
-Fathers and Sons,Ivan Turgenev,"Two Russian Reformers: Ivan Turgenev, Leo Tolstoy",J. A. T. Lloyd
-Fathers and Sons,Ivan Turgenev,Turgenev and His French Circle,E. Halperine-Kaminsky
-Fathers and Sons,Ivan Turgenev,"Makrobiotik, or The Art of Prolonging Life",Christoph Wilhelm Hufeland
-Fathers and Sons,Ivan Turgenev,Hamlet and Don Quixote,Ivan Turgenev
 Fathers and Sons,Ivan Turgenev,The Gypsies,Alexander Pushkin
 Fathers and Sons,Ivan Turgenev,The Streltsy,Konstantin Masalsky
 Fathers and Sons,Ivan Turgenev,Notions Generales de Chimie,Theophile-Jules Pelouse and Edmond Fremy
@@ -1286,21 +1176,13 @@ A Sportsman's Sketches,Ivan Turgenev,Robinson Crusoe,Daniel Defoe
 A Sportsman's Sketches,Ivan Turgenev,The Wandering Jew,Eugene Sue
 First Love,Ivan Turgenev,Macbeth,William Shakespeare
 First Love,Ivan Turgenev,Hamlet,William Shakespeare
-First Love,Ivan Turgenev,Faust,Johann Wolfgang von Goethe
 First Love,Ivan Turgenev,The Brigands,Friedrich Schiller
 First Love,Ivan Turgenev,The Gypsies,Alexander Pushkin
-First Love,Ivan Turgenev,Recollections of Turgenev,Yakov Polonsky
 First Love,Ivan Turgenev,On the Hills of Georgia,Alexander Pushkin
-First Love,Ivan Turgenev,Don Quixote,Miguel de Cervantes
 A Hero of Our Time,Mikhail Lermontov,Confessions,Jean-Jacques Rousseau
 A Hero of Our Time,Mikhail Lermontov,Jerusalem Delivered,Torquato Tasso
-A Hero of Our Time,Mikhail Lermontov,Eugene Onegin,Alexander Pushkin
 The Kreutzer Sonata,Leo Tolstoy,A Thousand and One Nights,Anonymous
 The Kreutzer Sonata,Leo Tolstoy,Little Feet,Alexander Pushkin
-The Kreutzer Sonata,Leo Tolstoy,Ivan the Fool,Leo Tolstoy
-The Kreutzer Sonata,Leo Tolstoy,Polikushka,Leo Tolstoy
-The Kreutzer Sonata,Leo Tolstoy,A Lost Opportunity,Leo Tolstoy
-The Kreutzer Sonata,Leo Tolstoy,The Candle,Leo Tolstoy
 Resurrection,Leo Tolstoy,Social Statics,Herbert Spencer
 The Cossacks,Leo Tolstoy,The Three Musketeers,Alexandre Dumas
 The Cossacks,Leo Tolstoy,The Hunchback of Notre-Dame,Victor Hugo
@@ -1319,25 +1201,8 @@ Sentimental Education,Gustave Flaubert,The Mysteries of Paris,Eugène Sue
 Sentimental Education,Gustave Flaubert,Histoire de Napoléon,Jacques de Norvins
 Sentimental Education,Gustave Flaubert,The Imitation of Christ,Thomas a Kempis
 Sentimental Education,Gustave Flaubert,Les Caractères,Jean de La Bruyère
-Sentimental Education,Gustave Flaubert,Le Chevalier de Maison-Rouge,Alexandre Dumas
-Sentimental Education,Gustave Flaubert,L'Art de n'être jamais tué ni blessé en duel,La Fougère
-The Charterhouse of Parma,Stendhal,The Prince,Niccolò Machiavelli
-The Charterhouse of Parma,Stendhal,The Hunchback of Notre-Dame,Victor Hugo
-The Charterhouse of Parma,Stendhal,Manon Lescaut,Abbé Prévost
 The Charterhouse of Parma,Stendhal,Don Quixote,Miguel de Cervantes
-The Charterhouse of Parma,Stendhal,Clarissa,Samuel Richardson
-The Charterhouse of Parma,Stendhal,Candide,Voltaire
-The Charterhouse of Parma,Stendhal,Dialogue de Sylla et d'Eucrate,Voltaire
-The Charterhouse of Parma,Stendhal,Considérations sur les causes de la grandeur des Romains et de leur décadence,Montesquieu
-The Charterhouse of Parma,Stendhal,Les Provinciales,Blaise Pascal
-The Charterhouse of Parma,Stendhal,Gil Blas,Alain-René Lesage
-The Charterhouse of Parma,Stendhal,Profession de foi du vicaire savoyard,Jean-Jacques Rousseau
-The Charterhouse of Parma,Stendhal,Le Lépreux de la vallée d'Aoste,Xavier de Maistre
-The Charterhouse of Parma,Stendhal,La Chaumière indienne,Bernardin de Saint-Pierre
 The Charterhouse of Parma,Stendhal,La Locandiera,Carlo Goldoni
-The Charterhouse of Parma,Stendhal,Maximes,François de La Rochefoucauld
-The Charterhouse of Parma,Stendhal,Z. Marcas,Honoré de Balzac
-The Charterhouse of Parma,Stendhal,Un Prince de la Bohème,Honoré de Balzac
 Lost Illusions,Honoré de Balzac,Waverley,Walter Scott
 Lost Illusions,Honoré de Balzac,Smarra,Charles Nodier
 Lost Illusions,Honoré de Balzac,Peter Schlemihl,Adelbert von Chamisso
@@ -1362,7 +1227,6 @@ Carmen,Prosper Mérimée,Bellum Hispaniense,Anonymous
 Carmen,Prosper Mérimée,Commentaries,Julius Caesar
 Growth of the Soil,Knut Hamsun,Sex and Character,Otto Weininger
 Growth of the Soil,Knut Hamsun,The Cloister and the Hearth,Charles Reade
-Growth of the Soil,Knut Hamsun,A Sentimental Journey Through France and Italy,Laurence Sterne
 Growth of the Soil,Knut Hamsun,Tristram Shandy,Laurence Sterne
 Quo Vadis,Henryk Sienkiewicz,Iliad,Homer
 Quo Vadis,Henryk Sienkiewicz,Prometheus Bound,Aeschylus
@@ -1404,13 +1268,9 @@ Five Weeks in a Balloon,Jules Verne,The Mysteries of Udolpho,Ann Radcliffe
 The Coral Island,R. M. Ballantyne,Captain Cook's Voyages,James Cook
 Two Years Before the Mast,Richard Henry Dana,Robinson Crusoe,Daniel Defoe
 Two Years Before the Mast,Richard Henry Dana,"Mandeville, a Romance",William Godwin
-Two Years Before the Mast,Richard Henry Dana,The Pilot,James Fenimore Cooper
-Two Years Before the Mast,Richard Henry Dana,The Red Rover,James Fenimore Cooper
-Two Years Before the Mast,Richard Henry Dana,Mariner's Sketches,Nathaniel Ames
 Two Years Before the Mast,Richard Henry Dana,Paul Clifford,Edward Bulwer-Lytton
 Two Years Before the Mast,Richard Henry Dana,Table Talk,William Cowper
 Two Years Before the Mast,Richard Henry Dana,Erlking,Johann Wolfgang von Goethe
-The Castle of Otranto,Horace Walpole,Anecdotes of Painting in England,Horace Walpole
 Melmoth the Wanderer,Charles Maturin,The Absentee,Maria Edgeworth
 Melmoth the Wanderer,Charles Maturin,Marriage à la Mode,John Dryden
 Melmoth the Wanderer,Charles Maturin,Love in a Wood,William Wycherley
@@ -1457,7 +1317,6 @@ The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,The Whole Duty of Man,
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,The Improvement of the Mind,Isaac Watts
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Bridgewater Treatise,Peter Mark Roget
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Magnalia Christi Americana,Cotton Mather
-The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,John Gilpin,William Cowper
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Colloquia,Desiderius Erasmus
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Gil Blas,Alain-René Lesage
 The Autocrat of the Breakfast-Table,Oliver Wendell Holmes,Concilium Tridentinum,Anonymous
@@ -1475,29 +1334,15 @@ The Compleat Angler,Izaak Walton,Piscatorie Eclogs,Phineas Fletcher
 The Compleat Angler,Izaak Walton,A Chronicle of the Kings of England,Richard Baker
 The Compleat Angler,Izaak Walton,The Travels of Mendes Pinto,Fernão Mendes Pinto
 Areopagitica,John Milton,History of Rome (Ab Urbe Condita),Livy
-The Nicomachean Ethics,Aristotle,Fifteen Sermons,Joseph Butler
-The Nicomachean Ethics,Aristotle,The Analogy of Religion,Joseph Butler
-The Nicomachean Ethics,Aristotle,Rhetoric,Aristotle
-The Nicomachean Ethics,Aristotle,Redgauntlet,Walter Scott
 The Nicomachean Ethics,Aristotle,Alcmaeon,Euripides
 Politics,Aristotle,The Republic,Plato
 Politics,Aristotle,Laws,Plato
 The Consolation of Philosophy,Boethius,Physics,Aristotle
 The Consolation of Philosophy,Boethius,Timaeus,Plato
-The Consolation of Philosophy,Boethius,De Caelo,Aristotle
-The Consolation of Philosophy,Boethius,De Republica,Cicero
-The Enchiridion,Epictetus,The Discourses of Epictetus,Arrian
-Confessions,Jean-Jacques Rousseau,Hortensius,Cicero
-Confessions,Jean-Jacques Rousseau,De Magistro (The Teacher),Augustine of Hippo
 The Praise of Folly,Erasmus,Gesta Romanorum,Anonymous
 The Praise of Folly,Erasmus,Gryllus,Plutarch
 Novum Organum,Francis Bacon,Metaphysics,Aristotle
-Novum Organum,Francis Bacon,Natural Questions,Seneca
-Novum Organum,Francis Bacon,Elementa Physiologiae (Physiology),Albrecht von Haller
-Novum Organum,Francis Bacon,De Augmentis Scientiarum,Francis Bacon
 Novum Organum,Francis Bacon,The Advancement of Learning,Francis Bacon
-Novum Organum,Francis Bacon,De Rerum Natura Iuxta Propria Principia,Bernardino Telesio
-Novum Organum,Francis Bacon,Timaeus,Plato
 Ethics,Baruch Spinoza,Principles of Cartesian Philosophy,Baruch Spinoza
 An Enquiry Concerning Human Understanding,David Hume,Recueil des Miracles de l'Abbe Paris,Anonymous
 The Wealth of Nations,Adam Smith,Memoirs of Wool,John Smith
@@ -1517,15 +1362,12 @@ The Wealth of Nations,Adam Smith,The History of the Exchequer,Thomas Madox
 The Wealth of Nations,Adam Smith,Political Discourses,David Hume
 The Wealth of Nations,Adam Smith,Three Tracts on the Corn-Trade and Corn-Laws,Charles Smith
 The Wealth of Nations,Adam Smith,L'Ordre naturel et essentiel des societes politiques (The Natural and Essential Order of Political Societies),Mercier de la Riviere
-The Wealth of Nations,Adam Smith,Essai sur la legislation et le commerce des grains,Jacques Necker
 The Wealth of Nations,Adam Smith,"The Life of Henry, Prince of Wales",Thomas Birch
 The Wealth of Nations,Adam Smith,"Money and Trade Considered, with a Proposal for Supplying the Nation with Money",John Law
 A Vindication of the Rights of Woman,Mary Wollstonecraft,Essays Moral and Literary,Vicesimus Knox
 A Vindication of the Rights of Woman,Mary Wollstonecraft,Meditations and Contemplations,James Hervey
-A Vindication of the Rights of Woman,Mary Wollstonecraft,Reflections on the Revolution in France,Edmund Burke
 A Vindication of the Rights of Woman,Mary Wollstonecraft,A Father's Legacy to His Daughters,John Gregory
 A Vindication of the Rights of Woman,Mary Wollstonecraft,Life of Samuel Johnson,James Boswell
-A Vindication of the Rights of Woman,Mary Wollstonecraft,An Enquiry Concerning Political Justice,William Godwin
 A Vindication of the Rights of Woman,Mary Wollstonecraft,The History of Sandford and Merton,Thomas Day
 A Vindication of the Rights of Woman,Mary Wollstonecraft,The Theory of Moral Sentiments,Adam Smith
 A Vindication of the Rights of Woman,Mary Wollstonecraft,Paradise Lost,John Milton
@@ -1541,9 +1383,6 @@ Emile,Jean-Jacques Rousseau,Symposium (The Banquet),Plato
 Emile,Jean-Jacques Rousseau,Cléopâtre,La Calprenède
 Emile,Jean-Jacques Rousseau,Cassandre,La Calprenède
 Emile,Jean-Jacques Rousseau,Monsieur de Pourceaugnac,Molière
-Emile,Jean-Jacques Rousseau,Le Long Voyage de Siam,Anonymous
-Emile,Jean-Jacques Rousseau,Le Beau Voyage de Canada,Anonymous
-The Subjection of Women,John Stuart Mill,Delphine,Madame de Staël
 Representative Men,Ralph Waldo Emerson,Aesop's Fables,Aesop
 Representative Men,Ralph Waldo Emerson,Robin Hood,Anonymous
 Representative Men,Ralph Waldo Emerson,The Essays,Michel de Montaigne
@@ -1586,30 +1425,19 @@ Democracy in America,Alexis de Tocqueville,Notes on the State of Virginia,Thomas
 Democracy in America,Alexis de Tocqueville,Tableau du climat et du sol des Etats-Unis d'Amerique,C.-F. Volney
 Democracy in America,Alexis de Tocqueville,Constitutional Law,Thomas Sergeant
 Democracy in America,Alexis de Tocqueville,Description of the United States,David Bailie Warden
-Rights of Man,Thomas Paine,A Letter to the Abbe Raynal,Thomas Paine
-Rights of Man,Thomas Paine,Reflections on the Revolution in France,Edmund Burke
 Rights of Man,Thomas Paine,The Wealth of Nations,Adam Smith
 Rights of Man,Thomas Paine,The History of the Public Revenue of the British Empire,John Sinclair
-The Age of Reason,Thomas Paine,Rights of Man,Thomas Paine
 The Age of Reason,Thomas Paine,Common Sense,Thomas Paine
-The Age of Reason,Thomas Paine,An Apology for the Bible,Richard Watson
 The Age of Reason,Thomas Paine,Elements of Geometry,Euclid
 The Age of Reason,Thomas Paine,Tom Paine's Jest Book,Anonymous
 The Age of Reason,Thomas Paine,Life of Paul,Anonymous
 The Age of Reason,Thomas Paine,Defence of the Old Testament,David Levi
-The Age of Reason,Thomas Paine,Discourse to the Theophilanthropists,Thomas Paine
-The Age of Reason,Thomas Paine,An Essay on Dream,Thomas Paine
-The Age of Reason,Thomas Paine,Contra Faustum Manichaeum,Augustine of Hippo
 The Age of Reason,Thomas Paine,Don Quixote,Miguel de Cervantes
 The Age of Reason,Thomas Paine,Robinson Crusoe,Daniel Defoe
-The Age of Reason,Thomas Paine,Theological Works of Thomas Paine,Thomas Paine
-The Age of Reason,Thomas Paine,The Foundations of Belief,Arthur Balfour
-The Age of Reason,Thomas Paine,The Crisis,Thomas Paine
 The French Revolution: A History,Thomas Carlyle,Die verkehrte Welt (The World Turned Upside Down),Ludwig Tieck
 The French Revolution: A History,Thomas Carlyle,Des Lettres de cachet et des prisons d'état,"Honoré Gabriel Riqueti, comte de Mirabeau"
 The French Revolution: A History,Thomas Carlyle,Le Diable Amoureux,Jacques Cazotte
 The French Revolution: A History,Thomas Carlyle,Common Sense,Thomas Paine
-The French Revolution: A History,Thomas Carlyle,The Life of Napoleon Buonaparte,William Hazlitt
 The French Revolution: A History,Thomas Carlyle,The Social Contract,Jean-Jacques Rousseau
 The French Revolution: A History,Thomas Carlyle,Le Souper de Beaucaire,Napoleon Bonaparte
 The Oregon Trail,Francis Parkman,The Bible in Spain,George Borrow
@@ -1622,7 +1450,6 @@ The Education of Henry Adams,Henry Adams,Northanger Abbey,Jane Austen
 The Education of Henry Adams,Henry Adams,Capital,Karl Marx
 The Education of Henry Adams,Henry Adams,Quentin Durward,Walter Scott
 The Education of Henry Adams,Henry Adams,Tom Jones,Henry Fielding
-The Education of Henry Adams,Henry Adams,The Confessions,Augustine of Hippo
 The Education of Henry Adams,Henry Adams,Diary of John Quincy Adams,John Quincy Adams
 The Education of Henry Adams,Henry Adams,Atalanta in Calydon,Algernon Charles Swinburne
 The Education of Henry Adams,Henry Adams,Autobiography,Giuseppe Garibaldi
@@ -1631,7 +1458,6 @@ The Education of Henry Adams,Henry Adams,Recollections and Suggestions,John Russ
 The Education of Henry Adams,Henry Adams,The Grammar of Science,Karl Pearson
 The Education of Henry Adams,Henry Adams,Queen Rosamond,Algernon Charles Swinburne
 The Education of Henry Adams,Henry Adams,The Initials,Baroness Tautphoeus
-The Education of Henry Adams,Henry Adams,A Letter to American Teachers of History,Henry Adams
 The Education of Henry Adams,Henry Adams,The Geological Evidences of the Antiquity of Man,Charles Lyell
 The Education of Henry Adams,Henry Adams,Concepts of Modern Physics,J. B. Stallo
 The Education of Henry Adams,Henry Adams,The Greville Memoirs,Charles Greville
@@ -1641,7 +1467,6 @@ The Education of Henry Adams,Henry Adams,Peregrine Pickle,Tobias Smollett
 The Education of Henry Adams,Henry Adams,Poems and Ballads,Algernon Charles Swinburne
 The Education of Henry Adams,Henry Adams,The Voyage of the Beagle,Charles Darwin
 The Education of Henry Adams,Henry Adams,The New York Gold Conspiracy,Henry Adams
-The Education of Henry Adams,Henry Adams,Confessions,Jean-Jacques Rousseau
 The Education of Henry Adams,Henry Adams,The Advancement of Learning,Francis Bacon
 Eminent Victorians,Lytton Strachey,Regeneration,Anonymous
 Eminent Victorians,Lytton Strachey,The History of England,Tobias Smollett
@@ -1669,7 +1494,6 @@ The Voyage of the Beagle,Charles Darwin,An Account of the Arctic Regions,William
 The Voyage of the Beagle,Charles Darwin,Voyages dans l'Amerique meridionale,Felix de Azara
 The Voyage of the Beagle,Charles Darwin,A New Voyage Round the World,Otto von Kotzebue
 The Voyage of the Beagle,Charles Darwin,A General History and Collection of Voyages and Travels,Robert Kerr
-The Voyage of the Beagle,Charles Darwin,Narrative of a Voyage to the Southern Atlantic Ocean,W. H. B. Webster
 The Voyage of the Beagle,Charles Darwin,"Narrative of Voyages to Explore the Shores of Africa, Arabia, and Madagascar",William FitzWilliam Owen
 The Voyage of the Beagle,Charles Darwin,Narrative of a Survey of the Intertropical and Western Coasts of Australia,Phillip Parker King
 The Voyage of the Beagle,Charles Darwin,Political Essay on the Kingdom of New Spain,Alexander von Humboldt
@@ -1701,12 +1525,10 @@ The Story of My Life,Helen Keller,As You Like It,William Shakespeare
 The Story of My Life,Helen Keller,How Plants Grow,Asa Gray
 The Story of My Life,Helen Keller,King Lear,William Shakespeare
 The Story of My Life,Helen Keller,Macbeth,William Shakespeare
-The Story of My Life,Helen Keller,Paradise Lost,John Milton
 The Story of My Life,Helen Keller,A Thousand and One Nights,Anonymous
 The Story of My Life,Helen Keller,The Pilgrim's Progress,John Bunyan
 The Story of My Life,Helen Keller,The Swiss Family Robinson,Johann David Wyss
 The Story of My Life,Helen Keller,The Tempest,William Shakespeare
-The Story of My Life,Helen Keller,Treasure Island,Robert Louis Stevenson
 The Story of My Life,Helen Keller,Ivanhoe,Walter Scott
 The Story of My Life,Helen Keller,Wilhelm Tell,Friedrich Schiller
 The Story of My Life,Helen Keller,Rip Van Winkle,Washington Irving
@@ -1723,7 +1545,6 @@ The Story of My Life,Helen Keller,In School Days,John Greenleaf Whittier
 The Story of My Life,Helen Keller,The Rivals,Richard Brinsley Sheridan
 The Story of My Life,Helen Keller,King Charles the First,W. G. Wills
 The Story of My Life,Helen Keller,My Playmate,John Greenleaf Whittier
-The Story of My Life,Helen Keller,The Prince and the Pauper,Mark Twain
 The Story of My Life,Helen Keller,Essays,Francis Bacon
 The Story of My Life,Helen Keller,Faust,Johann Wolfgang von Goethe
 The Story of My Life,Helen Keller,Dreaming True,Rudyard Kipling
@@ -1751,12 +1572,8 @@ The Story of My Life,Helen Keller,Old Mortality,Walter Scott
 The Story of My Life,Helen Keller,A Short History of the English People,John Richard Green
 The Story of My Life,Helen Keller,The Faerie Queene,Edmund Spenser
 The Story of My Life,Helen Keller,Wonder Book,Nathaniel Hawthorne
-The Story of My Life,Helen Keller,Andersen's Fairy Tales,Hans Christian Andersen
 The Story of My Life,Helen Keller,King of No-land,Anonymous
-Up from Slavery,Booker T. Washington,Uncle Tom's Cabin,Harriet Beecher Stowe
-Up from Slavery,Booker T. Washington,Cotton is King,Anonymous
 Up from Slavery,Booker T. Washington,Life and Times of Frederick Douglass,Frederick Douglass
-Up from Slavery,Booker T. Washington,Uncle Remus,Joel Chandler Harris
 Incidents in the Life of a Slave Girl,Harriet Jacobs,Uncle Tom's Cabin,Harriet Beecher Stowe
 Incidents in the Life of a Slave Girl,Harriet Jacobs,Robinson Crusoe,Daniel Defoe
 Incidents in the Life of a Slave Girl,Harriet Jacobs,A South-Side View of Slavery,Nehemiah Adams
@@ -1770,12 +1587,9 @@ The Story of an African Farm,Olive Schreiner,Hohenlinden,Thomas Campbell
 Evelina,Fanny Burney,King Lear,William Shakespeare
 Evelina,Fanny Burney,Love for Love,William Congreve
 Evelina,Fanny Burney,The New Bath Guide,Christopher Anstey
-Evelina,Fanny Burney,"Julie, or the New Heloise",Jean-Jacques Rousseau
-Clarissa,Samuel Richardson,An Essay Concerning Human Understanding,John Locke
 Clarissa,Samuel Richardson,The Orphan,Thomas Otway
 Clarissa,Samuel Richardson,Venice Preserv'd,Thomas Otway
 Clarissa,Samuel Richardson,"The Rival Queens; or, the Death of Alexander the Great",Nathaniel Lee
-Clarissa,Samuel Richardson,The Temple,George Herbert
 Joseph Andrews,Henry Fielding,Philotas,Philip Frowde
 The Expedition of Humphry Clinker,Tobias Smollett,The Ever Green,Allan Ramsay
 The Expedition of Humphry Clinker,Tobias Smollett,A Sentimental Journey Through France and Italy,Laurence Sterne
@@ -1796,10 +1610,8 @@ The Black Arrow,Robert Louis Stevenson,Ali Baba and the Forty Thieves,Anonymous
 A Christmas Carol,Charles Dickens,Robinson Crusoe,Daniel Defoe
 A Christmas Carol,Charles Dickens,Ali Baba and the Forty Thieves,Anonymous
 A Christmas Carol,Charles Dickens,Valentine and Orson,Anonymous
-A Christmas Carol,Charles Dickens,The Haunted Man and the Ghost's Bargain,Charles Dickens
 Nicholas Nickleby,Charles Dickens,Romeo and Juliet,William Shakespeare
 Barnaby Rudge,Charles Dickens,Letters to His Son,"Philip Dormer Stanhope, Earl of Chesterfield"
-Barnaby Rudge,Charles Dickens,The Merry Wives of Windsor,William Shakespeare
 Hard Times,Charles Dickens,Robinson Crusoe,Daniel Defoe
 The Small House at Allington,Anthony Trollope,Robinson Crusoe,Daniel Defoe
 The Small House at Allington,Anthony Trollope,The French Revolution: A History,Thomas Carlyle
@@ -1821,7 +1633,6 @@ Man and Wife,Wilkie Collins,The Newgate Calendar,Anonymous
 Man and Wife,Wilkie Collins,Report of the Royal Commissioners on the Laws of Marriage,Anonymous
 The Haunted Hotel,Wilkie Collins,My Lady's Money,Wilkie Collins
 The Haunted Hotel,Wilkie Collins,The Corsican Brothers,Alexandre Dumas
-The Haunted Hotel,Wilkie Collins,Rip Van Winkle,Washington Irving
 "Felix Holt, the Radical",George Eliot,Rights of Man,Thomas Paine
 "Felix Holt, the Radical",George Eliot,King John,William Shakespeare
 "Felix Holt, the Radical",George Eliot,Richard II,William Shakespeare
@@ -1844,7 +1655,6 @@ The Tragic Muse,Henry James,Phèdre,Jean Racine
 The Tragic Muse,Henry James,King John,William Shakespeare
 The Tragic Muse,Henry James,Mademoiselle de la Seiglière,Jules Sandeau
 The Tragic Muse,Henry James,Il ne faut jurer de rien,Alfred de Musset
-The Tragic Muse,Henry James,The Three Musketeers,Alexandre Dumas
 The Tragic Muse,Henry James,Les Nuits,Alfred de Musset
 The Tragic Muse,Henry James,Cousin Bette,Honoré de Balzac
 The Tragic Muse,Henry James,The Lotus-Eaters,Alfred Tennyson
@@ -1903,7 +1713,6 @@ The Hand of Ethelberta,Thomas Hardy,The Shortest Way with the Dissenters,Daniel 
 Two on a Tower,Thomas Hardy,Oenone,Alfred Tennyson
 Desperate Remedies,Thomas Hardy,Robinson Crusoe,Daniel Defoe
 Desperate Remedies,Thomas Hardy,The Statue and the Bust,Robert Browning
-Desperate Remedies,Thomas Hardy,The Rime of the Ancient Mariner,Samuel Taylor Coleridge
 Wessex Tales,Thomas Hardy,Domestic Medicine,William Buchan
 Sylvia's Lovers,Elizabeth Gaskell,A Serious Call to a Devout and Holy Life,William Law
 Sylvia's Lovers,Elizabeth Gaskell,A Treatise on Self-Knowledge,John Mason
@@ -1925,7 +1734,6 @@ The Varieties of Religious Experience,William James,The Atonement,Borden Parker 
 The Varieties of Religious Experience,William James,The Christian Revelation,Borden Parker Bowne
 The Varieties of Religious Experience,William James,Christian Mysticism,William Ralph Inge
 The Varieties of Religious Experience,William James,Alterations of Personality,Alfred Binet
-The Varieties of Religious Experience,William James,An Autobiography,John G. Paton
 The Varieties of Religious Experience,William James,Essay on Decision of Character,John Foster
 The Varieties of Religious Experience,William James,Essays in Philosophy,Alexander Campbell Fraser
 The Varieties of Religious Experience,William James,Journal Intime,Henri Frederic Amiel
@@ -1949,7 +1757,6 @@ The Varieties of Religious Experience,William James,A Ternary of Paradoxes,Jan B
 The Varieties of Religious Experience,William James,Essai sur le mysticisme speculatif en Allemagne au XIVme Siecle,Henri Delacroix
 The Varieties of Religious Experience,William James,The Prophetic Spirit in Genius and Madness,Augustus Clissold
 The Varieties of Religious Experience,William James,As a Matter of Course,Annie Payson Call
-The Varieties of Religious Experience,William James,An English Garner,Edward Arber
 The Varieties of Religious Experience,William James,In Answer to Prayer,Bishop of Ripon
 The Varieties of Religious Experience,William James,Life of Wesley,Luke Tyerman
 The Varieties of Religious Experience,William James,Spiritual Exercises,Ignatius of Loyola
@@ -1968,10 +1775,8 @@ Don Quixote,Miguel de Cervantes,Diana,Jorge de Montemayor
 Don Quixote,Miguel de Cervantes,Amadis of Gaul,Garci Rodríguez de Montalvo
 Don Quixote,Miguel de Cervantes,Lazarillo de Tormes,Anonymous
 Don Quixote,Miguel de Cervantes,The Labours of Persiles and Sigismunda,Miguel de Cervantes
-Don Quixote,Miguel de Cervantes,Theagenes and Chariclea,Heliodorus
 Don Quixote,Miguel de Cervantes,Rinconete and Cortadillo,Miguel de Cervantes
 Don Quixote,Miguel de Cervantes,Orlando Furioso,Ludovico Ariosto
-Don Quixote,Miguel de Cervantes,Poem of the Cid,Anonymous
 Don Quixote,Miguel de Cervantes,La Araucana,Alonso de Ercilla
 Don Quixote,Miguel de Cervantes,La Austriada,Juan Rufo
 Don Quixote,Miguel de Cervantes,El Monserrate,Cristóbal de Virués
@@ -1992,7 +1797,6 @@ Don Quixote,Miguel de Cervantes,The Deeds of the Emperor,Luis de Ávila
 Don Quixote,Miguel de Cervantes,Nymphs and Shepherds of Henares,Anonymous
 Don Quixote,Miguel de Cervantes,The Enlightenment of Jealousy,Anonymous
 Don Quixote,Miguel de Cervantes,La Numancia,Miguel de Cervantes
-Don Quixote,Miguel de Cervantes,El Trato de Argel,Miguel de Cervantes
 Don Quixote,Miguel de Cervantes,The Ingratitude Revenged,Lope de Vega
 Don Quixote,Miguel de Cervantes,The Merchant Lover,Anonymous
 Don Quixote,Miguel de Cervantes,The Friendly Fair Foe,Anonymous
@@ -2005,7 +1809,6 @@ Don Quixote,Miguel de Cervantes,Il Pastor Fido,Battista Guarini
 Don Quixote,Miguel de Cervantes,Aminta,Torquato Tasso
 Don Quixote,Miguel de Cervantes,The Cortes of Death,Anonymous
 The Antiquary,Walter Scott,The Poems of Ossian,James Macpherson
-The Antiquary,Walter Scott,The Discoverie of Witchcraft,Reginald Scot
 The Antiquary,Walter Scott,As You Like It,William Shakespeare
 The Antiquary,Walter Scott,Twelfth Night,William Shakespeare
 The Antiquary,Walter Scott,Itinerarium Septentrionale,Alexander Gordon
@@ -2017,7 +1820,6 @@ The Antiquary,Walter Scott,The Alchemist,Ben Jonson
 The Antiquary,Walter Scott,King John,William Shakespeare
 The Antiquary,Walter Scott,The New Inn,Ben Jonson
 The Antiquary,Walter Scott,Augsburg Confession,Philip Melanchthon
-The Antiquary,Walter Scott,Contes de ma mère l'Oye,Charles Perrault
 The Antiquary,Walter Scott,The Complaynt of Scotland,Anonymous
 The Antiquary,Walter Scott,The Ordinary,William Cartwright
 Old Mortality,Walter Scott,"The Testimony to the Doctrine, Worship, Discipline, and Government of the Church of Scotland",John Dick
@@ -2045,7 +1847,6 @@ Kenilworth,Walter Scott,Wallenstein,Friedrich Schiller
 Kenilworth,Walter Scott,The Canterbury Tales,Geoffrey Chaucer
 The Twelve Caesars,Suetonius,Anticato,Julius Caesar
 The Twelve Caesars,Suetonius,Bellum Punicum,Gnaeus Naevius
-The Twelve Caesars,Suetonius,Hercules Oetaeus,Seneca
 Quentin Durward,Walter Scott,The Bruce,John Barbour
 Quentin Durward,Walter Scott,The Squire of Low Degree,Anonymous
 Quentin Durward,Walter Scott,"Henry IV, Part 2",William Shakespeare
@@ -4866,12 +4667,7 @@ A Lost Lady,Willa Cather,Heroides,Ovid
 The Professor's House,Willa Cather,The Scarlet Letter,Nathaniel Hawthorne
 The Professor's House,Willa Cather,The Adventures of Tom Sawyer,Mark Twain
 The Social Contract,Jean-Jacques Rousseau,The Republic,Plato
-The Social Contract,Jean-Jacques Rousseau,Gorgias,Plato
 The Social Contract,Jean-Jacques Rousseau,The Spirit of the Laws,Montesquieu
-The Social Contract,Jean-Jacques Rousseau,Of the Laws of Ecclesiastical Polity,Richard Hooker
-The Social Contract,Jean-Jacques Rousseau,The Tenure of Kings and Magistrates,John Milton
-The Social Contract,Jean-Jacques Rousseau,Leviathan,Thomas Hobbes
-The Social Contract,Jean-Jacques Rousseau,Two Treatises of Government,John Locke
 The Social Contract,Jean-Jacques Rousseau,De Jure Belli ac Pacis,Hugo Grotius
 Stalky & Co.,Rudyard Kipling,Handley Cross,Robert Smith Surtees
 Stalky & Co.,Rudyard Kipling,Jorrocks' Jaunts and Jollities,Robert Smith Surtees
@@ -4896,7 +4692,6 @@ The Guermantes Way,Marcel Proust,Phèdre,Jean Racine
 The Guermantes Way,Marcel Proust,The Three Musketeers,Alexandre Dumas
 The House of the Dead,Fyodor Dostoevsky,Taras Bulba,Nikolai Gogol
 First Love,Ivan Turgenev,The Robbers,Friedrich Schiller
-The Hero with a Thousand Faces,Joseph Campbell,Tao Te Ching,Laozi
 Crito,Plato,Iliad,Homer
 Dick Sand: A Captain at Fifteen,Jules Verne,Livingstone's Travels,David Livingstone
 The Analects,Confucius,The Book of Odes,Anonymous
@@ -4921,7 +4716,6 @@ The World Set Free,H. G. Wells,Wilhelm Meister's Apprenticeship,Johann Wolfgang 
 Why Read the Classics,Italo Calvino,Wilhelm Meister's Apprenticeship,Johann Wolfgang von Goethe
 A Lost Lady,Willa Cather,Wilhelm Meister's Apprenticeship,Johann Wolfgang von Goethe
 The Secret History,Donna Tartt,Alice's Adventures in Wonderland,Lewis Carroll
-An Unnecessary Woman,Rabih Alameddine,Alice's Adventures in Wonderland,Lewis Carroll
 My Salinger Year,Joanna Rakoff,Alice's Adventures in Wonderland,Lewis Carroll
 Just Kids,Patti Smith,Alice's Adventures in Wonderland,Lewis Carroll
 The Green Mummy,Fergus Hume,Alice's Adventures in Wonderland,Lewis Carroll
@@ -4958,7 +4752,6 @@ Peter Ibbetson,George du Maurier,The Mysteries of Paris,Eugène Sue
 Peter Ibbetson,George du Maurier,The Wandering Jew,Eugène Sue
 A Laodicean,Thomas Hardy,Wardlaw on Infant Baptism,Ralph Wardlaw
 A Laodicean,Thomas Hardy,Walford's County Families,Edward Walford
-Imaginary Portraits,Walter Pater,Telemachus,François Fénelon
 Imaginary Portraits,Walter Pater,Manon Lescaut,Abbé Prévost
 Robert Elsmere,Humphry Ward,"It is a beauteous evening, calm and free",William Wordsworth
 The Story of a Bad Boy,Thomas Bailey Aldrich,Robinson Crusoe,Daniel Defoe
@@ -4978,7 +4771,6 @@ Aurora Floyd,Mary Elizabeth Braddon,Othello,William Shakespeare
 Aurora Floyd,Mary Elizabeth Braddon,Macbeth,William Shakespeare
 Aurora Floyd,Mary Elizabeth Braddon,George Barnwell,George Lillo
 Aurora Floyd,Mary Elizabeth Braddon,Jane Shore,Nicholas Rowe
-Aurora Floyd,Mary Elizabeth Braddon,Lady Audley's Secret,Mary Elizabeth Braddon
 The Savage Detectives,Roberto Bolaño,The Carmina of Caius Valerius Catullus,Catullus
 The Savage Detectives,Roberto Bolaño,Japanese Poems,Efrén Rebolledo
 The Savage Detectives,Roberto Bolaño,Nueve novísimos poetas españoles,José María Castellet
@@ -5001,7 +4793,6 @@ The Savage Detectives,Roberto Bolaño,Los días terrenales,José Revueltas
 The Autobiography of an Ex-Colored Man,James Weldon Johnson,The Pilgrim's Progress,John Bunyan
 The Autobiography of an Ex-Colored Man,James Weldon Johnson,Tales of a Grandfather,Walter Scott
 The Autobiography of an Ex-Colored Man,James Weldon Johnson,Natural Theology,William Paley
-The Hero with a Thousand Faces,Joseph Campbell,Grimms' Fairy Tales,Jacob and Wilhelm Grimm
 The Djinn in the Nightingale's Eye,A. S. Byatt,Grimms' Fairy Tales,Jacob and Wilhelm Grimm
 The Autobiography of an Ex-Colored Man,James Weldon Johnson,Grimms' Fairy Tales,Jacob and Wilhelm Grimm
 The Island Pharisees,John Galsworthy,The French Revolution: A History,Thomas Carlyle
@@ -5026,7 +4817,6 @@ A Moveable Feast,Ernest Hemingway,The Great Gatsby,F. Scott Fitzgerald
 A Moveable Feast,Ernest Hemingway,The Sun Also Rises,Ernest Hemingway
 A Moveable Feast,Ernest Hemingway,The Waste Land,T. S. Eliot
 A Moveable Feast,Ernest Hemingway,Crime and Punishment,Fyodor Dostoevsky
-A Moveable Feast,Ernest Hemingway,Mazeppa,Juliusz Słowacki
 A Moveable Feast,Ernest Hemingway,Sons and Lovers,D. H. Lawrence
 A Moveable Feast,Ernest Hemingway,The Charterhouse of Parma,Stendhal
 A Moveable Feast,Ernest Hemingway,Women in Love,D. H. Lawrence
@@ -5069,8 +4859,6 @@ The Namesake,Jhumpa Lahiri,Timon of Athens,William Shakespeare
 The Namesake,Jhumpa Lahiri,Mother Goose,Anonymous
 The Namesake,Jhumpa Lahiri,The Hobbit,J. R. R. Tolkien
 The Namesake,Jhumpa Lahiri,The Hitchhiker's Guide to the Galaxy,Douglas Adams
-The Namesake,Jhumpa Lahiri,The Statesman,Plato
-The Namesake,Jhumpa Lahiri,Dead Souls,Nikolai Gogol
 The Namesake,Jhumpa Lahiri,The Communist Manifesto,Karl Marx and Friedrich Engels
 The Namesake,Jhumpa Lahiri,The Comedians,Graham Greene
 The Rebel,Albert Camus,Moby-Dick,Herman Melville
@@ -5080,9 +4868,7 @@ The Rebel,Albert Camus,Don Juan,Molière
 The Rebel,Albert Camus,Pensées,Blaise Pascal
 The Rebel,Albert Camus,Wuthering Heights,Emily Brontë
 The Rebel,Albert Camus,Fathers and Sons,Ivan Turgenev
-The Rebel,Albert Camus,The Myth of Sisyphus,Albert Camus
 The Rebel,Albert Camus,Paradise Lost,John Milton
-The Rebel,Albert Camus,Discourse on Method,René Descartes
 The Rebel,Albert Camus,Appeal to the Slavs,Mikhail Bakunin
 The Rebel,Albert Camus,Force and Matter,Ludwig Büchner
 The Time Traveler's Wife,Audrey Niffenegger,The Birds of America,John James Audubon
@@ -5096,7 +4882,6 @@ The Time Traveler's Wife,Audrey Niffenegger,Heart of Darkness,Joseph Conrad
 The Time Traveler's Wife,Audrey Niffenegger,The Moonstone,Wilkie Collins
 The Time Traveler's Wife,Audrey Niffenegger,Songs and Sonnets,John Donne
 When We Were Orphans,Kazuo Ishiguro,Ivanhoe,Walter Scott
-The Hunchback of Notre-Dame,Victor Hugo,Odes,Horace
 John Barleycorn,Jack London,Tales of the Alhambra,Washington Irving
 The Maidens,Alex Michaelides,Peter Pan,J. M. Barrie
 Westward Ho!,Charles Kingsley,Foxe's Book of Martyrs,John Foxe
@@ -5677,8 +5462,6 @@ Born in Exile,George Gissing,On the Origin of Species,Charles Darwin
 Born in Exile,George Gissing,Bridgewater Treatise,William Buckland
 Born in Exile,George Gissing,"The Soul, Her Sorrows and Her Aspirations",Francis William Newman
 Born in Exile,George Gissing,A Monograph of the British Fossil Brachiopoda,Thomas Davidson
-Hereward the Wake,Charles Kingsley,The Aeneid,Virgil
-Hereward the Wake,Charles Kingsley,King Lear,William Shakespeare
 Atlas Shrugged,Ayn Rand,Robin Hood,
 We the Living,Ayn Rand,The ABC of Communism,Nikolai Bukharin and Evgeni Preobrazhensky
 East of Eden,John Steinbeck,Inferno,Dante Alighieri
@@ -8451,3 +8234,7 @@ Orley Farm,Anthony Trollope,Rasselas,Samuel Johnson
 Ayala's Angel,Anthony Trollope,Idylls of the King,Alfred Tennyson
 "Psmith, Journalist",P. G. Wodehouse,Inferno,Dante Alighieri
 The Black Robe,Wilkie Collins,Paradise Lost,John Milton
+The Savage Detectives,Roberto Bolaño,Le Cimetière marin,Paul Valéry
+The Savage Detectives,Roberto Bolaño,Religion innerhalb der Grenzen der Humanität,Paul Natorp
+The Savage Detectives,Roberto Bolaño,Tractatus Logico-Philosophicus,Ludwig Wittgenstein
+The Savage Detectives,Roberto Bolaño,L'Homme de désir,Louis-Claude de Saint-Martin

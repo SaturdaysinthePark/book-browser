@@ -1,0 +1,36 @@
+{
+ "_readme": [
+  "Savage Detectives extra mentions from user reading, verified against inbox/archive/the-savage-detectives.fulltext.txt"
+ ],
+ "books": [],
+ "mentions": [
+  {
+   "source": "The Savage Detectives",
+   "mentioned": "Le Cimetière marin",
+   "author": "Paul Valéry",
+   "note": "Valéry's Cemetery by the Sea, and he didn't show the slightest sign that he recognized it.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Savage Detectives",
+   "mentioned": "Religion innerhalb der Grenzen der Humanität",
+   "author": "Paul Natorp",
+   "note": "Natorp's Religion at the Limits of Humanity, and sat facing him on the sofa.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Savage Detectives",
+   "mentioned": "Tractatus Logico-Philosophicus",
+   "author": "Ludwig Wittgenstein",
+   "note": "At the time I was reading Wittgenstein's Tractatus, and everything I saw or did only heightened my sense of vulnerability.",
+   "confidence": "high"
+  },
+  {
+   "source": "The Savage Detectives",
+   "mentioned": "L'Homme de désir",
+   "author": "Louis-Claude de Saint-Martin",
+   "note": "he meant Louis Claude de Saint-Martin, author of The Man of Aspiration",
+   "confidence": "high"
+  }
+ ]
+}
