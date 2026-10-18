@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 973 books that mention other books, 8,356 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 969 books that mention other books, 8,342 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -2976,11 +2976,9 @@ https://bookjumpr.com/knut-hamsun/growth-of-the-soil
 - Sex and Character by Otto Weininger: "Otto Weininger, the author of _Sex and Character_, said of _Pan_ that it was "perhaps the most beautiful novel ever written.""
 - The Cloister and the Hearth by Charles Reade: "The book is a harmless picaresque, a _geste_ of innocent rogue-errantry; its place is with _Lavengro_ and _The Cloister and the Hearth_, in that ancient, endless order of tales which link up age with age and land with land in the unaltering, unfrontiered fellowship of the road that kept the spirit…"
 - Beneath the Autumn Star by Knut Hamsun
-- The Last Joy by Knut Hamsun: "Hamsun's next work is _Den Siste Gloede_ (literally "The Last Joy")."
 - New Ground by Knut Hamsun
 - A Sentimental Journey Through France and Italy by Laurence Sterne
 - Tristram Shandy by Laurence Sterne: "There is a touch of Sterne about the book; not the exaggerated super-Sterne of Tristram Shandy, with eighteenth-century-futurist blanks and marbled pages, but the fluent, casual, follow-your-fancy Sterne of the _Sentimental Journey_."
-- Vendt the Monk by Knut Hamsun: "Thus Glahn is haunted by visions of Diderik and Iselin; Johannes writes fragments supposed to be spoken by one Vendt the Monk."
 
 ## Gulliver's Travels by Jonathan Swift (1726)
 https://bookjumpr.com/jonathan-swift/gulliver-s-travels
@@ -4635,7 +4633,6 @@ https://bookjumpr.com/haruki-murakami/norwegian-wood
 ## Nostromo by Joseph Conrad (1904)
 https://bookjumpr.com/joseph-conrad/nostromo
 - King John by William Shakespeare: "Epigraph: “So foul a sky clears not without a storm.” --SHAKESPEARE"
-- Typhoon by Joseph Conrad: "the period following upon the publication of the ‘Typhoon’ volume of short stories"
 
 ## Notes from the Underground by Fyodor Dostoevsky (1864)
 https://bookjumpr.com/fyodor-dostoevsky/notes-from-the-underground
@@ -4993,10 +4990,6 @@ https://bookjumpr.com/rachel-cusk/outline
 - Wuthering Heights by Emily Bronte: "the chapter in Wuthering Heights where Heathcliff and Cathy stare from the dark garden through the windows of the Lintons' drawing room"
 - The Odyssey by Homer: "You might remember in the Odyssey ... the character of Elpenor, Odysseus's crewmate who falls off the roof of Circe's house"
 - Encyclopaedia Britannica by Anonymous: ""any more than I would spend the afternoon reading the Encyclopaedia Britannica" (simile)"
-
-## Ozma of Oz by L. Frank Baum (1907)
-https://bookjumpr.com/l-frank-baum/ozma-of-oz
-- The Marvelous Land of Oz by L. Frank Baum: "My friends the children are responsible for this new "Oz Book," as they were for the last one, which was called The Land of Oz."
 
 ## Pachinko by Min Jin Lee (2017)
 https://bookjumpr.com/min-jin-lee/pachinko
@@ -5631,7 +5624,6 @@ https://bookjumpr.com/salman-rushdie/shalimar-the-clown
 
 ## Shallow Soil by Knut Hamsun (1893)
 https://bookjumpr.com/knut-hamsun/shallow-soil
-- Hunger by Knut Hamsun: "Since 'Hunger' was written Hamsun has published over thirty large works."
 - King Lear by William Shakespeare: "an emperor in defeat, King Lear, thoughts and thoughts."
 - Niels Lyhne by J. P. Jacobsen: "reminds one of the very greatest passages in that Danish classic, 'Niels Lyhne.'"
 
@@ -7425,7 +7417,6 @@ https://bookjumpr.com/philip-roth/the-ghost-writer
 
 ## The Girl from the Marsh Croft by Selma Lagerlöf (1908)
 https://bookjumpr.com/selma-lagerlof/the-girl-from-the-marsh-croft
-- The Story of Gösta Berling by Selma Lagerlöf: "How 'The Story of Gösta Berling' grew, and the years required to perfect it, is told in the author's unique literary autobiography."
 - Five Weeks in a Balloon by Jules Verne: "reading a Jules Verne romance entitled 'Six Weeks in a Balloon.' The book is much worn."
 - A Thousand and One Nights by Anonymous: "she strung together stories of the Sultans in 'Thousand and One Nights.'"
 - Heimskringla by Snorri Sturluson: "Walter Scott's heroes, and Snorre Sturleson's 'Kings of Romance.'"
@@ -7977,10 +7968,8 @@ https://bookjumpr.com/barbara-kingsolver/the-lacuna
 
 ## The Lady of the Lake by Walter Scott (1810)
 https://bookjumpr.com/walter-scott/the-lady-of-the-lake
-- Marmion by Walter Scott: "After the success of Marmion, I felt inclined to exclaim with Ulysses in the Odyssey:"
 - The Odyssey by Homer: "After the success of Marmion, I felt inclined to exclaim with Ulysses in the Odyssey:"
 - The Poems of Ossian by James Macpherson: "The Poems of Ossian had by their popularity sufficiently shown that, if writings on Highland subjects were qualified to interest the reader, mere national prejudices were, in the present day, very unlikely to interfere with their success."
-- Rokeby by Walter Scott: "Accordingly, those who choose to look at the Introduction to Rokeby, will be able to trace the steps by which I declined as a poet to figure as a novelist; as the ballad says, Queen Eleanor sunk at Charing Cross to rise again at Queenhithe."
 - Bevis of Hampton by Anonymous: "Ascapart, or Ascabart, makes a very material figure in the History of Bevis of Hampton, by whom he was conquered."
 - Letters from a Gentleman in the North of Scotland by Edmund Burt: "The author of the Letters from the North of Scotland, an officer of engineers, quartered at Inverness about 1720, who certainly cannot be deemed a favorable witness, gives the following account of the office, and of a bard, whom he heard exercise his talent of recitation:"
 - The History of the Rebellion and Civil Wars in England by Edward Hyde, Earl of Clarendon: "In a word, the law and humanity were alike: the one being more fallacious, and the other more barbarous, than in any age had been vented in such an authority' (Clarendon's History of the Rebellion)."
@@ -8279,10 +8268,6 @@ https://bookjumpr.com/jeffrey-eugenides/the-marriage-plot
 - Pearl by Anonymous: "a so-so paper on the linking words in Pearl"
 - Bus Stop by William Inge: "Dee Michaels, who played the Marilyn Monroe part in a campus production of Bus Stop"
 - The Vietnamization of New Jersey by Christopher Durang: "interesting bits from The Vietnamization of New Jersey and Mamet's Sexual Perversity in Chicago"
-
-## The Marvelous Land of Oz by L. Frank Baum (1904)
-https://bookjumpr.com/l-frank-baum/the-marvelous-land-of-oz
-- The Wonderful Wizard of Oz by L. Frank Baum: "After the publication of "The Wonderful Wizard of OZ" I began to receive letters from children, telling me of their pleasure in reading the story and asking me to "write something more" about the Scarecrow and the Tin Woodman."
 
 ## The Mask of Apollo by Mary Renault (1966)
 https://bookjumpr.com/mary-renault/the-mask-of-apollo
@@ -10528,13 +10513,6 @@ https://bookjumpr.com/herman-melville/typee
 - A History of the Earth and Animated Nature by Oliver Goldsmith
 - Robinson Crusoe by Daniel Defoe: "Robinson Crusoe could not have been more startled at the footprint in the sand than we were at this unwelcome discovery."
 
-## Typhoon by Joseph Conrad (1902)
-https://bookjumpr.com/joseph-conrad/typhoon
-- The End of the Tether by Joseph Conrad: "The period is that which follows on my connection with Blackwood's Magazine. I had just finished writing "The End of the Tether" and was casting about for some subject which could be developed in a shorter form than the tales in the volume of "Youth"…"
-- Tales of Unrest by Joseph Conrad: ""Falk" shares with one other of my stories ("The Return" in the "Tales of Unrest" volume) the distinction of never having been serialized."
-- The Return by Joseph Conrad: ""Falk" shares with one other of my stories ("The Return" in the "Tales of Unrest" volume) the distinction of never having been serialized."
-- One Day More by Joseph Conrad: "Of that story I will only say that it struck many people by its adaptability to the stage and that I was induced to dramatize it under the title of "One Day More"; up to the present my only effort in that direction."
-
 ## Ulysses by James Joyce (1922)
 https://bookjumpr.com/james-joyce/ulysses
 - The Tempest by William Shakespeare: "in Much Ado about Nothing, twice in As you like It, in The Tempest, in Hamlet"
@@ -10633,10 +10611,6 @@ https://bookjumpr.com/william-makepeace-thackeray/vanity-fair
 - The Sorrows of Young Werther by Johann Wolfgang von Goethe
 - Elective Affinities by Johann Wolfgang von Goethe
 - A Dictionary of the English Language by Samuel Johnson
-
-## Victory by Joseph Conrad (1915)
-https://bookjumpr.com/joseph-conrad/victory
-- Lord Jim by Joseph Conrad: "A very subordinate personage in Lord Jim as far back as the year 1899"
 
 ## Vile Bodies by Evelyn Waugh (1930)
 https://bookjumpr.com/evelyn-waugh/vile-bodies

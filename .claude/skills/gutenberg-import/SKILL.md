@@ -110,6 +110,9 @@ Fetching the file is not enough; actually read it before writing anything. For e
   - anything outside the main text written by the book's own author: a preface, introduction,
     dedication or notes by anyone else (printer, editor, translator, publisher) never counts, e.g.
     Caxton's preface to Le Morte d'Arthur
+  - the author's own preface, introduction or Author's Note listing their other books or publishing
+    history (e.g. Conrad's Author's Note to Typhoon, Baum's notes in the Oz books): only titles named in
+    the work itself count
   - operas, ballets, songs, hymns and tunes, even when named by title
   - the Bible (owner's call; other scriptures such as the Vedas and Upanishads do count)
   - fictional/in-world books that don't exist outside the story (e.g. Lovecraft's
