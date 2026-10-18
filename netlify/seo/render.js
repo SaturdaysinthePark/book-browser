@@ -128,7 +128,7 @@ function authorPage(D, slug) {
   const section = (sd, heading) => (sd.groups.length ? [
     `<h2>${esc(heading)}</h2>`, '<ul>',
     ...sd.groups.map((g) => `<li>${authorLink(g)} (${g[2].length}): ` +
-      g[2].map(([f, t]) => `${link(D, f)} mentions ${link(D, t)}`).join('; ') + '</li>'),
+      [...g[2].reduce((m, [f, t]) => m.set(f, [...(m.get(f) || []), [f, t]]), new Map())].map(([f, ps]) => `${link(D, f)} mentions ${ps.map(([, t]) => link(D, t)).join(', ')}`).join('; ') + '</li>'),
     '</ul>',
     sd.own ? `<p>Plus ${plural(sd.own, 'mention', 'mentions')} between ${esc(name)}'s own books.</p>` : '',
   ] : []);

@@ -2078,16 +2078,25 @@
         return h('a', { href: '/' + b.id, onClick: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }), style: { color: 'inherit', fontStyle: 'italic' } }, b.title);
       };
       var groupEl = function (g, dir) {
+        // One row per mentioning book: "From → A, B, C" rather than repeating From on every line.
+        var rows = [], byFrom = {};
+        g.books.forEach(function (p) {
+          var r = byFrom[p.from.id];
+          if (!r) { r = byFrom[p.from.id] = { from: p.from, to: [] }; rows.push(r); }
+          r.to.push(p.to);
+        });
         return h('li', { key: g.slug, style: { padding: '12px 0', borderBottom: '1px solid var(--ink)', listStyle: 'none' } },
           h('div', { style: { display: 'flex', alignItems: 'center', gap: '10px' } },
             self.authorBadge(g.name, 28),
             h('a', { href: '/' + g.slug, onClick: self._linkGo(function () { self.goAuthor(g.slug); }), style: { color: 'inherit', fontWeight: 700, fontSize: '15px', textDecoration: 'none', flex: 1, minWidth: 0 } }, g.name),
             h('span', { style: { fontFamily: "'IBM Plex Mono', monospace", fontSize: '11px', color: dir === 'out' ? 'var(--accent)' : 'var(--inbound)' } }, '×' + g.books.length)),
           h('div', { style: { fontSize: '13px', lineHeight: 1.55, marginTop: '6px', paddingLeft: '38px', opacity: 0.85 } },
-            g.books.slice(0, 6).map(function (p, i) {
-              return h('div', { key: i }, bookA(p.from), h('span', { style: { opacity: 0.5 } }, ' → '), bookA(p.to));
+            rows.slice(0, 6).map(function (r) {
+              var tos = [];
+              r.to.forEach(function (b, i) { if (i) tos.push(', '); tos.push(bookA(b)); });
+              return h('div', { key: r.from.id }, bookA(r.from), h('span', { style: { opacity: 0.5 } }, ' → '), tos);
             }),
-            g.books.length > 6 ? h('div', { style: { opacity: 0.55 } }, '+ ' + (g.books.length - 6) + ' more') : null));
+            rows.length > 6 ? h('div', { style: { opacity: 0.55 } }, '+ ' + (rows.length - 6) + ' more') : null));
       };
       var sideEl = function (sd, dir, label) {
         if (!sd.groups.length && !sd.own.length) return null;
