@@ -190,16 +190,9 @@
         h('div', { className: 'bjx-mini-map', ref: this._xMiniRef(), role: 'button', tabIndex: 0, 'aria-label': next ? 'Zoom out to the star map' : 'Open the full star map',
           onKeyDown: function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openMap(); } } })));
     }
-    var hasAu = b.author && b.author !== 'Anonymous', gl = this.genreOf(b).name;
-    kids.push(h('div', { key: 'head', className: 'bjx-head' },
-      h('div', { className: 'bjx-hcv' }, this.cover(b, next ? 'vt-hero' : null)),
-      h('div', { className: 'bjx-hmeta' },
-        h('div', { className: 'eyebrow' }, next ? 'Book' + (gl === 'MISC' ? '' : ' · ' + this.xGenreLabel(gl).toLowerCase()) : this._netMode && this._netMode() === 'atlas' ? 'Selected book' : 'In the middle'),
-        h(next ? 'h1' : 'h2', null, b.title),
-        next && hasAu
-          ? h('div', { className: 'by' }, h('a', { className: 'lnk', href: '/' + self.authorSlug(b.author), onClick: self._linkGo(function () { self.goAuthor(self.authorSlug(b.author)); }) }, b.author), yl ? '  ·  ' + yl : '')
-          : h('div', { className: 'by' }, [b.author, yl].filter(Boolean).join('  ·  ')),
-        h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + b.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + b.in.length))));
+    kids.push(this.bookHead(b, {
+      eyebrow: next ? null : this._netMode && this._netMode() === 'atlas' ? 'Selected book' : 'In the middle',
+      tag: next ? 'h1' : 'h2', coverCls: next ? 'vt-hero' : null }));
     if (b.synopsis) kids.push(h('p', { key: 'syn', className: 'bjx-syn' }, b.synopsis));
     kids.push(h('div', { key: 'act', className: 'bjx-act' },
       next ? h('button', { className: 'pill solid', onClick: function () { self.xZoomOut(b.id); } }, 'Zoom out to the map ⤢')
@@ -247,6 +240,61 @@
       kids.push(h('p', { key: 'tip', className: 'bjx-note tip' }, 'Hover a book to see how it connects. Click to jump to it.'));
     }
     return h('aside', { className: 'bjx-side' }, kids);
+  };
+
+  // Cover, eyebrow, title, author link and counts: the top of the book page's sidebar and the network map's.
+  // o: { eyebrow (default "Book · genre"), tag ('h2'), coverCls, href (title and cover link to the book) }
+  P.bookHead = function (b, o) {
+    o = o || {};
+    var self = this, yl = this.yearLabel(b.year), gl = this.genreOf(b).name;
+    var eyebrow = o.eyebrow || 'Book' + (gl === 'MISC' ? '' : ' · ' + this.xGenreLabel(gl).toLowerCase());
+    var go = this._linkGo(function () { self.xOpenBook(b.id); });
+    return h('div', { key: 'head', className: 'bjx-head' },
+      h('div', { className: 'bjx-hcv' }, o.href ? h('a', { href: '/' + b.id, onClick: go, 'aria-label': b.title }, this.cover(b, o.coverCls)) : this.cover(b, o.coverCls)),
+      h('div', { className: 'bjx-hmeta' },
+        h('div', { className: 'eyebrow' }, eyebrow),
+        h(o.tag || 'h2', null, o.href ? h('a', { className: 'bjx-tlink', href: '/' + b.id, onClick: go }, b.title) : b.title),
+        h('div', { className: 'by' }, this.authorEl(b.author), b.author && yl ? '  ·  ' : '', yl || ''),
+        h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + b.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + b.in.length)));
+  };
+  // The network map's sidebar (wide screens): the selected book with a big Open button and a peek at its
+  // links, or, with nothing selected, how to start and a few famous books to start from.
+  P.mapSide = function (sel) {
+    var self = this, books = this.books, kids = [];
+    var focus = function (id) { self.mapFocus(id); };
+    var row = function (id) {
+      var bk = books[id];
+      return h('button', { key: id, className: 'bjx-srow', onClick: function () { focus(id); } },
+        h('span', { className: 'cv' }, self.cover(bk)),
+        h('span', { className: 'tx' }, h('span', { className: 't' }, bk.title), h('span', { className: 'a' }, bk.author || '')));
+    };
+    if (!sel) {
+      kids.push(h('div', { key: 'intro', className: 'bjx-sintro' },
+        h('div', { className: 'eyebrow' }, 'The network'),
+        h('h2', null, 'Pick a star to see the book'),
+        h('p', null, 'Every dot is a book; every line is one book mentioning another. Click a dot to see its links, then open its page.')));
+      var top = (this.statsData ? this.statsData().byBook : []).slice(0, 5);
+      if (top.length) kids.push(h('div', { key: 'start', className: 'bjx-slist' },
+        h('div', { className: 'eyebrow' }, 'Start with'), top.map(function (b) { return row(b.id); })));
+      return h('aside', { className: 'bjx-side bjx-mapside' }, kids);
+    }
+    kids.push(this.bookHead(sel, { href: true }));
+    if (sel.synopsis) kids.push(h('p', { key: 'syn', className: 'bjx-syn' }, sel.synopsis));
+    var open = this._linkGo(function () { self.xOpenBook(sel.id); });
+    kids.push(h('div', { key: 'act', className: 'bjx-act bjx-sact' },
+      h('a', { className: 'pill solid bjx-open', href: '/' + sel.id, onClick: open }, 'Open book page →'),
+      h('button', { className: 'pill', onClick: function () { self.mapFocus(null); } }, 'Clear')));
+    var rank = function (x, y) { return (books[y].in.length + books[y].out.length) - (books[x].in.length + books[x].out.length); };
+    [['out', 'Mentions'], ['in', 'Mentioned by']].forEach(function (d) {
+      var ids = sel[d[0]].filter(function (id) { return books[id]; }).sort(rank);
+      if (!ids.length) return;
+      kids.push(h('div', { key: d[0], className: 'bjx-slist' },
+        h('div', { className: 'eyebrow' }, h('i', { className: 'dot ' + d[0] }), d[1] + ' · ' + ids.length),
+        ids.slice(0, 3).map(row),
+        ids.length > 3 ? h('a', { className: 'bjx-smore', href: '/' + sel.id, onClick: open }, '+ ' + (ids.length - 3) + ' more on the book page') : null));
+    });
+    kids.push(h('p', { key: 'tip', className: 'bjx-note tip' }, 'Tip: double-click a star to open its page.'));
+    return h('aside', { className: 'bjx-side bjx-mapside' }, kids);
   };
 
   // ---- trail -----------------------------------------------------------------------------
@@ -753,14 +801,14 @@
     o = o || {};
     return h('div', { className: 'bjx-fcard' },
       h('button', { className: 'bjx-fx', 'aria-label': 'Close', title: 'Close (Esc)', onClick: function () { self.mapFocus(null); } }, '×'),
-      h('div', { className: 'bjx-fcv' }, this.cover(sel)),
+      h('a', { className: 'bjx-fcv', href: '/' + sel.id, 'aria-label': sel.title, onClick: this._linkGo(function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); }) }, this.cover(sel)),
       h('div', { className: 'bjx-fmeta' },
         h('div', { className: 'eyebrow' }, o.eyebrow || (g === 'Unsorted' || g === 'Other' ? 'Selected' : g)),
         h('h3', null, sel.title),
         h('div', { className: 'by' }, self.authorEl(sel.author), sel.author && yl ? '  ·  ' : '', yl || ''),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
         h('div', { className: 'bjx-act' },
-          h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'))));
+          h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open book →'))));
   };
   // "Search by book or author…" for the map views; picking one selects it (mapFocus).
   P.mapSearch = function () {
@@ -778,8 +826,9 @@
   P.starMap = function (focus, lk, extra) {
     var self = this, books = this.books, sel = focus && books[focus] ? books[focus] : null;
     var m = function () { return self._stars; };
-    var card = sel ? this.mapCard(sel) : null;
-    return h('div', { className: 'bjx-full bjx-stars' },
+    var wide = (this.state.vw || window.innerWidth) >= 1000;
+    var card = sel && !wide ? this.mapCard(sel) : null;
+    return h('div', { className: 'bjx-full bjx-stars' + (wide ? ' has-side' : '') }, h('div', { className: 'bjx-mapcol' },
       h('div', { key: 'map:' + (lk || 'stars'), className: 'bjx-full-map', ref: this._starsRef(lk) }),
       h('div', { className: 'bjx-fbar' },
         this.mapSearch(),
@@ -796,7 +845,7 @@
         var zoom = lk === 'wrap' ? 'scroll to travel · ' + mod + ' + scroll or pinch to zoom' : 'scroll or pinch to zoom';
         return sel ? 'Esc to clear · ' + zoom : zoom + ' · click a star';
       })())),
-      card, extra || null);
+      card, extra || null), wide ? this.mapSide(sel) : null);
   };
 
   // ---- morphs between the fan and the star map ---------------------------------------------

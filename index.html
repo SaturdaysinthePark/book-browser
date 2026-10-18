@@ -641,6 +641,28 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   font:12px 'IBM Plex Mono',monospace;font-style:normal;color:var(--ink);}
 .bjx-mchip.c{background:var(--ink);color:var(--paper);font:italic 22px 'Instrument Serif',serif;justify-content:center;}
 .stars-page .bjx-full{position:fixed;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:5;animation:none;}
+/* network map: map column + the shared sidebar (wide screens; below 1000px the bottom card stands in) */
+.bjx-mapcol{position:absolute;inset:0;}
+.bjx-stars.has-side{display:grid;grid-template-columns:minmax(0,1fr) 380px;}
+.bjx-stars.has-side .bjx-mapcol{position:relative;inset:auto;min-width:0;}
+.bjx-mapside{position:relative;top:auto;height:100%;min-height:0;max-height:none;}
+.bjx-mapside>*{flex-shrink:0;}
+.bjx-mapside .bjx-tlink{color:inherit;text-decoration:none;}
+.bjx-mapside .bjx-tlink:hover{color:var(--accent);}
+.bjx-sintro h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;line-height:1.05;margin:8px 0 10px;}
+.bjx-sintro p{margin:0;font-size:14px;line-height:1.6;color:rgba(20,20,20,.75);}
+.bjx-sact .bjx-open{flex:1 1 100%;justify-content:center;text-align:center;text-decoration:none;padding:13px 18px;font-size:13px;}
+.bjx-slist{display:flex;flex-direction:column;}
+.bjx-slist .eyebrow{display:flex;align-items:center;margin-bottom:4px;}
+.bjx-srow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid rgba(20,20,20,.12);padding:8px 4px;cursor:pointer;font-family:inherit;color:inherit;}
+.bjx-srow:hover{background:var(--paper);}
+.bjx-srow .cv{flex:none;width:26px;}
+.bjx-srow .tx{min-width:0;display:flex;flex-direction:column;}
+.bjx-srow .t{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bjx-srow .a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bjx-smore{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink);margin-top:8px;}
+a.bjx-fcv{display:block;}
+.bjx-fcard .pill.solid{background:var(--accent);border-color:var(--ink);color:#fff;font-weight:600;}
 .stars-page .bjx-flegend{bottom:calc(60px + env(safe-area-inset-bottom));}
 @media (max-width:999px){.bkn-lists{grid-template-columns:1fr;gap:28px;}}
 @media (max-width:759px){
