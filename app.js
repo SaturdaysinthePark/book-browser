@@ -1146,6 +1146,16 @@
   P.authorSub = function (a) {
     return a.books.length + (a.books.length === 1 ? ' work' : ' works') + (a.mentions ? ' · cited ' + a.mentions : '');
   };
+  // An author name that opens their page. Inside another link (a whole-row <a>) it can't be an <a> itself,
+  // so `nested` gives a span that acts as one and keeps the click from reaching the row.
+  P.authorEl = function (author, nested) {
+    if (!author || author === 'Anonymous') return author || '';
+    var self = this, aslug = this.authorSlug(author);
+    if (!nested) return h('a', { className: 'au-lnk', href: '/' + aslug, onClick: this._linkGo(function () { self.goAuthor(aslug); }) }, author);
+    var go = function (e) { e.preventDefault(); e.stopPropagation(); self.goAuthor(aslug); };
+    return h('span', { className: 'au-lnk', role: 'link', tabIndex: 0, onClick: go,
+      onKeyDown: function (e) { if (e.key === 'Enter') go(e); } }, author);
+  };
   // Initials badge standing in for a cover on author rows.
   P.authorBadge = function (name, size) {
     var ini = String(name).split(/\s+/).filter(Boolean).map(function (w) { return w[0]; });
@@ -2026,7 +2036,7 @@
         var card = function (id, src, ment) {
           var bk = books[id];
           var yl2 = self.yearLabel(bk.year);
-          return { cv: self.cover(bk), title: bk.title, author: (bk.author || 'author unknown') + (yl2 ? '  ·  ' + yl2 : ''), sub: self.subFor(bk),
+          return { cv: self.cover(bk), title: bk.title, author: [bk.author ? self.authorEl(bk.author) : 'author unknown', yl2 ? '  ·  ' + yl2 : ''], sub: self.subFor(bk),
             note: self.noteEl(src, ment), href: '/' + id, go: self._linkGo(function (e) { self.goBook(id, e && e.currentTarget); }) };
         };
         var byDeg = function (x, y) { return (books[y].in.length + books[y].out.length) - (books[x].in.length + books[x].out.length); };
@@ -2125,7 +2135,7 @@
       vals.s_query = q;
       vals.s_results = res.map(function (b) {
         var rowStyle = { display: 'flex', alignItems: 'center', gap: m ? '12px' : '22px', textAlign: 'left', background: 'none', border: 'none', borderBottom: '1.5px solid var(--ink)', cursor: 'pointer', padding: '16px 8px', fontFamily: 'inherit', width: '100%', boxSizing: 'border-box', color: 'inherit', textDecoration: 'none' };
-        return { cv: self.cover(b), rowStyle: rowStyle, title: b.title, author: b.author || 'author unknown', sub: self.subFor(b), href: '/' + b.id, go: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) };
+        return { cv: self.cover(b), rowStyle: rowStyle, title: b.title, author: b.author ? self.authorEl(b.author, true) : 'author unknown', sub: self.subFor(b), href: '/' + b.id, go: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) };
       });
       var sa = this.authorMatches(q).slice(0, 6);
       vals.s_authors = sa.map(function (a) {
@@ -2155,7 +2165,7 @@
       var max = byBook.length ? byBook[0].in.length : 1;
       vals.topBooks = byBook.map(function (b, i) {
         return {
-          rank: String(i + 1).padStart(2, '0'), title: b.title, author: b.author || '', count: b.in.length,
+          rank: String(i + 1).padStart(2, '0'), title: b.title, author: self.authorEl(b.author, true), count: b.in.length,
           bar: { height: '100%', width: (b.in.length / max * 100) + '%', background: 'var(--accent)', borderRadius: 3 },
           href: '/' + b.id, go: self._linkGo(function () { self.goBook(b.id); })
         };

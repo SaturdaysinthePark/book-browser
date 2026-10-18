@@ -423,7 +423,7 @@
         h('div', { className: 'bjx-fmeta' },
           h('div', { className: 'eyebrow' }, sel.id === st.route.focus ? 'You are here' : 'Selected star'),
           h('h3', null, sel.title),
-          h('div', { className: 'by' }, [sel.author, yl].filter(Boolean).join('  ·  ')),
+          h('div', { className: 'by' }, self.authorEl(sel.author), sel.author && yl ? '  ·  ' : '', yl || ''),
           h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
           h('div', { className: 'bjx-act' },
             sel.id === st.route.focus
@@ -593,7 +593,7 @@
           h('div', { className: 'bkn-body' },
             h('a', { className: 'bkn-t', href: '/' + id, onFocus: tabs ? null : function () { self.setState({ xHover: id }); },
               onClick: self._linkGo(function (e) { self.xJump(id, e.currentTarget.closest('.bkn-card').querySelector('.bkn-cv')); }) }, bk.title),
-            h('div', { className: 'bkn-a' }, (bk.author || 'author unknown') + (yl ? '  ·  ' + yl : ''), mutual ? h('span', { className: 'mut', title: 'they mention each other' }, ' ⇄') : null),
+            h('div', { className: 'bkn-a' }, bk.author ? self.authorEl(bk.author) : 'author unknown', yl ? '  ·  ' + yl : '', mutual ? h('span', { className: 'mut', title: 'they mention each other' }, ' ⇄') : null),
             out ? self.noteEl(b.id, id) : self.noteEl(id, b.id)));
       });
       return h('section', { key: side, className: 'bkn-col ' + side },
@@ -757,7 +757,7 @@
       h('div', { className: 'bjx-fmeta' },
         h('div', { className: 'eyebrow' }, o.eyebrow || (g === 'Unsorted' || g === 'Other' ? 'Selected' : g)),
         h('h3', null, sel.title),
-        h('div', { className: 'by' }, [sel.author, yl].filter(Boolean).join('  ·  ')),
+        h('div', { className: 'by' }, self.authorEl(sel.author), sel.author && yl ? '  ·  ' : '', yl || ''),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), 'mentions ' + sel.out.length, h('i', { className: 'dot in' }), 'mentioned by ' + sel.in.length),
         h('div', { className: 'bjx-act' },
           h('button', { className: 'pill solid', onClick: function () { if (o.open) o.open(sel.id); else self.xOpenBook(sel.id); } }, 'Open →'))));
