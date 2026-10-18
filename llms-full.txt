@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,239 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,227 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -378,17 +378,13 @@ https://bookjumpr.com/barack-obama/a-promised-land
 
 ## A Room of One's Own by Virginia Woolf (1929)
 https://bookjumpr.com/virginia-woolf/a-room-of-one-s-own
-- Lycidas by John Milton
-- The History of Henry Esmond by William Makepeace Thackeray
-- King Lear by William Shakespeare
-- Antony and Cleopatra by William Shakespeare
-- The French Revolution: A History by Thomas Carlyle
-- Madame Bovary by Gustave Flaubert
-- The Golden Bough by James George Frazer
-- History of England by G. M. Trevelyan
-- Emily Davies and Girton College by Barbara Stephen
-- The Cause by Ray Strachey
-- The Journal of a Tour to the Hebrides by James Boswell
+- Lycidas by John Milton: "It was LYCIDAS perhaps, and Lamb wrote how it shocked him to think it possible that any word in LYCIDAS could have been different from what it is."
+- The History of Henry Esmond by William Makepeace Thackeray: "the manuscript of Thackeray's ESMOND is also preserved. The critics often say that ESMOND is Thackeray's most perfect novel."
+- King Lear by William Shakespeare: "What was Shakespeare's state of mind, for instance, when he wrote LEAR and ANTONY AND CLEOPATRA?"
+- Antony and Cleopatra by William Shakespeare: "What was Shakespeare's state of mind, for instance, when he wrote LEAR and ANTONY AND CLEOPATRA?"
+- The French Revolution: A History by Thomas Carlyle: "we do know what Carlyle went through when he wrote the FRENCH REVOLUTION"
+- Madame Bovary by Gustave Flaubert: "what Flaubert went through when he wrote MADAME BOVARY; what Keats was going through when he tried to write poetry"
+- History of England by G. M. Trevelyan: "I went, therefore, to the shelf where the histories stand and took down one of the latest, Professor Trevelyan's HISTORY OF ENGLAND."
 
 ## A Room with a View by E. M. Forster (1908)
 https://bookjumpr.com/e-m-forster/a-room-with-a-view
@@ -1263,12 +1259,12 @@ https://bookjumpr.com/lew-wallace/ben-hur
 
 ## Between the World and Me by Ta-Nehisi Coates (2015)
 https://bookjumpr.com/ta-nehisi-coates/between-the-world-and-me
-- Destruction of Black Civilization by Chancellor Williams
-- Children of the Sun by George Wells Parker
-- Wonderful Ethiopians of the Ancient Cushite Empire by Drusilla D Houston
-- The African Origin of Civilization by Cheikh Anta Diop
-- Breakfast at Tiffany's by Truman Capote
-- Out of the House of Bondage by Thavolia Glymph
+- Destruction of Black Civilization by Chancellor Williams: "When I came to Howard, Chancellor Williams's Destruction of Black Civilization was my Bible."
+- Children of the Sun by George Wells Parker: "It was in the promise behind their grand titles— Children of the Sun, Wonderful Ethiopians of the Ancient Kushite Empire, The African Origins of Civilization."
+- Wonderful Ethiopians of the Ancient Cushite Empire by Drusilla D Houston: "It was in the promise behind their grand titles— Children of the Sun, Wonderful Ethiopians of the Ancient Kushite Empire, The African Origins of Civilization."
+- The African Origin of Civilization by Cheikh Anta Diop: "It was in the promise behind their grand titles— Children of the Sun, Wonderful Ethiopians of the Ancient Kushite Empire, The African Origins of Civilization."
+- Breakfast at Tiffany's by Truman Capote: "fell in love with New York through culture, through Crossing Delancey, Breakfast at Tiffany's, Working Girl, Nas, and Wu-Tang."
+- Out of the House of Bondage by Thavolia Glymph: "I had not yet been to Gettysburg. I had not read Thavolia Glymph."
 
 ## Beyond Good and Evil by Friedrich Nietzsche (1886)
 https://bookjumpr.com/friedrich-nietzsche/beyond-good-and-evil
@@ -2216,19 +2212,19 @@ https://bookjumpr.com/sinclair-lewis/elmer-gantry
 
 ## Elon Musk: Tesla, SpaceX, and the Quest for a Fantastic Future by Ashlee Vance (2015)
 https://bookjumpr.com/ashlee-vance/elon-musk-tesla-spacex-and-the-quest-for-a-fantastic-future
-- The Hitchhiker's Guide to the Galaxy by Douglas Adams
-- The Lord of the Rings by J R R Tolkien
-- The Moon is a Harsh Mistress by Robert A Heinlein
-- Encyclopaedia Britannica by Anonymous
-- The Prophet by Khalil Gibran
-- The Paypal Wars: Battles with eBay, the Media, the Mafia, and the Rest of Planet Earth by Eric M Jackson
-- Rocket Propulsion Elements by George P Sutton
-- Fundamentals of Astrodynamics by Roger R. Bate, Donald D. Mueller, Jerry E. White
-- Aerothermodynamics of Gas Turbine and Rocket Propulsion by Gordon C Oates
-- Pride and Prejudice by Jane Austen
-- The Great Stagnation by Tyler Cowen
-- Average is Over by Tyler Cowen
-- Made in the USA by Vaclac Smil
+- The Hitchhiker's Guide to the Galaxy by Douglas Adams: "He listed The Lord of the Rings, Isaac Asimov's Foundation series, and Robert Heinlein's The Moon Is a Harsh Mistress as some of his favorites, alongside The Hitchhiker's Guide to the Galaxy."
+- The Lord of the Rings by J R R Tolkien: "He listed The Lord of the Rings, Isaac Asimov's Foundation series, and Robert Heinlein's The Moon Is a Harsh Mistress as some of his favorites, alongside The Hitchhiker's Guide to the Galaxy."
+- The Moon is a Harsh Mistress by Robert A Heinlein: "He listed The Lord of the Rings, Isaac Asimov's Foundation series, and Robert Heinlein's The Moon Is a Harsh Mistress as some of his favorites, alongside The Hitchhiker's Guide to the Galaxy."
+- Encyclopaedia Britannica by Anonymous: "So then, I started to read the Encyclopaedia Britannica. That was so helpful."
+- The Prophet by Khalil Gibran: "he also gifted Wilson a copy of The Prophet filled with handwritten romantic musings."
+- The Paypal Wars: Battles with eBay, the Media, the Mafia, and the Rest of Planet Earth by Eric M Jackson: "Eric Jackson, an early Confinity employee, wrote The PayPal Wars: Battles with eBay, the Media, the Mafia, and the Rest of Planet Earth in 2004 and recounted the company's tumultuous journey."
+- Rocket Propulsion Elements by George P Sutton: "From Cantrell and others, he'd borrowed Rocket Propulsion Elements, Fundamentals of Astrodynamics, and Aerothermodynamics of Gas Turbine and Rocket Propulsion"
+- Fundamentals of Astrodynamics by Roger R. Bate, Donald D. Mueller, Jerry E. White: "From Cantrell and others, he'd borrowed Rocket Propulsion Elements, Fundamentals of Astrodynamics, and Aerothermodynamics of Gas Turbine and Rocket Propulsion"
+- Aerothermodynamics of Gas Turbine and Rocket Propulsion by Gordon C Oates: "From Cantrell and others, he'd borrowed Rocket Propulsion Elements, Fundamentals of Astrodynamics, and Aerothermodynamics of Gas Turbine and Rocket Propulsion"
+- Pride and Prejudice by Jane Austen: "The public learned that he bought Justine a nineteenth-century edition of Pride and Prejudice"
+- The Great Stagnation by Tyler Cowen: "In The Great Stagnation, Cowen bemoaned the lack of big technological advances and argued that the American economy has slowed and wages have been depressed as a result."
+- Average is Over by Tyler Cowen: "In his next book, Average Is Over, Cowen predicted an unromantic future in which a great divide had occurred between the Haves and the Have Nots."
+- Made in the USA by Vaclac Smil: "One of Smil's latest works is Made in the USA, an exploration of America's past"
 
 ## Emile by Jean-Jacques Rousseau (1762)
 https://bookjumpr.com/jean-jacques-rousseau/emile
@@ -2937,20 +2933,17 @@ https://bookjumpr.com/walter-scott/guy-mannering
 
 ## Hard Boiled Wonderland and the End of the World by Haruki Murakami (1985)
 https://bookjumpr.com/haruki-murakami/hard-boiled-wonderland-and-the-end-of-the-world
-- Time Traveler by Norman and Jeanne MacKenzie
-- Book of Imaginary Beings by Jorge Luis Borges
-- Rudin by Ivan Turgenev
-- Spring Torrents by Ivan Turgenev
-- The Red and the Black by Stendhal
-- The Charterhouse of Parma by Stendhal
-- Alice's Adventures in Wonderland by Lewis Carroll
-- Les Chouans by Honoré de Balzac
-- The Wizard of Oz by L Frank Baum
-- The Greening of America by Charles A Reich
-- The Razor's Edge by W. Somerset Maugham
-- The Brothers Karamazov by Fyodor Dostoevsky
-- The Lost World by Arthur Conan Doyle
-- The Stranger by Albert Camus
+- Book of Imaginary Beings by Jorge Luis Borges: "One was Archaeology of Animals, by Burtland Cooper, and the other Jorge Luis Borges's Book of Imaginary Beings."
+- Rudin by Ivan Turgenev: "I climbed into what there was of my bed with Turgenev's Rudin. Actually, I'd wanted to read Spring Torrents, but I would never have found it in my shambles of an apartment."
+- Spring Torrents by Ivan Turgenev: "I climbed into what there was of my bed with Turgenev's Rudin. Actually, I'd wanted to read Spring Torrents, but I would never have found it in my shambles of an apartment."
+- The Red and the Black by Stendhal: "together with Stendhal's The Red and the Black. What can I say? I seemed to be in the mood for passe literature."
+- The Charterhouse of Parma by Stendhal: "That much I understood when I read Stendhal's Charterhouse of Parma years ago."
+- Les Chouans by Honoré de Balzac: "The girl sat in a corner, reading Balzac's Chouans."
+- The Wizard of Oz by L Frank Baum: "What was this about unicorns and a high wall? The Wizard ofOz had to be more plausible."
+- The Greening of America by Charles A Reich: "I read The Greening of America, and I saw Easy Rider three times."
+- The Razor's Edge by W. Somerset Maugham: ""I love Maugham. I've read The Razor's Edge three times."
+- The Brothers Karamazov by Fyodor Dostoevsky: ""Ever read The Brothers Karamazov" I asked. "Once, a long time ago." "Well, toward the end, Alyosha is speaking to a young student named Kolya Krasotkin."
+- The Lost World by Arthur Conan Doyle: "Someplace, say, on a high plateau, like in Conan Doyle's Lost World. Or down deep, like a crater."
 
 ## Hard Times by Charles Dickens (1854)
 https://bookjumpr.com/charles-dickens/hard-times
@@ -4390,13 +4383,12 @@ https://bookjumpr.com/joanna-rakoff/my-salinger-year
 
 ## Napoleon: A Life by Andrew Roberts (2014)
 https://bookjumpr.com/andrew-roberts/napoleon-a-life
-- Clisson et Eugene by Napoleon
-- The Sorrows of Young Werther by Johann Wolfgang von Goethe
-- Confession of General Bonaparte to he Abbe Maury by Jean Sarrazin
-- Caesar's Wars by Julius Caesar
-- Henry V by William Shakespeare
-- The Spirit of the Laws by Montesquieu
-- Voyages by James Cook
+- Clisson et Eugene by Napoleon: "Napoleon plenty of time to write a romantic novella entitled Clisson et Eugénie, a swansong for his unrequited love affair with Désirée."
+- The Sorrows of Young Werther by Johann Wolfgang von Goethe: "it was either consciously or unconsciously influenced by Goethe's celebrated novel of 1774, The Sorrows of Young Werther, which Napoleon read no fewer than six times during the Egyptian campaign"
+- Confession of General Bonaparte to he Abbe Maury by Jean Sarrazin: "In 1811 General Jean Sarrazin published a book in London entitled Confession of General Buonaparté to the Abbé Maury."
+- Henry V by William Shakespeare: "Shakespeare's St Crispin Day's speech from Henry V can also be detected in such lines"
+- The Spirit of the Laws by Montesquieu: "including Captain Cook's three-volume Voyages, Montesquieu's The Spirit of the Laws, Goethe's Sorrows of Young Werther and books by Livy, Thucydides, Plutarch, Tacitus and, of course, Julius Caesar."
+- Voyages by James Cook: "Napoleon also took 125 books of history, geography, philosophy and Greek mythology in a specially constructed library, including Captain Cook's three-volume Voyages, Montesquieu's The Spirit of the Laws, Goethe's Sorrows of Young Werther"
 
 ## Narrative of the Life of Frederick Douglass by Frederick Douglass (1845)
 https://bookjumpr.com/frederick-douglass/narrative-of-the-life-of-frederick-douglass
@@ -5603,12 +5595,12 @@ https://bookjumpr.com/theodore-dreiser/sister-carrie
 
 ## Slaughterhouse-Five by Kurt Vonnegut (1969)
 https://bookjumpr.com/kurt-vonnegut/slaughterhouse-five
-- Dresden, History, Stage and Gallery by Mary Endell
-- Extraordinary Popular Delusions and the Madness of Crowds by Charles Mackay, LL. D
-- The Execution of Private Slovik by William Bradford Huie
-- Valley of the Dolls by Jacqueline Susann
-- The Red Badge of Courage by Stephen Crane
-- The Destruction of Dresden by David Irving
+- Dresden, History, Stage and Gallery by Mary Endell: "It was Dresden, History, Stage and Gallery, by Mary Endell. It was published in 1908, and its introduction began:"
+- Extraordinary Popular Delusions and the Madness of Crowds by Charles Mackay, LL. D: "O’Hare looked it up in a book he had, Extraordinary Popular Delusions and the Madness of Crowds, by Charles Mackay, LL. D."
+- The Execution of Private Slovik by William Bradford Huie: "discovered that it was a book, The Execution of Private Slovik, by William Bradford Huie."
+- Valley of the Dolls by Jacqueline Susann: "They had only one actual book in English which would be placed in a Tralfamadorian museum. It was Valley of the Dolls, by Jacqueline Susann."
+- The Red Badge of Courage by Stephen Crane: "He was given a book to read. The book was The Red Badge of Courage, by Stephen Crane. Derby had read it before."
+- The Destruction of Dresden by David Irving: "One of the books that Lily had brought Rumfoord was The Destruction of Dresden, by an Englishman named David Irving."
 
 ## Slouching Towards Bethlehem by Joan Didion (1968)
 https://bookjumpr.com/joan-didion/slouching-towards-bethlehem
@@ -5706,13 +5698,12 @@ https://bookjumpr.com/joan-didion/south-and-west
 
 ## Special Topics in Calamity Physics by Marisha Pessl (2006)
 https://bookjumpr.com/marisha-pessl/special-topics-in-calamity-physics
-- War and Peace by Leo Tolstoy
-- The Powers That Be by David Halberstam
-- The Motorcycle Diaries by Ernesto Che Guevara
-- On the Road by Jack Kerouac
-- The Great Gatsby by F. Scott Fitzgerald
-- The Importance of Being Earnest by Oscar Wilde
-- The Sound and Fury by William Faulkner
+- War and Peace by Leo Tolstoy: "I’d snuck into the murky stacks of the library to eat my lunch and read War and Peace (Tolstoy, 1865–69)"
+- The Motorcycle Diaries by Ernesto Che Guevara: "“There’s no education superior to travel. Think of The Motorcycle Diaries, or what Montrose St. Millet wrote in Ages of Exploration:"
+- On the Road by Jack Kerouac: "Driving with Dad wasn’t cathartic, mind-freeing driving (see On the Road, Kerouac, 1957)."
+- The Great Gatsby by F. Scott Fitzgerald: "Sixty Minutes of an Impressive Novel (selections included The Great Gatsby [Fitzgerald, 1925] and The Sound and the Fury [Faulkner, 1929])"
+- The Importance of Being Earnest by Oscar Wilde: "featuring such plays as Mrs. Warren’s Profession (Shaw, 1894), The Importance of Being Earnest (Wilde, 1895)"
+- The Sound and Fury by William Faulkner: "Sixty Minutes of an Impressive Novel (selections included The Great Gatsby [Fitzgerald, 1925] and The Sound and the Fury [Faulkner, 1929])"
 
 ## Spoon River Anthology by Edgar Lee Masters (1915)
 https://bookjumpr.com/edgar-lee-masters/spoon-river-anthology
@@ -6052,9 +6043,9 @@ https://bookjumpr.com/ben-jonson/the-alchemist
 
 ## The Alienist by Caleb Carr (1994)
 https://bookjumpr.com/caleb-carr/the-alienist
-- Julius Caesar by William Shakespeare
-- Principles of Psychology by William James
-- The Moonstone by Wilkie Collins
+- Julius Caesar by William Shakespeare: "they were learning English by studying Shakespeare. When I was born they’d just started, with Julius Caesar."
+- Principles of Psychology by William James: "for in the vicissitudes of our outer experience we are constantly liable to meet the same thing in the midst of differing companions. William James, The Principles of Psychology"
+- The Moonstone by Wilkie Collins: "The Moonstone that Lucius Isaacson had lent him and began very contentedly reading."
 
 ## The Amateur Cracksman by E. W. Hornung (1899)
 https://bookjumpr.com/e-w-hornung/the-amateur-cracksman
@@ -6419,10 +6410,8 @@ https://bookjumpr.com/malcolm-x/the-autobiography-of-malcolm-x
 
 ## The Autobiography of Red by Anne Carson (1998)
 https://bookjumpr.com/anne-carson/the-autobiography-of-red
-- Phaedrus by Plato
-- Killshot by Elmore Leonard
-- Collected Verses of Walt Whitman by Walt Whitman
-- Helen by Isocrates
+- Killshot by Elmore Leonard: "Under a tower of Agatha Christie was one Elmore Leonard (Killshot, he'd read it) and Collected Verse of Walt Whitman in a bilingual edition."
+- Collected Verses of Walt Whitman by Walt Whitman: "Under a tower of Agatha Christie was one Elmore Leonard (Killshot, he'd read it) and Collected Verse of Walt Whitman in a bilingual edition."
 
 ## The Autocrat of the Breakfast-Table by Oliver Wendell Holmes (1858)
 https://bookjumpr.com/oliver-wendell-holmes/the-autocrat-of-the-breakfast-table
@@ -6914,16 +6903,15 @@ https://bookjumpr.com/thomas-pynchon/the-crying-of-lot-49
 
 ## The Curious Incident of the Dog in the Night-time by Mark Haddon (2003)
 https://bookjumpr.com/mark-haddon/the-curious-incident-of-the-dog-in-the-night-time
-- The Hound of the Baskervilles by Arthur Conan Doyle
-- Heart of Darkness by Joseph Conrad
-- Dune by Frank Herbert
-- The Masqueraders by Georgette Heyer
-- Princess Mary's Gift Book by various
-- Chaos: Making a New Science by James Gleick
-- The Boscombe Valley Mystery by Arthur Conan Doyle
-- The Cost of Discipleship by Dietrich Bonhoeffer
-- DIANA: Her True Story by Andrew Morton
-- Rivals by Jilly Cooper
+- The Hound of the Baskervilles by Arthur Conan Doyle: "The Hound of the Baskervilles is my favorite book. In The Hound of the Baskervilles, Sherlock Holmes and Doctor Watson get a visit from James Mortimer"
+- Heart of Darkness by Joseph Conrad: "there were some very good books which were very short like Heart of Darkness, which was by Conrad"
+- The Masqueraders by Georgette Heyer: "she was reading a book by Georgette Heyer called The Masqueraders"
+- Princess Mary's Gift Book by various: "they said Elsie had drawn the fairies from a book called Princess Mary's Gift Book by Arthur Shepperson"
+- Chaos: Making a New Science by James Gleick: "I read some more of the book I was reading called Chaos by James Gleick."
+- The Boscombe Valley Mystery by Arthur Conan Doyle: "Sherlock Holmes and Doctor Watson stop for lunch when they are on their way to Ross from Paddington in The Boscombe Valley Mystery"
+- The Cost of Discipleship by Dietrich Bonhoeffer: "he read a book called The Cost of Discipleship by Dietrich Bonhoeffer and ate a sandwich"
+- DIANA: Her True Story by Andrew Morton: "two books, DIANA: Her True Story by Andrew Morton and Rivals by Jilly Cooper, and a photograph of me in a silver frame"
+- Rivals by Jilly Cooper: "two books, DIANA: Her True Story by Andrew Morton and Rivals by Jilly Cooper, and a photograph of me in a silver frame"
 
 ## The Custom of the Country by Edith Wharton (1913)
 https://bookjumpr.com/edith-wharton/the-custom-of-the-country
@@ -11135,14 +11123,14 @@ https://bookjumpr.com/robert-m-pirsig/zen-and-the-art-of-motorcycle-maintenance
 
 ## Zero to One by Peter Thiel (2014)
 https://bookjumpr.com/peter-thiel/zero-to-one
-- Anna Karenina by Leo Tolstoy
-- Romeo and Juliet by William Shakespeare
-- Hamlet by William Shakespeare
-- Outliers by Malcolm Gladwell
-- The Lord of the Rings by J R R Tolkien
-- Cryptonomicon by Neal Stephenson
-- The Hitchhiker's Guide to the Galaxy by Douglas Adams
-- A Theory of Justice by John Rawls
+- Anna Karenina by Leo Tolstoy: "Tolstoy opens Anna Karenina by observing: “All happy families are alike; each unhappy family is unhappy in its own way.”"
+- Romeo and Juliet by William Shakespeare: "Consider the opening line from Romeo and Juliet: “Two households, both alike in dignity.”"
+- Hamlet by William Shakespeare: "Hence Hamlet: Exposing what is mortal and unsure To all that fortune, death, and danger dare, Even for an eggshell."
+- Outliers by Malcolm Gladwell: "Malcolm Gladwell, a successful author who writes about successful people, declares in Outliers that success results from a “patchwork of lucky breaks and arbitrary advantages.”"
+- The Lord of the Rings by J R R Tolkien: "As Tolkien wrote in The Lord of the Rings: The Road goes ever on and on Down from the door where it began."
+- Cryptonomicon by Neal Stephenson: "We all loved science fiction: Cryptonomicon was required reading, and we preferred the capitalist Star Wars to the communist Star Trek."
+- The Hitchhiker's Guide to the Galaxy by Douglas Adams: "The geek classic The Hitchhiker's Guide to the Galaxy even explains the founding of our planet as a reaction against salesmen."
+- A Theory of Justice by John Rawls: "Rawls begins A Theory of Justice with the famous “veil of ignorance”"
 
 ## Zodiac: An Eco-Thriller by Neal Stephenson (1988)
 https://bookjumpr.com/neal-stephenson/zodiac-an-eco-thriller
