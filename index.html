@@ -319,6 +319,8 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .bk-body{grid-area:body;}
 .bk-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,5.4vw,52px);line-height:1.04;margin:10px 0 10px;text-wrap:balance;}
 .bk-by{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(20,20,20,.7);}
+.au-lnk{color:inherit;text-decoration:underline;text-decoration-color:rgba(20,20,20,.3);text-underline-offset:3px;cursor:pointer;}
+.au-lnk:hover{color:var(--accent);text-decoration-color:currentColor;}
 .bk .lnk{background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
 .bk .lnk:hover{color:var(--accent);}
 .bk-syn{font-size:16.5px;line-height:1.65;max-width:620px;margin:18px 0 24px;text-wrap:pretty;}
@@ -639,6 +641,33 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   font:12px 'IBM Plex Mono',monospace;font-style:normal;color:var(--ink);}
 .bjx-mchip.c{background:var(--ink);color:var(--paper);font:italic 22px 'Instrument Serif',serif;justify-content:center;}
 .stars-page .bjx-full{position:fixed;top:var(--hdr-h);left:0;right:0;bottom:0;z-index:5;animation:none;}
+/* network map: map column + the shared sidebar (wide screens; below 1000px the bottom card stands in) */
+.bjx-mapcol{position:absolute;inset:0;}
+.bjx-stars.has-side{display:grid;grid-template-columns:minmax(0,1fr) 380px;}
+.bjx-stars.has-side .bjx-mapcol{position:relative;inset:auto;min-width:0;}
+.bjx-mapside{position:relative;top:auto;height:100%;min-height:0;max-height:none;}
+.bjx-mapside>*{flex-shrink:0;}
+.bjx-mapside>.tip{margin-top:auto;}
+.stars-page .has-side .bjx-fkey{bottom:16px;}
+.bjx-mapside .bjx-tlink{color:inherit;text-decoration:none;}
+.bjx-mapside .bjx-tlink:hover{color:var(--accent);}
+.bjx-sintro h2{font-family:'Instrument Serif',serif;font-weight:400;font-size:30px;line-height:1.05;margin:8px 0 10px;}
+.bjx-sintro p{margin:0;font-size:14px;line-height:1.6;color:rgba(20,20,20,.75);}
+.bjx-sact .bjx-open{text-decoration:none;}
+.bjx-sx{position:absolute;top:10px;right:10px;width:30px;height:30px;padding:0;border:1.5px solid var(--ink);border-radius:50%;background:var(--card);color:var(--ink);font-size:19px;line-height:26px;text-align:center;cursor:pointer;}
+.bjx-sx:hover{background:var(--ink);color:var(--paper);}
+.bjx-mapside .bjx-hmeta h2{padding-right:22px;}
+.bjx-slist{display:flex;flex-direction:column;}
+.bjx-slist .eyebrow{display:flex;align-items:center;margin-bottom:4px;}
+.bjx-srow{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:none;border:none;border-bottom:1px solid rgba(20,20,20,.12);padding:8px 4px;cursor:pointer;font-family:inherit;color:inherit;}
+.bjx-srow:hover{background:var(--paper);}
+.bjx-srow .cv{flex:none;width:26px;}
+.bjx-srow .tx{min-width:0;display:flex;flex-direction:column;}
+.bjx-srow .t{font-size:13.5px;font-weight:700;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bjx-srow .a{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--mut);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.bjx-smore{font-family:'IBM Plex Mono',monospace;font-size:11px;color:var(--ink);margin-top:8px;}
+a.bjx-fcv{display:block;}
+.bjx-fcard .pill.solid{background:var(--accent);border-color:var(--ink);color:#fff;font-weight:600;}
 .stars-page .bjx-flegend{bottom:calc(60px + env(safe-area-inset-bottom));}
 @media (max-width:999px){.bkn-lists{grid-template-columns:1fr;gap:28px;}}
 @media (max-width:759px){
@@ -1325,7 +1354,8 @@ html,body{height:100%;}
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Author</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6vw,46px);line-height:1.06;margin:10px 0 8px;">{{ a_name }}</h1>
       <sc-if value="{{ a_found }}" hint-placeholder-val="{{ true }}">
-        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:34px;">{{ a_count }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:6px;">{{ a_count }}</div>
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:34px;">{{ a_net }}</div>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;align-items:start;">
           <sc-for list="{{ a_books }}" as="m" hint-placeholder-count="6">
             <a href="{{ m.href }}" onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
@@ -1337,6 +1367,7 @@ html,body{height:100%;}
             </a>
           </sc-for>
         </div>
+        {{ a_netEl }}
       </sc-if>
       <sc-if value="{{ a_none }}" hint-placeholder-val="{{ false }}">
         <div style="border:1.5px dashed var(--ink);border-radius:16px;padding:34px;margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;">No books on file for this author yet.</div>
@@ -1349,7 +1380,24 @@ html,body{height:100%;}
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">Search</div>
       <h1 style="font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(30px,6vw,40px);margin:10px 0 6px;">&ldquo;{{ s_query }}&rdquo;</h1>
       <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:30px;">{{ s_count }}</div>
+      <sc-if value="{{ s_hasAuthors }}" hint-placeholder-val="{{ false }}">
+        <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;">Authors</div>
+        <div style="display:flex;flex-direction:column;border-top:1.5px solid var(--ink);margin-bottom:34px;">
+          <sc-for list="{{ s_authors }}" as="r" hint-placeholder-count="1">
+            <a href="{{ r.href }}" onClick="{{ r.go }}" style="{{ r.rowStyle }}" style-hover="background:var(--card);">
+              <div style="width:52px;flex-shrink:0;display:flex;justify-content:center;">
+                {{ r.cv }}
+              </div>
+              <div style="flex:1;min-width:0;font-family:'Instrument Serif',serif;font-size:22px;line-height:1.15;">{{ r.name }}</div>
+              <div style="margin-left:auto;font-family:'IBM Plex Mono',monospace;font-size:11px;opacity:.65;white-space:nowrap;">{{ r.sub }}</div>
+            </a>
+          </sc-for>
+        </div>
+      </sc-if>
       <sc-if value="{{ s_has }}" hint-placeholder-val="{{ true }}">
+        <sc-if value="{{ s_hasAuthors }}" hint-placeholder-val="{{ false }}">
+          <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);margin-bottom:10px;">Books</div>
+        </sc-if>
         <div style="display:flex;flex-direction:column;border-top:1.5px solid var(--ink);">
           <sc-for list="{{ s_results }}" as="r" hint-placeholder-count="3">
             <a href="{{ r.href }}" onClick="{{ r.go }}" style="{{ r.rowStyle }}" style-hover="background:var(--card);">
