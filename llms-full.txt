@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-14. 899 books that mention other books, 7,802 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-17. 919 books that mention other books, 7,909 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -446,6 +446,13 @@ https://bookjumpr.com/vikram-seth/a-suitable-boy
 https://bookjumpr.com/khaled-hosseini/a-thousand-splendid-suns
 - Layla and Majnun by Nizami Ganjavi: "Rasheed had playfully said, 'If it isn't Laili and Majnoon,' referring to the star-crossed lovers of Nezami's popular twelfth-century romantic poem"
 
+## A Treatise of Human Nature by David Hume (1739)
+https://bookjumpr.com/david-hume/a-treatise-of-human-nature
+- De Finibus Bonorum et Malorum by Cicero: "TANTA VIS ADMONITIONIS INEST IN LOCIS; UT NON SINE CAUSA EX HIS MEMORIAE DUCTA SIT DISCIPLINA. Cicero de Finibus, lib. 5."
+- Historical and Critical Dictionary by Pierre Bayle: "see whether all the absurdities, which have been found in the system of Spinoza, may not likewise be discovered in that of Theologians. [See Bayle's dictionary, article of Spinoza.]"
+- The Republic by Plato: "I am apt to think a travellar would meet with as little credit, who should inform us of people exactly of the same character with those in Plato's republic on the one hand, or those in Hobbes's Leviathan on the other."
+- Leviathan by Thomas Hobbes: "I am apt to think a travellar would meet with as little credit, who should inform us of people exactly of the same character with those in Plato's republic on the one hand, or those in Hobbes's Leviathan on the other."
+
 ## A Vindication of the Rights of Woman by Mary Wollstonecraft (1792)
 https://bookjumpr.com/mary-wollstonecraft/a-vindication-of-the-rights-of-woman
 - Essays Moral and Literary by Vicesimus Knox
@@ -577,7 +584,7 @@ https://bookjumpr.com/robin-sloan/ajax-penumbra-1969
 - Foundation by Isaac Asimov: "It is Isaac Asimov’s Foundation; Claude has spoken of this one often."
 - Dune by Frank Herbert: "Midway through, a fuzzy-chinned young man approaches the desk with a battered copy of Dune and a motley handful of coins."
 - Stand on Zanzibar by John Brunner: "Claude wanders through the store, pausing to peruse the table marked SCIENCE FICTION. He finds a book there and brings it to the desk. Stand on Zanzibar."
-- Through the Looking-Glass, and What Alice Found There by Lewis Carroll: "The note: “To my darling boy, on the occasion of Lewis Carroll’s 93rd birthday.” Through the Looking-Glass, and What Alice Found There."
+- Through the Looking-Glass by Lewis Carroll: "The note: “To my darling boy, on the occasion of Lewis Carroll’s 93rd birthday.” Through the Looking-Glass, and What Alice Found There."
 - The Electric Kool-Aid Acid Test by Tom Wolfe: "Penumbra is halfway through The Electric Kool-Aid Acid Test; he feels like he understands the overnight crowd better with every page."
 - Naked Came the Stranger by Penelope Ashe: "The woman with the portable radio is hoisting a book up above the crowd, jabbing a finger at its cover: Naked Came the Stranger."
 - The Drowned World by J. G. Ballard: "Felix presents his now preposterously tattered copy of Dune and asks if he can trade it in for The Drowned World."
@@ -1562,6 +1569,14 @@ https://bookjumpr.com/david-mitchell/cloud-atlas
 - One Thousand and One Nights by Unknown: "I’ve thought of this balcony as my own belvedere, from A Thousand and One Nights."
 - The Drowned and the Saved by Primo Levi: "I thought of Primo Levi’s Drowned and the Saved."
 
+## Common Sense by Thomas Paine (1776)
+https://bookjumpr.com/thomas-paine/common-sense
+- Delle virtù e de' premi by Giacinto Dragonetti: "[1] Dragonetti on virtue and rewards."
+- A New Naval History by John Entick: "[3] See Entic's naval history, intro. page 56."
+- Political Disquisitions by James Burgh: "[4] Those who would fully understand of what great consequence a large and equal representation is to a state, should read Burgh's political disquisitions."
+- The Address of the People of Great Britain to the Inhabitants of America by John Dalrymple: "Sir John Dalrymple, the putative father of a whining jesuitical piece, fallaciously called, "THE ADDRESS OF THE PEOPLE OF _ENGLAND_ TO THE INHABITANTS OF _AMERICA_," hath, perhaps, from a vain supposition, that the people here were to be frightened at the pomp and description of a king, given, (though very unwisely on his part) the real…"
+- The Ancient Testimony and Principles of the People Called Quakers by Religious Society of Friends: "To the Representatives of the Religious Society of the People called Quakers, or to so many of them as were concerned in publishing the late piece, entitled "THE ANCIENT TESTIMONY and PRINCIPLES of the People called QUAKERS renewed, with Respect to the KING and GOVERNMENT, and touching the COMMOTIONS now prevailing in these and other…"
+
 ## Companion Piece by Ali Smith (2022)
 https://bookjumpr.com/ali-smith/companion-piece
 - The Rime of the Ancient Mariner by Samuel Taylor Coleridge: "A form of it turns up in The Rime of the Ancient Mariner by Samuel Taylor Coleridge, a poem about the terrible act and ominous aftermath of the killing of a bird"
@@ -1712,6 +1727,13 @@ https://bookjumpr.com/ed-catmull/creativity-inc
 https://bookjumpr.com/fyodor-dostoevsky/crime-and-punishment
 - Egyptian Nights by Alexander Pushkin: "It was in those days, that very year I believe, the 'disgraceful action of the _Age_' took place (you know, 'The Egyptian Nights,' that public reading, you remember?"
 - Confessions by Jean-Jacques Rousseau: "When we have finished this, we are going to begin a translation about whales, and then some of the dullest scandals out of the second part of _Les Confessions_ we have marked for translation; somebody has told Heruvimov, that Rousseau was a kind of Radishchev."
+
+## Critique of Pure Reason by Immanuel Kant
+https://bookjumpr.com/immanuel-kant/critique-of-pure-reason
+- Metamorphoses by Ovid: "Modo maxima rerum, Tot generis, natisque potens... Nunc trahor exul, inops. --Ovid, Metamorphoses. xiii"
+- Satires by Persius: "Tecum habita, et noris quam sit tibi curta supellex. --Persius. Satirae iv. 52."
+- The Republic by Plato: "The Platonic Republic has become proverbial as an example--and a striking one--of imaginary perfection, such as can exist only in the brain of the idle thinker; and Brucker ridicules the philosopher for maintaining that a prince can never govern well, unless he is participant in the ideas."
+- Phaedon by Moses Mendelssohn: "He endeavoured to prove in his Phaedo, that the soul cannot be annihilated, by showing that a simple being cannot cease to exist."
 
 ## Crito by Plato
 https://bookjumpr.com/plato/crito
@@ -2014,6 +2036,24 @@ https://bookjumpr.com/charles-dickens/dombey-and-son
 - Macbeth by William Shakespeare: "…with effervescent noises; and where the most domestic and confidential garments of coachmen and their wives and families, usually hung, like Macbeth's banners, on the outward walls."
 - Robinson Crusoe by Daniel Defoe: "Well, Wally,' resumed the old man, after a short pause: 'not being like the Savages who came on Robinson Crusoe's Island, we can't live on a man who asks for change for a sovereign, and a woman who inquires the way to Mile-End Turnpike."
 
+## Don Juan by George Gordon Byron
+https://bookjumpr.com/george-gordon-byron/don-juan
+- The Excursion by William Wordsworth: "And Wordsworth in a rather long Excursion (I think the quarto holds five hundred pages) Has given a sample from the vasty version Of his new system to perplex the sages."
+- Iliad by Homer: "His reverend tutors had at times a tussle, And for their AEneids, Iliads, and Odysseys, Were forced to make an odd sort! of apology, For Donna Inez dreaded the Mythology."
+- The Odyssey by Homer: "His reverend tutors had at times a tussle, And for their AEneids, Iliads, and Odysseys, Were forced to make an odd sort! of apology, For Donna Inez dreaded the Mythology."
+- The Aeneid by Virgil: "His reverend tutors had at times a tussle, And for their AEneids, Iliads, and Odysseys, Were forced to make an odd sort! of apology, For Donna Inez dreaded the Mythology."
+- The Confessions by Augustine of Hippo: "But how faith is acquired, and then ensured, So well not one of the aforesaid paints As Saint Augustine in his fine Confessions, Which make the reader envy his transgressions."
+- Coelebs in Search of a Wife by Hannah More: "Miss Edgeworth's novels stepping from their covers, Or Mrs. Trimmer's books on education, Or 'Coelebs' Wife' set out in quest of lovers,"
+- Narrative of the Honourable John Byron by John Byron: "Had suffer'd more--his hardships were comparative To those related in my grand-dad's 'Narrative.'"
+- Peter Bell by William Wordsworth: "'Pedlars,' and 'Boats,' and 'Waggons!' Oh! ye shades Of Pope and Dryden, are we come to this? … The 'little boatman' and his 'Peter Bell' Can sneer at him who drew 'Achitophel'!"
+- The Waggoner by William Wordsworth: "We learn from Horace, 'Homer sometimes sleeps;' We feel without him, Wordsworth sometimes wakes,-- To show with what complacency he creeps, With his dear 'Waggoners,' around his lakes."
+- Absalom and Achitophel by John Dryden: "The 'little boatman' and his 'Peter Bell' Can sneer at him who drew 'Achitophel'!"
+- Don Quixote by Miguel de Cervantes: "Had not Cervantes, in that too true tale Of Quixote, shown how all such efforts fail. Of all tales 't is the saddest--and more sad, Because it makes us smile"
+- A View of the State of Europe during the Middle Ages by Henry Hallam: "But sixteen dowagers, ten unwed she sages, Whose tale belongs to 'Hallam's Middle Ages,'"
+- Hercules Furens by Seneca: "That prodigy, Miss Araminta Smith (Who at sixteen translated 'Hercules Furens' Into as furious English), with her best look,"
+- The New Bath Guide by Christopher Anstey: "Though once she was seen reading the 'Bath Guide,' And 'Hayley's Triumphs,' which she deem'd pathetic,"
+- The Triumphs of Temper by William Hayley: "Though once she was seen reading the 'Bath Guide,' And 'Hayley's Triumphs,' which she deem'd pathetic,"
+
 ## Don Quixote by Miguel de Cervantes (1605)
 https://bookjumpr.com/miguel-de-cervantes/don-quixote
 - La Galatea by Miguel de Cervantes
@@ -2085,7 +2125,7 @@ https://bookjumpr.com/john-steinbeck/east-of-eden
 - The Winning of Barbara Worth by Harold Bell Wright: "He sat up in bed and read seven chapters of The Winning of Barbara Worth, and when it was daylight he went down to the silent kitchen and made a pot of coffee."
 - Principles of Psychology by William James: "It's called The Principles of Psychology and it's by an Eastern man named William James."
 - Book of Common Prayer by Anonymous: "And on the floor were two books, the hymnal and the Book of Common Prayer, one on top of the other."
-- Alice in Wonderland by Lewis Carroll: "“What’s that book you’re hiding?” “Here, I’m not hiding it.” “Oh! Alice in Wonderland. You’re too big for that.” Cathy said, “I can get to be so little you can’t even see me.”"
+- Alice's Adventures in Wonderland by Lewis Carroll: "“What’s that book you’re hiding?” “Here, I’m not hiding it.” “Oh! Alice in Wonderland. You’re too big for that.” Cathy said, “I can get to be so little you can’t even see me.”"
 
 ## East, West by Salman Rushdie (1994)
 https://bookjumpr.com/salman-rushdie/east-west
@@ -2311,6 +2351,11 @@ https://bookjumpr.com/ivan-turgenev/fathers-and-sons
 - The Streltsy by Konstantin Masalsky
 - Notions Generales de Chimie by Theophile-Jules Pelouse and Edmond Fremy
 - Alexis, or the Cottage in the Forest by Anonymous
+
+## Faust by Johann Wolfgang von Goethe (1808)
+https://bookjumpr.com/johann-wolfgang-von-goethe/faust
+- Dies Irae by Thomas of Celano: "CHORUS Diesira, dies illa, Solvet soeclum in favilla! (Sound of the organ.)"
+- The Key of Solomon by Anonymous: "O, now am I sure of thee! For all of thy half-hellish brood The Key of Solomon is good."
 
 ## Felix Holt, the Radical by George Eliot (1866)
 https://bookjumpr.com/george-eliot/felix-holt-the-radical
@@ -2699,6 +2744,29 @@ https://bookjumpr.com/james-clavell/gai-jin
 - The Murders in the Rue Morgue by Edgar Allan Poe: "...the book, The Murders in the Rue Morgue, was one that Dmitri had loaned him this morning saying: 'Think you'll like it, Malc, it's what they call a detective story.'"
 - Romeo and Juliet by William Shakespeare: "...heard the Yokohama Players were putting on a performance of Romeo and Juliet..."
 - Fathers and Sons by Ivan Turgenev: "He picked up the advance copy of Turgenev's Fathers and Sons in Russian sent to him by a friend at the Court of St."
+
+## Gargantua and Pantagruel by Francois Rabelais
+https://bookjumpr.com/francois-rabelais/gargantua-and-pantagruel
+- The Republic by Plato: "Or, did you ever see a dog with a marrowbone in his mouth,--the beast of all other, says Plato, lib. 2, de Republica, the most philosophical?"
+- On the Usefulness of the Parts of the Body by Galen: "quantities of other sorts of meat, because the marrow (as Galen testifieth, 5. facult. nat. & 11. de usu partium) is a nourishment most perfectly elaboured by nature."
+- Iliad by Homer: "Do you believe, upon your conscience, that Homer, whilst he was a-couching his Iliads and Odysses, had any thought upon those allegories, which Plutarch, Heraclides Ponticus, Eustathius, Cornutus squeezed out of him, and which Politian filched again from them?"
+- The Odyssey by Homer: "Do you believe, upon your conscience, that Homer, whilst he was a-couching his Iliads and Odysses, had any thought upon those allegories, which Plutarch, Heraclides Ponticus, Eustathius, Cornutus squeezed out of him, and which Politian filched again from them?"
+- Metamorphoses by Ovid: "been as little dreamed of by Homer, as the Gospel sacraments were by Ovid in his Metamorphoses, though a certain gulligut friar (Frere Lubin croquelardon.) and true bacon-picker would have undertaken to prove it"
+- Orlando Furioso by Ludovico Ariosto: "certain occult and hid properties; in the number of which are reckoned Whippot, Orlando Furioso, Robert the Devil, Fierabras, William without Fear, Huon of Bordeaux, Monteville, and Matabrune"
+- Robert the Devil by Anonymous: "certain occult and hid properties; in the number of which are reckoned Whippot, Orlando Furioso, Robert the Devil, Fierabras, William without Fear, Huon of Bordeaux, Monteville, and Matabrune"
+- Huon of Bordeaux by Anonymous: "certain occult and hid properties; in the number of which are reckoned Whippot, Orlando Furioso, Robert the Devil, Fierabras, William without Fear, Huon of Bordeaux, Monteville, and Matabrune"
+- De Architectura by Vitruvius: "although they used all the means that are found in Vitruvius de Architectura, Albertus de Re Aedificatoria, Euclid, Theon, Archimedes, and Hero de Ingeniis"
+- De Re Aedificatoria by Leon Battista Alberti: "although they used all the means that are found in Vitruvius de Architectura, Albertus de Re Aedificatoria, Euclid, Theon, Archimedes, and Hero de Ingeniis"
+- De Senectute by Cicero: "in verification whereof thou hast the authority of Marcus Tullius in his book of old age, and the sentence of Plutarch in the book entitled How a man may praise himself without envy"
+- On Praising Oneself Inoffensively by Plutarch: "in verification whereof thou hast the authority of Marcus Tullius in his book of old age, and the sentence of Plutarch in the book entitled How a man may praise himself without envy"
+- De Divinatione by Cicero: "as Plato, in Critone, Cicero, in Primo, de Divinatione, Diogenes Laertius, and others, have to the full recorded in their works."
+- The Aeneid by Virgil: "did hit upon this verse written in the Sixth of the Aeneids--"
+- Airs, Waters, Places by Hippocrates: "To this purpose Hippocrates also writeth in his book, De Aere, Aqua et Locis, that in his time there were people in Scythia as impotent as eunuchs"
+- Cratylus by Plato: "See the Cratylus of the divine Plato. (By my thirst, I will read it, said Rhizotome; I hear you so often quote it.)"
+- On the Face Which Appears in the Orb of the Moon by Plutarch: "Plutarch also, in his book of the face that appears on the body of the moon, speaks of one Phenaces, who very much feared the moon should fall on the earth"
+- De Finibus Bonorum et Malorum by Cicero: "This detestable saying, of which Cicero, lib. De Finib., and Seneca, lib. 2, De Clementia, make mention, is ascribed to the Emperor Tiberius by Dion Nicaeus and Suidas."
+- De Clementia by Seneca: "This detestable saying, of which Cicero, lib. De Finib., and Seneca, lib. 2, De Clementia, make mention, is ascribed to the Emperor Tiberius by Dion Nicaeus and Suidas."
+- On the Obsolescence of Oracles by Plutarch: "See Plutarch, in his book about the Cessation of Oracles."
 
 ## Girl Meets Boy by Ali Smith (2007)
 https://bookjumpr.com/ali-smith/girl-meets-boy
@@ -3707,6 +3775,21 @@ https://bookjumpr.com/philip-roth/letting-go
 - The Turn of the Screw by Henry James: ""Neither of us know anything really outside the Edmund Wilson one—" she said, "the ghost story." "Turn of the Screw," I said."
 - The Tempest by William Shakespeare: ""And what do you feel like instead?" "A—the girl in The Tempest. What's her name?" ... "Prospero's daughter—""
 
+## Leviathan by Thomas Hobbes (1651)
+https://bookjumpr.com/thomas-hobbes/leviathan
+- Politics by Aristotle: "I know that Aristotle in the first booke of his Politiques, for a foundation of his doctrine, maketh men by Nature, some more worthy to Command, meaning the wiser sort (such as he thought himselfe to be for his Philosophy;) others to Serve…"
+- Metaphysics by Aristotle: "Lastly, the Metaphysiques, Ethiques, and Politiques of Aristotle, the frivolous Distinctions, barbarous Terms, and obscure Language of the Schoolmen, taught in the Universities, (which have been all erected and regulated by the Popes Authority,) serve them to keep these Errors from being detected…"
+- The Nicomachean Ethics by Aristotle: "Lastly, the Metaphysiques, Ethiques, and Politiques of Aristotle, the frivolous Distinctions, barbarous Terms, and obscure Language of the Schoolmen, taught in the Universities… serve them to keep these Errors from being detected…"
+- The Republic by Plato: "I am at the point of believing this my labour, as uselesse, and the Common-wealth of Plato; For he also is of opinion that it is impossible for the disorders of State, and change of Governments by Civill Warre, ever to be taken away, till Soveraigns be Philosophers."
+- Titles of Honor by John Selden: "But he that would know more particularly the originall of Titles of Honour, may find it, as I have done this, in Mr. Seldens most excellent Treatise of that subject."
+- Commentary upon Littleton by Edward Coke: "Somewhat like to a piece of Law in Cokes Commentaries on Litleton; where he sayes, If the right Heire of the Crown be attainted of Treason; yet the Crown shall descend to him, and Eo Instante the Atteynder be voyd…"
+- Institutes of Justinian by Justinian I: "In the Institutions of Justinian, we find seven sorts of Civill Lawes."
+- Theogony by Hesiod: "What kind of things they were, to whom they attributed the name of Daemons, appeareth partly in the Genealogie of their Gods, written by Hesiod, one of the most ancient Poets of the Graecians…"
+- History of Rome (Ab Urbe Condita) by Livy: "For in titles of Books, the subject is marked, as often as the writer. The History Of Livy, denotes the Writer; but the History Of Scanderbeg, is denominated from the subject."
+- Andromeda by Euripides: "There was once a great conflux of people in Abdera, a City of the Greeks, at the acting of the Tragedy of Andromeda, upon an extream hot day: whereupon, a great many of the spectators falling into Fevers… did nothing but pronounce Iambiques, with the names of Perseus and Andromeda…"
+- Disputationes de Controversiis (De Summo Pontifice) by Robert Bellarmine: "yet because the Pope of Romes challenge to that Power universally, hath been maintained chiefly, and I think as strongly as is possible, by Cardinall Bellarmine, in his Controversie De Summo Pontifice; I have thought it necessary, as briefly as I can, to examine the grounds, and strength of his Discourse."
+- De Concursu, Motione et Auxilio Dei by Francisco Suárez: "They are the Translation of the Title of the sixth chapter of Suarez first Booke, Of The Concourse, Motion, And Help Of God. When men write whole volumes of such stuffe, are they not Mad, or intend to make others so?"
+
 ## Life of Pi by Yann Martel (2001)
 https://bookjumpr.com/yann-martel/life-of-pi
 - Robinson Crusoe by Daniel Defoe: ""You can't possibly have read all of Narayan?" "These matters are important to me, Mother." "Robinson Crusoe!" "Mother!" "But Piscine!" she said."
@@ -4497,6 +4580,10 @@ https://bookjumpr.com/walter-scott/old-mortality
 - Henry IV by William Shakespeare
 - Elegy on Habbie Simpson by Robert Sempill of Beltrees
 
+## Oliver Twist by Charles Dickens (1838)
+https://bookjumpr.com/charles-dickens/oliver-twist
+- The Newgate Calendar by Anonymous: "'cause it can't come out in the 'dictment; 'cause nobody will never know half of what he was. How will he stand in the Newgate Calendar?"
+
 ## On Beauty by Zadie Smith (2005)
 https://bookjumpr.com/zadie-smith/on-beauty
 - Alice's Adventures in Wonderland by Lewis Carroll: "With his free hand Howard took a turn-of-the-century edition of Alice in Wonderland off the shelf and brought it with Murdoch to the couch."
@@ -4581,6 +4668,13 @@ https://bookjumpr.com/colm-toibin/on-james-baldwin
 - The Year of Magical Thinking by Joan Didion: "listed among Didion's works discussed alongside Salvador and Blue Nights"
 - A Portrait of the Artist as a Young Man by James Joyce: "Even the religion in James Joyce's A Portrait of the Artist as a Young Man seemed remote"
 - "Or Does It Explode?": Black Harlem in the Great Depression by Cheryl Greenberg: "In Or Does It Explode?, Cheryl Greenberg wrote: "By the end of the night 697 plate glass windows in some 300 business establishments were shattered""
+
+## On Liberty by John Stuart Mill (1859)
+https://bookjumpr.com/john-stuart-mill/on-liberty
+- Système de politique positive by Auguste Comte: "M. Comte, in particular, whose social system, as unfolded in his Traité de Politique Positive, aims at establishing (though by moral more than by legal appliances) a despotism of society over the individual, surpassing anything contemplated in the political ideal of the most rigid disciplinarian among the ancient philosophers."
+- Apology by Plato: "Impiety, in denying the gods recognised by the State; indeed his accuser asserted (see the "Apologia") that he believed in no gods at all."
+- The Sphere and Duties of Government by Wilhelm von Humboldt: "Few persons, out of Germany, even comprehend the meaning of the doctrine which Wilhelm von Humboldt, so eminent both as a savant and as a politician, made the text of a treatise… [11] The Sphere and Duties of Government, from the German of Baron Wilhelm von Humboldt, pp. 11-13."
+- Essays and Tales by John Sterling: ""Pagan self-assertion" is one of the elements of human worth, as well as "Christian self-denial."[12] … [12] Sterling's Essays."
 
 ## On Literature by Umberto Eco (2002)
 https://bookjumpr.com/umberto-eco/on-literature
@@ -4871,6 +4965,10 @@ https://bookjumpr.com/george-du-maurier/peter-ibbetson
 - The Count of Monte Cristo by Alexandre Dumas
 - The Mysteries of Paris by Eugène Sue
 - The Wandering Jew by Eugene Sue
+
+## Peter Pan by J. M. Barrie (1911)
+https://bookjumpr.com/j-m-barrie/peter-pan
+- Cinderella by Anonymous: ""Peter," said Wendy excitedly, "that was Cinderella, and he found her, and they lived happily ever after.""
 
 ## Phantastes by George MacDonald (1858)
 https://bookjumpr.com/george-macdonald/phantastes
@@ -5383,6 +5481,12 @@ https://bookjumpr.com/james-clavell/shogun
 - The Taming of the Shrew by William Shakespeare: "Perhaps we'd see The Taming of the Shrew or A Midsummer Night's Dream or Romeo and Juliet."
 - A Midsummer Night's Dream by William Shakespeare: "Perhaps we'd see The Taming of the Shrew or A Midsummer Night's Dream or Romeo and Juliet."
 
+## Siddhartha by Hermann Hesse (1922)
+https://bookjumpr.com/hermann-hesse/siddhartha
+- Rig Veda by Anonymous: "Dreams and restless thoughts came into his mind, flowing from the water of the river, sparkling from the stars of the night, melting from the beams of the sun, dreams came to him and a restlessness of the soul, fuming from the sacrifices, breathing forth from the verses of the Rig-Veda, being infused into him, drop by drop, from the…"
+- Atharva Veda by Anonymous: "Neither Yoga-Veda shall teach me any more, nor Atharva-Veda, nor the ascetics, nor any kind of teachings. I want to learn from myself, want to be my student, want to get to know myself, the secret of Siddhartha."
+- Chandogya Upanishad by Anonymous: "Often he spoke to himself from a Chandogya-Upanishad the words: "Truly, the name of the Brahman is satyam--verily, he who knows such a thing, will enter the heavenly world every day.""
+
 ## Sister Carrie by Theodore Dreiser (1900)
 https://bookjumpr.com/theodore-dreiser/sister-carrie
 - King Lear by William Shakespeare: "Fannie Davenport was just opening at the Fifth Avenue. Daly was producing "King Lear.""
@@ -5766,6 +5870,10 @@ https://bookjumpr.com/tobias-smollett/the-adventures-of-roderick-random
 - Colonel Jack by Daniel Defoe: "…me if I had got never a piece of secret history, thrown into a series of letters, or a volume of adventures, such as those of Robinson Crusoe, and Colonel Jack, or a collection of Conundrums, wherewith to entertain the plantations."
 - Odes by Horace
 - Don Quixote by Miguel de Cervantes: "A third sort swore, that no other cause could be assigned for this undertaking than that which induced Don Quixote to attack the windmill."
+
+## The Adventures of Sherlock Holmes by Arthur Conan Doyle (1892)
+https://bookjumpr.com/arthur-conan-doyle/the-adventures-of-sherlock-holmes
+- Encyclopaedia Britannica by Anonymous: "'Is to copy out the "Encyclopaedia Britannica." There is the first volume of it in that press."
 
 ## The Adventures of Tom Sawyer by Mark Twain (1876)
 https://bookjumpr.com/mark-twain/the-adventures-of-tom-sawyer
@@ -6505,6 +6613,13 @@ https://bookjumpr.com/w-adys-aw-reymont/the-comedienne
 - Doctor Robin by Jules de Prémaray: "the role of 'Mary' in Doctor Robin which we are to present next week"
 - Master and Apprentice by Józef Korzeniowski: "The Master and the Apprentice... a finished type of a drunkard presented in broad and classical outlines"
 
+## The Coming Race by Edward Bulwer-Lytton
+https://bookjumpr.com/edward-bulwer-lytton/the-coming-race
+- Elements of Geology by Charles Lyell: "Their conformation of skull has marked differences from that of any known races in the upper world, though I cannot help thinking it a development, in the course of countless ages of the Brachycephalic type of the Age of Stone in Lyell's 'Elements of Geology,' C. X., p. 113, as compared with the Dolichocephalic type of the beginning of…"
+- On the Stratification of Language by Max Müller: "One of the most illustrious of recent philologists, Max Muller, in arguing for the analogy between the strata of language and the strata of the earth, lays down this absolute dogma: "No language can, by any possibility, be inflectional without having passed through the agglutinative and isolating stratum. No language can be agglutinative…"
+- Essay on Classification by Louis Agassiz: "…by an eloquent passage from the work of that eminent zoologist, Louis Agassiz, which I have only just met with, … "The relations … as the highest conception of paradise?"--'Essay on Classification,' sect. xvii. p. 97-99."
+- A Thousand and One Nights by Anonymous: "…presented pictures of a life unfamiliar to her experience and interesting to her imagination; pictures, indeed, of a life more resembling that which we lead every day above ground, coloured by our sorrows, sins, passions, and much to her what the tales of the Genii or the Arabian Nights are to us."
+
 ## The Common Reader: Second Series by Virginia Woolf (1932)
 https://bookjumpr.com/virginia-woolf/the-common-reader-second-series
 - Arcadia by Philip Sidney: "Essay titled "The Countess of Pembroke's Arcadia"; Woolf writes at length on the romance, e.g. "In the Arcadia, as in some luminous globe, all the seeds of English fiction lie latent.""
@@ -6550,6 +6665,10 @@ https://bookjumpr.com/virginia-woolf/the-common-reader-second-series
 - Life of Christina Rossetti by Mary F. Sandars: "No sooner have we opened the pages of Miss Sandars's careful and competent book (Life of Christina Rossetti, by Mary F..."
 - Euphues by John Lyly: "Some of Spenser might have been on his shelves; and Sidney's Arcadia; and the Paradise of Dainty Devices, and Lyly's Euphues."
 - The Paradise of Dainty Devices by Richard Edwards: "Some of Spenser might have been on his shelves; and Sidney's Arcadia; and the Paradise of Dainty Devices, and Lyly's Euphues."
+
+## The Communist Manifesto by Karl Marx and Friedrich Engels (1848)
+https://bookjumpr.com/karl-marx-and-friedrich-engels/the-communist-manifesto
+- The Philosophy of Poverty by Pierre-Joseph Proudhon: "We may cite Proudhon's Philosophie de la Misere as an example of this form."
 
 ## The Companions of Jehu by Alexandre Dumas (1857)
 https://bookjumpr.com/alexandre-dumas/the-companions-of-jehu
@@ -6844,6 +6963,23 @@ https://bookjumpr.com/e-e-cummings/the-enormous-room
 - Hamlet by William Shakespeare: "I tried Hamlet and Julius Caesar once or twice, and gave it up"
 - Julius Caesar by William Shakespeare: "I tried Hamlet and Julius Caesar once or twice, and gave it up"
 - The Pilgrim's Progress by John Bunyan: "I have described my Pilgrim's Progress from the Slough of Despond"
+
+## The Essays by Michel de Montaigne (1580)
+https://bookjumpr.com/michel-de-montaigne/the-essays
+- Metamorphoses by Ovid: "The first taste which I had for books came to me from the pleasure in reading the fables of Ovid's Metamorphoses; for, being about seven or eight years old, I gave up all other diversions to read them…"
+- The Aeneid by Virgil: "But this was enough to make me neglect the other lessons that were prescribed me; … for by this means I ran through Virgil's AEneid, and then Terence, and then Plautus, and then some Italian comedies, allured by the sweetness of the subject…"
+- Amadis of Gaul by Garci Rodríguez de Montalvo: "for as for the Lancelot of the Lake, the Amadis of Gaul, the Huon of Bordeaux, and such farragos, by which children are most delighted with, I had never so much as heard their names, no more than I yet know what they contain…"
+- The Decameron by Giovanni Boccaccio: "Amongst books that are simply pleasant, of the moderns, Boccaccio's Decameron, Rabelais, and the Basia of Johannes Secundus (if those may be ranged under the title) are worth reading for amusement."
+- Orlando Furioso by Ludovico Ariosto: "This conception of mine is nowhere more demonstrable than in comparing the AEneid with Orlando Furioso; of which we see the first, by dint of wing, flying in a brave and lofty place, and always following his point: the latter, fluttering and hopping from tale to tale…"
+- The Georgics by Virgil: "I have always thought that, in poesy, Virgil, Lucretius, Catullus, and Horace by many degrees excel the rest; and signally, Virgil in his Georgics, which I look upon as the most accomplished piece in poetry…"
+- Plutarch's Lives by Plutarch: "What profit shall he not reap as to the business of men, by reading the Lives of Plutarch?"
+- The Republic by Plato: "I refer to her Plato's cave in his Republic, and the physicians, who so often submit the reasons of their art to her authority…"
+- Laws by Plato: "'Tis marvellous to see how solicitous Plato is in his Laws concerning the gaiety and diversion of the youth of his city, and how much and often he enlarges upon the races, sports, songs, leaps, and dances…"
+- Natural Theology (Theologia Naturalis) by Raymond of Sebond: "Peter Bunel, … presented him at his departure with a book, entitled _Theologia naturalis; sive Liber Creaturarum, magistri Raimondi de Sebonde._ And as the Italian and Spanish tongues were familiar to my father, … he hoped that, with a little help, he might be able to understand it…"
+- Golden Epistles by Antonio de Guevara: "this I had lately out of Guevara's Letters. Whoever gave these the title of Golden Epistles had another kind of opinion of them than I have."
+- Tusculan Disputations by Cicero: "Should I have died less cheerfully before I had read Cicero's Tusculan Quastiones? I believe not…"
+- Axiochus by Plato: "When I find myself disgusted with Plato's 'Axiochus', as with a work, with due respect to such an author be it spoken, without force, my judgment does not believe itself…"
+- Memoirs by Martin and Guillaume du Bellay: "Upon the Memoirs of Monsieur du Bellay I find this: "'Tis always pleasant to read things written by those that have experienced how they ought to be carried on…""
 
 ## The Europeans by Henry James (1878)
 https://bookjumpr.com/henry-james/the-europeans
@@ -7261,6 +7397,10 @@ https://bookjumpr.com/graham-greene/the-honorary-consul
 - Das Kapital by Karl Marx: "The Bible is as unreadable to me as Das Kapital."
 - Martin Fierro by José Hernández: "The subject was the bad effect of the epic poem, 'Martin Fierro', on the Argentine novel."
 - Oliver Twist by Charles Dickens: ""...like a Russian who believes that the bailiff and the coffin-maker still follow their unchanged vocations in a world where Oliver Twist is somewhere imprisoned in a London cellar asking for more." — following "When Doctor Plarr as a boy read a novel of Dickens...""
+
+## The Hound of the Baskervilles by Arthur Conan Doyle (1902)
+https://bookjumpr.com/arthur-conan-doyle/the-hound-of-the-baskervilles
+- The History of the Rebellion and Civil Wars in England by Edward Hyde, Earl of Clarendon: "Know then that in the time of the Great Rebellion (the history of which by the learned Lord Clarendon I most earnestly commend to your attention) this Manor of Baskerville was held by Hugo of that name, nor can it be gainsaid that he was a most wild, profane, and godless man."
 
 ## The House of Mirth by Edith Wharton (1905)
 https://bookjumpr.com/edith-wharton/the-house-of-mirth
@@ -8339,6 +8479,17 @@ https://bookjumpr.com/anthony-hope/the-prisoner-of-zenda
 https://bookjumpr.com/james-hogg/the-private-memoirs-and-confessions-of-a-justified-sinner
 - A Cloud of Witnesses by Anonymous: "I remembered of having read, in the Cloud of Witnesses, of such men formerly having been converted by the imprisoned saints"
 
+## The Problems of Philosophy by Bertrand Russell
+https://bookjumpr.com/bertrand-russell/the-problems-of-philosophy
+- Three Dialogues between Hylas and Philonous by George Berkeley: "His _Three Dialogues between Hylas and Philonous, in Opposition to Sceptics and Atheists_, undertake to prove that there is no such thing as matter at all, and that the world consists of nothing but minds and their ideas."
+- An Introduction to Mathematics by Alfred North Whitehead: "(1) Cf. A. N. Whitehead, _Introduction to Mathematics_ (Home University Library)."
+- The Republic by Plato: "Plato: _Republic_, especially Books VI and VII."
+- Meditations on First Philosophy by René Descartes: "Descartes: _Meditations_."
+- Ethics by Baruch Spinoza: "Spinoza: _Ethics_."
+- The Monadology by Gottfried Wilhelm Leibniz: "Leibniz: _The Monadology_."
+- An Enquiry Concerning Human Understanding by David Hume: "Hume: _Enquiry concerning Human Understanding_."
+- Prolegomena to Any Future Metaphysics by Immanuel Kant: "Kant: _Prolegomena to any Future Metaphysic_."
+
 ## The Professor by Charlotte Bronte (1857)
 https://bookjumpr.com/charlotte-bronte/the-professor
 - Paradise Lost by John Milton: "She had selected "Paradise Lost" from her shelf of classics, thinking, I suppose, the religious character of the book best adapted it to Sunday; I told her to begin at the beginning, and while she read Milton's invocation to that heavenly muse, who on the "secret top of Oreb or Sinai" had taught…"
@@ -8424,6 +8575,11 @@ https://bookjumpr.com/mohsin-hamid/the-reluctant-fundamentalist
 - Mr Palomar by Italo Calvino
 - The Great Gatsby by F. Scott Fitzgerald
 - The Legend of Sleepy Hollow by Washington Irving
+
+## The Republic by Plato (c. 375 BC)
+https://bookjumpr.com/plato/the-republic
+- Iliad by Homer: "You know the first lines of the Iliad, in which the poet says that Chryses prayed Agamemnon to release his daughter, and that Agamemnon flew into a passion with him; whereupon Chryses, failing of his object, invoked the anger of the God against the Achaeans."
+- The Odyssey by Homer: "But in what follows he takes the person of Chryses, and then he does all that he can to make us believe that the speaker is not Homer, but the aged priest himself. And in this double form he has cast the entire narrative of the events which occurred at Troy and in Ithaca and throughout the Odyssey."
 
 ## The Return of Sherlock Holmes by Arthur Conan Doyle (1905)
 https://bookjumpr.com/arthur-conan-doyle/the-return-of-sherlock-holmes
@@ -8523,6 +8679,11 @@ https://bookjumpr.com/salman-rushdie/the-satanic-verses
 - Rubáiyát of Omar Khayyám by Omar Khayyám: "the Yellow (more lucky than me), Khayyám -- FitzGerald's adjectiveless Bird of Time (which has but a little way to fly, and lo! is on the Wing) (title not stated outright; the quoted line is FitzGerald's famous translation of the Rubáiyát)"
 - The History of the Devil by Daniel Defoe: "(epigraph) Satan, being thus confined to a vagabond, wandering, unsettled condition, is without any certain abode; for though he has, in consequence of his angelic nature, a kind of empire in the liquid waste or air, yet this is certainly part of his punishment, that he is ... without any fixed place, or space, allowed him to rest the…"
 
+## The Satyricon by Petronius
+https://bookjumpr.com/petronius/the-satyricon
+- Iliad by Homer: "I asked the hall-porter what pictures were in the middle hall. "The Iliad and the Odyssey," he replied, "and the gladiatorial games given under Laenas.""
+- The Odyssey by Homer: "I asked the hall-porter what pictures were in the middle hall. "The Iliad and the Odyssey," he replied, "and the gladiatorial games given under Laenas.""
+
 ## The Savage Detectives by Roberto Bolaño (1998)
 https://bookjumpr.com/roberto-bolano/the-savage-detectives
 - The Red and the Black by Stendhal: "Librería El Mundo, on Río Nazas: selected poems by Byron, Shelley, and Keats; Stendhal's The Red and the Black (which I've already read); and Lichtenberg's Aphorisms, translated by Alfonso Reyes."
@@ -8570,6 +8731,12 @@ https://bookjumpr.com/roberto-bolano/the-savage-detectives
 - Incidentes melódicos del mundo irracional by Juan de la Cabada: "and Incidentes melódicos del mundo irracional, by Juan de la Cabada."
 - Dios en la tierra by José Revueltas: "and Dios en la tierra and Los días terrenales, by José Revueltas."
 - Los días terrenales by José Revueltas: "and Dios en la tierra and Los días terrenales, by José Revueltas."
+
+## The Scarlet Letter by Nathaniel Hawthorne (1850)
+https://bookjumpr.com/nathaniel-hawthorne/the-scarlet-letter
+- Annals of Salem by Joseph B. Felt: "I remembered to have read (probably in Felt's "Annals") a notice of the decease of Mr. Surveyor Pue, about fourscore years ago; …"
+- Memoirs of P.P., Clerk of this Parish by Alexander Pope: "The example of the famous "P. P., Clerk of this Parish," was never more faithfully followed."
+- Main Street by Nathaniel Hawthorne: "A portion of his facts, by-the-by, did me good service in the preparation of the article entitled "MAIN STREET," included in the present volume."
 
 ## The Sea-Wolf by Jack London (1904)
 https://bookjumpr.com/jack-london/the-sea-wolf
@@ -9178,7 +9345,7 @@ https://bookjumpr.com/italo-calvino/the-uses-of-literature
 - Demons by Fyodor Dostoevsky: "If I read Turgenev's Fathers and Sons or Dostoyevsky's The Possessed, I cannot help thinking how the characters have continued to be reincarnated"
 - Fathers and Sons by Ivan Turgenev: "Paired with Dostoyevsky's The Possessed in the same passage about recurring character types"
 - The Nose by Nikolai Gogol: "Grouped with Alice in Wonderland and Kafka's Metamorphoses as fantasy that unravels a logic with rules"
-- Alice in Wonderland by Lewis Carroll: "Cited in the same passage as an example of fantasy readers' pleasure in unraveling internal logic"
+- Alice's Adventures in Wonderland by Lewis Carroll: "Cited in the same passage as an example of fantasy readers' pleasure in unraveling internal logic"
 - The Fables of La Fontaine by Jean de La Fontaine: "Calvino mentions not knowing Marianne Moore's translation of the Fables but suspecting it would be illuminating"
 - The Charterhouse of Parma by Stendhal: "Subject of the essay "Guide to The Charterhouse of Parma for the Use of New Readers""
 - Don Quixote by Miguel de Cervantes: "Discussed repeatedly, including as a philosophical novel and via the device of the fictional Arab chronicler Cid Hamet Benengeli"

@@ -3719,7 +3719,7 @@ The Catcher in the Rye,J. D. Salinger,Comin' Thro' the Rye,Robert Burns
 Ajax Penumbra 1969,Robin Sloan,Foundation,Isaac Asimov
 Ajax Penumbra 1969,Robin Sloan,Dune,Frank Herbert
 Ajax Penumbra 1969,Robin Sloan,Stand on Zanzibar,John Brunner
-Ajax Penumbra 1969,Robin Sloan,"Through the Looking-Glass, and What Alice Found There",Lewis Carroll
+Ajax Penumbra 1969,Robin Sloan,Through the Looking-Glass,Lewis Carroll
 Ajax Penumbra 1969,Robin Sloan,The Electric Kool-Aid Acid Test,Tom Wolfe
 Ajax Penumbra 1969,Robin Sloan,Naked Came the Stranger,Penelope Ashe
 Ajax Penumbra 1969,Robin Sloan,The Drowned World,J. G. Ballard
@@ -5700,7 +5700,7 @@ East of Eden,John Steinbeck,Inferno,Dante Alighieri
 East of Eden,John Steinbeck,The Winning of Barbara Worth,Harold Bell Wright
 East of Eden,John Steinbeck,Principles of Psychology,William James
 East of Eden,John Steinbeck,Book of Common Prayer,
-East of Eden,John Steinbeck,Alice in Wonderland,Lewis Carroll
+East of Eden,John Steinbeck,Alice's Adventures in Wonderland,Lewis Carroll
 It,Stephen King,To Build a Fire,Jack London
 It,Stephen King,Frankenstein,Mary Shelley
 It,Stephen King,Leaves of Grass,Walt Whitman
@@ -7084,7 +7084,7 @@ The Uses of Literature,Italo Calvino,Orlando Innamorato,Matteo Maria Boiardo
 The Uses of Literature,Italo Calvino,Demons,Fyodor Dostoevsky
 The Uses of Literature,Italo Calvino,Fathers and Sons,Ivan Turgenev
 The Uses of Literature,Italo Calvino,The Nose,Nikolai Gogol
-The Uses of Literature,Italo Calvino,Alice in Wonderland,Lewis Carroll
+The Uses of Literature,Italo Calvino,Alice's Adventures in Wonderland,Lewis Carroll
 The Uses of Literature,Italo Calvino,The Fables of La Fontaine,Jean de La Fontaine
 The Uses of Literature,Italo Calvino,The Charterhouse of Parma,Stendhal
 The Uses of Literature,Italo Calvino,Don Quixote,Miguel de Cervantes
@@ -7801,3 +7801,110 @@ The Great Gatsby,F. Scott Fitzgerald,Simon Called Peter,Robert Keable
 The Great Gatsby,F. Scott Fitzgerald,Stoddard Lectures,John L. Stoddard
 The Great Gatsby,F. Scott Fitzgerald,Economics,Henry Clay
 The Great Gatsby,F. Scott Fitzgerald,Hopalong Cassidy,Clarence E. Mulford
+Peter Pan,J. M. Barrie,Cinderella,Anonymous
+The Adventures of Sherlock Holmes,Arthur Conan Doyle,Encyclopaedia Britannica,Anonymous
+The Hound of the Baskervilles,Arthur Conan Doyle,The History of the Rebellion and Civil Wars in England,"Edward Hyde, Earl of Clarendon"
+The Republic,Plato,Iliad,Homer
+The Republic,Plato,The Odyssey,Homer
+Siddhartha,Hermann Hesse,Rig Veda,Anonymous
+Siddhartha,Hermann Hesse,Atharva Veda,Anonymous
+Siddhartha,Hermann Hesse,Chandogya Upanishad,Anonymous
+Oliver Twist,Charles Dickens,The Newgate Calendar,Anonymous
+Don Juan,George Gordon Byron,The Excursion,William Wordsworth
+Don Juan,George Gordon Byron,Iliad,Homer
+Don Juan,George Gordon Byron,The Odyssey,Homer
+Don Juan,George Gordon Byron,The Aeneid,Virgil
+Don Juan,George Gordon Byron,The Confessions,Augustine of Hippo
+Don Juan,George Gordon Byron,Coelebs in Search of a Wife,Hannah More
+Don Juan,George Gordon Byron,Narrative of the Honourable John Byron,John Byron
+Don Juan,George Gordon Byron,Peter Bell,William Wordsworth
+Don Juan,George Gordon Byron,The Waggoner,William Wordsworth
+Don Juan,George Gordon Byron,Absalom and Achitophel,John Dryden
+Don Juan,George Gordon Byron,Don Quixote,Miguel de Cervantes
+Don Juan,George Gordon Byron,A View of the State of Europe during the Middle Ages,Henry Hallam
+Don Juan,George Gordon Byron,Hercules Furens,Seneca
+Don Juan,George Gordon Byron,The New Bath Guide,Christopher Anstey
+Don Juan,George Gordon Byron,The Triumphs of Temper,William Hayley
+On Liberty,John Stuart Mill,Système de politique positive,Auguste Comte
+On Liberty,John Stuart Mill,Apology,Plato
+On Liberty,John Stuart Mill,The Sphere and Duties of Government,Wilhelm von Humboldt
+On Liberty,John Stuart Mill,Essays and Tales,John Sterling
+Faust,Johann Wolfgang von Goethe,Dies Irae,Thomas of Celano
+Faust,Johann Wolfgang von Goethe,The Key of Solomon,Anonymous
+Leviathan,Thomas Hobbes,Politics,Aristotle
+Leviathan,Thomas Hobbes,Metaphysics,Aristotle
+Leviathan,Thomas Hobbes,The Nicomachean Ethics,Aristotle
+Leviathan,Thomas Hobbes,The Republic,Plato
+Leviathan,Thomas Hobbes,Titles of Honor,John Selden
+Leviathan,Thomas Hobbes,Commentary upon Littleton,Edward Coke
+Leviathan,Thomas Hobbes,Institutes of Justinian,Justinian I
+Leviathan,Thomas Hobbes,Theogony,Hesiod
+Leviathan,Thomas Hobbes,History of Rome (Ab Urbe Condita),Livy
+Leviathan,Thomas Hobbes,Andromeda,Euripides
+Leviathan,Thomas Hobbes,Disputationes de Controversiis (De Summo Pontifice),Robert Bellarmine
+Leviathan,Thomas Hobbes,"De Concursu, Motione et Auxilio Dei",Francisco Suárez
+The Essays,Michel de Montaigne,Metamorphoses,Ovid
+The Essays,Michel de Montaigne,The Aeneid,Virgil
+The Essays,Michel de Montaigne,Amadis of Gaul,Garci Rodríguez de Montalvo
+The Essays,Michel de Montaigne,The Decameron,Giovanni Boccaccio
+The Essays,Michel de Montaigne,Orlando Furioso,Ludovico Ariosto
+The Essays,Michel de Montaigne,The Georgics,Virgil
+The Essays,Michel de Montaigne,Plutarch's Lives,Plutarch
+The Essays,Michel de Montaigne,The Republic,Plato
+The Essays,Michel de Montaigne,Laws,Plato
+The Essays,Michel de Montaigne,Natural Theology (Theologia Naturalis),Raymond of Sebond
+The Essays,Michel de Montaigne,Golden Epistles,Antonio de Guevara
+The Essays,Michel de Montaigne,Tusculan Disputations,Cicero
+The Essays,Michel de Montaigne,Axiochus,Plato
+The Essays,Michel de Montaigne,Memoirs,Martin and Guillaume du Bellay
+The Scarlet Letter,Nathaniel Hawthorne,Annals of Salem,Joseph B. Felt
+The Scarlet Letter,Nathaniel Hawthorne,"Memoirs of P.P., Clerk of this Parish",Alexander Pope
+The Scarlet Letter,Nathaniel Hawthorne,Main Street,Nathaniel Hawthorne
+Common Sense,Thomas Paine,Delle virtù e de' premi,Giacinto Dragonetti
+Common Sense,Thomas Paine,A New Naval History,John Entick
+Common Sense,Thomas Paine,Political Disquisitions,James Burgh
+Common Sense,Thomas Paine,The Address of the People of Great Britain to the Inhabitants of America,John Dalrymple
+Common Sense,Thomas Paine,The Ancient Testimony and Principles of the People Called Quakers,Religious Society of Friends
+The Coming Race,Edward Bulwer-Lytton,Elements of Geology,Charles Lyell
+The Coming Race,Edward Bulwer-Lytton,On the Stratification of Language,Max Müller
+The Coming Race,Edward Bulwer-Lytton,Essay on Classification,Louis Agassiz
+The Coming Race,Edward Bulwer-Lytton,A Thousand and One Nights,Anonymous
+The Problems of Philosophy,Bertrand Russell,Three Dialogues between Hylas and Philonous,George Berkeley
+The Problems of Philosophy,Bertrand Russell,An Introduction to Mathematics,Alfred North Whitehead
+The Problems of Philosophy,Bertrand Russell,The Republic,Plato
+The Problems of Philosophy,Bertrand Russell,Meditations on First Philosophy,René Descartes
+The Problems of Philosophy,Bertrand Russell,Ethics,Baruch Spinoza
+The Problems of Philosophy,Bertrand Russell,The Monadology,Gottfried Wilhelm Leibniz
+The Problems of Philosophy,Bertrand Russell,An Enquiry Concerning Human Understanding,David Hume
+The Problems of Philosophy,Bertrand Russell,Prolegomena to Any Future Metaphysics,Immanuel Kant
+A Treatise of Human Nature,David Hume,De Finibus Bonorum et Malorum,Cicero
+A Treatise of Human Nature,David Hume,Historical and Critical Dictionary,Pierre Bayle
+A Treatise of Human Nature,David Hume,The Republic,Plato
+A Treatise of Human Nature,David Hume,Leviathan,Thomas Hobbes
+Critique of Pure Reason,Immanuel Kant,Metamorphoses,Ovid
+Critique of Pure Reason,Immanuel Kant,Satires,Persius
+Critique of Pure Reason,Immanuel Kant,The Republic,Plato
+Critique of Pure Reason,Immanuel Kant,Phaedon,Moses Mendelssohn
+Gargantua and Pantagruel,Francois Rabelais,The Republic,Plato
+Gargantua and Pantagruel,Francois Rabelais,On the Usefulness of the Parts of the Body,Galen
+Gargantua and Pantagruel,Francois Rabelais,Iliad,Homer
+Gargantua and Pantagruel,Francois Rabelais,The Odyssey,Homer
+Gargantua and Pantagruel,Francois Rabelais,Metamorphoses,Ovid
+Gargantua and Pantagruel,Francois Rabelais,Orlando Furioso,Ludovico Ariosto
+Gargantua and Pantagruel,Francois Rabelais,Robert the Devil,Anonymous
+Gargantua and Pantagruel,Francois Rabelais,Huon of Bordeaux,Anonymous
+Gargantua and Pantagruel,Francois Rabelais,De Architectura,Vitruvius
+Gargantua and Pantagruel,Francois Rabelais,De Re Aedificatoria,Leon Battista Alberti
+Gargantua and Pantagruel,Francois Rabelais,De Senectute,Cicero
+Gargantua and Pantagruel,Francois Rabelais,On Praising Oneself Inoffensively,Plutarch
+Gargantua and Pantagruel,Francois Rabelais,De Divinatione,Cicero
+Gargantua and Pantagruel,Francois Rabelais,The Aeneid,Virgil
+Gargantua and Pantagruel,Francois Rabelais,"Airs, Waters, Places",Hippocrates
+Gargantua and Pantagruel,Francois Rabelais,Cratylus,Plato
+Gargantua and Pantagruel,Francois Rabelais,On the Face Which Appears in the Orb of the Moon,Plutarch
+Gargantua and Pantagruel,Francois Rabelais,De Finibus Bonorum et Malorum,Cicero
+Gargantua and Pantagruel,Francois Rabelais,De Clementia,Seneca
+Gargantua and Pantagruel,Francois Rabelais,On the Obsolescence of Oracles,Plutarch
+The Satyricon,Petronius,Iliad,Homer
+The Satyricon,Petronius,The Odyssey,Homer
+The Communist Manifesto,Karl Marx and Friedrich Engels,The Philosophy of Poverty,Pierre-Joseph Proudhon

@@ -1313,7 +1313,8 @@
     sc.onerror = function () { self._notes = {}; self.forceUpdate(); };
     document.body.appendChild(sc);
   };
-  // A note as a React node: quotes (anything quoted) render as a pull-quote, paraphrase as a caption;
+  // A note as a React node: lines from the book render as a pull-quote, editors' notes ("Epigraph: …",
+  // "Cited as …") as a caption;
   // the mentioned book's title is marked wherever it appears.
   P.noteEl = function (src, ment) {
     if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
@@ -1323,7 +1324,9 @@
     var esc = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
     var parts = note.split(new RegExp('(' + esc(t) + (short.length > 3 && short !== t ? '|' + esc(short) : '') + ')', 'i'));
     var kids = parts.map(function (p, i) { return i % 2 ? h('mark', { key: i }, p) : p; });
-    var quote = /["“”‘’']/.test(note.slice(0, 3)) || /[“”]/.test(note) || (note.match(/"/g) || []).length >= 2;
+    var editorial = /^\s*((chapter )?epigraph\b|(Referenced|Cited|Mentioned|Alluded|Discussed|Quoted (by|with|from))\b|—)/i.test(note) &&
+      !/^\s*(referenced|cited|mentioned|alluded|discussed|quoted)/.test(note);   // lowercase = an excerpt of the book itself
+    var quote = !editorial;
     return h('p', { className: 'mc-q ' + (quote ? 'quote' : 'ctx'), title: 'Click to expand', onClick: function (e) { e.currentTarget.classList.toggle('open'); } }, kids);
   };
 
