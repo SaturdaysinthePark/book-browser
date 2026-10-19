@@ -61,6 +61,9 @@ const crumbs = (items) => ({
   itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: url })),
 });
 
+// the note a book's mention of another carries, from the mentioning book's side
+const noteFor = (D, from, to) => ((D.O[from] || []).find(([m]) => m === to) || [])[1] || '';
+
 function bookPage(D, k) {
   const [t, a, y, syn, aslug] = D.B[k], out = D.O[k] || [], inn = D.I[k] || [], yl = yearLabel(y);
   const who = known(a) ? `${t} by ${a}` : t;
@@ -79,7 +82,10 @@ function bookPage(D, k) {
   if (out.length) body.push(`<h2>Books mentioned in ${esc(t)} (${out.length})</h2>`, '<ul>',
     ...out.map(([m, note]) => `<li>${link(D, m)}${byline(D, m)}${note ? `: “${esc(note)}”` : ''}</li>`), '</ul>');
   if (inn.length) body.push(`<h2>Books that mention ${esc(t)} (${inn.length})</h2>`, '<ul>',
-    ...inn.map((m) => `<li>${link(D, m)}${byline(D, m)}</li>`), '</ul>');
+    ...inn.map((m) => {
+      const note = noteFor(D, m, k);
+      return `<li>${link(D, m)}${byline(D, m)}${note ? `: “${esc(note)}”` : ''}</li>`;
+    }), '</ul>');
   const ld = bookLd(D, k);
   if (syn) ld.description = syn;
   if (out.length) ld.mentions = out.map(([m]) => bookLd(D, m));
@@ -109,6 +115,16 @@ function authorAgg(D, slug) {
     out: side(keys.flatMap((k) => (D.O[k] || []).filter(([m]) => D.B[m]).map(([m]) => [k, m, m]))),
     in: side(keys.flatMap((k) => (D.I[k] || []).filter((m) => D.B[m]).map((m) => [m, k, m]))),
   };
+}
+
+// up to ten quoted lines for an author page: what their books say, then what other books say about them
+function quotes(D, keys, name) {
+  const own = new Set(keys), rows = [];
+  for (const k of keys) for (const [m, note] of D.O[k] || []) if (note && !own.has(m)) rows.push([k, m, note]);
+  for (const k of keys) for (const m of D.I[k] || []) { const note = noteFor(D, m, k); if (note && !own.has(m)) rows.push([m, k, note]); }
+  if (!rows.length) return [];
+  return [`<h2>Quotes from ${esc(name)}'s books, and about them</h2>`, '<ul>',
+    ...rows.slice(0, 10).map(([f, t, note]) => `<li>${link(D, f)} on ${link(D, t)}: “${esc(note)}”</li>`), '</ul>'];
 }
 
 function authorPage(D, slug) {
@@ -144,6 +160,7 @@ function authorPage(D, slug) {
       return `<li>${link(D, k)}${yl ? ` (${esc(yl)})` : ''}${bits ? `: ${bits}` : ''}</li>`;
     }),
     '</ul>',
+    ...quotes(D, keys, name),
     ...section(agg.out, `Authors ${name}'s books mention`),
     ...section(agg.in, `Authors who mention ${name}`),
   ].filter(Boolean);
