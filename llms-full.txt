@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 990 books that mention other books, 8,406 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 1,004 books that mention other books, 8,455 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -899,6 +899,11 @@ https://bookjumpr.com/rabih-alameddine/an-unnecessary-woman
 - The Mu'allaqat (The Suspended Odes) by Anonymous: ""The Suspended Odes, the Hanging Poems, seven poems from seven poets before Islam"; her paperbacks of the Muallaqat"
 - La Chute (The Fall) by Albert Camus: "As Camus said in The Fall: “Ah, mon cher, for anyone who is alone, without God and without a master, the weight of days is dreadful.”"
 
+## And Then by Natsume Sōseki (1909)
+https://bookjumpr.com/natsume-soseki/and-then
+- Baien by Morita Sōhei
+- The Analects by Confucius
+
 ## Angela's Ashes by Frank McCourt (1996)
 https://bookjumpr.com/frank-mccourt/angela-s-ashes
 - The Deserted Village by Oliver Goldsmith: "In seventh class he hands out a small book, a poem that goes on for pages and pages, The Deserted Village, by Oliver Goldsmith."
@@ -1611,6 +1616,16 @@ https://bookjumpr.com/david-mitchell/cloud-atlas
 - The Island of Doctor Moreau by H. G. Wells: "Some music will be drawn from an abortive opera based on The Island of Doctor Moreau, whose Viennese production was canceled by the war"
 - A Thousand and One Nights by Anonymous: "I’ve thought of this balcony as my own belvedere, from A Thousand and One Nights."
 - The Drowned and the Saved by Primo Levi: "I thought of Primo Levi’s Drowned and the Saved."
+
+## Cogwheels by Ryūnosuke Akutagawa (1927)
+https://bookjumpr.com/ryunosuke-akutagawa/cogwheels
+- Inferno by Dante Alighieri
+- Crime and Punishment by Fyodor Dostoevsky
+- Polikushka by Leo Tolstoy
+- Tenkibo by Ryūnosuke Akutagawa
+- Legend by August Strindberg
+- A Dark Night's Passing by Naoya Shiga
+- Shakko by Mokichi Saito
 
 ## Common Sense by Thomas Paine (1776)
 https://bookjumpr.com/thomas-paine/common-sense
@@ -3349,6 +3364,24 @@ https://bookjumpr.com/e-m-forster/howards-end
 - The Open Road by E. V. Lucas: "He asked whether they had ever read E. V. Lucas's Open Road."
 - The Ordeal of Richard Feverel by George Meredith: "Yes, but I want--I wanted--have you ever read The Ordeal of Richard Feverel?""
 
+## I Am a Cat by Natsume Sōseki (1905)
+https://bookjumpr.com/natsume-soseki/i-am-a-cat
+- Theophano by Frederic Harrison
+- The Odyssey by Homer
+- Beowulf by Anonymous
+- Piers Plowman by William Langland
+- Tristram Shandy by Laurence Sterne
+- Hamlet by William Shakespeare
+- The Analects by Confucius
+- The Golden Demon by Ozaki Kōyō
+- Tao Te Ching by Laozi
+- I Ching by Anonymous
+- Record of Linji by Anonymous
+- Fudōchi Shinmyōroku by Takuan Sōhō
+- Nansō Satomi Hakkenden by Takizawa Bakin
+- Tang Shi Xuan by Anonymous
+- The Life and Opinions of the Tomcat Murr by E. T. A. Hoffmann
+
 ## I Have Some Questions for You by Rebecca Makkai (2023)
 https://bookjumpr.com/rebecca-makkai/i-have-some-questions-for-you
 - Beloved by Toni Morrison: "She grabs her backpack (reported contents: hairbrush, lipstick, tampons, calculus book, Toni Morrison's Beloved, Granby-issued weekly planner, assorted pens and scrunchies, mini deodorant, dorm room key), slips past the other changing girls, exits via the backstage fire escape."
@@ -3743,6 +3776,10 @@ https://bookjumpr.com/haruki-murakami/kafka-on-the-shore
 - Electra by Sophocles: ""Electra, by Sophocles. A wonderful play."
 - Symposium by Plato: ""According to Aristophanes in Plato's Symposium, in the ancient world of myth there were three types of people," Oshima says."
 
+## Kappa by Ryūnosuke Akutagawa (1927)
+https://bookjumpr.com/ryunosuke-akutagawa/kappa
+- Thus Spoke Zarathustra by Friedrich Nietzsche
+
 ## Kenilworth by Walter Scott (1821)
 https://bookjumpr.com/walter-scott/kenilworth
 - The Castle of Knowledge by Robert Recorde: "Here was a "BOKE OF COOKERY, IMPRINTED BY RICHARD LANT," and "SKELTON'S BOOKS"--"THE PASSTIME OF THE PEOPLE"--"THE CASTLE OF KNOWLEDGE," etc."
@@ -3785,6 +3822,10 @@ https://bookjumpr.com/h-g-wells/kipps
 - The Art of Conversing by Anonymous: "The second was that admirable classic, "The Art of Conversing.""
 - Enquire Within Upon Everything by Anonymous: "looked up the name Euphemia and learnt what it meant in the "Enquire Within About Everything" that constituted Buggins' reference library"
 
+## Kokoro by Natsume Sōseki (1914)
+https://bookjumpr.com/natsume-soseki/kokoro
+- The Koran by Anonymous
+
 ## Kokoro: Hints and Echoes of Japanese Inner Life by Lafcadio Hearn (1896)
 https://bookjumpr.com/lafcadio-hearn/kokoro-hints-and-echoes-of-japanese-inner-life
 - Les Misérables by Victor Hugo
@@ -3806,6 +3847,14 @@ https://bookjumpr.com/rachel-cusk/kudos
 - She Got Up and Went Away by Stevie Smith: "Epigraph: 'She got up and went away ...' signed 'She Got Up and Went Away', Stevie Smith (epigraph)"
 - Four Quartets by T. S. Eliot: "'if he were to pick up the Four Quartets today he didn't doubt it would cause him pain'"
 - The Divine Comedy by Dante Alighieri: "'to see Dante awarded a single star ... and his Divine Comedy described as "complete shit"'"
+
+## Kusamakura by Natsume Sōseki (1906)
+https://bookjumpr.com/natsume-soseki/kusamakura
+- Faust by Johann Wolfgang von Goethe
+- Hamlet by William Shakespeare
+- To a Skylark by Percy Bysshe Shelley
+- Laocoön by Gotthold Ephraim Lessing
+- Tristram Shandy by Laurence Sterne
 
 ## Kwaidan: Stories and Studies of Strange Things by Lafcadio Hearn (1904)
 https://bookjumpr.com/lafcadio-hearn/kwaidan-stories-and-studies-of-strange-things
@@ -3849,6 +3898,10 @@ https://bookjumpr.com/david-garnett/lady-into-fox
 ## Leaves of Grass by Walt Whitman (1855)
 https://bookjumpr.com/walt-whitman/leaves-of-grass
 - Iliad by Homer: "…priests, and those of Ethiopia, The Hindu epics, the Grecian, Chinese, Persian, The Biblic books and prophets, and deep idyls of the Nazarene, The Iliad, Odyssey, plots, doings, wanderings of Eneas, Hesiod, Eschylus, Sophocles, Merlin, Arthur, The Cid, Roland at Roncesvalles, the Nibelungen,…"
+
+## Lemon by Motojirō Kajii (1925)
+https://bookjumpr.com/motojiro-kajii/lemon
+- The Words of the Orange Seller by Liu Ji
 
 ## Lent by Jo Walton (2019)
 https://bookjumpr.com/jo-walton/lent
@@ -3987,6 +4040,10 @@ https://bookjumpr.com/georges-perec/life-a-user-s-manual
 - Bibliotheca Lusitana by Diogo Barbosa Machado: "the fourth and last volume of Diego Barbosa-Machado's Bibliotheca Lusitana, which he'd found... on the penny shelf of a Lugano bookshop"
 - Dictionnaire de Trévoux by Jesuits of Trévoux: "the books... a fine copy of the Dictionnaire de Trévoux in two volumes"
 - Who's Who in America by Marquis Who's Who: "He found his address in the latest edition of Who's Who in America and wrote to him"
+
+## Light and Darkness by Natsume Sōseki (1916)
+https://bookjumpr.com/natsume-soseki/light-and-darkness
+- Mingshi biecai ji by Shen Deqian
 
 ## Like by Ali Smith (1997)
 https://bookjumpr.com/ali-smith/like
@@ -4619,6 +4676,11 @@ https://bookjumpr.com/j-d-salinger/nine-stories
 - Die Zeit ohne Beispiel by Joseph Goebbels: ""It was a book by Goebbels, entitled 'Die Zeit Ohne Beispiel.'" (For Esmé—with Love and Squalor)"
 - Madame Bovary by Gustave Flaubert: ""Madame Bovary at Columbia Extension School... Madame Bovary takes a course in Television Appreciation." (Pretty Mouth and Green My Eyes)"
 - The Harvard Classics by Charles W. Eliot: ""I bought a complete set of the Harvard Classics—chiefly because Bobby said we didn't have room for them in our suite—and rather perversely read all fifty volumes." (De Daumier-Smith's Blue Period)"
+
+## No Longer Human by Osamu Dazai (1948)
+https://bookjumpr.com/osamu-dazai/no-longer-human
+- I Am a Cat by Natsume Sōseki
+- Crime and Punishment by Fyodor Dostoevsky
 
 ## No Name by Wilkie Collins (1862)
 https://bookjumpr.com/wilkie-collins/no-name
@@ -5589,6 +5651,14 @@ https://bookjumpr.com/ivan-turgenev/rudin
 ## Ruth by Elizabeth Gaskell (1853)
 https://bookjumpr.com/elizabeth-gaskell/ruth
 - Lexicon totius Latinitatis (Facciolati's Latin Lexicon) by Jacopo Facciolati: "Take my Facciolati to Johnson's, he will advance upon it; it is the third row, bottom shelf."
+
+## Sanshiro by Natsume Sōseki (1908)
+https://bookjumpr.com/natsume-soseki/sanshiro
+- Oroonoko by Aphra Behn
+- Oroonoko by Thomas Southerne
+- History of Intellectual Development by John Beattie Crozier
+- Hydriotaphia by Thomas Browne
+- Hamlet by William Shakespeare
 
 ## Sapiens: A Brief History of Humankind by Yuval Noah Harari (2014)
 https://bookjumpr.com/yuval-noah-harari/sapiens-a-brief-history-of-humankind
@@ -7476,6 +7546,13 @@ https://bookjumpr.com/aristophanes/the-frogs
 https://bookjumpr.com/edith-wharton/the-fruit-of-the-tree
 - History of European Morals from Augustus to Charlemagne by William Edward Hartpole Lecky: "a few stray well-worn volumes: Lecky's European Morals, Carlyle's translation of Wilhelm Meister, Seneca, Epictetus"
 - Wilhelm Meister's Apprenticeship by Johann Wolfgang von Goethe: "Lecky's European Morals, Carlyle's translation of Wilhelm Meister, Seneca, Epictetus, a German grammar, a pocket Bacon."
+
+## The Gate by Natsume Sōseki (1910)
+https://bookjumpr.com/natsume-soseki/the-gate
+- The Analects by Confucius
+- Caigen tan by Hong Yingming
+- The Blue Cliff Record by Yuanwu Keqin
+- Shūmon mujintō ron by Tōrei Enji
 
 ## The Ghost Writer by Philip Roth (1979)
 https://bookjumpr.com/philip-roth/the-ghost-writer
@@ -9389,6 +9466,11 @@ https://bookjumpr.com/julian-barnes/the-sense-of-an-ending
 - Honest to God by John A. T. Robinson: "plus Bishop John Robinson's Honest to God next to my Larry cartoon books"
 - Sweeney Agonistes by T. S. Eliot: "'"Birth, and Copulation, and Death" – that's what T. S. Eliot says it's all about.'"
 
+## The Setting Sun by Osamu Dazai (1947)
+https://bookjumpr.com/osamu-dazai/the-setting-sun
+- A Sportsman's Sketches by Ivan Turgenev
+- Introduction to Political Economy by Rosa Luxemburg
+
 ## The Shadow of the Wind by Carlos Ruiz Zafón (2001)
 https://bookjumpr.com/carlos-ruiz-zafon/the-shadow-of-the-wind
 - Candide by Voltaire: "his favourite book open in his lap - a copy of Voltaire's Candide, which he reread a couple of times a year"
@@ -10309,6 +10391,11 @@ https://bookjumpr.com/honore-de-balzac/the-wild-ass-s-skin
 https://bookjumpr.com/henrik-ibsen/the-wild-duck
 - Harrison's History of London by Anonymous: "There’s one great book, called “Harryson’s History of London;” it must be a hundred years old; and there are such an enormous lot of pictures in it."
 
+## The Wild Geese by Mori Ōgai (1913)
+https://bookjumpr.com/mori-ogai/the-wild-geese
+- Jin Ping Mei by Anonymous
+- Mikawa Gofudoki by Anonymous
+
 ## The Wind-Up Bird Chronicle by Haruki Murakami (1994)
 https://bookjumpr.com/haruki-murakami/the-wind-up-bird-chronicle
 - A Farewell to Arms by Ernest Hemingway: ""After thinking long and hard about it, I concluded that it was from Hemingway's A Farewell to Arms. The hero ... manages to escape from Italy to Switzerland by boat..." — discussed at length as a remembered story about a man who keeps eati"
@@ -10637,6 +10724,10 @@ https://bookjumpr.com/richard-henry-dana/two-years-before-the-mast
 https://bookjumpr.com/herman-melville/typee
 - A History of the Earth and Animated Nature by Oliver Goldsmith: "suggested to me the idea of a pictorial museum of natural history, or an illustrated copy of Goldsmith’s _Animated Nature_."
 - Robinson Crusoe by Daniel Defoe: "Robinson Crusoe could not have been more startled at the footprint in the sand than we were at this unwelcome discovery."
+
+## Ukigumo by Futabatei Shimei (1887)
+https://bookjumpr.com/futabatei-shimei/ukigumo
+- Illusions by James Sully
 
 ## Ulysses by James Joyce (1922)
 https://bookjumpr.com/james-joyce/ulysses
