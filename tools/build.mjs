@@ -47,8 +47,11 @@ export function computeNotes(db) {
   rows.forEach((r, i) => {
     let n = (r.note || '').replace(/\s+/g, ' ').trim();
     if (!n) return;
+    // A trailing '*' marks an auto-translated quote; keep it through truncation (the page footnotes it).
+    const star = /\*$/.test(n);
+    if (star) n = n.slice(0, -1).trimEnd();
     if (n.length > NOTE_MAX) n = n.slice(0, NOTE_MAX).replace(/\s+\S*$/, '') + '…';
-    notes.push([i, n]);
+    notes.push([i, star ? n + '*' : n]);
   });
   return { count: rows.length, notes };
 }
