@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 1,024 books that mention other books, 8,576 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 1,024 books that mention other books, 8,575 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -816,8 +816,8 @@ https://bookjumpr.com/fukuzawa-yukichi/an-encouragement-of-learning
 - The Elements of Moral Science by Francis Wayland: "In a book called The Elements of Moral Science, written by an American named Wayland, there is a discussion of the freedom of a person's body and mind; the gist of the argument is that each person's self belongs to himself.*"
 - Rangaku Koto Hajime by Sugita Genpaku: "Japan's civilization first came from Korea and China, then was polished by our own people's efforts into its modern shape; Western learning has distant roots, reaching back to the Horeki era (see the printed book Rangaku Koto Hajime).*"
 - The Subjection of Women by John Stuart Mill: "Today it seems almost natural that men attend to affairs outside and women manage the home, but Stuart Mill wrote The Subjection of Women, attempting to break this age-old, seemingly fixed custom.*"
-- Twenty-Four Paragons of Filial Piety by Anonymous: "Stories urging filial piety have been very numerous in Japan and China since ancient times, beginning with the Twenty-Four Paragons of Filial Piety, and the other writings are too many to count.*"
-- Greater Learning for Women by Anonymous: "The book Greater Learning for Women says: 'A woman has three obediences: in youth she obeys her parents, once married her husband, and in old age her sons.'*"
+- Twenty-Four Paragons of Filial Piety by Guo Jujing: "Stories urging filial piety have been very numerous in Japan and China since ancient times, beginning with the Twenty-Four Paragons of Filial Piety, and the other writings are too many to count.*"
+- Greater Learning for Women by Kaibara Ekken: "The book Greater Learning for Women says: 'A woman has three obediences: in youth she obeys her parents, once married her husband, and in old age her sons.'*"
 
 ## An Enquiry Concerning Human Understanding by David Hume (1748)
 https://bookjumpr.com/david-hume/an-enquiry-concerning-human-understanding
@@ -866,7 +866,7 @@ https://bookjumpr.com/nishida-kitaro/an-inquiry-into-the-good
 - The Confessions by Augustine of Hippo: "Augustine also says, 'God's will is unchanging; He does not will at one time and not at another, much less reverse an earlier decision later' (The Confessions, XII. 15).*"
 - Die Philosophie des heiligen Augustinus by Storz: "Thus what Augustine said, that God beholds all things in an unchanging intuition and that God is at rest in motion and in motion at rest, can also be understood (Storz, Die Philosophie des heiligen Augustinus, section 20).*"
 - The Varieties of Religious Experience by William James: "One could cite endless such experiences of religious mystics (James, The Varieties of Religious Experience, Lect. XVI, XVII).*"
-- The Doctrine Of The Mean by Confucius: "That the mean is good is Aristotle's view, and in the East it also appears in the book The Doctrine of the Mean.*"
+- The Doctrine of the Mean by Zisi: "That the mean is good is Aristotle's view, and in the East it also appears in the book The Doctrine of the Mean.*"
 
 ## An Old-Fashioned Girl by Louisa May Alcott (1869)
 https://bookjumpr.com/louisa-may-alcott/an-old-fashioned-girl
@@ -1515,7 +1515,7 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 - Feudal and Modern Japan by Arthur May Knapp: "These acted more as impulses than as doctrines; for Shintoism, unlike the Mediaeval Christian Church, prescribed to its votaries scarcely any credenda, furnishing them at the same time with agenda of a straightforward and simple type. "Feudal and Modern Japan" Vol. I, p. 183."
 - Reflections on the Revolution in France by Edmund Burke: "It is a pleasure to me to reflect upon this subject in the language of Burke, who uttered the well-known touching eulogy over the neglected bier of its European prototype."
 - Theory of the Leisure Class by Thorstein Veblen: "Very fitly does Mr. Veblen, in his interesting book, call decorum "a product and an exponent of the leisure-class life." Theory of the Leisure Class, N.Y. 1899, p. 46."
-- The Doctrine Of The Mean by Confucius: "The apotheosis of Sincerity to which Tsu-tsu gives expression in the Doctrine of the Mean, attributes to it transcendental powers, almost identifying them with the Divine. "Sincerity is the end and the beginning of all things; without Sincerity there would be nothing.""
+- The Doctrine of the Mean by Zisi: "The apotheosis of Sincerity to which Tsu-tsu gives expression in the Doctrine of the Mean, attributes to it transcendental powers, almost identifying them with the Divine. "Sincerity is the end and the beginning of all things; without Sincerity there would be nothing.""
 - The Gist of Japan by R. B. Peery: "To sacrifice truth merely for the sake of politeness was regarded as an "empty form" (kyo-rei) and "deception by sweet words," and was never justified. Peery, The Gist of Japan, p. 86."
 - Japan in Transition by Stafford Ransome: "It was quite a usual thing to insert such clauses as these: "In default of the repayment of the sum lent to me, I shall say nothing against being ridiculed in public;" or, "In case I fail to pay you back, you may call me a fool," and the like. Knapp, Feudal and Modern Japan, Vol. I, Ch. IV. Ransome, Japan in Transition, Ch. VIII."
 - Philosophy of History by Georg Wilhelm Friedrich Hegel: "[Footnote 16: _Philosophy of History_ (Eng. trans. by Sibree), Pt. IV, Sec. II, Ch. I.]"
@@ -1533,7 +1533,7 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 - The Analects by Confucius: "In his "Analects" Confucius defines Courage by explaining, as is often his wont, what its negative is. "Perceiving what is right," he says, "and doing it not, argues lack of courage.""
 - Religio Medici by Thomas Browne: "In that quaint book of Sir Thomas Browne's, Religio Medici there is an exact English equivalent for what is repeatedly taught in our Precepts."
 - Suicide by Henry Morselli: "But a normal seppuku does not savor of fanaticism, or madness or excitement, utmost sang froid being necessary to its successful accomplishment. Of the two kinds into which Dr. Strahan divides suicide, the Rational or Quasi, and the Irrational or True, seppuku is the best example of the former type. Morselli, Suicide, p. 314."
-- Suicide and Insanity by Anonymous: "Of the two kinds into which Dr. Strahan divides suicide, the Rational or Quasi, and the Irrational or True, seppuku is the best example of the former type. Morselli, Suicide, p. 314. Suicide and Insanity."
+- Suicide and Insanity by Samuel Alexander Kenny Strahan: "Of the two kinds into which Dr. Strahan divides suicide, the Rational or Quasi, and the Irrational or True, seppuku is the best example of the former type. Morselli, Suicide, p. 314. Suicide and Insanity."
 - Aristocracy and Evolution by William Hurrell Mallock: "Mr. Mallock, in his exceedingly suggestive book, "Aristocracy and Evolution," has eloquently told us that "social evolution, in so far as it is other than biological, may be defined as the unintended result of the intentions of great men;""
 - The Psychology of Peoples by Gustave Le Bon: "instead of making it, as LeBon does, an exclusive patrimony of a race or people, the Concord philosopher calls it "an element which unites the most forcible persons of every country; makes them intelligible and agreeable to each other; and is somewhat so precise that it is at once felt if an individual lack the Masonic sign." The…"
 - Missions and Politics in Asia by Robert E. Speer: "he touched the main spring which has made new Japan what she is and which will make her what she is destined to be. Speer; Missions and Politics in Asia, Lecture IV, pp. 189-190; Dennis: Christian Missions and Social Progress, Vol. I, p. 32, Vol. II, p. 70, etc."
@@ -2150,7 +2150,7 @@ https://bookjumpr.com/yumeno-kyusaku/dogra-magra
 - On the Origin of Species by Charles Darwin: "The paper Dr. Masaki submitted then, Dr. Saito predicted, would shake the scholarly world as much as Darwin's On the Origin of Species or Einstein's Principle of Relativity, or even more: it was the Treatise on the Brain.*"
 - Nansō Satomi Hakkenden by Takizawa Bakin: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Nansō Satomi Hakkenden and the Water Margin.*"
 - Lotus Sutra by Anonymous: "As for the monk's name, Shōkū, it sounds Tendai, so he probably read something like the Lotus Sutra and grasped this principle from it.*"
-- Water Margin by Anonymous: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Hakkenden and the Water Margin.*"
+- Water Margin by Shi Nai'an: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Hakkenden and the Water Margin.*"
 
 ## Dombey and Son by Charles Dickens (1848)
 https://bookjumpr.com/charles-dickens/dombey-and-son
@@ -2928,7 +2928,7 @@ https://bookjumpr.com/lafcadio-hearn/gleanings-in-buddha-fields-studies-of-hand-
 ## Glimpses of Unfamiliar Japan: First Series by Lafcadio Hearn (1894)
 https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-first-series
 - Kojiki by O no Yasumaro: "And the tale of his descent into that strange nether world, and of what there befell him, is it not written in the Kojiki?"
-- Nihongi by Anonymous: "Doubtless the difficulty of explaining Shinto has been due simply to the fact that the sinologists have sought for the source of it in books: in the Kojiki and the Nihongi, which are its histories; in the Norito, which are its prayers; in the commentaries of Motowori and Hirata, who were its greatest scholars."
+- Nihongi by Prince Toneri: "Doubtless the difficulty of explaining Shinto has been due simply to the fact that the sinologists have sought for the source of it in books: in the Kojiki and the Nihongi, which are its histories; in the Norito, which are its prayers; in the commentaries of Motowori and Hirata, who were its greatest scholars."
 - Lotus Sutra by Anonymous: "In the Japanese tongue, Ho-ke-kyo; in Sanscrit, Saddharma Pundarika: 'The Sutra of the Lotus of the Good Law,' the divine book of the Nichiren sect."
 - Jizo-kyo-Kosui by Anonymous: "'Then is there no way, Akira, by which Bimbogami may be driven away?' 'It is written,' replies Akira, 'in the book called Jizo-Kyo-Kosui that the aged Enjobo, a priest dwelling in the province of Owari, was able to get rid of Bimbogami by means of a charm."
 - Tales of Old Japan by Algernon Bertram Freeman-Mitford: "In the Introduction to his charming Tales of Old Japan, Mr. Mitford wrote in 1871: 'The books which have been written of late years about Japan have either been compiled from official records, or have contained the sketchy impressions of passing travellers. Of the inner life of the Japanese the world at large knows but little:"
@@ -3438,10 +3438,10 @@ https://bookjumpr.com/natsume-soseki/i-am-a-cat
 - The Golden Demon by Ozaki Kōyō: ""I asked whether he would do a Chikamatsu domestic play again, and he said no, next time they had chosen something far more modern, The Golden Demon. When I asked what part he had, he said he was Omiya."*"
 - Tao Te Ching by Laozi: "The master's only reason for revering this prose is that nobody understands it at all, just as Taoists revere the Tao Te Ching, Confucians the I Ching, and Zen followers the Record of Linji.*"
 - I Ching by Anonymous: "The master's only reason for revering this prose is that nobody understands it at all, just as Taoists revere the Tao Te Ching, Confucians the I Ching, and Zen followers the Record of Linji.*"
-- Record of Linji by Anonymous: "The master's only reason for revering this prose is that nobody understands it at all, just as Taoists revere the Tao Te Ching, Confucians the I Ching, and Zen followers the Record of Linji.*"
+- Record of Linji by Linji Yixuan: "The master's only reason for revering this prose is that nobody understands it at all, just as Taoists revere the Tao Te Ching, Confucians the I Ching, and Zen followers the Record of Linji.*"
 - Fudōchi Shinmyōroku by Takuan Sōhō: ""Have you ever read Zen Master Takuan's Fudōchi Shinmyōroku?" "No, I have never even heard of it."*"
 - Nansō Satomi Hakkenden by Takizawa Bakin: "To expect more than that is an unreasonable demand, one that could be counted on only when Shino and Kobungo step out of Bakin's novel and the Nansō Satomi Hakkenden moves in next door.*"
-- Tang Shi Xuan by Anonymous: ""Even when I think I would feel better singing the Tang Shi Xuan aloud, if a neighbor might be troubled as I am, I always hold back."*"
+- Tang Shi Xuan by Li Panlong: ""Even when I think I would feel better singing the Tang Shi Xuan aloud, if a neighbor might be troubled as I am, I always hold back."*"
 - The Life and Opinions of the Tomcat Murr by E. T. A. Hoffmann: "I had thought no cat was so discerning as I, but a kinsman I had never met, Kater Murr (The Life and Opinions of the Tomcat Murr), suddenly raised a great cry and startled me. He had died a hundred years ago.*"
 
 ## I Have Some Questions for You by Rebecca Makkai (2023)
@@ -3487,7 +3487,7 @@ https://bookjumpr.com/lafcadio-hearn/in-ghostly-japan
 - Buddhism in Translations by Henry Clarke Warren: "In Mr. Henry Clarke Warren's Buddhism in Translations (the most interesting and valuable single volume of its kind that I have ever seen), there is a Pali version of the legend, which differs considerably from the above."
 - Treasure-Raining Sutra by Anonymous: "And here is a holy sutra, called Ubo-Darani- Kyo, or "Treasure-Raining Sutra"(4) you must be careful to recite it every night in your house--without fail."
 - Kwan-butsu-sanmai-kyo by Anonymous: "Concerning the virtue of the representation of the footprints of the Buddha, there is sometimes quoted a text from the Kwan-butsu- sanmai-kyo ["Buddha-dhyana-samadhi-sagara-sutra"], thus translated for me:"
-- Sho-Eko-Ho-Kwan by Anonymous: "I got some information about them from the Sho-Eko-Ho-Kwan,--a book used by the Jodo sect. This book also contains rough woodcuts of the footprints"
+- Sho-Eko-Ho-Kwan by Hitsumu: "I got some information about them from the Sho-Eko-Ho-Kwan,--a book used by the Jodo sect. This book also contains rough woodcuts of the footprints"
 - Ho-Kai-Shidai by Anonymous: "Moreover, there is a text in the book called Ho-Kai- Shidai that lends support to this supposition:--"The sole of the foot of the Buddha is flat,--like the base of a toilet-stand.... Upon it are lines forming the appearance of a wheel of a thousand spokes...."
 - Shin-zoku-butsu-ji-hen by Anonymous: "IV.--The Conch-Shell (Jap. "Hora ") or Trumpet. Emblem of the preaching of the Law. The book Shin-zoku-butsu-ji-hen calls it the symbol of the voice of the Buddha."
 - Dai-hi-kyo by Anonymous: "Emblem of the preaching of the Law. The book Shin-zoku-butsu-ji-hen calls it the symbol of the voice of the Buddha. The Dai-hi-kyo calls it the token of the preaching and of the power of the Mahayana doctrine."
@@ -3497,7 +3497,7 @@ https://bookjumpr.com/lafcadio-hearn/in-ghostly-japan
 - Buddhist Suttas by T. W. Rhys Davids: "The reader will find a similar proverb in Rhys-David's "Buddhist Suttas" (Sacred Books of the East), p. 173,--together with a very curious parable, cited in a footnote, which an Indian commentator gives in explanation."
 - The Dhammapada by Anonymous: "The meaning of this proverb is identical with that of the Dhammapada verse:--"If a man speaks or acts with an evil thought, pain follows him as the wheel follows the foot of the ox that draws the carriage.""
 - Lotus Sutra by Anonymous: "Such a device is justified especially by the famous parable of the third chapter of the Saddharma Pundarika."
-- Jikkun-Sho by Anonymous: "This story may be found in the curious old Japanese book called Jikkun-Sho. The same legend has furnished the subject of an interesting No-play, called Dai-E ("The Great Assembly")."
+- Jikkinshō by Anonymous: "This story may be found in the curious old Japanese book called Jikkun-Sho. The same legend has furnished the subject of an interesting No-play, called Dai-E ("The Great Assembly")."
 - Hyaku-Monogatari by Anonymous: "Both title and narrative may be found in the collection of weird stories entitled Hyaku-Monogatari."
 - Catalogue of Japanese and Chinese Paintings in the British Museum by William Anderson: "I was recently surprised to find, in Anderson's catalogue of Japanese and Chinese paintings in the British Museum, this remarkable statement:"
 - On the Physical Basis of Life by Thomas Henry Huxley: "I never hear this singular proverb without being re-minded of a sentence in Huxley's famous essay, On the Physical Basis of Life:--"The living protoplasm not only ultimately dies and is resolved into its mineral and lifeless constituents, but is always dying"
@@ -3681,7 +3681,7 @@ https://bookjumpr.com/charlotte-bronte/jane-eyre
 ## Japan: An Attempt at Interpretation by Lafcadio Hearn (1904)
 https://bookjumpr.com/lafcadio-hearn/japan-an-attempt-at-interpretation
 - Kojiki by O no Yasumaro: "The oldest is entitled Ko-ji-ki, or "Records of Ancient Matters"; and it is supposed to have been compiled in the year 712 A.D. The other and much larger work is called Nihongi, "Chronicles of Nihon [Japan]," and dates from about 720 A.D."
-- Nihongi by Anonymous: "This custom was abolished, by the Emperor Suinin, about nineteen hundred years ago; and the Nihongi declares that it was then an ancient custom."
+- Nihongi by Prince Toneri: "This custom was abolished, by the Emperor Suinin, about nineteen hundred years ago; and the Nihongi declares that it was then an ancient custom."
 - Principles of Sociology by Herbert Spencer: "The vague character of the Shinto hierarchy is probably best explained by Mr. Spencer in Chapter VIII of the third volume of Principles of Sociology:"
 - First Principles by Herbert Spencer: "Assuming, with Herbert Spencer, that the test of reality is permanence, one can scarcely question this position; it differs little from the statement with which the closing chapter of the First Principles concludes:"
 - La Cité Antique by Numa Denis Fustel de Coulanges: "The author of 'La Cite Antique' cites, among other ancient texts bearing upon the subject, an interesting invocation from the tragedy of Helen, by Euripides:"
@@ -3923,8 +3923,8 @@ https://bookjumpr.com/lafcadio-hearn/kwaidan-stories-and-studies-of-strange-thin
 - The Tale of the Heike by Anonymous: "Formerly the professional minstrels who recited the Heike-Monogatari, and other tragical histories, were called biwa-hoshi, or "lute-priests.""
 - Heart Sutra by Anonymous: "Before sundown the priest and his acolyte stripped Hoichi: then, with their writing-brushes, they traced upon his breast and back, head and face and neck, limbs and hands and feet,--even upon the soles of his feet, and upon all parts of his body,--the text of the holy sutra called Hannya-Shin-Kyo."
 - Lotus Sutra by Anonymous: "In the neighboring bamboo-grove I hear the flute-call of the bird that praises the Sutra of the Lotos; and the land is very still by reason of the south wind."
-- Soshinki by Anonymous: "In the book Soshinki (5) it is written that if one find the body of a Rokuro-Kubi without its head, and remove the body to another place, the head will never be able to join itself again to the neck."
-- Nan-ho-i-butsu-shi by Anonymous: "In the book Nan-ho-i-butsu-shi it is written that certain red characters can always be found upon the nape of the neck of a real Rokuro-Kubi."
+- Soshinki by Gan Bao: "In the book Soshinki (5) it is written that if one find the body of a Rokuro-Kubi without its head, and remove the body to another place, the head will never be able to join itself again to the neck."
+- Nan-ho-i-butsu-shi by Wan Zhen: "In the book Nan-ho-i-butsu-shi it is written that certain red characters can always be found upon the nape of the neck of a real Rokuro-Kubi."
 - Mushi-Isame by Anonymous: "The original, of which I have attempted only a free translation, can be found in the curious old book Mushi-Isame ("Insect-Admonitions"); and it assumes the form of a discourse to a butterfly."
 - Mosquitoes by Leland Ossian Howard: "With a view to self-protection I have been reading Dr. Howard's book, "Mosquitoes." I am persecuted by mosquitoes."
 - Exotics and Retrospectives by Lafcadio Hearn: "For some account of these, see my paper entitled, "The Literature of the Dead," in Exotics and Retrospectives."
@@ -5733,7 +5733,7 @@ https://bookjumpr.com/natsume-soseki/sanshiro
 - Oroonoko by Thomas Southerne: ""After that novel came out, a man named Southerne worked the same story into a play, separately. It has the same name [Oroonoko], so you mustn't mix the two up."*"
 - Hydriotaphia by Thomas Browne: ""This is the Hydriotaphia I told you about the other day. Look at it if you are bored." Sanshiro thanked him and took the book.*"
 - Hamlet by William Shakespeare: ""Hamlet probably did not want to marry. There may be only one Hamlet, but there are many people like him." "What sort of people?" Hirota fell silent as smoke rose from his cigar.*"
-- History of Intellectual Development by Anonymous: ""History of Intellectual Development. Oh, so it was there," Mineko said, drawing close to look at the book that Sanshiro had found.*"
+- History of Intellectual Development by John Beattie Crozier: ""History of Intellectual Development. Oh, so it was there," Mineko said, drawing close to look at the book that Sanshiro had found.*"
 
 ## Sapiens: A Brief History of Humankind by Yuval Noah Harari (2014)
 https://bookjumpr.com/yuval-noah-harari/sapiens-a-brief-history-of-humankind
@@ -5824,8 +5824,8 @@ https://bookjumpr.com/gustave-flaubert/sentimental-education
 ## Shadowings by Lafcadio Hearn (1900)
 https://bookjumpr.com/lafcadio-hearn/shadowings
 - Konjaku Monogatari by Anonymous: "The original story is to be found in the curious volume entitled Konseki-Monogatari"
-- Jikkunsho by Anonymous: "From the old story-book, Jikkun-sho THERE was once a very pious and learned priest, called Shoku Shonin, who lived in the province of Harima."
-- Otogi Hyaku Monogatari by Anonymous: "Related in the Otogi-Hyaku-Monogatari SAYS the old Japanese author, Hakubai-En Rosui:-- "In Chinese and in Japanese books there are related many stories,--both of ancient and of modern times,--about pictures that were so beautiful as to exercise a magical influence upon the beholder."
+- Jikkinshō by Anonymous: "From the old story-book, Jikkun-sho THERE was once a very pious and learned priest, called Shoku Shonin, who lived in the province of Harima."
+- Otogi Hyaku Monogatari by Aoki Rosui: "Related in the Otogi-Hyaku-Monogatari SAYS the old Japanese author, Hakubai-En Rosui:-- "In Chinese and in Japanese books there are related many stories,--both of ancient and of modern times,--about pictures that were so beautiful as to exercise a magical influence upon the beholder."
 - Lotus Sutra by Anonymous: "For many years he meditated daily upon the chapter of Fugen-Bosatsu [the Bodhisattva Samantabhadra] in the Sutra of the Lotos of the Good Law; and he used to pray, every morning and evening, that he might at some time be permitted to behold Fugen-Bosatsu as a living presence, and in the form described in the holy text."
 - Madame Chrysanthème by Pierre Loti: "Lovers of Pierre Loti (the world's greatest prose-writer) may remember in Madame Chrysantheme a delightful passage about a Japanese house,--describing the old dry woodwork as impregnated with sonority by the shrilling crickets of a hundred summers."
 - Greek Anthology by Anonymous: "It is especially in their poems upon the cicada that we find the old Greeks confessing their love of insect-melody: witness the lines in the Anthology about the tettix caught in a spider's snare, and "making lament in the thin fetters" until freed by the poet;"
@@ -5856,7 +5856,7 @@ https://bookjumpr.com/h-rider-haggard/she
 ## Shinto: The Ancient Religion of Japan by W. G. Aston (1907)
 https://bookjumpr.com/w-g-aston/shinto-the-ancient-religion-of-japan
 - Kojiki by O no Yasumaro: "The Kojiki is a repertory of the old myths and legends, and, in the latter part, of the ancient history of Japan."
-- Nihongi by Anonymous: "The Nihongi, a work of similar scope, though based more on an existing written literature, was produced a few years later (720). It quotes numerous variants of the religious myths current at this time."
+- Nihongi by Prince Toneri: "The Nihongi, a work of similar scope, though based more on an existing written literature, was produced a few years later (720). It quotes numerous variants of the religious myths current at this time."
 - Engishiki by Anonymous: "For the ritual of Shinto our chief source of information is the Yengishiki, a compilation made early in the tenth century."
 - Man'yoshu by Anonymous: "In one passage of the Nihongi, Yomi is clearly no more than a metaphor for the grave. A brother of Jimmu Tenno, the first Mikado, is said to have gone to the ‘Eternal Land’ at his death, and in a poem of the Manyōshiu, a deceased Mikado is said to have ascended into heaven."
 - The Tempest by William Shakespeare: "In Shakespeare’s Tempest, Iris is at once the rainbow and an anthropomorphic messenger of the gods. Phoebus is not only the sun but a deity distinct from that luminary, though associated with it, as in the story of Phaeton."
@@ -6728,7 +6728,7 @@ https://bookjumpr.com/fukuzawa-yukichi/the-autobiography-of-fukuzawa-yukichi
 - Zuo Zhuan by Zuo Qiuming: "Afterwards I attended lectures on other Chinese texts, and then studied alone, history first; I was especially fond of the Zuo Zhuan, and while most students quit after three or four of its fifteen volumes, I read it all, about eleven times, and memorized the interesting parts.*"
 - Records of the Grand Historian by Sima Qian: "For history I read the Records of the Grand Historian first, then the Book of Han and the Book of Later Han, the Jin history, the Five Dynasties and the like.*"
 - Book of Han by Ban Gu: "For history I read the Records of the Grand Historian first, then the Book of Han and the Book of Later Han, the Jin history, the Five Dynasties and the like.*"
-- Zhan Guo Ce by Anonymous: "Then I listened to lectures on the Mengqiu, the Shishuo Xinyu, the Zuo Zhuan, the Zhan Guo Ce, Laozi and Zhuangzi.*"
+- Zhan Guo Ce by Liu Xiang: "Then I listened to lectures on the Mengqiu, the Shishuo Xinyu, the Zuo Zhuan, the Zhan Guo Ce, Laozi and Zhuangzi.*"
 - A New Account of the Tales of the World by Liu Yiqing: "Then I listened to lectures on the Mengqiu, A New Account of the Tales of the World, the Zuo Zhuan, the Zhan Guo Ce, Laozi and Zhuangzi.*"
 - Analects by Confucius: "At Master Shiraishi's school I studied the classics above all: the Analects and Mencius of course, and the whole range of commentary on the meaning of the classics.*"
 - Mencius by Mencius: "While the others were reading the Classic of Poetry or the Book of Documents, I was doing recitation of Mencius.*"
@@ -6737,7 +6737,7 @@ https://bookjumpr.com/fukuzawa-yukichi/the-autobiography-of-fukuzawa-yukichi
 - Tao Te Ching by Laozi: "I of course studied the Classic of Poetry and the Book of Documents, and even odd, interesting works such as the Tao Te Ching and Zhuangzi, hearing the teacher's lectures and studying them myself.*"
 - I Ching by Anonymous: "Among the library was a set of thirteen volumes of the I Ching with annotations, with Ito Togai's own handwritten notes in the margins, a splendid thing that my late father had bought in Osaka and prized.*"
 - Conditions in the West by Fukuzawa Yukichi: "Back in Japan I took those notes as a base, examined many more original books, and wove together what I remembered, and so Conditions in the West came to be.*"
-- Chambers's Political Economy by Anonymous: "I had a copy of Chambers's Political Economy, and when I mentioned it to an influential finance official he was delighted and asked for at least a table of contents, so I set about translating it.*"
+- Chambers's Political Economy by John Hill Burton: "I had a copy of Chambers's Political Economy, and when I mentioned it to an influential finance official he was delighted and asked for at least a table of contents, so I set about translating it.*"
 - Chōai no Hō by Fukuzawa Yukichi: "I translated a book on bookkeeping, Chōai no Hō, early after the Restoration, and every bookkeeping manual in the world today follows my translation's examples.*"
 - Guide to Travel in the West by Fukuzawa Yukichi: "I had no choice but to retire at once as ordered, and during that time I was writing a book called Guide to Travel in the West.*"
 - Seiri Hatsumō by Anonymous: "The passage discussed how light relates to sight, with two candles and the shadows they cast, quite a difficult part, and it should be in the translated book Seiri Hatsumō that Shimamura translated.*"
@@ -7667,7 +7667,7 @@ https://bookjumpr.com/natsume-soseki/the-gate
 - The Analects by Confucius: "Before going to bed he said, "Tonight I read The Analects for the first time in a long while." When Oyone asked whether there was anything in it, Sosuke answered, "No, nothing."*"
 - Caigen tan by Hong Yingming: "A colleague of his took out the Caigen tan from his Western-style pocket and read it on the tram. Sosuke, with no taste for such things, did not know what the Caigen tan was.*"
 - Shūmon mujintō ron by Tōrei Enji: "Giso took the usual book from his bosom and set it before Sosuke. It was a book called the Shūmon mujintō ron. "It is a wonderful book," he had told Sosuke.*"
-- The Blue Cliff Record by Anonymous: "Giso was reading a book with a black cover. It had the difficult title The Blue Cliff Record. "Even we read the Blue Cliff Record, but beyond our own level we have no idea what it means."*"
+- The Blue Cliff Record by Yuanwu Keqin: "Giso was reading a book with a black cover. It had the difficult title The Blue Cliff Record. "Even we read the Blue Cliff Record, but beyond our own level we have no idea what it means."*"
 
 ## The Ghost Writer by Philip Roth (1979)
 https://bookjumpr.com/philip-roth/the-ghost-writer
@@ -7742,7 +7742,7 @@ https://bookjumpr.com/henry-james/the-golden-bowl
 https://bookjumpr.com/ozaki-koyo/the-golden-demon
 - Nansō Satomi Hakkenden by Takizawa Bakin: "It may sound like something out of a novel, but it must be like Hamaji in Nansō Satomi Hakkenden, slipping out late at night past her parents' eyes because Shino leaves at dawn. How strange! My own circumstances are like Shino's too: parted from my parents in childhood, raised in the Shigisawa house, betrothed to their daughter.*"
 - Classic of Filial Piety by Anonymous: ""Some rebellion broke out, and someone petitioned the throne: no need to send an army, just send one general to the river and have him read the Classic of Filial Piety to the rebels, and they will vanish on their own. You laugh at that, but Yusa is in all earnest reading the Classic of Filial Piety, bled every other month by a lender who…*"
-- Water Margin by Anonymous: ""When it comes to this, brute force counts for more than money. Surely this is a scene straight out of the Water Margin? To protect a nation's interests and rights, international law is really worth nothing; what matters is military strength."*"
+- Water Margin by Shi Nai'an: ""When it comes to this, brute force counts for more than money. Surely this is a scene straight out of the Water Margin? To protect a nation's interests and rights, international law is really worth nothing; what matters is military strength."*"
 
 ## The Golden House by Salman Rushdie (2017)
 https://bookjumpr.com/salman-rushdie/the-golden-house
@@ -8170,7 +8170,6 @@ https://bookjumpr.com/yoshisaburo-okakura/the-japanese-spirit
 - Buddhism in China by Samuel Beal: "Those who would care to read about it will find an excellent supply of knowledge in two little books called Buddhism and Buddhism in China, written respectively by Dr. Rhys Davids and the late Rev. S. Beal, not to mention the late Sir Monier Williams' standard work."
 - The Religion of China by James Legge: "'To give oneself,' he said on one occasion, 'to the duties due to men, and while respecting spiritual things to keep aloof from them, may be called wisdom.' Legge's The Religion of China, p. 137."
 - The Doctrines of Confucius by Ernst Faber: "…were of the opinion that more real good was to be achieved in proceeding straight to action under the guidance of conscience which was heaven and all, than in indulging in idle talk about the subtlety of human nature. Faber's Doctrines of Confucius, p. 33."
-- Japan by the Japanese by Anonymous: "As for books on the subject from the pen of the Japanese themselves, Dr. Nitobe's Bushido, Explanations of the Japanese Thought, and my brother K. Okakura's Ideals of the East, besides a volume by several well-known Japanese, entitled Japan by the Japanese, are to be specially mentioned."
 
 ## The Job by Sinclair Lewis (1917)
 https://bookjumpr.com/sinclair-lewis/the-job
@@ -8871,7 +8870,7 @@ https://bookjumpr.com/kristin-hannah/the-nightingale
 ## The No Plays of Japan by Arthur Waley (1921)
 https://bookjumpr.com/arthur-waley/the-no-plays-of-japan
 - Lotus Sutra by Anonymous: "(1) The Amidists sought to gain satori by the study of the Hokke Kyo, called in Sanskrit Saddharma Pundarika Sutra or "Scripture of the Lotus of the True Law," or even by the mere repetition of its complete title "Myoho Renge Hokke Kyo.""
-- Abhidharmakosa by Anonymous: "…but in the Hokke Scripture I have not got to the Law-Master Chapter, and in the Gusha-shastra I have not got as far as the Seventh Book."
+- Abhidharmakosa by Vasubandhu: "…but in the Hokke Scripture I have not got to the Law-Master Chapter, and in the Gusha-shastra I have not got as far as the Seventh Book."
 
 ## The Noise of Time by Julian Barnes (2016)
 https://bookjumpr.com/julian-barnes/the-noise-of-time
@@ -9318,10 +9317,10 @@ https://bookjumpr.com/kaiten-nukariya/the-religion-of-the-samurai-a-study-of-zen
 - Mahayanacraddhotpada-castra by Asvaghosa: "The sutra is believed by many Buddhists, not without reason, to be the exposition of that Mahayana doctrine which Acvaghosa restated in his Craddhotpada-castra."
 - Platform Sutra by Hui-neng: "There exists Luh Tan Fah Pao Tan King (Roku-so-ho-bo-dan-kyo), a collection of his sermons. It is full of bold statements of Zen in its purest form, and is entirely free from ambiguous and enigmatical words that encumber later Zen books."
 - Sho-do-ka by Gen-kaku: "His Ching Tao Ko (Sho-do-ka), a beautiful metrical exposition of Zen, is still read by most students of Zen."
-- Rin-zai-roku by Lin Tsi: "It is on this account that Rin-zai declared: 'The twelve divisions of the Buddhist Canon are nothing better than waste paper.'"
+- Record of Linji by Linji Yixuan: "It is on this account that Rin-zai declared: 'The twelve divisions of the Buddhist Canon are nothing better than waste paper.'"
 - Sho-yo-roku by Wan Sung: "For such dialogues, see Sho-yo-roku, Mu-mon-kan, Heki-gan-shu. Fu-kiu's words are repeatedly quoted by Zen masters."
 - Heki-gan-shu by Yuen Wu: "In the Southern Sung dynasty (A.D. 1127-1279) flourished such masters as Yuen Wu (En-go, died in 1135), the author of Pik Yen Tsih (Heki-gan-shu);"
-- Kei-toku-den-to-roku by Anonymous: "King Teh Chwen Tang Luh (Kei-toku-den-to-roku), published by Tao Yuen (Do-gen) A.D. 1004, gives a detailed narrative concerning this incident as stated here, but earlier historians tell us a different story about the mutilation of Shang Kwang's arm."
+- Kei-toku-den-to-roku by Daoyuan: "King Teh Chwen Tang Luh (Kei-toku-den-to-roku), published by Tao Yuen (Do-gen) A.D. 1004, gives a detailed narrative concerning this incident as stated here, but earlier historians tell us a different story about the mutilation of Shang Kwang's arm."
 - Sho-bo-gen-zo by Do-gen: "Do-gen, the founder of the Japanese So To Sect, severely condemns (in his Sho-bo-gen-zo) the notions of the impurity of women inculcated in the Scriptures."
 - Ko-zen-go-koku-ron by Ei-sai: "Taking advantage of the protests, Ei-sai wrote a book entitled Ko-zen-go-koku-ron ('The Protection of the State by the Propagation of Zen'), and not only explained his own position, but exposed the ignorance of the protestants."
 - Zhuangzi by Zhuang Zhou: "Chwang Tsz (So-shi), the greatest of Chinese philosophers, says: "Thou knowest the music of men, but not the music of the earth. Thou knowest the music of the earth, but not the music of the heaven.""
@@ -11023,8 +11022,8 @@ https://bookjumpr.com/mori-ogai/vita-sexualis
 - Honchō Gushō Shinshi by Kikuchi Sankei: "I borrowed from Eiichi and read the Seisetsurō Shishō, and then I read the Honchō Gushō Shinshi. Then, because new pieces by Sankei were coming out, I went to Asakusa and bought the Kagetsu Shinshi and read that too; the two of us made poems and wrote little pieces in Chinese for fun.*"
 - Jiandeng Yuhua by Li Zhen: "Since I had made friends who were scholars of Chinese learning, I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi. The naive romances of young men and women written in such books made me terribly envious and jealous.*"
 - Yanshan Waishi by Chen Qiu: "After I first read the Umegoyomi on a borrowed copy, I made friends who were scholars of Chinese learning, and I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi, and the naive romances in these books left me envious and jealous.*"
-- Qingshi by Anonymous: "I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi; the naive romances of young men and women in such books were painfully enviable to me, since I had not been born handsome and so this beautiful thing was an unreachable ideal.*"
-- The Carnal Prayer Mat by Anonymous: "There is an outrageous obscene book by a Chinese author, The Carnal Prayer Mat (Rouputuan), and, as is typical of the Chinese, it tacks a moral of divine retribution onto its plot. It is truly a foolish book, in which the hero Weiyangsheng, worried that a certain part of his body is too small, goes about peeking at people urinating.*"
+- Qingshi by Feng Menglong: "I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi; the naive romances of young men and women in such books were painfully enviable to me, since I had not been born handsome and so this beautiful thing was an unreachable ideal.*"
+- The Carnal Prayer Mat by Li Yu: "There is an outrageous obscene book by a Chinese author, The Carnal Prayer Mat (Rouputuan), and, as is typical of the Chinese, it tacks a moral of divine retribution onto its plot. It is truly a foolish book, in which the hero Weiyangsheng, worried that a certain part of his body is too small, goes about peeking at people urinating.*"
 
 ## Volpone by Ben Jonson (1606)
 https://bookjumpr.com/ben-jonson/volpone
