@@ -73,7 +73,7 @@ console.log('\nClicking around a book page');
   const href = await cover.getAttribute('href');
   await cover.click(); await page.waitForTimeout(1200);
   ok(path(page) === href && (await noReload(page)), `cover click → ${href}`);
-  await page.locator('.bjx-hmeta a.lnk, .bkp-meta a.lnk').first().click(); await page.waitForTimeout(1200);
+  await page.locator('.bjx-hmeta a.au-lnk, .bkp-meta a.au-lnk, .bjx-hmeta a.lnk, .bkp-meta a.lnk').first().click(); await page.waitForTimeout(1200);
   ok(/^\/[a-z0-9-]+$/.test(path(page)) && (await noReload(page)), `author link → ${path(page)} "${await h1(page)}"`);
   const authorBook = page.locator('a[data-tilt]').first();
   const ab = await authorBook.getAttribute('href');

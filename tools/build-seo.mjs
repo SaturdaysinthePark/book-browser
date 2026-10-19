@@ -41,7 +41,12 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // notes are stored with their own quote marks (straight or curly) — drop the outer pair; the renderers add theirs
-const clean = q => q.trim().replace(/^"([^"]*)"$/, '$1').replace(/^“([^“”]*)”$/, '$1');
+// a trailing '*' marks an auto-translated quote (app.js shows a caption); static pages say so in words
+const clean = q => {
+  let t = q.trim(); const translated = /\*$/.test(t); if (translated) t = t.slice(0, -1).trim();
+  t = t.replace(/^"([^"]*)"$/, '$1').replace(/^“([^“”]*)”$/, '$1');
+  return translated ? t + ' [auto-translated]' : t;
+};
 
 function load() {
   const ctx = { window: {} }; vm.createContext(ctx);
@@ -90,6 +95,12 @@ export function seoContent(updated) {
   for (const k of Object.keys(NODES)) {
     const f = `og/${k}.png`;
     if (fs.existsSync(f)) edge.G[k] = crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
+  }
+  // R: old book paths that now redirect, from each book's other titles (a merged-away duplicate's title is kept as one)
+  edge.R = {};
+  for (const [k, alts] of Object.entries(ALIASES)) for (const alt of alts) {
+    const p = `${k.split('/')[0]}/${slug(alt)}`;
+    if (NODES[k] && !NODES[p] && p !== k) edge.R[p] = k;
   }
   for (const k of Object.keys(NODES)) {
     const [t, a, y, syn] = NODES[k], as = authorSlug(a);
