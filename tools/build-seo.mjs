@@ -91,6 +91,12 @@ export function seoContent(updated) {
     const f = `og/${k}.png`;
     if (fs.existsSync(f)) edge.G[k] = crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
   }
+  // R: old book paths that now redirect, from each book's other titles (a merged-away duplicate's title is kept as one)
+  edge.R = {};
+  for (const [k, alts] of Object.entries(ALIASES)) for (const alt of alts) {
+    const p = `${k.split('/')[0]}/${slug(alt)}`;
+    if (NODES[k] && !NODES[p] && p !== k) edge.R[p] = k;
+  }
   for (const k of Object.keys(NODES)) {
     const [t, a, y, syn] = NODES[k], as = authorSlug(a);
     edge.B[k] = [t, a, y, syn, as];
