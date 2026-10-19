@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 984 books that mention other books, 8,335 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 990 books that mention other books, 8,406 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -1466,6 +1466,24 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 - Tales of Old Japan by Algernon Bertram Freeman-Mitford: "Mitford, in his “Tales of Old Japan,” after giving a translation of a treatise on _seppuku_ from a rare Japanese manuscript, goes on to describe an instance of such an execution of which he was an eye-witness"
 - History of European Morals by William Edward Hartpole Lecky: "[Footnote 24: Lecky, _History of European Morals_ II, p. 383.]"
 - Lotos Time in Japan by Henry T. Finck: "[Footnote 25: For a very sensible explanation of nudity and bathing see Finck's _Lotos Time in Japan_, pp. 286-297.]"
+- Bishop Blougram's Apology by Robert Browning
+- A View of the State of Europe during the Middle Ages by Henry Hallam
+- Philosophy of History by Friedrich von Schlegel
+- Capital by Karl Marx
+- The Analects by Confucius
+- Religio Medici by Thomas Browne
+- Suicide by Henry Morselli
+- Suicide and Insanity by Anonymous
+- Aristocracy and Evolution by William Hurrell Mallock
+- The Psychology of Peoples by Gustave Le Bon
+- Missions and Politics in Asia by Robert E. Speer
+- Christian Missions and Social Progress by James S. Dennis
+- Asia and Europe by Meredith Townsend
+- Heroic Japan by F. Eastlake and Yoshiaki Yamada
+- The New Far East by Arthur Diosy
+- Sermons on Faith and Doctrine by Benjamin Jowett
+- Norman Conquest by Edward A. Freeman
+- The Koran by Anonymous
 
 ## Butcher's Crossing by John Williams (1960)
 https://bookjumpr.com/john-williams/butcher-s-crossing
@@ -2813,6 +2831,23 @@ https://bookjumpr.com/ali-smith/girl-meets-boy
 - Twelfth Night by William Shakespeare: "The rain it raineth every day. When that I was and a little tiny girl, with a hey, ho, the wind and the rain. [clown’s song from Twelfth Night, adapted]"
 - The Force That Through the Green Fuse Drives the Flower by Dylan Thomas: "Now I’d become a walking fuse, like in that poem about the flower, and the force, and the green fuse the force drives through it"
 
+## Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East by Lafcadio Hearn (1897)
+https://bookjumpr.com/lafcadio-hearn/gleanings-in-buddha-fields-studies-of-hand-and-soul-in-the-far-east
+- Classical Poetry of the Japanese by Basil Hall Chamberlain
+- Kojiki by O no Yasumaro
+- Elsie Venner by Oliver Wendell Holmes
+- Roba di Roma by William Wetmore Story
+- Le Costume historique by Auguste Racinet
+- Glimpses of Unfamiliar Japan by Lafcadio Hearn
+- Diamond Sutra by Anonymous
+- Lotus Sutra by Anonymous
+- The Book of the Great Decease by Anonymous
+- Sutra of the Great King of Glory by Anonymous
+- Avatamsaka Sutra by Anonymous
+- Questions of King Milinda by Anonymous
+- The Principles of Psychology by Herbert Spencer
+- Bukkyō-hyakkwa-zenshō by Anonymous
+
 ## Glimpses of Unfamiliar Japan: First Series by Lafcadio Hearn (1894)
 https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-first-series
 - Kojiki by O no Yasumaro
@@ -3547,6 +3582,21 @@ https://bookjumpr.com/charlotte-bronte/jane-eyre
 - Pamela by Samuel Richardson: "Reed's lace frills, and crimped her nightcap borders, fed our eager attention with passages of love and adventure taken from old fairy tales and other ballads; or (as at a later period I discovered) from the pages of Pamela, and Henry, Earl of Moreland."
 - The History of Henry, Earl of Moreland by Henry Brooke: "or (as at a later period I discovered) from the pages of Pamela, and Henry, Earl of Moreland."
 - A Thousand and One Nights by Anonymous: "I thought I could distinguish the two volumes of Bewick's British Birds occupying their old place on the third shelf, and Gulliver's Travels and the Arabian Nights ranged just above."
+
+## Japan: An Attempt at Interpretation by Lafcadio Hearn (1904)
+https://bookjumpr.com/lafcadio-hearn/japan-an-attempt-at-interpretation
+- Kojiki by O no Yasumaro
+- Nihongi by Anonymous
+- Principles of Sociology by Herbert Spencer
+- First Principles by Herbert Spencer
+- La Cité Antique by Numa Denis Fustel de Coulanges
+- Tales of Old Japan by Algernon Bertram Freeman-Mitford
+- The Soul of the Far East by Percival Lowell
+- Shorei-Hikki by Anonymous
+
+## Japanese Fairy Tales by Yei Theodora Ozaki (1908)
+https://bookjumpr.com/yei-theodora-ozaki/japanese-fairy-tales
+- Lotus Sutra by Anonymous
 
 ## Jean-Christophe by Romain Rolland (1904)
 https://bookjumpr.com/romain-rolland/jean-christophe
@@ -5650,6 +5700,19 @@ https://bookjumpr.com/salman-rushdie/shame
 ## She by H. Rider Haggard (1887)
 https://bookjumpr.com/h-rider-haggard/she
 - Hamlet by William Shakespeare: "…Another thing that makes me fix the date of this entry at the middle of the eighteenth century is that, curiously enough, I have an acting copy of "Hamlet," written about 1740, in which these two lines are misquoted almost exactly in the same way, and I have little doubt but that the Vincey who…"
+
+## Shinto: The Ancient Religion of Japan by W. G. Aston (1907)
+https://bookjumpr.com/w-g-aston/shinto-the-ancient-religion-of-japan
+- Kojiki by O no Yasumaro
+- Nihongi by Anonymous
+- Engishiki by Anonymous
+- Man'yoshu by Anonymous
+- The Tempest by William Shakespeare
+- Japan: An Attempt at Interpretation by Lafcadio Hearn
+- A History of Japanese Literature by W. G. Aston
+- Occult Japan by Percival Lowell
+- The Soul of the Far East by Percival Lowell
+- Shintoisme by Michel Revon
 
 ## Shirley by Charlotte Bronte (1849)
 https://bookjumpr.com/charlotte-bronte/shirley
@@ -9039,6 +9102,28 @@ https://bookjumpr.com/arthur-conan-doyle/the-refugees
 - Phèdre by Jean Racine: "I am to be at Madame De Maintenon's room at three to see whether a page or two of the _Phedre_ may not work a change."
 - The Pretended Astrologer by Thomas Corneille: ""There is my _Pretended Astrologer_." ... Corneille commenced to read his comedy."
 
+## The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan by Kaiten Nukariya (1913)
+https://bookjumpr.com/kaiten-nukariya/the-religion-of-the-samurai-a-study-of-zen-philosophy-and-discipline-in-china-and-japan
+- Lotus Sutra by Anonymous
+- Diamond Sutra by Anonymous
+- Lankavatara Sutra by Anonymous
+- Avatamsaka Sutra by Anonymous
+- Vimalakirti Sutra by Anonymous
+- Mahaparinirvana Sutra by Anonymous
+- Mahayanacraddhotpada-castra by Asvaghosa
+- Platform Sutra by Hui-neng
+- Sho-do-ka by Gen-kaku
+- Rin-zai-roku by Lin Tsi
+- Sho-yo-roku by Wan Sung
+- Heki-gan-shu by Yuen Wu
+- Kei-toku-den-to-roku by Anonymous
+- Sho-bo-gen-zo by Do-gen
+- Ko-zen-go-koku-ron by Ei-sai
+- Zhuangzi by Zhuang Zhou
+- Tao Te Ching by Laozi
+- Mencius by Mencius
+- Outlines of Mahayana Buddhism by D. T. Suzuki
+
 ## The Reluctant Fundamentalist by Mohsin Hamid (2007)
 https://bookjumpr.com/mohsin-hamid/the-reluctant-fundamentalist
 - Mr Palomar by Italo Calvino: "there was a passage in Mr. Palomar that captured perfectly my dilemma."
@@ -10694,6 +10779,10 @@ https://bookjumpr.com/hermann-hesse/wandering
 https://bookjumpr.com/leo-tolstoy/war-and-peace
 - Les Chevaliers du Cygne by Stephanie Felicite de Genlis: "Prince Andrew saw by the cover that it was Les Chevaliers du Cygne by Madame de Genlis."
 - The Social Contract by Jean-Jacques Rousseau: "“Rousseau’s Contrat Social,” said the vicomte with a tolerant smile. “I am not speaking of regicide, I am speaking about ideas.”"
+
+## Warriors of Old Japan, and Other Stories by Yei Theodora Ozaki (1909)
+https://bookjumpr.com/yei-theodora-ozaki/warriors-of-old-japan-and-other-stories
+- The Japanese Fairy Book by Yei Theodora Ozaki
 
 ## Washington: A Life by Ron Chernow (2010)
 https://bookjumpr.com/ron-chernow/washington-a-life

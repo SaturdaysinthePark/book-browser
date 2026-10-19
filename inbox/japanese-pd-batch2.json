@@ -1,0 +1,511 @@
+{
+  "books": [
+    {
+      "title": "Japan: An Attempt at Interpretation",
+      "author": "Lafcadio Hearn",
+      "year": 1904,
+      "genre": "HISTORY",
+      "synopsis": "Hearn traces Japanese civilization to its roots in ancestor-worship, arguing that the household shrine, the Shinto communal cult and the tradition of loyalty explain a nation the West misreads. He moves from the family altar through Buddhism, feudal military rule and the Jesuit peril to the Shinto revival, with Herbert Spencer as his guide."
+    },
+    {
+      "title": "Kimiko, and Other Japanese Sketches",
+      "author": "Lafcadio Hearn",
+      "year": 1905,
+      "genre": "FICTION",
+      "synopsis": "Hearn tells of Kimiko, a geisha from the Street of the Geisha who knows the power of beauty and the weakness of passion, and of Ai, the samurai's daughter who sells herself to Kimika to keep her mother alive. Companion sketches follow a tiny nun in her miniature temple of Amida and a mother's grief for her dead child."
+    },
+    {
+      "title": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "author": "Lafcadio Hearn",
+      "year": 1897,
+      "genre": "ADVENTURE & TRAVEL",
+      "synopsis": "Hearn opens with a village that deifies the man who burned his rice-fields to save it from a tidal wave, then wanders Kyoto and Osaka among toy-shops, newspaper offices and faces in Japanese art. Later chapters collect Buddhist allusions in folk-song, set Nirvana beside Herbert Spencer's evolution, and translate the case of the boy Katsugoro who remembers a past life."
+    },
+    {
+      "title": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "author": "Kaiten Nukariya",
+      "year": 1913,
+      "synopsis": "A Soto Zen scholar traces Zen from Bodhidharma and the Sixth Patriarch through Ei-sai and Do-gen to the Japanese warrior class. He explains the sitting meditation, the awakening of the innermost wisdom and why Zen discipline gave the samurai calm in the face of death.",
+      "genre": "PHILOSOPHY"
+    },
+    {
+      "title": "Shinto: The Ancient Religion of Japan",
+      "author": "W. G. Aston",
+      "year": 1907,
+      "synopsis": "Aston sketches the nature-gods (kami), the myths of Izanagi and Izanami, the doubled spirit (mitama), the norito prayers and the shrine festivals of Japan's native religion. He argues that Shinto is not ancestor-worship, has little moral code, and is doomed beside its foreign rivals.",
+      "genre": "HISTORY"
+    },
+    {
+      "title": "Old-World Japan: Legends of the Land of the Gods",
+      "author": "Frank Rinder",
+      "year": 1895,
+      "synopsis": "Rinder retells Japanese myths and folk tales, from the birth of the gods and Izanagi's descent to Hades to the Star Lovers, the Moon-Maiden and the golden boy Kintaro. Illustrated by T. H. Robinson, the stories favour colour and charm over scholarship.",
+      "genre": "FANTASY"
+    },
+    {
+      "title": "Warriors of Old Japan, and Other Stories",
+      "author": "Yei Theodora Ozaki",
+      "year": 1909,
+      "synopsis": "Ten retold Japanese legends of archers, knights and goblins: Tametomo bends his mighty bow, Yorimasa dies after the battle of the bridge, and the giant priest Benkei is bested by young Yoshitsune. The tales end with the Bowl-Wearing Princess and Lazy Taro, the idler who wins a lord's daughter.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Kibun Daizin; Or, From Shark-Boy to Merchant Prince",
+      "author": "Gensai Murai",
+      "year": 1904,
+      "synopsis": "Bunkichi, a poor boy in a Wakayama fishing town, wins the name Shark-Boy by poisoning the man-eating shark that terrorizes the bay. He rides a doomed ship through a storm to Yedo with a cargo of oranges and rises to become the wealthy merchant Kibun Daizin.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Home Life in Tokyo",
+      "author": "Jukichi Inouye",
+      "year": 1910,
+      "synopsis": "A Japanese insider walks English readers through the Tokyo household: food and sake, kimono and hair-styling, the house and its servants, marriage, childbirth, funerals, and festivals. Chapters on music, theatre, flower-arranging and parlour games like sugoroku and ode-cards round out a year of ordinary life.",
+      "genre": "ESSAYS & JOURNALISM"
+    },
+    {
+      "title": "Japanese Fairy Tales",
+      "author": "Grace James",
+      "year": 1910,
+      "synopsis": "Thirty-eight Japanese tales and legends, from the bamboo cutter's Moon Maiden and Urashima beneath the sea to the Tongue-Cut Sparrow and the Bell of Dojoji. Ghosts, fox maidens, thunder gods and doomed lovers drift through Warwick Goble's illustrated pages.",
+      "genre": "FANTASY"
+    }
+  ],
+  "mentions": [
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "Kojiki",
+      "author": "O no Yasumaro"
+    },
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "Nihongi",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "Principles of Sociology",
+      "author": "Herbert Spencer"
+    },
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "First Principles",
+      "author": "Herbert Spencer"
+    },
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "La Cité Antique",
+      "author": "Numa Denis Fustel de Coulanges"
+    },
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "Tales of Old Japan",
+      "author": "Algernon Bertram Freeman-Mitford"
+    },
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "The Soul of the Far East",
+      "author": "Percival Lowell"
+    },
+    {
+      "source": "Japan: An Attempt at Interpretation",
+      "mentioned": "Shorei-Hikki",
+      "author": ""
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Classical Poetry of the Japanese",
+      "author": "Basil Hall Chamberlain"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Kojiki",
+      "author": "O no Yasumaro"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Elsie Venner",
+      "author": "Oliver Wendell Holmes"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Roba di Roma",
+      "author": "William Wetmore Story"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Le Costume historique",
+      "author": "Auguste Racinet"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Glimpses of Unfamiliar Japan",
+      "author": "Lafcadio Hearn"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Diamond Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Lotus Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "The Book of the Great Decease",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Sutra of the Great King of Glory",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Avatamsaka Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Questions of King Milinda",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "The Principles of Psychology",
+      "author": "Herbert Spencer"
+    },
+    {
+      "source": "Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East",
+      "mentioned": "Bukkyō-hyakkwa-zenshō",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Lotus Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Diamond Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Lankavatara Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Avatamsaka Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Vimalakirti Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Mahaparinirvana Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Mahayanacraddhotpada-castra",
+      "author": "Asvaghosa"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Platform Sutra",
+      "author": "Hui-neng"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Sho-do-ka",
+      "author": "Gen-kaku"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Rin-zai-roku",
+      "author": "Lin Tsi"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Sho-yo-roku",
+      "author": "Wan Sung"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Heki-gan-shu",
+      "author": "Yuen Wu"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Kei-toku-den-to-roku",
+      "author": ""
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Sho-bo-gen-zo",
+      "author": "Do-gen"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Ko-zen-go-koku-ron",
+      "author": "Ei-sai"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Zhuangzi",
+      "author": "Zhuang Zhou"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Tao Te Ching",
+      "author": "Laozi"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Mencius",
+      "author": "Mencius"
+    },
+    {
+      "source": "The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan",
+      "mentioned": "Outlines of Mahayana Buddhism",
+      "author": "D. T. Suzuki"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "Kojiki",
+      "author": "O no Yasumaro"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "Nihongi",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "Engishiki",
+      "author": ""
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "Man'yoshu",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "The Tempest",
+      "author": "William Shakespeare"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "Japan: An Attempt at Interpretation",
+      "author": "Lafcadio Hearn"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "A History of Japanese Literature",
+      "author": "W. G. Aston"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "Occult Japan",
+      "author": "Percival Lowell"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "The Soul of the Far East",
+      "author": "Percival Lowell"
+    },
+    {
+      "source": "Shinto: The Ancient Religion of Japan",
+      "mentioned": "Shintoisme",
+      "author": "Michel Revon"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Bishop Blougram's Apology",
+      "author": "Robert Browning"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "A View of the State of Europe during the Middle Ages",
+      "author": "Henry Hallam"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Philosophy of History",
+      "author": "Friedrich von Schlegel"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Philosophy of History",
+      "author": "Georg Wilhelm Friedrich Hegel"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "History Philosophically Illustrated",
+      "author": "George Miller"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Crown of Wild Olive",
+      "author": "John Ruskin"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Exotics and Retrospectives",
+      "author": "Lafcadio Hearn"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The English People, a Study of Their Political Psychology",
+      "author": "Emile Gaston Boutmy"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Feudal and Modern Japan",
+      "author": "Arthur May Knapp"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Capital",
+      "author": "Karl Marx"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The Analects",
+      "author": "Confucius"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The Doctrine Of The Mean",
+      "author": "Confucius"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Theory of the Leisure Class",
+      "author": "Thorstein Veblen"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The Gist of Japan",
+      "author": "R. B. Peery"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Japan in Transition",
+      "author": "Stafford Ransome"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The Religions of Japan",
+      "author": "William Elliot Griffis"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The Principles of Ethics",
+      "author": "Herbert Spencer"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Light of Asia",
+      "author": "Edwin Arnold"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Tales of Old Japan",
+      "author": "Algernon Bertram Freeman-Mitford"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Religio Medici",
+      "author": "Thomas Browne"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Suicide",
+      "author": "Henry Morselli"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Suicide and Insanity",
+      "author": ""
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "History of European Morals",
+      "author": "William Edward Hartpole Lecky"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Lotos Time in Japan",
+      "author": "Henry T. Finck"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Aristocracy and Evolution",
+      "author": "William Hurrell Mallock"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The Psychology of Peoples",
+      "author": "Gustave Le Bon"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Missions and Politics in Asia",
+      "author": "Robert E. Speer"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Christian Missions and Social Progress",
+      "author": "James S. Dennis"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Asia and Europe",
+      "author": "Meredith Townsend"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Heroic Japan",
+      "author": "F. Eastlake and Yoshiaki Yamada"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The New Far East",
+      "author": "Arthur Diosy"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Sermons on Faith and Doctrine",
+      "author": "Benjamin Jowett"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "Norman Conquest",
+      "author": "Edward A. Freeman"
+    },
+    {
+      "source": "Bushido, the Soul of Japan",
+      "mentioned": "The Koran",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Warriors of Old Japan, and Other Stories",
+      "mentioned": "The Japanese Fairy Book",
+      "author": "Yei Theodora Ozaki"
+    },
+    {
+      "source": "Japanese Fairy Tales",
+      "mentioned": "Lotus Sutra",
+      "author": "Anonymous"
+    }
+  ]
+}
