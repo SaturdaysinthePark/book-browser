@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 972 books that mention other books, 8,230 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 973 books that mention other books, 8,231 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -3328,6 +3328,10 @@ https://bookjumpr.com/bj-rnstjerne-bj-rnson/in-god-s-way
 - The Wild Duck by Henrik Ibsen: "His eyes now fell on "Vildanden" by Henrik Ibsen."
 - Peer Gynt by Henrik Ibsen: "then began Solveig's song from "Per Gynt.""
 - The Three Musketeers by Alexandre Dumas: "had just won in a lottery "Les trois Mousquetaires," by Alexandre Dumas the elder"
+
+## In Praise of Shadows by Jun'ichirō Tanizaki (1933)
+https://bookjumpr.com/jun-ichiro-tanizaki/in-praise-of-shadows
+- Kusamakura by Natsume Sōseki
 
 ## In Search of a Character by Graham Greene (1961)
 https://bookjumpr.com/graham-greene/in-search-of-a-character

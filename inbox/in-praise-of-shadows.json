@@ -1,0 +1,9 @@
+{
+  "books": [
+    { "title": "In Praise of Shadows", "author": "Jun'ichirō Tanizaki", "year": 1933, "genre": "ESSAYS & JOURNALISM",
+      "synopsis": "A novelist wanders from toilets to lacquerware to Nō costumes to make the case that Japanese beauty lives in shadow, and that electric light and Western gadgetry are quietly erasing it." }
+  ],
+  "mentions": [
+    { "source": "In Praise of Shadows", "mentioned": "Kusamakura", "author": "Natsume Sōseki" }
+  ]
+}
