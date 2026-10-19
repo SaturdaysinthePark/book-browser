@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 1,049 books that mention other books, 8,690 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 1,050 books that mention other books, 8,704 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -5260,6 +5260,23 @@ https://bookjumpr.com/charles-dickens/our-mutual-friend
 - Hamlet by William Shakespeare: "I can say to you of the healthful music of my pulse what Hamlet said of his."
 - Macbeth by William Shakespeare: "Mr George Sampson shortly afterwards took his leave, accompanied by Miss Lavinia with a candle as far as the hall, and without a candle as far as the garden gate; Mrs Wilfer, washing her hands of the Boffins, went to bed after the manner of Lady Macbeth; and R."
 - Gulliver's Travels by Jonathan Swift: "I felt like Gulliver with the Lilliputians firing upon him."
+
+## Out of the East: Reveries and Studies in New Japan by Lafcadio Hearn (1895)
+https://bookjumpr.com/lafcadio-hearn/out-of-the-east-reveries-and-studies-in-new-japan
+- Man'yoshu by Anonymous: "But the most impressive and the most ancient is found in the "Manyefushifu," a collection of poems dating from the fifth to the ninth century."
+- Urashima by Basil Hall Chamberlain: "Then out of the dreaming of the sea rose up a beautiful girl,--just as you can see her in the picture to Professor Chamberlain's "Urashima,"--robed in crimson and blue"
+- Classical Poetry of the Japanese by Basil Hall Chamberlain: "See The Classical Poetry of the Japanese, by Professor Chamberlain, in Trübner's Oriental Series."
+- Rappaccini's Daughter by Nathaniel Hawthorne: "The marvelous tale of "Rappacini's Daughter" proved greatly to their liking; and the spirit of Hawthorne might have found no little ghostly pleasure in their interpretation of it."
+- Silence by Edgar Allan Poe: ""Monos and Daimonos" found favor; and Poe's wonderful fragment, "Silence," was appreciated after a fashion that surprised me."
+- Frankenstein by Mary Shelley: "On the other hand, the story of "Frankenstein" impressed them very little. None took it seriously."
+- Le Morte d'Arthur by Thomas Malory: "So I related to them the story of Sir Bors, which is in the sixteenth book of Sir Thomas Mallory's "Morte d'Arthur,""
+- Alcestis by Euripides: "Then it occurred to me to tell them the immortal story of Alkestis. I thought for the moment that the character of Herakles in that divine drama would have a particular charm for them."
+- Matsuyama no Kagami by F. H. James: "the memory of the old Japanese story Matsuyama no Kagami. Though related in the simplest manner and with the fewest possible words,"
+- Lotus Sutra by Anonymous: "In the eleventh chapter of the Sutra of the Lotus of the Good Law, it is written that mention was made before the Lord Buddha of a young girl who had in one instant arrived at supreme knowledge"
+- The Dhammapada by Anonymous: "came a memory of the two hundred and fifteenth verse of the Dhammapada: "From love comes grief; from grief comes fear: one who is free from love knows neither grief nor fear.""
+- First Principles by Herbert Spencer: "First Principles, 2d Ed., § 178."
+- National Character by Charles H. Pearson: "For possible ultimate consequences, consult Dr. Pearson's recent book, National Character."
+- Glimpses of Unfamiliar Japan by Lafcadio Hearn: "See Glimpses of Unfamiliar Japan."
 
 ## Outliers by Malcolm Gladwell (2008)
 https://bookjumpr.com/malcolm-gladwell/outliers
@@ -10700,7 +10717,7 @@ https://bookjumpr.com/mori-ogai/the-wild-geese
 
 ## The Wind Has Risen by Hori Tatsuo (1938)
 https://bookjumpr.com/hori-tatsuo/the-wind-has-risen
-- Requiem for a Friend by Rainer Maria Rilke: "A small parcel had arrived: Rilke's Requiem for a Friend, ordered long ago, forwarded from place to place with two or three other books. That night, by the fireplace, listening now and then to the wind, I began to read it.*"
+- Requiem for a Friend by Rainer Maria Rilke: "A small parcel had arrived: Rilke's Requiem (Chinkon-ka), ordered long ago, forwarded from place to place with two or three other books. That night, by the fireplace, listening now and then to the wind, I began to read Rilke's Requiem.*"
 
 ## The Wind-Up Bird Chronicle by Haruki Murakami (1994)
 https://bookjumpr.com/haruki-murakami/the-wind-up-bird-chronicle
