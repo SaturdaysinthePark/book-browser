@@ -4722,7 +4722,7 @@ https://bookjumpr.com/john-stuart-mill/on-liberty
 
 ## On Literature by Umberto Eco (2002)
 https://bookjumpr.com/umberto-eco/on-literature
-- Finnegans Wake by James Joyce: "cited as a work that influenced scientists' imagination of the universe"
+- Finnegans Wake by James Joyce: "Cited as a work that influenced scientists' imagination of the universe"
 - Poetics by Aristotle: "discussed at length as the foundational text of Western literary theory"
 - The Betrothed by Alessandro Manzoni: "Manzoni's The Betrothed was also a best seller"
 - Ulysses by James Joyce: "discussed as based on Aristotle's Rhetoric and analyzed repeatedly"
@@ -4755,7 +4755,7 @@ https://bookjumpr.com/umberto-eco/on-literature
 - Anna Karenina by Leo Tolstoy: "'Anna Karenina commits suicide' will remain true for eternity"
 - The Importance of Being Earnest by Oscar Wilde: "quoted directly for its aphorisms"
 - Moby-Dick by Herman Melville: "discussed as an example of literary lessons resisting simplification"
-- Billy Budd by Herman Melville: ""Billy Budd hanged" cited as an eternal literary fact"
+- Billy Budd by Herman Melville: "Cited as an eternal literary fact: "Billy Budd hanged""
 - Romeo and Juliet by William Shakespeare: "the ending is quoted and discussed as a possible stopgap"
 - The Three Musketeers by Alexandre Dumas: "its opening lines are quoted and analyzed"
 - Tristram Shandy by Laurence Sterne: "cited for its digressive staircase scene spanning three chapters"
@@ -6249,8 +6249,8 @@ https://bookjumpr.com/jonathan-haidt/the-anxious-generation
 https://bookjumpr.com/ayn-rand/the-art-of-fiction
 - Anna Karenina by Leo Tolstoy: "Take Tolstoy's Anna Karenina, the novel most typical of the Naturalistic school."
 - Arrowsmith by Sinclair Lewis: ""Take the description of a doctor's office in the first chapter of Sinclair Lewis's Arrowsmith..." — extensively quoted and analyzed throughout, including a full excerpt ("From Arrowsmith by Sinclair Lewis")."
-- Atlas Shrugged by Ayn Rand: ""The beginning of the chapter 'Account Overdrawn' in Atlas Shrugged is a montage..." — discussed and quoted extensively throughout as a craft example."
-- The Fountainhead by Ayn Rand: ""With the publication of The Fountainhead, she achieved a spectacular and enduring success." — discussed and quoted extensively throughout, including a full excerpt ("From The Fountainhead by Ayn Rand")."
+- Atlas Shrugged by Ayn Rand: "The beginning of the chapter 'Account Overdrawn' in Atlas Shrugged is a montage..."
+- The Fountainhead by Ayn Rand: "With the publication of The Fountainhead, she achieved a spectacular and enduring success."
 - We the Living by Ayn Rand: "In We the Living, I had a lot of journalistic references: specific dates, the Lenin-Trotsky split, and so forth."
 - Anthem by Ayn Rand: "To begin with, there are stories laid in the future, as, for instance, Atlas Shrugged and Anthem, Orwell's Nineteen Eighty-four, and a whole string of older books."
 - Nineteen Eighty-Four by George Orwell: "...as, for instance, Atlas Shrugged and Anthem, Orwell's Nineteen Eighty-four, and a whole string of older books."
@@ -8777,15 +8777,15 @@ https://bookjumpr.com/mark-twain/the-prince-and-the-pauper
 
 ## The Princess Bride by William Goldman (1973)
 https://bookjumpr.com/william-goldman/the-princess-bride
-- Moby-Dick by Herman Melville: "Just as the chapters on whaling in Moby Dick can be omitted by all but the most punishment-loving readers, so the packing scenes that Morgenstern details here are really best left alone. (Goldman's own abridger's-note commentary.)"
-- The Wizard of Oz by L Frank Baum: "Morgenstern's Florinese version came before Baum wrote The Wizard of Oz, so in spite of the fact that he was the originator, he comes out just the other way around. (Goldman's own commentary naming a real book.)"
+- Moby-Dick by Herman Melville: "Just as the chapters on whaling in Moby Dick can be omitted by all but the most punishment-loving readers, so the packing scenes that Morgenstern details here are really best left alone."
+- The Wizard of Oz by L Frank Baum: "Morgenstern's Florinese version came before Baum wrote The Wizard of Oz, so in spite of the fact that he was the originator, he comes out just the other way around."
 - Time and Again by Jack Finney: "I read recently that the fine Jack Finney novel Time and Again has taken close to twenty years and still hasn't made it to the screen."
 - The Idiot by Fyodor Dostoevsky: "Can you imagine cornering Dostoyevsky and begging him for funny stuff about The Idiot?"
-- The Deerslayer by James Fenimore Cooper: ""Cooper maybe," she'd say, so off I went into The Deerslayer and all the Leatherstocking stuff, and then on my own one day I stumbled onto Dumas and D'Artagnan. (Goldman's real childhood-reading memoir.)"
+- The Deerslayer by James Fenimore Cooper: ""Cooper maybe," she'd say, so off I went into The Deerslayer and all the Leatherstocking stuff, and then on my own one day I stumbled onto Dumas and D'Artagnan."
 - The Stepford Wives by Ira Levin: "I am going mad having meetings on Ira Levin's The Stepford Wives, which I am adapting for the Silver Screen."
-- Marathon Man by William Goldman: "Take Szell, the Nazi dentist in Marathon Man (Olivier in the movie, and wasn't he great?) — Goldman's own narrative discussion of his other novel, not a bibliography list entry."
+- Marathon Man by William Goldman: "Take Szell, the Nazi dentist in Marathon Man (Olivier in the movie, and wasn't he great?)"
 - The Body by Stephen King: "Rob's career really took off with Stand By Me, another work by King (a novella called The Body)."
-- The Temple of Gold by William Goldman: "When I was twenty-six, my first novel, The Temple of Gold, was published by Alfred A. (Goldman's real narrative aside about his own first novel.)"
+- The Temple of Gold by William Goldman: "When I was twenty-six, my first novel, The Temple of Gold, was published by Alfred A."
 - Boys and Girls Together by William Goldman: "in my book-writing career, only Boys and Girls Together got a worse savaging."
 - No Way to Treat a Lady by William Goldman: "(No Way to Treat A Lady was first published under a pseudonym, Harry Longbaugh, the real name of the Sundance Kid.)"
 - Brothers and Sisters by Edith Neisser: "she wrote terrific books about how we screw up our children— Brothers and Sisters was one of her books, The Eldest Child was another."
@@ -9189,7 +9189,7 @@ https://bookjumpr.com/stephen-king/the-shining
 ## The Sicilian by Mario Puzo (1984)
 https://bookjumpr.com/mario-puzo/the-sicilian
 - The Song of Roland by Anonymous: ""One of them was the Song of Roland, and he had read it to them." — Hector Adonis reading real books to Guiliano and his men."
-- The Fortunate Pilgrim by Mario Puzo: ""As a natural courtesy, I gave him a copy of The Fortunate Pilgrim." — a genuine in-story gift of the book, distinct from the back-matter "Also By Mario Puzo" bibliography."
+- The Fortunate Pilgrim by Mario Puzo: "As a natural courtesy, I gave him a copy of The Fortunate Pilgrim."
 
 ## The Siege of Krishnapur by J. G. Farrell (1973)
 https://bookjumpr.com/j-g-farrell/the-siege-of-krishnapur
@@ -9708,7 +9708,7 @@ https://bookjumpr.com/italo-calvino/the-uses-of-literature
 - A Thousand and One Nights by Anonymous: "Discussed as the framework tale of Shahryar and Scheherazade, exemplifying nested storytelling"
 - Robinson Crusoe by Daniel Defoe: "Called a philosophical novel without knowing it, and discussed as the basis for Michel Tournier's Vendredi"
 - Lucien Leuwen by Stendhal: "Calvino quotes Stendhal's marginal note in the manuscript about the best sporting dog and the hunter's gun"
-- The Baron in the Trees by Italo Calvino: "Calvino refers to his own earlier novel, describing its protagonist as a kind of Don Quixote of the Philosophy of the Enlightenment"
+- The Baron in the Trees by Italo Calvino: "Referenced as Calvino's own earlier novel, its protagonist a kind of Don Quixote of the Philosophy of the Enlightenment"
 - Italian Chronicles by Stendhal: "Noted as where Stendhal recounted the Renaissance story he researched in libraries"
 - La Duchesse de Langeais by Honoré de Balzac: "Its second chapter is described as providing a sociological study of the aristocracy of the Faubourg Saint-Germain"
 - La Fille aux yeux d'or by Honoré de Balzac: "Mentioned in the same passage as La Duchesse de Langeais as part of the same story cycle"
@@ -10664,9 +10664,9 @@ https://bookjumpr.com/haruki-murakami/what-i-talk-about-when-i-talk-about-runnin
 - The Brothers Karamazov by Fyodor Dostoevsky: "Dostoyevsky, for instance, wrote two of his most profound novels, The Possessed and The Brothers Karamazov, in the last few years of his life before his death at age sixty."
 - Setting Free the Bears by John Irving: "I was translating his novel Setting Free the Bears at the time, and while I was in New York I asked to interview him."
 - Run, Melos! by Osamu Dazai: "It was turning out to be exactly like the story "Run, Melos!," about a competition to outrun the sun. (author not named in text; famous Dazai story)"
-- A Wild Sheep Chase by Haruki Murakami: "By the following April I'd completed A Wild Sheep Chase. (Murakami's own novel, discussed in the text)"
-- Hear the Wind Sing by Haruki Murakami: "Both Hear the Wind Sing and Pinball, 1973 were nominated for the prestigious Akutagawa Prize. (Murakami's own debut novel)"
-- Pinball, 1973 by Haruki Murakami: "Both Hear the Wind Sing and Pinball, 1973 were nominated for the prestigious Akutagawa Prize. (Murakami's own second novel)"
+- A Wild Sheep Chase by Haruki Murakami: "By the following April I'd completed A Wild Sheep Chase."
+- Hear the Wind Sing by Haruki Murakami: "Both Hear the Wind Sing and Pinball, 1973 were nominated for the prestigious Akutagawa Prize."
+- Pinball, 1973 by Haruki Murakami: "Both Hear the Wind Sing and Pinball, 1973 were nominated for the prestigious Akutagawa Prize."
 - Blind Willow, Sleeping Woman by Haruki Murakami: "I have to write a long introduction to the short-story collection Blind Willow, Sleeping Woman, which will be published next year in the U.S."
 - Strange Tales from Tokyo by Haruki Murakami: "A new short-story collection of mine, Strange Tales from Tokyo, has come out, and I have to do several interviews about the book."
 
@@ -10795,7 +10795,7 @@ https://bookjumpr.com/italo-calvino/why-read-the-classics
 - Iliad by Homer: "Odyssey essay: 'even before The Odyssey (and also before The Iliad)'"
 - Anabasis by Xenophon: "Essay 'Xenophon's Anabasis' (primary subject)"
 - The Sergeant in the Snow by Mario Rigoni Stern: "Anabasis essay: 'a little Anabasis in dialect'"
-- The War Declared by the Poor by Nuto Revelli: "Anabasis essay: cited as 'another fine book'"
+- The War Declared by the Poor by Nuto Revelli: "Cited as 'another fine book' (in the essay on the Anabasis)"
 - I lunghi fucili by Cristoforo M. Negri: "Anabasis essay: 'another fine book, unjustly forgotten'"
 - Metamorphoses by Ovid: "Essay 'Ovid and Universal Contiguity' (primary subject)"
 - A Thousand and One Nights by Anonymous: "Ovid essay: 'some ancestor of The Arabian Nights'; recurs in Nezami essay"

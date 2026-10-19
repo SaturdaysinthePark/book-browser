@@ -61,6 +61,12 @@ const crumbs = (items) => ({
   itemListElement: items.map(([name, url], i) => ({ '@type': 'ListItem', position: i + 1, name, item: url })),
 });
 
+// a note as list text: lines from the book in quote marks, editors' notes ("Epigraph: …", "Cited as …") plain,
+// by the same test as noteEl in app.js
+const editorial = (n) => /^\s*((chapter )?epigraph\b|(Referenced|Cited|Mentioned|Alluded|Discussed|Quoted (by|with|from))\b|—)/i.test(n) &&
+  !/^\s*(referenced|cited|mentioned|alluded|discussed|quoted)/.test(n);
+const noteText = (n) => (n ? (editorial(n) ? `: ${esc(n)}` : `: “${esc(n)}”`) : '');
+
 // the note a book's mention of another carries, from the mentioning book's side
 const noteFor = (D, from, to) => ((D.O[from] || []).find(([m]) => m === to) || [])[1] || '';
 
@@ -80,11 +86,11 @@ function bookPage(D, k) {
     syn ? `<p>${esc(syn)}</p>` : '',
   ];
   if (out.length) body.push(`<h2>Books mentioned in ${esc(t)} (${out.length})</h2>`, '<ul>',
-    ...out.map(([m, note]) => `<li>${link(D, m)}${byline(D, m)}${note ? `: “${esc(note)}”` : ''}</li>`), '</ul>');
+    ...out.map(([m, note]) => `<li>${link(D, m)}${byline(D, m)}${noteText(note)}</li>`), '</ul>');
   if (inn.length) body.push(`<h2>Books that mention ${esc(t)} (${inn.length})</h2>`, '<ul>',
     ...inn.map((m) => {
       const note = noteFor(D, m, k);
-      return `<li>${link(D, m)}${byline(D, m)}${note ? `: “${esc(note)}”` : ''}</li>`;
+      return `<li>${link(D, m)}${byline(D, m)}${noteText(note)}</li>`;
     }), '</ul>');
   const ld = bookLd(D, k);
   if (syn) ld.description = syn;
@@ -124,7 +130,7 @@ function quotes(D, keys, name) {
   for (const k of keys) for (const m of D.I[k] || []) { const note = noteFor(D, m, k); if (note && !own.has(m)) rows.push([m, k, note]); }
   if (!rows.length) return [];
   return [`<h2>Quotes from ${esc(name)}'s books, and about them</h2>`, '<ul>',
-    ...rows.slice(0, 10).map(([f, t, note]) => `<li>${link(D, f)} on ${link(D, t)}: “${esc(note)}”</li>`), '</ul>'];
+    ...rows.slice(0, 10).map(([f, t, note]) => `<li>${link(D, f)} on ${link(D, t)}${noteText(note)}</li>`), '</ul>'];
 }
 
 function authorPage(D, slug) {
