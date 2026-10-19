@@ -144,6 +144,7 @@
   <url><loc>https://bookjumpr.com/anonymous/book-of-common-prayer</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/cinderella</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/classic-of-filial-piety</loc><lastmod>2026-10-19</lastmod></url>
+  <url><loc>https://bookjumpr.com/anonymous/classic-of-poetry</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/corpus-hermeticum</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/diamond-sutra</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://bookjumpr.com/anonymous/encyclopaedia-britannica</loc><lastmod>2026-10-17</lastmod></url>
@@ -423,7 +424,7 @@
   <url><loc>https://bookjumpr.com/cicero/de-finibus-bonorum-et-malorum</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/cicero/de-senectute</loc><lastmod>2026-10-17</lastmod></url>
   <url><loc>https://bookjumpr.com/cicero/tusculan-disputations</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://bookjumpr.com/cixin-liu/death-s-end</loc><lastmod>2026-08-10</lastmod></url>
+  <url><loc>https://bookjumpr.com/cixin-liu/death-s-end</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://bookjumpr.com/cixin-liu/the-dark-forest</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/cixin-liu/the-three-body-problem</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/claude-levi-strauss/tristes-tropiques</loc><lastmod>2026-08-02</lastmod></url>
@@ -2116,7 +2117,6 @@
   <url><loc>https://bookjumpr.com/tony-hsieh/delivering-happiness</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/torquato-tasso/gerusalemme-liberata</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/torquato-tasso/jerusalem-delivered</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://bookjumpr.com/traditional-compiled-c-11th-7th-century-bc/classic-of-poetry</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://bookjumpr.com/truman-capote/breakfast-at-tiffany-s</loc><lastmod>2026-07-27</lastmod></url>
   <url><loc>https://bookjumpr.com/truman-capote/in-cold-blood</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/tyler-cowen/average-is-over</loc><lastmod>2026-07-14</lastmod></url>
@@ -2497,7 +2497,7 @@
   <url><loc>https://bookjumpr.com/christopher-hitchins</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/christopher-marlowe</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/cicero</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://bookjumpr.com/cixin-liu</loc><lastmod>2026-08-10</lastmod></url>
+  <url><loc>https://bookjumpr.com/cixin-liu</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://bookjumpr.com/claude-levi-strauss</loc><lastmod>2026-08-02</lastmod></url>
   <url><loc>https://bookjumpr.com/clayton-m-christensen</loc><lastmod>2026-07-17</lastmod></url>
   <url><loc>https://bookjumpr.com/colleen-mccullough</loc><lastmod>2026-08-10</lastmod></url>
@@ -3283,7 +3283,6 @@
   <url><loc>https://bookjumpr.com/toni-morrison</loc><lastmod>2026-10-11</lastmod></url>
   <url><loc>https://bookjumpr.com/tony-hsieh</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/torquato-tasso</loc><lastmod>2026-10-17</lastmod></url>
-  <url><loc>https://bookjumpr.com/traditional-compiled-c-11th-7th-century-bc</loc><lastmod>2026-10-19</lastmod></url>
   <url><loc>https://bookjumpr.com/truman-capote</loc><lastmod>2026-08-10</lastmod></url>
   <url><loc>https://bookjumpr.com/tyler-cowen</loc><lastmod>2026-07-14</lastmod></url>
   <url><loc>https://bookjumpr.com/ueda-akinari</loc><lastmod>2026-07-14</lastmod></url>

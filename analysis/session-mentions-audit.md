@@ -9,10 +9,10 @@ For every row the title is named in the source book's own text; the quote is the
 | Author basis | Mentions |
 |---|---|
 | Explicit: author named in the text | 181 |
-| Standard: title is in the text, author is the well-known author of that work (from outside knowledge) | 64 |
+| Standard: title is in the text, author is the well-known author of that work (from outside knowledge) | 62 |
 | No author given in the text (site shows 'Anonymous') | 54 |
 | No individual author (anonymous work, e.g. scripture) | 38 |
-| Author removed after audit (attribution came from outside the text) | 11 |
+| Author removed after audit (attribution came from outside the text) | 13 |
 
 
 ## A Country Teacher — Tayama Katai
@@ -112,7 +112,7 @@ For every row the title is named in the source book's own text; the quote is the
 | Heroic Japan | F. Eastlake and Yoshiaki Yamada | Explicit | Among other works on the subject, read Eastlake and Yamada on Heroic Japan, and Diosy on The New Far East. |
 | Missions and Politics in Asia | Robert E. Speer | Explicit | he touched the main spring which has made new Japan what she is and which will make her what she is destined to be. Speer; Missions and Politics in Asia, Lecture IV, pp. 189-190; Dennis: Christian Missions and Social Progress, Vol. I, p. 32, Vol. II, p. 70, etc. |
 | Norman Conquest | Edward A. Freeman | Explicit | Chivalry is, as Freeman severely criticizes, a class spirit. Modern society, if it pretends to any unity, cannot admit "purely personal obligations devised in the interests of an exclusive class." [Norman Conquest, Vol. V, p. 482] |
-| Philosophy of History | Georg Wilhelm Friedrich Hegel | Explicit | [Footnote 16: _Philosophy of History_ (Eng. trans. by Sibree), Pt. IV, Sec. II, Ch. I.] |
+| Philosophy of History | Friedrich von Schlegel | Explicit | These are the spirits of liberty, of religion, and of honor." --HALLAM, Europe in the Middle Ages. "Chivalry is itself the poetry of life." --SCHLEGEL, Philosophy of History. |
 | Religio Medici | Thomas Browne | Explicit | In that quaint book of Sir Thomas Browne's, Religio Medici there is an exact English equivalent for what is repeatedly taught in our Precepts. |
 | Sermons on Faith and Doctrine | Benjamin Jowett | Explicit | They have not aimed at impartiality, but have been contented to accumulate all that could be said in praise of their own, and in dispraise of other forms of religion." Jowett, Sermons on Faith and Doctrine, II. |
 | Suicide | Henry Morselli | Explicit | But a normal seppuku does not savor of fanaticism, or madness or excitement, utmost sang froid being necessary to its successful accomplishment. Of the two kinds into which Dr. Strahan divides suicide, the Rational or Quasi, and the Irrational or True, seppuku is the best example of the former type. Morselli, Suicide, p. 314. |
@@ -380,7 +380,7 @@ For every row the title is named in the source book's own text; the quote is the
 | Hamlet | William Shakespeare | Standard | "Hamlet probably did not want to marry. There may be only one Hamlet, but there are many people like him." "What sort of people?" Hirota fell silent as smoke rose from his cigar.* |
 | History of Intellectual Development | Anonymous | Author removed after audit (attribution came from outside the text) | "History of Intellectual Development. Oh, so it was there," Mineko said, drawing close to look at the book that Sanshiro had found.* |
 | Hydriotaphia | Thomas Browne | Standard | "This is the Hydriotaphia I told you about the other day. Look at it if you are bored." Sanshiro thanked him and took the book.* |
-| Oroonoko | Aphra Behn | Explicit | "I have only read the novel Oroonoko." Asked for the outline, he said it tells of a black African prince who is tricked by an English captain, sold into slavery, and suffers terribly.* |
+| Oroonoko | Thomas Southerne | Explicit | "After that novel came out, a man named Southerne worked the same story into a play, separately. It has the same name [Oroonoko], so you mustn't mix the two up."* |
 | Oroonoko | Aphra Behn | Explicit | "I have only read the novel Oroonoko." Asked for the outline, he said it tells of a black African prince who is tricked by an English captain, sold into slavery, and suffers terribly.* |
 
 ## Schoolgirl — Osamu Dazai
@@ -458,7 +458,7 @@ For every row the title is named in the source book's own text; the quote is the
 | Book of Han | Ban Gu | Standard | For history I read the Records of the Grand Historian first, then the Book of Han and the Book of Later Han, the Jin history, the Five Dynasties and the like.* |
 | Chambers's Political Economy | Anonymous | No author given in the text (site shows 'Anonymous') | I had a copy of Chambers's Political Economy, and when I mentioned it to an influential finance official he was delighted and asked for at least a table of contents, so I set about translating it.* |
 | Chōai no Hō | Fukuzawa Yukichi | Standard | I translated a book on bookkeeping, Chōai no Hō, early after the Restoration, and every bookkeeping manual in the world today follows my translation's examples.* |
-| Classic of Poetry | traditional, compiled c. 11th-7th century BC | Standard | The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well.* |
+| Classic of Poetry | Anonymous | Author removed after audit (attribution came from outside the text) | The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well.* |
 | Conditions in the West | Fukuzawa Yukichi | Standard | Back in Japan I took those notes as a base, examined many more original books, and wove together what I remembered, and so Conditions in the West came to be.* |
 | Guide to Travel in the West | Fukuzawa Yukichi | Standard | I had no choice but to retire at once as ordered, and during that time I was writing a book called Guide to Travel in the West.* |
 | I Ching | Anonymous | No individual author (anonymous work, e.g. scripture) | Among the library was a set of thirteen volumes of the I Ching with annotations, with Ito Togai's own handwritten notes in the margins, a splendid thing that my late father had bought in Osaka and prized.* |
@@ -508,7 +508,7 @@ For every row the title is named in the source book's own text; the quote is the
 |---|---|---|---|
 | Classic of Filial Piety | Anonymous | No individual author (anonymous work, e.g. scripture) | "Some rebellion broke out, and someone petitioned the throne: no need to send an army, just send one general to the river and have him read the Classic of Filial Piety to the rebels, and they will vanish on their own. You laugh at that, but Yusa is in all earnest reading the Classic of Filial Piety, bled every other month by a lender who takes forty percent off the top."* |
 | Nansō Satomi Hakkenden | Takizawa Bakin | Standard | It may sound like something out of a novel, but it must be like Hamaji in Nansō Satomi Hakkenden, slipping out late at night past her parents' eyes because Shino leaves at dawn. How strange! My own circumstances are like Shino's too: parted from my parents in childhood, raised in the Shigisawa house, betrothed to their daughter.* |
-| Water Margin | Anonymous | Standard | "When it comes to this, brute force counts for more than money. Surely this is a scene straight out of the Water Margin? To protect a nation's interests and rights, international law is really worth nothing; what matters is military strength."* |
+| Water Margin | Anonymous | Author removed after audit (attribution came from outside the text) | "When it comes to this, brute force counts for more than money. Surely this is a scene straight out of the Water Margin? To protect a nation's interests and rights, international law is really worth nothing; what matters is military strength."* |
 
 ## The Japanese Spirit — Yoshisaburo Okakura
 *Text: Gutenberg via GITenberg mirror; added in inbox/japanese-pd-batch.json (8c9ca35).*

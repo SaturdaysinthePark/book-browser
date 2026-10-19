@@ -2048,7 +2048,7 @@ https://bookjumpr.com/cixin-liu/death-s-end
 - A Descent into the Maelstrom by Edgar Allan Poe: "Poe wrote a story about Mosken—'A Descent into the Maelstrom.' I read it when I was younger."
 - Gone with the Wind by Margaret Mitchell: "Remember what Scarlett's father told her in Gone With the Wind?"
 - The Judgment by Franz Kafka: "He thought of "The Judgment" by Franz Kafka, in which a father curses his son and sentences him to death."
-- Classic of Poetry by traditional, compiled c. 11th-7th century BC: ""That's the Classic of Poetry, from a millennium before the time of Christ," Luo Ji said."
+- Classic of Poetry by Anonymous: ""That's the Classic of Poetry, from a millennium before the time of Christ," Luo Ji said."
 
 ## Deception by Philip Roth (1990)
 https://bookjumpr.com/philip-roth/deception
@@ -5730,7 +5730,7 @@ https://bookjumpr.com/elizabeth-gaskell/ruth
 ## Sanshiro by Natsume Sōseki (1908)
 https://bookjumpr.com/natsume-soseki/sanshiro
 - Oroonoko by Aphra Behn: ""I have only read the novel Oroonoko." Asked for the outline, he said it tells of a black African prince who is tricked by an English captain, sold into slavery, and suffers terribly.*"
-- Oroonoko by Thomas Southerne
+- Oroonoko by Thomas Southerne: ""After that novel came out, a man named Southerne worked the same story into a play, separately. It has the same name [Oroonoko], so you mustn't mix the two up."*"
 - Hydriotaphia by Thomas Browne: ""This is the Hydriotaphia I told you about the other day. Look at it if you are bored." Sanshiro thanked him and took the book.*"
 - Hamlet by William Shakespeare: ""Hamlet probably did not want to marry. There may be only one Hamlet, but there are many people like him." "What sort of people?" Hirota fell silent as smoke rose from his cigar.*"
 - History of Intellectual Development by Anonymous: ""History of Intellectual Development. Oh, so it was there," Mineko said, drawing close to look at the book that Sanshiro had found.*"
@@ -6732,7 +6732,6 @@ https://bookjumpr.com/fukuzawa-yukichi/the-autobiography-of-fukuzawa-yukichi
 - A New Account of the Tales of the World by Liu Yiqing: "Then I listened to lectures on the Mengqiu, A New Account of the Tales of the World, the Zuo Zhuan, the Zhan Guo Ce, Laozi and Zhuangzi.*"
 - Analects by Confucius: "At Master Shiraishi's school I studied the classics above all: the Analects and Mencius of course, and the whole range of commentary on the meaning of the classics.*"
 - Mencius by Mencius: "While the others were reading the Classic of Poetry or the Book of Documents, I was doing recitation of Mencius.*"
-- Classic of Poetry by traditional, compiled c. 11th-7th century BC: "The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well.*"
 - Book of Documents by Anonymous: "The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well.*"
 - Zhuangzi by Zhuang Zhou: "I of course studied the Zuo Zhuan, the Classic of Poetry and the Book of Documents, and even odd, interesting works such as Laozi and Zhuangzi, hearing the teacher's lectures and studying them myself.*"
 - Tao Te Ching by Laozi: "I of course studied the Classic of Poetry and the Book of Documents, and even odd, interesting works such as the Tao Te Ching and Zhuangzi, hearing the teacher's lectures and studying them myself.*"
@@ -6742,6 +6741,7 @@ https://bookjumpr.com/fukuzawa-yukichi/the-autobiography-of-fukuzawa-yukichi
 - Chōai no Hō by Fukuzawa Yukichi: "I translated a book on bookkeeping, Chōai no Hō, early after the Restoration, and every bookkeeping manual in the world today follows my translation's examples.*"
 - Guide to Travel in the West by Fukuzawa Yukichi: "I had no choice but to retire at once as ordered, and during that time I was writing a book called Guide to Travel in the West.*"
 - Seiri Hatsumō by Anonymous: "The passage discussed how light relates to sight, with two candles and the shadows they cast, quite a difficult part, and it should be in the translated book Seiri Hatsumō that Shimamura translated.*"
+- Classic of Poetry by Anonymous: "The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well.*"
 
 ## The Autobiography of Malcolm X by Malcolm X (1965)
 https://bookjumpr.com/malcolm-x/the-autobiography-of-malcolm-x
