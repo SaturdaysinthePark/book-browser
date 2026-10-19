@@ -1,0 +1,617 @@
+{
+  "books": [
+    {
+      "title": "Aino Folk-Tales",
+      "author": "Basil Hall Chamberlain",
+      "year": 1888,
+      "synopsis": "Chamberlain writes down the oral tales of the Ainu of Yezo as told by chiefs and villagers, from how the owl got his feather cap to why dogs cannot speak. Fox-gods, the civilizer Okikurumi, the Panaumbe and Penaumbe cycle, a man who weds the Bear-Goddess and a hunter in Hades fill its moral tales and scraps of folklore.",
+      "genre": "MISC"
+    },
+    {
+      "title": "Glimpses of Unfamiliar Japan: First Series",
+      "author": "Lafcadio Hearn",
+      "year": 1894,
+      "synopsis": "Hearn lands in Yokohama, rides by jinricksha to Kamakura and Enoshima, then settles in Matsue to explore Izumo's shrines, festivals and village superstitions. He visits the Great Shrine of Kitzuki, the cave of the children's ghosts, and the temple at Hinomisaki, finding the living Shinto in the national heart rather than in books.",
+      "genre": "ADVENTURE & TRAVEL"
+    },
+    {
+      "title": "Glimpses of Unfamiliar Japan: Second Series",
+      "author": "Lafcadio Hearn",
+      "year": 1894,
+      "synopsis": "Hearn continues his Matsue years with the household shrine, women's hair, a garden of frogs and lotus, ancestor worship and the Japanese smile, then sails to the remote Oki islands and the farewell of Kumamoto. Ghost-lore, Buddhist funerals, student essays and the Shinto roots of the family religion fill out a portrait of old Izumo giving way to the new Japan.",
+      "genre": "ADVENTURE & TRAVEL"
+    },
+    {
+      "title": "In Ghostly Japan",
+      "author": "Lafcadio Hearn",
+      "year": 1899,
+      "genre": "ESSAYS & JOURNALISM",
+      "synopsis": "Opening with a Bodhisattva's vision of a mountain made of skulls, Hearn gathers tales of the Long-sleeved Robe and the Peony-Lantern ghosts, and a fortune-teller who saves a man haunted by his dead lover. Essays follow on incense games, the footprints of the Buddha, Japanese verse and Buddhist proverbs, with a priest who meets a Tengu among the closing stories."
+    },
+    {
+      "title": "Japanese Fairy Tales",
+      "author": "Yei Theodora Ozaki",
+      "year": 1908,
+      "synopsis": "Twenty-two tales retold for Western children: Urashima Taro rides a tortoise to the Sea King's palace, Momotaro sets out from a peach to fight ogres, and a sparrow loses her tongue to a wicked old woman. Along the way come goblins, talking badgers and monkeys, the Bamboo-cutter's moon-child and the Empress who mends the sky with stones of five colors.",
+      "genre": "FANTASY"
+    },
+    {
+      "title": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "author": "Lafcadio Hearn",
+      "year": 1896,
+      "genre": "ESSAYS & JOURNALISM",
+      "synopsis": "Hearn turns from outward Japan to its heart, from a murderer's confrontation with his victim's child at a Kumamoto railway station to a bugler who dies sounding the charge and a cholera-time village. Long essays on karma, pre-existence and ancestor-worship set Buddhist doctrine beside Herbert Spencer and Huxley, and an appendix gives three popular ballads sung by Matsue's outcast yama-no-mono."
+    },
+    {
+      "title": "Kwaidan: Stories and Studies of Strange Things",
+      "author": "Lafcadio Hearn",
+      "year": 1904,
+      "genre": "HORROR",
+      "synopsis": "A blind biwa-player named Hoichi is summoned each night to recite the fall of the Heike to a court of ghosts, until a priest paints the Heart Sutra over his body and forgets his ears. Snow-women, headless Rokuro-Kubi, a man-eating jikininki and a dream of a kingdom inside an ant-hill give way to Hearn's closing essays on butterflies, mosquitoes and ants."
+    },
+    {
+      "title": "Shadowings",
+      "author": "Lafcadio Hearn",
+      "year": 1900,
+      "synopsis": "Hearn retells strange Japanese tales of reunited ghosts, a dreamer's vision of Fugen-Bosatsu and a painted girl who steps from her picture, then turns to essays on the shrilling of cicadas, girls' names and old street ballads. The book closes with reveries on nightmares and a mysterious dream-book that rewrites itself.",
+      "genre": "HORROR"
+    },
+    {
+      "title": "The American Diary of a Japanese Girl",
+      "author": "Yoné Noguchi",
+      "year": 1902,
+      "genre": "FICTION",
+      "synopsis": "Morning Glory, a young Japanese woman, lands in San Francisco and records her wide-eyed, wisecracking adventures with her uncle, from Longfellow-loving society ladies to a cottage next door to a poet named Heine. Her broken-English diary lampoons American manners while she dreams of becoming a novelist."
+    },
+    {
+      "title": "The Book of Tea",
+      "author": "Kakuzo Okakura",
+      "year": 1906,
+      "synopsis": "Okakura turns the humble cup of tea into an Eastern philosophy of life, tracing Teaism from Chinese medicine to Zen-flavoured Japanese ceremony. He moves from the bare tea-room and its Taoist love of the imperfect to flower-arranging, art appreciation and the tea-master Rikiu's final tea before his suicide.",
+      "genre": "PHILOSOPHY"
+    },
+    {
+      "title": "The Japanese Spirit",
+      "author": "Yoshisaburo Okakura",
+      "year": 1905,
+      "genre": "ESSAYS & JOURNALISM",
+      "synopsis": "Okakura traces how Shinto, Confucianism, Taoism and Zen Buddhism fused into the Japanese national character, from the Samurai code and hara-kiri to the tea ceremony and the seventeen-syllable hokku. A Japanese professor explains his country to a Western audience."
+    },
+    {
+      "title": "The No Plays of Japan",
+      "author": "Arthur Waley",
+      "year": 1921,
+      "genre": "DRAMA & PLAYS",
+      "synopsis": "Waley's translation of twenty-odd No plays, where ghosts of Heike warriors, a jealous Rokujo and a fisherman-turned-angel return to chant their sorrows to wandering priests. Framed by a long introduction on the masks, music and Buddhist outlook of the stage."
+    },
+    {
+      "title": "The Spirit of Japanese Art",
+      "author": "Yoné Noguchi",
+      "year": 1915,
+      "genre": "ESSAYS & JOURNALISM",
+      "synopsis": "Noguchi profiles Japanese artists from Koyetsu and Utamaro to the madcap Kyosai and the Turner-loving Hara, arguing that kokoromochi, the spirit behind the brush, matters more than technique. He mixes anecdotes, tea-room visits and comparisons with Whistler and Western painters."
+    }
+  ],
+  "mentions": [
+    {
+      "source": "Glimpses of Unfamiliar Japan: First Series",
+      "mentioned": "Kojiki",
+      "author": "O no Yasumaro"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: First Series",
+      "mentioned": "Nihongi",
+      "author": ""
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: First Series",
+      "mentioned": "Lotus Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: First Series",
+      "mentioned": "Jizo-kyo-Kosui",
+      "author": ""
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: First Series",
+      "mentioned": "Tales of Old Japan",
+      "author": "Algernon Bertram Freeman-Mitford"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: First Series",
+      "mentioned": "Buddhist Catechism",
+      "author": "Henry Steel Olcott"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Kojiki",
+      "author": "O no Yasumaro"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Lotus Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Kwammu-ryojuko",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Amida-kyo",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Nehan-gyo",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "The Dhammapada",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Dammikkasutta",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "First Principles",
+      "author": "Herbert Spencer"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "La Cité Antique",
+      "author": "Numa Denis Fustel de Coulanges"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Japanese Homes and Their Surroundings",
+      "author": "Edward S. Morse"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Landscape Gardening in Japan",
+      "author": "Josiah Conder"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "Japanese Girls and Women",
+      "author": "Alice Mabel Bacon"
+    },
+    {
+      "source": "Glimpses of Unfamiliar Japan: Second Series",
+      "mentioned": "The Soul of the Far East",
+      "author": "Percival Lowell"
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Kibun-Daijin",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Kun-Shu-Rui-Sho",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "I Ching",
+      "author": "Anonymous"
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Baikwa-Shin-Eki",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Buddhism in Translations",
+      "author": "Henry Clarke Warren"
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Treasure-Raining Sutra",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Kwan-butsu-sanmai-kyo",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Sho-Eko-Ho-Kwan",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Ho-Kai-Shidai",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Shin-zoku-butsu-ji-hen",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Dai-hi-kyo",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Hyaku-tsu-kiri-kami",
+      "author": "Myoden"
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Kujikkajo",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Dai-chi-do-ron",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Buddhist Suttas",
+      "author": "T. W. Rhys Davids"
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "The Dhammapada",
+      "author": "Anonymous"
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Lotus Sutra",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Jikkun-Sho",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Hyaku-Monogatari",
+      "author": ""
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "Catalogue of Japanese and Chinese Paintings in the British Museum",
+      "author": "William Anderson"
+    },
+    {
+      "source": "In Ghostly Japan",
+      "mentioned": "On the Physical Basis of Life",
+      "author": "Thomas Henry Huxley"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "Les Misérables",
+      "author": "Victor Hugo"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "The Sorrows of Young Werther",
+      "author": "Johann Wolfgang von Goethe"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "The New Magdalen",
+      "author": "Wilkie Collins"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "The Principles of Psychology",
+      "author": "Herbert Spencer"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "The Principles of Biology",
+      "author": "Herbert Spencer"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "Physiological Aesthetics",
+      "author": "Grant Allen"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "The Colour-Sense",
+      "author": "Grant Allen"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "Evolution and Ethics",
+      "author": "Thomas Henry Huxley"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "Sensation and the Sensiferous Organs",
+      "author": "Thomas Henry Huxley"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "The Book of the Great Decease",
+      "author": ""
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "Glimpses of Unfamiliar Japan",
+      "author": "Lafcadio Hearn"
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "Diamond Sutra",
+      "author": ""
+    },
+    {
+      "source": "Kokoro: Hints and Echoes of Japanese Inner Life",
+      "mentioned": "Amida Sutra",
+      "author": ""
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "The Tale of the Heike",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Heart Sutra",
+      "author": ""
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Lotus Sutra",
+      "author": ""
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Soshinki",
+      "author": ""
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Nan-ho-i-butsu-shi",
+      "author": ""
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Mushi-Isame",
+      "author": ""
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Mosquitoes",
+      "author": "Leland Ossian Howard"
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Exotics and Retrospectives",
+      "author": "Lafcadio Hearn"
+    },
+    {
+      "source": "Kwaidan: Stories and Studies of Strange Things",
+      "mentioned": "Shadowings",
+      "author": "Lafcadio Hearn"
+    },
+    {
+      "source": "Shadowings",
+      "mentioned": "Konjaku Monogatari",
+      "author": ""
+    },
+    {
+      "source": "Shadowings",
+      "mentioned": "Jikkunsho",
+      "author": ""
+    },
+    {
+      "source": "Shadowings",
+      "mentioned": "Otogi Hyaku Monogatari",
+      "author": ""
+    },
+    {
+      "source": "Shadowings",
+      "mentioned": "Lotus Sutra",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Shadowings",
+      "mentioned": "Madame Chrysanthème",
+      "author": "Pierre Loti"
+    },
+    {
+      "source": "Shadowings",
+      "mentioned": "Greek Anthology",
+      "author": ""
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "A Psalm of Life",
+      "author": "Henry Wadsworth Longfellow"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "The Village Blacksmith",
+      "author": "Henry Wadsworth Longfellow"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "Evangeline",
+      "author": "Henry Wadsworth Longfellow"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "The Song of Hiawatha",
+      "author": "Henry Wadsworth Longfellow"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "The Sketch Book of Geoffrey Crayon",
+      "author": "Washington Irving"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "The Lotos-Eaters",
+      "author": "Alfred Tennyson"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "The French Revolution: A History",
+      "author": "Thomas Carlyle"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "Rubáiyát of Omar Khayyám",
+      "author": "Omar Khayyám"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "When Knighthood Was in Flower",
+      "author": "Charles Major"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "Thanatopsis",
+      "author": "William Cullen Bryant"
+    },
+    {
+      "source": "The American Diary of a Japanese Girl",
+      "mentioned": "The House of Life",
+      "author": "Dante Gabriel Rossetti"
+    },
+    {
+      "source": "The Book of Tea",
+      "mentioned": "The Web of Indian Life",
+      "author": "Sister Nivedita"
+    },
+    {
+      "source": "The Book of Tea",
+      "mentioned": "The Classic of Tea",
+      "author": "Lu Yu"
+    },
+    {
+      "source": "The Book of Tea",
+      "mentioned": "I Ching",
+      "author": "Anonymous"
+    },
+    {
+      "source": "The Book of Tea",
+      "mentioned": "Tao Te Ching",
+      "author": "Laozi"
+    },
+    {
+      "source": "The Book of Tea",
+      "mentioned": "Pingtse",
+      "author": "Yuan Hongdao"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Kojiki",
+      "author": "O no Yasumaro"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Analects",
+      "author": "Confucius"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Classic of Filial Piety",
+      "author": ""
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Lotus Sutra",
+      "author": ""
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Tao Te Ching",
+      "author": "Laozi"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Zhuangzi",
+      "author": "Zhuang Zhou"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Man'yoshu",
+      "author": ""
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Japan: An Attempt at Interpretation",
+      "author": "Lafcadio Hearn"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Bushido: The Soul of Japan",
+      "author": "Inazo Nitobe"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "The Ideals of the East",
+      "author": "Kakuzo Okakura"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Japan by the Japanese",
+      "author": "Alfred Stead"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Buddhism",
+      "author": "T. W. Rhys Davids"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "Buddhism in China",
+      "author": "Samuel Beal"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "The Religion of China",
+      "author": "James Legge"
+    },
+    {
+      "source": "The Japanese Spirit",
+      "mentioned": "The Doctrines of Confucius",
+      "author": "Ernst Faber"
+    },
+    {
+      "source": "The No Plays of Japan",
+      "mentioned": "Lotus Sutra",
+      "author": ""
+    },
+    {
+      "source": "The No Plays of Japan",
+      "mentioned": "Abhidharmakosa",
+      "author": "Vasubandhu"
+    },
+    {
+      "source": "The Spirit of Japanese Art",
+      "mentioned": "Paintings and Studies by Kyosai Kawanabe",
+      "author": "Josiah Conder"
+    },
+    {
+      "source": "The Spirit of Japanese Art",
+      "mentioned": "Kyosai Gwaden",
+      "author": "Kawanabe Kyosai"
+    },
+    {
+      "source": "The Spirit of Japanese Art",
+      "mentioned": "A Japanese Artist in London",
+      "author": "Yoshio Markino"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 973 books that mention other books, 8,231 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 984 books that mention other books, 8,335 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -2813,6 +2813,31 @@ https://bookjumpr.com/ali-smith/girl-meets-boy
 - Twelfth Night by William Shakespeare: "The rain it raineth every day. When that I was and a little tiny girl, with a hey, ho, the wind and the rain. [clown’s song from Twelfth Night, adapted]"
 - The Force That Through the Green Fuse Drives the Flower by Dylan Thomas: "Now I’d become a walking fuse, like in that poem about the flower, and the force, and the green fuse the force drives through it"
 
+## Glimpses of Unfamiliar Japan: First Series by Lafcadio Hearn (1894)
+https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-first-series
+- Kojiki by O no Yasumaro
+- Nihongi by Anonymous
+- Lotus Sutra by Anonymous
+- Jizo-kyo-Kosui by Anonymous
+- Tales of Old Japan by Algernon Bertram Freeman-Mitford
+- Buddhist Catechism by Henry Steel Olcott
+
+## Glimpses of Unfamiliar Japan: Second Series by Lafcadio Hearn (1894)
+https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-second-series
+- Kojiki by O no Yasumaro
+- Lotus Sutra by Anonymous
+- Kwammu-ryojuko by Anonymous
+- Amida-kyo by Anonymous
+- Nehan-gyo by Anonymous
+- The Dhammapada by Anonymous
+- Dammikkasutta by Anonymous
+- First Principles by Herbert Spencer
+- La Cité Antique by Numa Denis Fustel de Coulanges
+- Japanese Homes and Their Surroundings by Edward S. Morse
+- Landscape Gardening in Japan by Josiah Conder
+- Japanese Girls and Women by Alice Mabel Bacon
+- The Soul of the Far East by Percival Lowell
+
 ## Glorious Exploits by Ferdia Lennon (2024)
 https://bookjumpr.com/ferdia-lennon/glorious-exploits
 - The Bacchae by Euripides: "That which is beyond us, which is greater than the human … is for the mad, or for those who listen to the mad, and then believe them. —Euripides, The Bacchae (epigraph)"
@@ -3323,6 +3348,30 @@ https://bookjumpr.com/truman-capote/in-cold-blood
 - The Brothers Karamazov by Fyodor Dostoevsky: "Lowell Lee was locked in his bedroom reading the last chapter of The Brothers Karamazov."
 - The Adventures of Tom Sawyer by Mark Twain: "Kenyon was in my sophomore English class, and I'd directed Nancy in the 'Tom Sawyer' play."
 
+## In Ghostly Japan by Lafcadio Hearn (1899)
+https://bookjumpr.com/lafcadio-hearn/in-ghostly-japan
+- Kibun-Daijin by Anonymous
+- Kun-Shu-Rui-Sho by Anonymous
+- I Ching by Anonymous
+- Baikwa-Shin-Eki by Anonymous
+- Buddhism in Translations by Henry Clarke Warren
+- Treasure-Raining Sutra by Anonymous
+- Kwan-butsu-sanmai-kyo by Anonymous
+- Sho-Eko-Ho-Kwan by Anonymous
+- Ho-Kai-Shidai by Anonymous
+- Shin-zoku-butsu-ji-hen by Anonymous
+- Dai-hi-kyo by Anonymous
+- Hyaku-tsu-kiri-kami by Myoden
+- Kujikkajo by Anonymous
+- Dai-chi-do-ron by Anonymous
+- Buddhist Suttas by T. W. Rhys Davids
+- The Dhammapada by Anonymous
+- Lotus Sutra by Anonymous
+- Jikkun-Sho by Anonymous
+- Hyaku-Monogatari by Anonymous
+- Catalogue of Japanese and Chinese Paintings in the British Museum by William Anderson
+- On the Physical Basis of Life by Thomas Henry Huxley
+
 ## In God's Way by Bjørnstjerne Bjørnson (1889)
 https://bookjumpr.com/bj-rnstjerne-bj-rnson/in-god-s-way
 - The Wild Duck by Henrik Ibsen: "His eyes now fell on "Vildanden" by Henrik Ibsen."
@@ -3686,11 +3735,39 @@ https://bookjumpr.com/h-g-wells/kipps
 - The Art of Conversing by Anonymous: "The second was that admirable classic, "The Art of Conversing.""
 - Enquire Within Upon Everything by Anonymous: "looked up the name Euphemia and learnt what it meant in the "Enquire Within About Everything" that constituted Buggins' reference library"
 
+## Kokoro: Hints and Echoes of Japanese Inner Life by Lafcadio Hearn (1896)
+https://bookjumpr.com/lafcadio-hearn/kokoro-hints-and-echoes-of-japanese-inner-life
+- Les Misérables by Victor Hugo
+- The Sorrows of Young Werther by Johann Wolfgang von Goethe
+- The New Magdalen by Wilkie Collins
+- The Principles of Psychology by Herbert Spencer
+- The Principles of Biology by Herbert Spencer
+- Physiological Aesthetics by Grant Allen
+- The Colour-Sense by Grant Allen
+- Evolution and Ethics by Thomas Henry Huxley
+- Sensation and the Sensiferous Organs by Thomas Henry Huxley
+- The Book of the Great Decease by Anonymous
+- Glimpses of Unfamiliar Japan by Lafcadio Hearn
+- Diamond Sutra by Anonymous
+- Amida Sutra by Anonymous
+
 ## Kudos by Rachel Cusk (2018)
 https://bookjumpr.com/rachel-cusk/kudos
 - She Got Up and Went Away by Stevie Smith: "Epigraph: 'She got up and went away ...' signed 'She Got Up and Went Away', Stevie Smith (epigraph)"
 - Four Quartets by T. S. Eliot: "'if he were to pick up the Four Quartets today he didn't doubt it would cause him pain'"
 - The Divine Comedy by Dante Alighieri: "'to see Dante awarded a single star ... and his Divine Comedy described as "complete shit"'"
+
+## Kwaidan: Stories and Studies of Strange Things by Lafcadio Hearn (1904)
+https://bookjumpr.com/lafcadio-hearn/kwaidan-stories-and-studies-of-strange-things
+- The Tale of the Heike by Anonymous
+- Heart Sutra by Anonymous
+- Lotus Sutra by Anonymous
+- Soshinki by Anonymous
+- Nan-ho-i-butsu-shi by Anonymous
+- Mushi-Isame by Anonymous
+- Mosquitoes by Leland Ossian Howard
+- Exotics and Retrospectives by Lafcadio Hearn
+- Shadowings by Lafcadio Hearn
 
 ## L'Assommoir by Émile Zola (1877)
 https://bookjumpr.com/emile-zola/l-assommoir
@@ -5542,6 +5619,15 @@ https://bookjumpr.com/gustave-flaubert/sentimental-education
 - The Imitation of Christ by Thomas a Kempis: "a copy of the _Revue des Deux Mondes_ which was lying on the table between an _Imitation_ and an _Almanach de Gotha_"
 - Les Caractères by Jean de La Bruyère: "There's the best of La Bruyere's characters!"
 
+## Shadowings by Lafcadio Hearn (1900)
+https://bookjumpr.com/lafcadio-hearn/shadowings
+- Konjaku Monogatari by Anonymous
+- Jikkunsho by Anonymous
+- Otogi Hyaku Monogatari by Anonymous
+- Lotus Sutra by Anonymous
+- Madame Chrysanthème by Pierre Loti
+- Greek Anthology by Anonymous
+
 ## Shalimar the Clown by Salman Rushdie (2005)
 https://bookjumpr.com/salman-rushdie/shalimar-the-clown
 - The Country Without a Post Office by Agha Shahid Ali: "opening epigraph, attributed AGHA SHAHID ALI, The Country Without a Post Office"
@@ -6078,6 +6164,20 @@ https://bookjumpr.com/henry-james/the-ambassadors
 https://bookjumpr.com/henry-james/the-american
 - La Belle Dame sans Merci by John Keats: "“Did you ever read Keats’s Belle Dame sans Merci?” asked Mrs. Tristram. “You remind me of the hero of the ballad:—"
 
+## The American Diary of a Japanese Girl by Yoné Noguchi (1902)
+https://bookjumpr.com/yone-noguchi/the-american-diary-of-a-japanese-girl
+- A Psalm of Life by Henry Wadsworth Longfellow
+- The Village Blacksmith by Henry Wadsworth Longfellow
+- Evangeline by Henry Wadsworth Longfellow
+- The Song of Hiawatha by Henry Wadsworth Longfellow
+- The Sketch Book of Geoffrey Crayon by Washington Irving
+- The Lotos-Eaters by Alfred Tennyson
+- The French Revolution: A History by Thomas Carlyle
+- Rubáiyát of Omar Khayyám by Omar Khayyám
+- When Knighthood Was in Flower by Charles Major
+- Thanatopsis by William Cullen Bryant
+- The House of Life by Dante Gabriel Rossetti
+
 ## The Amethyst Ring by Anatole France (1899)
 https://bookjumpr.com/anatole-france/the-amethyst-ring
 - Robinson Crusoe by Daniel Defoe: "can't we call the dog Thursday, like Robinson Crusoe who called his man Friday"
@@ -6546,6 +6646,14 @@ https://bookjumpr.com/david-mitchell/the-bone-clocks
 - The Season of Divorce by John Cheever: ""Don't know how you've stuck at politics for three years." ... John Cheever has a short story called "The Season of Divorce." It's one of his best."
 - The Da Vinci Code by Dan Brown: "Wendy Hanger considers criminal networks, the FBI, The Da Vinci Code—but smiles, shyly."
 - The Canterbury Tales by Geoffrey Chaucer: "A minnow of déjà vu darts by and its name is Geoffrey Chaucer: "Now, Sirs," quoth he, "if it be you so lief To finde Death, turn up this crooked way, For in that grove I left him, by my fay, Under a tree, and there he will abide …" (low confidence: no title stated, but the verbatim quoted lines are recognizably from the Pardoner's Tale,…"
+
+## The Book of Tea by Kakuzo Okakura (1906)
+https://bookjumpr.com/kakuzo-okakura/the-book-of-tea
+- The Web of Indian Life by Sister Nivedita
+- The Classic of Tea by Lu Yu
+- I Ching by Anonymous
+- Tao Te Ching by Laozi
+- Pingtse by Yuan Hongdao
 
 ## The Book Thief by Markus Zusak (2005)
 https://bookjumpr.com/markus-zusak/the-book-thief
@@ -7785,6 +7893,24 @@ https://bookjumpr.com/john-galsworthy/the-island-pharisees
 - King John by William Shakespeare: "Epigraph: "'But this is a worshipful society' KING JOHN""
 - The French Revolution: A History by Thomas Carlyle: "Meanwhile he wavered between purchasing a book called Market Hayborough, which he had read and would certainly enjoy a second time, and Carlyle's French Revolution, which he had not read and was doubtful of enjoying; he felt that he ought to buy the latter, but he did not relish giving up the former."
 
+## The Japanese Spirit by Yoshisaburo Okakura (1905)
+https://bookjumpr.com/yoshisaburo-okakura/the-japanese-spirit
+- Kojiki by O no Yasumaro
+- Analects by Confucius
+- Classic of Filial Piety by Anonymous
+- Lotus Sutra by Anonymous
+- Tao Te Ching by Laozi
+- Zhuangzi by Zhuang Zhou
+- Man'yoshu by Anonymous
+- Japan: An Attempt at Interpretation by Lafcadio Hearn
+- Bushido: The Soul of Japan by Inazo Nitobe
+- The Ideals of the East by Kakuzo Okakura
+- Japan by the Japanese by Alfred Stead
+- Buddhism by T. W. Rhys Davids
+- Buddhism in China by Samuel Beal
+- The Religion of China by James Legge
+- The Doctrines of Confucius by Ernst Faber
+
 ## The Job by Sinclair Lewis (1917)
 https://bookjumpr.com/sinclair-lewis/the-job
 - Snow-Bound by John Greenleaf Whittier: "an argument as to whether Longfellow or Whittier was the better poet, by parroting the whole of "Snow Bound""
@@ -8480,6 +8606,11 @@ https://bookjumpr.com/kristin-hannah/the-nightingale
 - Madame Bovary by Gustave Flaubert: "She had her favorite copy of Madame Bovary and the book everyone was reading—Autant en emporte le vent—and some clothes; no food or water."
 - Gone with the Wind by Margaret Mitchell: "She had her favorite copy of Madame Bovary and the book everyone was reading—Autant en emporte le vent—and some clothes; no food or water."
 - The Flowers of Evil by Charles Baudelaire: "The author's name—Baudelaire—was etched into the leather... Isabelle knew the volume. Les Fleurs du mal. The Flowers of Evil. It was the book they used to signal a meeting."
+
+## The No Plays of Japan by Arthur Waley (1921)
+https://bookjumpr.com/arthur-waley/the-no-plays-of-japan
+- Lotus Sutra by Anonymous
+- Abhidharmakosa by Vasubandhu
 
 ## The Noise of Time by Julian Barnes (2016)
 https://bookjumpr.com/julian-barnes/the-noise-of-time
@@ -9292,6 +9423,12 @@ https://bookjumpr.com/w-e-b-du-bois/the-souls-of-black-folk
 - The Whole Duty of Man by Richard Allestree: "I sometimes fancy I can see that tableau: the frail black figure, nervously twitching his hat before the massive abdomen of Bishop Onderdonk; his threadbare coat thrown against the dark woodwork of the bookcases, where Fox's "Lives of the Martyrs" nestled happily beside "The Whole Duty of Man.""
 - Pro Archia Poeta by Cicero: "I put Cicero “pro Archia Poeta” into the simplest English with local applications, and usually convinced them"
 - Uncle Tom's Cabin by Harriet Beecher Stowe: "This deep religious fatalism, painted so beautifully in “Uncle Tom,” came soon to breed, as all fatalistic faiths will, the sensualist side by side with the martyr."
+
+## The Spirit of Japanese Art by Yoné Noguchi (1915)
+https://bookjumpr.com/yone-noguchi/the-spirit-of-japanese-art
+- Paintings and Studies by Kyosai Kawanabe by Josiah Conder
+- Kyosai Gwaden by Kawanabe Kyosai
+- A Japanese Artist in London by Yoshio Markino
 
 ## The Spoils of Poynton by Henry James (1897)
 https://bookjumpr.com/henry-james/the-spoils-of-poynton
