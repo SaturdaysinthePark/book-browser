@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,228 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 972 books that mention other books, 8,230 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -1393,6 +1393,11 @@ https://bookjumpr.com/george-gissing/born-in-exile
 - Bridgewater Treatise by William Buckland: "Among the books which he induced her to read were Buckland's Bridgewater Treatise and the works of Hugh Miller."
 - The Soul, Her Sorrows and Her Aspirations by Francis William Newman: "I wonder whether you ever read Francis Newman's book on _The Soul_?"
 - A Monograph of the British Fossil Brachiopoda by Thomas Davidson: "Those publications of the Palaeontological Society, one volume of which (a part of Davidson's superb work on the _Brachiopoda_) even now lay open within sight"
+
+## Botchan by Natsume Sōseki (1906)
+https://bookjumpr.com/natsume-soseki/botchan
+- The Autobiography of Benjamin Franklin by Benjamin Franklin
+- Pushing to the Front by Orison Swett Marden
 
 ## Brave New World by Aldous Huxley (1932)
 https://bookjumpr.com/aldous-huxley/brave-new-world
