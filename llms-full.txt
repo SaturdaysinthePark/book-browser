@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,228 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,227 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -3246,7 +3246,7 @@ https://bookjumpr.com/harold-bloom/how-to-read-and-why
 - Miss Lonelyhearts by Nathanael West: "she preferred Faulkner's As I Lay Dying and Nathanael West's Miss Lonelyhearts to all other works of modern American fiction"
 - The Crying of Lot 49 by Thomas Pynchon: "Thomas Pynchon's The Crying ofLot 49."
 - Middlemarch by George Eliot: "George Eliot was one of the finest of novelists, and Middlemarch (her masterpiece) abounds in fascinating moral judgments."
-- Death in Venice by Thomas Mann: "the grand monument of which remains the novella Death in nice."
+- Death in Venice by Thomas Mann: "the grand monument of which remains the novella Death in Venice."
 - Demons by Fyodor Dostoevsky: "Svidrigailov's freedom, like Stavrogin's in The Devils, is 1 72 How TO READ AND WHY absolute, and also is absolutely terrifying."
 - The Messianic Idea in Judaism by Gershom Scholem: "the great essay "Redemption Through Sin" in Gershom Scholem's The Messianic Idea in judaism."
 - The Pickwick Papers by Charles Dickens: "I used to reread Dickens's The Pick wick Papers twice a year, wearing out several copies in the process."
@@ -10878,7 +10878,6 @@ https://bookjumpr.com/italo-calvino/why-read-the-classics
 - The £1,000,000 Bank-Note by Mark Twain: "Twain essay: named"
 - Daisy Miller by Henry James: "Essay 'Henry James, Daisy Miller' (primary subject)"
 - The Turn of the Screw by Henry James: "James essay: named"
-- Death in Venice by Thomas Mann: "James essay: identified via 'Professor Aschenbach's visit to Venice'"
 - The Pavilion on the Links by Robert Louis Stevenson: "Essay 'Robert Louis Stevenson, The Pavilion on the Links' (primary subject)"
 - The Master of Ballantrae by Robert Louis Stevenson: "Stevenson essay: named"
 - Treasure Island by Robert Louis Stevenson: "Stevenson essay: named"
