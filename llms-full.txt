@@ -814,10 +814,10 @@ https://bookjumpr.com/jo-walton/among-others
 https://bookjumpr.com/fukuzawa-yukichi/an-encouragement-of-learning
 - Kojiki by O no Yasumaro: "A man who can recite Japan's Kojiki from memory but does not know today's price of rice should be called ignorant in the learning of everyday life.*"
 - The Elements of Moral Science by Francis Wayland: "In a book called The Elements of Moral Science, written by an American named Wayland, there is a discussion of the freedom of a person's body and mind; the gist of the argument is that each person's self belongs to himself.*"
-- Greater Learning for Women by Kaibara Ekken: "The book Greater Learning for Women says: 'A woman has three obediences: in youth she obeys her parents, once married her husband, and in old age her sons.'*"
-- Twenty-Four Paragons of Filial Piety by Guo Jujing: "Stories urging filial piety have been very numerous in Japan and China since ancient times, beginning with the Twenty-Four Paragons of Filial Piety, and the other writings are too many to count.*"
 - Rangaku Koto Hajime by Sugita Genpaku: "Japan's civilization first came from Korea and China, then was polished by our own people's efforts into its modern shape; Western learning has distant roots, reaching back to the Horeki era (see the printed book Rangaku Koto Hajime).*"
 - The Subjection of Women by John Stuart Mill: "Today it seems almost natural that men attend to affairs outside and women manage the home, but Stuart Mill wrote The Subjection of Women, attempting to break this age-old, seemingly fixed custom.*"
+- Twenty-Four Paragons of Filial Piety by Anonymous: "Stories urging filial piety have been very numerous in Japan and China since ancient times, beginning with the Twenty-Four Paragons of Filial Piety, and the other writings are too many to count.*"
+- Greater Learning for Women by Anonymous: "The book Greater Learning for Women says: 'A woman has three obediences: in youth she obeys her parents, once married her husband, and in old age her sons.'*"
 
 ## An Enquiry Concerning Human Understanding by David Hume (1748)
 https://bookjumpr.com/david-hume/an-enquiry-concerning-human-understanding
@@ -841,7 +841,6 @@ https://bookjumpr.com/ed-yong/an-immense-world
 
 ## An Inquiry into the Good by Nishida Kitarō (1911)
 https://bookjumpr.com/nishida-kitaro/an-inquiry-into-the-good
-- The Doctrine Of The Mean by Confucius: "That the mean is good is Aristotle's view, and in the East it also appears in the book The Doctrine of the Mean.*"
 - The Republic by Plato: "In his famous work The Republic, Plato equates the organization of the human mind with the organization of the state, and says that the state governed by reason is the highest good for both state and individual.*"
 - Symposium by Plato: "In his famous Symposium, Plato says that 'love is the longing of that which is lacking to return to its original wholeness.'*"
 - Tannisho by Yuien: "So the Tannisho also says: 'Even the nembutsu I utter, striving in my own heart for rebirth, I do for my own sake.'*"
@@ -867,6 +866,7 @@ https://bookjumpr.com/nishida-kitaro/an-inquiry-into-the-good
 - The Confessions by Augustine of Hippo: "Augustine also says, 'God's will is unchanging; He does not will at one time and not at another, much less reverse an earlier decision later' (The Confessions, XII. 15).*"
 - Die Philosophie des heiligen Augustinus by Storz: "Thus what Augustine said, that God beholds all things in an unchanging intuition and that God is at rest in motion and in motion at rest, can also be understood (Storz, Die Philosophie des heiligen Augustinus, section 20).*"
 - The Varieties of Religious Experience by William James: "One could cite endless such experiences of religious mystics (James, The Varieties of Religious Experience, Lect. XVI, XVII).*"
+- The Doctrine Of The Mean by Confucius: "That the mean is good is Aristotle's view, and in the East it also appears in the book The Doctrine of the Mean.*"
 
 ## An Old-Fashioned Girl by Louisa May Alcott (1869)
 https://bookjumpr.com/louisa-may-alcott/an-old-fashioned-girl
@@ -1542,7 +1542,7 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 - Heroic Japan by F. Eastlake and Yoshiaki Yamada: "Among other works on the subject, read Eastlake and Yamada on Heroic Japan, and Diosy on The New Far East."
 - The New Far East by Arthur Diosy: "Among other works on the subject, read Eastlake and Yamada on Heroic Japan, and Diosy on The New Far East."
 - Sermons on Faith and Doctrine by Benjamin Jowett: "They have not aimed at impartiality, but have been contented to accumulate all that could be said in praise of their own, and in dispraise of other forms of religion." Jowett, Sermons on Faith and Doctrine, II."
-- Norman Conquest by Edward A. Freeman: "The words which a great thinker used in speaking of Theresa and Antigone may aptly be repeated of the samurai, that "the medium in which their ardent deeds took shape is forever gone." Norman Conquest, Vol. V, p. 482."
+- Norman Conquest by Edward A. Freeman: "Chivalry is, as Freeman severely criticizes, a class spirit. Modern society, if it pretends to any unity, cannot admit "purely personal obligations devised in the interests of an exclusive class." [Norman Conquest, Vol. V, p. 482]"
 - The Koran by Anonymous: ""God has granted," says the Koran, "to every people a prophet in its own tongue." The seeds of the Kingdom, as vouched for and apprehended by the Japanese mind, blossomed in Bushido."
 
 ## Butcher's Crossing by John Williams (1960)
@@ -2149,8 +2149,8 @@ https://bookjumpr.com/anthony-trollope/doctor-thorne
 https://bookjumpr.com/yumeno-kyusaku/dogra-magra
 - On the Origin of Species by Charles Darwin: "The paper Dr. Masaki submitted then, Dr. Saito predicted, would shake the scholarly world as much as Darwin's On the Origin of Species or Einstein's Principle of Relativity, or even more: it was the Treatise on the Brain.*"
 - Nansō Satomi Hakkenden by Takizawa Bakin: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Nansō Satomi Hakkenden and the Water Margin.*"
-- Water Margin by Shi Nai'an: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Hakkenden and the Water Margin.*"
 - Lotus Sutra by Anonymous: "As for the monk's name, Shōkū, it sounds Tendai, so he probably read something like the Lotus Sutra and grasped this principle from it.*"
+- Water Margin by Anonymous: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Hakkenden and the Water Margin.*"
 
 ## Dombey and Son by Charles Dickens (1848)
 https://bookjumpr.com/charles-dickens/dombey-and-son
@@ -4073,10 +4073,10 @@ https://bookjumpr.com/thomas-hobbes/leviathan
 ## Li Ling by Atsushi Nakajima (1943)
 https://bookjumpr.com/atsushi-nakajima/li-ling
 - Records of the Grand Historian by Sima Qian: "Later generations know Sima Qian as the author of the Shiji, a great name, but at the time the Grand Historian Sima Qian was a mere minor clerk of letters. His father's deathbed scene was described in detail by his son's own brush in the last chapter of the Records of the Grand Historian.*"
-- Spring and Autumn Annals by Confucius: "His plan for a history was unlike any earlier history. As a standard of moral judgment he held up the Spring and Autumn Annals, but as a history that conveyed facts he found it thoroughly unsatisfying. He wanted more facts, facts over lessons.*"
 - Zuo Zhuan by Zuo Qiuming: "When it came to the Zuo Zhuan and the Guoyu, there were certainly facts, and the skill of narration in the Zuo Zhuan could only be admired; but there was no inquiry into the individual people who made those events.*"
 - Guoyu by Anonymous: "He wanted more facts, facts over lessons. With the Zuo Zhuan and the Guoyu there are facts indeed, but there is no inquiry into the individual people behind them, and their portrayal within events, though vivid, lacks any investigation of their backgrounds.*"
 - Book of Han by Ban Gu: "The Book of Han records that, to treat Su Wu's wound, the Xiongnu dug a pit, lit a fire in it, laid the wounded man over it and trod on his back to draw out the blood.*"
+- Spring and Autumn Annals by Anonymous: "His plan for a history was unlike any earlier history. As a standard of moral judgment he held up the Spring and Autumn Annals, but as a history that conveyed facts he found it thoroughly unsatisfying. He wanted more facts, facts over lessons.*"
 
 ## Life of Pi by Yann Martel (2001)
 https://bookjumpr.com/yann-martel/life-of-pi
@@ -5731,9 +5731,9 @@ https://bookjumpr.com/elizabeth-gaskell/ruth
 https://bookjumpr.com/natsume-soseki/sanshiro
 - Oroonoko by Aphra Behn: ""I have only read the novel Oroonoko." Asked for the outline, he said it tells of a black African prince who is tricked by an English captain, sold into slavery, and suffers terribly.*"
 - Oroonoko by Thomas Southerne
-- History of Intellectual Development by John Beattie Crozier: ""History of Intellectual Development. Oh, so it was there," Mineko said, drawing close to look at the book that Sanshiro had found.*"
 - Hydriotaphia by Thomas Browne: ""This is the Hydriotaphia I told you about the other day. Look at it if you are bored." Sanshiro thanked him and took the book.*"
 - Hamlet by William Shakespeare: ""Hamlet probably did not want to marry. There may be only one Hamlet, but there are many people like him." "What sort of people?" Hirota fell silent as smoke rose from his cigar.*"
+- History of Intellectual Development by Anonymous: ""History of Intellectual Development. Oh, so it was there," Mineko said, drawing close to look at the book that Sanshiro had found.*"
 
 ## Sapiens: A Brief History of Humankind by Yuval Noah Harari (2014)
 https://bookjumpr.com/yuval-noah-harari/sapiens-a-brief-history-of-humankind
@@ -7666,8 +7666,8 @@ https://bookjumpr.com/edith-wharton/the-fruit-of-the-tree
 https://bookjumpr.com/natsume-soseki/the-gate
 - The Analects by Confucius: "Before going to bed he said, "Tonight I read The Analects for the first time in a long while." When Oyone asked whether there was anything in it, Sosuke answered, "No, nothing."*"
 - Caigen tan by Hong Yingming: "A colleague of his took out the Caigen tan from his Western-style pocket and read it on the tram. Sosuke, with no taste for such things, did not know what the Caigen tan was.*"
-- The Blue Cliff Record by Yuanwu Keqin: "Giso was reading a book with a black cover. It had the difficult title The Blue Cliff Record. "Even we read the Blue Cliff Record, but beyond our own level we have no idea what it means."*"
 - Shūmon mujintō ron by Tōrei Enji: "Giso took the usual book from his bosom and set it before Sosuke. It was a book called the Shūmon mujintō ron. "It is a wonderful book," he had told Sosuke.*"
+- The Blue Cliff Record by Anonymous: "Giso was reading a book with a black cover. It had the difficult title The Blue Cliff Record. "Even we read the Blue Cliff Record, but beyond our own level we have no idea what it means."*"
 
 ## The Ghost Writer by Philip Roth (1979)
 https://bookjumpr.com/philip-roth/the-ghost-writer
@@ -7741,8 +7741,8 @@ https://bookjumpr.com/henry-james/the-golden-bowl
 ## The Golden Demon by Ozaki Kōyō (1897)
 https://bookjumpr.com/ozaki-koyo/the-golden-demon
 - Nansō Satomi Hakkenden by Takizawa Bakin: "It may sound like something out of a novel, but it must be like Hamaji in Nansō Satomi Hakkenden, slipping out late at night past her parents' eyes because Shino leaves at dawn. How strange! My own circumstances are like Shino's too: parted from my parents in childhood, raised in the Shigisawa house, betrothed to their daughter.*"
-- Water Margin by Shi Nai'an: ""When it comes to this, brute force counts for more than money. Surely this is a scene straight out of the Water Margin? To protect a nation's interests and rights, international law is really worth nothing; what matters is military strength."*"
 - Classic of Filial Piety by Anonymous: ""Some rebellion broke out, and someone petitioned the throne: no need to send an army, just send one general to the river and have him read the Classic of Filial Piety to the rebels, and they will vanish on their own. You laugh at that, but Yusa is in all earnest reading the Classic of Filial Piety, bled every other month by a lender who…*"
+- Water Margin by Anonymous: ""When it comes to this, brute force counts for more than money. Surely this is a scene straight out of the Water Margin? To protect a nation's interests and rights, international law is really worth nothing; what matters is military strength."*"
 
 ## The Golden House by Salman Rushdie (2017)
 https://bookjumpr.com/salman-rushdie/the-golden-house
@@ -8166,11 +8166,11 @@ https://bookjumpr.com/yoshisaburo-okakura/the-japanese-spirit
 - Japan: An Attempt at Interpretation by Lafcadio Hearn: "…down to the admirable Interpretation written last year by the late Mr. Lafcadio Hearn, in whose death Japan lost one of her most precious friends, possessing as he did the scholar's insight and the poet's pen, two heavenly gifts seldom found united in a single man."
 - Bushido: The Soul of Japan by Inazo Nitobe: "As for books on the subject from the pen of the Japanese themselves, Dr. Nitobe's Bushido, Explanations of the Japanese Thought, and my brother K. Okakura's Ideals of the East, besides a volume by several well-known Japanese, entitled Japan by the Japanese, are to be specially mentioned."
 - The Ideals of the East by Kakuzo Okakura: "As for books on the subject from the pen of the Japanese themselves, Dr. Nitobe's Bushido, Explanations of the Japanese Thought, and my brother K. Okakura's Ideals of the East, besides a volume by several well-known Japanese, entitled Japan by the Japanese, are to be specially mentioned."
-- Japan by the Japanese by Alfred Stead: "As for books on the subject from the pen of the Japanese themselves, Dr. Nitobe's Bushido, Explanations of the Japanese Thought, and my brother K. Okakura's Ideals of the East, besides a volume by several well-known Japanese, entitled Japan by the Japanese, are to be specially mentioned."
 - Buddhism by T. W. Rhys Davids: "Those who would care to read about it will find an excellent supply of knowledge in two little books called Buddhism and Buddhism in China, written respectively by Dr. Rhys Davids and the late Rev. S. Beal, not to mention the late Sir Monier Williams' standard work."
 - Buddhism in China by Samuel Beal: "Those who would care to read about it will find an excellent supply of knowledge in two little books called Buddhism and Buddhism in China, written respectively by Dr. Rhys Davids and the late Rev. S. Beal, not to mention the late Sir Monier Williams' standard work."
 - The Religion of China by James Legge: "'To give oneself,' he said on one occasion, 'to the duties due to men, and while respecting spiritual things to keep aloof from them, may be called wisdom.' Legge's The Religion of China, p. 137."
 - The Doctrines of Confucius by Ernst Faber: "…were of the opinion that more real good was to be achieved in proceeding straight to action under the guidance of conscience which was heaven and all, than in indulging in idle talk about the subtlety of human nature. Faber's Doctrines of Confucius, p. 33."
+- Japan by the Japanese by Anonymous: "As for books on the subject from the pen of the Japanese themselves, Dr. Nitobe's Bushido, Explanations of the Japanese Thought, and my brother K. Okakura's Ideals of the East, besides a volume by several well-known Japanese, entitled Japan by the Japanese, are to be specially mentioned."
 
 ## The Job by Sinclair Lewis (1917)
 https://bookjumpr.com/sinclair-lewis/the-job
@@ -8871,7 +8871,7 @@ https://bookjumpr.com/kristin-hannah/the-nightingale
 ## The No Plays of Japan by Arthur Waley (1921)
 https://bookjumpr.com/arthur-waley/the-no-plays-of-japan
 - Lotus Sutra by Anonymous: "(1) The Amidists sought to gain satori by the study of the Hokke Kyo, called in Sanskrit Saddharma Pundarika Sutra or "Scripture of the Lotus of the True Law," or even by the mere repetition of its complete title "Myoho Renge Hokke Kyo.""
-- Abhidharmakosa by Vasubandhu: "…but in the Hokke Scripture I have not got to the Law-Master Chapter, and in the Gusha-shastra I have not got as far as the Seventh Book."
+- Abhidharmakosa by Anonymous: "…but in the Hokke Scripture I have not got to the Law-Master Chapter, and in the Gusha-shastra I have not got as far as the Seventh Book."
 
 ## The Noise of Time by Julian Barnes (2016)
 https://bookjumpr.com/julian-barnes/the-noise-of-time
@@ -11018,13 +11018,13 @@ https://bookjumpr.com/mori-ogai/vita-sexualis
 - The Hunchback of Notre-Dame by Victor Hugo: "When I read Victor Hugo's The Hunchback of Notre-Dame (Notre Dame) and came across the little girl with the jewel-like name of Emeraude, I remembered that girl in Kanda dancing the kappore under the umbrella, and thought she must have been much the same sort of creature.*"
 - Shunshoku Umegoyomi by Tamenaga Shunsui: "He felt as if he were Tanjirō of Shunshoku Umegoyomi, and thought how pleasant it would be to be adored by a girl like Ochō; this notion first stirred in him during this period, when he read lending-library romances.*"
 - Jin Ping Mei by Anonymous: "One day I saw a Chinese-bound book peeking out from under the master's desk, and it was the Jin Ping Mei. I had read only Bakin's Kinpeibai, but I knew the Chinese-printed Jin Ping Mei was quite different, and thought the master was not to be taken lightly.*"
-- The Carnal Prayer Mat by Li Yu: "There is an outrageous obscene book by a Chinese author, The Carnal Prayer Mat (Rouputuan), and, as is typical of the Chinese, it tacks a moral of divine retribution onto its plot. It is truly a foolish book, in which the hero Weiyangsheng, worried that a certain part of his body is too small, goes about peeking at people urinating.*"
 - Han Feizi by Han Fei: "I knew Wanikuchi's character well. He bowed to no authority, and because he held nothing sacred, those around him sometimes suffered for it. I thought him cold-hearted, and the fact that he had studied the Chinese classics and always kept the Han Feizi on his desk probably contributed to that.*"
 - Seisetsurō Shishō by Kikuchi Sankei: "Beside Bitō Eiichi I read the Seisetsurō Shishō. One day, as we were reading it together, there was a poem about Tekona of Mama, and I suddenly remembered something and asked him whether his mother was not his real one.*"
 - Honchō Gushō Shinshi by Kikuchi Sankei: "I borrowed from Eiichi and read the Seisetsurō Shishō, and then I read the Honchō Gushō Shinshi. Then, because new pieces by Sankei were coming out, I went to Asakusa and bought the Kagetsu Shinshi and read that too; the two of us made poems and wrote little pieces in Chinese for fun.*"
 - Jiandeng Yuhua by Li Zhen: "Since I had made friends who were scholars of Chinese learning, I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi. The naive romances of young men and women written in such books made me terribly envious and jealous.*"
 - Yanshan Waishi by Chen Qiu: "After I first read the Umegoyomi on a borrowed copy, I made friends who were scholars of Chinese learning, and I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi, and the naive romances in these books left me envious and jealous.*"
-- Qingshi by Feng Menglong: "I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi; the naive romances of young men and women in such books were painfully enviable to me, since I had not been born handsome and so this beautiful thing was an unreachable ideal.*"
+- Qingshi by Anonymous: "I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi; the naive romances of young men and women in such books were painfully enviable to me, since I had not been born handsome and so this beautiful thing was an unreachable ideal.*"
+- The Carnal Prayer Mat by Anonymous: "There is an outrageous obscene book by a Chinese author, The Carnal Prayer Mat (Rouputuan), and, as is typical of the Chinese, it tacks a moral of divine retribution onto its plot. It is truly a foolish book, in which the hero Weiyangsheng, worried that a certain part of his body is too small, goes about peeking at people urinating.*"
 
 ## Volpone by Ben Jonson (1606)
 https://bookjumpr.com/ben-jonson/volpone
