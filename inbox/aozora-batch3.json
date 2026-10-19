@@ -1,0 +1,1025 @@
+{
+ "books": [
+  {
+   "title": "Grass on the Wayside",
+   "author": "Natsume Sōseki",
+   "year": 1915,
+   "genre": "FICTION",
+   "synopsis": "Kenzo, a scholar back in Tokyo after years abroad, is ambushed in the rain by Shimada, the foster father who cut ties with him fifteen years ago. As Shimada and a ring of needy relatives keep demanding money, Kenzo's sour marriage and cramped finances show that nothing from the past is ever really settled."
+  },
+  {
+   "title": "The Wayfarer",
+   "author": "Natsume Sōseki",
+   "year": 1913,
+   "genre": "FICTION",
+   "synopsis": "Jiro, the younger son of a Tokyo family, follows his scholar brother Ichiro through a summer of Osaka visits, hospital sickrooms and a brooding trip to Wakayama. Ichiro, tormented by the conviction that he can never truly know his wife's mind, drifts toward breakdown, and his friend H reports on him in a long letter."
+  },
+  {
+   "title": "To the Spring Equinox and Beyond",
+   "author": "Natsume Sōseki",
+   "year": 1912,
+   "genre": "FICTION",
+   "synopsis": "Keitaro, a restless graduate hunting for work and adventure, is sent by a retired official to shadow a stranger outside a tram stop, a job that goes nowhere. Around him the story turns to his friend Sunaga, whose inward, hesitant relationship with his cousin Chiyoko is told in a series of confessions."
+  },
+  {
+   "title": "Nowaki",
+   "author": "Natsume Sōseki",
+   "year": 1907,
+   "genre": "FICTION",
+   "synopsis": "Shirai Dōya, a literary man driven out of three provincial schools for his principles, scrapes by in Tokyo editing a magazine and writing for pennies. His former pupil Takayanagi, a poor aspiring writer, and the wealthy, easygoing Nakano set the idealist's integrity against money and success."
+  },
+  {
+   "title": "Inside My Glass Doors",
+   "author": "Natsume Sōseki",
+   "year": 1915,
+   "synopsis": "Laid up with a cold in his study, Sōseki looks out through his glass doors and writes short newspaper sketches of the visitors, dogs, cats and childhood memories that drift into his narrow world. A quiet, wry run of vignettes about a strange young woman's confession, importunate strangers, and the old Edo neighbourhood of his boyhood, written under the shadow of illness and death.",
+   "genre": "BIOGRAPHY & MEMOIR"
+  },
+  {
+   "title": "My Individualism",
+   "author": "Natsume Sōseki",
+   "year": 1914,
+   "synopsis": "Sōseki lectures the students of the Peers' School on how he escaped years of anxiety as an English literature scholar by discovering 'self-centredness' and trusting his own judgment over borrowed Western opinion. He pairs the story of his own breakdown with a plea for individual freedom that carries a duty to respect others, and for power and wealth used with responsibility.",
+   "genre": "ESSAYS & JOURNALISM"
+  },
+  {
+   "title": "Tu Zichun",
+   "author": "Ryūnosuke Akutagawa",
+   "year": 1920,
+   "synopsis": "Tu Zichun, a ruined young man at the west gate of Tang-dynasty Luoyang, is twice made fabulously rich by a one-eyed old man and twice squandered it on false friends. Disillusioned with humanity, he becomes the hermit Tieguanzi's pupil on Mount Emei and must stay silent through hellish visions, until the sight of his tortured mother makes him cry out.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Tangerines",
+   "author": "Ryūnosuke Akutagawa",
+   "year": 1919,
+   "synopsis": "On a gloomy winter evening train out of Yokosuka, a weary narrator loathes the grubby country girl who barges into his second-class carriage. Then she flings oranges from the window to her little brothers waiting at the crossing, and the sudden warmth lifts his fatigue for a moment.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Gesaku Zanmai",
+   "author": "Ryūnosuke Akutagawa",
+   "year": 1917,
+   "genre": "FICTION",
+   "synopsis": "One autumn day in 1831, the aging writer Bakin endures a bathhouse critic's sneers, a pushy publisher and his own flat prose, then lifts himself out of despair by writing through the night. A portrait of an artist's pride, doubt and absorption in his work."
+  },
+  {
+   "title": "The Martyr",
+   "author": "Ryūnosuke Akutagawa",
+   "year": 1918,
+   "genre": "FICTION",
+   "synopsis": "In Nagasaki, the beautiful boy Lorenzo is expelled from the Christian church for fathering a child, and lives as a beggar until a great fire. He rushes into the flames to save the baby, and at his death is revealed to be a woman."
+  },
+  {
+   "title": "A Fool's Life",
+   "author": "Ryūnosuke Akutagawa",
+   "year": 1927,
+   "genre": "BIOGRAPHY & MEMOIR",
+   "synopsis": "In fifty-one short sections, a writer looks back on his life: a mother lost to madness, bookshops, a failed love, marriage, illness and the earthquake. A bleak, fragmentary last confession, written shortly before his suicide."
+  },
+  {
+   "title": "Words of a Pygmy",
+   "author": "Ryūnosuke Akutagawa",
+   "year": 1927,
+   "genre": "PHILOSOPHY",
+   "synopsis": "A collection of short aphorisms and sketches on morality, love, art, war, the mob and suicide, wry and often bitter. Writers from Rousseau to Strindberg are weighed along the way."
+  },
+  {
+   "title": "One Hundred Views of Mount Fuji",
+   "author": "Osamu Dazai",
+   "year": 1939,
+   "genre": "BIOGRAPHY & MEMOIR",
+   "synopsis": "Seeking a fresh start, the narrator retreats to a mountain-pass teahouse to write, glaring at a Fuji he finds too picturesque. Over weeks of eccentric visitors and a nervous courtship, the mountain slowly wins him over."
+  },
+  {
+   "title": "Rush to Accuse",
+   "author": "Osamu Dazai",
+   "year": 1940,
+   "genre": "FICTION",
+   "synopsis": "Judas Iscariot bursts in to inform on his master, pouring out jealousy, love and contempt for the man he follows. His rambling denunciation shows that his betrayal is rooted in anguished devotion."
+  },
+  {
+   "title": "Farewell",
+   "author": "Osamu Dazai",
+   "year": 1945,
+   "genre": "FICTION",
+   "synopsis": "A retired country doctor, pressed by a newspaper man hunting for a heartwarming Sino-Japanese story, recalls his Sendai classmate Zhou Shuren, the future Lu Xun. Through nights at an inn in Matsushima and talk of science, literature and China, he pieces together the young Zhou's idealism and the day he abruptly left medical school."
+  },
+  {
+   "title": "Cherries",
+   "author": "Osamu Dazai",
+   "year": 1948,
+   "genre": "FICTION",
+   "synopsis": "A writer who jokes constantly at home to hide his misery sits through a noisy summer supper with his three small children and a wife who murmurs that between her breasts lies a valley of tears. After a cold quarrel he flees to a bar, where a dish of cherries arrives and he spits out the stones, repeating that parents matter more than children."
+  },
+  {
+   "title": "Good-Bye",
+   "author": "Osamu Dazai",
+   "year": 1948,
+   "genre": "FICTION",
+   "synopsis": "Tajima, an editor and black-market operator in postwar Tokyo with nearly ten mistresses and a wife in the countryside, decides to go straight and break with them all. Advised by a coarse older novelist, he sets out to stage his farewells, leaning on a strikingly dressed woman named Kinuko; the story breaks off unfinished."
+  },
+  {
+   "title": "Youth",
+   "author": "Mori Ōgai",
+   "year": 1910,
+   "genre": "FICTION",
+   "synopsis": "Koizumi Junichi, a shy country youth with literary ambitions, arrives in Tokyo and drifts through boarding houses, the novelist Oishi's circle, a lecture on Ibsen, and a night at the theatre. He is drawn into a dangerous fascination with the worldly Madame Sakai while trying to discover what he wants to write."
+  },
+  {
+   "title": "Shibue Chūsai",
+   "author": "Mori Ōgai",
+   "year": 1916,
+   "genre": "BIOGRAPHY & MEMOIR",
+   "synopsis": "Mori Ōgai reconstructs the life of Shibue Chūsai, an Edo-period physician of the Tsugaru domain and bibliophile scholar, from tombstones, family papers and the memories of his surviving son. Wives, children, rivals and fellow scholars such as Mori Kien crowd the account, including the formidable Io, set against a late-shogunate world of old medical texts."
+  },
+  {
+   "title": "The Last Phrase",
+   "author": "Mori Ōgai",
+   "year": 1915,
+   "genre": "FICTION",
+   "synopsis": "In 1738 Osaka, shipping merchant Tarobei is condemned to death after pocketing money from a wrecked rice cargo. His sixteen-year-old daughter Ichi writes a petition offering her own life and her siblings' in his place and carries it to the magistrate's gate. Her calm last words before the court leave the magistrate chilled."
+  },
+  {
+   "title": "Kanzan Jittoku",
+   "author": "Mori Ōgai",
+   "year": 1916,
+   "genre": "FICTION",
+   "synopsis": "Official Lü Qiuyin, newly posted to Taizhou, is cured of a blinding headache by a beggar monk who sends him to the Guoqing temple to meet two holy men, Jittoku and Kanzan. When he finally greets them in the temple kitchen, the pair burst into laughter and run away."
+  },
+  {
+   "title": "Troubled Waters",
+   "author": "Higuchi Ichiyō",
+   "year": 1895,
+   "synopsis": "Oriki, the most sought-after girl at the Kikunoi tavern in a shabby new pleasure quarter, laughs off her customers while a ruined former lover sinks into poverty with his wife and child. Her fits of despair and a confession to the steady customer Yuki Asanosuke end with two coffins carried out of the quarter after the Bon festival.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "The Thirteenth Night",
+   "author": "Higuchi Ichiyō",
+   "year": 1895,
+   "synopsis": "On the night of the harvest moon, Oseki slips back to her parents' house, declaring she will leave her cold, scornful husband Harada and the son she has put to sleep. Her father talks her into returning for the child's sake, and on the way home she finds her rickshaw puller is Rokunosuke, the childhood sweetheart who has gone to ruin.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Onna Keizu",
+   "author": "Izumi Kyōka",
+   "year": 1907,
+   "synopsis": "Hayase Chikara, a German translator and disciple of the scholar Sakai, secretly lives in Kagurazaka with the former geisha Otsuta while the Kono family and the schoolgirl Taeko press into his life. When his teacher forces him to give up Otsuta, he leaves for Shizuoka to open a German school, and the sacrifice drives the story to its tragic close.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Uta Andon",
+   "author": "Izumi Kyōka",
+   "year": 1910,
+   "synopsis": "Two old men, a retired Noh drummer and a Noh master, travel the old Tokaido road to Kuwana, playing at Yaji and Kita from Shank's Mare. In a noodle shop and an inn they hear how a wandering minstrel once chanted a blind masseur to death, and how he taught a luckless girl to dance, until the master himself takes up the chant in the moonlit street.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "The Surgery Room",
+   "author": "Izumi Kyōka",
+   "year": 1895,
+   "synopsis": "A painter watches the surgeon Takamine operate on Countess Kifune, who refuses anesthesia because she fears her delirious words will betray a secret she keeps from her husband. As the knife goes in she grips his arm and says he does not know her, and he answers that he has never forgotten; a flashback to a garden nine years earlier explains why both are buried on the same day.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "A New Life",
+   "author": "Shimazaki Tōson",
+   "year": 1919,
+   "synopsis": "Kishimoto, a widowed writer left with four children, flees to Paris and then wartime Limoges to escape his love affair with his niece Setsuko. Back in Tokyo the bond resumes, a child is born, and he finally publishes a confession that breaks with his elder brother and tries to make a fresh start.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "The Five-Storied Pagoda",
+   "author": "Kōda Rohan",
+   "year": 1892,
+   "synopsis": "The slow-witted carpenter Jubei, nicknamed Nottsuo, begs to build the five-storied pagoda at Kannoji temple, a job that belongs to the famous master Genta. The abbot makes the two rivals cooperate, and when a great storm strikes Edo, the finished tower is tested against the wind and Jubei's pride.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "Beef and Potatoes",
+   "author": "Kunikida Doppo",
+   "year": 1901,
+   "synopsis": "On a winter night at the Meiji Club, six men around the stove trade stories about their idealistic youth. Uemura tells how he went to Hokkaido to farm potatoes, lost heart in the autumn and became a beef-eating pragmatist, while the fierce Kondo mocks both camps as fallen poets.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "The Fatalist",
+   "author": "Kunikida Doppo",
+   "year": 1903,
+   "synopsis": "On a winter beach at Kamakura, a narrator reading in the dunes meets a haggard stranger who digs up a hidden bottle of brandy. The man tells him his life: raised as another man's son, he marries Satoko and learns that his adoptive mother is his true mother and his wife is his half-sister, proof to him that fate cannot be escaped.",
+   "genre": "FICTION"
+  },
+  {
+   "title": "The Disciple",
+   "author": "Atsushi Nakajima",
+   "year": 1943,
+   "genre": "FICTION",
+   "synopsis": "Zilu, a swaggering Lu brawler, storms in to humiliate Confucius and ends up his most loyal and least tameable disciple. He follows the Master through years of wandering and trouble, until a coup in Wei leaves him cut to pieces, dying with his cap properly tied."
+  },
+  {
+   "title": "Light, Wind and Dreams",
+   "author": "Atsushi Nakajima",
+   "year": 1942,
+   "genre": "BIOGRAPHY & MEMOIR",
+   "synopsis": "Robert Louis Stevenson settles in Samoa, a consumptive writer building a house at Vailima and siding with the chief Mataafa against the white officials. Told through his journal entries and a narrator's reflections, it follows his doubts about his own art until his sudden death."
+  },
+  {
+   "title": "The Life of Gusuko Budori",
+   "author": "Kenji Miyazawa",
+   "year": 1932,
+   "genre": "FICTION",
+   "synopsis": "Budori grows up in the forests of Ihatov, loses his parents to a cold-summer famine and is sold into hard labour, then studies the farmer's trade and the science of weather. When another cold summer looms, he stays alone on a volcanic island to set off an eruption that warms the land."
+  },
+  {
+   "title": "The Nighthawk Star",
+   "author": "Kenji Miyazawa",
+   "year": 1921,
+   "genre": "FICTION",
+   "synopsis": "The nighthawk is an ugly bird scorned by all the others, and the hawk demands he give up his name. Unable to bear killing insects to live, he flies higher and higher toward the sky until he burns as a quiet star."
+  },
+  {
+   "title": "The Psychological Test",
+   "author": "Edogawa Rampo",
+   "year": 1925,
+   "genre": "CRIME & MYSTERY",
+   "synopsis": "Student Fukiya plans a perfect murder of an old pawnbroker and rehearses for the word-association test he knows will come. Detective Kogoro Akechi, using only ordinary conversation, sees through his careful preparation."
+  },
+  {
+   "title": "Mirror Hell",
+   "author": "Edogawa Rampo",
+   "year": 1926,
+   "genre": "HORROR",
+   "synopsis": "A narrator tells of his unfortunate friend, obsessed since boyhood with lenses and mirrors. He builds ever stranger devices, finally sealing himself inside a glass sphere lined with mirrors, and goes mad."
+  },
+  {
+   "title": "The Man Traveling with the Brocade Painting",
+   "author": "Edogawa Rampo",
+   "year": 1929,
+   "genre": "HORROR",
+   "synopsis": "After seeing a mirage at Uozu, the narrator rides a train back to Tokyo with a strange old man carrying a framed brocade picture of an old man and a young girl. The old man tells how his brother looked through binoculars and fell in love with her."
+  },
+  {
+   "title": "The Red Chamber",
+   "author": "Edogawa Rampo",
+   "year": 1925,
+   "genre": "CRIME & MYSTERY",
+   "synopsis": "Seven men gather in a room hung with scarlet drapes to hear stories that thrill them. The new member, T, confesses to ninety-nine ingenious murders that were never detected."
+  },
+  {
+   "title": "Hell in a Bottle",
+   "author": "Yumeno Kyūsaku",
+   "year": 1928,
+   "genre": "FICTION",
+   "synopsis": "Three messages found in beer bottles are sent to a marine research institute: the letters of two children, a brother and sister, stranded on a tiny island. Their innocent life with a Bible turns into guilt and a final leap at the moment a rescue ship arrives."
+  },
+  {
+   "title": "The Beautiful Village",
+   "author": "Hori Tatsuo",
+   "year": 1934,
+   "genre": "FICTION",
+   "synopsis": "A writer retreats to a mountain village in early summer, filling his letters and notebooks with acacia blossoms, wet June rain and the two old maids he cannot quite fit into the novel he is trying to write. As he drifts from the story of his own past love toward the quiet pleasures of country life, a girl painting the sanatorium's red roof draws him back to what he is running from."
+  },
+  {
+   "title": "The Life of a Party Member",
+   "author": "Kobayashi Takiji",
+   "year": 1933,
+   "genre": "FICTION",
+   "synopsis": "An underground Communist organizer, working in a Tokyo metal factory under a false identity, slips between safe houses and secret meetings with his comrades Suyama and Ito as the police close in. When the firm's workers face layoffs and wartime speed-ups, he risks everything to leaflet and organize, at the cost of the people who shelter and love him."
+  },
+  {
+   "title": "Floating Clouds",
+   "author": "Hayashi Fumiko",
+   "year": 1951,
+   "genre": "FICTION",
+   "synopsis": "Yukiko, a typist sent to wartime French Indochina, falls in love with the married forestry official Tomioka, and the two reunite in the bombed-out ruins of postwar Tokyo. Dragged between squalid inns, other lovers and a trip to remote Yakushima, they cling to a bond neither can break nor save."
+  },
+  {
+   "title": "A Six-Foot Sickbed",
+   "author": "Masaoka Shiki",
+   "year": 1902,
+   "genre": "ESSAYS & JOURNALISM",
+   "synopsis": "Bedridden with spinal tuberculosis and able to reach barely beyond his mattress, the haiku poet Shiki dictates a short newspaper column every day. He ranges from picture books and owls' hooting to Noh, food, gardens and pain so bad he begs to die, until his writing stops a few days before the end."
+  },
+  {
+   "title": "The Blind Man's Tale",
+   "author": "Jun'ichirō Tanizaki",
+   "year": 1931,
+   "genre": "FICTION",
+   "synopsis": "An aged blind masseur recalls, in a rambling spoken voice, his years serving the beautiful Lady Oichi, sister of Nobunaga, through her marriages to Asai Nagamasa and Shibata Katsuie and the fall of Odani and Kitanosho castles. His devotion to her and later to her daughter Chacha is shot through with a secret, sensual longing."
+  },
+  {
+   "title": "Arrowroot",
+   "author": "Jun'ichirō Tanizaki",
+   "year": 1931,
+   "genre": "FICTION",
+   "synopsis": "A writer travels deep into the mountains of Yoshino chasing a historical novel about the hidden Southern Court prince Jiten-ō, while his friend Tsumura follows the trail of his own dead mother through a fox-ballad and a village of paper-makers and arrowroot. Legend, folklore and memory blur until the novel the narrator planned never gets written."
+  },
+  {
+   "title": "The Secret",
+   "author": "Jun'ichirō Tanizaki",
+   "year": 1911,
+   "genre": "FICTION",
+   "synopsis": "Bored by ordinary pleasures, a young man hides in a temple lodging in the slums of Asakusa and starts dressing up as a woman, heavily powdered, in a friend's kimono. Out in the city as a woman he meets a mysterious veiled lover from his past, who ferries him blindfolded in a rickshaw through a secret city."
+  },
+  {
+   "title": "The Key",
+   "author": "Jun'ichirō Tanizaki",
+   "year": 1956,
+   "genre": "FICTION",
+   "synopsis": "A middle-aged professor and his wife each keep a secret diary and each leave it where the other can steal a look, while pretending never to read it. Fueled by brandy, jealousy and a daughter's suitor, Kimura, their private erotic games spiral toward collapse."
+  }
+ ],
+ "mentions": [
+  {
+   "source": "Grass on the Wayside",
+   "mentioned": "Jōzan Kidan",
+   "author": "Yuasa Jōzan",
+   "note": "Hida smiled, took the book lying face down on his desk and handed it to Kenzo. To Kenzo's surprise it was the Jōzan Kidan, and he was a little startled that a man could read such a thing so calmly while his own wife was coughing herself breathless in the next room.*"
+  },
+  {
+   "source": "Grass on the Wayside",
+   "mentioned": "Nansō Satomi Hakkenden",
+   "author": "Takizawa Bakin",
+   "note": "\"He must be a scholar, that man, mustn't he? Which of them is better, him or Kyokutei Bakin? I own Bakin's Nansō Satomi Hakkenden too, you know.\" Sure enough, in his paulownia bookcase he had a neat stack of the subscription edition of the Nansō Satomi Hakkenden, printed in movable type on Japanese paper.*"
+  },
+  {
+   "source": "Grass on the Wayside",
+   "mentioned": "Edo Meisho Zue",
+   "author": "Saitō Gesshin",
+   "note": "\"Do you own the Edo Meisho Zue, Ken?\" He took one or two old volumes in pale-blue covers from another bookcase on the alcove, treating Kenzo as if he had never even heard the name of the Edo Meisho Zue.*"
+  },
+  {
+   "source": "Grass on the Wayside",
+   "mentioned": "Azuma Kagami",
+   "author": "",
+   "note": "It was written on fine paper in a formal square hand and looked very imposing, but it was of no practical use at all, since the only precedent it cited was the Azuma Kagami.*"
+  },
+  {
+   "source": "The Wayfarer",
+   "mentioned": "The Divine Comedy",
+   "author": "Dante Alighieri",
+   "note": "According to my brother, Paolo was the younger brother of Francesca's husband, and the two loved each other in secret until the husband found them out and killed them. It was a sad story, written somewhere in Dante's Divine Comedy, he said.*"
+  },
+  {
+   "source": "To the Spring Equinox and Beyond",
+   "mentioned": "New Arabian Nights",
+   "author": "Robert Louis Stevenson",
+   "note": "This leaning in Keitaro seemed to have begun in his high-school days, when his English teacher had the class read Stevenson's New Arabian Nights as a textbook. Until then he had hated English, but once he started on this book he never skipped the preparation.*"
+  },
+  {
+   "source": "Inside My Glass Doors",
+   "mentioned": "Iliad",
+   "author": "Homer",
+   "note": "I gave the children's new friend the grand name of Hector. It was the name of the greatest Trojan warrior in the Iliad, who was struck down by Achilles when Troy and Greece went to war.*"
+  },
+  {
+   "source": "Inside My Glass Doors",
+   "mentioned": "First Principles",
+   "author": "Herbert Spencer",
+   "note": "He was bound for the science course from the start, yet he liked to leaf through books of philosophy. I still remember that he once lent me a book called Spencer's First Principles.*"
+  },
+  {
+   "source": "My Individualism",
+   "mentioned": "Theory of Literature",
+   "author": "Natsume Sōseki",
+   "note": "In the end I had to give up the enterprise I had begun halfway. The Theory of Literature that I wrote is less a monument to it than the corpse of a failure, and a deformed corpse at that.*"
+  },
+  {
+   "source": "Poppies",
+   "mentioned": "Avatamsaka Sutra",
+   "author": "Anonymous",
+   "note": "'The Avatamsaka Sutra has a line, \"outwardly a bodhisattva, inwardly a demon.\" You know it, surely.' 'I only know the phrase.' 'That is how the rose got the name Buddha-smiling. Lovely flower, but terribly thorny.'*"
+  },
+  {
+   "source": "Gesaku Zanmai",
+   "mentioned": "Nansō Satomi Hakkenden",
+   "author": "Takizawa Bakin",
+   "note": "\"The Nansō Satomi Hakkenden, Master, grows ever more wondrous with each volume, and it is splendidly done. Funamushi disguising herself as a blind woman to kill Kobungo, being caught and tortured, then rescued by Sōsuke: that sequence is simply beyond words.\" *"
+  },
+  {
+   "source": "Gesaku Zanmai",
+   "mentioned": "Water Margin",
+   "author": "Shi Nai'an",
+   "note": "\"Bakin's writings are all rehashes. Why, the Nansō Satomi Hakkenden is nothing but a copy of the Water Margin, isn't it?\" *"
+  },
+  {
+   "source": "Gesaku Zanmai",
+   "mentioned": "Ukiyoburo",
+   "author": "Shikitei Sanba",
+   "note": "The scene was no different now from the one Shikitei Sanba had described in a comic book some years before: \"gods, Buddhism, love, impermanence, all jumbled together in the Ukiyoburo.\" *"
+  },
+  {
+   "source": "Gesaku Zanmai",
+   "mentioned": "Chinsetsu Yumiharizuki",
+   "author": "Takizawa Bakin",
+   "note": "On this desk he had written Chinsetsu Yumiharizuki and Nanka no Yume, and now he was writing the Nansō Satomi Hakkenden. All his writing tools had long been familiar with the pain of his creative labor. *"
+  },
+  {
+   "source": "Gesaku Zanmai",
+   "mentioned": "Nanka no Yume",
+   "author": "Takizawa Bakin",
+   "note": "On this desk he had written Chinsetsu Yumiharizuki and Nanka no Yume, and now he was writing the Nansō Satomi Hakkenden. All his writing tools had long been familiar with the pain of his creative labor. *"
+  },
+  {
+   "source": "Gesaku Zanmai",
+   "mentioned": "Matsuzome Jōshi Akinonanakusa",
+   "author": "Takizawa Bakin",
+   "note": "\"Because he can't write Osome and Hisamatsu as plain Osome and Hisamatsu, he calls it Matsuzome Jōshi Akinonanakusa.\" *"
+  },
+  {
+   "source": "The Martyr",
+   "mentioned": "Guia do Pecador",
+   "author": "Luis de Granada",
+   "note": "Even if one kept three hundred years of life and joy beyond measure, it would be as a dream beside the endless joys of the world to come. (Keichō translation, Guia do Pecador) *"
+  },
+  {
+   "source": "The Martyr",
+   "mentioned": "The Imitation of Christ",
+   "author": "Thomas a Kempis",
+   "note": "One who has entered the way of goodness will sense a mysterious sweetness in the teaching. (Keichō translation of The Imitation of Christ, Imitatione Christi) *"
+  },
+  {
+   "source": "A Fool's Life",
+   "mentioned": "The Confession of a Fool",
+   "author": "August Strindberg",
+   "note": "Under a low lamp he began to read The Confession of a Fool, but before he had read two pages he was smiling wryly: Strindberg too, in letters to the countess who was his mistress, had written things little different from his own. *"
+  },
+  {
+   "source": "A Fool's Life",
+   "mentioned": "Candide",
+   "author": "Voltaire",
+   "note": "He moved on to the eighteenth-century philosophers but did not approach Rousseau; he drew near to the philosopher of Candide, who matched his cold, intellectual side. *"
+  },
+  {
+   "source": "A Fool's Life",
+   "mentioned": "West-Eastern Divan",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "The West-Eastern Divan again tried to give him new strength. It was the Oriental Goethe he had not known. Seeing Goethe stand serenely beyond good and evil, he felt an envy close to despair. *"
+  },
+  {
+   "source": "A Fool's Life",
+   "mentioned": "Confessions",
+   "author": "Jean-Jacques Rousseau",
+   "note": "Even Rousseau's Confessions was full of heroic lies. *"
+  },
+  {
+   "source": "A Fool's Life",
+   "mentioned": "Shinsei",
+   "author": "Shimazaki Tōson",
+   "note": "Even Rousseau's Confessions was full of heroic lies, and as for Shinsei, he had never met a more cunning hypocrite than its hero. *"
+  },
+  {
+   "source": "A Fool's Life",
+   "mentioned": "Poetry and Truth",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "The title Poetry and Truth struck him as fitting any autobiography. So he decided to write a brief Poetry and Truth of his own. *"
+  },
+  {
+   "source": "A Fool's Life",
+   "mentioned": "The Inspector General",
+   "author": "Nikolai Gogol",
+   "note": "He recalled the terracotta bust he had given his friend, the one of the author of The Inspector General, whom the friend loved. He thought of Gogol, who had also died mad. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Confessions",
+   "author": "Jean-Jacques Rousseau",
+   "note": "Rousseau loved to confess. Yet the naked Rousseau cannot be found even in his Confessions. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Colomba",
+   "author": "Prosper Merimee",
+   "note": "Mérimée disliked confession. Yet does his Colomba not speak of himself in hints? *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Essays in Idleness",
+   "author": "Yoshida Kenkō",
+   "note": "I'm often told, \"You must surely love Essays in Idleness.\" Unfortunately I have never loved Essays in Idleness, and its fame is nearly incomprehensible to me, though I grant it suits middle-school textbooks. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "The Republic",
+   "author": "Plato",
+   "note": "Our society seems unable to stay safe without slaves. Even the Plato of The Republic presupposes slaves, and this is no accident. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Keikichi's Temptation",
+   "author": "Kan Kikuchi",
+   "note": "Keikichi did not fall to temptation, surely thanks to moral conviction; but the woman who tempted him was wearing his wife's borrowed clothes. See Kikuchi Kan's Keikichi's Temptation. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "The Spring Overcoat",
+   "author": "Mosaku Sasaki",
+   "note": "For the exercise I will set Mr. Sasaki Mosaku's new book, The Spring Overcoat; by next week apply the half-affirmation method to Mr. Sasaki's work. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Man and Superman",
+   "author": "George Bernard Shaw",
+   "note": "It is not men who hunt women but women who hunt men. Shaw dramatized this fact in Man and Superman, but he was not the first to do so. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Memoirs of My Dead Life",
+   "author": "George Moore",
+   "note": "George Moore, in Memoirs of My Dead Life, slips in this remark: \"A great painter knows exactly where to put his name, and never puts it in the same place twice.\" *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Bel-Ami",
+   "author": "Guy de Maupassant",
+   "note": "The typical owner of such worldly wisdom is surely the hero of Bel-Ami. When he takes a lover, he is already thinking of the break. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Wisdom and Destiny",
+   "author": "Maurice Maeterlinck",
+   "note": "We do not even know ourselves, much less act on what we know. Maeterlinck, who wrote Wisdom and Destiny, did not know wisdom or destiny either. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Shinsei",
+   "author": "Shimazaki Tōson",
+   "note": "After reading Shinsei: did a \"new life\" ever really come? *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "A Confession",
+   "author": "Leo Tolstoy",
+   "note": "Read Birukoff's life of Tolstoy and it is clear that Tolstoy's A Confession and My Religion were “lies” [an unrenderable character in the original, read here as “lies”]. Yet no heart is more painful than that of Tolstoy telling them. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "My Religion",
+   "author": "Leo Tolstoy",
+   "note": "Read Birukoff's life of Tolstoy and it is clear that Tolstoy's A Confession and My Religion were “lies” [an unrenderable character in the original, read here as “lies”]. Yet no heart is more painful than that of Tolstoy telling them. *"
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Legend",
+   "author": "August Strindberg",
+   "note": "In his Legend, Strindberg describes an experiment to find out whether death is painful. But such an experiment cannot be done in play. *"
+  },
+  {
+   "source": "One Hundred Views of Mount Fuji",
+   "mentioned": "Nihon Sansuiron",
+   "author": "Kojima Usui",
+   "note": "Kojima Usui's Nihon Sansuiron has the line: \"The sulkers among mountains mostly dwell in this land, as if immortals roaming at leisure.\" *"
+  },
+  {
+   "source": "Farewell",
+   "mentioned": "Mr. Fujino",
+   "author": "Lu Xun",
+   "note": "Well, you see, when I read Lu Xun's essay titled Mr. Fujino, it says that around 1904 and 1905, during the Russo-Japanese War, Lu Xun was at the Sendai medical school and was greatly looked after by a teacher named Genkuro Fujino.*"
+  },
+  {
+   "source": "Farewell",
+   "mentioned": "Mozi",
+   "author": "Mozi",
+   "note": "In the Chinese book Mozi it is written that the inventor Gongshu showed Mozi a magpie made of bamboo and boasted that, once released into the sky, this toy would fly about for three days; Mozi frowned, said it still could not match a carpenter making a wheel, and had the dangerous toy thrown away.*"
+  },
+  {
+   "source": "Farewell",
+   "mentioned": "Evolution and Ethics",
+   "author": "Thomas Henry Huxley",
+   "note": "Among the students too it was the fashion to read new books, and above all Yan Fu's Chinese translation, the Tianyan Lun, won overwhelming popularity. It was a translation into classical Chinese of the naturalist Thomas Huxley's Evolution and Ethics, and one Sunday I went out to the south of the city to buy it myself.*"
+  },
+  {
+   "source": "Farewell",
+   "mentioned": "Exhortation to Learn",
+   "author": "Zhang Zhidong",
+   "note": "A couple of years earlier, even the famous Exhortation to Learn that Zhang Zhidong had written strongly stressed the need to study in Japan, and the government had begun sending a few Chinese students to Japan each year.*"
+  },
+  {
+   "source": "Farewell",
+   "mentioned": "Kaitai Shinsho",
+   "author": "Sugita Genpaku",
+   "note": "That first lecture was a history of the development of anatomy in Japan, and the large and small books the teacher brought were all Japanese works on anatomy from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them.*"
+  },
+  {
+   "source": "Farewell",
+   "mentioned": "Rangaku Koto Hajime",
+   "author": "Sugita Genpaku",
+   "note": "The large and small books the teacher brought were all Japanese works on anatomy, from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them, and he described in his slow, distinctive way the tension of Genpaku and his friends as they dissected a criminal's corpse at the Kozukappara execution ground.*"
+  },
+  {
+   "source": "Cherries",
+   "mentioned": "Yanagidaru",
+   "author": "",
+   "note": "At the crowded supper the father wipes his face with a towel and mutters, \"The Yanagidaru said that working up a great sweat while eating is vulgar, but with the children this noisy, even the most refined of fathers is dripping with sweat.\"*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "Peer Gynt",
+   "author": "Henrik Ibsen",
+   "note": "\"This is one side of Ibsen's self,\" he concluded, \"the side of himself that he gave poetic expression in Peer Gynt, his worldly self.\" Then he said that Ibsen had, from the very beginning, another side to his self.*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "Brand",
+   "author": "Henrik Ibsen",
+   "note": "\"Zola's Claude seeks art. Ibsen's Brand seeks the ideal. For the sake of what he seeks he sacrifices wife and child without a backward glance, and he is destroyed himself.\"*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "John Gabriel Borkman",
+   "author": "Henrik Ibsen",
+   "note": "On the twenty-seventh of November, Ibsen's John Gabriel Borkman was staged at the Yurakuza Theatre.*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "Faust",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "Shakespeare and Goethe, however splendidly they are staged, can hardly strike today's young people with a painful immediacy. Goethe is the same: if Faust appeared as a new work, what would the young say?*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "The Blue Bird",
+   "author": "Maurice Maeterlinck",
+   "note": "On the neatly cleared desk lay a copy of Maeterlinck's The Blue Bird, left half-read when he went out.*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "La Multiple Splendeur",
+   "author": "Émile Verhaeren",
+   "note": "\"I have read nearly all of Maeterlinck. Then, hearing that he was a friend from the same school, I started reading Verhaeren. Recently La Multiple Splendeur arrived, so I read it on the train when I left home.\"*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "Le Voleur",
+   "author": "Henri Bernstein",
+   "note": "Once the train had started, Junichi opened his bag, searched through the wrapping cloth and took out a book with a blue cover like The Blue Bird's: Henry Bernstein's Le Voleur. He knew it was a worthless piece, but he had ordered it to see how a crowd-pleasing play is made.*"
+  },
+  {
+   "source": "Youth",
+   "mentioned": "Three Tales",
+   "author": "Gustave Flaubert",
+   "note": "He had tried many forms for the legend: verse, prose, or the epic manner, in the style of one of Flaubert's Three Tales, and he had even thought of modelling it on one of Maeterlinck's short plays.*"
+  },
+  {
+   "source": "Shibue Chūsai",
+   "mentioned": "The Analects",
+   "author": "Confucius",
+   "note": "Chūsai had a copy of The Analects with Dōshun's reading marks brought out, opened volume seven, and began lecturing from the line \"Zigong asked...\", taking no notice of Zhu Xi's commentary and following the old interpretations throughout.*"
+  },
+  {
+   "source": "Shibue Chūsai",
+   "mentioned": "Mencius",
+   "author": "Mencius",
+   "note": "Chūsai also said: \"The best part of Mencius is in the chapter on Exhausting the Mind.\"*"
+  },
+  {
+   "source": "Shibue Chūsai",
+   "mentioned": "Tao Te Ching",
+   "author": "Laozi",
+   "note": "The scholar Meian was fond of the Tao Te Ching in his later years, and so Chūsai too came to share his taste.*"
+  },
+  {
+   "source": "Shibue Chūsai",
+   "mentioned": "Records of the Grand Historian",
+   "author": "Sima Qian",
+   "note": "Mori Kien came and borrowed The Analects and the Records of the Grand Historian. The Analects was an old manuscript with Japanese reading marks, and the Records of the Grand Historian was a Korean edition.*"
+  },
+  {
+   "source": "Shibue Chūsai",
+   "mentioned": "Ryūshinfu",
+   "author": "Shibue Chūsai",
+   "note": "Among the books Chūsai wrote, first come the Keiseki Hōkoshi and the Ryūshinfu, which were published one after the other by Chinese hands.*"
+  },
+  {
+   "mentioned": "Faust",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "\"If I studied as hard as I could, how many years would it take before I could read something like Goethe's famous Faust, or Schiller's Wilhelm Tell... was that the name?\" \"You'll soon be able to read them,\" he said, taking the reader from her. \"Or at least to my level, with that proviso.\"*",
+   "source": "Onna Keizu"
+  },
+  {
+   "mentioned": "Wilhelm Tell",
+   "author": "Friedrich Schiller",
+   "note": "\"If I studied as hard as I could, how many years would it take before I could read something like Goethe's famous Faust, or Schiller's Wilhelm Tell... was that the name?\" \"You'll soon be able to read them,\" he said, taking the reader from her. \"Or at least to my level, with that proviso.\"*",
+   "source": "Onna Keizu"
+  },
+  {
+   "mentioned": "The Sorrows of Young Werther",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "The job was the long-promised one, a literal translation of Goethe's The Sorrows of Young Werther. \"They say the great poet once clinked wine glasses with Schiller and swore that their verse would grow nobler with the years, like this wine,\" said the lady, holding her glass to the fire, proud of her learning.*",
+   "source": "Onna Keizu"
+  },
+  {
+   "mentioned": "Shank's Mare",
+   "author": "Jippensha Ikku",
+   "note": "\"Still, it's a good idea. I never fall asleep easily, so tonight I think I'll read it by the lamp at my pillow.\" \"Don't. Reading it tightens your chest and keeps you awake even longer.\" \"What nonsense! Who ever wept over Shank's Mare?\"*",
+   "source": "Uta Andon"
+  },
+  {
+   "mentioned": "The Analects",
+   "author": "Confucius",
+   "note": "Before he studied school books he had learned the Three Character Classic his father wrote out himself, and once he went to the village school his father taught him to recite the Great Learning and the Analects aloud.*",
+   "source": "A New Life"
+  },
+  {
+   "mentioned": "The Great Learning",
+   "author": "Zengzi",
+   "note": "Before he studied school books he had learned the Three Character Classic his father wrote out himself, and once he went to the village school his father taught him to recite the Great Learning and the Analects aloud.*",
+   "source": "A New Life"
+  },
+  {
+   "mentioned": "Anna Karenina",
+   "author": "Leo Tolstoy",
+   "note": "From the war before his eyes, Kishimoto began to read the hearts of the people moving within it. Like Vronsky's departure at the end of Anna Karenina, he could easily imagine young Frenchmen going willingly to the front to save themselves.*",
+   "source": "A New Life"
+  },
+  {
+   "mentioned": "Don Quixote",
+   "author": "Miguel de Cervantes",
+   "note": "The tercentenary of Cervantes was being marked, and in the bookshop windows new works commemorated the famous Spanish author who wrote Don Quixote. For a man devoted to letters like Kishimoto, walking past those windows made him feel all the more a traveler.*",
+   "source": "A New Life"
+  },
+  {
+   "mentioned": "Confessions",
+   "author": "Jean-Jacques Rousseau",
+   "note": "\"We are happy, aren't we? In Rousseau's Confessions, which you gave me, there is a passage saying that true happiness cannot be told, only felt, and that the less it can be put into words the more deeply it is felt. How true that is.\"*",
+   "source": "A New Life"
+  },
+  {
+   "mentioned": "The Murasaki Shikibu Diary",
+   "author": "Murasaki Shikibu",
+   "note": "The mademoiselle, a pure Frenchwoman who had gone to Japan out of love for it and now lived in Tokyo, could already speak a good deal of Japanese and read something like Murasaki Shikibu's diary.*",
+   "source": "A New Life"
+  },
+  {
+   "mentioned": "Elegy Written in a Country Churchyard",
+   "author": "Thomas Gray",
+   "note": "\"A poet? Why yes, in those days I was a poet. I used to love reading the translation of Gray's Elegy Written in a Country Churchyard, the one that begins 'Yamayama kasumi iriai no', and write verses of my own. Compared with today's new-style poets I'm a veteran, you know.\"*",
+   "source": "Beef and Potatoes"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Treasure Island",
+   "author": "Robert Louis Stevenson",
+   "note": "The South Sea Letters are said to have disappointed editors and readers. The author of Treasure Island, they seem to feel, ought to go on writing about pirates and buried treasure for ever.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Kidnapped",
+   "author": "Robert Louis Stevenson",
+   "note": "With the History of Samoa finished, I can at last give myself wholly to David Balfour. It is the sequel to Kidnapped. I have started it many times and dropped it, but this time I may see it through.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Strange Case of Dr. Jekyll and Mr. Hyde",
+   "author": "Robert Louis Stevenson",
+   "note": "In fact it was Fanny who made him throw into the stove the first draft of The Strange Case of Dr. Jekyll and Mr. Hyde, which he had written in three sleepless nights.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Wrecker",
+   "author": "Robert Louis Stevenson and Lloyd Osbourne",
+   "note": "The Wrecker is at last finished, and A Footnote to History is coming along too. How hard it is to write contemporary history, especially when every character is an acquaintance of your own.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Master of Ballantrae",
+   "author": "Robert Louis Stevenson",
+   "note": "David Balfour is to be the first work since The Master of Ballantrae that can really count. Nobody else can quite understand how fond the author is of young Davie.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "A Footnote to History",
+   "author": "Robert Louis Stevenson",
+   "note": "The Wrecker is at last finished, and A Footnote to History is coming along too. How hard it is to write contemporary history, especially when every character is an acquaintance of your own.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Ebb-Tide",
+   "author": "Robert Louis Stevenson and Lloyd Osbourne",
+   "note": "Lloyd, the stepson, has picked up the habit of writing fiction himself. Now that they live together at Vailima, a plan is made for a new joint work, The Ebb-Tide.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "St. Ives",
+   "author": "Robert Louis Stevenson",
+   "note": "I have begun a new work in my illness and dictate it to Belle: the experiences of a French nobleman held prisoner in England. His name is Anne de Saint-Yves, which in English I think of calling St. Ives.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Weir of Hermiston",
+   "author": "Robert Louis Stevenson",
+   "note": "Weir of Hermiston and St. Ives are both going to need them, those reference books on the customs of France and Scotland and on prison conditions in the 1810s.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Island Nights' Entertainments",
+   "author": "Robert Louis Stevenson",
+   "note": "Cassell's wants to bring out The Bottle Imp and The Beach of Falesa together as The Island Nights' Entertainments. The two are so different in flavour that it seems odd to me, and I suggest adding two more stories.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "History of the Origins of Christianity",
+   "author": "Ernest Renan",
+   "note": "In the evening I read Renan's History of the Origins of Christianity. It is wonderfully interesting.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Essays",
+   "author": "Michel de Montaigne",
+   "note": "Lately I have been reading Montaigne's Essays, the second book, straight through. I read this book once before, before I was twenty, for the sake of learning style, and I am astonished at it now: what could I possibly have understood of it then?*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Beauchamp's Career",
+   "author": "George Meredith",
+   "note": "A courteous letter from Mr. Meredith. An honour! Beauchamp's Career is still one of my favourite books here in the South Seas.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Waverley Novels",
+   "author": "Walter Scott",
+   "note": "A proposal from Chatto and Windus to publish my collected works, bound in red like the forty-eight volumes of Scott's Waverley Novels, twenty volumes in a limited edition of a thousand copies.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Madame Bovary",
+   "author": "Gustave Flaubert",
+   "note": "Madame Bovary is without doubt a masterpiece. And Oliver Twist, what a childish domestic novel! Yet I think Dickens, who left stories for children, may be more of an adult than Flaubert, who wrote the novel for adults.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Oliver Twist",
+   "author": "Charles Dickens",
+   "note": "Madame Bovary is without doubt a masterpiece. And Oliver Twist, what a childish domestic novel! Yet I think Dickens, who left stories for children, may be more of an adult than Flaubert, who wrote the novel for adults.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Robinson Crusoe",
+   "author": "Daniel Defoe",
+   "note": "Speaking of Robinson Crusoe, my Treasure Island is naturally in question. It is strange that most people do not believe I put all my strength into that work; I wrote it as seriously as I later wrote Kidnapped and The Master of Ballantrae.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "Clarissa",
+   "author": "Samuel Richardson",
+   "note": "To me the plot, the story, of a work is like the backbone in a vertebrate. Scorning events in a novel is a pose, a child trying to look grown up. Compare Clarissa Harlowe and Robinson Crusoe.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "History of Hindostan",
+   "author": "Robert Orme",
+   "note": "St. Ives is not so bad, but it is hard going. At present I am reading Orme's History of Hindostan and find it very interesting: a faithful, unlyrical account in the eighteenth-century manner.*"
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "A Midsummer Night's Dream",
+   "author": "William Shakespeare",
+   "note": "To give clear expression to things that have no name or place, as A Midsummer Night's Dream puts it, is the work of the poet and writer. By that measure Stevenson was surely a born storyteller.*"
+  },
+  {
+   "source": "The Psychological Test",
+   "mentioned": "The Murder on D. Hill",
+   "author": "Edogawa Rampo",
+   "note": "Those who have read The Murder on D. Hill will have some idea what sort of man this Kogoro Akechi is. He has since been involved in many difficult cases and shown his rare talent, and is now fully recognized.*"
+  },
+  {
+   "source": "The Beautiful Village",
+   "mentioned": "The Princess of Clèves",
+   "author": "Madame de La Fayette",
+   "note": "On my desk lies Madame de La Fayette's The Princess of Clèves, left open at a half-read page. I am reading this old French novel with real feeling for the first time, and thanks to it I feel somewhat rescued from my oddly tense state of mind these days.*"
+  },
+  {
+   "source": "The Beautiful Village",
+   "mentioned": "Count d'Orgel's Ball",
+   "author": "Raymond Radiguet",
+   "note": "Radiguet's Count d'Orgel's Ball, which I made you read a couple of years ago, is even said to have taken this novel as its model, so it resembles it greatly.*"
+  },
+  {
+   "source": "The Beautiful Village",
+   "mentioned": "Adolphe",
+   "author": "Benjamin Constant",
+   "note": "The example of Adolphe came to mind. I wanted to raise my own small affair to the level of a work like that, because Adolphe's fate, that of a weak yet egoistic man who made himself and others unhappy, seemed just like my own.*"
+  },
+  {
+   "source": "The Beautiful Village",
+   "mentioned": "Faust, Part Two",
+   "author": "Johann Wolfgang von Goethe",
+   "note": "Epigraph, from Faust, Part Two: the pulse of life beats anew and brisk, as if to greet the gentle twilight of the heavens. You, world below, did not fail in your duty last night, and this morning, your weariness healed, you breathe beneath my feet.*"
+  },
+  {
+   "source": "Floating Clouds",
+   "mentioned": "The Possessed",
+   "author": "Fyodor Dostoevsky",
+   "note": "Tomioka had not entirely given up his dream of death. He recalled how, in The Possessed, which he had read in Indochina long ago, Stavrogin carefully prepared for death by smearing a strong silk cord thickly with soap beforehand so that dying would hurt as little as possible.*"
+  },
+  {
+   "source": "Floating Clouds",
+   "mentioned": "Bel-Ami",
+   "author": "Guy de Maupassant",
+   "note": "At the camp in Hanoi I read a novel called Bel-Ami, and you are like its hero. But he is a homeless drifter who uses women as a ladder to get ahead, while you use only women as your ladder.*"
+  },
+  {
+   "source": "Floating Clouds",
+   "mentioned": "L'Assommoir",
+   "author": "Émile Zola",
+   "note": "Tomioka thought he would stop at a secondhand shop and buy a novel to take home. What he wanted to read was Zola. He recalled that a mixed-race typist at the forestry office in Dalat had once lent him Zola's L'Assommoir.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "The Tale of Genji",
+   "author": "Murasaki Shikibu",
+   "note": "Scholars of Japanese literature and native learning have devoted themselves mainly to studying The Tale of Genji, The Pillow Book and the like, and, dismissing everything from the Tokugawa period on as vulgar, they ignore it, so they know nothing of three hundred years of recent literature.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "The Pillow Book",
+   "author": "Sei Shōnagon",
+   "note": "Scholars of Japanese literature and native learning have devoted themselves mainly to studying The Tale of Genji, The Pillow Book and the like, and, dismissing everything from the Tokugawa period on as vulgar, they ignore it, so they know nothing of three hundred years of recent literature.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "Sarumino",
+   "author": "Nozawa Bonchō and Mukai Kyorai",
+   "note": "There is a verse on the horned owl in Sarumino. Besides that one, Sarumino has one more horned-owl verse, but the oldest owl verse I know of appears in a haikai book called Ashiwake-bune, from around the seventh year of Genroku.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "Ashiwake-bune",
+   "author": "",
+   "note": "There is a verse on the horned owl in Sarumino. Besides that one, Sarumino has one more horned-owl verse, but the oldest owl verse I know of appears in a haikai book called Ashiwake-bune, from around the seventh year of Genroku.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "Kyōgenki",
+   "author": "",
+   "note": "I borrowed a book called Kyōgenki from someone and read two or three pieces, and found much of interest in it. I do not fully know how kyōgen developed, but it appears on the stage together with Noh as its comic, vulgar counterpart.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "A Year and a Half",
+   "author": "Nakae Chōmin",
+   "note": "When Master Chōmin wrote A Year and a Half, he seems to have made his peace with the question of life and death, but I think he did not reach the realm of actually enjoying his appointed fate.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "The Autobiography of Benjamin Franklin",
+   "author": "Benjamin Franklin",
+   "note": "Around this time last year I read The Autobiography of Benjamin Franklin as a daily task. The small foreign print was hard going, so I read three pages and stopped, five pages and stopped, struggling through, but the pleasure I got from it was immense.*"
+  },
+  {
+   "source": "A Six-Foot Sickbed",
+   "mentioned": "Hasshōjin",
+   "author": "Takitei Rijō",
+   "note": "Shihōta says he is a devoted reader of Hasshōjin, which suits my own heart very well. It is rare to find worship of Rijō in a world that prizes only love stories.*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "Taiheiki",
+   "author": "Anonymous",
+   "note": "I too loved the Taiheiki in my boyhood, and this led me to take an interest in the secret history of the Southern Court. I had long harbored a plan to build a historical novel around the deeds of Emperor Jiten.*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "Nanzan Junshuroku",
+   "author": "",
+   "note": "Accounts differ somewhat from book to book, but these events are recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no ki and others.*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "Kyōkakuden",
+   "author": "Takizawa Bakin",
+   "note": "Bakin is said to have an unfinished work called Kyōkakuden. I have not read it, but I hear it centers on an imaginary girl of the Kusunoki clan, so it seems unrelated to the deeds of Emperor Jiten.*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "Imoseyama Onna Teikin",
+   "author": "Chikamatsu Hanji",
+   "note": "The author of Imoseyama Onna Teikin probably got that conception from the real scenery here, though at this point the river is wider than on the stage and not as narrow a gorge as in the play.*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "Yoshitsune Senbonzakura",
+   "author": "Takeda Izumo",
+   "note": "\"You know, after Imoseyama there is Yoshitsune Senbonzakura,\" I said. The author of Senbonzakura may have visited the Ōtani house or heard rumors of it and thought up that business, as the author of Imoseyama did from the real scenery.*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "Futari Shizuka",
+   "author": "Anonymous",
+   "note": "\"Surely it is much the same as the Tsurube-zushi house. There is the Noh play Futari Shizuka, so some prankster of long ago must have thought it up.\"*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "The Tale of the Heike",
+   "author": "Anonymous",
+   "note": "There is no need now to explain what age the Genbun era was, or to cite the Azuma Kagami or The Tale of the Heike on the life of Lady Shizuka.*"
+  },
+  {
+   "source": "Arrowroot",
+   "mentioned": "Azuma Kagami",
+   "author": "Anonymous",
+   "note": "There is no need now to explain what age the Genbun era was, or to cite the Azuma Kagami or The Tale of the Heike on the life of Lady Shizuka.*"
+  }
+ ]
+}

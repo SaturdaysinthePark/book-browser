@@ -2,7 +2,7 @@
 
 Last updated: 2026-10-19. Updated whenever books are added.
 
-> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,830 books, 8,575 mentions.
+> BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,929 books, 8,690 mentions.
 
 Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.
 
@@ -18,32 +18,32 @@ A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https
 
 ## The most-mentioned books
 
-- Don Quixote by Miguel de Cervantes: mentioned in 81 books
+- Don Quixote by Miguel de Cervantes: mentioned in 82 books
 - Hamlet by William Shakespeare: mentioned in 78 books
-- Robinson Crusoe by Daniel Defoe: mentioned in 67 books
+- Robinson Crusoe by Daniel Defoe: mentioned in 68 books
 - A Thousand and One Nights by Anonymous: mentioned in 61 books
-- Iliad by Homer: mentioned in 53 books
+- Iliad by Homer: mentioned in 54 books
 - Romeo and Juliet by William Shakespeare: mentioned in 51 books
 - Paradise Lost by John Milton: mentioned in 45 books
 - King Lear by William Shakespeare: mentioned in 39 books
+- Anna Karenina by Leo Tolstoy: mentioned in 38 books
 - The Odyssey by Homer: mentioned in 38 books
-- Anna Karenina by Leo Tolstoy: mentioned in 37 books
+- Faust by Johann Wolfgang von Goethe: mentioned in 32 books
 - Macbeth by William Shakespeare: mentioned in 32 books
-- Faust by Johann Wolfgang von Goethe: mentioned in 30 books
+- Madame Bovary by Gustave Flaubert: mentioned in 29 books
 - War and Peace by Leo Tolstoy: mentioned in 29 books
-- Madame Bovary by Gustave Flaubert: mentioned in 28 books
 - Moby-Dick by Herman Melville: mentioned in 27 books
 - Alice's Adventures in Wonderland by Lewis Carroll: mentioned in 25 books
+- The Republic by Plato: mentioned in 25 books
 - The Tempest by William Shakespeare: mentioned in 25 books
 - The Aeneid by Virgil: mentioned in 24 books
-- The Republic by Plato: mentioned in 24 books
+- The Divine Comedy by Dante Alighieri: mentioned in 24 books
 - Julius Caesar by William Shakespeare: mentioned in 23 books
-- The Divine Comedy by Dante Alighieri: mentioned in 23 books
 - Inferno by Dante Alighieri: mentioned in 22 books
 - Ivanhoe by Walter Scott: mentioned in 22 books
+- Oliver Twist by Charles Dickens: mentioned in 22 books
 - As You Like It by William Shakespeare: mentioned in 21 books
 - David Copperfield by Charles Dickens: mentioned in 21 books
-- Oliver Twist by Charles Dickens: mentioned in 21 books
 - The Great Gatsby by F. Scott Fitzgerald: mentioned in 21 books
 - Othello by William Shakespeare: mentioned in 20 books
 - Tristram Shandy by Laurence Sterne: mentioned in 20 books
@@ -52,19 +52,19 @@ A book's page is at https://bookjumpr.com/<author-slug>/<title-slug>, e.g. https
 ## Questions BookJumpr answers
 
 Q: What is BookJumpr?
-A: BookJumpr (https://bookjumpr.com) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers 5,830 books and 8,575 mentions, most with the line where the mention happens.
+A: BookJumpr (https://bookjumpr.com) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers 5,929 books and 8,690 mentions, most with the line where the mention happens.
 
 Q: What is the most mentioned book in other books?
-A: In BookJumpr's data, Don Quixote by Miguel de Cervantes is the book most often named inside other books (81 books), followed by Hamlet by William Shakespeare (78) and Robinson Crusoe by Daniel Defoe (67).
+A: In BookJumpr's data, Don Quixote by Miguel de Cervantes is the book most often named inside other books (82 books), followed by Hamlet by William Shakespeare (78) and Robinson Crusoe by Daniel Defoe (68).
 
 Q: Which books mention Don Quixote?
-A: 81 books in BookJumpr mention Don Quixote by Miguel de Cervantes, including Adventures of Huckleberry Finn by Mark Twain; David Copperfield by Charles Dickens; The Count of Monte Cristo by Alexandre Dumas; The Three Musketeers by Alexandre Dumas; North and South by Elizabeth Gaskell; Tristram Shandy by Laurence Sterne; Main Street by Sinclair Lewis; The Idiot by Fyodor Dostoevsky; and 73 more. Full list: https://bookjumpr.com/miguel-de-cervantes/don-quixote
+A: 82 books in BookJumpr mention Don Quixote by Miguel de Cervantes, including Adventures of Huckleberry Finn by Mark Twain; David Copperfield by Charles Dickens; The Count of Monte Cristo by Alexandre Dumas; The Three Musketeers by Alexandre Dumas; North and South by Elizabeth Gaskell; Tristram Shandy by Laurence Sterne; Main Street by Sinclair Lewis; The Idiot by Fyodor Dostoevsky; and 74 more. Full list: https://bookjumpr.com/miguel-de-cervantes/don-quixote
 
 Q: Which books mention Hamlet?
 A: 78 books in BookJumpr mention Hamlet by William Shakespeare, including Zero to One by Peter Thiel; The Hitchhiker's Guide to the Galaxy by Douglas Adams; The Art of Public Speaking by Dale Carnegie & J. Berg Esenwein; Night and Day by Virginia Woolf; On Heroes, Hero-Worship, and The Heroic in History by Thomas Carlyle; The Catcher in the Rye by J. D. Salinger; Adventures of Huckleberry Finn by Mark Twain; Kafka on the Shore by Haruki Murakami; and 70 more. Full list: https://bookjumpr.com/william-shakespeare/hamlet
 
 Q: Which books mention Robinson Crusoe?
-A: 67 books in BookJumpr mention Robinson Crusoe by Daniel Defoe, including The Autobiography of Benjamin Franklin by Benjamin Franklin; David Copperfield by Charles Dickens; The Moonstone by Wilkie Collins; North and South by Elizabeth Gaskell; Far from the Madding Crowd by Thomas Hardy; My Ántonia by Willa Cather; Bleak House by Charles Dickens; The Way We Live Now by Anthony Trollope; and 59 more. Full list: https://bookjumpr.com/daniel-defoe/robinson-crusoe
+A: 68 books in BookJumpr mention Robinson Crusoe by Daniel Defoe, including The Autobiography of Benjamin Franklin by Benjamin Franklin; David Copperfield by Charles Dickens; The Moonstone by Wilkie Collins; North and South by Elizabeth Gaskell; Far from the Madding Crowd by Thomas Hardy; My Ántonia by Willa Cather; Bleak House by Charles Dickens; The Way We Live Now by Anthony Trollope; and 60 more. Full list: https://bookjumpr.com/daniel-defoe/robinson-crusoe
 
 Q: What books are mentioned in Kafka on the Shore?
 A: Kafka on the Shore by Haruki Murakami mentions 17 books: The Trial by Franz Kafka; The Metamorphosis by Franz Kafka; A Thousand and One Nights by Anonymous; The Miner by Natsume Sōseki; The Tale of Genji by Murasaki Shikibu; The Castle by Franz Kafka; In the Penal Colony by Franz Kafka; Poppies by Natsume Soseki; Kokoro by Natsume Sōseki; Sanshiro by Natsume Sōseki; Tales of Moonlight and Rain by Ueda Akinari; The Chrysanthemum Pledge by Ueda Akinari; and 5 more. With quotes: https://bookjumpr.com/haruki-murakami/kafka-on-the-shore
