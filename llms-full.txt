@@ -1076,7 +1076,7 @@ https://bookjumpr.com/jun-ichiro-tanizaki/arrowroot
 - Ōunki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
 - Totsukawa no Ki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
 - Akamatsu-ki by Anonymous: "According to the Kōzuki-ki, the Akamatsu-ki and others, thirty remnants of the Akamatsu clan under Mashima Hikotarō, who had pretended to submit to the Southern Emperor, struck suddenly in a heavy snow on the second of the twelfth month of Chōroku 1. [auto-translated]"
-- Yamato Meisho Zue by Anonymous: "The Yamato Meisho Zue and others also say, 'In the village of Natsumi there is a famous spring called Hanakago no Mizu, and the site of a house where Shizuka Gozen once lived,' so the tradition is clearly old. [auto-translated]"
+- Yamato Meisho Zue by Akisato Ritō: "The Yamato Meisho Zue and others also say, 'In the village of Natsumi there is a famous spring called Hanakago no Mizu, and the site of a house where Shizuka Gozen once lived,' so the tradition is clearly old. [auto-translated]"
 
 ## Artful by Ali Smith (2012)
 https://bookjumpr.com/ali-smith/artful
@@ -9505,7 +9505,6 @@ https://bookjumpr.com/kaiten-nukariya/the-religion-of-the-samurai-a-study-of-zen
 - Sho-do-ka by Gen-kaku: "His Ching Tao Ko (Sho-do-ka), a beautiful metrical exposition of Zen, is still read by most students of Zen."
 - Record of Linji by Linji Yixuan: "It is on this account that Rin-zai declared: 'The twelve divisions of the Buddhist Canon are nothing better than waste paper.'"
 - Sho-yo-roku by Wan Sung: "For such dialogues, see Sho-yo-roku, Mu-mon-kan, Heki-gan-shu. Fu-kiu's words are repeatedly quoted by Zen masters."
-- Heki-gan-shu by Yuen Wu: "In the Southern Sung dynasty (A.D. 1127-1279) flourished such masters as Yuen Wu (En-go, died in 1135), the author of Pik Yen Tsih (Heki-gan-shu);"
 - Kei-toku-den-to-roku by Daoyuan: "King Teh Chwen Tang Luh (Kei-toku-den-to-roku), published by Tao Yuen (Do-gen) A.D. 1004, gives a detailed narrative concerning this incident as stated here, but earlier historians tell us a different story about the mutilation of Shang Kwang's arm."
 - Sho-bo-gen-zo by Do-gen: "Do-gen, the founder of the Japanese So To Sect, severely condemns (in his Sho-bo-gen-zo) the notions of the impurity of women inculcated in the Scriptures."
 - Ko-zen-go-koku-ron by Ei-sai: "Taking advantage of the protests, Ei-sai wrote a book entitled Ko-zen-go-koku-ron ('The Protection of the State by the Propagation of Zen'), and not only explained his own position, but exposed the ignorance of the protestants."
@@ -9513,6 +9512,7 @@ https://bookjumpr.com/kaiten-nukariya/the-religion-of-the-samurai-a-study-of-zen
 - Tao Te Ching by Laozi: "The same idea and expression are found in Tao Teh King (Do-toku-kyo), by Lao Tsz (Ro-shi, 604-522 B.C.)."
 - Mencius by Mencius: "The first of these opinions was proposed by a most reputed Confucianist scholar, Mencius, and his followers, and is still adhered to by the majority of the Japanese and the Chinese Confucianists. Mencius thought it as natural for man to do good as it is for the grass to be green."
 - Outlines of Mahayana Buddhism by D. T. Suzuki: "An English translation of Saddharma-pundarika-sutra, by Kern, is given in 'Sacred Books of the East,' Vol. xxi. Compare these books with 'Outlines of Mahayana Buddhism,' by D. Suzuki."
+- The Blue Cliff Record by Yuanwu Keqin: "In the Southern Sung dynasty (A.D. 1127-1279) flourished such masters as Yuen Wu (En-go, died in 1135), the author of Pik Yen Tsih (Heki-gan-shu);"
 
 ## The Reluctant Fundamentalist by Mohsin Hamid (2007)
 https://bookjumpr.com/mohsin-hamid/the-reluctant-fundamentalist
