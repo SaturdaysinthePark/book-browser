@@ -1593,7 +1593,7 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 - Heroic Japan by F. Eastlake and Yoshiaki Yamada: "Among other works on the subject, read Eastlake and Yamada on Heroic Japan, and Diosy on The New Far East."
 - The New Far East by Arthur Diosy: "Among other works on the subject, read Eastlake and Yamada on Heroic Japan, and Diosy on The New Far East."
 - Sermons on Faith and Doctrine by Benjamin Jowett: "They have not aimed at impartiality, but have been contented to accumulate all that could be said in praise of their own, and in dispraise of other forms of religion." Jowett, Sermons on Faith and Doctrine, II."
-- Norman Conquest by Edward A. Freeman: "Chivalry is, as Freeman severely criticizes, a class spirit. Modern society, if it pretends to any unity, cannot admit "purely personal obligations devised in the interests of an exclusive class." [Norman Conquest, Vol. V, p. 482]"
+- The History of the Norman Conquest of England by Edward A. Freeman: "Chivalry is, as Freeman severely criticizes, a class spirit. Modern society, if it pretends to any unity, cannot admit "purely personal obligations devised in the interests of an exclusive class." [Norman Conquest, Vol. V, p. 482]"
 - The Koran by Anonymous: ""God has granted," says the Koran, "to every people a prophet in its own tongue." The seeds of the Kingdom, as vouched for and apprehended by the Japanese mind, blossomed in Bushido."
 
 ## Butcher's Crossing by John Williams (1960)
@@ -2539,7 +2539,7 @@ https://bookjumpr.com/osamu-dazai/farewell
 - Exhortation to Learn by Zhang Zhidong: "A couple of years earlier, even the famous Exhortation to Learn that Zhang Zhidong had written strongly stressed the need to study in Japan, and the government had begun sending a few Chinese students to Japan each year. [auto-translated]"
 - Kaitai Shinsho by Sugita Genpaku: "That first lecture was a history of the development of anatomy in Japan, and the large and small books the teacher brought were all Japanese works on anatomy from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them. [auto-translated]"
 - Rangaku Koto Hajime by Sugita Genpaku: "The large and small books the teacher brought were all Japanese works on anatomy, from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them, and he described in his slow, distinctive way the tension of Genpaku and his friends as they dissected a criminal's corpse at the Kozukappara… [auto-translated]"
-- Quanti Xinlun by Anonymous: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
+- Quanti Xinlun by Benjamin Hobson: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
 - Huaxue Weisheng Lun by John Fryer: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
 
 ## Father Goriot by Honoré de Balzac (1835)
@@ -3022,7 +3022,7 @@ https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-second-series
 - Kojiki by O no Yasumaro: "or the ancient story from the Kojiki, that the Emperor O-Jin, being augustly intoxicated, 'smote with his august staff a great stone in the middle of the Ohosaka road, whereupon the stone ran away!'"
 - Lotus Sutra by Anonymous: "and the chant is the chant of the Chapter of Kwannon in the Hokkekyo, with its magnificent invocation: 'O Thou whose eyes are clear, whose eyes are kind, whose eyes are full of pity and of sweetness--"
 - Kwammu-ryojuko by Anonymous: "and this text is the entire text of two famed sutras--the Kwammu-ryjo-kyo and the Amida-kyo--'text no larger than the limbs of fleas.'"
-- Amida-kyo by Anonymous: "and this text is the entire text of two famed sutras--the Kwammu-ryjo-kyo and the Amida-kyo--'text no larger than the limbs of fleas.'"
+- Amida Sutra by Anonymous: "and this text is the entire text of two famed sutras--the Kwammu-ryjo-kyo and the Amida-kyo--'text no larger than the limbs of fleas.'"
 - Nehan-gyo by Anonymous: "as the high-pitched voices of the leaders of the chant begin the grand Nehan-gyo, the Sutra of Nirvana, the song of passage triumphant over the Sea of Death and Birth;"
 - The Dhammapada by Anonymous: "'If a man conquer in battle a thousand times a thousand and another conquer himself, he who conquers himself is the greatest of conquerors.' 'Not even a god can change into defeat the victory of the man who has vanquished himself.'"
 - Dammikkasutta by Anonymous: "And the whole moral idealism of the race seems to me to have been imaged in that marvellous Buddha of Kamakura, whose countenance, 'calm like a deep, still water' expresses, as perhaps no other work of human hands can have expressed, the eternal truth: 'There is no higher happiness than rest.'"
@@ -4234,9 +4234,9 @@ https://bookjumpr.com/atsushi-nakajima/light-wind-and-dreams
 - A Midsummer Night's Dream by William Shakespeare: "To give clear expression to things that have no name or place, as A Midsummer Night's Dream puts it, is the work of the poet and writer. By that measure Stevenson was surely a born storyteller. [auto-translated]"
 - Catriona by Robert Louis Stevenson: "On the other hand, The Wrecker is said to be selling very well, while Catriona (the retitled David Balfour) is poorly received; it is ironic that such a work sells better, but I shall not despair and shall wait for a second crop. [auto-translated]"
 - The Bottle Imp by Robert Louis Stevenson: "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. [auto-translated]"
-- The Beach of Falesa by Anonymous: "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd? [auto-translated]"
-- The Isle of Voices by Anonymous: "The two are so different in flavour that it seems odd. Why not add The Isle of Voices and The Waif Woman? [auto-translated]"
-- The Waif Woman by Anonymous: "Why not add The Isle of Voices and The Waif Woman? ... Fanny, however, objects to including The Waif Woman. [auto-translated]"
+- The Beach of Falesa by Robert Louis Stevenson: "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd? [auto-translated]"
+- The Isle of Voices by Robert Louis Stevenson: "The two are so different in flavour that it seems odd. Why not add The Isle of Voices and The Waif Woman? [auto-translated]"
+- The Waif Woman by Robert Louis Stevenson: "Why not add The Isle of Voices and The Waif Woman? ... Fanny, however, objects to including The Waif Woman. [auto-translated]"
 
 ## Like by Ali Smith (1997)
 https://bookjumpr.com/ali-smith/like
@@ -5282,7 +5282,7 @@ https://bookjumpr.com/lafcadio-hearn/out-of-the-east-reveries-and-studies-in-new
 - Urashima by Basil Hall Chamberlain: "Then out of the dreaming of the sea rose up a beautiful girl,--just as you can see her in the picture to Professor Chamberlain's "Urashima,"--robed in crimson and blue"
 - Classical Poetry of the Japanese by Basil Hall Chamberlain: "See The Classical Poetry of the Japanese, by Professor Chamberlain, in Trübner's Oriental Series."
 - Rappaccini's Daughter by Nathaniel Hawthorne: "The marvelous tale of "Rappacini's Daughter" proved greatly to their liking; and the spirit of Hawthorne might have found no little ghostly pleasure in their interpretation of it."
-- Silence by Edgar Allan Poe: ""Monos and Daimonos" found favor; and Poe's wonderful fragment, "Silence," was appreciated after a fashion that surprised me."
+- Silence — A Fable by Edgar Allan Poe: ""Monos and Daimonos" found favor; and Poe's wonderful fragment, "Silence," was appreciated after a fashion that surprised me."
 - Frankenstein by Mary Shelley: "On the other hand, the story of "Frankenstein" impressed them very little. None took it seriously."
 - Le Morte d'Arthur by Thomas Malory: "So I related to them the story of Sir Bors, which is in the sixteenth book of Sir Thomas Mallory's "Morte d'Arthur,""
 - Alcestis by Euripides: "Then it occurred to me to tell them the immortal story of Alkestis. I thought for the moment that the character of Herakles in that divine drama would have a particular charm for them."
@@ -5290,7 +5290,7 @@ https://bookjumpr.com/lafcadio-hearn/out-of-the-east-reveries-and-studies-in-new
 - Lotus Sutra by Anonymous: "In the eleventh chapter of the Sutra of the Lotus of the Good Law, it is written that mention was made before the Lord Buddha of a young girl who had in one instant arrived at supreme knowledge"
 - The Dhammapada by Anonymous: "came a memory of the two hundred and fifteenth verse of the Dhammapada: "From love comes grief; from grief comes fear: one who is free from love knows neither grief nor fear.""
 - First Principles by Herbert Spencer: "First Principles, 2d Ed., § 178."
-- National Character by Charles H. Pearson: "For possible ultimate consequences, consult Dr. Pearson's recent book, National Character."
+- National Life and Character: A Forecast by Charles H. Pearson: "For possible ultimate consequences, consult Dr. Pearson's recent book, National Character."
 - Glimpses of Unfamiliar Japan by Lafcadio Hearn: "See Glimpses of Unfamiliar Japan."
 
 ## Outliers by Malcolm Gladwell (2008)
@@ -6024,7 +6024,7 @@ https://bookjumpr.com/mori-ogai/shibue-chusai
 https://bookjumpr.com/w-g-aston/shinto-the-ancient-religion-of-japan
 - Kojiki by O no Yasumaro: "The Kojiki is a repertory of the old myths and legends, and, in the latter part, of the ancient history of Japan."
 - Nihongi by Prince Toneri: "The Nihongi, a work of similar scope, though based more on an existing written literature, was produced a few years later (720). It quotes numerous variants of the religious myths current at this time."
-- Engishiki by Anonymous: "For the ritual of Shinto our chief source of information is the Yengishiki, a compilation made early in the tenth century."
+- Engishiki by Fujiwara no Tokihira: "For the ritual of Shinto our chief source of information is the Yengishiki, a compilation made early in the tenth century."
 - Man'yoshu by Anonymous: "In one passage of the Nihongi, Yomi is clearly no more than a metaphor for the grave. A brother of Jimmu Tenno, the first Mikado, is said to have gone to the ‘Eternal Land’ at his death, and in a poem of the Manyōshiu, a deceased Mikado is said to have ascended into heaven."
 - The Tempest by William Shakespeare: "In Shakespeare’s Tempest, Iris is at once the rainbow and an anthropomorphic messenger of the gods. Phoebus is not only the sun but a deity distinct from that luminary, though associated with it, as in the story of Phaeton."
 - Japan: An Attempt at Interpretation by Lafcadio Hearn: "The same view is held by some European scholars, notably the late Lafcadio Hearn, whose interesting and valuable work, Japan, an Interpretation, is greatly marred by this misconception."
@@ -6909,8 +6909,8 @@ https://bookjumpr.com/fukuzawa-yukichi/the-autobiography-of-fukuzawa-yukichi
 - Guide to Travel in the West by Fukuzawa Yukichi: "I was ordered to withdraw from duty, which was no hardship at all; if anything I was glad of the free time, so I retired at once as commanded, and during that time I was writing a book called Guide to Travel in the West. [auto-translated]"
 - Seiri Hatsumō by Anonymous: "The passage discussed how light relates to sight, with two candles and the shadows they cast, quite a difficult part, and it should be in the translated book Seiri Hatsumō that Shimamura translated. [auto-translated]"
 - Classic of Poetry by Anonymous: "The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well. [auto-translated]"
-- Book of Later Han by Anonymous: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
-- Book of Jin by Anonymous: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
+- Book of Later Han by Fan Ye: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
+- Book of Jin by Fang Xuanling: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
 
 ## The Autobiography of Malcolm X by Malcolm X (1965)
 https://bookjumpr.com/malcolm-x/the-autobiography-of-malcolm-x
@@ -7070,7 +7070,7 @@ https://bookjumpr.com/kakuzo-okakura/the-book-of-tea
 - The Classic of Tea by Lu Yu: "Luwuh, a poet, saw in the Tea-service the same harmony and order which reigned through all things. In his celebrated work, the "Chaking" (The Holy Scripture of Tea) he formulated the Code of Tea."
 - I Ching by Anonymous: "The archaic records of China, especially the Book of Changes, foreshadow his thought."
 - Tao Te Ching by Laozi: "Laotse himself spoke of it thus: "There is a thing which is all-containing, which was born before the existence of Heaven and Earth. How silent! How solitary! It stands alone and changes not."
-- Pingtse by Yuan Hongdao: "It has been written ["Pingtse", by Yuenchunlang] that the peony should be bathed by a handsome maiden in full costume, that a winter-plum should be watered by a pale, slender monk."
+- Pingshi by Yuan Hongdao: "It has been written ["Pingtse", by Yuenchunlang] that the peony should be bathed by a handsome maiden in full costume, that a winter-plum should be watered by a pale, slender monk."
 
 ## The Book of the Dead by Orikuchi Shinobu (1939)
 https://bookjumpr.com/orikuchi-shinobu/the-book-of-the-dead
@@ -9914,7 +9914,7 @@ https://bookjumpr.com/w-e-b-du-bois/the-souls-of-black-folk
 ## The Spirit of Japanese Art by Yoné Noguchi (1915)
 https://bookjumpr.com/yone-noguchi/the-spirit-of-japanese-art
 - Paintings and Studies by Kyosai Kawanabe by Josiah Conder: "…many an admirer of his, like Josiah Conder in Paintings and Studies by Kyosai Kawanabe, a sumptuous book on the artist containing the representative work of his last eight years, sees only the serious side of his work."
-- Kyosai Gwaden by Kawanabe Kyosai: "I find in Kyosai Gwaden, an illustrated autobiography here and there humorously exaggerated but none the less sincere, from which all the writers on Kyosai, Professor Conder included, draw the materials of his life;"
+- Kyōsai Gadan by Kawanabe Kyosai: "I find in Kyosai Gwaden, an illustrated autobiography here and there humorously exaggerated but none the less sincere, from which all the writers on Kyosai, Professor Conder included, draw the materials of his life;"
 - A Japanese Artist in London by Yoshio Markino: "In England, many readers of Mr. Markino’s book, A Japanese Artist in London, will remember Hara’s name, as it is frequently repeated in the book;"
 
 ## The Spoils of Poynton by Henry James (1897)
