@@ -1076,7 +1076,7 @@ https://bookjumpr.com/jun-ichiro-tanizaki/arrowroot
 - Ōunki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
 - Totsukawa no Ki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
 - Akamatsu-ki by Anonymous: "According to the Kōzuki-ki, the Akamatsu-ki and others, thirty remnants of the Akamatsu clan under Mashima Hikotarō, who had pretended to submit to the Southern Emperor, struck suddenly in a heavy snow on the second of the twelfth month of Chōroku 1. [auto-translated]"
-- Yamato Meisho Zue by Anonymous: "The Yamato Meisho Zue and others also say, 'In the village of Natsumi there is a famous spring called Hanakago no Mizu, and the site of a house where Shizuka Gozen once lived,' so the tradition is clearly old. [auto-translated]"
+- Yamato Meisho Zue by Akisato Ritō: "The Yamato Meisho Zue and others also say, 'In the village of Natsumi there is a famous spring called Hanakago no Mizu, and the site of a house where Shizuka Gozen once lived,' so the tradition is clearly old. [auto-translated]"
 
 ## Artful by Ali Smith (2012)
 https://bookjumpr.com/ali-smith/artful
@@ -3013,7 +3013,7 @@ https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-first-series
 - Kojiki by O no Yasumaro: "And the tale of his descent into that strange nether world, and of what there befell him, is it not written in the Kojiki?"
 - Nihongi by Prince Toneri: "Doubtless the difficulty of explaining Shinto has been due simply to the fact that the sinologists have sought for the source of it in books: in the Kojiki and the Nihongi, which are its histories; in the Norito, which are its prayers; in the commentaries of Motowori and Hirata, who were its greatest scholars."
 - Lotus Sutra by Anonymous: "In the Japanese tongue, Ho-ke-kyo; in Sanscrit, Saddharma Pundarika: 'The Sutra of the Lotus of the Good Law,' the divine book of the Nichiren sect."
-- Jizo-kyo-Kosui by Anonymous: "'Then is there no way, Akira, by which Bimbogami may be driven away?' 'It is written,' replies Akira, 'in the book called Jizo-Kyo-Kosui that the aged Enjobo, a priest dwelling in the province of Owari, was able to get rid of Bimbogami by means of a charm."
+- Jizo-kyo-Kosui by Hitsumu: "'Then is there no way, Akira, by which Bimbogami may be driven away?' 'It is written,' replies Akira, 'in the book called Jizo-Kyo-Kosui that the aged Enjobo, a priest dwelling in the province of Owari, was able to get rid of Bimbogami by means of a charm."
 - Tales of Old Japan by Algernon Bertram Freeman-Mitford: "In the Introduction to his charming Tales of Old Japan, Mr. Mitford wrote in 1871: 'The books which have been written of late years about Japan have either been compiled from official records, or have contained the sketchy impressions of passing travellers. Of the inner life of the Japanese the world at large knows but little:"
 - Buddhist Catechism by Henry Steel Olcott: "And he takes from an alcove a little book, and gives it to me to examine. It is an English copy of Olcott's Buddhist Catechism."
 
@@ -5286,12 +5286,12 @@ https://bookjumpr.com/lafcadio-hearn/out-of-the-east-reveries-and-studies-in-new
 - Frankenstein by Mary Shelley: "On the other hand, the story of "Frankenstein" impressed them very little. None took it seriously."
 - Le Morte d'Arthur by Thomas Malory: "So I related to them the story of Sir Bors, which is in the sixteenth book of Sir Thomas Mallory's "Morte d'Arthur,""
 - Alcestis by Euripides: "Then it occurred to me to tell them the immortal story of Alkestis. I thought for the moment that the character of Herakles in that divine drama would have a particular charm for them."
-- Matsuyama no Kagami by F. H. James: "the memory of the old Japanese story Matsuyama no Kagami. Though related in the simplest manner and with the fewest possible words,"
 - Lotus Sutra by Anonymous: "In the eleventh chapter of the Sutra of the Lotus of the Good Law, it is written that mention was made before the Lord Buddha of a young girl who had in one instant arrived at supreme knowledge"
 - The Dhammapada by Anonymous: "came a memory of the two hundred and fifteenth verse of the Dhammapada: "From love comes grief; from grief comes fear: one who is free from love knows neither grief nor fear.""
 - First Principles by Herbert Spencer: "First Principles, 2d Ed., § 178."
 - National Life and Character: A Forecast by Charles H. Pearson: "For possible ultimate consequences, consult Dr. Pearson's recent book, National Character."
 - Glimpses of Unfamiliar Japan by Lafcadio Hearn: "See Glimpses of Unfamiliar Japan."
+- The Matsuyama Mirror by T. H. James: "the memory of the old Japanese story Matsuyama no Kagami. Though related in the simplest manner and with the fewest possible words,"
 
 ## Outliers by Malcolm Gladwell (2008)
 https://bookjumpr.com/malcolm-gladwell/outliers
@@ -9505,7 +9505,6 @@ https://bookjumpr.com/kaiten-nukariya/the-religion-of-the-samurai-a-study-of-zen
 - Sho-do-ka by Gen-kaku: "His Ching Tao Ko (Sho-do-ka), a beautiful metrical exposition of Zen, is still read by most students of Zen."
 - Record of Linji by Linji Yixuan: "It is on this account that Rin-zai declared: 'The twelve divisions of the Buddhist Canon are nothing better than waste paper.'"
 - Sho-yo-roku by Wan Sung: "For such dialogues, see Sho-yo-roku, Mu-mon-kan, Heki-gan-shu. Fu-kiu's words are repeatedly quoted by Zen masters."
-- Heki-gan-shu by Yuen Wu: "In the Southern Sung dynasty (A.D. 1127-1279) flourished such masters as Yuen Wu (En-go, died in 1135), the author of Pik Yen Tsih (Heki-gan-shu);"
 - Kei-toku-den-to-roku by Daoyuan: "King Teh Chwen Tang Luh (Kei-toku-den-to-roku), published by Tao Yuen (Do-gen) A.D. 1004, gives a detailed narrative concerning this incident as stated here, but earlier historians tell us a different story about the mutilation of Shang Kwang's arm."
 - Sho-bo-gen-zo by Do-gen: "Do-gen, the founder of the Japanese So To Sect, severely condemns (in his Sho-bo-gen-zo) the notions of the impurity of women inculcated in the Scriptures."
 - Ko-zen-go-koku-ron by Ei-sai: "Taking advantage of the protests, Ei-sai wrote a book entitled Ko-zen-go-koku-ron ('The Protection of the State by the Propagation of Zen'), and not only explained his own position, but exposed the ignorance of the protestants."
@@ -9513,6 +9512,7 @@ https://bookjumpr.com/kaiten-nukariya/the-religion-of-the-samurai-a-study-of-zen
 - Tao Te Ching by Laozi: "The same idea and expression are found in Tao Teh King (Do-toku-kyo), by Lao Tsz (Ro-shi, 604-522 B.C.)."
 - Mencius by Mencius: "The first of these opinions was proposed by a most reputed Confucianist scholar, Mencius, and his followers, and is still adhered to by the majority of the Japanese and the Chinese Confucianists. Mencius thought it as natural for man to do good as it is for the grass to be green."
 - Outlines of Mahayana Buddhism by D. T. Suzuki: "An English translation of Saddharma-pundarika-sutra, by Kern, is given in 'Sacred Books of the East,' Vol. xxi. Compare these books with 'Outlines of Mahayana Buddhism,' by D. Suzuki."
+- The Blue Cliff Record by Yuanwu Keqin: "In the Southern Sung dynasty (A.D. 1127-1279) flourished such masters as Yuen Wu (En-go, died in 1135), the author of Pik Yen Tsih (Heki-gan-shu);"
 
 ## The Reluctant Fundamentalist by Mohsin Hamid (2007)
 https://bookjumpr.com/mohsin-hamid/the-reluctant-fundamentalist
