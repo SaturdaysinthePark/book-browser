@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-19. 1,050 books that mention other books, 8,703 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-20. 1,050 books that mention other books, 8,704 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -11195,7 +11195,7 @@ https://bookjumpr.com/mori-ogai/vita-sexualis
 - Cynismus by Friedrich Theodor Vischer: "Later, while I was reading Theodor Vischer's Cynismus, I thought of Wanikuchi the whole time. The word cynic comes from the Greek kyon, a dog; a doglike person is one who, as a dog loves to thrust its nose into filth, cannot be satisfied until he has made everything dirty. [auto-translated]"
 - The Hunchback of Notre-Dame by Victor Hugo: "When I read Victor Hugo's The Hunchback of Notre-Dame (Notre Dame) and came across the little girl with the jewel-like name of Emeraude, I remembered that girl in Kanda dancing the kappore under the umbrella, and thought she must have been much the same sort of creature. [auto-translated]"
 - Shunshoku Umegoyomi by Tamenaga Shunsui: "He felt as if he were Tanjirō of Shunshoku Umegoyomi, and thought how pleasant it would be to be adored by a girl like Ochō; this notion first stirred in him during this period, when he read lending-library romances. [auto-translated]"
-- Jin Ping Mei by Anonymous: "One day I saw a Chinese-bound book peeking out from under the master's desk, and it was the Jin Ping Mei. I had read only Bakin's Kinpeibai, but I knew the Chinese-printed Jin Ping Mei was quite different, and thought the master was not to be taken lightly. [auto-translated]"
+- Jin Ping Mei by Anonymous: "One day I saw a Chinese-bound book peeking out from under the master's desk, and it was the Jin Ping Mei. I had read only Bakin's Kinpeibai, but I knew the Chinese edition of the Jin Ping Mei was very different, and I thought: this master is a man one can't let one's guard down around. [auto-translated]"
 - Han Feizi by Han Fei: "I knew Wanikuchi's character well. He bowed to no authority, and because he held nothing sacred, those around him sometimes suffered for it. I thought him cold-hearted, and the fact that he had studied the Chinese classics and always kept the Han Feizi on his desk probably contributed to that. [auto-translated]"
 - Seisetsurō Shishō by Kikuchi Sankei: "Beside Bitō Eiichi I read the Seisetsurō Shishō. One day, as we were reading it together, there was a poem about Tekona of Mama, and I suddenly remembered something and asked him whether his mother was not his real one. [auto-translated]"
 - Honchō Gushō Shinshi by Kikuchi Sankei: "I borrowed from Eiichi and read the Seisetsurō Shishō, and then I read the Honchō Gushō Shinshi. Then, because new pieces by Sankei were coming out, I went to Asakusa and bought the Kagetsu Shinshi and read that too; the two of us made poems and wrote little pieces in Chinese for fun. [auto-translated]"
@@ -11203,6 +11203,7 @@ https://bookjumpr.com/mori-ogai/vita-sexualis
 - Yanshan Waishi by Chen Qiu: "After I first read the Umegoyomi on a borrowed copy, I made friends who were scholars of Chinese learning, and I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi, and the naive romances in these books left me envious and jealous. [auto-translated]"
 - Qingshi by Feng Menglong: "I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi; the naive romances of young men and women in such books were painfully enviable to me, since I had not been born handsome and so this beautiful thing was an unreachable ideal. [auto-translated]"
 - The Carnal Prayer Mat by Li Yu: "There is an outrageous obscene book by a Chinese author, The Carnal Prayer Mat (Rouputuan), and, as is typical of the Chinese, it tacks a moral of divine retribution onto its plot. It is truly a foolish book, in which the hero Weiyangsheng, worried that a certain part of his body is too small, goes about peeking at people urinating. [auto-translated]"
+- Kinpeibai by Takizawa Bakin: "One day I saw a Chinese-bound book peeking out from under the master's desk, and it was the Jin Ping Mei. I had read only Bakin's Kinpeibai, but I knew the Chinese edition of the Jin Ping Mei was very different, and I thought: this master is a man one can't let one's guard down around. [auto-translated]"
 
 ## Volpone by Ben Jonson (1606)
 https://bookjumpr.com/ben-jonson/volpone
