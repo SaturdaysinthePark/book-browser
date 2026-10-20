@@ -1,0 +1,137 @@
+# Translated-quote check (286 quotes)
+
+Each Japanese-source quote was compared with the original sentence and web-searched for corroboration.
+
+- Quote verdicts: {"faithful":169,"tone-shift":6,"content-error":9,"minor":102}
+- Identification: {"named":274,"pinned-by-context":12}
+- Web corroboration: {"none-found":210,"partial":68,"yes":8}
+
+Note: 'none-found' mostly means the mention is too obscure to be written up online, not that it is wrong. URLs were often taken from search-result summaries without opening the page.
+
+## Corrected
+- #9195 A New Life → The Analects: quote corrected (content-error) — Text says 三字文 written by the father himself, not the Three Character Classic; quote names a classic the text does not.
+- #9196 A New Life → The Great Learning: quote corrected (content-error) — Same sentence; the 'Three Character Classic' is a mistranslation of his father's own 三字文.
+- #9093 An Inquiry into the Good → Personality, Human and Divine: quote corrected (content-error) — Text gives no three-element list (self-consciousness, will, love); it says a person seeks other persons and love is an essential feature of personality, so the stored quote is wrong.
+- #9092 An Inquiry into the Good → Tannisho: quote corrected (tone-shift) — Original is 自行になすなり (practice done by one's own power, i.e. jiriki); 'for my own sake' changes the meaning, and the quote loses that the passage criticises chanting just to obtain rebirth.
+- #9240 Arrowroot → Kyōkakuden: quote corrected (content-error) — Only error is 'Emperor Jiten' for 自天王 (King Jiten); otherwise faithful including the Kusunoki girl Kohime (姑摩姫).
+- #9238 Arrowroot → Taiheiki: quote corrected (content-error) — Text says 自天王 (Jiten-o, a Southern Court pretender); the quote's 'Emperor Jiten' mislabels his rank. Everything else is accurate (low severity).
+- #9242 Arrowroot → Yoshitsune Senbonzakura: quote corrected (content-error) — Misattribution: both remarks are Tsumura's, not the narrator's ('I said'), and the quote splices two passages (lines near the start of 'Imoseyama' and the later 'fox' section). Takeda Izumo is named in the text.
+- #9141 Gesaku Zanmai → Nansō Satomi Hakkenden: quote corrected (content-error) — In the text, 「それが一旦つかまつて拷問された揚句に、荘介に助けられる」 is ambiguous but in the Hakkenden plot it is Kobungo (not Funamushi) who is seized and tortured and then rescued by Sosuke, leading to their reunion; the quote makes Funamushi the captive. Also 愈出でて愈奇なり means 'stranger the more it comes out', not 'each volume'. Speaker is the merchant Omiya Heikichi (近江屋平吉), not named in quote.
+- #8973 I Am a Cat → The Life and Opinions of the Tomcat Murr: quote corrected (tone-shift) — 気焔を揚げた means boasted/held forth; 'raised a great cry' loses the swagger; text also says he came back as a ghost to startle the narrator.
+- #8959 I Am a Cat → Theophano: quote corrected (tone-shift) — Speaker is Meitei; the stored quote drops that he was bluffing (he admits he never read the novel and the other man bluffed back), so the sincere praise misreads the joke.
+- #9088 The Autobiography of Fukuzawa Yukichi → Guide to Travel in the West: quote corrected (tone-shift) — Text says 却て暇になって難有い位 (it was rather a blessing to have leisure) and the confinement 'is very easy', so 'I had no choice' misses his relieved, unbothered attitude.
+- #9082 The Autobiography of Fukuzawa Yukichi → Zhuangzi: quote corrected (content-error) — Late passage reads 左国史漢は勿論 (Zuozhuan, Guoyu, Shiji, Hanshu), which the quote collapses into Zuo Zhuan alone, dropping three works; Zhuangzi part is faithful.
+- #9024 The Golden Demon → Nansō Satomi Hakkenden: quote corrected (tone-shift) — Kan'ichi's inner monologue is a demand ('that feeling ought to be hers') in his grievance that Miya is cold; the quote's 'it must be like Hamaji' turns the complaint into a supposition.
+- #9029 The Quilt → First Love: retitled First Love → Faust (Turgenev) (content-error) — The text says ツルゲネーフの「ファースト」, which is Turgenev's novella Faust, not First Love; the translation and mentioned title are wrong.
+- #9068 Tsugaru → The Analects: quote corrected (tone-shift) — Dazai deliberately defends drinking by his reading of the Analects; the stored quote only says he 'didn't obey it either', losing that wry self-justification.
+- #9167 Words of a Pygmy → A Confession: quote corrected (minor) — Meaning correct; the quote contains an editorial bracket about the unrenderable character (※, evidently 'lie'), which should be removed.
+- #9168 Words of a Pygmy → My Religion: quote corrected (minor) — Same passage as 9167; meaning correct but the bracketed editorial note should be dropped.
+
+## Corroborated by the web (yes)
+- Farewell → Mr. Fujino: Hiroshima University paper states Dazai's 'Sekibetsu' (Farewell) is based on Lu Xun's 'Fujino-sensei' and analyses that relation. https://ir.lib.hiroshima-u.ac.jp/00052444
+- Inside My Glass Doors → Iliad: An article on the essay states Soseki gave the puppy the name of the Trojan champion from the Iliad. https://getnavi.jp/entertainment/479938/
+- Lemon → The Words of the Orange Seller: Results state Lemon quotes the phrase 'hana wo utsu' from Urikansha no gen learned in kanbun class. https://archives.bukkyo-u.ac.jp/rp-contents/KG/0019/KG00190R203.pdf
+- My Individualism → Theory of Literature: Results say Soseki called his Bungakuron a 'deformed child's corpse' in My Individualism. https://president.jp/articles/-/53125
+- One Hundred Views of Mount Fuji → Nihon Sansuiron: A page on the Misaka Pass tea house quotes the Fugaku Hyakkei line citing Kojima Usui's Nihon Sansuiron (per search summary). https://tabi-mag.jp/yn0076/
+- Sanshiro → Hydriotaphia: A paper discusses Hydriotaphia as the book Hirota lends to Sanshiro (memento mori reading). https://kindai.repo.nii.ac.jp/record/7543/files/BU09110.pdf
+- The Wild Geese → Jin Ping Mei: Papers on Gan note the scene where the narrator buys a Chinese-edition Jin Ping Mei at a Kanda stall and the parallel with Okada, Otama and Suezo. https://meilib.repo.nii.ac.jp/record/489/files/mic.journal.2015.3maeda.pdf ; https://soka.repo.nii.ac.jp/record/37120/files/nihongonihonbungaku0_24_5.pdf
+- The Wind Has Risen → Requiem for a Friend: Both papers discuss Rilke's Requiem in The Wind Has Risen (a section on 'death's valley' and Rilke's Requiem; a thesis on lessons from Rilke's Requiem). https://nagano.repo.nii.ac.jp/record/44/files/nagano_27-02-02.pdf ; https://repository.dl.itc.u-tokyo.ac.jp/record/50086/files/A33118_abstract.pdf
+
+## Other books named in the same passages (not added; candidates)
+- A Country Teacher → (Bundan Shomakyo): Myojo (magazine)
+- A Country Teacher → (Enoch Arden): Midaregami ; Ochiumeshu ; Musashino
+- A Country Teacher → (Man'yoshu): Myojo (magazine) ; Bungei Club (magazine) ; Ichiyo zenshu (collected works of Higuchi Ichiyo) ; also on the bookcase labels: Kokan Ichiroku, Shiki, Gokyo, Toso Hachikabun
+- A Country Teacher → (Musashino): Wasure-enu hitobito (Unforgettable People) is referred to in the same passage (already recorded as 9038)
+- A Country Teacher → (Ochiumeshu): Midaregami (Yosano Akiko) ; Musashino (Kunikida Doppo) ; Enoch Arden
+- A Country Teacher → (Tangled Hair): Ochiumeshu (Toson) ; Musashino (Doppo) ; Enoch Arden
+- A Country Teacher → (Unforgettable People): Musashino (already recorded)
+- A Fool's Life → (A New Life): Francois Villon's poems (Shinsei passage is followed by 'only Villon pierced his heart')
+- A Fool's Life → (The Confession of a Fool): Ibsen, Maupassant, Baudelaire, Shaw, Tolstoy (authors only, earlier bookshop list)
+- A New Life → (The Analects): Three-character text (三字文) written by his father
+- A New Life → (The Great Learning): Three-character text (三字文) written by his father
+- A Six-Foot Sickbed → (Sarumino): Byosho Rokushaku No. 25 (the source itself, cited in a correction)
+- A Six-Foot Sickbed → (The Tale of Genji): Makura no soshi/The Pillow Book (already recorded as 9231)
+- An Encouragement of Learning → (Kojiki): The Analects (via the proverb 'Rongo yomi no Rongo shirazu')
+- And Then → (The Analects): Wang Yangming's teachings
+- Arrowroot → (Azuma Kagami): The Tale of the Heike
+- Arrowroot → (Futari Shizuka): Hatsune no tsuzumi (object) ; Yamato Meisho Zue (named a little later, not in the quote)
+- Arrowroot → (Nanzan Junshuroku): Nanpo Kiden ; Ounki (Oun-ki) ; Totsukawa no ki ; Kozuki-ki and Akamatsu-ki (named just before)
+- Arrowroot → (Taiheiki): Taiheiki is the only work named in this sentence
+- Arrowroot → (The Tale of the Heike): Azuma Kagami
+- Arrowroot → (Yoshitsune Senbonzakura): Imoseyama Onna Teikin (already recorded) ; Hatsune no tsuzumi (the drum, an object, not a book)
+- Cogwheels → (Crime and Punishment): The Brothers Karamazov (Dostoevsky)
+- Cogwheels → (Legend): Madame Bovary (Flaubert), read in the following sentences of the same paragraph
+- Dogra Magra → (Lotus Sutra): Adachigahara (legend/play, named in the next sentence, outside the quoted lines)
+- Dogra Magra → (On the Origin of Species): Principle of Relativity (相対性原理) by Einstein
+- Farewell → (Evolution and Ethics): Shiwubao (journal) ; Quanti Xinlun ; Huaxue Weisheng Lun ; Washington-lun (essay topic)
+- Farewell → (Kaitai Shinsho): Rangaku Koto Hajime (already recorded)
+- Farewell → (Rangaku Koto Hajime): Kaitai Shinsho (already recorded)
+- Gesaku Zanmai → (Chinsetsu Yumiharizuki): Nansō Satomi Hakkenden ; Nanka no Yume
+- Gesaku Zanmai → (Nanka no Yume): Chinsetsu Yumiharizuki ; Nansō Satomi Hakkenden
+- Grass on the Wayside → (Nansō Satomi Hakkenden): Jōzan Kidan (常山紀談), the 'him' in the question; recorded as id 9131
+- I Am a Cat → (Beowulf): Blackstone's Commentaries (ブラクストーンの説, Blackstone's theory on repeat hanging) ; Piers Plowman (recorded separately as id 8962)
+- I Am a Cat → (Fudōchi Shinmyōroku): Mencius (孟子 '求放心', named by the uncle just before, as a person/teaching rather than a book)
+- I Am a Cat → (I Ching): Tao Te Ching ; Record of Linji (both recorded separately)
+- I Am a Cat → (Piers Plowman): Blackstone (ブラクストーン, his view that a failed hanging is repeated) ; Beowulf (recorded as id 8961)
+- I Am a Cat → (Record of Linji): Tao Te Ching ; I Ching (both recorded separately)
+- I Am a Cat → (Tao Te Ching): I Ching ; Record of Linji (both recorded separately)
+- I Am a Cat → (The Golden Demon): Chikamatsu's domestic plays (近松の世話物, generic, no specific title)
+- Kokoro → (The Koran): Bible
+- Kusamakura → (Laocoön): Homer and Virgil (named as authors only)
+- Li Ling → (Zuo Zhuan): Guoyu (already recorded as 9057) ; Spring and Autumn Annals (already recorded as 9120)
+- Light, Wind and Dreams → (A Footnote to History): The Wrecker
+- Light, Wind and Dreams → (Clarissa): Robinson Crusoe
+- Light, Wind and Dreams → (History of Hindostan): St. Ives
+- Light, Wind and Dreams → (Kidnapped): The Wrecker ; The Master of Ballantrae ; David Balfour (Catriona)
+- Light, Wind and Dreams → (Madame Bovary): Oliver Twist
+- Light, Wind and Dreams → (Oliver Twist): Madame Bovary
+- Light, Wind and Dreams → (Robinson Crusoe): Treasure Island ; Kidnapped ; The Master of Ballantrae
+- Light, Wind and Dreams → (St. Ives): Weir of Hermiston ; Rowlandson's 'Bunshoho' (style manual, as written)
+- Light, Wind and Dreams → (The Island Nights' Entertainments): The Bottle Imp ; The Beach of Falesa ; The Isle of Voices ; The Waif Woman
+- Light, Wind and Dreams → (The Master of Ballantrae): Kidnapped ; The Wrecker ; David Balfour (Catriona)
+- Light, Wind and Dreams → (The Wrecker): A Footnote to History
+- Light, Wind and Dreams → (Weir of Hermiston): St. Ives ; Rowlandson's 'Bunshoho' (style manual, as written)
+- Poppies → (Avatamsaka Sutra): Futari Shizuka (Noh play), named a little later in the same scene
+- Shibue Chūsai → (Mencius): Han Feizi
+- Shibue Chūsai → (Records of the Grand Historian): The Analects
+- Shibue Chūsai → (Ryūshinfu): Keiseki Hōkoshi
+- Shibue Chūsai → (Tao Te Ching): Keiseki Hōkoshi
+- The Autobiography of Fukuzawa Yukichi → (A New Account of the Tales of the World): Mengqiu
+- The Autobiography of Fukuzawa Yukichi → (Book of Documents): Mengqiu ; Zuo Zhuan ; Zhan Guo Ce ; Laozi ; Zhuangzi
+- The Autobiography of Fukuzawa Yukichi → (Book of Han): Book of Later Han ; Book of Jin ; History of the Five Dynasties ; Yuan-Ming shilue (元明史略)
+- The Autobiography of Fukuzawa Yukichi → (Mencius): Classic of Poetry ; Book of Documents
+- The Autobiography of Fukuzawa Yukichi → (Records of the Grand Historian): Book of Later Han ; Book of Jin ; History of the Five Dynasties ; Yuan-Ming shilue (元明史略)
+- The Autobiography of Fukuzawa Yukichi → (Tao Te Ching): Zuo Zhuan ; Guoyu ; Records of the Grand Historian ; Book of Han
+- The Autobiography of Fukuzawa Yukichi → (Zhan Guo Ce): Mengqiu ; Shishuo Xinyu ; Zuo Zhuan ; Laozi ; Zhuangzi
+- The Autobiography of Fukuzawa Yukichi → (Zhuangzi): Guoyu ; Records of the Grand Historian ; Book of Han
+- The Autobiography of Fukuzawa Yukichi → (Zuo Zhuan): Mengqiu ; Shishuo Xinyu ; Zhan Guo Ce ; Laozi ; Zhuangzi ; Book of Han ; Book of Later Han ; Book of Jin ; History of the Five Dynasties ; Yuan-Ming shilue
+- The Book of the Dead → (Chu Ci): Amida Sutra ; Treatise on Yue Yi (Gakkiron) ; Gangoji engi ; Classic of Filial Piety
+- The Book of the Dead → (Classic of Filial Piety): Amida Sutra ; Treatise on Yue Yi (Gakkiron) ; Gangoji engi (Gangoji chronicle)
+- The Book of the Dead → (Lotus Sutra): Treatise on Yue Yi (Gakkiron)
+- The Gate → (The Analects): Pocket Analects (same work, mentioned elsewhere)
+- The Martyr → (Guia do Pecador): Imitatione Christi ; Legenda Aurea (fictional Nagasaki edition)
+- The Martyr → (The Imitation of Christ): Guia do Pecador ; Legenda Aurea (fictional Nagasaki edition)
+- The Quilt → (First Love): Goethe's Faust (the hero reads it aloud within the Turgenev story) ; Hauptmann's Lonely Lives
+- The Setting Sun → (Introduction to Political Economy): Lenin Selected Works (レニン選集) ; Kautsky, The Social Revolution (社会革命)
+- The Strange Tale of Panorama Island → (The Premature Burial): books on death by Hartmann, Bouchut and Kempner (titles not given)
+- The Strange Tale of Panorama Island → (Voyage in Icaria): unspecified utopias since Plato
+- The Two-Sen Copper Coin → (The Adventure of the Dancing Men): Bacon's two-letter cipher (not a book)
+- The Wayfarer → (The Divine Comedy): Sankatsu and Hanshichi (the joruri/bunraku lovers), cited by Jiro in the next exchange
+- Tsugaru → (The Analects): Basho's travelers' rules (芭蕉翁の行脚掟, not a book)
+- Tsugaru → (Toyuki): Seiyuki / Saiyuki (西遊記) by Tachibana Nankei, named in the same sentence
+- Ukigumo → (Illusions): National (Fourth) Reader, mentioned elsewhere in Ukigumo, not in this passage
+- Vita Sexualis → (Han Feizi): Theodor Vischer's Cynismus (nearby, recorded separately)
+- Vita Sexualis → (Honchō Gushō Shinshi): Seisetsuro Shisho (recorded separately as id 9051) ; Kagetsu Shinshi (Kikuchi Sankei's magazine, bought in Asakusa)
+- Vita Sexualis → (I Am a Cat): Wagahai mo neko de aru (parody, author not named) ; Wagahai wa inu de aru (parody, author not named)
+- Vita Sexualis → (Jiandeng Yuhua): Yanshan Waishi ; Qingshi (both recorded separately)
+- Vita Sexualis → (Jin Ping Mei): Takizawa Bakin's Kinpeibai (recorded separately as id 9261)
+- Vita Sexualis → (Kinpeibai): Jin Ping Mei (Chinese edition, recorded separately as id 9049)
+- Vita Sexualis → (Qingshi): Jiandeng Yuhua ; Yanshan Waishi (recorded separately)
+- Vita Sexualis → (Yanshan Waishi): Jiandeng Yuhua ; Qingshi (both recorded separately)
+- Words of a Pygmy → (A Confession): Birukoff's biography of Tolstoy ; Tolstoy's My Religion
+- Words of a Pygmy → (Man and Superman): Hong Ni Guan (Mei Lanfang's play), named as another dramatization of the same theme
+- Words of a Pygmy → (My Religion): Birukoff's biography of Tolstoy ; Tolstoy's A Confession
+- Youth → (Brand): Zola's 'Claude' (Claude Lantier, i.e. La Confession de Claude / L'Oeuvre), written in Latin letters as Claude
+- Youth → (Faust): Othello (Shakespeare), mentioned as staged with Venice as a Surugadai mansion district ; Shakespeare plays generally
+- Youth → (Le Voleur): The Blue Bird (already recorded separately, used only for comparing the cover)
+- Youth → (Three Tales): Maeterlinck's short plays (unspecified)
