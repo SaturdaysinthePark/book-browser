@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-20. 1,050 books that mention other books, 8,704 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-20. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -195,6 +195,7 @@ https://bookjumpr.com/tayama-katai/a-country-teacher
 - Gankutsuo by Ruiko Kuroiwa: "He had lost interest in everything, and even Ruiko's Gankutsuo, which he had loved reading, he gave up halfway. [auto-translated]"
 - Kanbotan by Ozaki Kōyō: "Seventh: still recovering from illness and a boil, so I postponed returning to school. I started Koyo and Shuto's Kanbotan but gave up. Ninth: finished reading Kanbotan tonight, a story of agony within tragedy that follows sin, and the heroine Luisa's devoted attachment. [auto-translated]"
 - Bundan Shomakyo by Anonymous: "From Ishikawa came the usual attacks on Myojo, and on purpose he sent a pamphlet called Bundan Shomakyo, which exposed the private lives of the poet couple in Shibuya. [auto-translated]"
+- Ichiyō Zenshū by Anonymous: "On the large magnolia-wood desk beneath the lamp, the Myōjō, Bungei Club, the Man'yōshū and the Ichiyō Zenshū lay scattered in disorder. [auto-translated]"
 
 ## A Damsel in Distress by P. G. Wodehouse (1919)
 https://bookjumpr.com/p-g-wodehouse/a-damsel-in-distress
@@ -1071,6 +1072,11 @@ https://bookjumpr.com/jun-ichiro-tanizaki/arrowroot
 - Futari Shizuka by Anonymous: "Surely it is much the same as the Tsurube-zushi house. There is the Noh play Futari Shizuka, so some prankster of long ago must have thought it up. [auto-translated]"
 - The Tale of the Heike by Anonymous: "There is no need now to explain what age the Genbun era was, or to cite the Azuma Kagami or The Tale of the Heike on the life of Lady Shizuka. [auto-translated]"
 - Azuma Kagami by Anonymous: "There is no need now to explain what age the Genbun era was, or to cite the Azuma Kagami or The Tale of the Heike on the life of Lady Shizuka. [auto-translated]"
+- Nanpō Kiden by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
+- Ōunki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
+- Totsukawa no Ki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
+- Akamatsu-ki by Anonymous: "According to the Kōzuki-ki, the Akamatsu-ki and others, thirty remnants of the Akamatsu clan under Mashima Hikotarō, who had pretended to submit to the Southern Emperor, struck suddenly in a heavy snow on the second of the twelfth month of Chōroku 1. [auto-translated]"
+- Yamato Meisho Zue by Anonymous: "The Yamato Meisho Zue and others also say, 'In the village of Natsumi there is a famous spring called Hanakago no Mizu, and the site of a house where Shizuka Gozen once lived,' so the tradition is clearly old. [auto-translated]"
 
 ## Artful by Ali Smith (2012)
 https://bookjumpr.com/ali-smith/artful
@@ -1730,6 +1736,8 @@ https://bookjumpr.com/ryunosuke-akutagawa/cogwheels
 - Legend by August Strindberg: "On the second floor of Maruzen I found Strindberg's Legend on a shelf and read a few pages here and there. It described experiences not much different from my own. [auto-translated]"
 - A Dark Night's Passing by Naoya Shiga: "After he had finally left, I lay on the bed and began to read A Dark Night's Passing. The hero's spiritual struggles were painfully real to me. [auto-translated]"
 - Shakko by Mokichi Saito: ""I'm sending you the reprint of the poetry collection Shakko..." Shakko! I felt some unseen thing sneering at me, and decided to flee from my room. [auto-translated]"
+- The Brothers Karamazov by Fyodor Dostoevsky: "I began reading "Crime and Punishment" to ease this fear. But the page I happened to open was a passage from The Brothers Karamazov. [auto-translated]"
+- Madame Bovary by Gustave Flaubert: "Even when I picked up Madame Bovary, which I had read over and over, I felt that I was, after all, nothing but a middle-class Monsieur Bovary myself. [auto-translated]"
 
 ## Common Sense by Thomas Paine (1776)
 https://bookjumpr.com/thomas-paine/common-sense
@@ -2531,6 +2539,8 @@ https://bookjumpr.com/osamu-dazai/farewell
 - Exhortation to Learn by Zhang Zhidong: "A couple of years earlier, even the famous Exhortation to Learn that Zhang Zhidong had written strongly stressed the need to study in Japan, and the government had begun sending a few Chinese students to Japan each year. [auto-translated]"
 - Kaitai Shinsho by Sugita Genpaku: "That first lecture was a history of the development of anatomy in Japan, and the large and small books the teacher brought were all Japanese works on anatomy from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them. [auto-translated]"
 - Rangaku Koto Hajime by Sugita Genpaku: "The large and small books the teacher brought were all Japanese works on anatomy, from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them, and he described in his slow, distinctive way the tension of Genpaku and his friends as they dissected a criminal's corpse at the Kozukappara… [auto-translated]"
+- Quanti Xinlun by Anonymous: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
+- Huaxue Weisheng Lun by Anonymous: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
 
 ## Father Goriot by Honoré de Balzac (1835)
 https://bookjumpr.com/honore-de-balzac/father-goriot
@@ -4222,6 +4232,11 @@ https://bookjumpr.com/atsushi-nakajima/light-wind-and-dreams
 - Clarissa by Samuel Richardson: "To me the plot, the story, of a work is like the backbone in a vertebrate. Scorning events in a novel is a pose, a child trying to look grown up. Compare Clarissa Harlowe and Robinson Crusoe. [auto-translated]"
 - History of Hindostan by Robert Orme: "St. Ives is not so bad, but it is hard going. At present I am reading Orme's History of Hindostan and find it very interesting: a faithful, unlyrical account in the eighteenth-century manner. [auto-translated]"
 - A Midsummer Night's Dream by William Shakespeare: "To give clear expression to things that have no name or place, as A Midsummer Night's Dream puts it, is the work of the poet and writer. By that measure Stevenson was surely a born storyteller. [auto-translated]"
+- Catriona by Robert Louis Stevenson: "On the other hand, The Wrecker is said to be selling very well, while Catriona (the retitled David Balfour) is poorly received; it is ironic that such a work sells better, but I shall not despair and shall wait for a second crop. [auto-translated]"
+- The Bottle Imp by Robert Louis Stevenson: "Cassell's write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. [auto-translated]"
+- The Beach of Falesa by Anonymous: "Cassell's write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd? [auto-translated]"
+- The Isle of Voices by Anonymous: "The two are so different in flavour that it seems odd. Why not add The Isle of Voices and The Waif Woman? [auto-translated]"
+- The Waif Woman by Anonymous: "Why not add The Isle of Voices and The Waif Woman? ... Fanny, however, objects to including The Waif Woman. [auto-translated]"
 
 ## Like by Ali Smith (1997)
 https://bookjumpr.com/ali-smith/like
@@ -6003,6 +6018,7 @@ https://bookjumpr.com/mori-ogai/shibue-chusai
 - Tao Te Ching by Laozi: "The scholar Meian was fond of the Tao Te Ching in his later years, and so Chūsai too came to share his taste. [auto-translated]"
 - Records of the Grand Historian by Sima Qian: "Mori Kien came and borrowed The Analects and the Records of the Grand Historian. The Analects was an old manuscript with Japanese reading marks, and the Records of the Grand Historian was a Korean edition. [auto-translated]"
 - Ryūshinfu by Shibue Chūsai: "Among the books Chūsai wrote, first come the Keiseki Hōkoshi and the Ryūshinfu, which were published one after the other by Chinese hands. [auto-translated]"
+- Han Feizi by Han Fei: "Of the Han Feizi, he said that the chapters "Zhu Dao," "Yang Quan," "Jie Lao" and "Yu Lao" were the good ones. [auto-translated]"
 
 ## Shinto: The Ancient Religion of Japan by W. G. Aston (1907)
 https://bookjumpr.com/w-g-aston/shinto-the-ancient-religion-of-japan
@@ -6893,6 +6909,8 @@ https://bookjumpr.com/fukuzawa-yukichi/the-autobiography-of-fukuzawa-yukichi
 - Guide to Travel in the West by Fukuzawa Yukichi: "I was ordered to withdraw from duty, which was no hardship at all; if anything I was glad of the free time, so I retired at once as commanded, and during that time I was writing a book called Guide to Travel in the West. [auto-translated]"
 - Seiri Hatsumō by Anonymous: "The passage discussed how light relates to sight, with two candles and the shadows they cast, quite a difficult part, and it should be in the translated book Seiri Hatsumō that Shimamura translated. [auto-translated]"
 - Classic of Poetry by Anonymous: "The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well. [auto-translated]"
+- Book of Later Han by Anonymous: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
+- Book of Jin by Anonymous: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
 
 ## The Autobiography of Malcolm X by Malcolm X (1965)
 https://bookjumpr.com/malcolm-x/the-autobiography-of-malcolm-x
@@ -7060,6 +7078,7 @@ https://bookjumpr.com/orikuchi-shinobu/the-book-of-the-dead
 - Lotus Sutra by Anonymous: "Behind the curtained dais came two scrolls apparently copied in a woman's hand: the Lotus Sutra of Lady Tachibana, her great-grandmother, and the Treatise on Yue Yi of the present Empress Dowager. [auto-translated]"
 - Classic of Filial Piety by Anonymous: "They say she was copying the Amida Sutra a thousand times before she left home, that she had practised on the Treatise on Yue Yi and her brother's chronicle of Gangōji, and that she learned the Classic of Filial Piety when she was this small. [auto-translated]"
 - Chu Ci by Anonymous: "A true woman scholar, she is; one like you, wasting himself on the Chu Ci and on tales, cannot go near her. [auto-translated]"
+- Treatise on Yue Yi by Anonymous: "They say that before leaving home she had copied out a thousand Amida Sutras, and had practised her hand with the Treatise on Yue Yi and, earlier still, the Gangoji Engi written by her elder brother. [auto-translated]"
 
 ## The Book Thief by Markus Zusak (2005)
 https://bookjumpr.com/markus-zusak/the-book-thief
@@ -9764,6 +9783,8 @@ https://bookjumpr.com/julian-barnes/the-sense-of-an-ending
 https://bookjumpr.com/osamu-dazai/the-setting-sun
 - A Sportsman's Sketches by Ivan Turgenev: ""What about Turgenev?" "He's an aristocrat. That's why I dislike him." "But A Sportsman's Sketches..." "Yes, that one is rather good, I admit." [auto-translated]"
 - Introduction to Political Economy by Rosa Luxemburg: "In the room next to the parlor, I was reading Rosa Luxemburg's Introduction to Political Economy with a strange excitement. I had brought it from Naoji's room upstairs the other day. [auto-translated]"
+- Selected Works of Lenin by Vladimir Lenin: "I took it from Naoji's room upstairs, and along with it I had borrowed, without asking, the Selected Works of Lenin and Kautsky's The Social Revolution, and set them on my desk in the next room. [auto-translated]"
+- The Social Revolution by Karl Kautsky: "I had also borrowed, without asking, Lenin's selected works and Kautsky's The Social Revolution, and set them on my desk in the next room. [auto-translated]"
 
 ## The Shadow of the Wind by Carlos Ruiz Zafón (2001)
 https://bookjumpr.com/carlos-ruiz-zafon/the-shadow-of-the-wind
@@ -11032,6 +11053,7 @@ https://bookjumpr.com/osamu-dazai/tsugaru
 - Konjaku Monogatari by Anonymous: "The Konjaku Monogatari records that Abe no Yoritoki crossed over to Manchuria and what he saw there; taken together with the archaeological and folkloric evidence, this should not be dismissed as a mere tale. [auto-translated]"
 - The Analects by Confucius: "Among the traveler's rules attributed to Basho there is one forbidding drinking for pleasure, but I read the Analects' line that wine has no set measure yet must not reach disorder as meaning you may drink freely as long as you are not rude, so I felt no need to follow the master's teaching. [auto-translated]"
 - General History of Aomori Prefecture by Takeuchi Unpei: "According to the 'General History of Aomori Prefecture' by Takeuchi Unpei, a man of Hirosaki, the shore at Kanita was once a source of iron sand, which was refined for use when Hirosaki Castle was built in the Keicho era. [auto-translated]"
+- Seiyūki by Tachibana Nankei: "Nankei's Tōyūki and Seiyūki seem to be counted among the classics of the Edo period, and in their preface too he writes, "Since my travels were originally for medicine..." [auto-translated]"
 
 ## Twenty Thousand Leagues Under the Sea by Jules Verne (1870)
 https://bookjumpr.com/jules-verne/twenty-thousand-leagues-under-the-sea
@@ -11785,6 +11807,7 @@ https://bookjumpr.com/ryunosuke-akutagawa/words-of-a-pygmy
 - A Confession by Leo Tolstoy: "Reading Birukoff's life of Tolstoy makes it clear that Tolstoy's A Confession and My Religion were lies. Yet no heart is more painful than that of the Tolstoy who kept telling them; his lies drip more red blood than other men's truths. [auto-translated]"
 - My Religion by Leo Tolstoy: "Reading Birukoff's life of Tolstoy makes it clear that Tolstoy's A Confession and My Religion were lies. Yet no heart is more painful than that of the Tolstoy who kept telling them. [auto-translated]"
 - Legend by August Strindberg: "In his Legend, Strindberg describes an experiment to find out whether death is painful. But such an experiment cannot be done in play. [auto-translated]"
+- Leo Tolstoy: His Life and Work by Anonymous: "If you read Biryukov's biography of Tolstoy, Leo Tolstoy: His Life and Work, it is clear that Tolstoy's "My Confession" and "My Religion" were a falsehood. [auto-translated]"
 
 ## Wuthering Heights by Emily Bronte (1847)
 https://bookjumpr.com/emily-bronte/wuthering-heights
