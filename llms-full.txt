@@ -4233,8 +4233,8 @@ https://bookjumpr.com/atsushi-nakajima/light-wind-and-dreams
 - History of Hindostan by Robert Orme: "St. Ives is not so bad, but it is hard going. At present I am reading Orme's History of Hindostan and find it very interesting: a faithful, unlyrical account in the eighteenth-century manner. [auto-translated]"
 - A Midsummer Night's Dream by William Shakespeare: "To give clear expression to things that have no name or place, as A Midsummer Night's Dream puts it, is the work of the poet and writer. By that measure Stevenson was surely a born storyteller. [auto-translated]"
 - Catriona by Robert Louis Stevenson: "On the other hand, The Wrecker is said to be selling very well, while Catriona (the retitled David Balfour) is poorly received; it is ironic that such a work sells better, but I shall not despair and shall wait for a second crop. [auto-translated]"
-- The Bottle Imp by Robert Louis Stevenson: "Cassell's write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. [auto-translated]"
-- The Beach of Falesa by Anonymous: "Cassell's write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd? [auto-translated]"
+- The Bottle Imp by Robert Louis Stevenson: "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. [auto-translated]"
+- The Beach of Falesa by Anonymous: "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd? [auto-translated]"
 - The Isle of Voices by Anonymous: "The two are so different in flavour that it seems odd. Why not add The Isle of Voices and The Waif Woman? [auto-translated]"
 - The Waif Woman by Anonymous: "Why not add The Isle of Voices and The Waif Woman? ... Fanny, however, objects to including The Waif Woman. [auto-translated]"
 
@@ -9783,7 +9783,7 @@ https://bookjumpr.com/julian-barnes/the-sense-of-an-ending
 https://bookjumpr.com/osamu-dazai/the-setting-sun
 - A Sportsman's Sketches by Ivan Turgenev: ""What about Turgenev?" "He's an aristocrat. That's why I dislike him." "But A Sportsman's Sketches..." "Yes, that one is rather good, I admit." [auto-translated]"
 - Introduction to Political Economy by Rosa Luxemburg: "In the room next to the parlor, I was reading Rosa Luxemburg's Introduction to Political Economy with a strange excitement. I had brought it from Naoji's room upstairs the other day. [auto-translated]"
-- Selected Works of Lenin by Vladimir Lenin: "I took it from Naoji's room upstairs, and along with it I had borrowed, without asking, the Selected Works of Lenin and Kautsky's The Social Revolution, and set them on my desk in the next room. [auto-translated]"
+- Selected Works of Lenin by Vladimir Lenin: "Along with it I had also borrowed, without asking, the Selected Works of Lenin and Kautsky's The Social Revolution, and set them on my desk in the next room. [auto-translated]"
 - The Social Revolution by Karl Kautsky: "I had also borrowed, without asking, Lenin's selected works and Kautsky's The Social Revolution, and set them on my desk in the next room. [auto-translated]"
 
 ## The Shadow of the Wind by Carlos Ruiz Zafón (2001)
@@ -11053,7 +11053,7 @@ https://bookjumpr.com/osamu-dazai/tsugaru
 - Konjaku Monogatari by Anonymous: "The Konjaku Monogatari records that Abe no Yoritoki crossed over to Manchuria and what he saw there; taken together with the archaeological and folkloric evidence, this should not be dismissed as a mere tale. [auto-translated]"
 - The Analects by Confucius: "Among the traveler's rules attributed to Basho there is one forbidding drinking for pleasure, but I read the Analects' line that wine has no set measure yet must not reach disorder as meaning you may drink freely as long as you are not rude, so I felt no need to follow the master's teaching. [auto-translated]"
 - General History of Aomori Prefecture by Takeuchi Unpei: "According to the 'General History of Aomori Prefecture' by Takeuchi Unpei, a man of Hirosaki, the shore at Kanita was once a source of iron sand, which was refined for use when Hirosaki Castle was built in the Keicho era. [auto-translated]"
-- Seiyūki by Tachibana Nankei: "Nankei's Tōyūki and Seiyūki seem to be counted among the classics of the Edo period, and in their preface too he writes, "Since my travels were originally for medicine..." [auto-translated]"
+- Seiyūki by Tachibana Nankei: "Nankei's Tōyūki and Seiyūki seem to be counted among the classics of the Edo period, and in their prefatory notes too he writes, "Since my travels were originally for medicine..." [auto-translated]"
 
 ## Twenty Thousand Leagues Under the Sea by Jules Verne (1870)
 https://bookjumpr.com/jules-verne/twenty-thousand-leagues-under-the-sea
@@ -11807,7 +11807,7 @@ https://bookjumpr.com/ryunosuke-akutagawa/words-of-a-pygmy
 - A Confession by Leo Tolstoy: "Reading Birukoff's life of Tolstoy makes it clear that Tolstoy's A Confession and My Religion were lies. Yet no heart is more painful than that of the Tolstoy who kept telling them; his lies drip more red blood than other men's truths. [auto-translated]"
 - My Religion by Leo Tolstoy: "Reading Birukoff's life of Tolstoy makes it clear that Tolstoy's A Confession and My Religion were lies. Yet no heart is more painful than that of the Tolstoy who kept telling them. [auto-translated]"
 - Legend by August Strindberg: "In his Legend, Strindberg describes an experiment to find out whether death is painful. But such an experiment cannot be done in play. [auto-translated]"
-- Leo Tolstoy: His Life and Work by Anonymous: "If you read Biryukov's biography of Tolstoy, Leo Tolstoy: His Life and Work, it is clear that Tolstoy's "My Confession" and "My Religion" were a falsehood. [auto-translated]"
+- Biography of Tolstoy by Pavel Biryukov: "If you read Biryukov's life of Tolstoy, it is clear that Tolstoy's "My Confession" and "My Religion" were a lie. [auto-translated]"
 
 ## Wuthering Heights by Emily Bronte (1847)
 https://bookjumpr.com/emily-bronte/wuthering-heights

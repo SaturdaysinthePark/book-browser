@@ -1,0 +1,39 @@
+{
+ "books": [],
+ "mentions": [
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Bottle Imp",
+   "author": "",
+   "note": "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'.*",
+   "update": true
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Beach of Falesa",
+   "author": "",
+   "note": "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd?*",
+   "update": true
+  },
+  {
+   "source": "The Setting Sun",
+   "mentioned": "Selected Works of Lenin",
+   "author": "Vladimir Lenin",
+   "note": "Along with it I had also borrowed, without asking, the Selected Works of Lenin and Kautsky's The Social Revolution, and set them on my desk in the next room.*",
+   "update": true
+  },
+  {
+   "source": "Tsugaru",
+   "mentioned": "Seiyūki",
+   "author": "Tachibana Nankei",
+   "note": "Nankei's Tōyūki and Seiyūki seem to be counted among the classics of the Edo period, and in their prefatory notes too he writes, \"Since my travels were originally for medicine...\"*",
+   "update": true
+  },
+  {
+   "source": "Words of a Pygmy",
+   "mentioned": "Biography of Tolstoy",
+   "author": "Pavel Biryukov",
+   "note": "If you read Biryukov's life of Tolstoy, it is clear that Tolstoy's \"My Confession\" and \"My Religion\" were a lie.*"
+  }
+ ]
+}
