@@ -1393,12 +1393,15 @@
     if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
     var note = this._notes[src + '|' + ment];
     if (!note) return null;
+    var translated = /\*$/.test(note);   // trailing '*' = the quote is an auto-translation of the original language
+    if (translated) note = note.slice(0, -1);
     var b = this.books[ment], t = b.title, short = t.split(/[:(]/)[0].trim();
     var esc = function (x) { return x.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); };
     var names = [t].concat(short.length > 3 && short !== t ? [short] : [], b.aliases)
       .sort(function (x, y) { return y.length - x.length; });   // longest first, so the fullest title wins
     var parts = note.split(new RegExp('(' + names.map(esc).join('|') + ')', 'i'));
     var kids = parts.map(function (p, i) { return i % 2 ? h('mark', { key: i }, p) : p; });
+    if (translated) kids.push(h('sup', { key: 'tr', className: 'mc-tr' }, '*'), h('span', { key: 'trn', className: 'mc-trn' }, ' * auto-translated from the original'));
     var editorial = /^\s*((chapter )?epigraph\b|(Referenced|Cited|Mentioned|Alluded|Discussed|Quoted (by|with|from))\b|—)/i.test(note) &&
       !/^\s*(referenced|cited|mentioned|alluded|discussed|quoted)/.test(note);   // lowercase = an excerpt of the book itself
     var quote = !editorial;

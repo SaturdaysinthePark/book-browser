@@ -1,0 +1,54 @@
+{
+ "books": [],
+ "mentions": [
+  {
+   "source": "The Autobiography of Fukuzawa Yukichi",
+   "mentioned": "Book of Jin",
+   "author": "Fang Xuanling",
+   "note": "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming.*",
+   "update": true
+  },
+  {
+   "source": "The Autobiography of Fukuzawa Yukichi",
+   "mentioned": "Book of Later Han",
+   "author": "Fan Ye",
+   "note": "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming.*",
+   "update": true
+  },
+  {
+   "source": "Shinto: The Ancient Religion of Japan",
+   "mentioned": "Engishiki",
+   "author": "Fujiwara no Tokihira",
+   "note": "For the ritual of Shinto our chief source of information is the Yengishiki, a compilation made early in the tenth century.",
+   "update": true
+  },
+  {
+   "source": "Farewell",
+   "mentioned": "Quanti Xinlun",
+   "author": "Benjamin Hobson",
+   "note": "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception.*",
+   "update": true
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Beach of Falesa",
+   "author": "Robert Louis Stevenson",
+   "note": "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd?*",
+   "update": true
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Isle of Voices",
+   "author": "Robert Louis Stevenson",
+   "note": "The two are so different in flavour that it seems odd. Why not add The Isle of Voices and The Waif Woman?*",
+   "update": true
+  },
+  {
+   "source": "Light, Wind and Dreams",
+   "mentioned": "The Waif Woman",
+   "author": "Robert Louis Stevenson",
+   "note": "Why not add The Isle of Voices and The Waif Woman? ... Fanny, however, objects to including The Waif Woman.*",
+   "update": true
+  }
+ ]
+}

@@ -1,0 +1,104 @@
+{
+ "books": [
+  {
+   "title": "Out of the East: Reveries and Studies in New Japan",
+   "author": "Lafcadio Hearn",
+   "year": 1895,
+   "genre": "ESSAYS & JOURNALISM",
+   "synopsis": "Hearn dreams his way through Japan in eleven sketches, from the fisher-boy Urashima's vanished centuries to a hotel balcony by the sea. He quizzes Kyushu students on Western stories, watches jiujutsu masters throw men with a touch, and follows soldiers marching to the Chino-Japanese war. He keeps asking what the Japanese mind sees that the West cannot."
+  }
+ ],
+ "mentions": [
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Man'yoshu",
+   "author": "Anonymous",
+   "note": "But the most impressive and the most ancient is found in the \"Manyefushifu,\" a collection of poems dating from the fifth to the ninth century."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Urashima",
+   "author": "Basil Hall Chamberlain",
+   "note": "Then out of the dreaming of the sea rose up a beautiful girl,--just as you can see her in the picture to Professor Chamberlain's \"Urashima,\"--robed in crimson and blue"
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Classical Poetry of the Japanese",
+   "author": "Basil Hall Chamberlain",
+   "note": "See The Classical Poetry of the Japanese, by Professor Chamberlain, in Trübner's Oriental Series."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Rappaccini's Daughter",
+   "author": "Nathaniel Hawthorne",
+   "note": "The marvelous tale of \"Rappacini's Daughter\" proved greatly to their liking; and the spirit of Hawthorne might have found no little ghostly pleasure in their interpretation of it."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Silence",
+   "author": "Edgar Allan Poe",
+   "note": "\"Monos and Daimonos\" found favor; and Poe's wonderful fragment, \"Silence,\" was appreciated after a fashion that surprised me."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Frankenstein",
+   "author": "Mary Shelley",
+   "note": "On the other hand, the story of \"Frankenstein\" impressed them very little. None took it seriously."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Le Morte d'Arthur",
+   "author": "Thomas Malory",
+   "note": "So I related to them the story of Sir Bors, which is in the sixteenth book of Sir Thomas Mallory's \"Morte d'Arthur,\""
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Alcestis",
+   "author": "Euripides",
+   "note": "Then it occurred to me to tell them the immortal story of Alkestis. I thought for the moment that the character of Herakles in that divine drama would have a particular charm for them."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Matsuyama no Kagami",
+   "author": "Mrs. F. H. James",
+   "note": "the memory of the old Japanese story Matsuyama no Kagami. Though related in the simplest manner and with the fewest possible words,"
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Lotus Sutra",
+   "author": "Anonymous",
+   "note": "In the eleventh chapter of the Sutra of the Lotus of the Good Law, it is written that mention was made before the Lord Buddha of a young girl who had in one instant arrived at supreme knowledge"
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "The Dhammapada",
+   "author": "Anonymous",
+   "note": "came a memory of the two hundred and fifteenth verse of the Dhammapada: \"From love comes grief; from grief comes fear: one who is free from love knows neither grief nor fear.\""
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "First Principles",
+   "author": "Herbert Spencer",
+   "note": "First Principles, 2d Ed., § 178."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "National Character",
+   "author": "Charles H. Pearson",
+   "note": "For possible ultimate consequences, consult Dr. Pearson's recent book, National Character."
+  },
+  {
+   "source": "Out of the East: Reveries and Studies in New Japan",
+   "mentioned": "Glimpses of Unfamiliar Japan",
+   "author": "Lafcadio Hearn",
+   "note": "See Glimpses of Unfamiliar Japan."
+  },
+  {
+   "source": "The Wind Has Risen",
+   "mentioned": "Requiem for a Friend",
+   "author": "Rainer Maria Rilke",
+   "note": "A small parcel had arrived: Rilke's Requiem (Chinkon-ka), ordered long ago, forwarded from place to place with two or three other books. That night, by the fireplace, listening now and then to the wind, I began to read Rilke's Requiem.*",
+   "update": true
+  }
+ ]
+}

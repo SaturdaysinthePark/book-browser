@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-18. 971 books that mention other books, 8,227 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-20. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -183,6 +183,20 @@ https://bookjumpr.com/mikhail-bulgakov/a-country-doctor-s-notebook
 - War and Peace by Leo Tolstoy: "It reminds me of a passage in War and Peace in which Petya Rostov experiences the same phenomenon when half asleep."
 - The Penal Colony of Sakhalin by Anton Chekhov: ""I recalled a book in a yellow binding entitled The Penal Colony of Sakhalin, which contained photographs of various criminal types." — medium confidence, likely this edition's translated title for Chekhov's Sakhalin Island."
 
+## A Country Teacher by Tayama Katai (1909)
+https://bookjumpr.com/tayama-katai/a-country-teacher
+- Man'yoshu by Anonymous: "The study was four and a half mats. On the big magnolia-wood desk lit by a lamp, the magazines Myojo and Bungei Club, the Man'yoshu and the collected works of Ichiyo lay scattered in a jumble. [auto-translated]"
+- Wakanashu by Shimazaki Tōson: "That night Seizo thought about many things until late. He took out his battered copy of Toson's Wakanashu, its binding coming apart, and read on and on. [auto-translated]"
+- Ochiumeshu by Shimazaki Tōson: "On the desk in the main hall lay Midaregami, Ochiumeshu, Musashino, and the thin copy of Enoch Arden that the priest had read when he went to Waseda. [auto-translated]"
+- Tangled Hair by Yosano Akiko: "On the desk in the main hall lay Tangled Hair (Midaregami), Ochiumeshu, Musashino, and the thin copy of Enoch Arden that the priest had read when he went to Waseda. [auto-translated]"
+- Enoch Arden by Alfred Tennyson: "On the desk in the main hall lay Midaregami, Ochiumeshu, Musashino, and the thin copy of Enoch Arden that the priest had read when he went to Waseda. [auto-translated]"
+- Musashino by Kunikida Doppo: "Tired of marking daily grades, Seizo took Musashino out of his bundle and read it eagerly, like a man thirsty for fresh taste. The author's feelings in Unforgettable People matched his own. [auto-translated]"
+- Unforgettable People by Kunikida Doppo: "Tired of marking daily grades, Seizo took Musashino out of his bundle and read it eagerly. The author's feelings in Unforgettable People, the shower in the woods of the Musashino outskirts, the young teacher boarding by the moonlit watermill bridge, all resembled his own. [auto-translated]"
+- Gankutsuo by Ruiko Kuroiwa: "He had lost interest in everything, and even Ruiko's Gankutsuo, which he had loved reading, he gave up halfway. [auto-translated]"
+- Kanbotan by Ozaki Kōyō: "Seventh: still recovering from illness and a boil, so I postponed returning to school. I started Koyo and Shuto's Kanbotan but gave up. Ninth: finished reading Kanbotan tonight, a story of agony within tragedy that follows sin, and the heroine Luisa's devoted attachment. [auto-translated]"
+- Bundan Shomakyo by Anonymous: "From Ishikawa came the usual attacks on Myojo, and on purpose he sent a pamphlet called Bundan Shomakyo, which exposed the private lives of the poet couple in Shibuya. [auto-translated]"
+- Ichiyō Zenshū by Higuchi Ichiyō: "On the large magnolia-wood desk beneath the lamp, the Myōjō, Bungei Club, the Man'yōshū and the Ichiyō Zenshū lay scattered in disorder. [auto-translated]"
+
 ## A Damsel in Distress by P. G. Wodehouse (1919)
 https://bookjumpr.com/p-g-wodehouse/a-damsel-in-distress
 - Mariana by Alfred Tennyson: "Tennyson's "Mariana" always made her wistful even when rendered by Albert."
@@ -192,6 +206,16 @@ https://bookjumpr.com/p-g-wodehouse/a-damsel-in-distress
 ## A Fine Balance by Rohinton Mistry (1995)
 https://bookjumpr.com/rohinton-mistry/a-fine-balance
 - Areopagitica by John Milton: "could range from something unpronounceable like Areopagitica by John Milton to The Illustrated Weekly of India."
+
+## A Fool's Life by Ryūnosuke Akutagawa (1927)
+https://bookjumpr.com/ryunosuke-akutagawa/a-fool-s-life
+- The Confession of a Fool by August Strindberg: "Under a low lamp he began to read The Confession of a Fool, but before he had read two pages he was smiling wryly: Strindberg too, in letters to the countess who was his mistress, had written things little different from his own. [auto-translated]"
+- Candide by Voltaire: "He moved on to the eighteenth-century philosophers but did not approach Rousseau; he drew near to the philosopher of Candide, who matched his cold, intellectual side. [auto-translated]"
+- West-Eastern Divan by Johann Wolfgang von Goethe: "The West-Eastern Divan again tried to give him new strength. It was the Oriental Goethe he had not known. Seeing Goethe stand serenely beyond good and evil, he felt an envy close to despair. [auto-translated]"
+- Confessions by Jean-Jacques Rousseau: "Even Rousseau's Confessions was full of heroic lies. [auto-translated]"
+- A New Life by Shimazaki Tōson: "Even Rousseau's Confessions was full of heroic lies, and as for Shinsei, he had never met a more cunning hypocrite than its hero. [auto-translated]"
+- Poetry and Truth by Johann Wolfgang von Goethe: "The title Poetry and Truth struck him as fitting any autobiography. So he decided to write a brief Poetry and Truth of his own. [auto-translated]"
+- The Inspector General by Nikolai Gogol: "He recalled the terracotta bust he had given his friend, the one of the author of The Inspector General, whom the friend loved. He thought of Gogol, who had also died mad. [auto-translated]"
 
 ## A Girl of the Limberlost by Gene Stratton-Porter (1909)
 https://bookjumpr.com/gene-stratton-porter/a-girl-of-the-limberlost
@@ -301,6 +325,15 @@ https://bookjumpr.com/ernest-hemingway/a-moveable-feast
 - Women in Love by D. H. Lawrence: "I couldn't read Women in Love"
 - The Prussian Officer by D. H. Lawrence: "He wrote some very good short stories, one called The Prussian Officer"
 - The Lodger by Marie Belloc Lowndes: "Miss Stein loaned me The Lodger, that marvellous story of Jack the Ripper"
+
+## A New Life by Shimazaki Tōson (1919)
+https://bookjumpr.com/shimazaki-toson/a-new-life
+- The Analects by Confucius: "Before he studied school books, he had learned a three-character primer his father wrote out himself, and once he went to the village school his father taught him to recite the Great Learning and the Analects aloud. [auto-translated]"
+- The Great Learning by Zengzi: "Before he studied school books, he had learned a three-character primer his father wrote out himself, and once he went to the village school his father taught him to recite the Great Learning and the Analects aloud. [auto-translated]"
+- Anna Karenina by Leo Tolstoy: "From the war before his eyes, Kishimoto began to read the hearts of the people moving within it. Like Vronsky's departure at the end of Anna Karenina, he could easily imagine young Frenchmen going willingly to the front to save themselves. [auto-translated]"
+- Don Quixote by Miguel de Cervantes: "The tercentenary of Cervantes was being marked, and in the bookshop windows new works commemorated the famous Spanish author who wrote Don Quixote. For a man devoted to letters like Kishimoto, walking past those windows made him feel all the more a traveler. [auto-translated]"
+- Confessions by Jean-Jacques Rousseau: "We are happy, aren't we? In Rousseau's Confessions, which you gave me, there is a passage saying that true happiness cannot be told, only felt, and that the less it can be put into words the more deeply it is felt. How true that is. [auto-translated]"
+- The Murasaki Shikibu Diary by Murasaki Shikibu: "The mademoiselle, a pure Frenchwoman who had gone to Japan out of love for it and now lived in Tokyo, could already speak a good deal of Japanese and read something like Murasaki Shikibu's diary. [auto-translated]"
 
 ## A Pair of Blue Eyes by Thomas Hardy (1873)
 https://bookjumpr.com/thomas-hardy/a-pair-of-blue-eyes
@@ -415,6 +448,17 @@ https://bookjumpr.com/bill-bryson/a-short-history-of-nearly-everything
 - Frankenstein by Mary Shelley: "a notion Mary Shelley exploited to full effect in her novel Frankenstein"
 - Longitude by Dava Sobel: "In Dava Sobel's popular book Longitude, Maskelyne is presented as a ninny and villain..."
 - Wonderful Life by Stephen Jay Gould: "Gould's Wonderful Life was published in 1989 to general critical acclaim..."
+
+## A Six-Foot Sickbed by Masaoka Shiki (1902)
+https://bookjumpr.com/masaoka-shiki/a-six-foot-sickbed
+- The Tale of Genji by Murasaki Shikibu: "Scholars of Japanese literature and native learning have devoted themselves mainly to studying The Tale of Genji, The Pillow Book and the like, and, dismissing everything from the Tokugawa period on as vulgar, they ignore it, so they know nothing of three hundred years of recent literature. [auto-translated]"
+- The Pillow Book by Sei Shōnagon: "Scholars of Japanese literature and native learning have devoted themselves mainly to studying The Tale of Genji, The Pillow Book and the like, and, dismissing everything from the Tokugawa period on as vulgar, they ignore it, so they know nothing of three hundred years of recent literature. [auto-translated]"
+- Sarumino by Nozawa Bonchō and Mukai Kyorai: "There is a verse on the horned owl in Sarumino. Besides that one, Sarumino has one more horned-owl verse, but the oldest owl verse I know of appears in a haikai book called Ashiwake-bune, from around the seventh year of Genroku. [auto-translated]"
+- Ashiwake-bune by Anonymous: "There is a verse on the horned owl in Sarumino. Besides that one, Sarumino has one more horned-owl verse, but the oldest owl verse I know of appears in a haikai book called Ashiwake-bune, from around the seventh year of Genroku. [auto-translated]"
+- Kyōgenki by Anonymous: "I borrowed a book called Kyōgenki from someone and read two or three pieces, and found much of interest in it. I do not fully know how kyōgen developed, but it appears on the stage together with Noh as its comic, vulgar counterpart. [auto-translated]"
+- A Year and a Half by Nakae Chōmin: "When Master Chōmin wrote A Year and a Half, he seems to have made his peace with the question of life and death, but I think he did not reach the realm of actually enjoying his appointed fate. [auto-translated]"
+- The Autobiography of Benjamin Franklin by Benjamin Franklin: "Around this time last year I read The Autobiography of Benjamin Franklin as a daily task. The small foreign print was hard going, so I read three pages and stopped, five pages and stopped, struggling through, but the pleasure I got from it was immense. [auto-translated]"
+- Hasshōjin by Takitei Rijō: "Shihōta says he is a devoted reader of Hasshōjin, which suits my own heart very well. It is rare to find worship of Rijō in a world that prizes only love stories. [auto-translated]"
 
 ## A Sportsman's Sketches by Ivan Turgenev (1852)
 https://bookjumpr.com/ivan-turgenev/a-sportsman-s-sketches
@@ -797,6 +841,15 @@ https://bookjumpr.com/jo-walton/among-others
 - Pilgrimage by Zenna Henderson: "“How about Zenna Henderson?” “Pilgrimage,” I breathed. It is a book that speaks to me. I love it."
 - Lochinvar by Walter Scott: "There’s a story in there just the same as there is in “Young Lochinvar,” but it isn’t on the surface much at all."
 
+## An Encouragement of Learning by Fukuzawa Yukichi (1872)
+https://bookjumpr.com/fukuzawa-yukichi/an-encouragement-of-learning
+- Kojiki by O no Yasumaro: "A man who can recite Japan's Kojiki from memory but does not know today's price of rice should be called ignorant in the learning of everyday life. [auto-translated]"
+- The Elements of Moral Science by Francis Wayland: "In a book called The Elements of Moral Science, written by an American named Wayland, there is a discussion of the freedom of a person's body and mind; the gist of the argument is that each person's self belongs to himself. [auto-translated]"
+- Rangaku Koto Hajime by Sugita Genpaku: "Japan's civilization first came from Korea and China, then was polished by our own people's efforts into its modern shape; Western learning has distant roots, reaching back to the Horeki era (see the printed book Rangaku Koto Hajime). [auto-translated]"
+- The Subjection of Women by John Stuart Mill: "Today it seems almost natural that men attend to affairs outside and women manage the home, but Stuart Mill wrote The Subjection of Women, attempting to break this age-old, seemingly fixed custom. [auto-translated]"
+- Twenty-Four Paragons of Filial Piety by Guo Jujing: "Stories urging filial piety have been very numerous in Japan and China since ancient times, beginning with the Twenty-Four Paragons of Filial Piety, and the other writings are too many to count. [auto-translated]"
+- Greater Learning for Women by Kaibara Ekken: "The book Greater Learning for Women says: 'A woman has three obediences: in youth she obeys her parents, once married her husband, and in old age her sons.' [auto-translated]"
+
 ## An Enquiry Concerning Human Understanding by David Hume (1748)
 https://bookjumpr.com/david-hume/an-enquiry-concerning-human-understanding
 - Recueil des Miracles de l'Abbe Paris by Anonymous: "There is another book in three volumes (called _Recueil des Miracles de l'Abbé_ Paris) giving an account of many of these miracles, and accompanied with prefatory discourses, which are very well written."
@@ -816,6 +869,35 @@ https://bookjumpr.com/ed-yong/an-immense-world
 - Silent Thunder by Katy Payne: "Silent Thunder (Katy Payne), 235 — Payne's memoir on elephant communication, referenced in Yong's chapters on hearing."
 - The Seabird's Cry by Adam Nicolson: "The Seabird's Cry (Nicolson) — referenced in Yong's discussion of seabirds and their senses."
 - I Contain Multitudes by Ed Yong: "There's another twist to this story, which readers of my first book, I Contain Multitudes, will be delighted by."
+
+## An Inquiry into the Good by Nishida Kitarō (1911)
+https://bookjumpr.com/nishida-kitaro/an-inquiry-into-the-good
+- The Republic by Plato: "In his famous work The Republic, Plato equates the organization of the human mind with the organization of the state, and says that the state governed by reason is the highest good for both state and individual. [auto-translated]"
+- Symposium by Plato: "In his famous Symposium, Plato says that 'love is the longing of that which is lacking to return to its original wholeness.' [auto-translated]"
+- Tannisho by Yuien: "The Tannisho likewise says, 'Even the nembutsu I recite while striving in my own heart for rebirth is practiced as my own effort (self-power).' Nishida cites it to show that chanting merely to gain rebirth is not true religious feeling. [auto-translated]"
+- Personality, Human and Divine by J. R. Illingworth: "Illingworth, in Personality Human and Divine, says: 'A personality necessarily seeks other personalities; in other personalities the self finds the satisfaction of its whole personality; love is thus an indispensable mark of personality.' [auto-translated]"
+- De Profundis by Oscar Wilde: "Here I cannot help recalling a passage from Oscar Wilde's De Profundis. [auto-translated]"
+- Principles of Psychology by William James: "Just as a geometer imagines one triangle and uses it to stand for all triangles, the representative element of a concept is, when present, only a kind of feeling (James, The Principles of Psychology, Vol. I, Chap. VII). [auto-translated]"
+- A World of Pure Experience by William James: "Even the so-called fringe of consciousness, once admitted among the facts of immediate experience, brings in the consciousness of relations between experienced facts, just like sensation and perception (James, A World of Pure Experience). [auto-translated]"
+- Grundriss der Psychologie by Wilhelm Wundt: "The term experience is not clearly defined; Wundt, for instance, calls knowledge inferred from experience 'indirect experience' and treats physics and chemistry as sciences of indirect experience (Wundt, Grundriss der Psychologie). [auto-translated]"
+- Logik by Wilhelm Wundt: "As Wundt said, every judgment arises from the analysis of a complex representation (Wundt, Logik, Bd. I, Abs. III, Kap. 1). [auto-translated]"
+- Analytic Psychology by G. F. Stout: "Even when it is a reproduction of past consciousness, once it is unified in present consciousness and becomes an element with a new meaning, it can no longer be called identical with the past consciousness (Stout, Analytic Psychology, Vol. II, p. 45). [auto-translated]"
+- Manual of Psychology by G. F. Stout: "As when one desperately climbs a cliff, or a musician plays a practiced piece, it may be called a continuous train of perception (Stout, Manual of Psychology, p. 252). [auto-translated]"
+- The World as Will and Representation by Arthur Schopenhauer: "This is why the will is always in the present (Schopenhauer, The World as Will and Representation, section 54). [auto-translated]"
+- An Essay Concerning Human Understanding by John Locke: "As Locke said that even in demonstrative knowledge each step requires intuitive proof, at the base of every judgment in a chain there must always be a fact of pure experience (Locke, An Essay Concerning Human Understanding, Bk. IV, Chap. II). [auto-translated]"
+- Studies in Logical Theory by John Dewey: "Gore holds that the relation between an image and its meaning is the same as that between a stimulus and its response (Dewey, Studies in Logical Theory). [auto-translated]"
+- Science of Logic by Georg Wilhelm Friedrich Hegel: "Hegel too says that the universal is the soul of the concrete (Hegel, Science of Logic, III, p. 37). [auto-translated]"
+- Personal Idealism by Henry Sturt: "As Schiller and others argue, even an axiom originally developed from practical use, and in its genesis is no different from our mere wishes (Sturt, Personal Idealism, p. 92). [auto-translated]"
+- Introduction to Philosophy by Wilhelm Jerusalem: "As Jerusalem and others hold, the scientific notion that forces act upon the external world must be regarded as an analogy drawn from our own will (Jerusalem, Introduction to Philosophy, section 27). [auto-translated]"
+- The Gods of Greece by Friedrich Schiller: "Thunder was the wrath of Zeus on Mount Olympus, and the cuckoo's cry was Philomela's age-old grief (see Schiller, The Gods of Greece). [auto-translated]"
+- De Docta Ignorantia by Nicholas of Cusa: "God is, as Nicholas of Cusa and others said, the negation of everything; nothing affirmable or graspable is God, for what can be grasped is already finite (De Docta Ignorantia, Cap. 24). [auto-translated]"
+- Faust by Johann Wolfgang von Goethe: "Like Faust returning to his lonely study late at night after a walk in the fields, following great anguish about life, in quiet nights and a peaceful heart this feeling spontaneously stirs (Goethe, Faust, Part One, Study). [auto-translated]"
+- The World and the Individual by Josiah Royce: "Royce too says, 'The existence of nature is bound up with the belief in the existence of our fellows' (Royce, The World and the Individual, Second Series, Lect. IV). [auto-translated]"
+- Ethics by Baruch Spinoza: "In God knowing is acting and acting is knowing, and reality is directly God's thought and also His will (see Spinoza, Ethics, I, Prop. 17, Scholium). [auto-translated]"
+- The Confessions by Augustine of Hippo: "Augustine also says, 'God's will is unchanging; He does not will at one time and not at another, much less reverse an earlier decision later' (The Confessions, XII. 15). [auto-translated]"
+- Die Philosophie des heiligen Augustinus by Storz: "Thus what Augustine said, that God beholds all things in an unchanging intuition and that God is at rest in motion and in motion at rest, can also be understood (Storz, Die Philosophie des heiligen Augustinus, section 20). [auto-translated]"
+- The Varieties of Religious Experience by William James: "One could cite endless such experiences of religious mystics (James, The Varieties of Religious Experience, Lect. XVI, XVII). [auto-translated]"
+- The Doctrine of the Mean by Zisi: "That the mean is good is Aristotle's view, and in the East it also appears in the book The Doctrine of the Mean. [auto-translated]"
 
 ## An Old-Fashioned Girl by Louisa May Alcott (1869)
 https://bookjumpr.com/louisa-may-alcott/an-old-fashioned-girl
@@ -899,6 +981,11 @@ https://bookjumpr.com/rabih-alameddine/an-unnecessary-woman
 - The Mu'allaqat (The Suspended Odes) by Anonymous: ""The Suspended Odes, the Hanging Poems, seven poems from seven poets before Islam"; her paperbacks of the Muallaqat"
 - La Chute (The Fall) by Albert Camus: "As Camus said in The Fall: “Ah, mon cher, for anyone who is alone, without God and without a master, the weight of days is dreadful.”"
 
+## And Then by Natsume Sōseki (1909)
+https://bookjumpr.com/natsume-soseki/and-then
+- Baien by Morita Sōhei: ""Baien has become quite something," Kadono said loudly. "I read it every morning." Daisuke asked whether it was interesting, and Kadono said it seemed so, as it showed a modern anxiety. [auto-translated]"
+- The Analects by Confucius: ""You say that because Father swallows ingots of gold like The Analects and Wang Yangming," said Daisuke. "Ingots of gold?" "They come out as ingots," he answered. [auto-translated]"
+
 ## Angela's Ashes by Frank McCourt (1996)
 https://bookjumpr.com/frank-mccourt/angela-s-ashes
 - The Deserted Village by Oliver Goldsmith: "In seventh class he hands out a small book, a poem that goes on for pages and pages, The Deserted Village, by Oliver Goldsmith."
@@ -974,6 +1061,22 @@ https://bookjumpr.com/george-bernard-shaw/arms-and-the-man
 ## Arne by Bjørnstjerne Bjørnson (1859)
 https://bookjumpr.com/bj-rnstjerne-bj-rnson/arne
 - Northern Mythology by Benjamin Thorpe: "The Huldres take possession of the forsaken pasture-spots... --Thorpe's Northern Mythology."
+
+## Arrowroot by Jun'ichirō Tanizaki (1931)
+https://bookjumpr.com/jun-ichiro-tanizaki/arrowroot
+- Taiheiki by Anonymous: "I too loved the Taiheiki in my boyhood, and this led me to take an interest in the secret history of the Southern Court. I had long harbored a plan to build a historical novel around the deeds of King Jiten (Jiten-o). [auto-translated]"
+- Nanzan Junshuroku by Anonymous: "Accounts differ somewhat from book to book, but these events are recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no ki and others. [auto-translated]"
+- Kyōkakuden by Takizawa Bakin: "Bakin is said to have an unfinished work called Kyokakuden. I have not read it, but I hear it centers on an imaginary Kusunoki daughter, so it seems unrelated to the deeds of King Jiten. [auto-translated]"
+- Imoseyama Onna Teikin by Chikamatsu Hanji: "The author of Imoseyama Onna Teikin probably got that conception from the real scenery here, though at this point the river is wider than on the stage and not as narrow a gorge as in the play. [auto-translated]"
+- Yoshitsune Senbonzakura by Takeda Izumo: ""After Imoseyama comes Yoshitsune Senbonzakura, you know," Tsumura said. Later he suggested that the author of Senbonzakura, as the author of Imoseyama did from real scenery, may have visited the Otani house or heard of it and thought up the drum. [auto-translated]"
+- Futari Shizuka by Anonymous: "Surely it is much the same as the Tsurube-zushi house. There is the Noh play Futari Shizuka, so some prankster of long ago must have thought it up. [auto-translated]"
+- The Tale of the Heike by Anonymous: "There is no need now to explain what age the Genbun era was, or to cite the Azuma Kagami or The Tale of the Heike on the life of Lady Shizuka. [auto-translated]"
+- Azuma Kagami by Anonymous: "There is no need now to explain what age the Genbun era was, or to cite the Azuma Kagami or The Tale of the Heike on the life of Lady Shizuka. [auto-translated]"
+- Nanpō Kiden by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
+- Ōunki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
+- Totsukawa no Ki by Anonymous: "The accounts differ somewhat from book to book, but the events are all recorded in the Nanzan Junshuroku, the Nanpō Kiden, the Ōunki, the Totsukawa no Ki and others. [auto-translated]"
+- Akamatsu-ki by Anonymous: "According to the Kōzuki-ki, the Akamatsu-ki and others, thirty remnants of the Akamatsu clan under Mashima Hikotarō, who had pretended to submit to the Southern Emperor, struck suddenly in a heavy snow on the second of the twelfth month of Chōroku 1. [auto-translated]"
+- Yamato Meisho Zue by Anonymous: "The Yamato Meisho Zue and others also say, 'In the village of Natsumi there is a famous spring called Hanakago no Mizu, and the site of a house where Shizuka Gozen once lived,' so the tradition is clearly old. [auto-translated]"
 
 ## Artful by Ali Smith (2012)
 https://bookjumpr.com/ali-smith/artful
@@ -1224,6 +1327,10 @@ https://bookjumpr.com/herman-melville/bartleby-the-scrivener
 - The Freedom of the Will by Jonathan Edwards: "at leisure intervals I looked a little into “Edwards on the Will,” and “Priestly on Necessity.”"
 - The Doctrine of Philosophical Necessity Illustrated by Joseph Priestley: "at leisure intervals I looked a little into “Edwards on the Will,” and “Priestly on Necessity.”"
 
+## Beast in the Shadows by Edogawa Rampo (1928)
+https://bookjumpr.com/edogawa-rampo/beast-in-the-shadows
+- Henmeden by Hirotsu Ryuro: "From seven o'clock to seven-thirty you leaned on the small desk in your bedroom and read a novel. It was a short story collection by Hirotsu Ryuro, and of it you finished only 'Henmeden'. [auto-translated]"
+
 ## Beautiful World, Where Are You by Sally Rooney (2021)
 https://bookjumpr.com/sally-rooney/beautiful-world-where-are-you
 - My Vocation by Natalia Ginzburg: "(epigraph) —Natalia Ginzburg, ‘My Vocation’ (trans. Dick Davis)"
@@ -1242,6 +1349,10 @@ https://bookjumpr.com/michelle-obama/becoming
 - What to Expect When You're Expecting by Heidi Murkoff: "She was there, always, while I was driving to work, or chopping vegetables for a salad, or lying in bed at night, poring over the pages of What to Expect When You're Expecting for the nine hundredth time."
 - Encyclopaedia Britannica by Anonymous: "They bought us a dictionary and a full Encyclopaedia Britannica set, which lived on a shelf in the stairwell to our apartment, its titles etched in gold."
 - Jack and the Beanstalk by Anonymous: "He was like the little boy from "Jack and the Beanstalk," I teased, who trades his family's livelihood for a handful of magic beans, believing with his whole heart that they will yield something, even if no one else does."
+
+## Beef and Potatoes by Kunikida Doppo (1901)
+https://bookjumpr.com/kunikida-doppo/beef-and-potatoes
+- Elegy Written in a Country Churchyard by Thomas Gray: "A poet? Why yes, in those days I was a poet. I used to love reading the translation of Gray's Elegy Written in a Country Churchyard, the one that begins 'Yamayama kasumi iriai no', and write verses of my own. Compared with today's new-style poets I'm a veteran, you know. [auto-translated]"
 
 ## Being There by Jerzy Kosinski (1970)
 https://bookjumpr.com/jerzy-kosinski/being-there
@@ -1394,6 +1505,11 @@ https://bookjumpr.com/george-gissing/born-in-exile
 - The Soul, Her Sorrows and Her Aspirations by Francis William Newman: "I wonder whether you ever read Francis Newman's book on _The Soul_?"
 - A Monograph of the British Fossil Brachiopoda by Thomas Davidson: "Those publications of the Palaeontological Society, one volume of which (a part of Davidson's superb work on the _Brachiopoda_) even now lay open within sight"
 
+## Botchan by Natsume Sōseki (1906)
+https://bookjumpr.com/natsume-soseki/botchan
+- The Autobiography of Benjamin Franklin by Benjamin Franklin: "Red Shirt should have been a little more considerate. And if he wants to mention such names at all, let him mention "Autobiography of Ben Franklin," or "Pushing to the Front," or something we all know."
+- Pushing to the Front by Orison Swett Marden: "Red Shirt should have been a little more considerate. And if he wants to mention such names at all, let him mention "Autobiography of Ben Franklin," or "Pushing to the Front," or something we all know."
+
 ## Brave New World by Aldous Huxley (1932)
 https://bookjumpr.com/aldous-huxley/brave-new-world
 - Romeo and Juliet by William Shakespeare: "Upstairs in his room the Savage was reading Romeo and Juliet."
@@ -1450,7 +1566,6 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 - Feudal and Modern Japan by Arthur May Knapp: "[Footnote 15: Knapp, _Feudal and Modern Japan_, Vol. I, Ch. IV."
 - Reflections on the Revolution in France by Edmund Burke: "It is a pleasure to me to reflect upon this subject in the language of Burke, who uttered the well-known touching eulogy over the neglected bier of its European prototype."
 - Theory of the Leisure Class by Thorstein Veblen: "Very fitly does Mr. Veblen, in his interesting book,[11] call decorum “a product and an exponent of the leisure-class life.” [Footnote 11: _Theory of the Leisure Class_, N.Y. 1899, p. 46.]"
-- The Doctrine Of The Mean by Confucius: "The apotheosis of Sincerity to which Tsu-tsu gives expression in the _Doctrine of the Mean_, attributes to it transcendental powers, almost identifying them with the Divine."
 - The Gist of Japan by R. B. Peery: "[Footnote 14: Peery, _The Gist of Japan_, p. 86.]"
 - Japan in Transition by Stafford Ransome: "Ransome, _Japan in Transition_, Ch. VIII.]"
 - Philosophy of History by Georg Wilhelm Friedrich Hegel: "[Footnote 16: _Philosophy of History_ (Eng. trans. by Sibree), Pt. IV, Sec. II, Ch. I.]"
@@ -1461,6 +1576,25 @@ https://bookjumpr.com/inazo-nitobe/bushido-the-soul-of-japan
 - Tales of Old Japan by Algernon Bertram Freeman-Mitford: "Mitford, in his “Tales of Old Japan,” after giving a translation of a treatise on _seppuku_ from a rare Japanese manuscript, goes on to describe an instance of such an execution of which he was an eye-witness"
 - History of European Morals by William Edward Hartpole Lecky: "[Footnote 24: Lecky, _History of European Morals_ II, p. 383.]"
 - Lotos Time in Japan by Henry T. Finck: "[Footnote 25: For a very sensible explanation of nudity and bathing see Finck's _Lotos Time in Japan_, pp. 286-297.]"
+- The Doctrine of the Mean by Zisi: "The apotheosis of Sincerity to which Tsu-tsu gives expression in the _Doctrine of the Mean_, attributes to it transcendental powers, almost identifying them with the Divine."
+- Bishop Blougram's Apology by Robert Browning: "What if the breaks themselves should prove at last The most consummate of contrivances To train a man's eye, teach him what is faith?" --ROBERT BROWNING, Bishop Blougram's Apology."
+- A View of the State of Europe during the Middle Ages by Henry Hallam: "These are the spirits of liberty, of religion, and of honor." --HALLAM, Europe in the Middle Ages."
+- Philosophy of History by Friedrich von Schlegel: "These are the spirits of liberty, of religion, and of honor." --HALLAM, Europe in the Middle Ages. "Chivalry is itself the poetry of life." --SCHLEGEL, Philosophy of History."
+- Capital by Karl Marx: "More than a decade later, about the time that our feudalism was in the last throes of existence, Carl Marx, writing his "Capital," called the attention of his readers to the peculiar advantage of studying the social and political institutions of feudalism, as then to be seen in living form only in Japan."
+- The Analects by Confucius: "In his "Analects" Confucius defines Courage by explaining, as is often his wont, what its negative is. "Perceiving what is right," he says, "and doing it not, argues lack of courage.""
+- Religio Medici by Thomas Browne: "In that quaint book of Sir Thomas Browne's, Religio Medici there is an exact English equivalent for what is repeatedly taught in our Precepts."
+- Suicide by Henry Morselli: "But a normal seppuku does not savor of fanaticism, or madness or excitement, utmost sang froid being necessary to its successful accomplishment. Of the two kinds into which Dr. Strahan divides suicide, the Rational or Quasi, and the Irrational or True, seppuku is the best example of the former type. Morselli, Suicide, p. 314."
+- Suicide and Insanity by Samuel Alexander Kenny Strahan: "Of the two kinds into which Dr. Strahan divides suicide, the Rational or Quasi, and the Irrational or True, seppuku is the best example of the former type. Morselli, Suicide, p. 314. Suicide and Insanity."
+- Aristocracy and Evolution by William Hurrell Mallock: "Mr. Mallock, in his exceedingly suggestive book, "Aristocracy and Evolution," has eloquently told us that "social evolution, in so far as it is other than biological, may be defined as the unintended result of the intentions of great men;""
+- The Psychology of Peoples by Gustave Le Bon: "instead of making it, as LeBon does, an exclusive patrimony of a race or people, the Concord philosopher calls it "an element which unites the most forcible persons of every country; makes them intelligible and agreeable to each other; and is somewhat so precise that it is at once felt if an individual lack the Masonic sign." The…"
+- Missions and Politics in Asia by Robert E. Speer: "he touched the main spring which has made new Japan what she is and which will make her what she is destined to be. Speer; Missions and Politics in Asia, Lecture IV, pp. 189-190; Dennis: Christian Missions and Social Progress, Vol. I, p. 32, Vol. II, p. 70, etc."
+- Christian Missions and Social Progress by James S. Dennis: "he touched the main spring which has made new Japan what she is and which will make her what she is destined to be. Speer; Missions and Politics in Asia, Lecture IV, pp. 189-190; Dennis: Christian Missions and Social Progress, Vol. I, p. 32, Vol. II, p. 70, etc."
+- Asia and Europe by Meredith Townsend: "The sense of honor which cannot bear being looked down upon as an inferior power,--that was the strongest of motives. Pecuniary or industrial considerations were awakened later in the process of transformation. Meredith Townsend, Asia and Europe, N.Y., 1900, 28."
+- Heroic Japan by F. Eastlake and Yoshiaki Yamada: "Among other works on the subject, read Eastlake and Yamada on Heroic Japan, and Diosy on The New Far East."
+- The New Far East by Arthur Diosy: "Among other works on the subject, read Eastlake and Yamada on Heroic Japan, and Diosy on The New Far East."
+- Sermons on Faith and Doctrine by Benjamin Jowett: "They have not aimed at impartiality, but have been contented to accumulate all that could be said in praise of their own, and in dispraise of other forms of religion." Jowett, Sermons on Faith and Doctrine, II."
+- The History of the Norman Conquest of England by Edward A. Freeman: "Chivalry is, as Freeman severely criticizes, a class spirit. Modern society, if it pretends to any unity, cannot admit "purely personal obligations devised in the interests of an exclusive class." [Norman Conquest, Vol. V, p. 482]"
+- The Koran by Anonymous: ""God has granted," says the Koran, "to every people a prophet in its own tongue." The seeds of the Kingdom, as vouched for and apprehended by the Japanese mind, blossomed in Bushido."
 
 ## Butcher's Crossing by John Williams (1960)
 https://bookjumpr.com/john-williams/butcher-s-crossing
@@ -1533,6 +1667,10 @@ https://bookjumpr.com/joseph-heller/catch-22
 - The Last of the Mohicans by James Fenimore Cooper: "There was the Bible, of course, but the Bible was a book, and so were Bleak House, Treasure Island, Ethan Frome and The Last of the Mohicans."
 - Moby-Dick by Herman Melville: "machine and spent his sessions with the dying colonel trying to discuss Moby Dick with him."
 
+## Cherries by Osamu Dazai (1948)
+https://bookjumpr.com/osamu-dazai/cherries
+- Yanagidaru by Anonymous: "At the crowded supper the father wipes his face with a towel and mutters, "The Yanagidaru said that working up a great sweat while eating is vulgar, but with the children this noisy, even the most refined of fathers is dripping with sweat." [auto-translated]"
+
 ## China Rich Girlfriend by Kevin Kwan (2015)
 https://bookjumpr.com/kevin-kwan/china-rich-girlfriend
 - Snobs by Julian Fellowes: "The books are to be read in the following order: Snobs by Julian Fellowes..."
@@ -1588,6 +1726,18 @@ https://bookjumpr.com/david-mitchell/cloud-atlas
 - The Island of Doctor Moreau by H. G. Wells: "Some music will be drawn from an abortive opera based on The Island of Doctor Moreau, whose Viennese production was canceled by the war"
 - A Thousand and One Nights by Anonymous: "I’ve thought of this balcony as my own belvedere, from A Thousand and One Nights."
 - The Drowned and the Saved by Primo Levi: "I thought of Primo Levi’s Drowned and the Saved."
+
+## Cogwheels by Ryūnosuke Akutagawa (1927)
+https://bookjumpr.com/ryunosuke-akutagawa/cogwheels
+- Inferno by Dante Alighieri: "I remembered the souls turned into trees in Dante's Inferno, and decided to walk on the far side of the tram tracks, where there was nothing but rows of buildings. [auto-translated]"
+- Crime and Punishment by Fyodor Dostoevsky: "To dispel this fear I began to read Crime and Punishment. But the page I happened to open was a passage from The Brothers Karamazov, and I thought I had picked up the wrong book. [auto-translated]"
+- Polikushka by Leo Tolstoy: "I lay down on the bed and began to read Tolstoy's Polikouchka. Its hero was a man of complex character, a mixture of vanity, morbid tendencies and ambition. [auto-translated]"
+- Tenkibo by Ryūnosuke Akutagawa: ""You don't seem to write at all. Though I did read 'Tenkibo'... Is that your autobiography?" "Yes, it's my autobiography." [auto-translated]"
+- Legend by August Strindberg: "On the second floor of Maruzen I found Strindberg's Legend on a shelf and read a few pages here and there. It described experiences not much different from my own. [auto-translated]"
+- A Dark Night's Passing by Naoya Shiga: "After he had finally left, I lay on the bed and began to read A Dark Night's Passing. The hero's spiritual struggles were painfully real to me. [auto-translated]"
+- Shakko by Mokichi Saito: ""I'm sending you the reprint of the poetry collection Shakko..." Shakko! I felt some unseen thing sneering at me, and decided to flee from my room. [auto-translated]"
+- The Brothers Karamazov by Fyodor Dostoevsky: "I began reading "Crime and Punishment" to ease this fear. But the page I happened to open was a passage from The Brothers Karamazov. [auto-translated]"
+- Madame Bovary by Gustave Flaubert: "Even when I picked up Madame Bovary, which I had read over and over, I felt that I was, after all, nothing but a middle-class Monsieur Bovary myself. [auto-translated]"
 
 ## Common Sense by Thomas Paine (1776)
 https://bookjumpr.com/thomas-paine/common-sense
@@ -1955,7 +2105,7 @@ https://bookjumpr.com/cixin-liu/death-s-end
 - A Descent into the Maelstrom by Edgar Allan Poe: "Poe wrote a story about Mosken—'A Descent into the Maelstrom.' I read it when I was younger."
 - Gone with the Wind by Margaret Mitchell: "Remember what Scarlett's father told her in Gone With the Wind?"
 - The Judgment by Franz Kafka: "He thought of "The Judgment" by Franz Kafka, in which a father curses his son and sentences him to death."
-- Classic of Poetry by traditional, compiled c. 11th-7th century BC: ""That's the Classic of Poetry, from a millennium before the time of Christ," Luo Ji said."
+- Classic of Poetry by Anonymous: ""That's the Classic of Poetry, from a millennium before the time of Christ," Luo Ji said."
 
 ## Deception by Philip Roth (1990)
 https://bookjumpr.com/philip-roth/deception
@@ -2051,6 +2201,13 @@ https://bookjumpr.com/stephen-king/doctor-sleep
 ## Doctor Thorne by Anthony Trollope (1858)
 https://bookjumpr.com/anthony-trollope/doctor-thorne
 - Hamlet by William Shakespeare: "made such a comparison between Louis Scatcherd and Frank Gresham as Hamlet made between the dead and live king. It was Hyperion to a satyr."
+
+## Dogra Magra by Yumeno Kyūsaku (1935)
+https://bookjumpr.com/yumeno-kyusaku/dogra-magra
+- On the Origin of Species by Charles Darwin: "The paper Dr. Masaki submitted then, Dr. Saito predicted, would shake the scholarly world as much as Darwin's On the Origin of Species or Einstein's Principle of Relativity, or even more: it was the Treatise on the Brain. [auto-translated]"
+- Nansō Satomi Hakkenden by Takizawa Bakin: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Nansō Satomi Hakkenden and the Water Margin. [auto-translated]"
+- Lotus Sutra by Anonymous: "As for the monk's name, Shōkū, it sounds Tendai, so he probably read something like the Lotus Sutra and grasped this principle from it. [auto-translated]"
+- Water Margin by Shi Nai'an: "A young man who can calmly answer whether that girl is beautiful is either a worn-out playboy or a descendant of the impotent men who appear in Hakkenden and the Water Margin. [auto-translated]"
 
 ## Dombey and Son by Charles Dickens (1848)
 https://bookjumpr.com/charles-dickens/dombey-and-son
@@ -2374,6 +2531,17 @@ https://bookjumpr.com/thomas-hardy/far-from-the-madding-crowd
 - The Tour of Doctor Syntax in Search of the Picturesque by William Combe: "Bring me ‘Love in a Village,’ and the ‘Maid of the Mill,’ and ‘Doctor Syntax,’ and some volumes of the ‘Spectator.’”"
 - Othello by William Shakespeare: "And that story of the black man, who murdered his wife Desdemona? It is a nice dismal one that would suit you excellent just now."
 
+## Farewell by Osamu Dazai (1945)
+https://bookjumpr.com/osamu-dazai/farewell
+- Mr. Fujino by Lu Xun: "Well, you see, when I read Lu Xun's essay titled Mr. Fujino, it says that around 1904 and 1905, during the Russo-Japanese War, Lu Xun was at the Sendai medical school and was greatly looked after by a teacher named Genkuro Fujino. [auto-translated]"
+- Mozi by Mozi: "In the Chinese book Mozi it is written that the inventor Gongshu showed Mozi a magpie made of bamboo and boasted that, once released into the sky, this toy would fly about for three days; Mozi frowned, said it still could not match a carpenter making a wheel, and had the dangerous toy thrown away. [auto-translated]"
+- Evolution and Ethics by Thomas Henry Huxley: "Among the students too it was the fashion to read new books, and above all Yan Fu's Chinese translation, the Tianyan Lun, won overwhelming popularity. It was a translation into classical Chinese of the naturalist Thomas Huxley's Evolution and Ethics, and one Sunday I went out to the south of the city to buy it myself. [auto-translated]"
+- Exhortation to Learn by Zhang Zhidong: "A couple of years earlier, even the famous Exhortation to Learn that Zhang Zhidong had written strongly stressed the need to study in Japan, and the government had begun sending a few Chinese students to Japan each year. [auto-translated]"
+- Kaitai Shinsho by Sugita Genpaku: "That first lecture was a history of the development of anatomy in Japan, and the large and small books the teacher brought were all Japanese works on anatomy from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them. [auto-translated]"
+- Rangaku Koto Hajime by Sugita Genpaku: "The large and small books the teacher brought were all Japanese works on anatomy, from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them, and he described in his slow, distinctive way the tension of Genpaku and his friends as they dissected a criminal's corpse at the Kozukappara… [auto-translated]"
+- Quanti Xinlun by Benjamin Hobson: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
+- Huaxue Weisheng Lun by John Fryer: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
+
 ## Father Goriot by Honoré de Balzac (1835)
 https://bookjumpr.com/honore-de-balzac/father-goriot
 - Le Solitaire by Charles-Victor Prévost d'Arlincourt: "Marty in _Le Mont Sauvage_, a fine play taken from _Le Solitaire_...."
@@ -2517,6 +2685,12 @@ https://bookjumpr.com/olga-tokarczuk/flights
 - Corporis Humani Anatomia by Filip Verheyen: "when several years later in 1693 I was sent by the printer to show Verheyen the fat edition of his first book – the great anatomical atlas, Corporis Humani Anatomia, still damp from the printer's ink."
 - Słownik grecko-polski (Greek-Polish Dictionary) by Zofia Abramowiczówna: "And the four volumes of Greek-Polish Dictionary edited by Zofia Abramowiczówna, 1962. Published by PWN."
 - The Clinical Syndromes by Anonymous: "We had better take a peek at this old edition (published in the seventies) of The Clinical Syndromes, which is an encyclopaedia of syndromes of sorts."
+
+## Floating Clouds by Hayashi Fumiko (1951)
+https://bookjumpr.com/hayashi-fumiko/floating-clouds
+- The Possessed by Fyodor Dostoevsky: "Tomioka had not entirely given up his dream of death. He recalled how, in The Possessed, which he had read in Indochina long ago, Stavrogin carefully prepared for death by smearing a strong silk cord thickly with soap beforehand so that dying would hurt as little as possible. [auto-translated]"
+- Bel-Ami by Guy de Maupassant: "At the camp in Hanoi I read a novel called Bel-Ami, and you are like its hero. But he is a homeless drifter who uses women as a ladder to get ahead, while you use only women as your ladder. [auto-translated]"
+- L'Assommoir by Émile Zola: "Tomioka thought he would stop at a secondhand shop and buy a novel to take home. What he wanted to read was Zola. He recalled that a mixed-race typist at the forestry office in Dalat had once lent him Zola's L'Assommoir. [auto-translated]"
 
 ## Foucault's Pendulum by Umberto Eco (1988)
 https://bookjumpr.com/umberto-eco/foucault-s-pendulum
@@ -2802,11 +2976,62 @@ https://bookjumpr.com/francois-rabelais/gargantua-and-pantagruel
 - De Clementia by Seneca: "This detestable saying, of which Cicero, lib. De Finib., and Seneca, lib. 2, De Clementia, make mention, is ascribed to the Emperor Tiberius by Dion Nicaeus and Suidas."
 - On the Obsolescence of Oracles by Plutarch: "See Plutarch, in his book about the Cessation of Oracles."
 
+## Gesaku Zanmai by Ryūnosuke Akutagawa (1917)
+https://bookjumpr.com/ryunosuke-akutagawa/gesaku-zanmai
+- Nansō Satomi Hakkenden by Takizawa Bakin: "The Nansō Satomi Hakkenden, Master, grows ever more wondrous with each volume, and it is splendidly done. Funamushi disguising herself as a blind woman to try to kill Kobungo, and then, once seized and tortured, the rescue by Sōsuke: that sequence is simply beyond words. [auto-translated]"
+- Water Margin by Shi Nai'an: "Bakin's writings are all rehashes. Why, the Nansō Satomi Hakkenden is nothing but a copy of the Water Margin, isn't it? [auto-translated]"
+- Ukiyoburo by Shikitei Sanba: "The scene was no different now from the one Shikitei Sanba had described in a comic book some years before: "gods, Buddhism, love, impermanence, all jumbled together in the Ukiyoburo." [auto-translated]"
+- Chinsetsu Yumiharizuki by Takizawa Bakin: "On this desk he had written Chinsetsu Yumiharizuki and Nanka no Yume, and now he was writing the Nansō Satomi Hakkenden. All his writing tools had long been familiar with the pain of his creative labor. [auto-translated]"
+- Sanshichi Zenden Nanka no Yume by Takizawa Bakin: "On this desk he had written Chinsetsu Yumiharizuki and Nanka no Yume, and now he was writing the Nansō Satomi Hakkenden. All his writing tools had long been familiar with the pain of his creative labor. [auto-translated]"
+- Matsuzome Jōshi Akinonanakusa by Takizawa Bakin: "Because he can't write Osome and Hisamatsu as plain Osome and Hisamatsu, he calls it Matsuzome Jōshi Akinonanakusa. [auto-translated]"
+
 ## Girl Meets Boy by Ali Smith (2007)
 https://bookjumpr.com/ali-smith/girl-meets-boy
 - If— by Rudyard Kipling: "If you can keep your head when all about you. Are losing theirs and blaming it on you. If you can bear to hear the tru[th]…"
 - Twelfth Night by William Shakespeare: "The rain it raineth every day. When that I was and a little tiny girl, with a hey, ho, the wind and the rain. [clown’s song from Twelfth Night, adapted]"
 - The Force That Through the Green Fuse Drives the Flower by Dylan Thomas: "Now I’d become a walking fuse, like in that poem about the flower, and the force, and the green fuse the force drives through it"
+
+## Gleanings in Buddha-Fields: Studies of Hand and Soul in the Far East by Lafcadio Hearn (1897)
+https://bookjumpr.com/lafcadio-hearn/gleanings-in-buddha-fields-studies-of-hand-and-soul-in-the-far-east
+- Classical Poetry of the Japanese by Basil Hall Chamberlain: "If you care to know how difficult the subject is, just study the chapter on prosody in Aston's Grammar of the Japanese Written Language, or the introduction to Professor Chamberlain's Classical Poetry of the Japanese."
+- Kojiki by O no Yasumaro: "He had a palace on the same hill where his shrine now stands; and this site--whence a fine view of the city can be obtained--is the scene of a pleasing legend preserved in the Kojiki:"
+- Elsie Venner by Oliver Wendell Holmes: "I looked through its stained pages for old friends, and found them,--all anonymous in 1865, many world-famous in 1895. There were installments of "Elsie Venner," under the title of "The Professor's Story;" chapters of "Roba di Roma;""
+- Roba di Roma by William Wetmore Story: "I looked through its stained pages for old friends, and found them,--all anonymous in 1865, many world-famous in 1895. There were installments of "Elsie Venner," under the title of "The Professor's Story;" chapters of "Roba di Roma;""
+- Le Costume historique by Auguste Racinet: "To illustrate Mr. Morse's work so as to interpret the colorific charm would be a dearer and a more difficult feat than the production of Racinet's "Costumes Historique.""
+- Glimpses of Unfamiliar Japan by Lafcadio Hearn: "For detailed information on this subject see, in my Glimpses of Unfamiliar Japan, the chapter, "Of Women's Hair.""
+- Diamond Sutra by Anonymous: "And I cannot but think that out of the certain future union of Western knowledge with Eastern thought there must eventually proceed a Neo-Buddhism inheriting all the strength of Science, yet spiritually able to recompense the seeker after truth with the recompense foretold in the twelfth chapter of the Sutra of the Diamond-Cutter."
+- Lotus Sutra by Anonymous: "There are some very remarkable texts on this subject in the Sutra of the Lotos of the Good Law:"
+- The Book of the Great Decease by Anonymous: "Perhaps the Sutra of the Great Decease furnishes the most remarkable evidence contained in the "Sacred Books of the East.""
+- Sutra of the Great King of Glory by Anonymous: "Perhaps the most vivid exposition of the duty of the winner of happiness is that given in the Sutra of the Great King of Glory."
+- Avatamsaka Sutra by Anonymous: "Wherefore it is written in the Kegon-Kyō (Avatamsaka-Sutra): "Child of Buddha, there is not even one living being that has not the wisdom of the Tathâgata. It is only because of their vain thoughts and affections that all beings are not conscious of this...."
+- Questions of King Milinda by Anonymous: "The expression "infinite bliss" as synonymous with Nirvana is taken from the Questions of King Milinda."
+- The Principles of Psychology by Herbert Spencer: ""Equanimity may be compared to white light, which, though composed of numerous colors, is colorless; while pleasurable and painful moods of mind may be compared to the modifications of light that result from increasing the proportions of some rays, and decreasing the proportions of others."--Principles of Psychology."
+- Bukkyō-hyakkwa-zenshō by Anonymous: "Various authors appear to have made use of these documents: especially the compiler of the curious collection of Buddhist stories entitled Bukkyō-hyakkwa-zenshō, to whom they furnished the material of the twenty-sixth narrative in that work."
+
+## Glimpses of Unfamiliar Japan: First Series by Lafcadio Hearn (1894)
+https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-first-series
+- Kojiki by O no Yasumaro: "And the tale of his descent into that strange nether world, and of what there befell him, is it not written in the Kojiki?"
+- Nihongi by Prince Toneri: "Doubtless the difficulty of explaining Shinto has been due simply to the fact that the sinologists have sought for the source of it in books: in the Kojiki and the Nihongi, which are its histories; in the Norito, which are its prayers; in the commentaries of Motowori and Hirata, who were its greatest scholars."
+- Lotus Sutra by Anonymous: "In the Japanese tongue, Ho-ke-kyo; in Sanscrit, Saddharma Pundarika: 'The Sutra of the Lotus of the Good Law,' the divine book of the Nichiren sect."
+- Jizo-kyo-Kosui by Anonymous: "'Then is there no way, Akira, by which Bimbogami may be driven away?' 'It is written,' replies Akira, 'in the book called Jizo-Kyo-Kosui that the aged Enjobo, a priest dwelling in the province of Owari, was able to get rid of Bimbogami by means of a charm."
+- Tales of Old Japan by Algernon Bertram Freeman-Mitford: "In the Introduction to his charming Tales of Old Japan, Mr. Mitford wrote in 1871: 'The books which have been written of late years about Japan have either been compiled from official records, or have contained the sketchy impressions of passing travellers. Of the inner life of the Japanese the world at large knows but little:"
+- Buddhist Catechism by Henry Steel Olcott: "And he takes from an alcove a little book, and gives it to me to examine. It is an English copy of Olcott's Buddhist Catechism."
+
+## Glimpses of Unfamiliar Japan: Second Series by Lafcadio Hearn (1894)
+https://bookjumpr.com/lafcadio-hearn/glimpses-of-unfamiliar-japan-second-series
+- Kojiki by O no Yasumaro: "or the ancient story from the Kojiki, that the Emperor O-Jin, being augustly intoxicated, 'smote with his august staff a great stone in the middle of the Ohosaka road, whereupon the stone ran away!'"
+- Lotus Sutra by Anonymous: "and the chant is the chant of the Chapter of Kwannon in the Hokkekyo, with its magnificent invocation: 'O Thou whose eyes are clear, whose eyes are kind, whose eyes are full of pity and of sweetness--"
+- Kwammu-ryojuko by Anonymous: "and this text is the entire text of two famed sutras--the Kwammu-ryjo-kyo and the Amida-kyo--'text no larger than the limbs of fleas.'"
+- Amida Sutra by Anonymous: "and this text is the entire text of two famed sutras--the Kwammu-ryjo-kyo and the Amida-kyo--'text no larger than the limbs of fleas.'"
+- Nehan-gyo by Anonymous: "as the high-pitched voices of the leaders of the chant begin the grand Nehan-gyo, the Sutra of Nirvana, the song of passage triumphant over the Sea of Death and Birth;"
+- The Dhammapada by Anonymous: "'If a man conquer in battle a thousand times a thousand and another conquer himself, he who conquers himself is the greatest of conquerors.' 'Not even a god can change into defeat the victory of the man who has vanquished himself.'"
+- Dammikkasutta by Anonymous: "And the whole moral idealism of the race seems to me to have been imaged in that marvellous Buddha of Kamakura, whose countenance, 'calm like a deep, still water' expresses, as perhaps no other work of human hands can have expressed, the eternal truth: 'There is no higher happiness than rest.'"
+- First Principles by Herbert Spencer: "He has read various epitomes of the history of philosophy in the Occident, and everything of modern philosophy which has been translated into Japanese--including Spencer's First Principles."
+- La Cité Antique by Numa Denis Fustel de Coulanges: "much after the manner in which M. Fustel de Coulanges, in his wonderful book, La Cite Antique, has shown the religious public institutions among the Greeks and Romans to have been developed from the religion of the hearth."
+- Japanese Homes and Their Surroundings by Edward S. Morse: "if you want to know more about stones and their names, and about the philosophy of gardens, read the unique essay of Mr. Conder on the Art of Landscape Gardening in Japan, and his beautiful book on the Japanese Art of Floral Decoration; and also the brief but charming chapter on Gardens, in Morse's Japanese Homes."
+- Landscape Gardening in Japan by Josiah Conder: "if you want to know more about stones and their names, and about the philosophy of gardens, read the unique essay of Mr. Conder on the Art of Landscape Gardening in Japan, and his beautiful book on the Japanese Art of Floral Decoration; and also the brief but charming chapter on Gardens, in Morse's Japanese Homes."
+- Japanese Girls and Women by Alice Mabel Bacon: "The reader will find it well worth his while to consult the chapter entitled 'Domestic Service,' in Miss Bacon's Japanese Girls and Women, for an interesting and just presentation of the practical side of the subject, as relating to servants of both sexes."
+- The Soul of the Far East by Percival Lowell: "It was the weakness indicated by Percival Lowell in his Soul of the Far East, a book of which the consummate genius cannot be justly estimated without some personal knowledge of the Far East."
 
 ## Glorious Exploits by Ferdia Lennon (2024)
 https://bookjumpr.com/ferdia-lennon/glorious-exploits
@@ -2888,6 +3113,13 @@ https://bookjumpr.com/ron-chernow/grant
 - Specimen Days by Walt Whitman: "Book epigraph, attributed "WALT WHITMAN, Specimen Days" — Whitman's reflection on Grant ("Seems to me it transcends Plutarch... the gods, the destinies, seem to have concentrated upon him") opens Chernow's biography."
 - Three Years with Grant by Sylvanus Cadwallader: "Fred Grant encouraged him to write... When the book was belatedly published in 1955, the historian Bruce Catton greeted it as "one of the great books of the Civil War.""
 - Personal Memoirs of U. S. Grant by Ulysses S. Grant: "The Personal Memoirs of U. S. Grant, widely viewed as a masterpiece, is probably the foremost military memoir in the English language"
+
+## Grass on the Wayside by Natsume Sōseki (1915)
+https://bookjumpr.com/natsume-soseki/grass-on-the-wayside
+- Jōzan Kidan by Yuasa Jōzan: "Hida smiled, took the book lying face down on his desk and handed it to Kenzo. To Kenzo's surprise it was the Jōzan Kidan, and he was a little startled that a man could read such a thing so calmly while his own wife was coughing herself breathless in the next room. [auto-translated]"
+- Nansō Satomi Hakkenden by Takizawa Bakin: ""He must be a scholar, that man, mustn't he? Which of them is better, him or Kyokutei Bakin? I own Bakin's Nansō Satomi Hakkenden too, you know." Sure enough, in his paulownia bookcase he had a neat stack of the subscription edition of the Nansō Satomi Hakkenden, printed in movable type on Japanese paper. [auto-translated]"
+- Edo Meisho Zue by Saitō Gesshin: ""Do you own the Edo Meisho Zue, Ken?" He took one or two old volumes in pale-blue covers from another bookcase on the alcove, treating Kenzo as if he had never even heard the name of the Edo Meisho Zue. [auto-translated]"
+- Azuma Kagami by Anonymous: "It was written on fine paper in a formal square hand and looked very imposing, but it was of no practical use at all, since the only precedent it cited was the Azuma Kagami. [auto-translated]"
 
 ## Great Expectations by Charles Dickens (1861)
 https://bookjumpr.com/charles-dickens/great-expectations
@@ -3284,6 +3516,24 @@ https://bookjumpr.com/e-m-forster/howards-end
 - The Open Road by E. V. Lucas: "He asked whether they had ever read E. V. Lucas's Open Road."
 - The Ordeal of Richard Feverel by George Meredith: "Yes, but I want--I wanted--have you ever read The Ordeal of Richard Feverel?""
 
+## I Am a Cat by Natsume Sōseki (1905)
+https://bookjumpr.com/natsume-soseki/i-am-a-cat
+- Theophano by Frederic Harrison: "Not long ago, when Harrison's historical novel Theophano came up where a man of letters was present, I praised it as the finest of historical novels, especially the chilling death of the heroine. The gentleman across from me, who never admits ignorance, agreed it was splendid writing, and so I knew he hadn't read it either, any more than… [auto-translated]"
+- The Odyssey by Homer: "As for the use of strangulation as a true form of punishment, according to my research it appears in Book 22 of The Odyssey, in the passage where Telemachus hangs Penelope's twelve maidservants. [auto-translated]"
+- Beowulf by Anonymous: "Then, moving on to England, the word 'gallows' appears in Beowulf, so it seems certain that hanging was practiced as a punishment from that age. [auto-translated]"
+- Piers Plowman by William Langland: "Oddly enough, though, Piers Plowman contains a line saying that even a villain must not be hanged twice. I don't know which is correct, but the fact is that a man sometimes fails to die the first time. [auto-translated]"
+- Tristram Shandy by Laurence Sterne: "Since then I have studied noses further, and lately I found a discourse on noses in Tristram Shandy. A pity Kaneda's nose was never shown to Sterne; it would have made fine material. [auto-translated]"
+- Hamlet by William Shakespeare: "Even Shakespeare, forever and ever Shakespeare, would be dull. Unless someone now and then looks at Hamlet from between his legs and says, 'Look here, this won't do,' literature will never advance. [auto-translated]"
+- The Analects by Confucius: "Eventually he wrote it in one breath in colloquial style: 'Tennen Koji is a man who studies space, reads The Analects, eats roast sweet potatoes, and lets his snot drip.' [auto-translated]"
+- The Golden Demon by Ozaki Kōyō: "I asked whether he would do a Chikamatsu domestic play again, and he said no, next time they had chosen something far more modern, The Golden Demon. When I asked what part he had, he said he was Omiya. [auto-translated]"
+- Tao Te Ching by Laozi: "The master's only reason for revering this prose is that nobody understands it at all, just as Taoists revere the Tao Te Ching, Confucians the I Ching, and Zen followers the Record of Linji. [auto-translated]"
+- I Ching by Anonymous: "The master's only reason for revering this prose is that nobody understands it at all, just as Taoists revere the Tao Te Ching, Confucians the I Ching, and Zen followers the Record of Linji. [auto-translated]"
+- Record of Linji by Linji Yixuan: "The master's only reason for revering this prose is that nobody understands it at all, just as Taoists revere the Tao Te Ching, Confucians the I Ching, and Zen followers the Record of Linji. [auto-translated]"
+- Fudōchi Shinmyōroku by Takuan Sōhō: ""Have you ever read Zen Master Takuan's Fudōchi Shinmyōroku?" "No, I have never even heard of it." [auto-translated]"
+- Nansō Satomi Hakkenden by Takizawa Bakin: "To expect more than that is an unreasonable demand, one that could be counted on only when Shino and Kobungo step out of Bakin's novel and the Nansō Satomi Hakkenden moves in next door. [auto-translated]"
+- Tang Shi Xuan by Li Panlong: "Even when I think I would feel better singing the Tang Shi Xuan aloud, if a neighbor might be troubled as I am, I always hold back. [auto-translated]"
+- The Life and Opinions of the Tomcat Murr by E. T. A. Hoffmann: "I had thought no cat could be as discerning as I, but the other day an unknown kinsman, Kater Murr, suddenly started holding forth boastfully and gave me a start. It seems he died a hundred years ago. [auto-translated]"
+
 ## I Have Some Questions for You by Rebecca Makkai (2023)
 https://bookjumpr.com/rebecca-makkai/i-have-some-questions-for-you
 - Beloved by Toni Morrison: "She grabs her backpack (reported contents: hairbrush, lipstick, tampons, calculus book, Toni Morrison's Beloved, Granby-issued weekly planner, assorted pens and scrunchies, mini deodorant, dorm room key), slips past the other changing girls, exits via the backstage fire escape."
@@ -3318,11 +3568,39 @@ https://bookjumpr.com/truman-capote/in-cold-blood
 - The Brothers Karamazov by Fyodor Dostoevsky: "Lowell Lee was locked in his bedroom reading the last chapter of The Brothers Karamazov."
 - The Adventures of Tom Sawyer by Mark Twain: "Kenyon was in my sophomore English class, and I'd directed Nancy in the 'Tom Sawyer' play."
 
+## In Ghostly Japan by Lafcadio Hearn (1899)
+https://bookjumpr.com/lafcadio-hearn/in-ghostly-japan
+- Kibun-Daijin by Anonymous: "According to a story-book called Kibun-Daijin, the name of the girl who caused the robe to be made was O-Same; and she was the daughter of Hikoyemon, a wine-merchant of Hyakusho-machi, in the district of Azabu."
+- Kun-Shu-Rui-Sho by Anonymous: "Of course the mere compilation of materials for a history of mixed-incenses would entail the study of a host of documents, treatises, and books,--particularly of such strange works as the Kun-Shu-Rui-Sho, or "Incense-Collector's Classifying-Manual""
+- I Ching by Anonymous: "His system was the old scholarly one: he used the book known to English readers as the Yi-King,--also a set of ebony blocks which could be so arranged as to form any of the Chinese hexagrams;--and he always began his divination with an earnest prayer to the gods."
+- Baikwa-Shin-Eki by Anonymous: "The story is about the famous Chinese fortune-teller whom we call in Japan Shoko Setsu, and it is written in the book Baikwa- Shin-Eki, which is a book of divination."
+- Buddhism in Translations by Henry Clarke Warren: "In Mr. Henry Clarke Warren's Buddhism in Translations (the most interesting and valuable single volume of its kind that I have ever seen), there is a Pali version of the legend, which differs considerably from the above."
+- Treasure-Raining Sutra by Anonymous: "And here is a holy sutra, called Ubo-Darani- Kyo, or "Treasure-Raining Sutra"(4) you must be careful to recite it every night in your house--without fail."
+- Kwan-butsu-sanmai-kyo by Anonymous: "Concerning the virtue of the representation of the footprints of the Buddha, there is sometimes quoted a text from the Kwan-butsu- sanmai-kyo ["Buddha-dhyana-samadhi-sagara-sutra"], thus translated for me:"
+- Sho-Eko-Ho-Kwan by Hitsumu: "I got some information about them from the Sho-Eko-Ho-Kwan,--a book used by the Jodo sect. This book also contains rough woodcuts of the footprints"
+- Ho-Kai-Shidai by Anonymous: "Moreover, there is a text in the book called Ho-Kai- Shidai that lends support to this supposition:--"The sole of the foot of the Buddha is flat,--like the base of a toilet-stand.... Upon it are lines forming the appearance of a wheel of a thousand spokes...."
+- Shin-zoku-butsu-ji-hen by Anonymous: "IV.--The Conch-Shell (Jap. "Hora ") or Trumpet. Emblem of the preaching of the Law. The book Shin-zoku-butsu-ji-hen calls it the symbol of the voice of the Buddha."
+- Dai-hi-kyo by Anonymous: "Emblem of the preaching of the Law. The book Shin-zoku-butsu-ji-hen calls it the symbol of the voice of the Buddha. The Dai-hi-kyo calls it the token of the preaching and of the power of the Mahayana doctrine."
+- Hyaku-tsu-kiri-kami by Myoden: "In his "Hundred Writings "(Hyaku-tsu-kiri- kami), the Shinshu priest Myoden says, quoting from the Buddhist work Kujikkajo, or "Ninety Articles ":"
+- Kujikkajo by Anonymous: "In his "Hundred Writings "(Hyaku-tsu-kiri- kami), the Shinshu priest Myoden says, quoting from the Buddhist work Kujikkajo, or "Ninety Articles ":"
+- Dai-chi-do-ron by Anonymous: "Ichi-mo shu-mo wo hiku. One blind man leads many blind men.* *From the Buddhist work Dai-chi-do-ron."
+- Buddhist Suttas by T. W. Rhys Davids: "The reader will find a similar proverb in Rhys-David's "Buddhist Suttas" (Sacred Books of the East), p. 173,--together with a very curious parable, cited in a footnote, which an Indian commentator gives in explanation."
+- The Dhammapada by Anonymous: "The meaning of this proverb is identical with that of the Dhammapada verse:--"If a man speaks or acts with an evil thought, pain follows him as the wheel follows the foot of the ox that draws the carriage.""
+- Lotus Sutra by Anonymous: "Such a device is justified especially by the famous parable of the third chapter of the Saddharma Pundarika."
+- Jikkinshō by Anonymous: "This story may be found in the curious old Japanese book called Jikkun-Sho. The same legend has furnished the subject of an interesting No-play, called Dai-E ("The Great Assembly")."
+- Hyaku-Monogatari by Anonymous: "Both title and narrative may be found in the collection of weird stories entitled Hyaku-Monogatari."
+- Catalogue of Japanese and Chinese Paintings in the British Museum by William Anderson: "I was recently surprised to find, in Anderson's catalogue of Japanese and Chinese paintings in the British Museum, this remarkable statement:"
+- On the Physical Basis of Life by Thomas Henry Huxley: "I never hear this singular proverb without being re-minded of a sentence in Huxley's famous essay, On the Physical Basis of Life:--"The living protoplasm not only ultimately dies and is resolved into its mineral and lifeless constituents, but is always dying"
+
 ## In God's Way by Bjørnstjerne Bjørnson (1889)
 https://bookjumpr.com/bj-rnstjerne-bj-rnson/in-god-s-way
 - The Wild Duck by Henrik Ibsen: "His eyes now fell on "Vildanden" by Henrik Ibsen."
 - Peer Gynt by Henrik Ibsen: "then began Solveig's song from "Per Gynt.""
 - The Three Musketeers by Alexandre Dumas: "had just won in a lottery "Les trois Mousquetaires," by Alexandre Dumas the elder"
+
+## In Praise of Shadows by Jun'ichirō Tanizaki (1933)
+https://bookjumpr.com/jun-ichiro-tanizaki/in-praise-of-shadows
+- Kusamakura by Natsume Sōseki: "Natsume Sōseki, in Pillow of Grass, praises the color of the confection yōkan; and is it not indeed a color to call forth meditation?"
 
 ## In Search of a Character by Graham Greene (1961)
 https://bookjumpr.com/graham-greene/in-search-of-a-character
@@ -3403,6 +3681,11 @@ https://bookjumpr.com/david-foster-wallace/infinite-jest
 - Maggie: A Girl of the Streets by Stephen Crane: "read depressing book after depressing book—Good Morning, Midnight and Maggie: A Girl of the Streets and Giovanni's Room and Under the Volcano, plus a truly ghastly Bret Ellis period during Lent..."
 - Giovanni's Room by James Baldwin: "read depressing book after depressing book—Good Morning, Midnight and Maggie: A Girl of the Streets and Giovanni's Room and Under the Volcano, plus a truly ghastly Bret Ellis period during Lent..."
 - Under the Volcano by Malcolm Lowry: "read depressing book after depressing book—Good Morning, Midnight and Maggie: A Girl of the Streets and Giovanni's Room and Under the Volcano, plus a truly ghastly Bret Ellis period during Lent..."
+
+## Inside My Glass Doors by Natsume Sōseki (1915)
+https://bookjumpr.com/natsume-soseki/inside-my-glass-doors
+- Iliad by Homer: "I gave the children's new friend the grand name of Hector. It was the name of the greatest Trojan warrior in the Iliad, who was struck down by Achilles when Troy and Greece went to war. [auto-translated]"
+- First Principles by Herbert Spencer: "He was bound for the science course from the start, yet he liked to leaf through books of philosophy. I still remember that he once lent me a book called Spencer's First Principles. [auto-translated]"
 
 ## Intermezzo by Sally Rooney (2024)
 https://bookjumpr.com/sally-rooney/intermezzo
@@ -3489,6 +3772,21 @@ https://bookjumpr.com/charlotte-bronte/jane-eyre
 - Pamela by Samuel Richardson: "Reed's lace frills, and crimped her nightcap borders, fed our eager attention with passages of love and adventure taken from old fairy tales and other ballads; or (as at a later period I discovered) from the pages of Pamela, and Henry, Earl of Moreland."
 - The History of Henry, Earl of Moreland by Henry Brooke: "or (as at a later period I discovered) from the pages of Pamela, and Henry, Earl of Moreland."
 - A Thousand and One Nights by Anonymous: "I thought I could distinguish the two volumes of Bewick's British Birds occupying their old place on the third shelf, and Gulliver's Travels and the Arabian Nights ranged just above."
+
+## Japan: An Attempt at Interpretation by Lafcadio Hearn (1904)
+https://bookjumpr.com/lafcadio-hearn/japan-an-attempt-at-interpretation
+- Kojiki by O no Yasumaro: "The oldest is entitled Ko-ji-ki, or "Records of Ancient Matters"; and it is supposed to have been compiled in the year 712 A.D. The other and much larger work is called Nihongi, "Chronicles of Nihon [Japan]," and dates from about 720 A.D."
+- Nihongi by Prince Toneri: "This custom was abolished, by the Emperor Suinin, about nineteen hundred years ago; and the Nihongi declares that it was then an ancient custom."
+- Principles of Sociology by Herbert Spencer: "The vague character of the Shinto hierarchy is probably best explained by Mr. Spencer in Chapter VIII of the third volume of Principles of Sociology:"
+- First Principles by Herbert Spencer: "Assuming, with Herbert Spencer, that the test of reality is permanence, one can scarcely question this position; it differs little from the statement with which the closing chapter of the First Principles concludes:"
+- La Cité Antique by Numa Denis Fustel de Coulanges: "The author of 'La Cite Antique' cites, among other ancient texts bearing upon the subject, an interesting invocation from the tragedy of Helen, by Euripides:"
+- Tales of Old Japan by Algernon Bertram Freeman-Mitford: "There is probably none of my readers unacquainted with Mitford's ever-delightful Tales of Old Japan, and his translation of the true story of the "Forty-Seven Ronins.""
+- The Soul of the Far East by Percival Lowell: "It has been much asserted of late years (chiefly because of the profound impression made by Mr. Percival Lowell's Soul of the Far East) that Japan is desperately in need of a Gospel of Individualism; and many pious persons assume that the conversion of the country to Christianity would suffice to produce the Individualism."
+- Shorei-Hikki by Anonymous: "Among the nobility, in former times at least, the marriage ceremony appears to have been more distinctly religious,--judging from the following curious relation in the book Shorei-Hikki, or "Record of Ceremonies""
+
+## Japanese Fairy Tales by Grace James (1910)
+https://bookjumpr.com/grace-james/japanese-fairy-tales
+- Lotus Sutra by Anonymous: "One bird chanted the grand Scripture of the Nicheten, the Praise of the Sutra of the Lotus, of the Good Law, and the other bird called upon his Master's name, for he cried: "O thou Compassionate Mind! O thou Compassionate Mind!""
 
 ## Jean-Christophe by Romain Rolland (1904)
 https://bookjumpr.com/romain-rolland/jean-christophe
@@ -3635,6 +3933,10 @@ https://bookjumpr.com/haruki-murakami/kafka-on-the-shore
 - Electra by Sophocles: ""Electra, by Sophocles. A wonderful play."
 - Symposium by Plato: ""According to Aristophanes in Plato's Symposium, in the ancient world of myth there were three types of people," Oshima says."
 
+## Kappa by Ryūnosuke Akutagawa (1927)
+https://bookjumpr.com/ryunosuke-akutagawa/kappa
+- Thus Spoke Zarathustra by Friedrich Nietzsche: "This is Nietzsche, the poet of Thus Spoke Zarathustra. That saint sought salvation in the Superman he himself had created. But he was not saved after all, and went mad. [auto-translated]"
+
 ## Kenilworth by Walter Scott (1821)
 https://bookjumpr.com/walter-scott/kenilworth
 - The Castle of Knowledge by Robert Recorde: "Here was a "BOKE OF COOKERY, IMPRINTED BY RICHARD LANT," and "SKELTON'S BOOKS"--"THE PASSTIME OF THE PEOPLE"--"THE CASTLE OF KNOWLEDGE," etc."
@@ -3677,11 +3979,51 @@ https://bookjumpr.com/h-g-wells/kipps
 - The Art of Conversing by Anonymous: "The second was that admirable classic, "The Art of Conversing.""
 - Enquire Within Upon Everything by Anonymous: "looked up the name Euphemia and learnt what it meant in the "Enquire Within About Everything" that constituted Buggins' reference library"
 
+## Kokoro by Natsume Sōseki (1914)
+https://bookjumpr.com/natsume-soseki/kokoro
+- The Koran by Anonymous: "I also saw a Bible in his room. When I asked why, K said there was no reason, and that he meant to read The Koran too if he had the chance. He seemed greatly interested in the words 'Mohammed and the sword'. [auto-translated]"
+
+## Kokoro: Hints and Echoes of Japanese Inner Life by Lafcadio Hearn (1896)
+https://bookjumpr.com/lafcadio-hearn/kokoro-hints-and-echoes-of-japanese-inner-life
+- Les Misérables by Victor Hugo: "Victor Hugo's Les Miserables becomes a tale of the Japanese civil war; and Enjolras a Japanese student."
+- The Sorrows of Young Werther by Johann Wolfgang von Goethe: "There have been a few rare exceptions, including the marked success of a literal translation of the Sorrows of Werther."
+- The New Magdalen by Wilkie Collins: ""The New Magdalen" becomes a Japanese girl who married an Eta. Victor Hugo's Les Miserables becomes a tale of the Japanese civil war; and Enjolras a Japanese student."
+- The Principles of Psychology by Herbert Spencer: "Here Science, in accord with Buddhism, avows the Ego composite, and, like Buddhism, explains the psychical riddles of the present by the psychical experiences of the past. (1) Principles of Psychology: "The Feelings.""
+- The Principles of Biology by Herbert Spencer: "Now we find in Herbert Spencer's "Biology" a curious parallel for this idea. He explains the transmission of tendencies, and their variations, by a theory of polarities"
+- Physiological Aesthetics by Grant Allen: "How deeply-reaching into the life of the race some of these sensations are, such as the pleasure in odors and in colors, Grant Allen has most effectively suggested in his "Physiological Aesthetics," and in his charming treatise on the Color-Sense."
+- The Colour-Sense by Grant Allen: "How deeply-reaching into the life of the race some of these sensations are, such as the pleasure in odors and in colors, Grant Allen has most effectively suggested in his "Physiological Aesthetics," and in his charming treatise on the Color-Sense."
+- Evolution and Ethics by Thomas Henry Huxley: "The fact worthy of attention is that both recognize the same phenomena under different names. (1) Evolution and Ethics, p.61 (ed 1894)."
+- Sensation and the Sensiferous Organs by Thomas Henry Huxley: "Perhaps it may be regarded as illegitimate to wander from that position so tersely enunciated by Professor Huxley in his essay on "Sensation and the Sensiferous Organs:""
+- The Book of the Great Decease by Anonymous: ""For twelve leagues, Ananda, around the Sala-Grove, there is no spot in size even as the pricking of the point of the tip of a hair, which is not pervaded by powerful spirits." --The Book Of the Great Decease."
+- Glimpses of Unfamiliar Japan by Lafcadio Hearn: "See, also, for an account of their place in Shinto worship, Glimpses of Unfamiliar Japan, vol. 1."
+- Diamond Sutra by Anonymous: "Then taking up his first hammer, he recited the Kongo-Sutra(5); taking up his second, he recited the Kwannon-Sutra; taking up his third, he recited the Amida-Sutra,--because he feared those nails might be used for a wicked purpose."
+- Amida Sutra by Anonymous: "Then taking up his first hammer, he recited the Kongo-Sutra(5); taking up his second, he recited the Kwannon-Sutra; taking up his third, he recited the Amida-Sutra,--because he feared those nails might be used for a wicked purpose."
+
 ## Kudos by Rachel Cusk (2018)
 https://bookjumpr.com/rachel-cusk/kudos
 - She Got Up and Went Away by Stevie Smith: "Epigraph: 'She got up and went away ...' signed 'She Got Up and Went Away', Stevie Smith (epigraph)"
 - Four Quartets by T. S. Eliot: "'if he were to pick up the Four Quartets today he didn't doubt it would cause him pain'"
 - The Divine Comedy by Dante Alighieri: "'to see Dante awarded a single star ... and his Divine Comedy described as "complete shit"'"
+
+## Kusamakura by Natsume Sōseki (1906)
+https://bookjumpr.com/natsume-soseki/kusamakura
+- Faust by Johann Wolfgang von Goethe: "I do not mean to spread the realm of Wang Wei and Tao Yuanming in this age, but such feelings seem to me better medicine than a play or a ball. I value them above Faust, above Hamlet. [auto-translated]"
+- Hamlet by William Shakespeare: "I do not mean to spread the realm of Wang Wei and Tao Yuanming in this age, but such feelings seem to me better medicine than a play or a ball. I value them above Faust, above Hamlet. [auto-translated]"
+- To a Skylark by Percy Bysshe Shelley: "Suddenly I remembered Shelley's poem To a Skylark and tried to recite what I could, but I remembered only two or three lines, among them: 'We look before and after, and pine for what is not.' [auto-translated]"
+- Laocoön by Gotthold Ephraim Lessing: "The argument does not matter. I have mostly forgotten Laocoön, and if I looked into it I might find myself wrong. At any rate, since I had failed to make a picture, I would try making it a poem. [auto-translated]"
+- Tristram Shandy by Laurence Sterne: "In a book called Tristram Shandy it says that no way of writing is more pleasing to God. He writes the first line by his own power, then simply prays to God and lets the pen move. [auto-translated]"
+
+## Kwaidan: Stories and Studies of Strange Things by Lafcadio Hearn (1904)
+https://bookjumpr.com/lafcadio-hearn/kwaidan-stories-and-studies-of-strange-things
+- The Tale of the Heike by Anonymous: "Formerly the professional minstrels who recited the Heike-Monogatari, and other tragical histories, were called biwa-hoshi, or "lute-priests.""
+- Heart Sutra by Anonymous: "Before sundown the priest and his acolyte stripped Hoichi: then, with their writing-brushes, they traced upon his breast and back, head and face and neck, limbs and hands and feet,--even upon the soles of his feet, and upon all parts of his body,--the text of the holy sutra called Hannya-Shin-Kyo."
+- Lotus Sutra by Anonymous: "In the neighboring bamboo-grove I hear the flute-call of the bird that praises the Sutra of the Lotos; and the land is very still by reason of the south wind."
+- Soshinki by Gan Bao: "In the book Soshinki (5) it is written that if one find the body of a Rokuro-Kubi without its head, and remove the body to another place, the head will never be able to join itself again to the neck."
+- Nan-ho-i-butsu-shi by Wan Zhen: "In the book Nan-ho-i-butsu-shi it is written that certain red characters can always be found upon the nape of the neck of a real Rokuro-Kubi."
+- Mushi-Isame by Anonymous: "The original, of which I have attempted only a free translation, can be found in the curious old book Mushi-Isame ("Insect-Admonitions"); and it assumes the form of a discourse to a butterfly."
+- Mosquitoes by Leland Ossian Howard: "With a view to self-protection I have been reading Dr. Howard's book, "Mosquitoes." I am persecuted by mosquitoes."
+- Exotics and Retrospectives by Lafcadio Hearn: "For some account of these, see my paper entitled, "The Literature of the Dead," in Exotics and Retrospectives."
+- Shadowings by Lafcadio Hearn: "On the subject of Japanese female names, see my paper in the volume entitled Shadowings."
 
 ## L'Assommoir by Émile Zola (1877)
 https://bookjumpr.com/emile-zola/l-assommoir
@@ -3713,6 +4055,10 @@ https://bookjumpr.com/david-garnett/lady-into-fox
 ## Leaves of Grass by Walt Whitman (1855)
 https://bookjumpr.com/walt-whitman/leaves-of-grass
 - Iliad by Homer: "…priests, and those of Ethiopia, The Hindu epics, the Grecian, Chinese, Persian, The Biblic books and prophets, and deep idyls of the Nazarene, The Iliad, Odyssey, plots, doings, wanderings of Eneas, Hesiod, Eschylus, Sophocles, Merlin, Arthur, The Cid, Roland at Roncesvalles, the Nibelungen,…"
+
+## Lemon by Motojirō Kajii (1925)
+https://bookjumpr.com/motojiro-kajii/lemon
+- The Words of the Orange Seller by Liu Ji: "The phrase "strikes the nose" from The Words of the Orange Seller, which I had learned in classical Chinese class, floated up in fragments. [auto-translated]"
 
 ## Lent by Jo Walton (2019)
 https://bookjumpr.com/jo-walton/lent
@@ -3819,6 +4165,14 @@ https://bookjumpr.com/thomas-hobbes/leviathan
 - Disputationes de Controversiis (De Summo Pontifice) by Robert Bellarmine: "yet because the Pope of Romes challenge to that Power universally, hath been maintained chiefly, and I think as strongly as is possible, by Cardinall Bellarmine, in his Controversie De Summo Pontifice; I have thought it necessary, as briefly as I can, to examine the grounds, and strength of his Discourse."
 - De Concursu, Motione et Auxilio Dei by Francisco Suárez: "They are the Translation of the Title of the sixth chapter of Suarez first Booke, Of The Concourse, Motion, And Help Of God. When men write whole volumes of such stuffe, are they not Mad, or intend to make others so?"
 
+## Li Ling by Atsushi Nakajima (1943)
+https://bookjumpr.com/atsushi-nakajima/li-ling
+- Records of the Grand Historian by Sima Qian: "Later generations know Sima Qian as the author of the Shiji, a great name, but at the time the Grand Historian Sima Qian was a mere minor clerk of letters. His father's deathbed scene was described in detail by his son's own brush in the last chapter of the Records of the Grand Historian. [auto-translated]"
+- Zuo Zhuan by Zuo Qiuming: "When it came to the Zuo Zhuan and the Guoyu, there were certainly facts, and the skill of narration in the Zuo Zhuan could only be admired; but there was no inquiry into the individual people who made those events. [auto-translated]"
+- Guoyu by Anonymous: "He wanted more facts, facts over lessons. With the Zuo Zhuan and the Guoyu there are facts indeed, but there is no inquiry into the individual people behind them, and their portrayal within events, though vivid, lacks any investigation of their backgrounds. [auto-translated]"
+- Book of Han by Ban Gu: "The Book of Han records that, to treat Su Wu's wound, the Xiongnu dug a pit, lit a fire in it, laid the wounded man over it and trod on his back to draw out the blood. [auto-translated]"
+- Spring and Autumn Annals by Anonymous: "His plan for a history was unlike any earlier history. As a standard of moral judgment he held up the Spring and Autumn Annals, but as a history that conveyed facts he found it thoroughly unsatisfying. He wanted more facts, facts over lessons. [auto-translated]"
+
 ## Life of Pi by Yann Martel (2001)
 https://bookjumpr.com/yann-martel/life-of-pi
 - Robinson Crusoe by Daniel Defoe: ""You can't possibly have read all of Narayan?" "These matters are important to me, Mother." "Robinson Crusoe!" "Mother!" "But Piscine!" she said."
@@ -3851,6 +4205,38 @@ https://bookjumpr.com/georges-perec/life-a-user-s-manual
 - Bibliotheca Lusitana by Diogo Barbosa Machado: "the fourth and last volume of Diego Barbosa-Machado's Bibliotheca Lusitana, which he'd found... on the penny shelf of a Lugano bookshop"
 - Dictionnaire de Trévoux by Jesuits of Trévoux: "the books... a fine copy of the Dictionnaire de Trévoux in two volumes"
 - Who's Who in America by Marquis Who's Who: "He found his address in the latest edition of Who's Who in America and wrote to him"
+
+## Light and Darkness by Natsume Sōseki (1916)
+https://bookjumpr.com/natsume-soseki/light-and-darkness
+- Mingshi biecai ji by Shen Deqian: "Yoshio took the Chinese-bound book in its case from Nobu and stared for a long time at the weighty title written on it, Mingshi biecai ji. [auto-translated]"
+
+## Light, Wind and Dreams by Atsushi Nakajima (1942)
+https://bookjumpr.com/atsushi-nakajima/light-wind-and-dreams
+- Treasure Island by Robert Louis Stevenson: "The South Sea Letters are said to have disappointed editors and readers. The author of Treasure Island, they seem to feel, ought to go on writing about pirates and buried treasure for ever. [auto-translated]"
+- Kidnapped by Robert Louis Stevenson: "With the History of Samoa finished, I can at last give myself wholly to David Balfour. It is the sequel to Kidnapped. I have started it many times and dropped it, but this time I may see it through. [auto-translated]"
+- The Strange Case of Dr. Jekyll and Mr. Hyde by Robert Louis Stevenson: "In fact it was Fanny who made him throw into the stove the first draft of The Strange Case of Dr. Jekyll and Mr. Hyde, which he had written in three sleepless nights. [auto-translated]"
+- The Wrecker by Robert Louis Stevenson and Lloyd Osbourne: "The Wrecker is at last finished, and A Footnote to History is coming along too. How hard it is to write contemporary history, especially when every character is an acquaintance of your own. [auto-translated]"
+- The Master of Ballantrae by Robert Louis Stevenson: "David Balfour is to be the first work since The Master of Ballantrae that can really count. Nobody else can quite understand how fond the author is of young Davie. [auto-translated]"
+- A Footnote to History by Robert Louis Stevenson: "The Wrecker is at last finished, and A Footnote to History is coming along too. How hard it is to write contemporary history, especially when every character is an acquaintance of your own. [auto-translated]"
+- The Ebb-Tide by Robert Louis Stevenson and Lloyd Osbourne: "Lloyd, the stepson, has picked up the habit of writing fiction himself. Now that they live together at Vailima, a plan is made for a new joint work, The Ebb-Tide. [auto-translated]"
+- St. Ives by Robert Louis Stevenson: "I have begun a new work in my illness and dictate it to Belle: the experiences of a French nobleman held prisoner in England. His name is Anne de Saint-Yves, which in English I think of calling St. Ives. [auto-translated]"
+- Weir of Hermiston by Robert Louis Stevenson: "Weir of Hermiston and St. Ives are both going to need them, those reference books on the customs of France and Scotland and on prison conditions in the 1810s. [auto-translated]"
+- The Island Nights' Entertainments by Robert Louis Stevenson: "Cassell's wants to bring out The Bottle Imp and The Beach of Falesa together as The Island Nights' Entertainments. The two are so different in flavour that it seems odd to me, and I suggest adding two more stories. [auto-translated]"
+- History of the Origins of Christianity by Ernest Renan: "In the evening I read Renan's History of the Origins of Christianity. It is wonderfully interesting. [auto-translated]"
+- Essays by Michel de Montaigne: "Lately I have been reading Montaigne's Essays, the second book, straight through. I read this book once before, before I was twenty, for the sake of learning style, and I am astonished at it now: what could I possibly have understood of it then? [auto-translated]"
+- Beauchamp's Career by George Meredith: "A courteous letter from Mr. Meredith. An honour! Beauchamp's Career is still one of my favourite books here in the South Seas. [auto-translated]"
+- Waverley Novels by Walter Scott: "A proposal from Chatto and Windus to publish my collected works, bound in red like the forty-eight volumes of Scott's Waverley Novels, twenty volumes in a limited edition of a thousand copies. [auto-translated]"
+- Madame Bovary by Gustave Flaubert: "Madame Bovary is without doubt a masterpiece. And Oliver Twist, what a childish domestic novel! Yet I think Dickens, who left stories for children, may be more of an adult than Flaubert, who wrote the novel for adults. [auto-translated]"
+- Oliver Twist by Charles Dickens: "Madame Bovary is without doubt a masterpiece. And Oliver Twist, what a childish domestic novel! Yet I think Dickens, who left stories for children, may be more of an adult than Flaubert, who wrote the novel for adults. [auto-translated]"
+- Robinson Crusoe by Daniel Defoe: "Speaking of Robinson Crusoe, my Treasure Island is naturally in question. It is strange that most people do not believe I put all my strength into that work; I wrote it as seriously as I later wrote Kidnapped and The Master of Ballantrae. [auto-translated]"
+- Clarissa by Samuel Richardson: "To me the plot, the story, of a work is like the backbone in a vertebrate. Scorning events in a novel is a pose, a child trying to look grown up. Compare Clarissa Harlowe and Robinson Crusoe. [auto-translated]"
+- History of Hindostan by Robert Orme: "St. Ives is not so bad, but it is hard going. At present I am reading Orme's History of Hindostan and find it very interesting: a faithful, unlyrical account in the eighteenth-century manner. [auto-translated]"
+- A Midsummer Night's Dream by William Shakespeare: "To give clear expression to things that have no name or place, as A Midsummer Night's Dream puts it, is the work of the poet and writer. By that measure Stevenson was surely a born storyteller. [auto-translated]"
+- Catriona by Robert Louis Stevenson: "On the other hand, The Wrecker is said to be selling very well, while Catriona (the retitled David Balfour) is poorly received; it is ironic that such a work sells better, but I shall not despair and shall wait for a second crop. [auto-translated]"
+- The Bottle Imp by Robert Louis Stevenson: "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. [auto-translated]"
+- The Beach of Falesa by Robert Louis Stevenson: "Cassell & Co. write proposing to publish The Bottle Imp together with The Beach of Falesa as 'Island Nights' Entertainments'. The two are too different in flavour; is that not odd? [auto-translated]"
+- The Isle of Voices by Robert Louis Stevenson: "The two are so different in flavour that it seems odd. Why not add The Isle of Voices and The Waif Woman? [auto-translated]"
+- The Waif Woman by Robert Louis Stevenson: "Why not add The Isle of Voices and The Waif Woman? ... Fanny, however, objects to including The Waif Woman. [auto-translated]"
 
 ## Like by Ali Smith (1997)
 https://bookjumpr.com/ali-smith/like
@@ -4290,6 +4676,11 @@ https://bookjumpr.com/george-bernard-shaw/mrs-warren-s-profession
 https://bookjumpr.com/agatha-christie/murder-on-the-orient-express
 - Dickens by Charles Dickens: ""A name of good omen," said Poirot. "I read my Dickens. M. Harris, he will not arrive.""
 
+## Musashino by Kunikida Doppo (1898)
+https://bookjumpr.com/kunikida-doppo/musashino
+- The Tryst by Ivan Turgenev: "This is the opening passage of a short story written by Turgenev and translated by Futabatei under the title "Aibiki" (The Tryst). It is largely thanks to the power of that subtle landscape writing that I came to appreciate woods of fallen leaves. [auto-translated]"
+- Taiheiki by Anonymous: "Beside the Iruma district the old map is annotated: "Kotesashihara and Kumegawa are old battlefields; the Taiheiki records that in the fifth month of Genkō 3 the Genji and Heike fought at Kotesashihara thirty times in one day," which must refer to this area. [auto-translated]"
+
 ## My Ántonia by Willa Cather (1918)
 https://bookjumpr.com/willa-cather/my-antonia
 - The Georgics by Virgil: "I propped my book open and stared listlessly at the page of the 'Georgics' where tomorrow's lesson began."
@@ -4313,6 +4704,10 @@ https://bookjumpr.com/elena-ferrante/my-brilliant-friend
 - The Betrothed by Alessandro Manzoni: "when I tried to talk to him about The Betrothed, or the marvelous books I still borrowed from Maestro Ferraro's library..."
 - War and Peace by Leo Tolstoy: "But meanwhile I saw that under War and Peace, and bearing the label of Maestro Ferraro's library, a tattered volume was sticking out."
 - Bruges-la-Morte by Georges Rodenbach: ""Bruges-la-Morte." "Are there ghosts?" "I don't know." "May I come along when you give it to him?""
+
+## My Individualism by Natsume Sōseki (1914)
+https://bookjumpr.com/natsume-soseki/my-individualism
+- Theory of Literature by Natsume Sōseki: "In the end I had to give up the enterprise I had begun halfway. The Theory of Literature that I wrote is less a monument to it than the corpse of a failure, and a deformed corpse at that. [auto-translated]"
 
 ## My Life by Richard Wagner (1911)
 https://bookjumpr.com/richard-wagner/my-life
@@ -4483,6 +4878,11 @@ https://bookjumpr.com/j-d-salinger/nine-stories
 - Die Zeit ohne Beispiel by Joseph Goebbels: ""It was a book by Goebbels, entitled 'Die Zeit Ohne Beispiel.'" (For Esmé—with Love and Squalor)"
 - Madame Bovary by Gustave Flaubert: ""Madame Bovary at Columbia Extension School... Madame Bovary takes a course in Television Appreciation." (Pretty Mouth and Green My Eyes)"
 - The Harvard Classics by Charles W. Eliot: ""I bought a complete set of the Harvard Classics—chiefly because Bobby said we didn't have room for them in our suite—and rather perversely read all fifty volumes." (De Daumier-Smith's Blue Period)"
+
+## No Longer Human by Osamu Dazai (1948)
+https://bookjumpr.com/osamu-dazai/no-longer-human
+- I Am a Cat by Natsume Sōseki: "I picked Soseki's I Am a Cat from the bookshelf and gave it to her. [auto-translated]"
+- Crime and Punishment by Fyodor Dostoevsky: "Crime and Punishment. Dostoevsky. It grazed a corner of my mind, and I gasped: what if Dostoevsky had not treated crime and punishment as synonyms, but set them side by side as antonyms? [auto-translated]"
 
 ## No Name by Wilkie Collins (1862)
 https://bookjumpr.com/wilkie-collins/no-name
@@ -4798,6 +5198,10 @@ https://bookjumpr.com/susan-sontag/on-women
 - The Childermass by Wyndham Lewis: "...for example, Wyndham Lewis, whose novel-diatribe The Childermass, written in the late twenties, contains a long speech about how the naturally feminine and the masculine are being subverted..."
 - La Mort dans l'âme by Jean-Paul Sartre: "In La Mort dans l'âme (1949), the third novel in his four-part Les Chemins de la liberté, Sartre describes one of his protagonists experiencing the entry of the German army into Paris in 1940..."
 
+## One Hundred Views of Mount Fuji by Osamu Dazai (1939)
+https://bookjumpr.com/osamu-dazai/one-hundred-views-of-mount-fuji
+- Nihon Sansuiron by Kojima Usui: "Kojima Usui's Nihon Sansuiron has the line: "The sulkers among mountains mostly dwell in this land, as if immortals roaming at leisure." [auto-translated]"
+
 ## One Hundred Years of Solitude by Gabriel García Márquez (1967)
 https://bookjumpr.com/gabriel-garcia-marquez/one-hundred-years-of-solitude
 - Jerusalem Delivered by Torquato Tasso: "the book that could be found between Jerusalem Delivered and Milton's poems on the extreme right-hand side of the second shelf of the bookcases"
@@ -4814,6 +5218,12 @@ https://bookjumpr.com/willa-cather/one-of-ours
 - Don Quixote by Miguel de Cervantes: "I'm no sissy, but that fellow's a regular Don Quixote."
 - Reisebilder by Heinrich Heine: "picked up a book from the table, a volume of Heine's Reisebilder in German."
 - Un Crime d'Amour by Paul Bourget: "the book with which he had read himself to sleep last night; the title, "Un Crime d'Amour""
+
+## Onna Keizu by Izumi Kyōka (1907)
+https://bookjumpr.com/izumi-kyoka/onna-keizu
+- Faust by Johann Wolfgang von Goethe: ""If I studied as hard as I could, how many years would it take before I could read something like Goethe's famous Faust, or Schiller's Wilhelm Tell... was that the name?" "You'll soon be able to read them," he said, taking the reader from her. "Or at least to my level, with that proviso." [auto-translated]"
+- Wilhelm Tell by Friedrich Schiller: ""If I studied as hard as I could, how many years would it take before I could read something like Goethe's famous Faust, or Schiller's Wilhelm Tell... was that the name?" "You'll soon be able to read them," he said, taking the reader from her. "Or at least to my level, with that proviso." [auto-translated]"
+- The Sorrows of Young Werther by Johann Wolfgang von Goethe: "The job was the long-promised one, a literal translation of Goethe's The Sorrows of Young Werther. "They say the great poet once clinked wine glasses with Schiller and swore that their verse would grow nobler with the years, like this wine," said the lady, holding her glass to the fire, proud of her learning. [auto-translated]"
 
 ## Orlando by Virginia Woolf (1928)
 https://bookjumpr.com/virginia-woolf/orlando
@@ -4865,6 +5275,23 @@ https://bookjumpr.com/charles-dickens/our-mutual-friend
 - Hamlet by William Shakespeare: "I can say to you of the healthful music of my pulse what Hamlet said of his."
 - Macbeth by William Shakespeare: "Mr George Sampson shortly afterwards took his leave, accompanied by Miss Lavinia with a candle as far as the hall, and without a candle as far as the garden gate; Mrs Wilfer, washing her hands of the Boffins, went to bed after the manner of Lady Macbeth; and R."
 - Gulliver's Travels by Jonathan Swift: "I felt like Gulliver with the Lilliputians firing upon him."
+
+## Out of the East: Reveries and Studies in New Japan by Lafcadio Hearn (1895)
+https://bookjumpr.com/lafcadio-hearn/out-of-the-east-reveries-and-studies-in-new-japan
+- Man'yoshu by Anonymous: "But the most impressive and the most ancient is found in the "Manyefushifu," a collection of poems dating from the fifth to the ninth century."
+- Urashima by Basil Hall Chamberlain: "Then out of the dreaming of the sea rose up a beautiful girl,--just as you can see her in the picture to Professor Chamberlain's "Urashima,"--robed in crimson and blue"
+- Classical Poetry of the Japanese by Basil Hall Chamberlain: "See The Classical Poetry of the Japanese, by Professor Chamberlain, in Trübner's Oriental Series."
+- Rappaccini's Daughter by Nathaniel Hawthorne: "The marvelous tale of "Rappacini's Daughter" proved greatly to their liking; and the spirit of Hawthorne might have found no little ghostly pleasure in their interpretation of it."
+- Silence — A Fable by Edgar Allan Poe: ""Monos and Daimonos" found favor; and Poe's wonderful fragment, "Silence," was appreciated after a fashion that surprised me."
+- Frankenstein by Mary Shelley: "On the other hand, the story of "Frankenstein" impressed them very little. None took it seriously."
+- Le Morte d'Arthur by Thomas Malory: "So I related to them the story of Sir Bors, which is in the sixteenth book of Sir Thomas Mallory's "Morte d'Arthur,""
+- Alcestis by Euripides: "Then it occurred to me to tell them the immortal story of Alkestis. I thought for the moment that the character of Herakles in that divine drama would have a particular charm for them."
+- Matsuyama no Kagami by F. H. James: "the memory of the old Japanese story Matsuyama no Kagami. Though related in the simplest manner and with the fewest possible words,"
+- Lotus Sutra by Anonymous: "In the eleventh chapter of the Sutra of the Lotus of the Good Law, it is written that mention was made before the Lord Buddha of a young girl who had in one instant arrived at supreme knowledge"
+- The Dhammapada by Anonymous: "came a memory of the two hundred and fifteenth verse of the Dhammapada: "From love comes grief; from grief comes fear: one who is free from love knows neither grief nor fear.""
+- First Principles by Herbert Spencer: "First Principles, 2d Ed., § 178."
+- National Life and Character: A Forecast by Charles H. Pearson: "For possible ultimate consequences, consult Dr. Pearson's recent book, National Character."
+- Glimpses of Unfamiliar Japan by Lafcadio Hearn: "See Glimpses of Unfamiliar Japan."
 
 ## Outliers by Malcolm Gladwell (2008)
 https://bookjumpr.com/malcolm-gladwell/outliers
@@ -5104,6 +5531,10 @@ https://bookjumpr.com/fyodor-dostoevsky/poor-folk
 - The Tales of Belkin by Alexander Pushkin: "Also, Thedora has brought me a book--"The Stories of Bielkin"--which I will forward you, if you would care to read it. Only, do not soil it, nor yet retain it, for it does not belong to me. It is by Pushkin."
 - The Station Master by Alexander Pushkin: "But now I have also read "The Station Overseer" in your little volume; and it is wonderful to think that one may live and yet be ignorant of the fact that under one's very nose there may be a book in which one's whole life is described as in a picture."
 - The Overcoat by Nikolai Gogol: "Also I am sending you a book of stories; some of which I have read myself, particularly one called "The Cloak.""
+
+## Poppies by Natsume Soseki (1907)
+https://bookjumpr.com/natsume-soseki/poppies
+- Avatamsaka Sutra by Anonymous: "'The Avatamsaka Sutra has a line, "outwardly a bodhisattva, inwardly a demon." You know it, surely.' 'I only know the phrase.' 'That is how the rose got the name Buddha-smiling. Lovely flower, but terribly thorny.' [auto-translated]"
 
 ## Possession by A. S. Byatt (1990)
 https://bookjumpr.com/a-s-byatt/possession
@@ -5454,6 +5885,14 @@ https://bookjumpr.com/ivan-turgenev/rudin
 https://bookjumpr.com/elizabeth-gaskell/ruth
 - Lexicon totius Latinitatis (Facciolati's Latin Lexicon) by Jacopo Facciolati: "Take my Facciolati to Johnson's, he will advance upon it; it is the third row, bottom shelf."
 
+## Sanshiro by Natsume Sōseki (1908)
+https://bookjumpr.com/natsume-soseki/sanshiro
+- Oroonoko by Aphra Behn: ""I have only read the novel Oroonoko." Asked for the outline, he said it tells of a black African prince who is tricked by an English captain, sold into slavery, and suffers terribly. [auto-translated]"
+- Oroonoko by Thomas Southerne: "After that novel came out, a man named Southerne worked the same story into a play, separately. It has the same name [Oroonoko], so you mustn't mix the two up. [auto-translated]"
+- Hydriotaphia by Thomas Browne: ""This is the Hydriotaphia I told you about the other day. Look at it if you are bored." Sanshiro thanked him and took the book. [auto-translated]"
+- Hamlet by William Shakespeare: ""Hamlet probably did not want to marry. There may be only one Hamlet, but there are many people like him." "What sort of people?" Hirota fell silent as smoke rose from his cigar. [auto-translated]"
+- History of Intellectual Development by John Beattie Crozier: ""History of Intellectual Development. Oh, so it was there," Mineko said, drawing close to look at the book that Sanshiro had found. [auto-translated]"
+
 ## Sapiens: A Brief History of Humankind by Yuval Noah Harari (2014)
 https://bookjumpr.com/yuval-noah-harari/sapiens-a-brief-history-of-humankind
 - Das Kapital by Karl Marx: "Communism too has its holy scripts and prophetic books, such as Marx's Das Kapital, which foretold that history would soon end"
@@ -5506,6 +5945,13 @@ https://bookjumpr.com/george-eliot/scenes-of-clerical-life
 - Memoirs of Felix Neff, Pastor of the High Alps by William Stephen Gilly: "The silent handsome girl of two-and-twenty, who is covering the 'Memoirs of Felix Neff,' is Miss Eliza Pratt"
 - Memoir of Bishop Jebb by Anonymous: "Mr. Ely threw himself with a sense of relief into his easiest chair, set his feet on the hobs, and in this attitude of bachelor enjoyment began to read Bishop Jebb's Memoirs."
 
+## Schoolgirl by Osamu Dazai (1939)
+https://bookjumpr.com/osamu-dazai/schoolgirl
+- Madame Curie by Eve Curie: "Standing still in the same pose, I suddenly crave money. If I had ten yen it would do. Of all the books, I most want to read 'Madame Curie.' Then I find myself wishing that Mother will live a long life. [auto-translated]"
+- A Strange Tale from East of the River by Nagai Kafu: "While I tend the bath, sitting on a mandarin-orange crate by the flickering coal fire, I finish my homework, and then reread 'A Strange Tale from East of the River.' What it describes is not ugly or dirty at all, but here and there I notice the author's affectation, and it feels old and uncertain. [auto-translated]"
+- Heart by Edmondo De Amicis: "Tonight, after the massage, I read a little of 'Heart' to Mother as a bonus. Whenever I read it, I get the same feeling I had as a small child, and my own heart feels honest and clean. Mother cried, head bowed, at the parts about Enrico and Garrone. [auto-translated]"
+- Belle de Jour by Joseph Kessel: "The other day I was reading Kessel's 'Belle de Jour' when Mother quietly took the book from me and glanced at the cover. She looked very gloomy but said nothing and handed it straight back, and I no longer felt like reading on. [auto-translated]"
+
 ## Second Treatise of Government by John Locke (1689)
 https://bookjumpr.com/john-locke/second-treatise-of-government
 - Observations on Hobbes, Milton, &c. by Robert Filmer: "I have nothing more, but to advertise the reader, that Observations stands for Observations on Hobbs, Milton, &c."
@@ -5533,6 +5979,15 @@ https://bookjumpr.com/gustave-flaubert/sentimental-education
 - The Imitation of Christ by Thomas a Kempis: "a copy of the _Revue des Deux Mondes_ which was lying on the table between an _Imitation_ and an _Almanach de Gotha_"
 - Les Caractères by Jean de La Bruyère: "There's the best of La Bruyere's characters!"
 
+## Shadowings by Lafcadio Hearn (1900)
+https://bookjumpr.com/lafcadio-hearn/shadowings
+- Konjaku Monogatari by Anonymous: "The original story is to be found in the curious volume entitled Konseki-Monogatari"
+- Jikkinshō by Anonymous: "From the old story-book, Jikkun-sho THERE was once a very pious and learned priest, called Shoku Shonin, who lived in the province of Harima."
+- Otogi Hyaku Monogatari by Aoki Rosui: "Related in the Otogi-Hyaku-Monogatari SAYS the old Japanese author, Hakubai-En Rosui:-- "In Chinese and in Japanese books there are related many stories,--both of ancient and of modern times,--about pictures that were so beautiful as to exercise a magical influence upon the beholder."
+- Lotus Sutra by Anonymous: "For many years he meditated daily upon the chapter of Fugen-Bosatsu [the Bodhisattva Samantabhadra] in the Sutra of the Lotos of the Good Law; and he used to pray, every morning and evening, that he might at some time be permitted to behold Fugen-Bosatsu as a living presence, and in the form described in the holy text."
+- Madame Chrysanthème by Pierre Loti: "Lovers of Pierre Loti (the world's greatest prose-writer) may remember in Madame Chrysantheme a delightful passage about a Japanese house,--describing the old dry woodwork as impregnated with sonority by the shrilling crickets of a hundred summers."
+- Greek Anthology by Anonymous: "It is especially in their poems upon the cicada that we find the old Greeks confessing their love of insect-melody: witness the lines in the Anthology about the tettix caught in a spider's snare, and "making lament in the thin fetters" until freed by the poet;"
+
 ## Shalimar the Clown by Salman Rushdie (2005)
 https://bookjumpr.com/salman-rushdie/shalimar-the-clown
 - The Country Without a Post Office by Agha Shahid Ali: "opening epigraph, attributed AGHA SHAHID ALI, The Country Without a Post Office"
@@ -5555,6 +6010,28 @@ https://bookjumpr.com/salman-rushdie/shame
 ## She by H. Rider Haggard (1887)
 https://bookjumpr.com/h-rider-haggard/she
 - Hamlet by William Shakespeare: "…Another thing that makes me fix the date of this entry at the middle of the eighteenth century is that, curiously enough, I have an acting copy of "Hamlet," written about 1740, in which these two lines are misquoted almost exactly in the same way, and I have little doubt but that the Vincey who…"
+
+## Shibue Chūsai by Mori Ōgai (1916)
+https://bookjumpr.com/mori-ogai/shibue-chusai
+- The Analects by Confucius: "Chūsai had a copy of The Analects with Dōshun's reading marks brought out, opened volume seven, and began lecturing from the line "Zigong asked...", taking no notice of Zhu Xi's commentary and following the old interpretations throughout. [auto-translated]"
+- Mencius by Mencius: "Chūsai also said: "The best part of Mencius is in the chapter on Exhausting the Mind." [auto-translated]"
+- Tao Te Ching by Laozi: "The scholar Meian was fond of the Tao Te Ching in his later years, and so Chūsai too came to share his taste. [auto-translated]"
+- Records of the Grand Historian by Sima Qian: "Mori Kien came and borrowed The Analects and the Records of the Grand Historian. The Analects was an old manuscript with Japanese reading marks, and the Records of the Grand Historian was a Korean edition. [auto-translated]"
+- Ryūshinfu by Shibue Chūsai: "Among the books Chūsai wrote, first come the Keiseki Hōkoshi and the Ryūshinfu, which were published one after the other by Chinese hands. [auto-translated]"
+- Han Feizi by Han Fei: "Of the Han Feizi, he said that the chapters "Zhu Dao," "Yang Quan," "Jie Lao" and "Yu Lao" were the good ones. [auto-translated]"
+
+## Shinto: The Ancient Religion of Japan by W. G. Aston (1907)
+https://bookjumpr.com/w-g-aston/shinto-the-ancient-religion-of-japan
+- Kojiki by O no Yasumaro: "The Kojiki is a repertory of the old myths and legends, and, in the latter part, of the ancient history of Japan."
+- Nihongi by Prince Toneri: "The Nihongi, a work of similar scope, though based more on an existing written literature, was produced a few years later (720). It quotes numerous variants of the religious myths current at this time."
+- Engishiki by Fujiwara no Tokihira: "For the ritual of Shinto our chief source of information is the Yengishiki, a compilation made early in the tenth century."
+- Man'yoshu by Anonymous: "In one passage of the Nihongi, Yomi is clearly no more than a metaphor for the grave. A brother of Jimmu Tenno, the first Mikado, is said to have gone to the ‘Eternal Land’ at his death, and in a poem of the Manyōshiu, a deceased Mikado is said to have ascended into heaven."
+- The Tempest by William Shakespeare: "In Shakespeare’s Tempest, Iris is at once the rainbow and an anthropomorphic messenger of the gods. Phoebus is not only the sun but a deity distinct from that luminary, though associated with it, as in the story of Phaeton."
+- Japan: An Attempt at Interpretation by Lafcadio Hearn: "The same view is held by some European scholars, notably the late Lafcadio Hearn, whose interesting and valuable work, Japan, an Interpretation, is greatly marred by this misconception."
+- A History of Japanese Literature by W. G. Aston: "M. Revon, the author of a valuable treatise on Shinto, challenges this statement, which I had already made in my History of Japanese Literature."
+- Occult Japan by Percival Lowell: "There is evidence that the inspired person, generally a woman, delivered the divine message when in a hypnotic trance. This is undoubtedly the case at the present time. Mr. P. Lowell’s Occult Japan gives a detailed description of a séance of this kind at which he was present."
+- The Soul of the Far East by Percival Lowell: "In this respect he greatly resembles the Kratos and Bia of Hesiod and Æschylus. See Percival Lowell’s Soul of the Far East."
+- Shintoisme by Michel Revon: "Shintoisme, by M. Revon, in the Revue de l’Histoire des Religions, 1905-1907. Highly recommended for its up-to-date theory, and as a comprehensive collection of facts."
 
 ## Shirley by Charlotte Bronte (1849)
 https://bookjumpr.com/charlotte-bronte/shirley
@@ -5667,6 +6144,12 @@ https://bookjumpr.com/edna-ferber/so-big
 - A Little Princess by Frances Hodgson Burnett: "a sort of mixture of Dick Swiveller’s Marchioness and Sarah Crewe."
 - Samuel of Posen by George H. Jessop: "She witnessed that startling innovation, a Jewish play, called Samuel of Posen."
 - Pique by Augustin Daly: "She saw Fanny Davenport in Pique."
+
+## Some Prefer Nettles by Jun'ichirō Tanizaki (1929)
+https://bookjumpr.com/jun-ichiro-tanizaki/some-prefer-nettles
+- A Thousand and One Nights by Anonymous: ""The Arabian Nights is, on the whole, a book for adults to read. What you children have is just a collection of the stories fit for children to read, picked out from it." Kaname explains to his son, who is peering at the illustrations. [auto-translated]"
+- Henry V by William Shakespeare: "Burton's footnote reads: "Even here the coarseness is no greater than in plays written for our own old stage, such as Shakespeare's Henry V. Besides, tales like these Nights are not meant to be read aloud or recited before mixed company." [auto-translated]"
+- The Love Suicides at Amijima by Monzaemon Chikamatsu: "Kaname vaguely remembered that the Gidayu version of The Love Suicides at Amijima was not Chikamatsu's original but a rewrite by Hanji or someone, and that this line must come from the original; the old man praised the puppet-play texts, saying "today's novels are nowhere near them." [auto-translated]"
 
 ## Song of Solomon by Toni Morrison (1977)
 https://bookjumpr.com/toni-morrison/song-of-solomon
@@ -6069,6 +6552,20 @@ https://bookjumpr.com/henry-james/the-ambassadors
 https://bookjumpr.com/henry-james/the-american
 - La Belle Dame sans Merci by John Keats: "“Did you ever read Keats’s Belle Dame sans Merci?” asked Mrs. Tristram. “You remind me of the hero of the ballad:—"
 
+## The American Diary of a Japanese Girl by Yoné Noguchi (1902)
+https://bookjumpr.com/yone-noguchi/the-american-diary-of-a-japanese-girl
+- A Psalm of Life by Henry Wadsworth Longfellow: "I must read Mr. Longfellow again as I used a year ago reclining in the Spring breeze,—“A Psalm of Life,” “The Village Blacksmith,” and half a dozen snatches from “Evangeline” or “The Song of Hiawatha” at the least."
+- The Village Blacksmith by Henry Wadsworth Longfellow: "I must read Mr. Longfellow again as I used a year ago reclining in the Spring breeze,—“A Psalm of Life,” “The Village Blacksmith,” and half a dozen snatches from “Evangeline” or “The Song of Hiawatha” at the least."
+- Evangeline by Henry Wadsworth Longfellow: "I must read Mr. Longfellow again as I used a year ago reclining in the Spring breeze,—“A Psalm of Life,” “The Village Blacksmith,” and half a dozen snatches from “Evangeline” or “The Song of Hiawatha” at the least."
+- The Song of Hiawatha by Henry Wadsworth Longfellow: "I must read Mr. Longfellow again as I used a year ago reclining in the Spring breeze,—“A Psalm of Life,” “The Village Blacksmith,” and half a dozen snatches from “Evangeline” or “The Song of Hiawatha” at the least."
+- The Sketch Book of Geoffrey Crayon by Washington Irving: "I have read his gratifying “Sketch Book.” I used to sleep holding it under my wooden pillow."
+- The Lotos-Eaters by Alfred Tennyson: "I recalled a few passages of “The Lotos Eaters” by Lord Tennyson—it sounds better than “the poet Tennyson.”"
+- The French Revolution: A History by Thomas Carlyle: "Great Carlyle wrote his “French Revolution” twice. I wish I had been given a slice of his persistency."
+- Rubáiyát of Omar Khayyám by Omar Khayyám: "Mrs. Schuyler picked out for me “Rubaiyat of Omar Khayyam.” My uncle said: “American woman can’t keep away from Omar and chicken-salad.”"
+- When Knighthood Was in Flower by Charles Major: "I bought one book, being captivated by its title. Isn’t “When Knighthood was in Flower” beautifully chivalrous?"
+- Thanatopsis by William Cullen Bryant: "“Did you ever read Thanatopsis, my dear?” Mr. Heine asked. “Yes, sir!” “It’s a noble piece."
+- The House of Life by Dante Gabriel Rossetti: "Dante Gabriel Rosetti buried his ‘House of Life,’ because they were not for a gaping millionaire’s wife, but only for his own little wife."
+
 ## The Amethyst Ring by Anatole France (1899)
 https://bookjumpr.com/anatole-france/the-amethyst-ring
 - Robinson Crusoe by Daniel Defoe: "can't we call the dog Thursday, like Robinson Crusoe who called his man Friday"
@@ -6393,6 +6890,28 @@ https://bookjumpr.com/benjamin-franklin/the-autobiography-of-benjamin-franklin
 - Articles of Belief and Acts of Religion by Benjamin Franklin: "in 1728), entitled, _Articles of Belief and Acts of Religion_."
 - Poor Richard's Almanack by Benjamin Franklin: "In 1732 I first publish'd my Almanack, under the name of Richard Saunders; it was continu'd by me about twenty-five years, commonly call'd Poor Richard's Almanac."
 
+## The Autobiography of Fukuzawa Yukichi by Fukuzawa Yukichi (1899)
+https://bookjumpr.com/fukuzawa-yukichi/the-autobiography-of-fukuzawa-yukichi
+- Zuo Zhuan by Zuo Qiuming: "Afterwards I attended lectures on other Chinese texts, and then studied alone, history first; I was especially fond of the Zuo Zhuan, and while most students quit after three or four of its fifteen volumes, I read it all, about eleven times, and memorized the interesting parts. [auto-translated]"
+- Records of the Grand Historian by Sima Qian: "For history I read the Records of the Grand Historian first, then the Book of Han and the Book of Later Han, the Jin history, the Five Dynasties and the like. [auto-translated]"
+- Book of Han by Ban Gu: "For history I read the Records of the Grand Historian first, then the Book of Han and the Book of Later Han, the Jin history, the Five Dynasties and the like. [auto-translated]"
+- Zhan Guo Ce by Liu Xiang: "Then I listened to lectures on the Mengqiu, the Shishuo Xinyu, the Zuo Zhuan, the Zhan Guo Ce, Laozi and Zhuangzi. [auto-translated]"
+- A New Account of the Tales of the World by Liu Yiqing: "Then I listened to lectures on the Mengqiu, A New Account of the Tales of the World, the Zuo Zhuan, the Zhan Guo Ce, Laozi and Zhuangzi. [auto-translated]"
+- Analects by Confucius: "At Master Shiraishi's school I studied the classics above all: the Analects and Mencius of course, and the whole range of commentary on the meaning of the classics. [auto-translated]"
+- Mencius by Mencius: "While the others were reading the Classic of Poetry or the Book of Documents, I was doing recitation of Mencius. [auto-translated]"
+- Book of Documents by Anonymous: "The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well. [auto-translated]"
+- Zhuangzi by Zhuang Zhou: "I studied the Zuo Zhuan, the Guoyu, the Records of the Grand Historian and the Book of Han as a matter of course, and the Classic of Poetry and Book of Documents too, and even odd, interesting works like Laozi and Zhuangzi, hearing my teacher's lectures and studying them myself. [auto-translated]"
+- Tao Te Ching by Laozi: "I of course studied the Classic of Poetry and the Book of Documents, and even odd, interesting works such as the Tao Te Ching and Zhuangzi, hearing the teacher's lectures and studying them myself. [auto-translated]"
+- I Ching by Anonymous: "Among the library was a set of thirteen volumes of the I Ching with annotations, with Ito Togai's own handwritten notes in the margins, a splendid thing that my late father had bought in Osaka and prized. [auto-translated]"
+- Conditions in the West by Fukuzawa Yukichi: "Back in Japan I took those notes as a base, examined many more original books, and wove together what I remembered, and so Conditions in the West came to be. [auto-translated]"
+- Chambers's Political Economy by John Hill Burton: "I had a copy of Chambers's Political Economy, and when I mentioned it to an influential finance official he was delighted and asked for at least a table of contents, so I set about translating it. [auto-translated]"
+- Chōai no Hō by Fukuzawa Yukichi: "I translated a book on bookkeeping, Chōai no Hō, early after the Restoration, and every bookkeeping manual in the world today follows my translation's examples. [auto-translated]"
+- Guide to Travel in the West by Fukuzawa Yukichi: "I was ordered to withdraw from duty, which was no hardship at all; if anything I was glad of the free time, so I retired at once as commanded, and during that time I was writing a book called Guide to Travel in the West. [auto-translated]"
+- Seiri Hatsumō by Anonymous: "The passage discussed how light relates to sight, with two candles and the shadows they cast, quite a difficult part, and it should be in the translated book Seiri Hatsumō that Shimamura translated. [auto-translated]"
+- Classic of Poetry by Anonymous: "The master was particularly fond of the Classic of Poetry and the Book of Documents, and I truly received his lectures on them and read them well. [auto-translated]"
+- Book of Later Han by Fan Ye: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
+- Book of Jin by Fang Xuanling: "For history, beginning with the Records of the Grand Historian, I also read the Book of Han and the Book of Later Han, the Book of Jin, the History of the Five Dynasties, and the Brief History of the Yuan and Ming. [auto-translated]"
+
 ## The Autobiography of Malcolm X by Malcolm X (1965)
 https://bookjumpr.com/malcolm-x/the-autobiography-of-malcolm-x
 - Black Like Me by John Howard Griffin: "James Baldwin's books, translated, had made a tremendous impact, as had the book Black Like Me, by John Griffin."
@@ -6490,6 +7009,13 @@ https://bookjumpr.com/f-scott-fitzgerald/the-beautiful-and-damned
 - Peg o' My Heart by J. Hartley Manners: "MURIEL: Have you seen "Peg o' My Heart"?"
 - Fair and Warmer by Avery Hopwood: "Have you seen "Fair and Warmer"?"
 
+## The Beautiful Village by Hori Tatsuo (1934)
+https://bookjumpr.com/hori-tatsuo/the-beautiful-village
+- The Princess of Clèves by Madame de La Fayette: "On my desk lies Madame de La Fayette's The Princess of Clèves, left open at a half-read page. I am reading this old French novel with real feeling for the first time, and thanks to it I feel somewhat rescued from my oddly tense state of mind these days. [auto-translated]"
+- Count d'Orgel's Ball by Raymond Radiguet: "Radiguet's Count d'Orgel's Ball, which I made you read a couple of years ago, is even said to have taken this novel as its model, so it resembles it greatly. [auto-translated]"
+- Adolphe by Benjamin Constant: "The example of Adolphe came to mind. I wanted to raise my own small affair to the level of a work like that, because Adolphe's fate, that of a weak yet egoistic man who made himself and others unhappy, seemed just like my own. [auto-translated]"
+- Faust, Part Two by Johann Wolfgang von Goethe: "Epigraph, from Faust, Part Two: the pulse of life beats anew and brisk, as if to greet the gentle twilight of the heavens. You, world below, did not fail in your duty last night, and this morning, your weariness healed, you breathe beneath my feet. [auto-translated]"
+
 ## The Black Arrow by Robert Louis Stevenson (1888)
 https://bookjumpr.com/robert-louis-stevenson/the-black-arrow
 - Ali Baba and the Forty Thieves by Anonymous: "what he told was pretty much the tale of Ali Baba, with Shoreby and Tunstall Forest substituted for the East, and the treasures of the cavern rather exaggerated than diminished."
@@ -6537,6 +7063,22 @@ https://bookjumpr.com/david-mitchell/the-bone-clocks
 - The Season of Divorce by John Cheever: ""Don't know how you've stuck at politics for three years." ... John Cheever has a short story called "The Season of Divorce." It's one of his best."
 - The Da Vinci Code by Dan Brown: "Wendy Hanger considers criminal networks, the FBI, The Da Vinci Code—but smiles, shyly."
 - The Canterbury Tales by Geoffrey Chaucer: "A minnow of déjà vu darts by and its name is Geoffrey Chaucer: "Now, Sirs," quoth he, "if it be you so lief To finde Death, turn up this crooked way, For in that grove I left him, by my fay, Under a tree, and there he will abide …" (low confidence: no title stated, but the verbatim quoted lines are recognizably from the Pardoner's Tale,…"
+
+## The Book of Tea by Kakuzo Okakura (1906)
+https://bookjumpr.com/kakuzo-okakura/the-book-of-tea
+- The Web of Indian Life by Sister Nivedita: "It is rarely that the chivalrous pen of a Lafcadio Hearn or that of the author of "The Web of Indian Life" enlivens the Oriental darkness with the torch of our own sentiments."
+- The Classic of Tea by Lu Yu: "Luwuh, a poet, saw in the Tea-service the same harmony and order which reigned through all things. In his celebrated work, the "Chaking" (The Holy Scripture of Tea) he formulated the Code of Tea."
+- I Ching by Anonymous: "The archaic records of China, especially the Book of Changes, foreshadow his thought."
+- Tao Te Ching by Laozi: "Laotse himself spoke of it thus: "There is a thing which is all-containing, which was born before the existence of Heaven and Earth. How silent! How solitary! It stands alone and changes not."
+- Pingshi by Yuan Hongdao: "It has been written ["Pingtse", by Yuenchunlang] that the peony should be bathed by a handsome maiden in full costume, that a winter-plum should be watered by a pale, slender monk."
+
+## The Book of the Dead by Orikuchi Shinobu (1939)
+https://bookjumpr.com/orikuchi-shinobu/the-book-of-the-dead
+- Amida Sutra by Anonymous: "The Lady of the Yokohagi house began copying the Sutra on the Praise of the Pure Land at that time; the gift of her father's that most enriched the girl's heart was this newly translated Amida Sutra in one scroll. [auto-translated]"
+- Lotus Sutra by Anonymous: "Behind the curtained dais came two scrolls apparently copied in a woman's hand: the Lotus Sutra of Lady Tachibana, her great-grandmother, and the Treatise on Yue Yi of the present Empress Dowager. [auto-translated]"
+- Classic of Filial Piety by Anonymous: "They say she was copying the Amida Sutra a thousand times before she left home, that she had practised on the Treatise on Yue Yi and her brother's chronicle of Gangōji, and that she learned the Classic of Filial Piety when she was this small. [auto-translated]"
+- Chu Ci by Anonymous: "A true woman scholar, she is; one like you, wasting himself on the Chu Ci and on tales, cannot go near her. [auto-translated]"
+- Treatise on Yue Yi by Xiahou Xuan: "They say that before leaving home she had copied out a thousand Amida Sutras, and had practised her hand with the Treatise on Yue Yi and, earlier still, the Gangoji Engi written by her elder brother. [auto-translated]"
 
 ## The Book Thief by Markus Zusak (2005)
 https://bookjumpr.com/markus-zusak/the-book-thief
@@ -7297,6 +7839,13 @@ https://bookjumpr.com/edith-wharton/the-fruit-of-the-tree
 - History of European Morals from Augustus to Charlemagne by William Edward Hartpole Lecky: "a few stray well-worn volumes: Lecky's European Morals, Carlyle's translation of Wilhelm Meister, Seneca, Epictetus"
 - Wilhelm Meister's Apprenticeship by Johann Wolfgang von Goethe: "Lecky's European Morals, Carlyle's translation of Wilhelm Meister, Seneca, Epictetus, a German grammar, a pocket Bacon."
 
+## The Gate by Natsume Sōseki (1910)
+https://bookjumpr.com/natsume-soseki/the-gate
+- The Analects by Confucius: "Before going to bed he said, "Tonight I read The Analects for the first time in a long while." When Oyone asked whether there was anything in it, Sosuke answered, "No, nothing." [auto-translated]"
+- Caigen tan by Hong Yingming: "A colleague of his took out the Caigen tan from his Western-style pocket and read it on the tram. Sosuke, with no taste for such things, did not know what the Caigen tan was. [auto-translated]"
+- Shūmon mujintō ron by Tōrei Enji: "Giso took the usual book from his bosom and set it before Sosuke. It was a book called the Shūmon mujintō ron. "It is a wonderful book," he had told Sosuke. [auto-translated]"
+- The Blue Cliff Record by Yuanwu Keqin: "Giso was reading a book with a black cover. It had the difficult title The Blue Cliff Record. "Even we read the Blue Cliff Record, but beyond our own level we have no idea what it means." [auto-translated]"
+
 ## The Ghost Writer by Philip Roth (1979)
 https://bookjumpr.com/philip-roth/the-ghost-writer
 - Het Achterhuis (The Diary of a Young Girl) by Anne Frank: "she checked The New York Times Index and the Readers' Guide to Periodical Literature for "Frank, Anne"...and "Het Achterhuis""
@@ -7365,6 +7914,12 @@ https://bookjumpr.com/edgar-rice-burroughs/the-gods-of-mars
 ## The Golden Bowl by Henry James (1904)
 https://bookjumpr.com/henry-james/the-golden-bowl
 - The Narrative of Arthur Gordon Pym by Edgar Allan Poe: "a wonderful tale by Allan Poe, his prospective wife's countryman … the story of the shipwrecked Gordon Pym, who, drifting in a small boat further toward the North Pole"
+
+## The Golden Demon by Ozaki Kōyō (1897)
+https://bookjumpr.com/ozaki-koyo/the-golden-demon
+- Nansō Satomi Hakkenden by Takizawa Bakin: "It may sound like a novel, but Miya's feeling ought to be that of Hamaji in Nanso Satomi Hakkenden, slipping out late at night past her parents' eyes to see Shino, who leaves tomorrow morning. How strange: my own circumstances resemble Shino's too, parted from my parents in childhood, raised in the Shigisawa house, betrothed to their… [auto-translated]"
+- Classic of Filial Piety by Anonymous: ""Some rebellion broke out, and someone petitioned the throne: no need to send an army, just send one general to the river and have him read the Classic of Filial Piety to the rebels, and they will vanish on their own. You laugh at that, but Yusa is in all earnest reading the Classic of Filial Piety, bled every other month by a lender who… [auto-translated]"
+- Water Margin by Shi Nai'an: "When it comes to this, brute force counts for more than money. Surely this is a scene straight out of the Water Margin? To protect a nation's interests and rights, international law is really worth nothing; what matters is military strength. [auto-translated]"
 
 ## The Golden House by Salman Rushdie (2017)
 https://bookjumpr.com/salman-rushdie/the-golden-house
@@ -7776,6 +8331,23 @@ https://bookjumpr.com/john-galsworthy/the-island-pharisees
 - King John by William Shakespeare: "Epigraph: "'But this is a worshipful society' KING JOHN""
 - The French Revolution: A History by Thomas Carlyle: "Meanwhile he wavered between purchasing a book called Market Hayborough, which he had read and would certainly enjoy a second time, and Carlyle's French Revolution, which he had not read and was doubtful of enjoying; he felt that he ought to buy the latter, but he did not relish giving up the former."
 
+## The Japanese Spirit by Yoshisaburo Okakura (1905)
+https://bookjumpr.com/yoshisaburo-okakura/the-japanese-spirit
+- Kojiki by O no Yasumaro: "One thing is certain about them, that they were not free from influences exerted by the different myths prevalent among the Chinese and the Indians at the time when they were written down in our earliest history, the Ko-ji-ki or Records of Ancient Matter, completed in A.D. 712."
+- Analects by Confucius: "We are told that a certain prince was put under the tutorship of a learned Corean scholar of Chinese, who, at the request of the emperor, came over to Japan with the Confucian Analects (Iun-yue) and some other Chinese classics as a tribute from the King of Kudara."
+- Classic of Filial Piety by Anonymous: "The Hsiao King, or the 'Sacred Book of Filial Piety,' which is supposed to record conversations held between Confucius and his disciple Tsang Ts'an on that weighty subject, has the following passage:"
+- Lotus Sutra by Anonymous: "The sonorous reading of the Book of Filial Piety was heard all over the country, echoing with the loud recital of the Myoho-renge-kyo (or Saddharma Pundarika Sutra)."
+- Tao Te Ching by Laozi: "…Laoism, through the wonderful Tao-teh-king, a small book by Lao-tze himself, but especially through Chwang-tze, a work in ten books by his famous follower Chwang-chow, has exercised considerable influence on our thought for twelve centuries, a word about it may not be out of place before we go on to consider the doctrine of Shakya-muni."
+- Zhuangzi by Zhuang Zhou: "…Laoism, through the wonderful Tao-teh-king, a small book by Lao-tze himself, but especially through Chwang-tze, a work in ten books by his famous follower Chwang-chow, has exercised considerable influence on our thought for twelve centuries, a word about it may not be out of place before we go on to consider the doctrine of Shakya-muni."
+- Man'yoshu by Anonymous: "Here is one of the earliest odes to Fujiyama, contained in a collection of lyrical poems called Man-yo-shu, or 'Myriad Leaves,' by Prince Moroe (died A.D. 757), somewhere in the first half of the eighth century:"
+- Japan: An Attempt at Interpretation by Lafcadio Hearn: "…down to the admirable Interpretation written last year by the late Mr. Lafcadio Hearn, in whose death Japan lost one of her most precious friends, possessing as he did the scholar's insight and the poet's pen, two heavenly gifts seldom found united in a single man."
+- Bushido: The Soul of Japan by Inazo Nitobe: "As for books on the subject from the pen of the Japanese themselves, Dr. Nitobe's Bushido, Explanations of the Japanese Thought, and my brother K. Okakura's Ideals of the East, besides a volume by several well-known Japanese, entitled Japan by the Japanese, are to be specially mentioned."
+- The Ideals of the East by Kakuzo Okakura: "As for books on the subject from the pen of the Japanese themselves, Dr. Nitobe's Bushido, Explanations of the Japanese Thought, and my brother K. Okakura's Ideals of the East, besides a volume by several well-known Japanese, entitled Japan by the Japanese, are to be specially mentioned."
+- Buddhism by T. W. Rhys Davids: "Those who would care to read about it will find an excellent supply of knowledge in two little books called Buddhism and Buddhism in China, written respectively by Dr. Rhys Davids and the late Rev. S. Beal, not to mention the late Sir Monier Williams' standard work."
+- Buddhism in China by Samuel Beal: "Those who would care to read about it will find an excellent supply of knowledge in two little books called Buddhism and Buddhism in China, written respectively by Dr. Rhys Davids and the late Rev. S. Beal, not to mention the late Sir Monier Williams' standard work."
+- The Religion of China by James Legge: "'To give oneself,' he said on one occasion, 'to the duties due to men, and while respecting spiritual things to keep aloof from them, may be called wisdom.' Legge's The Religion of China, p. 137."
+- The Doctrines of Confucius by Ernst Faber: "…were of the opinion that more real good was to be achieved in proceeding straight to action under the guidance of conscience which was heaven and all, than in indulging in idle talk about the subtlety of human nature. Faber's Doctrines of Confucius, p. 33."
+
 ## The Job by Sinclair Lewis (1917)
 https://bookjumpr.com/sinclair-lewis/the-job
 - Snow-Bound by John Greenleaf Whittier: "an argument as to whether Longfellow or Whittier was the better poet, by parroting the whole of "Snow Bound""
@@ -8150,6 +8722,11 @@ https://bookjumpr.com/jeffrey-eugenides/the-marriage-plot
 - Bus Stop by William Inge: "Dee Michaels, who played the Marilyn Monroe part in a campus production of Bus Stop"
 - The Vietnamization of New Jersey by Christopher Durang: "interesting bits from The Vietnamization of New Jersey and Mamet's Sexual Perversity in Chicago"
 
+## The Martyr by Ryūnosuke Akutagawa (1918)
+https://bookjumpr.com/ryunosuke-akutagawa/the-martyr
+- Guia do Pecador by Luis de Granada: "Even if one kept three hundred years of life and joy beyond measure, it would be as a dream beside the endless joys of the world to come. (Keichō translation, Guia do Pecador) [auto-translated]"
+- The Imitation of Christ by Thomas a Kempis: "One who has entered the way of goodness will sense a mysterious sweetness in the teaching. (Keichō translation of The Imitation of Christ, Imitatione Christi) [auto-translated]"
+
 ## The Mask of Apollo by Mary Renault (1966)
 https://bookjumpr.com/mary-renault/the-mask-of-apollo
 - The Persians by Aeschylus: "there came back to me my own childish voice, declaiming the Messenger from Salamis, in Aischylos's The Persians"
@@ -8471,6 +9048,11 @@ https://bookjumpr.com/kristin-hannah/the-nightingale
 - Madame Bovary by Gustave Flaubert: "She had her favorite copy of Madame Bovary and the book everyone was reading—Autant en emporte le vent—and some clothes; no food or water."
 - Gone with the Wind by Margaret Mitchell: "She had her favorite copy of Madame Bovary and the book everyone was reading—Autant en emporte le vent—and some clothes; no food or water."
 - The Flowers of Evil by Charles Baudelaire: "The author's name—Baudelaire—was etched into the leather... Isabelle knew the volume. Les Fleurs du mal. The Flowers of Evil. It was the book they used to signal a meeting."
+
+## The No Plays of Japan by Arthur Waley (1921)
+https://bookjumpr.com/arthur-waley/the-no-plays-of-japan
+- Lotus Sutra by Anonymous: "(1) The Amidists sought to gain satori by the study of the Hokke Kyo, called in Sanskrit Saddharma Pundarika Sutra or "Scripture of the Lotus of the True Law," or even by the mere repetition of its complete title "Myoho Renge Hokke Kyo.""
+- Abhidharmakosa by Vasubandhu: "…but in the Hokke Scripture I have not got to the Law-Master Chapter, and in the Gusha-shastra I have not got as far as the Seventh Book."
 
 ## The Noise of Time by Julian Barnes (2016)
 https://bookjumpr.com/julian-barnes/the-noise-of-time
@@ -8827,6 +9409,10 @@ https://bookjumpr.com/willa-cather/the-professor-s-house
 - The Scarlet Letter by Nathaniel Hawthorne: "He could charge up the time spent in perusing "The Scarlet Letter" to Colonial history, and "Tom Sawyer" to the Missouri Compromise, it was said."
 - The Adventures of Tom Sawyer by Mark Twain: "He could charge up the time spent in perusing "The Scarlet Letter" to Colonial history, and "Tom Sawyer" to the Missouri Compromise, it was said."
 
+## The Psychological Test by Edogawa Rampo (1925)
+https://bookjumpr.com/edogawa-rampo/the-psychological-test
+- The Murder on D. Hill by Edogawa Rampo: "Those who have read The Murder on D. Hill will have some idea what sort of man this Kogoro Akechi is. He has since been involved in many difficult cases and shown his rare talent, and is now fully recognized. [auto-translated]"
+
 ## The Queen's Necklace by Alexandre Dumas (1849)
 https://bookjumpr.com/alexandre-dumas/the-queen-s-necklace
 - The Marriage of Figaro by Pierre-Augustin Caron de Beaumarchais: "the new play by the Canon de Beaumarchais... 'You mean the ‘Marriage of Figaro’?'"
@@ -8840,6 +9426,13 @@ https://bookjumpr.com/graham-greene/the-quiet-american
 - La Garçonne by Victor Margueritte: "He unlocked a glass-fronted bookcase and showed me his library—there were expensive illustrated editions of Aphrodite and Nona, there was La Garçonne, and even several Paul de Kocks."
 - Aphrodite by Pierre Louÿs: "there were expensive illustrated editions of Aphrodite and Nona, there was La Garçonne, and even several Paul de Kocks."
 - Windsor Castle by William Harrison Ainsworth: ""Monsieur Pyle?" she inquired, looking up from the scrutiny of Windsor Castle, and her formality was comic and reassuring at that moment."
+
+## The Quilt by Tayama Katai (1907)
+https://bookjumpr.com/tayama-katai/the-quilt
+- Lonely Lives by Gerhart Hauptmann: "By some association he suddenly remembered Hauptmann's Lonely Lives. Before things came to this he had thought of making that play her daily lesson, wanting to teach her the heart and sorrow of Johannes Vockerat. [auto-translated]"
+- On the Eve by Ivan Turgenev: "For one hour each morning, from nine to ten, he explained Turgenev's novels, and Yoshiko sat slantwise at her desk under his shining eyes, listening to the long, long tale of On the Eve. How deeply Elena's fierce feelings, strong will and sad, tragic end moved her. [auto-translated]"
+- Punin and Baburin by Ivan Turgenev: "Fate, life: Turgenev's Punin and Baburin, which he had once taught Yoshiko, rose in Tokio's mind. The meaning of life as drawn by that great Russian writer struck him in the chest as if for the first time. [auto-translated]"
+- Faust by Ivan Turgenev: "He did not go so far as to teach her Lonely Lives, but he once taught her a short story by Turgenev, Faust. In the lamplit study, as he explained the passage where the hero reads Faust aloud to his former sweetheart, even his voice trembled. [auto-translated]"
 
 ## The Railway Children by E. Nesbit (1906)
 https://bookjumpr.com/e-nesbit/the-railway-children
@@ -8898,6 +9491,28 @@ https://bookjumpr.com/edith-wharton/the-reef
 https://bookjumpr.com/arthur-conan-doyle/the-refugees
 - Phèdre by Jean Racine: "I am to be at Madame De Maintenon's room at three to see whether a page or two of the _Phedre_ may not work a change."
 - The Pretended Astrologer by Thomas Corneille: ""There is my _Pretended Astrologer_." ... Corneille commenced to read his comedy."
+
+## The Religion of the Samurai: A Study of Zen Philosophy and Discipline in China and Japan by Kaiten Nukariya (1913)
+https://bookjumpr.com/kaiten-nukariya/the-religion-of-the-samurai-a-study-of-zen-philosophy-and-discipline-in-china-and-japan
+- Lotus Sutra by Anonymous: "On one occasion, for instance, Fah Tah (Ho-tatsu), a monk who had read over the Saddharma-pundarika-sutra three thousand times, visited him to be instructed in Zen. "Even if you read the sutra ten thousand times," said the Sixth Patriarch, who could never read the text, "it will do you no good, if you cannot grasp the spirit of the…"
+- Diamond Sutra by Anonymous: "On questioning the monk, be learned that the book was Vajracchedika-prajnya-paramita-sutra, and that Hung Jan, the Abbot of the Hwang Mei Monastery, was used to make his disciples recite the book that it might help them in their spiritual discipline."
+- Lankavatara Sutra by Anonymous: "The anonymous author of Lankavatara-sutra distinguishes the heterodox Zen from the Hinayana Zen, the Hinayana Zen from the Mahayana Zen, and calls the last by the name of the Buddha's Holy Zen."
+- Avatamsaka Sutra by Anonymous: "His translation of Dharmatara-dhyana-sutra (which is said to have been preached by Bodhidharma himself when he was in India) and that of Avatamsaka-sutra may be said without exaggeration to have laid the corner-stone for Zen."
+- Vimalakirti Sutra by Anonymous: "With this object in view Shakya Muni preached Vimalakirtti-nirdeca-sutra, Lankavatara-sutra, and other sutras, in which he compared Hinayanism with Mahayanism, and described the latter in glowing terms as a deep and perfect Law, whilst he set forth the former at naught as a superficial and imperfect one."
+- Mahaparinirvana Sutra by Anonymous: "Therefore, the Mahaparinirvana-sutra says: "Tathagata (another name for Buddha) gives life to all beings, just as the lake Anavatapta gives rise to the four great rivers.""
+- Mahayanacraddhotpada-castra by Asvaghosa: "The sutra is believed by many Buddhists, not without reason, to be the exposition of that Mahayana doctrine which Acvaghosa restated in his Craddhotpada-castra."
+- Platform Sutra by Hui-neng: "There exists Luh Tan Fah Pao Tan King (Roku-so-ho-bo-dan-kyo), a collection of his sermons. It is full of bold statements of Zen in its purest form, and is entirely free from ambiguous and enigmatical words that encumber later Zen books."
+- Sho-do-ka by Gen-kaku: "His Ching Tao Ko (Sho-do-ka), a beautiful metrical exposition of Zen, is still read by most students of Zen."
+- Record of Linji by Linji Yixuan: "It is on this account that Rin-zai declared: 'The twelve divisions of the Buddhist Canon are nothing better than waste paper.'"
+- Sho-yo-roku by Wan Sung: "For such dialogues, see Sho-yo-roku, Mu-mon-kan, Heki-gan-shu. Fu-kiu's words are repeatedly quoted by Zen masters."
+- Heki-gan-shu by Yuen Wu: "In the Southern Sung dynasty (A.D. 1127-1279) flourished such masters as Yuen Wu (En-go, died in 1135), the author of Pik Yen Tsih (Heki-gan-shu);"
+- Kei-toku-den-to-roku by Daoyuan: "King Teh Chwen Tang Luh (Kei-toku-den-to-roku), published by Tao Yuen (Do-gen) A.D. 1004, gives a detailed narrative concerning this incident as stated here, but earlier historians tell us a different story about the mutilation of Shang Kwang's arm."
+- Sho-bo-gen-zo by Do-gen: "Do-gen, the founder of the Japanese So To Sect, severely condemns (in his Sho-bo-gen-zo) the notions of the impurity of women inculcated in the Scriptures."
+- Ko-zen-go-koku-ron by Ei-sai: "Taking advantage of the protests, Ei-sai wrote a book entitled Ko-zen-go-koku-ron ('The Protection of the State by the Propagation of Zen'), and not only explained his own position, but exposed the ignorance of the protestants."
+- Zhuangzi by Zhuang Zhou: "Chwang Tsz (So-shi), the greatest of Chinese philosophers, says: "Thou knowest the music of men, but not the music of the earth. Thou knowest the music of the earth, but not the music of the heaven.""
+- Tao Te Ching by Laozi: "The same idea and expression are found in Tao Teh King (Do-toku-kyo), by Lao Tsz (Ro-shi, 604-522 B.C.)."
+- Mencius by Mencius: "The first of these opinions was proposed by a most reputed Confucianist scholar, Mencius, and his followers, and is still adhered to by the majority of the Japanese and the Chinese Confucianists. Mencius thought it as natural for man to do good as it is for the grass to be green."
+- Outlines of Mahayana Buddhism by D. T. Suzuki: "An English translation of Saddharma-pundarika-sutra, by Kern, is given in 'Sacred Books of the East,' Vol. xxi. Compare these books with 'Outlines of Mahayana Buddhism,' by D. Suzuki."
 
 ## The Reluctant Fundamentalist by Mohsin Hamid (2007)
 https://bookjumpr.com/mohsin-hamid/the-reluctant-fundamentalist
@@ -9164,6 +9779,13 @@ https://bookjumpr.com/julian-barnes/the-sense-of-an-ending
 - Honest to God by John A. T. Robinson: "plus Bishop John Robinson's Honest to God next to my Larry cartoon books"
 - Sweeney Agonistes by T. S. Eliot: "'"Birth, and Copulation, and Death" – that's what T. S. Eliot says it's all about.'"
 
+## The Setting Sun by Osamu Dazai (1947)
+https://bookjumpr.com/osamu-dazai/the-setting-sun
+- A Sportsman's Sketches by Ivan Turgenev: ""What about Turgenev?" "He's an aristocrat. That's why I dislike him." "But A Sportsman's Sketches..." "Yes, that one is rather good, I admit." [auto-translated]"
+- Introduction to Political Economy by Rosa Luxemburg: "In the room next to the parlor, I was reading Rosa Luxemburg's Introduction to Political Economy with a strange excitement. I had brought it from Naoji's room upstairs the other day. [auto-translated]"
+- Selected Works of Lenin by Vladimir Lenin: "Along with it I had also borrowed, without asking, the Selected Works of Lenin and Kautsky's The Social Revolution, and set them on my desk in the next room. [auto-translated]"
+- The Social Revolution by Karl Kautsky: "I had also borrowed, without asking, Lenin's selected works and Kautsky's The Social Revolution, and set them on my desk in the next room. [auto-translated]"
+
 ## The Shadow of the Wind by Carlos Ruiz Zafón (2001)
 https://bookjumpr.com/carlos-ruiz-zafon/the-shadow-of-the-wind
 - Candide by Voltaire: "his favourite book open in his lap - a copy of Voltaire's Candide, which he reread a couple of times a year"
@@ -9209,6 +9831,11 @@ https://bookjumpr.com/alex-michaelides/the-silent-patient
 - All My Sons by Arthur Miller: "She had spent six weeks speaking in a regional American accent when preparing for All My Sons."
 - The Winter's Tale by William Shakespeare: "Though I am not naturally honest, I am sometimes so by chance. —WILLIAM SHAKESPEARE, The Winter's Tale"
 - Introductory Lectures on Psychoanalysis by Sigmund Freud: "He that has eyes to see and ears to hear may convince himself that no mortal can keep a secret... —SIGMUND FREUD, Introductory Lectures on Psychoanalysis"
+
+## The Silver Spoon by Naka Kansuke (1912)
+https://bookjumpr.com/naka-kansuke/the-silver-spoon
+- Hyakunin Isshu by Fujiwara no Sadaie: "My aunt knew the whole Hyakunin Isshu by heart and, once in bed, would teach me a poem or two each night in her lonely sing-song voice; I also had a bound copy of the Hyakunin Isshu. [auto-translated]"
+- Journey to the West by Wu Cheng'en: "Teacher Nakazawa, who told us that marvelous story of Journey to the West, who drew beautiful pictures licking his brush, who was so likable except for the palm-rope whip, I could never see his face again. [auto-translated]"
 
 ## The Sirens of Titan by Kurt Vonnegut (1959)
 https://bookjumpr.com/kurt-vonnegut/the-sirens-of-titan
@@ -9283,6 +9910,12 @@ https://bookjumpr.com/w-e-b-du-bois/the-souls-of-black-folk
 - The Whole Duty of Man by Richard Allestree: "I sometimes fancy I can see that tableau: the frail black figure, nervously twitching his hat before the massive abdomen of Bishop Onderdonk; his threadbare coat thrown against the dark woodwork of the bookcases, where Fox's "Lives of the Martyrs" nestled happily beside "The Whole Duty of Man.""
 - Pro Archia Poeta by Cicero: "I put Cicero “pro Archia Poeta” into the simplest English with local applications, and usually convinced them"
 - Uncle Tom's Cabin by Harriet Beecher Stowe: "This deep religious fatalism, painted so beautifully in “Uncle Tom,” came soon to breed, as all fatalistic faiths will, the sensualist side by side with the martyr."
+
+## The Spirit of Japanese Art by Yoné Noguchi (1915)
+https://bookjumpr.com/yone-noguchi/the-spirit-of-japanese-art
+- Paintings and Studies by Kyosai Kawanabe by Josiah Conder: "…many an admirer of his, like Josiah Conder in Paintings and Studies by Kyosai Kawanabe, a sumptuous book on the artist containing the representative work of his last eight years, sees only the serious side of his work."
+- Kyōsai Gadan by Kawanabe Kyosai: "I find in Kyosai Gwaden, an illustrated autobiography here and there humorously exaggerated but none the less sincere, from which all the writers on Kyosai, Professor Conder included, draw the materials of his life;"
+- A Japanese Artist in London by Yoshio Markino: "In England, many readers of Mr. Markino’s book, A Japanese Artist in London, will remember Hara’s name, as it is frequently repeated in the book;"
 
 ## The Spoils of Poynton by Henry James (1897)
 https://bookjumpr.com/henry-james/the-spoils-of-poynton
@@ -9464,6 +10097,17 @@ https://bookjumpr.com/e-nesbit/the-story-of-the-treasure-seekers
 - The Jungle Book by Rudyard Kipling: "So Oswald answered-- 'It was "Good hunting"--it's out of the Jungle Book!'"
 - Sherlock Holmes by Arthur Conan Doyle: "Of course we have read Mr Sherlock Holmes, as well as the yellow-covered books with pictures outside that are so badly printed"
 
+## The Strange Tale of Panorama Island by Edogawa Rampo (1926)
+https://bookjumpr.com/edogawa-rampo/the-strange-tale-of-panorama-island
+- Voyage in Icaria by Etienne Cabet: "Among such works he was drawn more to Morris's News from Nowhere than to Cabet's Voyage in Icaria, and more than to Morris, to Edgar Poe's The Domain of Arnheim. [auto-translated]"
+- News from Nowhere by William Morris: "Among such works he was drawn more to Morris's News from Nowhere than to Cabet's Voyage in Icaria, and more than to Morris, to Edgar Poe's The Domain of Arnheim. [auto-translated]"
+- The Domain of Arnheim by Edgar Allan Poe: "Among such works he was drawn more to Morris's News from Nowhere than to Cabet's Voyage in Icaria, and more than to Morris, to Edgar Poe's The Domain of Arnheim. [auto-translated]"
+- The Premature Burial by Edgar Allan Poe: "Many of you, dear readers, have probably read Poe's short story The Premature Burial, and know well the horror of being buried alive while only apparently dead. [auto-translated]"
+
+## The Sumida River by Nagai Kafū (1909)
+https://bookjumpr.com/nagai-kafu/the-sumida-river
+- Shunshoku Umegoyomi by Tamenaga Shunsui: "Chokichi read the name of a street on a neighbor's nameplate, and at once recalled Tamenaga Shunsui's Shunshoku Umegoyomi, which he had devoured lately. [auto-translated]"
+
 ## The Sun Also Rises by Ernest Hemingway (1926)
 https://bookjumpr.com/ernest-hemingway/the-sun-also-rises
 - The Purple Land by W. H. Hudson: "Cohn had read and reread “The Purple Land.” “The Purple Land” is a very sinister book if read too late in life."
@@ -9640,6 +10284,11 @@ https://bookjumpr.com/henry-james/the-turn-of-the-screw
 https://bookjumpr.com/suetonius/the-twelve-caesars
 - Anticato by Julius Caesar: "He has left behind him likewise two books on Analogy, with the same number under the title of Anti-Cato, and a poem entitled The Itinerary."
 - Bellum Punicum by Gnaeus Naevius: "Thus, Caius Octavius Lampadio edited the Punic War of Naevius [851], which having been written in one volume without any break in the manuscript, he divided into seven books."
+
+## The Two-Sen Copper Coin by Edogawa Rampo (1923)
+https://bookjumpr.com/edogawa-rampo/the-two-sen-copper-coin
+- The Adventure of the Dancing Men by Arthur Conan Doyle: "I have studied ciphers a bit before. I may not be Sherlock Holmes, but even I know a hundred and sixty or so ways of writing in code. (See The Adventure of the Dancing Men) [auto-translated]"
+- The Gold-Bug by Edgar Allan Poe: "If this were English, French or German, it would be easy enough just to look for the letter e, as in Poe's The Gold-Bug, but unfortunately this is surely Japanese. Just to be safe I tried a bit of Poe-style deciphering, but it solved nothing. [auto-translated]"
 
 ## The Tyranny of Merit by Michael J. Sandel (2020)
 https://bookjumpr.com/michael-j-sandel/the-tyranny-of-merit
@@ -9949,6 +10598,10 @@ https://bookjumpr.com/anthony-trollope/the-way-we-live-now
 - Robinson Crusoe by Daniel Defoe: "Those scraps of paper, so easily destroyed, apparently so little respected, may hereafter be acknowledged to have had a value greater, so far greater, than their weight in gold! If "Robinson Crusoe" had been lost!"
 - Tom Jones by Henry Fielding: "If "Tom Jones" had been consumed by flames!"
 
+## The Wayfarer by Natsume Sōseki (1913)
+https://bookjumpr.com/natsume-soseki/the-wayfarer
+- The Divine Comedy by Dante Alighieri: "According to my brother, Paolo was the younger brother of Francesca's husband, and the two loved each other in secret until the husband found them out and killed them. It was a sad story, written somewhere in Dante's Divine Comedy, he said. [auto-translated]"
+
 ## The Wayward Bus by John Steinbeck (1947)
 https://bookjumpr.com/john-steinbeck/the-wayward-bus
 - Everyman by Philip Roth: "The novel's epigraph is drawn from the late-fifteenth-century English morality play Everyman; per the endnotes, Steinbeck himself referred to it as "the lead" to the book."
@@ -10077,6 +10730,15 @@ https://bookjumpr.com/honore-de-balzac/the-wild-ass-s-skin
 ## The Wild Duck by Henrik Ibsen (1884)
 https://bookjumpr.com/henrik-ibsen/the-wild-duck
 - Harrison's History of London by Anonymous: "There’s one great book, called “Harryson’s History of London;” it must be a hundred years old; and there are such an enormous lot of pictures in it."
+
+## The Wild Geese by Mori Ōgai (1913)
+https://bookjumpr.com/mori-ogai/the-wild-geese
+- Jin Ping Mei by Anonymous: "Once I found a Chinese-edition Jin Ping Mei at a secondhand bookstall and asked the owner the price. He said seven yen. [auto-translated]"
+- Mikawa Gofudoki by Anonymous: "What he was reading these days was the Mikawa Gofudoki. It had a great many volumes, so he said it would keep him amused for some time. [auto-translated]"
+
+## The Wind Has Risen by Hori Tatsuo (1938)
+https://bookjumpr.com/hori-tatsuo/the-wind-has-risen
+- Requiem by Rainer Maria Rilke: "A small parcel had arrived: Rilke's Requiem (Chinkon-ka), ordered long ago, forwarded from place to place with two or three other books. That night, by the fireplace, listening now and then to the wind, I began to read Rilke's Requiem. [auto-translated]"
 
 ## The Wind-Up Bird Chronicle by Haruki Murakami (1994)
 https://bookjumpr.com/haruki-murakami/the-wind-up-bird-chronicle
@@ -10289,6 +10951,10 @@ https://bookjumpr.com/john-galsworthy/to-let
 https://bookjumpr.com/virginia-woolf/to-the-lighthouse
 - Anna Karenina by Leo Tolstoy
 
+## To the Spring Equinox and Beyond by Natsume Sōseki (1912)
+https://bookjumpr.com/natsume-soseki/to-the-spring-equinox-and-beyond
+- New Arabian Nights by Robert Louis Stevenson: "This leaning in Keitaro seemed to have begun in his high-school days, when his English teacher had the class read Stevenson's New Arabian Nights as a textbook. Until then he had hated English, but once he started on this book he never skipped the preparation. [auto-translated]"
+
 ## Tom Brown's School Days by Thomas Hughes
 https://bookjumpr.com/thomas-hughes/tom-brown-s-school-days
 - Kenilworth by Walter Scott: "This is Wayland Smith's cave, a place of classic fame now; but as Sir Walter has touched it, I may as well let it alone, and refer you to "Kenilworth" for the legend."
@@ -10378,6 +11044,17 @@ https://bookjumpr.com/david-mccullough/truman
 - Crusade in Europe by Dwight D. Eisenhower: "Named in the same 1948 best-seller passage, described as Eisenhower's account of the war"
 - Sexual Behavior in the Human Male by Alfred Kinsey: "Named in the same 1948 best-seller passage, whose statistical revelations concerning male promiscuity caused a sensation"
 
+## Tsugaru by Osamu Dazai (1944)
+https://bookjumpr.com/osamu-dazai/tsugaru
+- Memories by Osamu Dazai: "My life during those four years in Aomori is described in some detail in my early novel 'Memories.' The following is a passage from my own work, 'Memories'. [auto-translated]"
+- Toyuki by Tachibana Nankei: "The Toyuki of Tachibana Nankei, the Kyoto physician, published in the Kansei era, says: 'Since the heavens and earth were opened there has never been a time as peaceful as now.' His Toyuki and Seiyuki are counted among the great works of the Edo period. [auto-translated]"
+- The Narrow Road to the Deep North by Matsuo Basho: "In Basho's 'The Narrow Road to the Deep North' he writes at the departure, 'thoughts of a journey of three thousand miles weigh upon my heart,' yet even that reached only Hiraizumi, the southern tip of today's Iwate. [auto-translated]"
+- Man'yoshu by Anonymous: "Oh, there were towns even in such a place, I thought, and sighed. It felt like the 'hidden marsh' that appears so often in the Man'yoshu and similar works. [auto-translated]"
+- Konjaku Monogatari by Anonymous: "The Konjaku Monogatari records that Abe no Yoritoki crossed over to Manchuria and what he saw there; taken together with the archaeological and folkloric evidence, this should not be dismissed as a mere tale. [auto-translated]"
+- The Analects by Confucius: "Among the traveler's rules attributed to Basho there is one forbidding drinking for pleasure, but I read the Analects' line that wine has no set measure yet must not reach disorder as meaning you may drink freely as long as you are not rude, so I felt no need to follow the master's teaching. [auto-translated]"
+- General History of Aomori Prefecture by Takeuchi Unpei: "According to the 'General History of Aomori Prefecture' by Takeuchi Unpei, a man of Hirosaki, the shore at Kanita was once a source of iron sand, which was refined for use when Hirosaki Castle was built in the Keicho era. [auto-translated]"
+- Seiyūki by Tachibana Nankei: "Nankei's Tōyūki and Seiyūki seem to be counted among the classics of the Edo period, and in their prefatory notes too he writes, "Since my travels were originally for medicine..." [auto-translated]"
+
 ## Twenty Thousand Leagues Under the Sea by Jules Verne (1870)
 https://bookjumpr.com/jules-verne/twenty-thousand-leagues-under-the-sea
 - Iliad by Homer: "He related his fishing, and his combats, with natural poetry of expression; his recital took the form of an epic poem, and I seemed to be listening to a Canadian Homer singing the Iliad of the regions of the North."
@@ -10406,6 +11083,10 @@ https://bookjumpr.com/richard-henry-dana/two-years-before-the-mast
 https://bookjumpr.com/herman-melville/typee
 - A History of the Earth and Animated Nature by Oliver Goldsmith: "suggested to me the idea of a pictorial museum of natural history, or an illustrated copy of Goldsmith’s _Animated Nature_."
 - Robinson Crusoe by Daniel Defoe: "Robinson Crusoe could not have been more startled at the footprint in the sand than we were at this unwelcome discovery."
+
+## Ukigumo by Futabatei Shimei (1887)
+https://bookjumpr.com/futabatei-shimei/ukigumo
+- Illusions by James Sully: "Speaking of ‘illusions,’ of all the books I’ve read so far, none has seemed as fascinating to me as Sully’s ‘Illusions.’ I read it straight through in two days and a night. [auto-translated]"
 
 ## Ulysses by James Joyce (1922)
 https://bookjumpr.com/james-joyce/ulysses
@@ -10488,6 +11169,10 @@ https://bookjumpr.com/john-ruskin/unto-this-last-and-other-essays-on-political-e
 https://bookjumpr.com/booker-t-washington/up-from-slavery
 - Life and Times of Frederick Douglass by Frederick Douglass: "In this library I found a life of Frederick Douglass, which I began reading. I became especially interested in Mr. Douglass’s description of the way he was treated on shipboard during his first or second visit to England."
 
+## Uta Andon by Izumi Kyōka (1910)
+https://bookjumpr.com/izumi-kyoka/uta-andon
+- Shank's Mare by Jippensha Ikku: ""Still, it's a good idea. I never fall asleep easily, so tonight I think I'll read it by the lamp at my pillow." "Don't. Reading it tightens your chest and keeps you awake even longer." "What nonsense! Who ever wept over Shank's Mare?" [auto-translated]"
+
 ## Utilitarianism by John Stuart Mill (1863)
 https://bookjumpr.com/john-stuart-mill/utilitarianism
 - The Annals of the Parish by John Galt: "The author of this essay has reason for believing himself to be the first person who brought the word utilitarian into use. He did not invent it, but adopted it from a passing expression in Mr. Galt's Annals of the Parish. After using it as a designation for several years, he and others abandoned it from a growing dislike to anything…"
@@ -10523,6 +11208,25 @@ https://bookjumpr.com/ivan-turgenev/virgin-soil
 - Yevgenia Onegin by Alexander Pushkin: "Take up our immortal Pushkin and read over the description of the death of Lensky in 'Yevgenia Onegin.'"
 - The Story of the Four Brothers by Anonymous: "'The Story of the Four Brothers,' and then the ordinary, well-known ones, which are far better I think."
 
+## Vita Sexualis by Mori Ōgai (1909)
+https://bookjumpr.com/mori-ogai/vita-sexualis
+- I Am a Cat by Natsume Sōseki: "Then Natsume Kinnosuke began to write novels. Kanai read them with great interest and felt an itch to write himself, but when things like "I Am Also a Cat" and "I Am a Dog" appeared in answer to Natsume's "I Am a Cat," he grew thoroughly sick of the idea and ended up writing nothing. [auto-translated]"
+- Germinal by Émile Zola: "Such a suspicion had crossed his mind when he read Zola's novels as well. It was in Germinal and the like, where he describes the people of a workers' settlement at the extreme of hardship and a passage in which someone goes to peep at a man and woman at a rendezvous, that he had thought so. [auto-translated]"
+- Introduction to Philosophy by Wilhelm Jerusalem: "One day Kanai saw a student in the classroom holding a small book, Jerusalem's Introduction to Philosophy. After the lecture he picked it up and asked what kind of book it was. The student said it had come into the bookshop and he had bought it thinking it might serve as a reference, and Kanai borrowed it and read it that evening. [auto-translated]"
+- Confessions by Jean-Jacques Rousseau: "Rousseau's Confessions is a book that holds back nothing, with remarkable frankness. When he forgot what he had been taught as a child, the pastor's daughter would catch him and spank him, and it felt so wonderful that he pretended not to know things so that she would spank him. [auto-translated]"
+- Cynismus by Friedrich Theodor Vischer: "Later, while I was reading Theodor Vischer's Cynismus, I thought of Wanikuchi the whole time. The word cynic comes from the Greek kyon, a dog; a doglike person is one who, as a dog loves to thrust its nose into filth, cannot be satisfied until he has made everything dirty. [auto-translated]"
+- The Hunchback of Notre-Dame by Victor Hugo: "When I read Victor Hugo's The Hunchback of Notre-Dame (Notre Dame) and came across the little girl with the jewel-like name of Emeraude, I remembered that girl in Kanda dancing the kappore under the umbrella, and thought she must have been much the same sort of creature. [auto-translated]"
+- Shunshoku Umegoyomi by Tamenaga Shunsui: "He felt as if he were Tanjirō of Shunshoku Umegoyomi, and thought how pleasant it would be to be adored by a girl like Ochō; this notion first stirred in him during this period, when he read lending-library romances. [auto-translated]"
+- Jin Ping Mei by Anonymous: "One day I saw a Chinese-bound book peeking out from under the master's desk, and it was the Jin Ping Mei. I had read only Bakin's Kinpeibai, but I knew the Chinese edition of the Jin Ping Mei was very different, and I thought: this master is a man one can't let one's guard down around. [auto-translated]"
+- Han Feizi by Han Fei: "I knew Wanikuchi's character well. He bowed to no authority, and because he held nothing sacred, those around him sometimes suffered for it. I thought him cold-hearted, and the fact that he had studied the Chinese classics and always kept the Han Feizi on his desk probably contributed to that. [auto-translated]"
+- Seisetsurō Shishō by Kikuchi Sankei: "Beside Bitō Eiichi I read the Seisetsurō Shishō. One day, as we were reading it together, there was a poem about Tekona of Mama, and I suddenly remembered something and asked him whether his mother was not his real one. [auto-translated]"
+- Honchō Gushō Shinshi by Kikuchi Sankei: "I borrowed from Eiichi and read the Seisetsurō Shishō, and then I read the Honchō Gushō Shinshi. Then, because new pieces by Sankei were coming out, I went to Asakusa and bought the Kagetsu Shinshi and read that too; the two of us made poems and wrote little pieces in Chinese for fun. [auto-translated]"
+- Jiandeng Yuhua by Li Zhen: "Since I had made friends who were scholars of Chinese learning, I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi. The naive romances of young men and women written in such books made me terribly envious and jealous. [auto-translated]"
+- Yanshan Waishi by Chen Qiu: "After I first read the Umegoyomi on a borrowed copy, I made friends who were scholars of Chinese learning, and I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi, and the naive romances in these books left me envious and jealous. [auto-translated]"
+- Qingshi by Feng Menglong: "I read the Jiandeng Yuhua, I read the Yanshan Waishi, I read the Qingshi; the naive romances of young men and women in such books were painfully enviable to me, since I had not been born handsome and so this beautiful thing was an unreachable ideal. [auto-translated]"
+- The Carnal Prayer Mat by Li Yu: "There is an outrageous obscene book by a Chinese author, The Carnal Prayer Mat (Rouputuan), and, as is typical of the Chinese, it tacks a moral of divine retribution onto its plot. It is truly a foolish book, in which the hero Weiyangsheng, worried that a certain part of his body is too small, goes about peeking at people urinating. [auto-translated]"
+- Kinpeibai by Takizawa Bakin: "One day I saw a Chinese-bound book peeking out from under the master's desk, and it was the Jin Ping Mei. I had read only Bakin's Kinpeibai, but I knew the Chinese edition of the Jin Ping Mei was very different, and I thought: this master is a man one can't let one's guard down around. [auto-translated]"
+
 ## Volpone by Ben Jonson (1606)
 https://bookjumpr.com/ben-jonson/volpone
 - Il Pastor Fido by Battista Guarini: "LADY P: Here's pastor Fido-- VOLP [ASIDE.]: Profess obstinate silence, That's now my safest. LADY P: All our English writers, I mean such as are happy in the Italian, Will deign to steal out of this author, mainly:"
@@ -10548,6 +11252,10 @@ https://bookjumpr.com/hermann-hesse/wandering
 https://bookjumpr.com/leo-tolstoy/war-and-peace
 - Les Chevaliers du Cygne by Stephanie Felicite de Genlis: "Prince Andrew saw by the cover that it was Les Chevaliers du Cygne by Madame de Genlis."
 - The Social Contract by Jean-Jacques Rousseau: "“Rousseau’s Contrat Social,” said the vicomte with a tolerant smile. “I am not speaking of regicide, I am speaking about ideas.”"
+
+## Warriors of Old Japan, and Other Stories by Yei Theodora Ozaki (1909)
+https://bookjumpr.com/yei-theodora-ozaki/warriors-of-old-japan-and-other-stories
+- The Japanese Fairy Book by Yei Theodora Ozaki: "The kind reception given to "The Japanese Fairy Book" has encouraged me to venture on a second volume of stories from Japan."
 
 ## Washington: A Life by Ron Chernow (2010)
 https://bookjumpr.com/ron-chernow/washington-a-life
@@ -11083,6 +11791,24 @@ https://bookjumpr.com/ursula-k-le-guin/words-are-my-matter
 - Raised from the Ground by José Saramago: "José Saramago: Raised from the Ground"
 - When the Killing's Done by T. C. Boyle: "T. C. Boyle: When the Killing's Done"
 
+## Words of a Pygmy by Ryūnosuke Akutagawa (1927)
+https://bookjumpr.com/ryunosuke-akutagawa/words-of-a-pygmy
+- Confessions by Jean-Jacques Rousseau: "Rousseau loved to confess. Yet the naked Rousseau cannot be found even in his Confessions. [auto-translated]"
+- Colomba by Prosper Merimee: "Mérimée disliked confession. Yet does his Colomba not speak of himself in hints? [auto-translated]"
+- Essays in Idleness by Yoshida Kenkō: "I'm often told, "You must surely love Essays in Idleness." Unfortunately I have never loved Essays in Idleness, and its fame is nearly incomprehensible to me, though I grant it suits middle-school textbooks. [auto-translated]"
+- The Republic by Plato: "Our society seems unable to stay safe without slaves. Even the Plato of The Republic presupposes slaves, and this is no accident. [auto-translated]"
+- Keikichi's Temptation by Kan Kikuchi: "Keikichi did not fall to temptation, surely thanks to moral conviction; but the woman who tempted him was wearing his wife's borrowed clothes. See Kikuchi Kan's Keikichi's Temptation. [auto-translated]"
+- The Spring Overcoat by Mosaku Sasaki: "For the exercise I will set Mr. Sasaki Mosaku's new book, The Spring Overcoat; by next week apply the half-affirmation method to Mr. Sasaki's work. [auto-translated]"
+- Man and Superman by George Bernard Shaw: "It is not men who hunt women but women who hunt men. Shaw dramatized this fact in Man and Superman, but he was not the first to do so. [auto-translated]"
+- Memoirs of My Dead Life by George Moore: "George Moore, in Memoirs of My Dead Life, slips in this remark: "A great painter knows exactly where to put his name, and never puts it in the same place twice." [auto-translated]"
+- Bel-Ami by Guy de Maupassant: "The typical owner of such worldly wisdom is surely the hero of Bel-Ami. When he takes a lover, he is already thinking of the break. [auto-translated]"
+- Wisdom and Destiny by Maurice Maeterlinck: "We do not even know ourselves, much less act on what we know. Maeterlinck, who wrote Wisdom and Destiny, did not know wisdom or destiny either. [auto-translated]"
+- A New Life by Shimazaki Tōson: "After reading Shinsei: did a "new life" ever really come? [auto-translated]"
+- A Confession by Leo Tolstoy: "Reading Birukoff's life of Tolstoy makes it clear that Tolstoy's A Confession and My Religion were lies. Yet no heart is more painful than that of the Tolstoy who kept telling them; his lies drip more red blood than other men's truths. [auto-translated]"
+- My Religion by Leo Tolstoy: "Reading Birukoff's life of Tolstoy makes it clear that Tolstoy's A Confession and My Religion were lies. Yet no heart is more painful than that of the Tolstoy who kept telling them. [auto-translated]"
+- Legend by August Strindberg: "In his Legend, Strindberg describes an experiment to find out whether death is painful. But such an experiment cannot be done in play. [auto-translated]"
+- Biography of Tolstoy by Pavel Biryukov: "If you read Biryukov's life of Tolstoy, it is clear that Tolstoy's "My Confession" and "My Religion" were a lie. [auto-translated]"
+
 ## Wuthering Heights by Emily Bronte (1847)
 https://bookjumpr.com/emily-bronte/wuthering-heights
 - King Lear by William Shakespeare: "…their peril to keep me one minute longer--with several incoherent threats of retaliation that, in their indefinite depth of virulency, smacked of King Lear."
@@ -11103,6 +11829,17 @@ https://bookjumpr.com/rebecca-f-kuang/yellowface
 - The Lord of the Rings by J R R Tolkien: "carrying chunky volumes of Lord of the Rings or The Spiderwick Chronicles"
 - The Spiderwick Chronicles by Tony DiTerlizzi and Holly Black: "carrying chunky volumes of Lord of the Rings or The Spiderwick Chronicles"
 - Twilight by Stephenie Meyer: "Sixth grade: my Twilight phase... infatuated with Alice Cullen"
+
+## Youth by Mori Ōgai (1910)
+https://bookjumpr.com/mori-ogai/youth
+- Peer Gynt by Henrik Ibsen: ""This is one side of Ibsen's self," he concluded, "the side of himself that he gave poetic expression in Peer Gynt, his worldly self." Then he said that Ibsen had, from the very beginning, another side to his self. [auto-translated]"
+- Brand by Henrik Ibsen: "Zola's Claude seeks art. Ibsen's Brand seeks the ideal. For the sake of what he seeks he sacrifices wife and child without a backward glance, and he is destroyed himself. [auto-translated]"
+- John Gabriel Borkman by Henrik Ibsen: "On the twenty-seventh of November, Ibsen's John Gabriel Borkman was staged at the Yurakuza Theatre. [auto-translated]"
+- Faust by Johann Wolfgang von Goethe: "Shakespeare and Goethe, however splendidly they are staged, can hardly strike today's young people with a painful immediacy. Goethe is the same: if Faust appeared as a new work, what would the young say? [auto-translated]"
+- The Blue Bird by Maurice Maeterlinck: "On the neatly cleared desk lay a copy of Maeterlinck's The Blue Bird, left half-read when he went out. [auto-translated]"
+- La Multiple Splendeur by Émile Verhaeren: "I have read nearly all of Maeterlinck. Then, hearing that he was a friend from the same school, I started reading Verhaeren. Recently La Multiple Splendeur arrived, so I read it on the train when I left home. [auto-translated]"
+- Le Voleur by Henri Bernstein: "Once the train had started, Junichi opened his bag, searched through the wrapping cloth and took out a book with a blue cover like The Blue Bird's: Henry Bernstein's Le Voleur. He knew it was a worthless piece, but he had ordered it to see how a crowd-pleasing play is made. [auto-translated]"
+- Three Tales by Gustave Flaubert: "He had tried many forms for the legend: verse, prose, or the epic manner, in the style of one of Flaubert's Three Tales, and he had even thought of modelling it on one of Maeterlinck's short plays. [auto-translated]"
 
 ## Zeitoun by Dave Eggers (2009)
 https://bookjumpr.com/dave-eggers/zeitoun

@@ -1,0 +1,10 @@
+{
+  "books": [
+    { "title": "Botchan", "author": "Natsume Sōseki", "year": 1906, "genre": "FICTION",
+      "synopsis": "A hot-headed Tokyo math teacher is shipped off to a provincial school, where he nicknames his scheming colleagues Red Shirt and Porcupine and wages a one-man war on small-town hypocrisy." }
+  ],
+  "mentions": [
+    { "source": "Botchan", "mentioned": "The Autobiography of Benjamin Franklin", "author": "Benjamin Franklin" },
+    { "source": "Botchan", "mentioned": "Pushing to the Front", "author": "Orison Swett Marden" }
+  ]
+}

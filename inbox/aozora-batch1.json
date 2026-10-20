@@ -1,0 +1,412 @@
+{
+  "books": [
+    {
+      "title": "I Am a Cat",
+      "author": "Natsume Sōseki",
+      "year": 1905,
+      "genre": "HUMOR & COMEDY",
+      "synopsis": "A nameless stray cat adopted by the dyspeptic schoolteacher Kushami watches his household and its string of cranky, pedantic visitors, mocking human vanity from under the veranda. The prankster Meitei's tall tales, the businessman Kaneda's famous nose and Kangetsu's violin misadventures pile up into a sprawling satire of Meiji Japan."
+    },
+    {
+      "title": "Kusamakura",
+      "author": "Natsume Sōseki",
+      "year": 1906,
+      "genre": "FICTION",
+      "synopsis": "A painter climbs a spring mountain path hoping to live in a detached, 'non-human' aesthetic state and takes lodgings at a remote hot-spring inn. There the enigmatic, half-mad Onami drifts through his days, he reads her an English novel at random, and he cannot paint her until he sees her face at a train station seeing off her cousin to war."
+    },
+    {
+      "title": "And Then",
+      "author": "Natsume Sōseki",
+      "year": 1909,
+      "synopsis": "Daisuke, a thirty-year-old gentleman of leisure, lives off his father's money and scorns the idea of working or marrying on command. When his old friend Hiraoka returns to Tokyo broke and unhappy, Daisuke is forced to face his long-buried love for Hiraoka's wife Michiyo, and to choose between family wealth and the one woman he wants.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "The Gate",
+      "author": "Natsume Sōseki",
+      "year": 1910,
+      "synopsis": "Sōsuke and his wife Oyone live a hushed, borrowed life in a rented house under a cliff in Tokyo, bound by a betrayal in their past that cost them family, friends and children. When his younger brother moves in and a landlord's chatter points back to the friend they wronged, Sōsuke retreats to a Zen temple to find a way through the gate and finds only a locked door.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Ten Nights of Dreams",
+      "author": "Natsume Sōseki",
+      "year": 1908,
+      "synopsis": "Ten short dreams, each opening with 'I had this dream.' A dying woman promises to return after a hundred years, a crowd watches the sculptor Unkei carve a Nio guardian out of wood, and a blind child on the narrator's back knows exactly where the murder happened.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Light and Darkness",
+      "author": "Natsume Sōseki",
+      "year": 1916,
+      "synopsis": "Tsuda, a salaried Tokyo clerk, is hospitalised for surgery while his wife Onobu, his sister Ohide and his mother-figure patrons circle around money, vanity and an old lover he has never told his wife about. Every conversation is a duel of appearances, and the novel stops unfinished mid-confrontation.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Rashomon",
+      "author": "Ryūnosuke Akutagawa",
+      "year": 1915,
+      "synopsis": "A dismissed servant sheltering from the rain under Kyoto's ruined Rashomon gate debates starving versus turning thief. Climbing to the loft, he finds an old woman plucking hair from corpses to make wigs, and her blunt self-justification tips him into robbing her.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Hell Screen",
+      "author": "Ryūnosuke Akutagawa",
+      "year": 1918,
+      "synopsis": "The great painter Yoshihide, who can only paint what he has seen, is ordered by his lord to depict hell on a screen. He demands to watch a carriage with a woman inside burn, and the lord obliges with a horrifying twist: the victim is Yoshihide's own beloved daughter.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Kappa",
+      "author": "Ryūnosuke Akutagawa",
+      "year": 1927,
+      "synopsis": "A mental patient recounts falling into the land of the kappa, a satirical underground society of water imps with poets, capitalists, and strange birth and death customs. His friendship with the poet Tok and the suicide that follows expose the despair beneath the absurdity.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "In a Grove",
+      "author": "Ryūnosuke Akutagawa",
+      "year": 1922,
+      "synopsis": "A samurai is found dead in a bamboo grove, and each witness and participant tells a different story before a police magistrate. The bandit Tajomaru, the samurai's wife, and the dead man's spirit through a medium each claim the killing, leaving the truth unresolvable.",
+      "genre": "CRIME & MYSTERY"
+    },
+    {
+      "title": "The Spider's Thread",
+      "author": "Ryūnosuke Akutagawa",
+      "year": 1918,
+      "synopsis": "Buddha, strolling beside the lotus pond of Paradise, spots the thief Kandata suffering in the Blood Pond of Hell and lowers a single silver spider thread to him for the one kindness of his life. Kandata climbs, but when he kicks away the other sinners following him, the thread snaps.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "Cogwheels",
+      "author": "Ryūnosuke Akutagawa",
+      "year": 1927,
+      "synopsis": "A haunted writer travelling to Tokyo for a wedding is dogged by omens: a ghost-raincoat story, a brother-in-law's death on the rails, and translucent spinning cogwheels in his vision heralding migraines. Drifting between hotels, bookshops, and a priest's loft, he sinks toward madness and suicidal dread.",
+      "genre": "FICTION"
+    },
+    {
+      "title": "No Longer Human",
+      "author": "Osamu Dazai",
+      "year": 1948,
+      "genre": "FICTION",
+      "synopsis": "Oba Yozo confesses, in three notebooks, a life spent hiding terror of other people behind a clown's grin. From school-boy comic to drinking, doomed love affairs, morphine and an asylum, he slides toward the verdict that he is no longer human. A frame narrator finds the notebooks in a Kyobashi bar."
+    },
+    {
+      "title": "Run, Melos!",
+      "author": "Osamu Dazai",
+      "year": 1940,
+      "genre": "FICTION",
+      "synopsis": "Melos, a simple shepherd, storms the palace of the tyrant king of Syracuse and is sentenced to death, but begs three days to attend his sister's wedding, leaving his friend Selinuntius as hostage. He sprints back through flood, bandits and exhaustion to keep his word before sunset."
+    },
+    {
+      "title": "The Setting Sun",
+      "author": "Osamu Dazai",
+      "year": 1947,
+      "genre": "FICTION",
+      "synopsis": "After defeat in 1945, the aristocratic Kazuko and her ailing mother retreat to a mountain villa in Izu, where snakes and bad omens gather. Her opium-addicted brother Naoji returns from the front, and Kazuko pursues a married novelist in a desperate bid for love as her class dies out."
+    },
+    {
+      "title": "Night on the Galactic Railroad",
+      "author": "Kenji Miyazawa",
+      "year": 1934,
+      "genre": "FANTASY",
+      "synopsis": "Giovanni, a poor boy who works in a print shop to support his sick mother, falls asleep on a hill during the star festival and wakes on a train running along the Milky Way. His friend Campanella rides beside him, and together they meet bird-catchers, drowned passengers and a singing cross of light."
+    },
+    {
+      "title": "The Dancing Girl",
+      "author": "Mori Ōgai",
+      "year": 1890,
+      "genre": "FICTION",
+      "synopsis": "Aboard a steamer in Saigon harbor, Ōta Toyotarō recalls his years as a young state official in Berlin, where he fell for Elis, a sixteen-year-old dancer weeping outside a church. Dismissed from his post and living in a garret with her, he is pulled back toward career and homeland by his friend Aizawa, and betrays her."
+    },
+    {
+      "title": "The Wild Geese",
+      "author": "Mori Ōgai",
+      "year": 1913,
+      "genre": "FICTION",
+      "synopsis": "A medical student recalls his lodging house near Tokyo's Mujinzaka slope, where Otama, the kept mistress of a smug moneylender, watches the student Okada pass her window each day. When she finally resolves to speak to him, a stone thrown at a flight of wild geese changes everything."
+    },
+    {
+      "title": "Takekurabe",
+      "author": "Higuchi Ichiyō",
+      "year": 1896,
+      "genre": "FICTION",
+      "synopsis": "In the lanes beside the Yoshiwara pleasure quarter, children of rival gangs squabble through festival season while Midori, a courtesan's younger sister, and Shinnyo, a priest's son destined for the temple, grow shy and awkward with each other. Childhood ends as Midori is readied for her own life in the quarter."
+    },
+    {
+      "title": "Ukigumo",
+      "author": "Futabatei Shimei",
+      "year": 1887,
+      "genre": "FICTION",
+      "synopsis": "Bunzō, an honest clerk fired from his government post, lives with his aunt and her Westernized daughter Osei in Tokyo. His rival Noboru Honda, a glib careerist, wins Osei's attention while Bunzō dithers, in a pioneering psychological novel written in colloquial Japanese."
+    },
+    {
+      "title": "Lemon",
+      "author": "Motojirō Kajii",
+      "year": 1925,
+      "genre": "FICTION",
+      "synopsis": "A depressed, penniless young man wanders Kyoto, oppressed by an unnamed dark weight, until he buys a single lemon whose cool scent and color lift his spirits. In the Maruzen bookshop he stacks heavy art books into a tower, sets the lemon on top like a bomb, and walks out."
+    },
+    {
+      "title": "The Moon Over the Mountain",
+      "author": "Atsushi Nakajima",
+      "year": 1942,
+      "genre": "FICTION",
+      "synopsis": "Li Zheng, a proud Tang official who quit his post to become a poet, vanishes and turns into a tiger. His old friend Yuan Can, passing through on an official journey, hears his voice from the grass as he recites his poems and confesses that pride and cowardice made him a beast."
+    },
+    {
+      "title": "The Holy Man of Mount Koya",
+      "author": "Izumi Kyōka",
+      "year": 1900,
+      "genre": "FICTION",
+      "synopsis": "A traveling Buddhist priest tells of crossing the Hida mountains, where a forest path swarms with snakes and leeches. He is sheltered by a bewitching woman in a lonely cottage with a simple-minded husband, and discovers that the animals around her are men she has transformed."
+    }
+  ],
+  "mentions": [
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Theophano",
+      "author": "Frederic Harrison"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "The Odyssey",
+      "author": "Homer"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Beowulf",
+      "author": "Anonymous"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Piers Plowman",
+      "author": "William Langland"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Tristram Shandy",
+      "author": "Laurence Sterne"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "The Analects",
+      "author": "Confucius"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "The Golden Demon",
+      "author": "Ozaki Kōyō"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Tao Te Ching",
+      "author": "Laozi"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "I Ching",
+      "author": "Anonymous"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Record of Linji",
+      "author": ""
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Fudōchi Shinmyōroku",
+      "author": "Takuan Sōhō"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Nansō Satomi Hakkenden",
+      "author": "Takizawa Bakin"
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "Tang Shi Xuan",
+      "author": ""
+    },
+    {
+      "source": "I Am a Cat",
+      "mentioned": "The Life and Opinions of the Tomcat Murr",
+      "author": "E. T. A. Hoffmann"
+    },
+    {
+      "source": "Kusamakura",
+      "mentioned": "Faust",
+      "author": "Johann Wolfgang von Goethe"
+    },
+    {
+      "source": "Kusamakura",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare"
+    },
+    {
+      "source": "Kusamakura",
+      "mentioned": "To a Skylark",
+      "author": "Percy Bysshe Shelley"
+    },
+    {
+      "source": "Kusamakura",
+      "mentioned": "Laocoön",
+      "author": "Gotthold Ephraim Lessing"
+    },
+    {
+      "source": "Kusamakura",
+      "mentioned": "Tristram Shandy",
+      "author": "Laurence Sterne"
+    },
+    {
+      "source": "Kokoro",
+      "mentioned": "The Koran",
+      "author": "Anonymous"
+    },
+    {
+      "source": "Sanshiro",
+      "mentioned": "Oroonoko",
+      "author": "Aphra Behn"
+    },
+    {
+      "source": "Sanshiro",
+      "mentioned": "Oroonoko",
+      "author": "Thomas Southerne"
+    },
+    {
+      "source": "Sanshiro",
+      "mentioned": "History of Intellectual Development",
+      "author": "John Beattie Crozier"
+    },
+    {
+      "source": "Sanshiro",
+      "mentioned": "Hydriotaphia",
+      "author": "Thomas Browne"
+    },
+    {
+      "source": "Sanshiro",
+      "mentioned": "Hamlet",
+      "author": "William Shakespeare"
+    },
+    {
+      "source": "And Then",
+      "mentioned": "Baien",
+      "author": "Morita Sōhei"
+    },
+    {
+      "source": "And Then",
+      "mentioned": "The Analects",
+      "author": "Confucius"
+    },
+    {
+      "source": "The Gate",
+      "mentioned": "The Analects",
+      "author": "Confucius"
+    },
+    {
+      "source": "The Gate",
+      "mentioned": "Caigen tan",
+      "author": "Hong Yingming"
+    },
+    {
+      "source": "The Gate",
+      "mentioned": "The Blue Cliff Record",
+      "author": "Yuanwu Keqin"
+    },
+    {
+      "source": "The Gate",
+      "mentioned": "Shūmon mujintō ron",
+      "author": "Tōrei Enji"
+    },
+    {
+      "source": "Light and Darkness",
+      "mentioned": "Mingshi biecai ji",
+      "author": "Shen Deqian"
+    },
+    {
+      "source": "Kappa",
+      "mentioned": "Thus Spoke Zarathustra",
+      "author": "Friedrich Nietzsche"
+    },
+    {
+      "source": "Cogwheels",
+      "mentioned": "Inferno",
+      "author": "Dante Alighieri"
+    },
+    {
+      "source": "Cogwheels",
+      "mentioned": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky"
+    },
+    {
+      "source": "Cogwheels",
+      "mentioned": "Polikushka",
+      "author": "Leo Tolstoy"
+    },
+    {
+      "source": "Cogwheels",
+      "mentioned": "Tenkibo",
+      "author": "Ryūnosuke Akutagawa"
+    },
+    {
+      "source": "Cogwheels",
+      "mentioned": "Legend",
+      "author": "August Strindberg"
+    },
+    {
+      "source": "Cogwheels",
+      "mentioned": "A Dark Night's Passing",
+      "author": "Naoya Shiga"
+    },
+    {
+      "source": "Cogwheels",
+      "mentioned": "Shakko",
+      "author": "Mokichi Saito"
+    },
+    {
+      "source": "No Longer Human",
+      "mentioned": "I Am a Cat",
+      "author": "Natsume Soseki"
+    },
+    {
+      "source": "No Longer Human",
+      "mentioned": "Crime and Punishment",
+      "author": "Fyodor Dostoevsky"
+    },
+    {
+      "source": "The Setting Sun",
+      "mentioned": "A Sportsman's Sketches",
+      "author": "Ivan Turgenev"
+    },
+    {
+      "source": "The Setting Sun",
+      "mentioned": "Introduction to Political Economy",
+      "author": "Rosa Luxemburg"
+    },
+    {
+      "source": "The Wild Geese",
+      "mentioned": "Jin Ping Mei",
+      "author": ""
+    },
+    {
+      "source": "The Wild Geese",
+      "mentioned": "Mikawa Gofudoki",
+      "author": ""
+    },
+    {
+      "source": "Ukigumo",
+      "mentioned": "Illusions",
+      "author": "James Sully"
+    },
+    {
+      "source": "Lemon",
+      "mentioned": "The Words of the Orange Seller",
+      "author": "Liu Ji"
+    }
+  ]
+}

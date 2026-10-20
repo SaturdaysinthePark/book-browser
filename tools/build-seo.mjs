@@ -41,7 +41,12 @@ const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 
 
 const esc = s => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 // notes are stored with their own quote marks (straight or curly) — drop the outer pair; the renderers add theirs
-const clean = q => q.trim().replace(/^"([^"]*)"$/, '$1').replace(/^“([^“”]*)”$/, '$1');
+// a trailing '*' marks an auto-translated quote (app.js shows a caption); static pages say so in words
+const clean = q => {
+  let t = q.trim(); const translated = /\*$/.test(t); if (translated) t = t.slice(0, -1).trim();
+  t = t.replace(/^"([^"]*)"$/, '$1').replace(/^“([^“”]*)”$/, '$1');
+  return translated ? t + ' [auto-translated]' : t;
+};
 
 function load() {
   const ctx = { window: {} }; vm.createContext(ctx);
