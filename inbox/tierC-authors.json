@@ -1,0 +1,26 @@
+{
+ "books": [],
+ "mentions": [
+  {
+   "source": "Farewell",
+   "mentioned": "Huaxue Weisheng Lun",
+   "author": "John Fryer",
+   "note": "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception.*",
+   "update": true
+  },
+  {
+   "source": "The Book of the Dead",
+   "mentioned": "Treatise on Yue Yi",
+   "author": "Xiahou Xuan",
+   "note": "They say that before leaving home she had copied out a thousand Amida Sutras, and had practised her hand with the Treatise on Yue Yi and, earlier still, the Gangoji Engi written by her elder brother.*",
+   "update": true
+  },
+  {
+   "source": "A Country Teacher",
+   "mentioned": "Ichiyō Zenshū",
+   "author": "Higuchi Ichiyō",
+   "note": "On the large magnolia-wood desk beneath the lamp, the Myōjō, Bungei Club, the Man'yōshū and the Ichiyō Zenshū lay scattered in disorder.*",
+   "update": true
+  }
+ ]
+}

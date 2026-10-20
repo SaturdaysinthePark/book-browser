@@ -195,7 +195,7 @@ https://bookjumpr.com/tayama-katai/a-country-teacher
 - Gankutsuo by Ruiko Kuroiwa: "He had lost interest in everything, and even Ruiko's Gankutsuo, which he had loved reading, he gave up halfway. [auto-translated]"
 - Kanbotan by Ozaki Kōyō: "Seventh: still recovering from illness and a boil, so I postponed returning to school. I started Koyo and Shuto's Kanbotan but gave up. Ninth: finished reading Kanbotan tonight, a story of agony within tragedy that follows sin, and the heroine Luisa's devoted attachment. [auto-translated]"
 - Bundan Shomakyo by Anonymous: "From Ishikawa came the usual attacks on Myojo, and on purpose he sent a pamphlet called Bundan Shomakyo, which exposed the private lives of the poet couple in Shibuya. [auto-translated]"
-- Ichiyō Zenshū by Anonymous: "On the large magnolia-wood desk beneath the lamp, the Myōjō, Bungei Club, the Man'yōshū and the Ichiyō Zenshū lay scattered in disorder. [auto-translated]"
+- Ichiyō Zenshū by Higuchi Ichiyō: "On the large magnolia-wood desk beneath the lamp, the Myōjō, Bungei Club, the Man'yōshū and the Ichiyō Zenshū lay scattered in disorder. [auto-translated]"
 
 ## A Damsel in Distress by P. G. Wodehouse (1919)
 https://bookjumpr.com/p-g-wodehouse/a-damsel-in-distress
@@ -2540,7 +2540,7 @@ https://bookjumpr.com/osamu-dazai/farewell
 - Kaitai Shinsho by Sugita Genpaku: "That first lecture was a history of the development of anatomy in Japan, and the large and small books the teacher brought were all Japanese works on anatomy from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them. [auto-translated]"
 - Rangaku Koto Hajime by Sugita Genpaku: "The large and small books the teacher brought were all Japanese works on anatomy, from ancient times to the present. Sugita Genpaku's Kaitai Shinsho and Rangaku Koto Hajime were among them, and he described in his slow, distinctive way the tension of Genpaku and his friends as they dissected a criminal's corpse at the Kozukappara… [auto-translated]"
 - Quanti Xinlun by Anonymous: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
-- Huaxue Weisheng Lun by Anonymous: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
+- Huaxue Weisheng Lun by John Fryer: "Physiology was not taught at school, but reading the woodblock-printed Quanti Xinlun and Huaxue Weisheng Lun, we learned ever more clearly that Chinese medicine was nothing but conscious or unconscious deception. [auto-translated]"
 
 ## Father Goriot by Honoré de Balzac (1835)
 https://bookjumpr.com/honore-de-balzac/father-goriot
@@ -2982,7 +2982,7 @@ https://bookjumpr.com/ryunosuke-akutagawa/gesaku-zanmai
 - Water Margin by Shi Nai'an: "Bakin's writings are all rehashes. Why, the Nansō Satomi Hakkenden is nothing but a copy of the Water Margin, isn't it? [auto-translated]"
 - Ukiyoburo by Shikitei Sanba: "The scene was no different now from the one Shikitei Sanba had described in a comic book some years before: "gods, Buddhism, love, impermanence, all jumbled together in the Ukiyoburo." [auto-translated]"
 - Chinsetsu Yumiharizuki by Takizawa Bakin: "On this desk he had written Chinsetsu Yumiharizuki and Nanka no Yume, and now he was writing the Nansō Satomi Hakkenden. All his writing tools had long been familiar with the pain of his creative labor. [auto-translated]"
-- Nanka no Yume by Takizawa Bakin: "On this desk he had written Chinsetsu Yumiharizuki and Nanka no Yume, and now he was writing the Nansō Satomi Hakkenden. All his writing tools had long been familiar with the pain of his creative labor. [auto-translated]"
+- Sanshichi Zenden Nanka no Yume by Takizawa Bakin: "On this desk he had written Chinsetsu Yumiharizuki and Nanka no Yume, and now he was writing the Nansō Satomi Hakkenden. All his writing tools had long been familiar with the pain of his creative labor. [auto-translated]"
 - Matsuzome Jōshi Akinonanakusa by Takizawa Bakin: "Because he can't write Osome and Hisamatsu as plain Osome and Hisamatsu, he calls it Matsuzome Jōshi Akinonanakusa. [auto-translated]"
 
 ## Girl Meets Boy by Ali Smith (2007)
@@ -7078,7 +7078,7 @@ https://bookjumpr.com/orikuchi-shinobu/the-book-of-the-dead
 - Lotus Sutra by Anonymous: "Behind the curtained dais came two scrolls apparently copied in a woman's hand: the Lotus Sutra of Lady Tachibana, her great-grandmother, and the Treatise on Yue Yi of the present Empress Dowager. [auto-translated]"
 - Classic of Filial Piety by Anonymous: "They say she was copying the Amida Sutra a thousand times before she left home, that she had practised on the Treatise on Yue Yi and her brother's chronicle of Gangōji, and that she learned the Classic of Filial Piety when she was this small. [auto-translated]"
 - Chu Ci by Anonymous: "A true woman scholar, she is; one like you, wasting himself on the Chu Ci and on tales, cannot go near her. [auto-translated]"
-- Treatise on Yue Yi by Anonymous: "They say that before leaving home she had copied out a thousand Amida Sutras, and had practised her hand with the Treatise on Yue Yi and, earlier still, the Gangoji Engi written by her elder brother. [auto-translated]"
+- Treatise on Yue Yi by Xiahou Xuan: "They say that before leaving home she had copied out a thousand Amida Sutras, and had practised her hand with the Treatise on Yue Yi and, earlier still, the Gangoji Engi written by her elder brother. [auto-translated]"
 
 ## The Book Thief by Markus Zusak (2005)
 https://bookjumpr.com/markus-zusak/the-book-thief
@@ -10738,7 +10738,7 @@ https://bookjumpr.com/mori-ogai/the-wild-geese
 
 ## The Wind Has Risen by Hori Tatsuo (1938)
 https://bookjumpr.com/hori-tatsuo/the-wind-has-risen
-- Requiem for a Friend by Rainer Maria Rilke: "A small parcel had arrived: Rilke's Requiem (Chinkon-ka), ordered long ago, forwarded from place to place with two or three other books. That night, by the fireplace, listening now and then to the wind, I began to read Rilke's Requiem. [auto-translated]"
+- Requiem by Rainer Maria Rilke: "A small parcel had arrived: Rilke's Requiem (Chinkon-ka), ordered long ago, forwarded from place to place with two or three other books. That night, by the fireplace, listening now and then to the wind, I began to read Rilke's Requiem. [auto-translated]"
 
 ## The Wind-Up Bird Chronicle by Haruki Murakami (1994)
 https://bookjumpr.com/haruki-murakami/the-wind-up-bird-chronicle
