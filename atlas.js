@@ -67,7 +67,7 @@
     //   labelTop       at overview, always label this many of the most connected books
     //   flow           animated directional dashes on the focused book's lines (rust out, blue in)
     //   twinkle        slow shimmer on a sparse subset of stars     mini  compact, click-only
-    //   sizeContrast   steeper size curve: the long tail of small books shrinks, the hubs grow
+    //   sizeContrast   the long tail of small books draws smaller (hubs keep their size)
     this.showRegions = o.regions !== false;
     this.dust = !!o.dust;
     this.grav = !!o.gravity && !this.reduced;
@@ -268,10 +268,10 @@
   P._r = function (i, full) {
     var z = Math.sqrt(Math.max(0.15, this.cam.k));
     if (this.mini) return Math.max(0.9, Math.min(5, (0.7 + Math.sqrt(this.deg[i]) * 0.35) * z * 1.4));
-    var r = this.o.sizeContrast
-      // log-degree on an ease-in curve: 1 link ≈ 1px, 6 links ≈ 3px, 35 ≈ 9px, the top hub ≈ 16px (× zoom)
-      ? Math.max(1, Math.min(18, (1 + 15 * Math.pow(Math.log(Math.max(1, this.deg[i])) / this.lnDegMax, 1.8)) * z))
-      : Math.max(1.3, Math.min(11, (0.9 + Math.sqrt(this.deg[i]) * 0.55) * z * 1.6));
+    var r = Math.max(1.3, Math.min(11, (0.9 + Math.sqrt(this.deg[i]) * 0.55) * z * 1.6));
+    // sizeContrast: shrink the long tail only — an ease-in curve of log-degree (1 link ≈ 1px, 6 links
+    // ≈ 3px, × zoom) that meets the usual size around 12 links; bigger books keep their usual size
+    if (this.o.sizeContrast) r = Math.min(r, Math.max(1, (1 + 15 * Math.pow(Math.log(Math.max(1, this.deg[i])) / this.lnDegMax, 1.8)) * z));
     return this.dust && this.deg[i] <= 1 && !full && this.cam.k < this._dustK() ? Math.max(1, r * 0.62) : r;
   };
   // zoomed in past this, dust is drawn as ordinary dots (there's room to read everything)

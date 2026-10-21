@@ -695,7 +695,7 @@
         regionZoom: lk !== 'wrap',
         center: lk === 'wrap' ? 'miguel-de-cervantes/don-quixote' : null,   // the Network view opens on Don Quixote
         labelPerRegion: lk === 'wrap',   // overview titles: one landmark per genre, not the top 25
-        sizeContrast: lk === 'wrap',     // small books recede, hubs stand out
+        sizeContrast: lk === 'wrap',     // small books recede so the hubs stand out
         dust: lk === 'wrap', gravity: lk === 'wrap',
         regionColor: function (R) { return self.xGenreColor(R.genre); },
         guides: data.guides && (data.guides.rings || data.guides.axes) ? data.guides : null,
