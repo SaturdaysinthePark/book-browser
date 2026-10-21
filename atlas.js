@@ -321,6 +321,10 @@
     if (this.o.guides) this._guides(c, k, placed);
 
     // dots
+    // dust is hidden at the entry zoom and fades in on the way to _dustK (or near the cursor, or
+    // when linked to the hovered book), so the overview is the connected books, not a fog
+    var dustIn = this.dust ? Math.max(0, Math.min(1, (k - (this.minK || 0.05) * 1.25) / (this._dustK() - (this.minK || 0.05) * 1.25))) : 1;
+    var hoverNb = this.dust && focus < 0 && hover >= 0 ? this._nbOf(hover) : null;
     for (i = 0; i < this.N; i++) {
       sx = this.sx(this._x(i)); sy = this.sy(this._y(i));
       if (sx < -12 || sx > W + 12 || sy < -12 || sy > H + 12) continue;
@@ -328,10 +332,13 @@
       var linked = i === focus || (nb && nb[i]), on = focus < 0 || linked;
       // dust: single-link books stay faint unless lit (linked to the selection, near the cursor, zoomed in)
       var isDust = this.dust && this.deg[i] <= 1 && !linked && k < this._dustK(), glow = this.dust && this.deg[i] <= 4 ? this._glow(sx, sy) : 0;
+      var dustVis = isDust ? (hoverNb && (hoverNb[i] || i === hover) ? 1 : Math.max(dustIn, glow)) : 1;
+      if (dustVis < 0.02) continue;
       var rad = this._r(i, !isDust);
       var a = on ? 1 : (this.mini ? 0.14 : this.col ? 0.2 : 0.13);
       if (!on && this._outT0) a += (1 - a) * (1 - ease);   // clearing: the dimmed stars come back up
-      if (on && this.dust && focus < 0) a = isDust ? 0.34 + 0.66 * glow : this.deg[i] <= 4 ? 0.8 + 0.2 * glow : 1;
+      if (on && this.dust && focus < 0) a = isDust ? 0.8 * dustVis : this.deg[i] <= 4 ? 0.8 + 0.2 * glow : 1;
+      else if (isDust) a *= dustVis;
       if (isDust && glow > 0) rad *= 1 + 0.6 * glow;
       if (this.tw && this.tw[i] && !this.reduced && !linked) a *= 0.75 + 0.25 * Math.sin(now * this.tw[i] + i);
       c.globalAlpha = a;
@@ -503,12 +510,17 @@
     // hub titles once zoomed in enough to read them
     if (focus < 0 && (k > 0.55 || this.o.labelTop)) {
       var budget = k > 1.6 ? 120 : k > 1 ? 60 : k > 0.55 ? Math.max(24, this.o.labelTop || 0) : this.o.labelTop, shown = 0;
-      for (var oi = 0; oi < this.order.length && shown < budget; oi++) {
-        var ni = this.order[oi];
+      // labelPerRegion: until zoomed in past 1, title only each region's best-connected book on screen
+      // (10+ links) and the `center` book, so the overview reads as a few landmarks, not a wall of titles
+      var perReg = this.o.labelPerRegion && k <= 1 ? {} : null, ci = this.o.center != null ? this.idx[this.o.center] : null;
+      var ord = ci != null && perReg ? [ci].concat(this.order) : this.order;
+      for (var oi = 0; oi < ord.length && shown < budget; oi++) {
+        var ni = ord[oi];
         if (this.deg[ni] < 3 && k < 1.6 && !this.o.labelTop) break;
+        if (perReg && (perReg[this.reg[ni]] || (this.deg[ni] < 10 && ni !== ci))) continue;   // landmarks only: real hubs
         var before = placed.length;
         labelNode(this, ni, k > 1.6 ? 13 : 12, 600, 'rgba(20,20,20,0.82)', 'rgba(247,245,240,0.85)', this.dust ? 24 : 0);
-        if (placed.length > before) shown++;
+        if (placed.length > before) { shown++; if (perReg) perReg[this.reg[ni]] = 1; }
       }
     }
   };

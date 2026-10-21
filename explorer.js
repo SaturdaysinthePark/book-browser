@@ -694,6 +694,7 @@
         wrapY: data.guides && data.guides.torus ? data.guides.torus.PY : 0,
         regionZoom: lk !== 'wrap',
         center: lk === 'wrap' ? 'miguel-de-cervantes/don-quixote' : null,   // the Network view opens on Don Quixote
+        labelPerRegion: lk === 'wrap',   // overview titles: one landmark per genre, not the top 25
         dust: lk === 'wrap', gravity: lk === 'wrap',
         regionColor: function (R) { return self.xGenreColor(R.genre); },
         guides: data.guides && (data.guides.rings || data.guides.axes) ? data.guides : null,
