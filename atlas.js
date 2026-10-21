@@ -92,6 +92,9 @@
     this.ro.observe(this.host);
     this._resize();
     this.fit(false);
+    // center: a book's key to open on, instead of the middle of the map (same zoom as fit)
+    var ci = o.center != null ? this.idx[o.center] : null;
+    if (ci != null) this._lookAt(this.wx[ci], this.wy[ci], this.cam.k, false);
     this._startTick();
   }
   var P = Atlas.prototype;
