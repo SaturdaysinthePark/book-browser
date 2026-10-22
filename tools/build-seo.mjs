@@ -7,7 +7,7 @@
 //    never see it.
 // 2. llms.txt — the same as plain text for AI crawlers, plus question-and-answer pairs drawn from the data.
 // 3. llms-full.txt — every book that mentions another, with what it mentions and the quote.
-// 4. sitemap.xml — the homepage, about/stats/network, and every book page with something on it (a synopsis, a
+// 4. sitemap.xml — the homepage, about/stats/network, the A–Z author index, and every book page with something on it (a synopsis, a
 //    mention, or two books mentioning it) plus their authors, each with <lastmod> from bookjumpr.db.
 // 5. netlify/seo/data.js — the data the edge function (netlify/edge-functions/seo.js) renders each page's head and
 //    crawler text from, including which books have their own preview card in og/ (rendered by tools/render-og.mjs).
@@ -20,6 +20,7 @@ import crypto from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { open } from './db.mjs';
 import { slug } from './slug.mjs';
+import { authorIndex } from '../netlify/seo/authors.js';
 
 const SITE = 'https://bookjumpr.com';
 export const PROFILES = [
@@ -203,6 +204,7 @@ export function renderSitemap(s, dates) {
   for (const k of s.pages) { const as = s.edge.B[k][4], t = dates[k] || s.updated; if (as !== 'anonymous' && !(authors[as] >= t)) authors[as] = t; }
   return ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     url('/', s.updated), url('/about', s.updated), url('/stats', s.updated), url('/network', s.updated),
+    url('/authors', s.updated), ...authorIndex(s.edge).letters.map(x => url('/authors/' + x.slug, s.updated)),
     ...s.pages.slice().sort().map(k => url('/' + k, dates[k] || s.updated)),
     ...Object.keys(authors).sort().map(a => url('/' + a, authors[a])),
     '</urlset>', ''].join('\n');

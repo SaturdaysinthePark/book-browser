@@ -27,7 +27,7 @@ const noReload = (page) => page.evaluate(() => window.__noReload === 1);
 console.log(`Testing ${BASE}\n\nEvery kind of page loads`);
 for (const [p, want] of [
   ['/', /Every book is a door/], ['/haruki-murakami/norwegian-wood', /Norwegian Wood/], ['/haruki-murakami', /Haruki Murakami/],
-  ['/about', /Books talk about books/], ['/stats', /most name-dropped/], ['/search/kafka', /kafka/], ['/?home=a', /./],
+  ['/about', /Books talk about books/], ['/authors', /Authors A–Z/], ['/authors/m', /Authors: M/], ['/stats', /most name-dropped/], ['/search/kafka', /kafka/], ['/?home=a', /./],
 ]) {
   const page = await open(p);
   const t = await h1(page);
@@ -113,10 +113,20 @@ console.log('\nHeader, search, stats and about');
   await top.click(); await page.waitForTimeout(1200);
   ok(path(page) === '/miguel-de-cervantes/don-quixote' && (await noReload(page)), `stats row → ${path(page)}`);
   await page.goto(BASE + '/about'); await page.waitForTimeout(1200); await mark(page);
+  await page.locator('a[href="/authors"]').first().click(); await page.waitForTimeout(1200);
+  ok(path(page) === '/authors' && (await noReload(page)), `about → Browse every author → ${path(page)}`);
+  await page.locator('nav[aria-label="Authors by letter"] a[href="/authors/m"]').click(); await page.waitForTimeout(1000);
+  ok(path(page) === '/authors/m' && (await noReload(page)) && /Authors: M/.test(await h1(page)), `letter M → ${path(page)}`);
+  await page.locator('ul li a[href="/niccolo-machiavelli"]').click(); await page.waitForTimeout(1000);
+  ok(path(page) === '/niccolo-machiavelli' && (await noReload(page)), `author row → ${path(page)}`);
+  await page.locator('a[href="/authors"]').first().click(); await page.waitForTimeout(1000);
+  ok(path(page) === '/authors' && (await noReload(page)), `author page "All authors A–Z" → ${path(page)}`);
+  await page.goto(BASE + '/about'); await page.waitForTimeout(1200); await mark(page);
   await page.locator('a.ob-door').first().click(); await page.waitForTimeout(1200);
   ok(path(page) === '/anonymous/a-thousand-and-one-nights' && (await noReload(page)), `about page book link → ${path(page)}`);
   await page.goto(BASE + '/'); await page.waitForTimeout(1500); await mark(page);
   const box = page.locator('input[placeholder^="Search"]').first();
+  await page.mouse.move(5, 5);   // a resting pointer over a suggestion would pick that row on Enter
   await box.fill('kafka'); await box.press('Enter'); await page.waitForTimeout(1200);
   ok(/^\/(search\/kafka|franz-kafka\/.+|haruki-murakami\/kafka-on-the-shore)$/.test(path(page)) && (await noReload(page)), `search "kafka" + Enter → ${path(page)}`);
   await page.goto(BASE + '/search/kafka'); await page.waitForTimeout(1500); await mark(page);

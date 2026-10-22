@@ -1374,6 +1374,7 @@ html,body{height:100%;}
       <sc-if value="{{ a_none }}" hint-placeholder-val="{{ false }}">
         <div style="border:1.5px dashed var(--ink);border-radius:16px;padding:34px;margin-top:20px;font-family:'IBM Plex Mono',monospace;font-size:13px;line-height:1.7;opacity:.75;">No books on file for this author yet.</div>
       </sc-if>
+      <div style="margin-top:56px;"><a href="/authors" onClick="{{ goAuthors }}" style="font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--mut);text-decoration:none;" style-hover="color:var(--ink);">All authors A&ndash;Z &rarr;</a></div>
     </div>
   </sc-if>
 
@@ -1545,6 +1546,10 @@ html,body{height:100%;}
     </div>
   </sc-if>
 
+  <sc-if value="{{ pgAuthors }}" hint-placeholder-val="{{ false }}">
+    <div data-screen-label="Authors A–Z" style="max-width:1100px;margin:0 auto;{{ pagePad }}">{{ authorsIndex }}</div>
+  </sc-if>
+
   <sc-if value="{{ pgAbout }}" hint-placeholder-val="{{ false }}">
     <div data-screen-label="About" style="max-width:660px;margin:0 auto;{{ pagePad }}">
       <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--mut);">About</div>
@@ -1607,6 +1612,7 @@ html,body{height:100%;}
             <span class="ob-door-a">Natsume S&#333;seki</span>
           </a>
         </div>
+      <p style="font-size:16px;line-height:1.7;margin-top:44px;">Looking for a particular writer? <a href="/authors" onClick="{{ goAuthors }}" style="color:var(--accent);">Browse every author A&ndash;Z</a>.</p>
     </div>
   </sc-if>
 
@@ -1633,6 +1639,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="/home.js?v=3"></script>
-<script src="/app.js?v=9"></script>
+<script src="/app.js?v=10"></script>
 </body>
 </html>
