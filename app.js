@@ -1400,6 +1400,8 @@
   // ---------- mention notes (lazy: bookjumpr-notes.js) ----------
   P._loadNotes = function () {
     if (this._notes || this._notesLoading) return;
+    // book pages: let explorer.js (the page's UI) have the bandwidth first; the next render after it loads asks again
+    if (this._vNext() && this.state.route.page === 'book' && !window.__BJ.explorerReady) return;
     this._notesLoading = true;
     var self = this, sc = document.createElement('script');
     sc.src = '/bookjumpr-notes.js?v=2';
@@ -1560,7 +1562,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=14', 'explorer.js?v=25'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=14', 'explorer.js?v=26'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1593,11 +1595,39 @@
     var self = this;
     setTimeout(function () { self._silent = false; }, 0);
   };
+  // The book page only needs explorer.js (its UI) to render; the star-map libraries (atlas, stars, layouts: ~0.8MB)
+  // only feed the thumbnail, so they load after the page has painted and the thumbnail mounts when they arrive.
+  P._xMapReady = function () { return !!(window.BJAtlas && window.BookJumprStars && (!this._vLab() || window.BookJumprLayouts)); };
+  P._xLoadSrcs = function (srcs, cb) {
+    var left = srcs.length;
+    var done = function () { if (--left === 0) cb(); };
+    srcs.forEach(function (src) {
+      var sc = document.createElement('script');
+      sc.src = '/' + src; sc.onload = done; sc.onerror = done;
+      document.body.appendChild(sc);
+    });
+  };
+  P._loadMapLibs = function () {
+    if (this._xMapReady() || this._xMapLoading) return;
+    this._xMapLoading = true;
+    var self = this, srcs = [];
+    if (!window.BJAtlas) srcs.push('atlas.js?v=14');
+    if (!window.BookJumprStars) srcs.push('stars-data.js?v=3');
+    if (this._vLab() && !window.BookJumprLayouts) srcs.push('layouts-data.js?v=8');
+    this._xLoadSrcs(srcs, function () { self.forceUpdate(); });
+  };
+  P._loadBookExplorer = function () {
+    var self = this;
+    if (window.__BJ.explorerReady) { this._loadMapLibs(); return; }
+    if (this._xLoading) return;
+    this._xLoading = true;
+    this._xLoadSrcs(['explorer.js?v=26'], function () { self.forceUpdate(); self._loadMapLibs(); });
+  };
   P._loadExplorer = function () {
     if (this._xReady() || this._xLoading) return;
-    this._xLoading = true;
+    this._xLoading = this._xMapLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=25'] : ['network-regions.js?v=2', 'explorer.js?v=25'];
+    var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=26'] : ['network-regions.js?v=2', 'explorer.js?v=26'];
     if (this._vLab()) srcs.push('layouts-data.js?v=8');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };
@@ -2288,7 +2318,10 @@
     // ?v=next: the book page (fan + panel + lists) and the star-map network page
     if (vals.pgBookNext || vals.pgStars) {
       this._loadNotes();
-      if (!this._xReady()) { this._loadExplorer(); vals.bookNext = vals.starMap = h('div', { className: 'bjx-loading' }, 'Opening…'); }
+      var uiOk = vals.pgBookNext ? !!window.__BJ.explorerReady : this._xReady();
+      if (vals.pgBookNext) this._loadBookExplorer();
+      else if (!uiOk) this._loadExplorer();
+      if (!uiOk) vals.bookNext = vals.starMap = h('div', { className: 'bjx-loading' }, 'Opening…');
       else {
         vals.bookNext = vals.pgBookNext ? (books[route.id] ? this.bookNext(books[route.id]) : h('div', { className: 'bjx-empty' }, this.state.ready ? 'That book isn’t in the network yet.' : 'Opening the stacks…')) : null;
         vals.starMap = vals.pgStars ? (this._vLab() && this.labMap ? this.labMap(route.focus) : this.starMap(route.focus)) : null;
