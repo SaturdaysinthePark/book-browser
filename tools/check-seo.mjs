@@ -78,6 +78,21 @@ for (const [path, re] of [['/about', /^About BookJumpr/], ['/stats', /most name-
   ok(n.status === 200 && /noindex/.test(robots(n.html) || '') && canonical(n.html) === `${SITE}/network`, `/network/<book>: ${n.status}, noindex, canonical /network`);
 }
 
+console.log('\nAuthors A–Z');
+{
+  const o = await get('/authors');
+  ok(o.status === 200 && /^Authors A–Z/.test(title(o.html) || '') && canonical(o.html) === `${SITE}/authors`, `/authors: ${o.status}, "${title(o.html)}", canonical ${canonical(o.html)}`);
+  ok(/href="\/authors\/m"/.test(block(o.html)) && /href="\/william-shakespeare"/.test(block(o.html)), '/authors links to every letter and to the most-mentioned authors');
+  const m = await get('/authors/m');
+  ok(m.status === 200 && /^Authors starting with M/.test(title(m.html) || '') && canonical(m.html) === `${SITE}/authors/m`, `/authors/m: ${m.status}, "${title(m.html)}", canonical ${canonical(m.html)}`);
+  ok((block(m.html).match(/<li><a href="\/[^"]+">/g) || []).length > 100 && /href="\/niccolo-machiavelli"/.test(block(m.html)), '/authors/m lists its authors as links');
+  ok(ld(m.html).some((g) => (g['@graph'] || []).some((n) => n['@type'] === 'CollectionPage')), '/authors/m has CollectionPage JSON-LD');
+  const a = await get('/haruki-murakami');
+  ok(/href="\/authors"/.test(block(a.html)), 'author pages link back to /authors');
+  const bad = await get('/authors/zz');
+  ok(bad.status === 404 && /noindex/.test(robots(bad.html) || ''), `/authors/zz: 404 + noindex (got ${bad.status})`);
+}
+
 console.log('\nMissing pages and old links');
 for (const path of ['/nobody/nothing-at-all', '/nobody-at-all']) {
   const { status, html } = await get(path);
@@ -98,6 +113,7 @@ for (const path of ['/app.js?v=6', '/bookjumpr-data.js?v=2', '/vendor/react.prod
   const sm = await (await fetch(BASE + '/sitemap.xml')).text();
   const n = (sm.match(/<url>/g) || []).length;
   ok(n > 1000 && sm.includes(`<loc>${SITE}/haruki-murakami/norwegian-wood</loc>`), `sitemap lists ${n} pages, including book pages`);
+  ok(sm.includes(`<loc>${SITE}/authors</loc>`) && sm.includes(`<loc>${SITE}/authors/m</loc>`), 'sitemap lists the A–Z author index');
 }
 
 console.log(failed ? `\n✗ ${failed} check(s) failed` : '\n✓ all checks passed');

@@ -1031,6 +1031,8 @@
     if (hh === 'network') return { page: 'network' };
     if (hh.indexOf('network/') === 0) return { page: 'network', focus: hh.slice(8) };
     if (hh === 'about') return { page: 'about' };
+    if (hh === 'authors') return { page: 'authors' };
+    if (hh.indexOf('authors/') === 0) return { page: 'authors', letter: hh.slice(8).toLowerCase() };
     if (hh.indexOf('book/') === 0) return { page: 'book', id: hh.slice(5) }; // legacy alias
     if (hh.indexOf('/') !== -1) return { page: 'book', id: hh };            // <author>/<title>
     return { page: 'author', slug: hh };                                    // <author>
@@ -1109,6 +1111,30 @@
     }
     this._authors = { n: this.all.length, list: list };
     return list;
+  };
+  // The A–Z author index (/authors, /authors/<letter>): authors grouped by surname's first letter, 'other' for the
+  // rest. Mirrors netlify/seo/authors.js, which the server-side page uses, so keep the two in step.
+  P.authorIndex = function () {
+    var list = this.authorList();
+    if (this._az && this._az.list === list) return this._az;
+    var plain = function (t) { return t.normalize ? t.normalize('NFD').replace(/[̀-ͯ]/g, '') : t; };
+    var sur = function (name) {
+      var t = String(name || '').replace(/[,()]/g, ' ').split(/\s+/).filter(Boolean);
+      while (t.length > 1 && /^(jr|sr|ii|iii|iv|phd|md)\.?$/i.test(t[t.length - 1])) t.pop();
+      return t[t.length - 1] || '';
+    };
+    var key = function (a) { return plain(sur(a.name)).toLowerCase() + ' ' + plain(a.name).toLowerCase(); };
+    var by = {};
+    list.forEach(function (a) {
+      var c = plain(sur(a.name)).charAt(0).toUpperCase(), l = /[A-Z]/.test(c) ? c : '#';
+      a.sur = sur(a.name); a.key = key(a);
+      (by[l] = by[l] || []).push(a);
+    });
+    var letters = Object.keys(by).sort(function (x, y) { return (x === '#') - (y === '#') || (x < y ? -1 : 1); }).map(function (l) {
+      return { l: l, slug: l === '#' ? 'other' : l.toLowerCase(), authors: by[l].sort(function (x, y) { return x.key < y.key ? -1 : x.key > y.key ? 1 : 0; }) };
+    });
+    var top = list.slice().sort(function (x, y) { return y.mentions - x.mentions || (x.key < y.key ? -1 : 1); }).slice(0, 30);
+    return (this._az = { list: list, letters: letters, top: top, total: list.length });
   };
   // Author-level view of one author's mentions: who their books mention, and who mentions them.
   // Each side is [{ slug, name, books: [{ from, to }] }] grouped by the other author, biggest first.
@@ -1750,7 +1776,8 @@
       pgStats: page === 'stats', pgNetwork: page === 'network', pgAbout: page === 'about',
       pgNetMap: page === 'network' && this._netMode() === 'map', pgExplorer: page === 'network' && this._netExplorer(),
       pgAtlas: page === 'network' && this._netMode() === 'atlas', pgStars: page === 'network' && this._netMode() === 'stars',
-      pgAuthor: page === 'author',
+      pgAuthor: page === 'author', pgAuthors: page === 'authors',
+      goAuthors: function (e) { if (e && e.preventDefault) { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button > 0) return; e.preventDefault(); } self.navigate({ page: 'authors' }, '#/authors'); },
       goHome: go(function () { self.navigate({ page: 'home' }, '#/'); }),
       goStats: go(function () { self.navigate({ page: 'stats' }, '#/stats'); }),
       goNetwork: go(function () { if (self.state.xView) self.setState({ xView: null }); self.navigate({ page: 'network' }, '#/network'); }),
@@ -2131,6 +2158,41 @@
       });
     }
 
+    // A–Z author index
+    vals.authorsIndex = null;
+    if (page === 'authors' && all.length) {
+      var az = this.authorIndex(), cur = (route.letter || '').toLowerCase(), grp = null;
+      var mono = { fontFamily: "'IBM Plex Mono',monospace", fontSize: '10.5px', letterSpacing: '.18em', textTransform: 'uppercase', color: 'var(--mut)' };
+      var lnk = function (href, fn, style, kids) { return h('a', { href: href, onClick: self._linkGo(fn), style: Object.assign({ color: 'inherit', textDecoration: 'none' }, style) }, kids); };
+      var goLetter = function (sl) { return function () { self.navigate({ page: 'authors', letter: sl }, '#/authors/' + sl); }; };
+      if (cur) grp = az.letters.filter(function (x) { return x.slug === cur; })[0] || null;
+      var bar = h('nav', { 'aria-label': 'Authors by letter', style: { display: 'flex', flexWrap: 'wrap', gap: '4px 6px', margin: '22px 0 30px' } },
+        az.letters.map(function (x) {
+          var on = grp && grp.l === x.l;
+          return lnk('/authors/' + x.slug, goLetter(x.slug), { key: x.l, minWidth: '34px', textAlign: 'center', padding: '7px 8px', fontFamily: "'IBM Plex Mono',monospace", fontSize: '13px',
+            border: '1.5px solid var(--ink)', borderRadius: '4px', background: on ? 'var(--ink)' : 'none', color: on ? 'var(--paper)' : 'inherit' }, x.l);
+        }));
+      var row = function (a) {
+        return h('li', { key: a.slug, style: { breakInside: 'avoid', padding: '5px 0', lineHeight: 1.35 } },
+          lnk('/' + a.slug, function () { self.goAuthor(a.slug); }, { fontWeight: 700 }, a.name),
+          h('span', { style: { fontFamily: "'IBM Plex Mono',monospace", fontSize: '11px', color: 'var(--mut)', whiteSpace: 'nowrap' } }, '  ' + a.books.length + (a.books.length === 1 ? ' book' : ' books') + (a.mentions ? ' · mentioned ' + a.mentions + '×' : '')));
+      };
+      var head = h('h1', { style: { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: 'clamp(32px,6vw,46px)', lineHeight: 1.06, margin: '10px 0 8px' } },
+        grp ? 'Authors: ' + (grp.l === '#' ? 'other' : grp.l) : 'Authors A–Z');
+      var body;
+      if (cur && !grp) {
+        body = [h('p', { key: 'nf', style: { fontSize: '16px', lineHeight: 1.7 } }, 'No authors under that letter.')];
+      } else if (grp) {
+        body = [h('div', { key: 'n', style: { fontFamily: "'IBM Plex Mono',monospace", fontSize: '12px', opacity: .6 } }, grp.authors.length + ' authors, by surname'), bar,
+          h('ul', { key: 'l', style: { listStyle: 'none', padding: 0, margin: 0, columnWidth: '260px', columnGap: '32px' } }, grp.authors.map(row))];
+      } else {
+        body = [h('div', { key: 'n', style: { fontFamily: "'IBM Plex Mono',monospace", fontSize: '12px', opacity: .6 } }, az.total.toLocaleString('en-US') + ' authors, by surname'), bar,
+          h('h2', { key: 'h', style: { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: '26px', margin: '8px 0 10px' } }, 'The most-mentioned authors'),
+          h('ol', { key: 'l', style: { padding: '0 0 0 22px', margin: 0, columnWidth: '260px', columnGap: '32px' } }, az.top.map(row))];
+      }
+      vals.authorsIndex = h(React.Fragment, null, h('div', { style: mono }, 'Authors'), head, body);
+    }
+
     // search page
     if (page === 'search') {
       var q = route.q || '';
@@ -2253,12 +2315,13 @@
         search: '“' + (route.q || '') + '” — Search — BookJumpr',
         stats: 'Stats — BookJumpr',
         network: 'Network — BookJumpr',
-        about: 'About — BookJumpr'
+        about: 'About — BookJumpr',
+        authors: (route.letter ? 'Authors: ' + route.letter.toUpperCase() : 'Authors A–Z') + ' — BookJumpr'
       };
       document.title = titleMap[page] || titleMap.home;
       // keep the canonical URL in step with the address bar (the edge function sets it for the first page loaded)
       var can = document.querySelector('link[rel="canonical"]');
-      if (can && /^(home|book|author|stats|about|network)$/.test(page)) can.href = 'https://bookjumpr.com' + (page === 'network' ? '/network' : '/' + this._routePath());
+      if (can && /^(home|book|author|authors|stats|about|network)$/.test(page)) can.href = 'https://bookjumpr.com' + (page === 'network' ? '/network' : '/' + this._routePath());
     }
 
     return vals;

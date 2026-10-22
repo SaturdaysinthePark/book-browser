@@ -13,6 +13,8 @@
 //   L: { key: [other titles] }  — alternate titles, emitted as the Book's alternateName
 // Routes mirror P._routeFromHash in app.js.
 
+import { authorIndex, letterFromSlug } from './authors.js';
+
 export const SITE = 'https://bookjumpr.com';
 
 const esc = (s) => String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
@@ -42,6 +44,8 @@ function routeOf(pathname) {
   if (p === 'network') return { page: 'network' };
   if (p.startsWith('network/')) return { page: 'network', focus: p.slice(8) };
   if (p === 'about') return { page: 'about' };
+  if (p === 'authors') return { page: 'authors' };
+  if (p.startsWith('authors/')) return { page: 'authors', letter: p.slice(8).toLowerCase() };
   if (p.startsWith('book/')) return { page: 'legacy', id: p.slice(5) };
   if (p.includes('/')) return { page: 'book', id: p };
   return { page: 'author', slug: p };
@@ -155,7 +159,7 @@ function authorPage(D, slug) {
     sd.own ? `<p>Plus ${plural(sd.own, 'mention', 'mentions')} between ${esc(name)}'s own books.</p>` : '',
   ] : []);
   const body = [
-    `<nav><a href="/">BookJumpr</a></nav>`,
+    `<nav><a href="/">BookJumpr</a> › <a href="/authors">Authors A–Z</a></nav>`,
     `<h1>${esc(name)}</h1>`,
     `<p>${plural(keys.length, 'book', 'books')} on BookJumpr${mentioned ? `, mentioned ${plural(mentioned, 'time', 'times')} in other books` : ''}.</p>`,
     `<h2>Books by ${esc(name)}</h2>`,
@@ -195,8 +199,46 @@ function aboutPage() {
     title: 'About BookJumpr: how it maps the books mentioned inside other books',
     desc: 'How BookJumpr collects the books named inside other books (read, quoted, discussed, or dropped into conversation), and what counts as a mention.',
     canonical: '/about', ogType: 'website',
-    body: ['<nav><a href="/">BookJumpr</a></nav>', '<h1>About BookJumpr: books talk about books</h1>', ...ABOUT_TEXT.map((p) => `<p>${esc(p)}</p>`)],
+    body: ['<nav><a href="/">BookJumpr</a></nav>', '<h1>About BookJumpr: books talk about books</h1>', ...ABOUT_TEXT.map((p) => `<p>${esc(p)}</p>`), '<p>Browse every author on BookJumpr: <a href="/authors">authors A–Z</a>.</p>'],
     ld: [crumbs([['BookJumpr', `${SITE}/`], ['About', `${SITE}/about`]])],
+  };
+}
+
+const lastName = (a) => a.name.split(/\s+/).pop();
+const authorLi = (a) => `<li><a href="/${esc(a.slug)}">${esc(a.name)}</a> (${plural(a.books, 'book', 'books')}${a.mentioned ? `, mentioned in ${plural(a.mentioned, 'book', 'books')}` : ''})</li>`;
+const letterNav = (az, cur) => `<nav aria-label="Authors by letter">${az.letters.map((x) =>
+  x.l === cur ? `<strong>${esc(x.l)}</strong>` : `<a href="/authors/${x.slug}">${esc(x.l)}</a>`).join(' ')}</nav>`;
+
+// /authors (the overview) and /authors/<letter>: every author with a book on the site, by surname
+function authorsPage(D, letterSlug) {
+  const az = authorIndex(D);
+  const crumb = [['BookJumpr', `${SITE}/`], ['Authors', `${SITE}/authors`]];
+  if (letterSlug === undefined) {
+    const n = az.total, shown = az.letters.map((x) => x.l).filter((l) => l !== '#');
+    return {
+      title: 'Authors A–Z: every author on BookJumpr, and the books they mention',
+      desc: `${n.toLocaleString('en-US')} authors on BookJumpr, from ${shown[0]} to ${shown[shown.length - 1]}, led by ${names(az.top.slice(0, 3).map((a) => a.name), 3)}. Pick a letter to see their books and who mentions them.`,
+      canonical: '/authors', ogType: 'website',
+      body: ['<nav><a href="/">BookJumpr</a></nav>', '<h1>Authors A–Z</h1>',
+        `<p>${n.toLocaleString('en-US')} authors with a book on BookJumpr, sorted by surname. Pick a letter, or start with the most-mentioned.</p>`,
+        letterNav(az), '<h2>The most-mentioned authors</h2>', '<ol>', ...az.top.map(authorLi), '</ol>'],
+      ld: [{ '@type': 'CollectionPage', name: 'Authors A–Z', url: `${SITE}/authors` }, crumbs(crumb)],
+    };
+  }
+  const l = letterFromSlug(letterSlug), g = l && az.letters.find((x) => x.l === l);
+  if (!g) return notFound();
+  const label = l === '#' ? 'other characters' : l, first = g.authors[0], last = g.authors[g.authors.length - 1];
+  const url = `${SITE}/authors/${g.slug}`;
+  return {
+    title: `Authors ${l === '#' ? 'with other names' : 'starting with ' + l} (${lastName(first)} to ${lastName(last)}) | BookJumpr`,
+    desc: `${plural(g.authors.length, 'author', 'authors')} by surname under ${label} on BookJumpr, from ${lastName(first)} to ${lastName(last)}. See their books and the books that mention them.`,
+    canonical: `/authors/${g.slug}`, ogType: 'website',
+    body: ['<nav><a href="/">BookJumpr</a> › <a href="/authors">Authors A–Z</a></nav>', `<h1>Authors: ${esc(label)}</h1>`,
+      `<p>${plural(g.authors.length, 'author', 'authors')} by surname, from ${esc(lastName(first))} to ${esc(lastName(last))}.</p>`,
+      letterNav(az, l), '<ul>', ...g.authors.map(authorLi), '</ul>'],
+    ld: [{ '@type': 'CollectionPage', name: `Authors: ${label}`, url, mainEntity: { '@type': 'ItemList',
+      itemListElement: g.authors.map((a, i) => ({ '@type': 'ListItem', position: i + 1, item: { '@type': 'Person', name: a.name, url: `${SITE}/${a.slug}` } })) } },
+      crumbs([...crumb, [label, url]])],
   };
 }
 
@@ -225,6 +267,7 @@ function pageFor(D, r) {
     case 'author': return D.A[r.slug] ? authorPage(D, r.slug) : notFound();
     case 'stats': return statsPage(D);
     case 'about': return aboutPage();
+    case 'authors': return authorsPage(D, r.letter);
     case 'network': return networkPage(D, r.focus);
     case 'search': return {
       title: `“${r.q}” — Search — BookJumpr`, desc: `Books on BookJumpr matching “${r.q}”.`, canonical: null, ogType: 'website', noindex: true,
