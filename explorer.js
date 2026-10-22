@@ -187,7 +187,7 @@
       kids.push(h('div', { key: 'mini', className: 'bjx-mini' },
         h('div', { className: 'bjx-mini-h' }, h('span', { className: 'eyebrow' }, 'Where you are'),
           h('button', { className: 'bjx-mini-open', onClick: openMap }, next ? 'Zoom out ⤢' : 'Full map ↗')),
-        h('div', { className: 'bjx-mini-map', ref: this._xMiniRef(), role: 'button', tabIndex: 0, 'aria-label': next ? 'Zoom out to the star map' : 'Open the full star map',
+        h('div', { key: this._xMapReady() ? 'm1' : 'm0', className: 'bjx-mini-map', ref: this._xMiniRef(), role: 'button', tabIndex: 0, 'aria-label': next ? 'Zoom out to the star map' : 'Open the full star map',
           onKeyDown: function (e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openMap(); } } })));
     }
     kids.push(this.bookHead(b, {
@@ -538,7 +538,7 @@
         h('div', { className: 'by' }, hasAu ? h('a', { className: 'lnk', href: '/' + self.authorSlug(b.author), onClick: self._linkGo(function () { self.goAuthor(self.authorSlug(b.author)); }) }, b.author) : (b.author || ''), yl ? (b.author ? '  ·  ' : '') + yl : ''),
         h('div', { className: 'cnt' }, h('i', { className: 'dot out' }), b.out.length, h('i', { className: 'dot in' }), b.in.length)),
       h('div', { className: 'bkp-map', role: 'button', tabIndex: 0, 'aria-label': 'Zoom out to the star map', onKeyDown: function (e) { if (e.key === 'Enter') self.xZoomOut(b.id); } },
-        h('div', { className: 'bkp-map-c', ref: this._xMiniRef() }),
+        h('div', { key: this._xMapReady() ? 'm1' : 'm0', className: 'bkp-map-c', ref: this._xMiniRef() }),
         h('span', { className: 'bkp-map-l' }, 'Zoom out ⤢'))));
     if (b.synopsis) kids.push(h('p', { key: 'syn', className: 'bkp-syn' + (synOpen ? ' open' : ''), onClick: function () { self.setState({ bkSyn: synOpen ? null : b.id }); } }, b.synopsis));
     kids.push(this.coverShelves(b));
@@ -941,6 +941,7 @@
     id = id || this._xCur();
     if (!id || !this.books[id]) return;
     var self = this, route = { page: 'network', focus: id }, hash = '#/network/' + id;
+    if (!this._xMapReady()) { this.navigate(route, hash); return; }   // map still loading: just go there
     if (this.state.xView) this.setState({ xView: null });   // zooming out lands on the Network view
     if (reducedMotion() || document.hidden || !window.ReactDOM || !document.querySelector('.bjx-fan, .bkp-shelves') || this._xMorphing) { this.navigate(route, hash); return; }
     var items = this._xPillSnap(), L = this._xMorphLayer();
