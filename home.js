@@ -17,7 +17,8 @@
  * smoothing (pos eases toward target), drag with release inertia (velocity from the last
  * ~100ms, friction 0.94/frame, dt-normalised), and the colour spotlight: covers stay ink and
  * light up to their genre colour near the cursor (fine pointers) or as they sweep through the
- * middle of the screen while scrolling (touch). Under prefers-reduced-motion there is no drift,
+ * middle of the screen while scrolling (touch). The drift starts on the first interaction (or after
+ * 12s). Under prefers-reduced-motion there is no drift,
  * smoothing or inertia, and the loop sleeps whenever nothing moves.
  *
  * Exposed as window.BJHomeWall; app.js mounts/destroys it via a stable React ref.
@@ -87,7 +88,7 @@
     this.hot = null;              // slot under the pointer
     this.activity = 0;            // 0..1 recent scroll energy (drives the touch colour sweep)
     this.engaged = 0;             // accumulated user-driven travel (px) → onEngage once past a threshold
-    this.drift = this.reduced ? 0 : 1;
+    this.drift = 0;               // ambient drift waits for the first interaction (see _armDrift)
     this.rows = o.rows || [];
     // Parallax backdrop: a graph-paper grid far back (0.3×) and a doodle layer nearer (0.6×). Each is
     // one oversized element translated by (offset mod tile), so the backdrop is pure compositing.
@@ -106,6 +107,7 @@
       this.root.appendChild(this.arcs);
     }
     this._bind();
+    this._armDrift();
     this.layout();
     this._last = 0;
     this._wake();
@@ -538,6 +540,29 @@
     window.addEventListener('resize', this._onResize);
   };
 
+  // The drift redraws the wall every frame, so it waits until the visitor does something (or DRIFT_DELAY
+  // passes): loading the page stays quiet, which matters most on slow phones.
+  var DRIFT_DELAY = 12000, DRIFT_EVENTS = ['pointermove', 'pointerdown', 'touchstart', 'wheel', 'keydown', 'scroll'];
+  P._armDrift = function () {
+    if (this.reduced) return;
+    var self = this;
+    this._driftGo = function () {
+      self._unarmDrift();
+      if (self._dead || self.drift) return;
+      self.drift = 1;
+      self._wake();
+    };
+    DRIFT_EVENTS.forEach(function (t) { window.addEventListener(t, self._driftGo, { passive: true }); });
+    this._driftT = setTimeout(this._driftGo, DRIFT_DELAY);
+  };
+  P._unarmDrift = function () {
+    if (!this._driftGo) return;
+    var go = this._driftGo;
+    DRIFT_EVENTS.forEach(function (t) { window.removeEventListener(t, go, { passive: true }); });
+    clearTimeout(this._driftT);
+    this._driftGo = null;
+  };
+
   P._nearest = function (cx, cy) {
     var r = this.root.getBoundingClientRect(), x = cx - r.left, y = cy - r.top, best = null, bd = 1e9;
     for (var i = 0; i < this.slots.length; i++) {
@@ -585,6 +610,7 @@
     s.removeEventListener('pointerleave', this._onLeave);
     window.removeEventListener('keydown', this._onKey);
     window.removeEventListener('resize', this._onResize);
+    this._unarmDrift();
     this.root.textContent = '';
   };
 
