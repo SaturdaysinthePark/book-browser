@@ -3,10 +3,12 @@
 // Files are served as they are; any other path gets index.html, passed through the same per-page renderer the
 // Netlify edge function uses (netlify/seo/render.js) — so /haruki-murakami/norwegian-wood comes back with that
 // book's title, description, canonical URL and crawler text, unknown books/authors get a 404, and /book/<key>
-// redirects, just as on the live site.
+// redirects, just as on the live site. Text responses are gzipped when the browser accepts it, as Netlify does, so
+// download sizes (and throttled timings) look like the live site's.
 import http from 'node:http';
 import fs from 'node:fs';
 import path from 'node:path';
+import zlib from 'node:zlib';
 import D from '../netlify/seo/data.js';
 import { renderPage } from '../netlify/seo/render.js';
 
@@ -19,7 +21,12 @@ http.createServer((req, res) => {
   let file;
   try { file = path.join(ROOT, decodeURIComponent(url.pathname)); } catch (e) { file = ROOT; }
   if (file.startsWith(ROOT + path.sep) && fs.existsSync(file) && fs.statSync(file).isFile()) {
-    res.writeHead(200, { 'content-type': TYPES[path.extname(file)] || 'application/octet-stream' });
+    const type = TYPES[path.extname(file)] || 'application/octet-stream';
+    if (/^(text\/|application\/(json|xml)|image\/svg)/.test(type) && /\bgzip\b/.test(req.headers['accept-encoding'] || '')) {
+      res.writeHead(200, { 'content-type': type, 'content-encoding': 'gzip', vary: 'accept-encoding' });
+      return fs.createReadStream(file).pipe(zlib.createGzip()).pipe(res);
+    }
+    res.writeHead(200, { 'content-type': type });
     return fs.createReadStream(file).pipe(res);
   }
   // everything else is the app (netlify.toml's rewrite), with the edge function's per-page head
