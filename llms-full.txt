@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-25. 1,051 books that mention other books, 8,728 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-25. 1,051 books that mention other books, 8,729 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -8633,6 +8633,7 @@ https://bookjumpr.com/alex-michaelides/the-maidens
 ## The Makioka Sisters by Junichiro Tanizaki (1948)
 https://bookjumpr.com/junichiro-tanizaki/the-makioka-sisters
 - Anna Karenina by Leo Tolstoy: "“Vronsky,” mused Teinosuke. “There is someone by that name in Anna Karenina.”"
+- Rebecca by Daphne du Maurier: "Miss Yukiko had just called, and asked if Mrs. Makioka could bring along the copy of Rebecca."
 
 ## The Man in the Brown Suit by Agatha Christie (1924)
 https://bookjumpr.com/agatha-christie/the-man-in-the-brown-suit
