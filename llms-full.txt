@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-20. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-25. 1,051 books that mention other books, 8,728 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -8629,6 +8629,10 @@ https://bookjumpr.com/alex-michaelides/the-maidens
 - Ithaca by Constantine P. Cavafy: "The Lestrygonians and the Cyclops... —C. P. CAVAFY, "Ithaca" (Part Two epigraph)"
 - Wuthering Heights by Emily Bronte: "King Arthur and Camelot; Wuthering Heights and Jane Austen, Shakespeare—and Tennyson."
 - Peter Pan by J. M. Barrie: "The England of the Famous Five, and Peter Pan and Wendy; King Arthur and Camelot; Wuthering Heights and Jane Austen"
+
+## The Makioka Sisters by Junichiro Tanizaki
+https://bookjumpr.com/junichiro-tanizaki/the-makioka-sisters
+- Anna Karenina by Leo Tolstoy: "“Vronsky,” mused Teinosuke. “There is someone by that name in Anna Karenina.”"
 
 ## The Man in the Brown Suit by Agatha Christie (1924)
 https://bookjumpr.com/agatha-christie/the-man-in-the-brown-suit
