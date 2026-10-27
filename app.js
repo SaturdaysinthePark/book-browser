@@ -1112,6 +1112,50 @@
     this._authors = { n: this.all.length, list: list };
     return list;
   };
+  // "<Author> and other books" on author pages: author-story.js (shared with the server-rendered page) builds the
+  // text; it's loaded on the first author page. The quoted line needs the notes file, so it only shows once that
+  // has loaded for some other page (the server-rendered copy always has it).
+  P.authorStoryEl = function (aslug, name, mine) {
+    var self = this, books = this.books;
+    if (!window.BJAuthorStory) {
+      if (!this._storyLoading) { this._storyLoading = true; this._xLoadSrcs(['author-story.js?v=1'], function () { self.forceUpdate(); }); }
+      return null;
+    }
+    var list = this.authorList();
+    if (!this._storyRank || this._storyRank.list !== list) {
+      this._storyRank = { list: list, ranked: list.map(function (a) {
+        return { slug: a.slug, name: a.name, n: a.books.reduce(function (t, b) { return t + b.in.filter(function (m) { return m.split('/')[0] !== a.slug; }).length; }, 0) };
+      }).sort(function (x, y) { return y.n - x.n || (x.name < y.name ? -1 : 1); }) };
+    }
+    var st = window.BJAuthorStory.build({
+      slug: aslug, name: name, works: mine.map(function (b) { return b.id; }), ranked: this._storyRank.ranked,
+      book: function (id) { var b = books[id]; return b && { title: b.title, author: b.author, authorSlug: id.split('/')[0], year: b.year, mentionedBy: b.in, mentions: b.out, weight: b.in.length + b.out.length }; },
+      note: function (from, to) { return (self._notes && self._notes[from + '|' + to]) || ''; },
+      hasPage: function (s) { return s !== 'anonymous'; }
+    });
+    if (!st) return null;
+    var part = function (x, i) {
+      if (typeof x === 'string') return x;
+      if (x.book) return h('a', { key: i, href: '/' + x.book, className: 'au-lnk', onClick: self._linkGo(function () { self.goBook(x.book); }) }, h('em', null, books[x.book].title));
+      return h('a', { key: i, href: '/' + x.author, className: 'au-lnk', onClick: self._linkGo(function () { self.goAuthor(x.author); }) }, x.name);
+    };
+    var mono = { fontFamily: "'IBM Plex Mono',monospace", fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--mut)', textAlign: 'left', fontWeight: 400, padding: '0 16px 8px 0' };
+    var cell = { padding: '8px 16px 8px 0', borderTop: '1px solid rgba(20,20,20,.15)', verticalAlign: 'top' };
+    return h('section', { style: { maxWidth: '700px', marginTop: '64px' } },
+      h('h2', { style: { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: '30px', margin: '0 0 14px' } }, st.heading),
+      st.paras.map(function (p, i) { return h('p', { key: i, style: { fontSize: '16px', lineHeight: 1.7, margin: '0 0 14px', textWrap: 'pretty' } }, p.map(part)); }),
+      st.quote ? h('blockquote', { style: { margin: '26px 0', padding: '0 0 0 18px', borderLeft: '3px solid var(--accent)' } },
+        h('p', { style: { fontFamily: "'Instrument Serif',serif", fontSize: '22px', lineHeight: 1.35, margin: '0 0 8px' } }, '\u201c' + st.quote.text.replace(/^["\u201c]|["\u201d]$/g, '') + '\u201d'),
+        h('div', { style: { fontFamily: "'IBM Plex Mono',monospace", fontSize: '12px', color: 'var(--mut)' } }, '\u2014 ', part({ book: st.quote.from }, 'q'), books[st.quote.from].author ? ', ' + books[st.quote.from].author : '')) : null,
+      st.works.length ? h('table', { style: { borderCollapse: 'collapse', width: '100%', marginTop: '26px', fontSize: '14.5px' } },
+        h('caption', { style: Object.assign({}, mono, { padding: '0 0 10px' }) }, 'Most-mentioned works'),
+        h('thead', null, h('tr', null, h('th', { style: mono }, 'Work'), h('th', { style: mono }, 'Books'), h('th', { style: mono }, 'For example'))),
+        h('tbody', null, st.works.map(function (w) {
+          return h('tr', { key: w.id }, h('td', { style: cell }, part({ book: w.id }, 'w')), h('td', { style: Object.assign({}, cell, { fontFamily: "'IBM Plex Mono',monospace" }) }, w.n),
+            h('td', { style: cell }, part({ book: w.ex }, 'e'), books[w.ex].author && books[w.ex].author !== 'Anonymous' ? h('span', { style: { color: 'var(--mut)' } }, ' \u00b7 ' + books[w.ex].author) : null));
+        }))) : null);
+  };
+
   // The A–Z author index (/authors, /authors/<letter>): authors grouped by surname's first letter, 'other' for the
   // rest. Mirrors netlify/seo/authors.js, which the server-side page uses, so keep the two in step.
   P.authorIndex = function () {
@@ -2182,6 +2226,7 @@
       };
       var outEl = sideEl(agg.out, 'out', aName + '\u2019s books mention'), inEl = sideEl(agg.in, 'in', aName + ' is mentioned by');
       vals.a_netEl = (outEl || inEl) ? h('div', { style: { display: 'flex', flexWrap: 'wrap', gap: '30px 48px', marginTop: '56px' } }, outEl, inEl) : null;
+      vals.a_story = mine.length ? this.authorStoryEl(aslug, vals.a_name, mine) : null;
       vals.a_books = mine.map(function (b) {
         var btnStyle = { textAlign: 'left', background: 'none', border: 'none', cursor: 'pointer', padding: 0, fontFamily: 'inherit', display: 'block', color: 'inherit', textDecoration: 'none' };
         return { cv: self.cover(b), btnStyle: btnStyle, title: b.title, sub: self.subFor(b), href: '/' + b.id, go: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) };

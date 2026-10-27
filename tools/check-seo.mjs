@@ -89,6 +89,8 @@ console.log('\nAuthors A–Z');
   ok(ld(m.html).some((g) => (g['@graph'] || []).some((n) => n['@type'] === 'CollectionPage')), '/authors/m has CollectionPage JSON-LD');
   const a = await get('/haruki-murakami');
   ok(/href="\/authors"/.test(block(a.html)), 'author pages link back to /authors');
+  const ws = await get('/william-shakespeare');
+  ok(/<h2>Shakespeare and other books<\/h2>/.test(block(ws.html)) && /more than \d+ books/.test(block(ws.html)) && /<table>/.test(block(ws.html)), 'author pages carry the "… and other books" write-up (/william-shakespeare)');
   const bad = await get('/authors/zz');
   ok(bad.status === 404 && /noindex/.test(robots(bad.html) || ''), `/authors/zz: 404 + noindex (got ${bad.status})`);
 }

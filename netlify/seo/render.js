@@ -14,6 +14,7 @@
 // Routes mirror P._routeFromHash in app.js.
 
 import { authorIndex, letterFromSlug } from './authors.js';
+import '../../author-story.js';   // sets globalThis.BJAuthorStory (shared with the app)
 
 export const SITE = 'https://bookjumpr.com';
 
@@ -137,6 +138,35 @@ function quotes(D, keys, name) {
     ...rows.slice(0, 10).map(([f, t, note]) => `<li>${link(D, f)} on ${link(D, t)}${noteText(note)}</li>`), '</ul>'];
 }
 
+// The author write-up (author-story.js), fed from D. ranked: every author's mention count, leaving out mentions
+// between an author's own books (the same rule as the write-up), cached per D.
+const storyRank = new WeakMap();
+function authorStory(D, slug) {
+  const aslug = (k) => D.B[k][4] || k.split('/')[0];
+  if (!storyRank.has(D)) {
+    storyRank.set(D, Object.entries(D.A).filter(([s]) => s !== 'anonymous')
+      .map(([s, [name, keys]]) => ({ slug: s, name, n: keys.reduce((t, k) => t + (D.I[k] || []).filter((m) => D.B[m] && aslug(m) !== s).length, 0) }))
+      .sort((x, y) => y.n - x.n || x.name.localeCompare(y.name)));
+  }
+  return globalThis.BJAuthorStory.build({
+    slug, name: D.A[slug][0], works: D.A[slug][1], ranked: storyRank.get(D),
+    book: (k) => D.B[k] && { title: D.B[k][0], author: D.B[k][1], authorSlug: aslug(k), year: D.B[k][2],
+      mentionedBy: (D.I[k] || []).filter((m) => D.B[m]), mentions: (D.O[k] || []).map(([m]) => m).filter((m) => D.B[m]), weight: (D.I[k] || []).length + (D.O[k] || []).length },
+    note: (from, to) => noteFor(D, from, to),
+    hasPage: (s) => !!D.A[s] && s !== 'anonymous',
+  });
+}
+const storyHtml = (D, parts) => parts.map((x) => typeof x === 'string' ? esc(x)
+  : x.book ? `<a href="/${esc(x.book)}"><cite>${esc(D.B[x.book][0])}</cite></a>` : `<a href="/${esc(x.author)}">${esc(x.name)}</a>`).join('');
+function storyBlock(D, st) {
+  if (!st) return [];
+  const out = [`<h2>${esc(st.heading)}</h2>`, ...st.paras.map((p) => `<p>${storyHtml(D, p)}</p>`)];
+  if (st.quote) out.push(`<blockquote><p>“${esc(st.quote.text)}”</p><footer>${storyHtml(D, [{ book: st.quote.from }])}${known(D.B[st.quote.from][1]) ? ' by ' + esc(D.B[st.quote.from][1]) : ''}</footer></blockquote>`);
+  if (st.works.length) out.push('<table><caption>Most-mentioned works</caption><thead><tr><th>Work</th><th>Books that mention it</th><th>For example</th></tr></thead><tbody>',
+    ...st.works.map((w) => `<tr><td>${link(D, w.id)}</td><td>${w.n}</td><td>${link(D, w.ex)}${byline(D, w.ex)}</td></tr>`), '</tbody></table>');
+  return out;
+}
+
 function authorPage(D, slug) {
   const [name, keys] = D.A[slug];
   const mentioned = keys.reduce((n, k) => n + (D.I[k] || []).length, 0);
@@ -162,6 +192,7 @@ function authorPage(D, slug) {
     `<nav><a href="/">BookJumpr</a> › <a href="/authors">Authors A–Z</a></nav>`,
     `<h1>${esc(name)}</h1>`,
     `<p>${plural(keys.length, 'book', 'books')} on BookJumpr${mentioned ? `, mentioned ${plural(mentioned, 'time', 'times')} in other books` : ''}.</p>`,
+    ...storyBlock(D, authorStory(D, slug)),
     `<h2>Books by ${esc(name)}</h2>`,
     '<ul>',
     ...keys.map((k) => {
