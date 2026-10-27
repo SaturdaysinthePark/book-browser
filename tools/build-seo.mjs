@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { open } from './db.mjs';
 import { slug } from './slug.mjs';
 import { authorIndex } from '../netlify/seo/authors.js';
+import { ALIASES as AUTHOR_ALIASES } from './authors.mjs';
 
 const SITE = 'https://bookjumpr.com';
 export const PROFILES = [
@@ -107,6 +108,13 @@ export function seoContent(updated) {
     const [t, a, y, syn] = NODES[k], as = authorSlug(a);
     edge.B[k] = [t, a, y, syn, as];
     (edge.A[as] = edge.A[as] || [a || 'Anonymous', []])[1].push(k);
+  }
+  // …and from known author spellings (tools/authors.mjs): /<variant> → /<author>, /<variant>/<title> → their book
+  for (const [variant, canon] of Object.entries(AUTHOR_ALIASES)) {
+    const from = slug(variant), to = slug(canon);
+    if (from === to || !edge.A[to] || edge.A[from]) continue;
+    edge.R[from] = to;
+    for (const k of edge.A[to][1]) { const p = `${from}/${k.split('/')[1]}`; if (!NODES[p]) edge.R[p] = k; }
   }
   MENTIONS.forEach(([a, b], i) => {
     if (a === b || !NODES[a] || !NODES[b]) return;

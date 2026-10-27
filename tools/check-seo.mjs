@@ -89,6 +89,8 @@ console.log('\nAuthors A–Z');
   ok(ld(m.html).some((g) => (g['@graph'] || []).some((n) => n['@type'] === 'CollectionPage')), '/authors/m has CollectionPage JSON-LD');
   const a = await get('/haruki-murakami');
   ok(/href="\/authors"/.test(block(a.html)), 'author pages link back to /authors');
+  const ws = await get('/william-shakespeare');
+  ok(/<h2>Shakespeare and other books<\/h2>/.test(block(ws.html)) && /more than \d+ books/.test(block(ws.html)) && /<table>/.test(block(ws.html)), 'author pages carry the "… and other books" write-up (/william-shakespeare)');
   const bad = await get('/authors/zz');
   ok(bad.status === 404 && /noindex/.test(robots(bad.html) || ''), `/authors/zz: 404 + noindex (got ${bad.status})`);
 }
@@ -101,6 +103,11 @@ for (const path of ['/nobody/nothing-at-all', '/nobody-at-all']) {
 {
   const { status, location } = await get('/book/haruki-murakami/norwegian-wood');
   ok(status === 301 && location === '/haruki-murakami/norwegian-wood', `/book/<key> → 301 to ${location}`);
+}
+{
+  const a = await get('/adolph-hitler'), b = await get('/adolph-hitler/mein-kampf');
+  ok(a.status === 301 && a.location === '/adolf-hitler' && b.status === 301 && b.location === '/adolf-hitler/mein-kampf',
+    `old author spelling → 301 (/adolph-hitler → ${a.location}, its book → ${b.location})`);
 }
 
 console.log('\nFiles');

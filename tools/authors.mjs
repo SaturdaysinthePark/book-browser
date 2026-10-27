@@ -11,12 +11,14 @@ export function authorKey(s) {
     .replace(/[.,'’]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
 }
 
-// Known variant -> canonical display name, keyed by authorKey(variant).
-const ALIASES = {
+// Known variant -> canonical display name, keyed by authorKey(variant). The site 301-redirects a variant's
+// author and book paths to the canonical ones (tools/build-seo.mjs), so fixing a spelling here keeps old links working.
+export const ALIASES = {
   'alfred lord tennyson': 'Alfred Tennyson',
   'sir walter scott': 'Walter Scott',
   'jacques henri bernardin de saint pierre': 'Bernardin de Saint-Pierre',
   'omar khayyam': 'Omar Khayyám',
+  'adolph hitler': 'Adolf Hitler',
 };
 
 const HONORIFIC = /^(sir|lord|lady|dame|dr|mr|mrs|ms|miss|rev|reverend|fr|st|saint|prof|professor)\.?\s+/i;

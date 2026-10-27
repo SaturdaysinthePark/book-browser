@@ -119,6 +119,8 @@ console.log('\nHeader, search, stats and about');
   ok(path(page) === '/authors/m' && (await noReload(page)) && /Authors: M/.test(await h1(page)), `letter M → ${path(page)}`);
   await page.locator('ul li a[href="/niccolo-machiavelli"]').click(); await page.waitForTimeout(1000);
   ok(path(page) === '/niccolo-machiavelli' && (await noReload(page)), `author row → ${path(page)}`);
+  await page.waitForTimeout(800);
+  ok(await page.locator('section h2:has-text("Machiavelli and other books")').count() === 1, 'author page shows the "… and other books" write-up');
   await page.locator('a[href="/authors"]').first().click(); await page.waitForTimeout(1000);
   ok(path(page) === '/authors' && (await noReload(page)), `author page "All authors A–Z" → ${path(page)}`);
   await page.goto(BASE + '/about'); await page.waitForTimeout(1200); await mark(page);
