@@ -1,6 +1,6 @@
 # BookJumpr
 
-Last updated: 2026-10-20. Updated whenever books are added.
+Last updated: 2026-10-27. Updated whenever books are added.
 
 > BookJumpr (https://bookjumpr.com) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. 5,950 books, 8,727 mentions.
 

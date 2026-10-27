@@ -104,6 +104,11 @@ for (const path of ['/nobody/nothing-at-all', '/nobody-at-all']) {
   const { status, location } = await get('/book/haruki-murakami/norwegian-wood');
   ok(status === 301 && location === '/haruki-murakami/norwegian-wood', `/book/<key> → 301 to ${location}`);
 }
+{
+  const a = await get('/adolph-hitler'), b = await get('/adolph-hitler/mein-kampf');
+  ok(a.status === 301 && a.location === '/adolf-hitler' && b.status === 301 && b.location === '/adolf-hitler/mein-kampf',
+    `old author spelling → 301 (/adolph-hitler → ${a.location}, its book → ${b.location})`);
+}
 
 console.log('\nFiles');
 for (const path of ['/app.js?v=6', '/bookjumpr-data.js?v=2', '/vendor/react.production.min.js', '/llms.txt', '/llms-full.txt', '/robots.txt', '/sitemap.xml']) {

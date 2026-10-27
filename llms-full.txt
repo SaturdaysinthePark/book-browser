@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-20. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-27. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -2792,7 +2792,7 @@ https://bookjumpr.com/umberto-eco/foucault-s-pendulum
 - The Advancement of Learning by Francis Bacon: "in what the good Bacon called The Advancement of Learning"
 - Don Quixote by Miguel de Cervantes: "the first English translation of Don Quixote bears corrections in Bacon's hand."
 - The Communist Manifesto by Karl Marx and Friedrich Engels: "The Communist Manifesto is alluding sarcastically to the secret hunt for the Plan..."
-- Mein Kampf by Adolph Hitler: "on Himmler's desk, along with Mein Kampf, there was always the Koran"
+- Mein Kampf by Adolf Hitler: "on Himmler's desk, along with Mein Kampf, there was always the Koran"
 - Madame Bovary by Gustave Flaubert: "I who keep searching for my own Madame Bovary so we can have a big scene"
 - Nathan the Wise by Gotthold Ephraim Lessing: "Fu Manchu is more real than Nathan the Wise"
 - The Little Mermaid by Hans Christian Andersen: "I was standing on a bed of spiny sea urchins. The Little Mermaid."
@@ -3277,7 +3277,7 @@ https://bookjumpr.com/yuval-noah-harari/homo-deus-a-brief-history-of-tomorrow
 - King Lear by William Shakespeare: "According to Dataism, King Lear and the flu virus are just two patterns of data flow that can be analysed using the same basic concepts and tools."
 - Romeo and Juliet by William Shakespeare: "How much pain and sorrow would have been avoided if instead of drinking poison, Romeo and Juliet could just take a pill or wear a helmet that would have redirected their star-crossed love"
 - The Wizard of Oz by L Frank Baum: "This is what the Tin Man does in The Wizard of Oz. He walks along the yellow brick road with Dorothy and her friends, hoping that when they get to Oz, the great wizard will give him a heart"
-- Mein Kampf by Adolph Hitler: "In Mein Kampf, he tells how shortly after his unit reached the front line, the soldiers' initial enthusiasm turned into fear"
+- Mein Kampf by Adolf Hitler: "In Mein Kampf, he tells how shortly after his unit reached the front line, the soldiers' initial enthusiasm turned into fear"
 - The Epic of Gilgamesh by Anonymous: "The Mesopotamian Gilgamesh epic recounts that when the gods sent a great deluge to destroy the world, almost all humans and animals perished."
 - Émile, or On Education by Jean-Jacques Rousseau: "Jean-Jacques Rousseau summed it all up in his novel Émile, the eighteenth-century bible of feeling."
 - Comes the Fiery Night: 2,000 Haiku by Man and Machine by David Cope: "In 2011 Cope published Comes the Fiery Night: 2,000 Haiku by Man and Machine. Of the 2,000 haikus in the book, some are written by Annie, and the rest by organic poets."
@@ -5160,7 +5160,7 @@ https://bookjumpr.com/umberto-eco/on-literature
 - The Three Musketeers by Alexandre Dumas: "its opening lines are quoted and analyzed"
 - Tristram Shandy by Laurence Sterne: "cited for its digressive staircase scene spanning three chapters"
 - Critique of Pure Reason by Immanuel Kant: "contrasted with Kant's Critique of Judgment on aesthetics"
-- Mein Kampf by Adolph Hitler: "used as an example in a discussion of the paradox of material implication"
+- Mein Kampf by Adolf Hitler: "used as an example in a discussion of the paradox of material implication"
 - Foucault's Pendulum by Umberto Eco: "discussed extensively, including its Rosicrucian research and character Casaubon"
 - Baudolino by Umberto Eco: "mentioned as written in Winword, and its origins traced to an earlier lecture on forgeries"
 - The Order of Things by Michel Foucault: "I had read The Order of Things when it came out in 1966"
@@ -5902,7 +5902,7 @@ https://bookjumpr.com/yuval-noah-harari/sapiens-a-brief-history-of-humankind
 - Brave New World by Aldous Huxley: "In Aldous Huxley's dystopian novel Brave New World, published in 1932"
 - Frankenstein by Mary Shelley: "In 1818 Mary Shelley published Frankenstein, the story of a scientist who creates an artificial being that goes out of control"
 - The Wealth of Nations by Adam Smith: "In 1776 the Scottish economist Adam Smith published The Wealth of Nations, probably the most important economics manifesto of all time"
-- Mein Kampf by Adolph Hitler: "Then follows a quotation from Mein Kampf: 'The person who attempts to fight the iron logic of nature...'"
+- Mein Kampf by Adolf Hitler: "Then follows a quotation from Mein Kampf: 'The person who attempts to fight the iron logic of nature...'"
 - Jurassic Park by Michael Crichton: "And not just dinosaurs, as in Jurassic Park"
 - Harry Potter by J. K. Rowling: "Harry Potter is a good example"
 - Alice's Adventures in Wonderland by Lewis Carroll: "from the adventures of Alice in Wonderland to the paradoxes of quantum physics"
@@ -6369,7 +6369,7 @@ https://bookjumpr.com/malcolm-gladwell/talking-to-strangers
 - Henry V by William Shakespeare: "In her cubicle, she had a quotation from Shakespeare’s Henry V taped to her wall at eye level—for all the world to see."
 - The Bell Jar by Sylvia Plath: "“Cal seemed pleased…I turned back”: Sylvia Plath, The Bell Jar (London: Faber and Faber, 1966), pp."
 - Blink by Malcolm Gladwell: "In my second book, Blink (Little, Brown and Company, 2005), I devoted a large chunk of Chapter Six, “Seven Seconds in the Bronx: The Delicate Art of Mind Reading,” to a discussion of the work of Paul Ekman, one of the most important psychologists of the last century."
-- Mein Kampf by Adolph Hitler: "He should have stayed home and read Mein Kampf."
+- Mein Kampf by Adolf Hitler: "He should have stayed home and read Mein Kampf."
 - The Inner Circle by Ivone Kirkpatrick: "Faber is quoting from British diplomat Ivone Kirkpatrick’s account of the event in his memoir, The Inner Circle (London: Macmillan & Company, 1959), p."
 - True Believer: Inside the Investigation and Capture of Ana Montes, Cuba's Master Spy by Scott Carmichael: "This was an embarrassing revelation: Scott Carmichael, True Believer: Inside the Investigation and Capture of Ana Montes, Cuba’s Master Spy (Annapolis: Naval Institute Press, 2007), p."
 - The Expression of the Emotions in Man and Animals by Charles Darwin: "In 1872, thirteen years after first presenting his famous treatise on evolution, Charles Darwin published The Expression of the Emotions in Man and Animals."
@@ -7082,7 +7082,7 @@ https://bookjumpr.com/orikuchi-shinobu/the-book-of-the-dead
 
 ## The Book Thief by Markus Zusak (2005)
 https://bookjumpr.com/markus-zusak/the-book-thief
-- Mein Kampf by Adolph Hitler
+- Mein Kampf by Adolf Hitler
 
 ## The Borrower by Rebecca Makkai (2011)
 https://bookjumpr.com/rebecca-makkai/the-borrower
@@ -8124,7 +8124,7 @@ https://bookjumpr.com/elizabeth-kostova/the-historian
 - The Prince by Niccolò Machiavelli: "It turned out to be an early edition of Machiavelli: The Prince, accompanied by a series of discourses on morality I’d never before seen or even heard of."
 - The Portrait of a Lady by Henry James: "she stepped in automatically when I encountered Madame Merle, the personable schemer in Henry James’s Portrait of a Lady."
 - The Rape of the Lock by Alexander Pope: "“Dear me,” Hedges murmured. “Pope and the alliterative. Sweet nymph. For argument.” ... “‘The Rape of the Lock,’” Hedges said politely. “Without a doubt.”"
-- Mein Kampf by Adolph Hitler: "There was a dog-eared first edition of Mein Kampf and a diary in French—handwritten, spotted here and there with brown mould."
+- Mein Kampf by Adolf Hitler: "There was a dog-eared first edition of Mein Kampf and a diary in French—handwritten, spotted here and there with brown mould."
 - Historia Turco-Byzantina by Michael Doukas: "It was a remarkable find, I thought then, although I know now what a basic source it is for fifteenth-century Byzantine history—a translation of Michael Doukas’s Istoria Turco-Bizantina."
 
 ## The History of Henry Esmond by William Makepeace Thackeray (1852)
@@ -9798,7 +9798,7 @@ https://bookjumpr.com/carlos-ruiz-zafon/the-shadow-of-the-wind
 - Tess of the d'Urbervilles by Thomas Hardy: "'Tess of the d'Urbervilles. It's the original. You're bold enough to read Hardy in English?'"
 - Les Misérables by Victor Hugo: "From that gold nib, we were informed, had sprung the manuscript of Les Miserables"
 - The Brothers Karamazov by Fyodor Dostoevsky: "the day was turning out to be longer than The Brothers Karamazov"
-- Mein Kampf by Adolph Hitler: "convinced him that photo romances and Mein Kampf were going to sell like crazy"
+- Mein Kampf by Adolf Hitler: "convinced him that photo romances and Mein Kampf were going to sell like crazy"
 - Sandokan by Emilio Salgari: "we have an anthology of the best of Emilio Salgari and his epic tale of Sandokan"
 
 ## The Shining by Stephen King (1977)
