@@ -1,17 +1,19 @@
 /*
+ * Data-generated write-ups for author and book pages (BJStories.author, BJStories.book).
+ *
  * "<Author> and other books": a short, data-generated write-up for an author page — how many books mention the
  * author, which works most often, across how many years, who keeps coming back to them, what the author's own
  * books mention, and one quoted line.
  *
  * Shared by the server-rendered page (netlify/seo/render.js imports this file) and the app (app.js loads it on
- * author pages), so Google and visitors read the same text. It has no imports or exports: it sets
- * BJAuthorStory on the global object, which works both as a browser <script> and as an ES module import.
+ * author and book pages), so Google and visitors read the same text. It has no imports or exports: it sets
+ * BJStories on the global object, which works both as a browser <script> and as an ES module import.
  *
  * Every sentence is built from counts, and each one is left out when the data doesn't support it. In running
  * text, counts of 20 or more are given as "more than N" with N rounded down (moreThan), so a sentence stays
  * true as mentions are added; the table of works gives exact counts.
  *
- * BJAuthorStory.build(input) → null (no links either way) or
+ * BJStories.author(input) → null (no links either way) or
  *   { heading, paras: [[part, …], …], quote: { text, from } | null, works: [{ id, n, ex }] }
  * where a part is a string, { book: id } (a book title, linked) or { author: slug, name } (an author, linked).
  *
@@ -23,6 +25,14 @@
  *   ranked: [{ slug, name, n }, …]   every author with their mention count (same rule as here), biggest first
  *   hasPage(slug) → whether that author has a page to link to
  * }
+ *
+ * "<Title> and other books": the same for a book page — how many books mention it (and its rank), over how many
+ * years, the authors who return to it, what it mentions, the books they mention each other, the book most often
+ * mentioned alongside it, and where it stands among its author's books.
+ *
+ * BJStories.book(input) → null (no links either way) or { heading, paras, quote } (parts as above), where
+ * input = { id, book(id) (as above), note(from, to), rank(id) → 1-based rank by mentions (0 = unranked),
+ *           authorWorks(slug) → [id, …], hasPage(slug) }
  */
 (function (root) {
   'use strict';
@@ -239,7 +249,130 @@
     if (!paras.length) return null;
     return { heading: name + ' and other books', paras: paras, quote: quote, works: table };
   }
+
+  function buildBook(o) {
+    var id = o.id, me = o.book(id);
+    if (!me) return null;
+    var mySlug = me.authorSlug, title = { book: id };
+    var heaviest = function (ids) { return ids.slice().sort(function (x, y) { return o.book(y).weight - o.book(x).weight || (x < y ? -1 : 1); })[0]; };
+    var authorPart = function (a) { return a.slug && o.hasPage(a.slug) ? { author: a.slug, name: a.name } : a.name || 'an unknown author'; };
+    var named = function (b) { return b.author && b.author !== 'Anonymous'; };
+    var bookBy = function (k) { var b = o.book(k); return [{ book: k }].concat(named(b) ? [' by ', authorPart({ slug: b.authorSlug, name: b.author })] : []); };
+    var by = me.mentionedBy.filter(function (m) { return o.book(m) && m !== id; });
+    var out = (me.mentions || []).filter(function (m) { return o.book(m) && m !== id; });
+    if (!by.length && !out.length) return null;
+    var paras = [], p = [], quote = null;
+    var authorsOf = function (ids) {
+      var a = {};
+      ids.forEach(function (k) { var b = o.book(k); if (!named(b)) return; var key = b.authorSlug || b.author; (a[key] = a[key] || { slug: b.authorSlug, name: b.author, books: 0 }).books++; });
+      return Object.keys(a).map(function (k) { return a[k]; }).sort(function (x, y) { return y.books - x.books || (x.name < y.name ? -1 : 1); });
+    };
+
+    // 1. who mentions it: rank, how many books and authors, over how many years, who returns to it
+    if (by.length) {
+      var rank = o.rank(id);
+      if (rank === 1) p.push(title, ' is the most-mentioned book on BookJumpr. ');
+      else if (rank > 0 && by.length >= 3) {
+        var tier = rank <= 10 ? 'ten' : rank <= 25 ? 'twenty-five' : rank <= 50 ? 'fifty' : rank <= 100 ? 'hundred' : '';
+        if (tier) p.push(title, ' is one of the ' + tier + ' most-mentioned books on BookJumpr. ');
+      }
+      var lead = p.length ? 'It' : null;
+      if (by.length === 1) {
+        var only = by[0], ob = o.book(only);
+        p.push(lead ? 'It is mentioned in one book: ' : '', lead ? '' : title, lead ? '' : ' is mentioned in one book on BookJumpr: ');
+        p.push.apply(p, bookBy(only));
+        p.push(ob.year > 0 ? ' (' + ob.year + ').' : '.');
+      } else {
+        var auth = authorsOf(by);
+        p.push(capital(moreThan(by.length)) + ' books');
+        if (auth.length > 1) p.push(' by ' + moreThan(auth.length) + ' different authors');
+        else if (auth.length === 1) p.push(', all by ', authorPart(auth[0]), ',');
+        p.push(' mention ', lead ? 'it' : title, '.');
+        var dated = by.filter(function (m) { return o.book(m).year > 0; }).sort(function (x, y) { return o.book(x).year - o.book(y).year || (x < y ? -1 : 1); });
+        if (dated.length >= 2) {
+          var e = dated[0], l = dated[dated.length - 1], span = o.book(l).year - o.book(e).year;
+          if (span >= 30) {
+            p.push(' They span ' + moreThan(span) + ' years, from ');
+            p.push.apply(p, bookBy(e)); p.push(' (' + o.book(e).year + ') to ');
+            p.push.apply(p, bookBy(l)); p.push(' (' + o.book(l).year + ').');
+          }
+        }
+        var loyal = auth.filter(function (a) { return a.books >= 2 && a.slug !== mySlug; }).slice(0, 2);
+        if (loyal.length) {
+          p.push(' ', authorPart(loyal[0]), ' mentions it in ' + moreThan(loyal[0].books) + ' books');
+          if (loyal[1]) p.push(', ', authorPart(loyal[1]), ' in ' + moreThan(loyal[1].books));
+          p.push('.');
+        }
+      }
+      paras.push(p);
+    }
+
+    // 2. what it mentions, the books it trades mentions with, and the one it mentions that the rest of the site mentions most
+    if (out.length) {
+      p = [];
+      var oauth = authorsOf(out);
+      p.push(by.length ? 'In turn, ' : '', by.length ? 'it' : title, ' mentions ');
+      if (out.length <= 3) p.push.apply(p, joinParts(out.slice().sort(function (x, y) { return o.book(y).weight - o.book(x).weight || (x < y ? -1 : 1); }).map(bookBy)));
+      else {
+        p.push(moreThan(out.length) + ' books');
+        if (oauth.length > 1) p.push(' by ' + moreThan(oauth.length) + ' different authors');
+      }
+      p.push('.');
+      var favs = oauth.filter(function (a) { return a.books >= 2 && a.slug !== mySlug; }).slice(0, 2);
+      if (out.length > 3 && favs.length) {
+        p.push(' The writer' + (favs.length > 1 ? 's' : '') + ' it returns to most ' + (favs.length > 1 ? 'are ' : 'is '));
+        p.push.apply(p, joinParts(favs.map(function (a) { return [authorPart(a), ' (' + moreThan(a.books) + ' books)']; })));
+        p.push('.');
+      }
+      var famous = out.slice().sort(function (x, y) { return o.book(y).mentionedBy.length - o.book(x).mentionedBy.length || (x < y ? -1 : 1); })[0];
+      if (out.length > 3 && o.book(famous).mentionedBy.length >= 10) {
+        p.push(' Of these, ');
+        p.push.apply(p, bookBy(famous));
+        p.push(' is the most mentioned across the site (' + moreThan(o.book(famous).mentionedBy.length) + ' books).');
+      }
+      var mutual = out.filter(function (m) { return by.indexOf(m) !== -1; });
+      if (mutual.length) {
+        p.push(' ', title, ' and ');
+        p.push.apply(p, joinParts(mutual.slice(0, 3).map(bookBy)));
+        p.push(' mention each other.');
+      }
+      paras.push(p);
+    }
+
+    // 3. the book most often mentioned alongside it, and where it stands among its author's books
+    p = [];
+    var co = {};
+    by.forEach(function (m) { (o.book(m).mentions || []).forEach(function (x) { if (x !== id && o.book(x) && o.book(x).authorSlug !== mySlug) co[x] = (co[x] || 0) + 1; }); });
+    var pal = Object.keys(co).sort(function (x, y) { return co[y] - co[x] || o.book(y).weight - o.book(x).weight || (x < y ? -1 : 1); })[0];
+    if (pal && co[pal] >= 2) {
+      p.push('The book most often mentioned alongside it is ');
+      p.push.apply(p, bookBy(pal));
+      p.push(': ' + moreThan(co[pal]) + ' of the books that mention ', title, ' mention it too. ');
+    }
+    if (named(me) && o.hasPage(mySlug)) {
+      var mine = o.authorWorks(mySlug).filter(function (k) { return o.book(k); });
+      if (mine.length >= 2) {
+        // mentions from other authors' books only, so an author citing their own work doesn't count
+        var ext = function (k) { return o.book(k).mentionedBy.filter(function (m) { return o.book(m) && o.book(m).authorSlug !== mySlug; }).length; };
+        var top = mine.slice().sort(function (x, y) { return ext(y) - ext(x) || (x < y ? -1 : 1); });
+        var au = authorPart({ slug: mySlug, name: me.author }), sn = shortName(me.author);
+        if (top[0] === id && ext(id) && (!top[1] || ext(top[1]) < ext(id))) p.push('It is the most-mentioned of ', au, '’s ' + mine.length + ' books on the site.');
+        else if (ext(top[0]) && top[0] !== id) { p.push('It is one of ' + mine.length + ' books by ', au, ' on the site; ' + sn + '’s most-mentioned is ', { book: top[0] }, '.'); }
+        else p.push('It is one of ' + mine.length + ' books by ', au, ' on the site.');
+      }
+    }
+    if (p.length) paras.push(p);
+
+    // one quoted line: the best-known book that mentions it, else a line of its own about another book
+    var lines = by.filter(function (m) { var n = o.note(m, id); return isQuote(n) && n.length >= 40 && n.length <= 200; });
+    if (lines.length) { var q = heaviest(lines); quote = { text: o.note(q, id), from: q, about: id }; }
+    else {
+      var own = out.filter(function (m) { var n = o.note(id, m); return isQuote(n) && n.length >= 40 && n.length <= 200; });
+      if (own.length) { var r = heaviest(own); quote = { text: o.note(id, r), from: id, about: r }; }
+    }
+    return { heading: me.title + ' and other books', paras: paras, quote: quote };
+  }
   function capital(s) { return s.charAt(0).toUpperCase() + s.slice(1); }
 
-  root.BJAuthorStory = { build: build, moreThan: moreThan };
+  root.BJStories = { author: build, book: buildBook, moreThan: moreThan };
 })(typeof globalThis !== 'undefined' ? globalThis : window);
