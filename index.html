@@ -321,6 +321,16 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .bk-by{font-family:'IBM Plex Mono',monospace;font-size:12.5px;color:rgba(20,20,20,.7);}
 .au-lnk{color:inherit;text-decoration:underline;text-decoration-color:rgba(20,20,20,.3);text-underline-offset:3px;cursor:pointer;}
 .au-lnk:hover{color:var(--accent);text-decoration-color:currentColor;}
+/* Author page: the grid of the author's books. Phones get three smaller covers per row (covers scale with
+   their width), so an author with dozens of books isn't one long column. */
+.au-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;align-items:start;}
+.au-t{font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;}
+.au-s{font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;}
+@media (max-width:639px){
+  .au-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:20px 12px;}
+  .au-t{font-size:12px;margin-top:7px;min-height:31px;}
+  .au-s{font-size:9.5px;letter-spacing:-.01em;white-space:normal;line-height:1.35;}
+}
 .bk .lnk{background:none;border:none;padding:0;font:inherit;color:inherit;cursor:pointer;text-decoration:underline;text-underline-offset:2px;}
 .bk .lnk:hover{color:var(--accent);}
 .bk-syn{font-size:16.5px;line-height:1.65;max-width:620px;margin:18px 0 24px;text-wrap:pretty;}
@@ -1358,14 +1368,14 @@ html,body{height:100%;}
       <sc-if value="{{ a_found }}" hint-placeholder-val="{{ true }}">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:6px;">{{ a_count }}</div>
         <div style="font-family:'IBM Plex Mono',monospace;font-size:12px;opacity:.6;margin-bottom:34px;">{{ a_net }}</div>
-        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(152px,1fr));gap:26px 22px;align-items:start;">
+        <div class="au-grid">
           <sc-for list="{{ a_books }}" as="m" hint-placeholder-count="6">
             <a href="{{ m.href }}" onClick="{{ m.go }}" data-tilt="1" style="{{ m.btnStyle }}">
               <div style="transition:transform .2s cubic-bezier(.3,1.6,.45,1);" style-hover="transform:translateY(-5px) rotate(-1deg);">
                 {{ m.cv }}
               </div>
-              <div style="font-size:13.5px;font-weight:700;margin-top:10px;line-height:1.3;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;min-height:35px;">{{ m.title }}</div>
-              <div style="font-family:'IBM Plex Mono',monospace;font-size:10.5px;color:var(--accent);margin-top:5px;white-space:nowrap;">{{ m.sub }}</div>
+              <div class="au-t">{{ m.title }}</div>
+              <div class="au-s">{{ m.sub }}</div>
             </a>
           </sc-for>
         </div>
