@@ -518,7 +518,7 @@
         h('button', { className: 'bkn-zoom', onClick: function () { self.xZoomOut(b.id); } }, 'Zoom out to the map ⤢')),
       h('div', { className: 'bjx-stage' + (st.xArriving ? ' arriving' : st.xLanded === b.id ? ' landed' : '') }, this.explorerFan(b, Math.max(300, W), vh - 56 - 110)),
       this.bookLists(b),
-      null);
+      this.bookStoryEl(b));
     var panel = h(React.Fragment, { key: 'panel' }, this.explorerPanel(b));
     // narrower screens: the book (panel) comes first, so it anchors the page
     return h('div', { className: 'bjx-page bjx-plus bkn-page' + (wide ? ' wide' : ' stacked') }, wide ? [main, panel] : [panel, main]);
@@ -543,6 +543,7 @@
     if (b.synopsis) kids.push(h('p', { key: 'syn', className: 'bkp-syn' + (synOpen ? ' open' : ''), onClick: function () { self.setState({ bkSyn: synOpen ? null : b.id }); } }, b.synopsis));
     kids.push(this.coverShelves(b));
     kids.push(this.bookLists(b));
+    kids.push(h('div', { key: 'story', style: { padding: '0 16px' } }, this.bookStoryEl(b)));
     return h('div', { className: 'bjx-page bjx-plus bkp-page' }, kids);
   };
 

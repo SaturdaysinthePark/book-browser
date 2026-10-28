@@ -1112,28 +1112,55 @@
     this._authors = { n: this.all.length, list: list };
     return list;
   };
-  // "<Author> and other books" on author pages: author-story.js (shared with the server-rendered page) builds the
-  // text; it's loaded on the first author page. The quoted line needs the notes file, so it only shows once that
-  // has loaded for some other page (the server-rendered copy always has it).
-  P.authorStoryEl = function (aslug, name, mine) {
+  // The write-ups on author and book pages ("<Author> and other books", "<Title> and other books"): stories.js,
+  // shared with the server-rendered page, builds the text; it's loaded on the first page that needs it. Quoted lines
+  // come from the notes file, so on author pages (which don't load it) the quote shows only once some book page has.
+  P._storiesReady = function () {
+    if (window.BJStories) return true;
+    var self = this;
+    if (!this._storyLoading) { this._storyLoading = true; this._xLoadSrcs(['stories.js?v=2'], function () { self.forceUpdate(); }); }
+    return false;
+  };
+  P._storyIn = function () {
     var self = this, books = this.books;
-    if (!window.BJAuthorStory) {
-      if (!this._storyLoading) { this._storyLoading = true; this._xLoadSrcs(['author-story.js?v=1'], function () { self.forceUpdate(); }); }
-      return null;
-    }
+    return {
+      book: function (id) { var b = books[id]; return b && { title: b.title, author: b.author, authorSlug: id.split('/')[0], year: b.year, mentionedBy: b.in, mentions: b.out, weight: b.in.length + b.out.length }; },
+      note: function (from, to) { return (self._notes && self._notes[from + '|' + to]) || ''; },
+      hasPage: function (s) { return s !== 'anonymous'; }
+    };
+  };
+  P.authorStoryEl = function (aslug, name, mine) {
+    if (!this._storiesReady()) return null;
     var list = this.authorList();
     if (!this._storyRank || this._storyRank.list !== list) {
       this._storyRank = { list: list, ranked: list.map(function (a) {
         return { slug: a.slug, name: a.name, n: a.books.reduce(function (t, b) { return t + b.in.filter(function (m) { return m.split('/')[0] !== a.slug; }).length; }, 0) };
       }).sort(function (x, y) { return y.n - x.n || (x.name < y.name ? -1 : 1); }) };
     }
-    var st = window.BJAuthorStory.build({
-      slug: aslug, name: name, works: mine.map(function (b) { return b.id; }), ranked: this._storyRank.ranked,
-      book: function (id) { var b = books[id]; return b && { title: b.title, author: b.author, authorSlug: id.split('/')[0], year: b.year, mentionedBy: b.in, mentions: b.out, weight: b.in.length + b.out.length }; },
-      note: function (from, to) { return (self._notes && self._notes[from + '|' + to]) || ''; },
-      hasPage: function (s) { return s !== 'anonymous'; }
-    });
+    var o = this._storyIn();
+    o.slug = aslug; o.name = name; o.works = mine.map(function (b) { return b.id; }); o.ranked = this._storyRank.ranked;
+    return this._storyEl(window.BJStories.author(o));
+  };
+  P.bookStoryEl = function (b) {
+    if (!this._storiesReady()) return null;
+    var self = this;
+    if (!this._bookRank || this._bookRank.n !== this.all.length) {
+      var order = this.all.filter(function (x) { return x.in.length; }).sort(function (x, y) { return y.in.length - x.in.length || (x.id < y.id ? -1 : 1); }), rk = {};
+      order.forEach(function (x, i) { rk[x.id] = i + 1; });
+      this._bookRank = { n: this.all.length, rank: rk };
+    }
+    var byAuthor = {};
+    if (!this._worksBy || this._worksBy.list !== this.authorList()) {
+      this.authorList().forEach(function (a) { byAuthor[a.slug] = a.books.map(function (x) { return x.id; }); });
+      this._worksBy = { list: this.authorList(), map: byAuthor };
+    }
+    var o = this._storyIn();
+    o.id = b.id; o.rank = function (id) { return self._bookRank.rank[id] || 0; }; o.authorWorks = function (s) { return self._worksBy.map[s] || []; };
+    return this._storyEl(window.BJStories.book(o), { marginTop: '48px' });
+  };
+  P._storyEl = function (st, box) {
     if (!st) return null;
+    var self = this, books = this.books;
     var part = function (x, i) {
       if (typeof x === 'string') return x;
       if (x.book) return h('a', { key: i, href: '/' + x.book, className: 'au-lnk', onClick: self._linkGo(function () { self.goBook(x.book); }) }, h('em', null, books[x.book].title));
@@ -1141,13 +1168,13 @@
     };
     var mono = { fontFamily: "'IBM Plex Mono',monospace", fontSize: '11px', letterSpacing: '.08em', textTransform: 'uppercase', color: 'var(--mut)', textAlign: 'left', fontWeight: 400, padding: '0 16px 8px 0' };
     var cell = { padding: '8px 16px 8px 0', borderTop: '1px solid rgba(20,20,20,.15)', verticalAlign: 'top' };
-    return h('section', { style: { maxWidth: '700px', marginTop: '64px' } },
+    return h('section', { className: 'bj-story', style: Object.assign({ maxWidth: '700px', marginTop: '64px' }, box) },
       h('h2', { style: { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: '30px', margin: '0 0 14px' } }, st.heading),
       st.paras.map(function (p, i) { return h('p', { key: i, style: { fontSize: '16px', lineHeight: 1.7, margin: '0 0 14px', textWrap: 'pretty' } }, p.map(part)); }),
       st.quote ? h('blockquote', { style: { margin: '26px 0', padding: '0 0 0 18px', borderLeft: '3px solid var(--accent)' } },
         h('p', { style: { fontFamily: "'Instrument Serif',serif", fontSize: '22px', lineHeight: 1.35, margin: '0 0 8px' } }, '\u201c' + st.quote.text.replace(/^["\u201c]|["\u201d]$/g, '') + '\u201d'),
         h('div', { style: { fontFamily: "'IBM Plex Mono',monospace", fontSize: '12px', color: 'var(--mut)' } }, '\u2014 ', part({ book: st.quote.from }, 'q'), books[st.quote.from].author ? ', ' + books[st.quote.from].author : '')) : null,
-      st.works.length ? h('table', { style: { borderCollapse: 'collapse', width: '100%', marginTop: '26px', fontSize: '14.5px' } },
+      st.works && st.works.length ? h('table', { style: { borderCollapse: 'collapse', width: '100%', marginTop: '26px', fontSize: '14.5px' } },
         h('caption', { style: Object.assign({}, mono, { padding: '0 0 10px' }) }, 'Most-mentioned works'),
         h('thead', null, h('tr', null, h('th', { style: mono }, 'Work'), h('th', { style: mono }, 'Books'), h('th', { style: mono }, 'For example'))),
         h('tbody', null, st.works.map(function (w) {
@@ -1606,7 +1633,7 @@
   P._loadAtlas = function () {
     if ((window.BJAtlas && window.BookJumprAtlas && window.__BJ.explorerReady) || this._aLoading) return;
     this._aLoading = true;
-    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=14', 'explorer.js?v=26'], left = srcs.length;
+    var self = this, srcs = ['atlas-data.js?v=2', 'atlas.js?v=14', 'explorer.js?v=27'], left = srcs.length;
     var done = function () { if (--left === 0) { self.forceUpdate(); self._mountAtlas(); } };
     srcs.forEach(function (src) {
       var sc = document.createElement('script');
@@ -1665,13 +1692,13 @@
     if (window.__BJ.explorerReady) { this._loadMapLibs(); return; }
     if (this._xLoading) return;
     this._xLoading = true;
-    this._xLoadSrcs(['explorer.js?v=26'], function () { self.forceUpdate(); self._loadMapLibs(); });
+    this._xLoadSrcs(['explorer.js?v=27'], function () { self.forceUpdate(); self._loadMapLibs(); });
   };
   P._loadExplorer = function () {
     if (this._xReady() || this._xLoading) return;
     this._xLoading = this._xMapLoading = true;
     // Explorer+ also brings the star map (renderer + its organic layout) for the mini-map / full view.
-    var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=26'] : ['network-regions.js?v=2', 'explorer.js?v=26'];
+    var srcs = this._xLive() ? ['atlas.js?v=14', 'stars-data.js?v=3', 'explorer.js?v=27'] : ['network-regions.js?v=2', 'explorer.js?v=27'];
     if (this._vLab()) srcs.push('layouts-data.js?v=8');
     var self = this, left = srcs.length;
     var done = function () { if (--left === 0) self.forceUpdate(); };

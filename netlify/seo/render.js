@@ -15,7 +15,7 @@
 // Routes mirror P._routeFromHash in app.js.
 
 import { authorIndex, letterFromSlug } from './authors.js';
-import '../../author-story.js';   // sets globalThis.BJAuthorStory (shared with the app)
+import '../../stories.js';   // sets globalThis.BJStories (the author and book write-ups, shared with the app)
 
 export const SITE = 'https://bookjumpr.com';
 
@@ -90,6 +90,7 @@ function bookPage(D, k) {
     `<h1>${esc(t)}</h1>`,
     `<p>${known(a) ? `by <a href="/${esc(aslug)}">${esc(a)}</a>` : 'Author unknown'}${yl ? ` · ${esc(yl)}` : ''}</p>`,
     syn ? `<p>${esc(syn)}</p>` : '',
+    ...storyBlock(D, bookStory(D, k)),
   ];
   if (out.length) body.push(`<h2>Books mentioned in ${esc(t)} (${out.length})</h2>`, '<ul>',
     ...out.map(([m, note]) => `<li>${link(D, m)}${byline(D, m)}${noteText(note)}</li>`), '</ul>');
@@ -139,7 +140,7 @@ function quotes(D, keys, name) {
     ...rows.slice(0, 10).map(([f, t, note]) => `<li>${link(D, f)} on ${link(D, t)}${noteText(note)}</li>`), '</ul>'];
 }
 
-// The author write-up (author-story.js), fed from D. ranked: every author's mention count, leaving out mentions
+// The author write-up (stories.js), fed from D. ranked: every author's mention count, leaving out mentions
 // between an author's own books (the same rule as the write-up), cached per D.
 const storyRank = new WeakMap();
 function authorStory(D, slug) {
@@ -149,12 +150,27 @@ function authorStory(D, slug) {
       .map(([s, [name, keys]]) => ({ slug: s, name, n: keys.reduce((t, k) => t + (D.I[k] || []).filter((m) => D.B[m] && aslug(m) !== s).length, 0) }))
       .sort((x, y) => y.n - x.n || x.name.localeCompare(y.name)));
   }
-  return globalThis.BJAuthorStory.build({
+  return globalThis.BJStories.author({
     slug, name: D.A[slug][0], works: D.A[slug][1], ranked: storyRank.get(D),
     book: (k) => D.B[k] && { title: D.B[k][0], author: D.B[k][1], authorSlug: aslug(k), year: D.B[k][2],
       mentionedBy: (D.I[k] || []).filter((m) => D.B[m]), mentions: (D.O[k] || []).map(([m]) => m).filter((m) => D.B[m]), weight: (D.I[k] || []).length + (D.O[k] || []).length },
     note: (from, to) => noteFor(D, from, to),
     hasPage: (s) => !!D.A[s] && s !== 'anonymous',
+  });
+}
+const storyBook = (D) => (k) => D.B[k] && { title: D.B[k][0], author: D.B[k][1], authorSlug: D.B[k][4] || k.split('/')[0], year: D.B[k][2],
+  mentionedBy: (D.I[k] || []).filter((m) => D.B[m]), mentions: (D.O[k] || []).map(([m]) => m).filter((m) => D.B[m]),
+  weight: (D.I[k] || []).length + (D.O[k] || []).length };
+// The book write-up (stories.js). rank: books by how many books mention them, cached per D.
+const bookRank = new WeakMap();
+function bookStory(D, k) {
+  if (!bookRank.has(D)) {
+    const order = Object.keys(D.I).filter((x) => D.B[x] && D.I[x].length).sort((x, y) => D.I[y].length - D.I[x].length || (x < y ? -1 : 1));
+    bookRank.set(D, new Map(order.map((x, i) => [x, i + 1])));
+  }
+  return globalThis.BJStories.book({
+    id: k, book: storyBook(D), note: (from, to) => noteFor(D, from, to), rank: (x) => bookRank.get(D).get(x) || 0,
+    authorWorks: (s) => (D.A[s] ? D.A[s][1] : []), hasPage: (s) => !!D.A[s] && s !== 'anonymous',
   });
 }
 const storyHtml = (D, parts) => parts.map((x) => typeof x === 'string' ? esc(x)
@@ -163,7 +179,7 @@ function storyBlock(D, st) {
   if (!st) return [];
   const out = [`<h2>${esc(st.heading)}</h2>`, ...st.paras.map((p) => `<p>${storyHtml(D, p)}</p>`)];
   if (st.quote) out.push(`<blockquote><p>“${esc(st.quote.text)}”</p><footer>${storyHtml(D, [{ book: st.quote.from }])}${known(D.B[st.quote.from][1]) ? ' by ' + esc(D.B[st.quote.from][1]) : ''}</footer></blockquote>`);
-  if (st.works.length) out.push('<table><caption>Most-mentioned works</caption><thead><tr><th>Work</th><th>Books that mention it</th><th>For example</th></tr></thead><tbody>',
+  if (st.works && st.works.length) out.push('<table><caption>Most-mentioned works</caption><thead><tr><th>Work</th><th>Books that mention it</th><th>For example</th></tr></thead><tbody>',
     ...st.works.map((w) => `<tr><td>${link(D, w.id)}</td><td>${w.n}</td><td>${link(D, w.ex)}${byline(D, w.ex)}</td></tr>`), '</tbody></table>');
   return out;
 }

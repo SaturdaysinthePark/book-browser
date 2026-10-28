@@ -49,6 +49,7 @@ console.log('\nBook page /haruki-murakami/norwegian-wood');
   ok(/No War and Peace, no Kenzaburo Oe/.test(block(html)), 'crawler text has the quotes');
   const book = ld(html).flatMap((x) => x['@graph'] || [x]).find((x) => x['@type'] === 'Book');
   ok(book && book.name === 'Norwegian Wood' && book.mentions && book.mentions.length === 9, 'JSON-LD Book with its 9 mentions');
+  ok(/<h2>Norwegian Wood and other books<\/h2>/.test(block(html)) && /mentions 9 books/.test(block(html)), 'book pages carry the "… and other books" write-up');
   ok(!robots(html), 'indexable (no robots noindex)');
   const img = ogImage(html) || '';
   ok(/^https:\/\/bookjumpr\.com\/og\/haruki-murakami\/norwegian-wood\.png\?v=[0-9a-f]{8}$/.test(img), `share image is the book's own card: ${img}`);

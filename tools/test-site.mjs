@@ -63,6 +63,8 @@ console.log('\nClicking around a book page');
   ok((await card.getAttribute('href')) === '/j-d-salinger/the-catcher-in-the-rye', 'mention card is a real link: ' + (await card.getAttribute('href')));
   await card.click(); await page.waitForTimeout(1200);
   ok(path(page) === '/j-d-salinger/the-catcher-in-the-rye' && /Catcher in the Rye/.test(await h1(page)) && (await noReload(page)), `click → ${path(page)}, no reload`);
+  await page.waitForTimeout(800);
+  ok(await page.locator('section.bj-story h2:has-text("The Catcher in the Rye and other books")').count() === 1, 'book page shows the "… and other books" write-up');
   ok((await page.evaluate(() => document.title)) === 'The Catcher in the Rye — BookJumpr', 'tab title follows');
   ok((await page.evaluate(() => document.querySelector('link[rel=canonical]').href)) === 'https://bookjumpr.com/j-d-salinger/the-catcher-in-the-rye', 'canonical follows');
   await page.goBack(); await page.waitForTimeout(1000);
