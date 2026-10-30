@@ -143,3 +143,23 @@ so search engines can index each one. Nothing about how the app looks or navigat
 - **Social profiles**: the homepage's `Organization` JSON-LD lists X (@saturdaysonx), Instagram and TikTok
   (saturdaysinabook) as `sameAs`, so search engines and AI tools tie them to the site. `twitter:site` is @saturdaysonx,
   and `llms.txt` lists them.
+
+## October 2026 index drop, and the quality bar
+
+On Oct 25, 2026 Google dropped most of the site from its index: pages with impressions fell from ~700 a day to under
+30, and URL Inspection shows them as "Crawled - currently not indexed" although they weren't recrawled (last crawl
+Oct 14–15). That is a site-level quality judgement, not a technical fault: the pages render fully for Googlebot, return
+200 with self canonicals, and have no duplicate titles or descriptions. In a sample of 260 pages that had impressions,
+the 24 Google kept had a median of 279 words, a synopsis (90%) and 5 links; the 236 it dropped had 110 words, a
+synopsis 57% of the time and 1 link. Across the old sitemap, 72% of book pages had under 200 words.
+
+So only substantial pages are put forward now (`netlify/seo/quality.js`):
+
+- **Book pages**: a synopsis, plus 3+ books it mentions or is mentioned by, or 2+ of those with a quoted line.
+- **Author pages**: 5+ mentions to or from their books in total.
+
+Pages below the bar still work for visitors but are served with `noindex, follow` and left out of `sitemap.xml`
+(1,157 book and 511 author pages are in; the sitemap went from 3,474 URLs to 1,699). The bar is re-checked on every
+`npm run bj:build`, so a page that gains a synopsis or more mentions comes back by itself — adding synopses to the
+most-mentioned books that lack one is the quickest way to grow the indexed set. `tools/check-seo.mjs` checks both sides.
+Expect recovery to take weeks to months: Google re-evaluates site quality slowly.
