@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-27. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-30. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -1895,7 +1895,7 @@ https://bookjumpr.com/fyodor-dostoevsky/crime-and-punishment
 - Egyptian Nights by Alexander Pushkin: "It was in those days, that very year I believe, the 'disgraceful action of the _Age_' took place (you know, 'The Egyptian Nights,' that public reading, you remember?"
 - Confessions by Jean-Jacques Rousseau: "When we have finished this, we are going to begin a translation about whales, and then some of the dullest scandals out of the second part of _Les Confessions_ we have marked for translation; somebody has told Heruvimov, that Rousseau was a kind of Radishchev."
 
-## Critique of Pure Reason by Immanuel Kant
+## Critique of Pure Reason by Immanuel Kant (1781)
 https://bookjumpr.com/immanuel-kant/critique-of-pure-reason
 - Metamorphoses by Ovid: "Modo maxima rerum, Tot generis, natisque potens... Nunc trahor exul, inops. --Ovid, Metamorphoses. xiii"
 - Satires by Persius: "Tecum habita, et noris quam sit tibi curta supellex. --Persius. Satirae iv. 52."
@@ -10955,7 +10955,7 @@ https://bookjumpr.com/virginia-woolf/to-the-lighthouse
 https://bookjumpr.com/natsume-soseki/to-the-spring-equinox-and-beyond
 - New Arabian Nights by Robert Louis Stevenson: "This leaning in Keitaro seemed to have begun in his high-school days, when his English teacher had the class read Stevenson's New Arabian Nights as a textbook. Until then he had hated English, but once he started on this book he never skipped the preparation. [auto-translated]"
 
-## Tom Brown's School Days by Thomas Hughes
+## Tom Brown's School Days by Thomas Hughes (1857)
 https://bookjumpr.com/thomas-hughes/tom-brown-s-school-days
 - Kenilworth by Walter Scott: "This is Wayland Smith's cave, a place of classic fame now; but as Sir Walter has touched it, I may as well let it alone, and refer you to "Kenilworth" for the legend."
 - Ingoldsby Legends by Richard Harris Barham: "Did you ever read Thomas Ingoldsby's "Legend of Hamilton Tighe"?"
