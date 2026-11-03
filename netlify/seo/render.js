@@ -15,6 +15,7 @@
 // Routes mirror P._routeFromHash in app.js.
 
 import { authorIndex, letterFromSlug } from './authors.js';
+import { indexableBook, indexableAuthor } from './quality.js';
 import '../../stories.js';   // sets globalThis.BJStories (the author and book write-ups, shared with the app)
 
 export const SITE = 'https://bookjumpr.com';
@@ -107,7 +108,7 @@ function bookPage(D, k) {
   trail.push([t, `${SITE}/${k}`]);
   const image = D.G && D.G[k] ? { url: `${SITE}/og/${k}.png?v=${D.G[k]}`, alt: `${who}, and the books it mentions` } : null;
   if (image) ld.image = image.url;
-  return { title, desc, canonical: `/${k}`, ogType: 'book', body, ld: [ld, crumbs(trail)], image };
+  return { title, desc, canonical: `/${k}`, ogType: 'book', body, ld: [ld, crumbs(trail)], image, noindex: !indexableBook(D, k) };
 }
 
 // One author's mentions rolled up by the other author: { out, in }, each [[otherSlug, name, [[fromKey, toKey], …]], …]
@@ -227,7 +228,7 @@ function authorPage(D, slug) {
   const works = { '@type': 'ItemList', name: `Books by ${name}`,
     itemListElement: keys.map((k, i) => ({ '@type': 'ListItem', position: i + 1, item: bookLd(D, k) })) };
   const ld = [person, works, crumbs([['BookJumpr', `${SITE}/`], [name, url]])];
-  return { title, desc, canonical: `/${slug}`, ogType: 'profile', body, ld };
+  return { title, desc, canonical: `/${slug}`, ogType: 'profile', body, ld, noindex: !indexableAuthor(D, slug) };
 }
 
 function statsPage(D) {

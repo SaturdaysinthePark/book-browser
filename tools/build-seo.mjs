@@ -7,8 +7,8 @@
 //    never see it.
 // 2. llms.txt — the same as plain text for AI crawlers, plus question-and-answer pairs drawn from the data.
 // 3. llms-full.txt — every book that mentions another, with what it mentions and the quote.
-// 4. sitemap.xml — the homepage, about/stats/network, the A–Z author index, and every book page with something on it (a synopsis, a
-//    mention, or two books mentioning it) plus their authors, each with <lastmod> from bookjumpr.db.
+// 4. sitemap.xml — the homepage, about/stats/network, the A–Z author index, and the book and author pages above the
+//    quality bar (netlify/seo/quality.js), each with <lastmod> from bookjumpr.db.
 // 5. netlify/seo/data.js — the data the edge function (netlify/edge-functions/seo.js) renders each page's head and
 //    crawler text from, including which books have their own preview card in og/ (rendered by tools/render-og.mjs).
 // The social profiles below go into the site's JSON-LD (index.html) and llms.txt.
@@ -21,6 +21,7 @@ import { fileURLToPath } from 'node:url';
 import { open } from './db.mjs';
 import { slug } from './slug.mjs';
 import { authorIndex } from '../netlify/seo/authors.js';
+import { indexableBook, indexableAuthor } from '../netlify/seo/quality.js';
 import { ALIASES as AUTHOR_ALIASES } from './authors.mjs';
 
 const SITE = 'https://bookjumpr.com';
@@ -121,8 +122,9 @@ export function seoContent(updated) {
     if (!(edge.O[a] = edge.O[a] || []).some(([m]) => m === b)) edge.O[a].push([b, NOTES[i] ? clean(NOTES[i]) : '']);
     if (!(edge.I[b] = edge.I[b] || []).includes(a)) edge.I[b].push(a);
   });
-  // pages worth listing in the sitemap: a synopsis, at least one mention, or mentioned by two or more
-  const pages = Object.keys(NODES).filter(k => NODES[k][3] || edge.O[k] || (edge.I[k] || []).length >= 2);
+  // pages worth listing in the sitemap: the ones above the quality bar (netlify/seo/quality.js); the rest are
+  // served with noindex
+  const pages = Object.keys(NODES).filter(k => indexableBook(edge, k));
   return { updated, books: Object.keys(NODES).length, mentions: MENTIONS.length, top: top.map(k => ({ k, t: NODES[k][0], a: NODES[k][1], n: indeg[k] })),
     examples: examples.map((e, i) => ({ ...e, ka: EXAMPLES[i][0], kb: EXAMPLES[i][1] })), qa, full, NODES, edge, pages };
 }
@@ -208,8 +210,12 @@ export function bookDates(db) {
 
 export function renderSitemap(s, dates) {
   const url = (loc, lastmod) => `  <url><loc>${SITE}${loc}</loc><lastmod>${lastmod}</lastmod></url>`;
+  // author pages above the bar, dated by their newest book
   const authors = {};
-  for (const k of s.pages) { const as = s.edge.B[k][4], t = dates[k] || s.updated; if (as !== 'anonymous' && !(authors[as] >= t)) authors[as] = t; }
+  for (const k of Object.keys(s.edge.B)) {
+    const as = s.edge.B[k][4], t = dates[k] || s.updated;
+    if (indexableAuthor(s.edge, as) && !(authors[as] >= t)) authors[as] = t;
+  }
   return ['<?xml version="1.0" encoding="UTF-8"?>', '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">',
     url('/', s.updated), url('/about', s.updated), url('/stats', s.updated), url('/network', s.updated),
     url('/authors', s.updated), ...authorIndex(s.edge).letters.map(x => url('/authors/' + x.slug, s.updated)),

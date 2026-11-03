@@ -96,6 +96,17 @@ console.log('\nAuthors A–Z');
   ok(bad.status === 404 && /noindex/.test(robots(bad.html) || ''), `/authors/zz: 404 + noindex (got ${bad.status})`);
 }
 
+console.log('\nThin pages (netlify/seo/quality.js)');
+{
+  const thin = await get('/spike-hawkins/the-lost-fire-brigade'), thinA = await get('/markus-zusak');
+  ok(thin.status === 200 && /noindex, follow/.test(robots(thin.html) || '') && /The Lost Fire Brigade/.test(block(thin.html)),
+    'a thin book page still works for visitors but is noindex, follow');
+  ok(thinA.status === 200 && /noindex, follow/.test(robots(thinA.html) || ''), 'a thin author page is noindex, follow');
+  const sm = await (await fetch(BASE + '/sitemap.xml')).text();
+  ok(!sm.includes(`<loc>${SITE}/spike-hawkins/the-lost-fire-brigade</loc>`) && sm.includes(`<loc>${SITE}/voltaire/candide</loc>`),
+    'the sitemap leaves thin pages out and keeps strong ones');
+}
+
 console.log('\nMissing pages and old links');
 for (const path of ['/nobody/nothing-at-all', '/nobody-at-all']) {
   const { status, html } = await get(path);
