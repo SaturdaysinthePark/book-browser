@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-10-30. 1,050 books that mention other books, 8,727 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-11-21. 1,051 books that mention other books, 8,730 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -8381,6 +8381,12 @@ https://bookjumpr.com/jo-walton/the-just-city
 - Dogs of Peace by Ada Palmer: "Epigraph: 'The triremes which defended Greece at Salamis defended Mars too.' —ADA PALMER, DOGS OF PEACE"
 - Submersible Moonphase by Jo Walton: "Epigraph: 'If you could take that first step / You could dance with Artemis / Beside Apollo Eleven.' —JO WALTON, "SUBMERSIBLE MOONPHASE""
 - Telemachus by François Fénelon: "It happened to a bound copy of Aeschylus's Telemachus. (text attributes it in-story to Aeschylus, but the real published 'Telemachus' — a prose sequel to the Odyssey — is by Fénelon)"
+
+## The Kaiju Preservation Society by John Scalzi (2022)
+https://bookjumpr.com/john-scalzi/the-kaiju-preservation-society
+- Snow Crash by Neal Stephenson: "“I thought Neal Stephenson did.” “Who?” “He’s a writer. He wrote Snow Crash.” “And that’s, what, a Frozen sequel?” “It’s a book, actually.”"
+- Jurassic Park by Michael Crichton: "“Jurassic Park didn’t end well for anyone in it,” I pointed out. “Book or movie.”"
+- Twilight by Stephenie Meyer: "“Edward and Bella?” I said. “You named these kaiju after friggin’ Twilight?”"
 
 ## The Kingdom of God Is Within You by Leo Tolstoy (1894)
 https://bookjumpr.com/leo-tolstoy/the-kingdom-of-god-is-within-you
