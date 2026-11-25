@@ -130,7 +130,7 @@ for (const path of ['/nobody/nothing-at-all', '/nobody-at-all']) {
 }
 
 console.log('\nFiles');
-for (const path of ['/app.js?v=6', '/bookjumpr-data.js?v=2', '/vendor/react.production.min.js', '/llms.txt', '/llms-full.txt', '/robots.txt', '/sitemap.xml']) {
+for (const path of ['/app.js?v=6', '/bookjumpr-core.js?v=1', '/bookjumpr-syn.js?v=1', '/bookjumpr-notes.js?v=2', '/vendor/react.production.min.js', '/llms.txt', '/llms-full.txt', '/robots.txt', '/sitemap.xml']) {
   const r = await fetch(BASE + path);
   const body = await r.text();
   ok(r.status === 200 && !/^<!DOCTYPE html>/i.test(body), `${path}: ${r.status}, ${body.length.toLocaleString('en-US')} bytes, not the HTML page`);

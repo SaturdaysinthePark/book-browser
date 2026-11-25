@@ -36,6 +36,8 @@ Netlify provide.
 | `home.js` | The interactive home-wall engine (endless shelf / infinite canvas / shelf rows) — imperative, transforms only |
 | `bookjumpr-data.js` | The dataset the site loads — **generated** from the database by `npm run bj:build` (don't hand-edit) |
 | `bookjumpr-notes.js` | Mention quotes/context, lazy-loaded on book pages — **generated** by `npm run bj:build` |
+| `bookjumpr-core.js` | What the site loads first: every book and mention in compact form, without synopsis text — **generated** by `npm run bj:build` |
+| `bookjumpr-syn.js` | The synopses, lazy-loaded after the page is up — **generated** by `npm run bj:build` |
 | `bookjumpr.db` | SQLite database — the **source of truth** for books & mentions |
 | `tools/` | The data pipeline (CLI, build, validation, admin server) |
 | `admin.html` | Local point-and-click admin UI (served by `npm run admin`) |

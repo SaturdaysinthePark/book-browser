@@ -6,6 +6,8 @@ import { DATA_JS, ROOT } from './db.mjs';
 // Mention notes (quotes / context) ship in their own file so the home page doesn't pay for
 // them — app.js lazy-loads it on the first book page. Indexed by MENTIONS position.
 export const NOTES_JS = path.join(ROOT, 'bookjumpr-notes.js');
+export const CORE_JS = path.join(ROOT, 'bookjumpr-core.js');
+export const SYN_JS = path.join(ROOT, 'bookjumpr-syn.js');
 const NOTE_MAX = 340;
 
 // Pull the site-shaped structures out of the DB. Identity is the book KEY (books.slug),
@@ -77,18 +79,44 @@ window.BookJumprData = { NODES: NODES, MENTIONS: MENTIONS, ALIASES: ALIASES };
 `;
 }
 
+// What the site itself loads, in place of bookjumpr-data.js (which the data pipeline's tools still read):
+//  - bookjumpr-core.js: every book and mention, without the synopsis text, and with mentions as pairs of
+//    indexes into K instead of repeated keys. Under half the size; app.js expands it back on load.
+//  - bookjumpr-syn.js: the synopses, loaded after the page is up.
+// M keeps the order of MENTIONS, so the indexes in bookjumpr-notes.js apply to it unchanged.
+export function renderCoreFile({ nodes, mentions, aliases = {} }) {
+  const keys = Object.keys(nodes), at = new Map(keys.map((k, i) => [k, i]));
+  const N = keys.map((k) => { const n = nodes[k]; return [n[0], n[1], n[2], n[3] ? 1 : 0, n[4]]; });
+  const M = mentions.map((m) => [at.get(m[0]), at.get(m[1])]);
+  return `// BookJumpr core data — generated from bookjumpr.db by tools/build.mjs. Do not edit.
+// K: book keys. N: [title, author, year, has a synopsis (1/0), genre], in K's order. M: [source, mentioned] as indexes into K.
+// A: key -> [other titles the book is known by].
+window.BookJumprCore = { K: ${JSON.stringify(keys)}, N: ${JSON.stringify(N)}, M: ${JSON.stringify(M)}, A: ${JSON.stringify(aliases)} };
+`;
+}
+export function renderSynFile({ nodes }) {
+  const keys = Object.keys(nodes), S = [];
+  keys.forEach((k, i) => { if (nodes[k][3]) S.push([i, nodes[k][3]]); });
+  return `// BookJumpr synopses — generated from bookjumpr.db by tools/build.mjs (lazy-loaded by app.js). Do not edit.
+// S: [book index into K of bookjumpr-core.js, synopsis] (COUNT guards drift).
+window.BookJumprSyn = { COUNT: ${keys.length}, S: ${JSON.stringify(S)} };
+`;
+}
+
 // Build the file text from the DB.
 export function buildText(db) {
   return renderFile(computeData(db));
 }
 
 // Write bookjumpr-data.js (or, with {check:true}, only report whether it would change).
-export function writeBuild(db, { check = false, out = DATA_JS, notesOut = NOTES_JS } = {}) {
-  const next = buildText(db);
+export function writeBuild(db, { check = false, out = DATA_JS, notesOut = NOTES_JS, coreOut = CORE_JS, synOut = SYN_JS } = {}) {
+  const data = computeData(db), next = renderFile(data);
   const prev = fs.existsSync(out) ? fs.readFileSync(out, 'utf8') : null;
   const nextNotes = renderNotesFile(computeNotes(db));
   const prevNotes = fs.existsSync(notesOut) ? fs.readFileSync(notesOut, 'utf8') : null;
-  const changed = next !== prev || nextNotes !== prevNotes;
-  if (!check) { fs.writeFileSync(out, next); fs.writeFileSync(notesOut, nextNotes); }
+  const site = [[coreOut, renderCoreFile(data)], [synOut, renderSynFile(data)]];
+  const siteChanged = site.some(([f, text]) => !fs.existsSync(f) || fs.readFileSync(f, 'utf8') !== text);
+  const changed = next !== prev || nextNotes !== prevNotes || siteChanged;
+  if (!check) { fs.writeFileSync(out, next); fs.writeFileSync(notesOut, nextNotes); site.forEach(([f, text]) => fs.writeFileSync(f, text)); }
   return { changed, bytes: Buffer.byteLength(next), notesBytes: Buffer.byteLength(nextNotes), identical: prev != null && prevNotes != null && !changed };
 }

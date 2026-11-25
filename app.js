@@ -28,7 +28,19 @@
   var React = window.React;
   var ReactDOM = window.ReactDOM;
   var h = React.createElement;
-  var DATA = window.BookJumprData || { NODES: {}, MENTIONS: [] };
+  // The site loads bookjumpr-core.js (compact: no synopsis text, mentions as index pairs); expand it to the shape
+  // the rest of this file reads. bookjumpr-data.js (the full file) still works if it is what's on the page.
+  var CORE = window.BookJumprCore;
+  var DATA = CORE ? (function () {
+    var K = CORE.K, NODES = {}, MENTIONS = new Array(CORE.M.length), i;
+    for (i = 0; i < K.length; i++) NODES[K[i]] = CORE.N[i];
+    for (i = 0; i < CORE.M.length; i++) MENTIONS[i] = [K[CORE.M[i][0]], K[CORE.M[i][1]]];
+    return { NODES: NODES, MENTIONS: MENTIONS, ALIASES: CORE.A || {} };
+  })() : (window.BookJumprData || { NODES: {}, MENTIONS: [] });
+  // The served book page's own synopsis and mention lines, embedded by the server (netlify/seo/render.js), so the
+  // page is complete before bookjumpr-syn.js and bookjumpr-notes.js load: { k: book key, s: synopsis, n: { "from|to": line } }.
+  var SEED = null;
+  try { var seedEl = typeof document !== 'undefined' && document.getElementById('bj-seed'); if (seedEl) SEED = JSON.parse(seedEl.textContent); } catch (e) { SEED = null; }
 
   // Home-page suggestion pool: hand-picked, widely-known popular fiction (kept short
   // so two mobile pills + the shuffle button stay on one row). Titles are resolved to
@@ -408,6 +420,7 @@
     this._startToTop();
     this._settleSmil();
     if (this.state.route.page === 'book') this._loadNotes();
+    this._armRest();
   };
   P.componentWillUnmount = function () {
     window.removeEventListener('popstate', this._onPop);
@@ -702,7 +715,7 @@
       var id = ids[i], n = NODES[id];
       books[id] = {
         id: id, title: n[0], author: n[1] || '', year: n[2] || 0,
-        synopsis: n[3] || '', genre: n[4] || null, aliases: ALIASES[id] || [],
+        synopsis: typeof n[3] === 'string' ? n[3] : '', hasSyn: !!n[3], genre: n[4] || null, aliases: ALIASES[id] || [],
         out: [], in: [], isSource: false
       };
     }
@@ -714,6 +727,7 @@
       if (sb.out.indexOf(t) === -1) sb.out.push(t);
       if (tb.in.indexOf(s) === -1) tb.in.push(s);
     }
+    if (SEED && books[SEED.k] && SEED.s) books[SEED.k].synopsis = SEED.s;
     this.books = books;
     this.all = ids.map(function (id) { return books[id]; });
     this.totalLinks = MENTIONS.length;
@@ -1149,7 +1163,7 @@
     var self = this, books = this.books;
     return {
       book: function (id) { var b = books[id]; return b && { title: b.title, author: b.author, authorSlug: id.split('/')[0], year: b.year, mentionedBy: b.in, mentions: b.out, weight: b.in.length + b.out.length }; },
-      note: function (from, to) { return (self._notes && self._notes[from + '|' + to]) || ''; },
+      note: function (from, to) { return self._note(from, to) || ''; },
       hasPage: function (s) { return s !== 'anonymous'; }
     };
   };
@@ -1493,8 +1507,48 @@
   };
 
   // ---------- mention notes (lazy: bookjumpr-notes.js) ----------
+  // The line for a mention: '' if there is none, undefined if not known yet (the notes file hasn't loaded and
+  // the page's seed doesn't cover this pair).
+  P._note = function (src, ment) {
+    var key = src + '|' + ment;
+    if (this._notes) return this._notes[key] || '';
+    if (SEED && SEED.n && (src === SEED.k || ment === SEED.k)) return SEED.n[key] || '';
+    return undefined;
+  };
+  // Is the current page the book the server seeded? Then it needs neither big file to be complete.
+  P._seeded = function () { var r = this.state.route; return !!(SEED && r.page === 'book' && r.id === SEED.k); };
+  // Fetch the rest (notes + synopses) at the visitor's first move — pointer, touch, key or scroll — so a page that
+  // is only looked at (or only crawled) never downloads them, and a click that follows finds them on the way.
+  P._armRest = function () {
+    if (this._restArmed || typeof window === 'undefined') return;
+    this._restArmed = true;
+    var self = this, evs = ['pointerdown', 'pointermove', 'touchstart', 'keydown', 'wheel', 'scroll'];
+    var go = function () {
+      evs.forEach(function (t) { window.removeEventListener(t, go, true); });
+      self._touched = true;
+      self._loadSyn();
+      if (self.state.route.page === 'book') self._loadNotes();
+    };
+    evs.forEach(function (t) { window.addEventListener(t, go, { capture: true, passive: true }); });
+  };
+  P._loadSyn = function () {
+    if (!CORE || this._synDone || this._synLoading) return;
+    this._synLoading = true;
+    var self = this, sc = document.createElement('script');
+    sc.src = '/bookjumpr-syn.js?v=1';
+    sc.onload = function () {
+      var S = window.BookJumprSyn, K = CORE.K;
+      if (S && S.COUNT === K.length) S.S.forEach(function (r) { var b = self.books[K[r[0]]]; if (b) b.synopsis = r[1]; });
+      self._synDone = true;
+      self.forceUpdate();
+    };
+    sc.onerror = function () { self._synDone = true; self.forceUpdate(); };
+    document.body.appendChild(sc);
+  };
   P._loadNotes = function () {
     if (this._notes || this._notesLoading) return;
+    if (this._seeded() && !this._touched) { this._armRest(); return; }
+    this._loadSyn();
     // book pages: let explorer.js (the page's UI) have the bandwidth first; the next render after it loads asks again
     if (this._vNext() && this.state.route.page === 'book' && !window.__BJ.explorerReady) return;
     this._notesLoading = true;
@@ -1513,8 +1567,8 @@
   // "Cited as …") as a caption;
   // the mentioned book's title is marked wherever it appears.
   P.noteEl = function (src, ment) {
-    if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
-    var note = this._notes[src + '|' + ment];
+    var note = this._note(src, ment);
+    if (note === undefined) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
     if (!note) return null;
     var translated = /\*$/.test(note);   // trailing '*' = the quote is an auto-translation of the original language
     if (translated) note = note.slice(0, -1);
@@ -2243,7 +2297,8 @@
         vals.b_yearSuffix = yl ? '  ·  ' + yl : '';
         // Plain fallback used when the author isn't a clickable link (unknown/Anonymous).
         vals.b_byline = [b.author ? 'by ' + b.author : null, yl || null].filter(Boolean).join('  ·  ');
-        vals.b_synopsis = b.synopsis || 'No synopsis on file yet — but the trail doesn’t stop here. See what it’s connected to below.';
+        if (b.hasSyn && !b.synopsis) this._loadSyn();   // on its way: show nothing rather than "no synopsis"
+        vals.b_synopsis = b.synopsis || (b.hasSyn && !this._synDone ? '' : 'No synopsis on file yet — but the trail doesn’t stop here. See what it’s connected to below.');
         vals.cntOut = b.out.length; vals.cntIn = b.in.length;
         // the tab title, the same as the edge function's <title> (netlify/seo/render.js bookPage)
         var who = bHasAuthor ? b.title + ' by ' + b.author : b.title;
