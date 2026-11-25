@@ -40,7 +40,7 @@ console.log('\nBook page /haruki-murakami/norwegian-wood');
 {
   const { status, html } = await get('/haruki-murakami/norwegian-wood');
   ok(status === 200, `status 200 (got ${status})`);
-  ok(/^Norwegian Wood by Haruki Murakami/.test(title(html) || ''), `title: ${title(html)}`);
+  ok(/^Books mentioned in Norwegian Wood by Haruki Murakami \(9\) \| BookJumpr$/.test(title(html) || ''), `title: ${title(html)}`);
   ok(canonical(html) === `${SITE}/haruki-murakami/norwegian-wood`, `canonical: ${canonical(html)}`);
   ok(ogUrl(html) === `${SITE}/haruki-murakami/norwegian-wood`, `og:url: ${ogUrl(html)}`);
   ok(/mentions 9 books/.test(desc(html) || ''), `description: ${desc(html)}`);

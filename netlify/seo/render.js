@@ -80,7 +80,8 @@ const noteFor = (D, from, to) => ((D.O[from] || []).find(([m]) => m === to) || [
 function bookPage(D, k) {
   const [t, a, y, syn, aslug] = D.B[k], out = D.O[k] || [], inn = D.I[k] || [], yl = yearLabel(y);
   const who = known(a) ? `${t} by ${a}` : t;
-  const title = out.length ? `${who}: the books it mentions | BookJumpr` : `${who}: books that mention it | BookJumpr`;
+  // worded the way people search: "books mentioned in <title>"
+  const title = out.length ? `Books mentioned in ${who} (${out.length}) | BookJumpr` : `Books that mention ${who} (${inn.length}) | BookJumpr`;
   const outNames = out.map(([m]) => D.B[m][0]), inNames = inn.map((m) => D.B[m][0]);
   let desc = out.length
     ? `${t}${yl ? ` (${yl})` : ''}${known(a) ? ` by ${a}` : ''} mentions ${plural(out.length, 'book', 'books')}: ${names(outNames, 3)}.` + (inn.length ? ` ${plural(inn.length, 'book mentions', 'books mention')} it.` : '')
