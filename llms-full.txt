@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-11-25. 1,052 books that mention other books, 8,766 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-11-25. 1,052 books that mention other books, 8,768 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -7437,6 +7437,8 @@ https://bookjumpr.com/virginia-evans/the-correspondent
 - Pride and Prejudice by Jane Austen: "Trying to get through Pride and Prejudice one more time."
 - Lonesome Dove by Larry McMurtry: "I want to tell you about my experience with having read Lonesome Dove. I have read the book now three times."
 - The Girl with the Dragon Tattoo by Stieg Larsson: "I just finished The Girl with the Dragon Tattoo series of three books. Have you read them?"
+- The Satanic Verses by Salman Rushdie: "It was tremendous, my first foray into Salman Rushdie and his Satanic Verses."
+- The Chateau by William Maxwell: "Yes, I loved The Château, but that was a novel, and as much as I would love to see your new house, no, I’ll not come."
 
 ## The Corsican Brothers by Alexandre Dumas
 https://bookjumpr.com/alexandre-dumas/the-corsican-brothers
