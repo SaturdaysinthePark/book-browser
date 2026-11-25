@@ -107,6 +107,13 @@ console.log('\nThin pages (netlify/seo/quality.js)');
     'the sitemap leaves thin pages out and keeps strong ones');
 }
 
+{
+  const { html } = await get('/about');
+  const faq = ld(html).flatMap((g) => g['@graph'] || []).find((n) => n['@type'] === 'FAQPage');
+  ok(faq && faq.mainEntity.length === 3 && /knowledge graph of books mentioned in other books/.test(faq.mainEntity[0].acceptedAnswer.text) && /<h2>Questions<\/h2>/.test(block(html)),
+    '/about: FAQ in the page and as FAQPage structured data');
+}
+
 console.log('\nMissing pages and old links');
 for (const path of ['/nobody/nothing-at-all', '/nobody-at-all']) {
   const { status, html } = await get(path);
