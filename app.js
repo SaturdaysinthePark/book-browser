@@ -21,14 +21,73 @@
  */
 (function () {
   'use strict';
+
+  // The page as the server sent it: its path and the search-worded <title> the edge function wrote for it
+  // (netlify/seo/render.js). The app keeps that title while the visitor is still on that page.
+  var SERVED = typeof document !== 'undefined' ? { path: location.pathname.replace(/\/+$/, '') || '/', title: document.title } : null;
   var React = window.React;
   var ReactDOM = window.ReactDOM;
   var h = React.createElement;
-  var DATA = window.BookJumprData || { NODES: {}, MENTIONS: [] };
+  // The site loads bookjumpr-core.js (compact: no synopsis text, mentions as index pairs); expand it to the shape
+  // the rest of this file reads. bookjumpr-data.js (the full file) still works if it is what's on the page.
+  var CORE = window.BookJumprCore;
+  var DATA = CORE ? (function () {
+    var K = CORE.K, NODES = {}, MENTIONS = new Array(CORE.M.length), i;
+    for (i = 0; i < K.length; i++) NODES[K[i]] = CORE.N[i];
+    for (i = 0; i < CORE.M.length; i++) MENTIONS[i] = [K[CORE.M[i][0]], K[CORE.M[i][1]]];
+    return { NODES: NODES, MENTIONS: MENTIONS, ALIASES: CORE.A || {} };
+  })() : (window.BookJumprData || { NODES: {}, MENTIONS: [] });
+  // The served book page's own synopsis and mention lines, embedded by the server (netlify/seo/render.js), so the
+  // page is complete before bookjumpr-syn.js and bookjumpr-notes.js load: { k: book key, s: synopsis, n: { "from|to": line } }.
+  var SEED = null;
+  try { var seedEl = typeof document !== 'undefined' && document.getElementById('bj-seed'); if (seedEl) SEED = JSON.parse(seedEl.textContent); } catch (e) { SEED = null; }
 
   // Home-page suggestion pool: hand-picked, widely-known popular fiction (kept short
   // so two mobile pills + the shuffle button stay on one row). Titles are resolved to
   // books by slug via bookByTitle, so punctuation/accents/case don't need to match.
+  // The home hero's "jump": one real mention shown under the headline — the book, the line, and the book it names.
+  // [mentioning book, mentioned book, the line (as in bookjumpr-notes.js), the words in it that name the book].
+  // Hand-picked: short lines, well-known books. A pair whose books have left the data is skipped.
+  var JUMPS = [
+    ['haruki-murakami/norwegian-wood', 'j-d-salinger/the-catcher-in-the-rye', 'No War and Peace, no Kenzaburo Oe, no Catcher in the Rye.', 'Catcher in the Rye'],
+    ['roberto-bolano/the-savage-detectives', 'daniel-defoe/robinson-crusoe', 'I felt like Robinson Crusoe when he discovers the footstep in the sand.', 'Robinson Crusoe'],
+    ['david-mitchell/the-bone-clocks', 'james-joyce/ulysses', 'Will I die without ever reading Ulysses to the end?', 'Ulysses'],
+    ['j-d-salinger/the-catcher-in-the-rye', 'william-shakespeare/romeo-and-juliet', 'Oh, Romeo and Juliet! Lovely! Didn\'t you just love it?', 'Romeo and Juliet'],
+    ['jo-walton/among-others', 'charlotte-bronte/jane-eyre', 'It’s very tragic actually, a bit like Jane Eyre.', 'Jane Eyre'],
+    ['john-green/looking-for-alaska', 'herman-melville/moby-dick', 'He lay on the top bunk, reading for his English class. Moby-Dick.', 'Moby-Dick'],
+    ['aldous-huxley/brave-new-world', 'william-shakespeare/romeo-and-juliet', 'Upstairs in his room the Savage was reading Romeo and Juliet.', 'Romeo and Juliet'],
+    ['donna-tartt/the-goldfinch', 'leo-tolstoy/war-and-peace', 'Oh, yes. Prince Boris! War and Peace. I\'m named like him.', 'War and Peace'],
+    ['elena-ferrante/my-brilliant-friend', 'homer/iliad', 'he resembled Hector as he was depicted in the school copy of the Iliad.', 'Iliad'],
+    ['donna-tartt/the-secret-history', 'f-scott-fitzgerald/the-great-gatsby', 'When I could no longer concentrate on Greek ... I read The Great Gatsby.', 'The Great Gatsby'],
+    ['j-d-salinger/franny-and-zooey', 'j-m-barrie/peter-pan', 'Even before the curtain goes up at \'Peter Pan,\' I\'m a goddam puddle of tears.', 'Peter Pan'],
+    ['jeffrey-eugenides/the-marriage-plot', 'italo-calvino/invisible-cities', 'a girl ... was smoking a clove cigarette and reading Invisible Cities', 'Invisible Cities'],
+    ['r-f-kuang/babel', 'adam-smith/the-wealth-of-nations', 'The boy glanced at the title. The Wealth of Nations, by Adam Smith.', 'The Wealth of Nations'],
+    ['j-d-salinger/the-catcher-in-the-rye', 'charles-dickens/oliver-twist', 'He\'s carrying this copy of Oliver Twist and so\'s she.', 'Oliver Twist'],
+    ['harper-lee/to-kill-a-mockingbird', 'walter-scott/ivanhoe', 'Jem sat down in a cane-bottom chair and opened Ivanhoe.', 'Ivanhoe'],
+    ['stephen-chbosky/the-perks-of-being-a-wallflower', 'william-shakespeare/hamlet', 'I have spent the whole vacation reading Hamlet.', 'Hamlet'],
+    ['j-d-salinger/the-catcher-in-the-rye', 'f-scott-fitzgerald/the-great-gatsby', 'I was crazy about The Great Gatsby. Old Gatsby. Old sport.', 'The Great Gatsby'],
+    ['jhumpa-lahiri/the-namesake', 'jane-austen/pride-and-prejudice', 'She is reading a well-thumbed paperback copy of Pride and Prejudice', 'Pride and Prejudice'],
+    ['mark-twain/adventures-of-huckleberry-finn', 'william-shakespeare/hamlet', 'Hamlet\'s soliloquy, you know; the most celebrated thing in Shakespeare.', 'Hamlet'],
+    ['stephen-chbosky/the-perks-of-being-a-wallflower', 'j-d-salinger/the-catcher-in-the-rye', 'It’s The Catcher in the Rye.', 'The Catcher in the Rye'],
+    ['sally-rooney/beautiful-world-where-are-you', 'leo-tolstoy/anna-karenina', 'No, I think at the time I’d just finished reading Anna Karenina.', 'Anna Karenina'],
+    ['min-jin-lee/pachinko', 'charles-dickens/david-copperfield', 'my favorite is the first one he gave me, David Copperfield. I admire David.', 'David Copperfield'],
+    ['carlos-ruiz-zafon/the-shadow-of-the-wind', 'fyodor-dostoevsky/the-brothers-karamazov', 'the day was turning out to be longer than The Brothers Karamazov', 'The Brothers Karamazov'],
+    ['toni-morrison/god-help-the-child', 'homer/the-odyssey', 'Until I was in prison I\'d never read The Odyssey or Jane Austen.', 'The Odyssey'],
+    ['gabrielle-zevin/the-storied-life-of-a-j-fikry', 'david-foster-wallace/infinite-jest', '\'Infinite Jest is a masterpiece,\' Harvey had said.', 'Infinite Jest'],
+    ['d-h-lawrence/the-rainbow', 'emily-bronte/wuthering-heights', 'He bought her a copy of Wuthering Heights from a bookstall.', 'Wuthering Heights'],
+    ['agatha-christie/the-man-in-the-brown-suit', 'lewis-carroll/alice-s-adventures-in-wonderland', 'looked exactly like the Mock Turtle in Alice in Wonderland', 'Alice in Wonderland'],
+    ['patti-smith/just-kids', 'thomas-mann/death-in-venice', 'His presence brought to mind the character of Tadzio in Death in Venice.', 'Death in Venice'],
+    ['ernest-hemingway/a-moveable-feast', 'd-h-lawrence/sons-and-lovers', 'I liked Sons and Lovers and The White Peacock', 'Sons and Lovers'],
+    ['mikhail-bulgakov/the-white-guard', 'leo-tolstoy/war-and-peace', 'If you really want to know, I\'ve read War and Peace.', 'War and Peace'],
+    ['willa-cather/one-of-ours', 'miguel-de-cervantes/don-quixote', 'I\'m no sissy, but that fellow\'s a regular Don Quixote.', 'Don Quixote'],
+    ['stephen-chbosky/the-perks-of-being-a-wallflower', 'henry-david-thoreau/walden', 'Kelly’s favorite book just happens to be Walden by Henry David Thoreau.', 'Walden'],
+    ['elena-ferrante/the-story-of-a-new-name', 'louisa-may-alcott/little-women', 'I looked for Little Women, I found it.', 'Little Women'],
+    ['sally-rooney/conversations-with-friends', 'william-shakespeare/hamlet', 'Nick had started rehearsing for a production of Hamlet', 'Hamlet'],
+    ['kevin-kwan/rich-people-problems', 'leo-tolstoy/anna-karenina', 'That still doesn\'t give you any excuse to be Anna Karenina!', 'Anna Karenina'],
+    ['r-f-kuang/babel', 'mary-shelley/frankenstein', 'He greatly enjoyed Mary Shelley\'s Frankenstein', 'Frankenstein'],
+    ['vikram-seth/a-suitable-boy', 'james-joyce/finnegans-wake', 'There is the worse than unreadable Finnegans Wake.', 'Finnegans Wake'],
+  ];
+
   var POPULAR_FICTION = [
     'Don Quixote', 'Robinson Crusoe', 'Moby-Dick', 'The Great Gatsby', 'Frankenstein',
     'Dracula', 'Jane Eyre', 'Wuthering Heights', 'Little Women', 'Oliver Twist',
@@ -318,7 +377,7 @@
 
   var BookJumpr = function (props) {
     React.Component.call(this, props);
-    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false,
+    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hjSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false,
       xHover: null, xAll: null, xQ: '', xPathOpen: false, xPathQ: '', xPathTo: null };
     // Data is available synchronously via the vendored global, so build it up front.
     this.buildData(DATA.NODES || {}, DATA.MENTIONS || [], DATA.ALIASES || {});
@@ -384,6 +443,7 @@
     this._startToTop();
     this._settleSmil();
     if (this.state.route.page === 'book') this._loadNotes();
+    this._armRest();
   };
   P.componentWillUnmount = function () {
     window.removeEventListener('popstate', this._onPop);
@@ -678,7 +738,7 @@
       var id = ids[i], n = NODES[id];
       books[id] = {
         id: id, title: n[0], author: n[1] || '', year: n[2] || 0,
-        synopsis: n[3] || '', genre: n[4] || null, aliases: ALIASES[id] || [],
+        synopsis: typeof n[3] === 'string' ? n[3] : '', hasSyn: !!n[3], genre: n[4] || null, aliases: ALIASES[id] || [],
         out: [], in: [], isSource: false
       };
     }
@@ -690,6 +750,7 @@
       if (sb.out.indexOf(t) === -1) sb.out.push(t);
       if (tb.in.indexOf(s) === -1) tb.in.push(s);
     }
+    if (SEED && books[SEED.k] && SEED.s) books[SEED.k].synopsis = SEED.s;
     this.books = books;
     this.all = ids.map(function (id) { return books[id]; });
     this.totalLinks = MENTIONS.length;
@@ -1125,7 +1186,7 @@
     var self = this, books = this.books;
     return {
       book: function (id) { var b = books[id]; return b && { title: b.title, author: b.author, authorSlug: id.split('/')[0], year: b.year, mentionedBy: b.in, mentions: b.out, weight: b.in.length + b.out.length }; },
-      note: function (from, to) { return (self._notes && self._notes[from + '|' + to]) || ''; },
+      note: function (from, to) { return self._note(from, to) || ''; },
       hasPage: function (s) { return s !== 'anonymous'; }
     };
   };
@@ -1469,8 +1530,48 @@
   };
 
   // ---------- mention notes (lazy: bookjumpr-notes.js) ----------
+  // The line for a mention: '' if there is none, undefined if not known yet (the notes file hasn't loaded and
+  // the page's seed doesn't cover this pair).
+  P._note = function (src, ment) {
+    var key = src + '|' + ment;
+    if (this._notes) return this._notes[key] || '';
+    if (SEED && SEED.n && (src === SEED.k || ment === SEED.k)) return SEED.n[key] || '';
+    return undefined;
+  };
+  // Is the current page the book the server seeded? Then it needs neither big file to be complete.
+  P._seeded = function () { var r = this.state.route; return !!(SEED && r.page === 'book' && r.id === SEED.k); };
+  // Fetch the rest (notes + synopses) at the visitor's first move — pointer, touch, key or scroll — so a page that
+  // is only looked at (or only crawled) never downloads them, and a click that follows finds them on the way.
+  P._armRest = function () {
+    if (this._restArmed || typeof window === 'undefined') return;
+    this._restArmed = true;
+    var self = this, evs = ['pointerdown', 'pointermove', 'touchstart', 'keydown', 'wheel', 'scroll'];
+    var go = function () {
+      evs.forEach(function (t) { window.removeEventListener(t, go, true); });
+      self._touched = true;
+      self._loadSyn();
+      if (self.state.route.page === 'book') self._loadNotes();
+    };
+    evs.forEach(function (t) { window.addEventListener(t, go, { capture: true, passive: true }); });
+  };
+  P._loadSyn = function () {
+    if (!CORE || this._synDone || this._synLoading) return;
+    this._synLoading = true;
+    var self = this, sc = document.createElement('script');
+    sc.src = '/bookjumpr-syn.js?v=1';
+    sc.onload = function () {
+      var S = window.BookJumprSyn, K = CORE.K;
+      if (S && S.COUNT === K.length) S.S.forEach(function (r) { var b = self.books[K[r[0]]]; if (b) b.synopsis = r[1]; });
+      self._synDone = true;
+      self.forceUpdate();
+    };
+    sc.onerror = function () { self._synDone = true; self.forceUpdate(); };
+    document.body.appendChild(sc);
+  };
   P._loadNotes = function () {
     if (this._notes || this._notesLoading) return;
+    if (this._seeded() && !this._touched) { this._armRest(); return; }
+    this._loadSyn();
     // book pages: let explorer.js (the page's UI) have the bandwidth first; the next render after it loads asks again
     if (this._vNext() && this.state.route.page === 'book' && !window.__BJ.explorerReady) return;
     this._notesLoading = true;
@@ -1489,8 +1590,8 @@
   // "Cited as …") as a caption;
   // the mentioned book's title is marked wherever it appears.
   P.noteEl = function (src, ment) {
-    if (!this._notes) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
-    var note = this._notes[src + '|' + ment];
+    var note = this._note(src, ment);
+    if (note === undefined) return h('div', { className: 'mc-q wait', 'aria-hidden': true });
     if (!note) return null;
     var translated = /\*$/.test(note);   // trailing '*' = the quote is an auto-translation of the original language
     if (translated) note = note.slice(0, -1);
@@ -1779,6 +1880,163 @@
     while (lead.length || rest.length) { if (lead.length) outRows.push(lead.shift()); if (rest.length) outRows.push(rest.shift()); }
     return outRows;
   };
+  // The jump in the home hero, under the headline: cover → dotted arc → cover, with the line in between and the
+  // mentioned title marked in it. The element stays mounted; a shuffle changes what it shows (_hjShuffle).
+  P._hxJump = function () {
+    var self = this, books = this.books;
+    var pool = this._hjPool || (this._hjPool = JUMPS.filter(function (j) { return books[j[0]] && books[j[1]] && j[2].indexOf(j[3]) >= 0; }));
+    if (!pool.length) return null;
+    if (this._hjStart == null) this._hjStart = Math.floor(Math.random() * pool.length);   // a different one each visit
+    var i = (this._hjStart + (this.state.hjSeed || 0)) % pool.length, j = pool[i], A = books[j[0]], B = books[j[1]];
+    var link = function (b, cls, kids) {
+      return h('a', { className: cls, href: '/' + b.id, draggable: false, onClick: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) }, kids);
+    };
+    // The line as words (each its own inline block, so a line of them can flip together); the title, with any
+    // punctuation stuck to it, is one unbreakable word.
+    var at = j[2].indexOf(j[3]), before = j[2].slice(0, at), after = j[2].slice(at + j[3].length);
+    var pre = /(\S*)$/.exec(before)[1], post = /^(\S*)/.exec(after)[1];
+    var lead = before.slice(0, before.length - pre.length).split(/\s+/).filter(Boolean), tail = after.slice(post.length).split(/\s+/).filter(Boolean);
+    if (lead.length) lead[0] = '“' + lead[0]; else pre = '“' + pre;
+    if (tail.length) tail[tail.length - 1] += '”'; else post += '”';
+    var kids = [], word = function (k, c) { if (kids.length) kids.push(' '); kids.push(h('span', { className: 'hj-w', key: k }, c)); };
+    lead.forEach(function (w, n) { word('l' + n, w); });
+    word('t', [pre, link(B, 'hj-m', j[3]), post]);
+    tail.forEach(function (w, n) { word('r' + n, w); });
+    var cover = function (b, cls) { return link(b, 'hj-bk ' + cls, self.cover(b)); };
+    return h('div', { className: 'hx-jump', ref: function (el) { self._hjEl = el; if (el && !el._in) { el._in = true; self._hjIn(el, true); } } },
+      cover(A, 'hj-a'),
+      h('div', { className: 'hj-mid' },
+        h('svg', { className: 'hj-arc', 'aria-hidden': true, ref: function (el) { if (el) self._hjArc(el); } }),
+        h('blockquote', { cite: 'https://bookjumpr.com/' + A.id }, h('span', null, kids))),
+      cover(B, 'hj-b'));
+  };
+  // The hop's shape and timing, shared by the flying book and its dotted trail (_hjIn, _hjArc): it covers `reach`
+  // of the way in the big hop, which ends at t1 of the duration; the small hop runs t2 → t3; the rest is the landing.
+  var HOP = { ms: 1400, reach: 0.7, t1: 0.46, t2: 0.54, t3: 0.78 };
+  // A book hopping out of its place: up a little, then down and away while it shrinks. side −1 is the first
+  // book (it leans left), +1 the second.
+  var HJ_HOP = function (side, hC) {
+    var r = 2 * side;
+    return [
+      { offset: 0, opacity: 1, easing: 'ease-out', transform: 'translate(0px,0px) rotate(' + r + 'deg) scale(1)' },
+      { offset: 0.42, opacity: 1, easing: 'ease-in', transform: 'translate(' + (5 * side) + 'px,' + (-0.3 * hC).toFixed(1) + 'px) rotate(' + (9 * side) + 'deg) scale(.86)' },
+      { offset: 0.8, opacity: 1, easing: 'ease-in', transform: 'translate(' + (11 * side) + 'px,' + (0.02 * hC).toFixed(1) + 'px) rotate(' + (18 * side) + 'deg) scale(.5)' },
+      { offset: 1, opacity: 0, transform: 'translate(' + (14 * side) + 'px,' + (0.14 * hC).toFixed(1) + 'px) rotate(' + (22 * side) + 'deg) scale(.3)' }
+    ];
+  };
+  var HJ_CLIP = function (right) { return 'inset(-14px ' + right + ' -14px -12px)'; };
+  P._hjParts = function (el) {
+    var words = [].slice.call(el.querySelectorAll('.hj-w')), tops = [];
+    words.forEach(function (w) { if (tops.indexOf(w.offsetTop) < 0) tops.push(w.offsetTop); });
+    tops.sort(function (x, y) { return x - y; });
+    return { A: el.querySelector('.hj-a'), B: el.querySelector('.hj-b'), arc: el.querySelector('.hj-arc'),
+      words: words.map(function (w) { return { el: w, line: tops.indexOf(w.offsetTop) }; }) };   // which line each word sits on
+  };
+  P._hjCan = function (el) {
+    return !!(el && el.animate && el.offsetParent && !(typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches));
+  };
+  P._hjStop = function () {
+    clearTimeout(this._hjT);
+    (this._hjAnims || []).forEach(function (a) { try { a.cancel(); } catch (e) {} });
+    this._hjAnims = [];
+  };
+  // The arrival — on load (first) and after each shuffle's swap: the mentioned book comes out of the first book
+  // small, hops most of the way across, touches down, skips into its place and lands with a little squash; the
+  // first book gives a kick as it leaves, the dotted trail keeps pace, and the line flips in a row at a time.
+  // After a shuffle the first book hops in first.
+  // Positions are measured, so it works at any width. Without the Web Animations API (or with reduced motion)
+  // the CSS entrance in index.html stands in on load, and a shuffle swaps at once.
+  P._hjIn = function (el, first) {
+    if (!this._hjCan(el)) return;
+    var p = this._hjParts(el), A = p.A, B = p.B, anims = this._hjAnims || (this._hjAnims = []);
+    var dx = (A.offsetLeft + A.offsetWidth / 2) - (B.offsetLeft + B.offsetWidth / 2);   // from A's centre to B's
+    if (!dx) return;
+    el.classList.add('is-fly');          // the script drives these, not the CSS entrance
+    var d0 = 340;                        // when the book leaves (after a shuffle: once the first book has hopped in)
+    // Two parabolas, like a thrown thing. Sizes follow the cover's height, so phone and desktop move alike.
+    var hC = B.offsetHeight, frames = [], k, u, x, y, sc, rot;
+    var yStart = -0.1 * hC, yBoop = -0.14 * hC, h1 = 0.5 * hC, h2 = 0.2 * hC, xBoop = dx * (1 - HOP.reach);
+    var tf = function (x, y, rot, sx, sy) { return 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + rot.toFixed(1) + 'deg) scale(' + sx.toFixed(3) + ',' + sy.toFixed(3) + ')'; };
+    for (k = 0; k <= 12; k++) {          // the big hop: out of the first book, small, growing
+      u = k / 12; x = dx + (xBoop - dx) * u; y = yStart + (yBoop - yStart) * u - h1 * 4 * u * (1 - u); sc = 0.26 + 0.54 * u; rot = -16 + 16 * u;
+      frames.push({ offset: HOP.t1 * u, opacity: k === 0 ? 0 : 1, easing: 'linear', transform: tf(x, y, rot, sc, sc) });
+    }
+    frames.push({ offset: (HOP.t1 + HOP.t2) / 2, opacity: 1, easing: 'linear', transform: tf(xBoop, yBoop + 0.03 * hC, 0, 0.9, 0.7) });   // boop: squash on the line
+    for (k = 0; k <= 8; k++) {           // the small hop into place
+      u = k / 8; x = xBoop * (1 - u); y = yBoop * (1 - u) - h2 * 4 * u * (1 - u); sc = 0.8 + 0.2 * u; rot = 7 * 4 * u * (1 - u) + 2 * u;
+      frames.push({ offset: HOP.t2 + (HOP.t3 - HOP.t2) * u, opacity: 1, easing: 'linear', transform: tf(x, y, rot, sc, sc) });
+    }
+    frames.push({ offset: (HOP.t3 + 1) / 2, opacity: 1, easing: 'ease-out', transform: tf(0, 0.025 * hC, 2, 1.06, 0.94) });   // land: squash
+    frames.push({ offset: 1, opacity: 1, transform: 'rotate(2deg)' });
+    anims.push(B.animate(frames, { duration: HOP.ms, delay: d0, fill: 'backwards' }));
+    anims.push(A.animate([{ transform: 'rotate(-2deg)' }, { transform: 'rotate(-8deg) translate(-3px,2px) scale(.96)', offset: 0.35 }, { transform: 'rotate(-2deg)' }],
+      { duration: 380, delay: d0 - 40, easing: 'ease-out' }));
+    if (!first) anims.push(A.animate([    // the first book hops in: up from small, over, and down into place with a squash
+      { offset: 0, opacity: 0, easing: 'ease-out', transform: 'translate(-14px,' + (0.14 * hC).toFixed(1) + 'px) rotate(-22deg) scale(.3)' },
+      { offset: 0.5, opacity: 1, easing: 'ease-in', transform: 'translate(-5px,' + (-0.32 * hC).toFixed(1) + 'px) rotate(-9deg) scale(.88)' },
+      { offset: 0.84, opacity: 1, easing: 'ease-out', transform: 'translate(0px,' + (0.025 * hC).toFixed(1) + 'px) rotate(-2deg) scale(1.06,.94)' },
+      { offset: 1, opacity: 1, transform: 'rotate(-2deg)' }
+    ], { duration: 300 }));
+    // the trail: as far as the touch-down by the end of the big hop, a beat, then the rest
+    var r1 = (100 * (1 - HOP.reach)).toFixed(0) + '%';
+    anims.push(p.arc.animate([{ clipPath: HJ_CLIP('100%'), offset: 0 }, { clipPath: HJ_CLIP(r1), offset: HOP.t1 / HOP.t3 }, { clipPath: HJ_CLIP(r1), offset: HOP.t2 / HOP.t3 }, { clipPath: HJ_CLIP('-12px'), offset: 1 }],
+      { duration: HOP.ms * HOP.t3, delay: d0, fill: 'backwards' }));
+    // the line: each row of words flips up into view, top row first — starting as the book touches down, so it
+    // isn't flown over, and finishing as it lands
+    var w0 = d0 + HOP.ms * HOP.t2 - 40;
+    p.words.forEach(function (w) {
+      anims.push(w.el.animate([{ transform: 'rotateX(-88deg)', opacity: 0 }, { transform: 'rotateX(0deg)', opacity: 1 }],
+        { duration: 240, delay: w0 + w.line * 130, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }));
+    });
+  };
+  // A shuffle: both books hop out — a little jump up, then down and away, shrinking — while the rows of the line
+  // flip away and the trail draws back; then the jump is swapped for the next one and _hjIn plays it in, the
+  // first book hopping in the same way in reverse. A press while books are still leaving finishes that swap at
+  // once and starts the next.
+  P._hjShuffle = function () {
+    var self = this, el = this._hjEl, T = 280;
+    var advance = function (cb) {
+      var set = function () { self.setState({ hjSeed: (self.state.hjSeed || 0) + 1 }); };
+      if (ReactDOM.flushSync) ReactDOM.flushSync(set); else set();
+      if (cb) cb();
+    };
+    this._hjStop();
+    if (this._hjTurning) { this._hjTurning = false; advance(); }
+    if (!this._hjCan(el)) { advance(); return; }
+    var p = this._hjParts(el), anims = this._hjAnims;
+    var hC = p.A.offsetHeight;
+    anims.push(p.A.animate(HJ_HOP(-1, hC), { duration: T, fill: 'forwards' }));
+    anims.push(p.B.animate(HJ_HOP(1, hC), { duration: T - 60, delay: 60, fill: 'forwards' }));
+    anims.push(p.arc.animate([{ clipPath: HJ_CLIP('-12px') }, { clipPath: HJ_CLIP('100%') }], { duration: T - 40, easing: 'ease-in', fill: 'forwards' }));
+    var lines = p.words.reduce(function (m, w) { return Math.max(m, w.line); }, 0), gap = lines ? Math.min(60, (T - 170) / lines) : 0;
+    p.words.forEach(function (w) {
+      anims.push(w.el.animate([{ transform: 'rotateX(0deg)', opacity: 1 }, { transform: 'rotateX(88deg)', opacity: 0 }],
+        { duration: 160, delay: w.line * gap, easing: 'ease-in', fill: 'forwards' }));
+    });
+    this._hjTurning = true;
+    this._hjT = setTimeout(function () {
+      self._hjTurning = false;
+      advance(function () { self._hjStop(); if (self._hjEl) self._hjIn(self._hjEl, false); });
+    }, T);
+  };
+  // Draw the arc to the measured width (so the dots stay round and evenly spaced at any size): a start dot,
+  // round dots along the hop's two humps, and an open arrowhead that follows the curve's end.
+  P._hjArc = function (svg) {
+    var W = Math.round(svg.parentNode.clientWidth);
+    if (!W || svg._w === W) return;
+    svg._w = W;
+    // two humps, big then small, meeting where the book touches down
+    var H = W < 220 ? 24 : 30, x0 = 4, y0 = H - 3, x1 = W - 6, y1 = H - 5, xm = x0 + (x1 - x0) * HOP.reach, ym = H - 2;
+    var c1x = (x0 + xm) / 2, c1y = -H * 0.75, c2x = (xm + x1) / 2, c2y = H * 0.12;
+    var ang = Math.atan2(y1 - c2y, x1 - c2x) * 180 / Math.PI;    // a quadratic curve ends heading (end − control)
+    var n = Math.round(W * 1.16 / 7.5), step = (96 / n).toFixed(3), dash = '';
+    for (var k = 0; k < n; k++) dash += '0.01 ' + step + ' ';
+    svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+    svg.innerHTML = '<path d="M' + x0 + ' ' + y0 + ' Q' + c1x + ' ' + c1y.toFixed(1) + ' ' + xm.toFixed(1) + ' ' + ym + ' Q' + c2x.toFixed(1) + ' ' + c2y.toFixed(1) + ' ' + x1 + ' ' + y1 + '" pathLength="100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="' + dash + '0 100"/>'
+      + '<circle cx="' + x0 + '" cy="' + y0 + '" r="2.6" fill="currentColor"/>'
+      + '<path d="M-8 -4.5 L0 0 L-8 4.5" transform="translate(' + x1 + ' ' + y1 + ') rotate(' + ang.toFixed(1) + ')" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
+  };
+
   P._mountHomeWall = function () {
     if (this._hw || !this._hxStageEl || !this._hxRootEl || !window.BJHomeWall) return;
     var self = this, v = this._homeVariant();
@@ -1789,6 +2047,7 @@
       pool: this._hxPool(), seq: v === 'b' ? this._hxSeq() : null,
       rows: v === 'c' ? this._hxRows(this.state.chipSeed || 0) : null,
       html: function (id) { return self.coverHTML(self.books[id]); },
+      href: function (id) { return '/' + id; },
       neighbors: function (id) { var b = self.books[id]; return b ? b.out.concat(b.in) : []; },
       onOpen: function (id, el) { self.goBook(id, el); },
       onEngage: function () { self.setState({ hxEngaged: true, hxCompact: v !== 'c' }); }
@@ -1905,6 +2164,7 @@
           var seedX = (self.state.chipSeed || 0) + 1;
           if (self._hw) self._hw.shuffle(hv === 'c' ? self._hxRows(seedX) : null);
           self.setState({ chipSeed: seedX });
+          self._hjShuffle();     // the jump under the headline turns over to the next one
           return;
         }
         // Reshuffle the wall: keep ~75% of the covers (they glide to new spots via the FLIP in
@@ -2138,14 +2398,20 @@
       vals.chips = picks.map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
     } else { vals.wallCovers = []; vals.chips = []; vals.wallStyle = {}; vals.wallFade = {}; }
     if (hv) {
-      var seedC = this.state.chipSeed || 0, nChips = m ? 2 : hv === 'c' ? 3 : 4, maxC = m ? 16 : 22;
+      var seedC = this.state.chipSeed || 0, nChips = m ? 2 : 3, maxC = m ? 16 : 22;
       var pp = this._popPool || (this._popPool = POPULAR_FICTION.map(function (t) { return self.bookByTitle(t); }).filter(function (b) { return b && self._homeOk(b.id); }));
       vals.chips = pp.filter(function (b) { return b.title.length <= maxC; })
         .sort(function (a, b2) { return self.hash(seedC + '~' + a.id) - self.hash(seedC + '~' + b2.id); }).slice(0, nChips)
         .map(function (b) { return { label: b.title, go: function () { self.goBook(b.id); } }; });
       var st = this.state;
       vals.hxClass = 'hx hx-' + hv + (this._wallDark ? ' wall-dark' : '') + (st.hxCompact && hv !== 'c' ? ' is-compact' : '') + (st.hxEngaged ? ' is-engaged' : '') + (st.hxTyping ? ' is-typing' : '');
-      vals.hxIntro = m ? 'The books mentioned inside other books — pick one and jump.'
+      vals.hxJumpEl = hv === 'c' ? null : this._hxJump();
+      // under the search: the shelf-rows home keeps its pills; the others say what the site is (the jump above
+      // already gives books to click)
+      vals.hxShowChips = hv === 'c';
+      vals.hxNote = hv === 'c' ? '' : 'BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.';
+      vals.hxIntro = hv !== 'c' ? ''     // the jump under the headline says it; the shelf-rows home keeps its line
+        : m ? 'The books mentioned inside other books — pick one and jump.'
         : 'BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.';
       vals.hxHint = hv === 'b' ? (m ? 'Drag anywhere' : 'Drag or scroll anywhere') : hv === 'c' ? 'Scroll to spin the shelves' : 'Scroll the shelves';
       vals.hxExpand = function () { self.setState({ hxCompact: false }); if (self._hw) self._hw.resetEngage(); };
@@ -2178,7 +2444,8 @@
         vals.b_yearSuffix = yl ? '  ·  ' + yl : '';
         // Plain fallback used when the author isn't a clickable link (unknown/Anonymous).
         vals.b_byline = [b.author ? 'by ' + b.author : null, yl || null].filter(Boolean).join('  ·  ');
-        vals.b_synopsis = b.synopsis || 'No synopsis on file yet — but the trail doesn’t stop here. See what it’s connected to below.';
+        if (b.hasSyn && !b.synopsis) this._loadSyn();   // on its way: show nothing rather than "no synopsis"
+        vals.b_synopsis = b.synopsis || (b.hasSyn && !this._synDone ? '' : 'No synopsis on file yet — but the trail doesn’t stop here. See what it’s connected to below.');
         vals.cntOut = b.out.length; vals.cntIn = b.in.length;
         // the tab title, the same as the edge function's <title> (netlify/seo/render.js bookPage)
         var who = bHasAuthor ? b.title + ' by ' + b.author : b.title;
@@ -2438,14 +2705,16 @@
       var titleMap = {
         home: 'BookJumpr: Books Mentioned Inside Other Books',
         book: vals.b_docTitle || (vals.b_title || 'Book') + ' — BookJumpr',
-        author: (vals.a_name || 'Author') + ' — BookJumpr',
+        author: (vals.a_name || 'Author') + ': books, and the books they mention | BookJumpr',
         search: '“' + (route.q || '') + '” — Search — BookJumpr',
-        stats: 'Stats — BookJumpr',
-        network: 'Network — BookJumpr',
-        about: 'About — BookJumpr',
-        authors: (route.letter ? 'Authors: ' + route.letter.toUpperCase() : 'Authors A–Z') + ' — BookJumpr'
+        stats: 'The most name-dropped books: which books are mentioned most in other books | BookJumpr',
+        network: 'The network of books mentioned in books — BookJumpr',
+        about: 'About BookJumpr: how it maps the books mentioned inside other books',
+        authors: route.letter ? 'Authors starting with ' + route.letter.toUpperCase() + ' | BookJumpr' : 'Authors A–Z: every author on BookJumpr, and the books they mention'
       };
-      document.title = titleMap[page] || titleMap.home;
+      // Same wording as the server's titles; on the page the server sent, keep its title exactly.
+      var here = location.pathname.replace(/\/+$/, '') || '/';
+      document.title = (SERVED && here === SERVED.path && page !== 'search' && SERVED.title) || titleMap[page] || titleMap.home;
       // keep the canonical URL in step with the address bar (the edge function sets it for the first page loaded)
       var can = document.querySelector('link[rel="canonical"]');
       if (can && /^(home|book|author|authors|stats|about|network)$/.test(page)) can.href = 'https://bookjumpr.com' + (page === 'network' ? '/network' : '/' + this._routePath());

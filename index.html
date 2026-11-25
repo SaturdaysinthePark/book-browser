@@ -183,7 +183,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-stage::after{content:'';position:absolute;inset:0;pointer-events:none;z-index:2;box-shadow:inset 0 0 120px rgba(var(--shade-rgb),.22);}
 .hw-slot{position:absolute;left:0;top:0;width:var(--cw);will-change:transform;--lit:0;}
 .hw-slot .cv{transition:none;}
-.hw-card{border-radius:3px;box-shadow:0 0 0 1px rgba(242,236,221,.16),0 12px 26px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.3);transition:transform .32s var(--ease-spring),box-shadow .3s var(--ease-out);cursor:pointer;}
+.hw-card{display:block;color:inherit;text-decoration:none;-webkit-user-drag:none;-webkit-touch-callout:none;border-radius:3px;box-shadow:0 0 0 1px rgba(242,236,221,.16),0 12px 26px rgba(0,0,0,.45),0 2px 4px rgba(0,0,0,.3);transition:transform .32s var(--ease-spring),box-shadow .3s var(--ease-out);cursor:pointer;}
 .hw-slot.is-hot{z-index:4;}
 .hw-slot.is-hot .hw-card{transform:translateY(-8px) scale(1.07);box-shadow:0 0 0 1px rgba(242,236,221,.2),0 26px 44px rgba(0,0,0,.55),0 4px 8px rgba(0,0,0,.3);}
 .hw-arcs{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;overflow:visible;z-index:3;}
@@ -209,8 +209,8 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   padding:clamp(22px,4vw,40px) clamp(18px,5vw,48px) clamp(20px,3.6vw,34px);text-align:center;box-sizing:border-box;transition:padding .6s var(--ease-out),border-radius .6s var(--ease-out);}
 .hx-x{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease-out),opacity .35s ease,margin .55s var(--ease-out);}
 .hx-x > div{min-height:0;overflow:hidden;}
-.hx-arc{display:flex;justify-content:center;max-width:420px;margin:0 auto;}
 .hx-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6.4vw,52px);line-height:1.04;margin:14px 0 10px;letter-spacing:-.005em;}
+.hx-p:empty{display:none;}
 .hx-p{font-size:15px;line-height:1.55;color:rgba(20,20,20,.72);max-width:440px;margin:0 auto;text-wrap:pretty;}
 .hx-bar{display:flex;align-items:center;gap:8px;margin-top:22px;transition:margin .55s var(--ease-out);}
 .hx-logo{flex:none;display:flex;align-items:center;gap:8px;width:0;opacity:0;overflow:hidden;padding:0;border:none;background:none;cursor:pointer;transition:width .55s var(--ease-out),opacity .3s ease;color:var(--ink);}
@@ -238,9 +238,40 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-shuf:active{transform:translateY(-50%) rotate(180deg);}
 .hx-sugg{position:absolute;top:calc(100% + 10px);left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;z-index:20;text-align:left;}
 .hx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;}
+/* what the site is, small and faint under the search (the homes with the jump; the shelf-rows home keeps its pills) */
+.hx-note{margin:0;padding-top:16px;font-size:12.5px;line-height:1.5;color:var(--mut);text-wrap:balance;}
+.hx-note:empty{display:none;}
 .hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
 .hx-chips button:hover{background:var(--ink);color:var(--paper);}
-.hx-chips .lbl{width:100%;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;}
+/* the jump in the home hero, under the headline: cover → dotted arc → cover, the line in between (app.js _hxJump) */
+.hx-jump{display:grid;grid-template-columns:var(--jc) minmax(0,1fr) var(--jc);gap:20px;align-items:center;--jc:84px;padding:38px 14px 10px;max-width:520px;margin:0 auto;}
+.hx-jump .cv{--lit:1;border-radius:3px;box-shadow:0 6px 10px rgba(70,50,25,.22),0 1px 3px rgba(40,30,15,.22);}
+.hj-bk{display:block;color:inherit;text-decoration:none;-webkit-user-drag:none;transition:transform .32s var(--ease-spring);}
+.hj-a{transform:rotate(-2deg);} .hj-b{transform:rotate(2deg);}
+.hj-a:hover{transform:rotate(-2deg) translateY(-5px) scale(1.05);} .hj-b:hover{transform:rotate(2deg) translateY(-5px) scale(1.05);}
+.hj-arc{display:block;overflow:visible;margin:0 auto 10px;color:var(--ink);}
+.hx-jump blockquote{margin:0;min-height:2.9em;display:flex;align-items:center;justify-content:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:16px;line-height:1.45;color:var(--ink);text-align:center;}
+.hx-jump blockquote>span{text-wrap:balance;}
+.hj-m{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,var(--ink) 40%,transparent);text-underline-offset:5px;transition:text-decoration-color .15s;}
+.hj-m:hover{text-decoration-color:var(--ink);}
+.hj-b{position:relative;z-index:2;}
+.hj-w{display:inline-block;white-space:nowrap;}
+
+/* The arrival is scripted (app.js _hjIn): the second book hops out of the first, the trail follows, the line flips in.
+   Below is only the stand-in for browsers without the Web Animations API — and the first book settling on load. */
+@keyframes hj-a-in{from{opacity:0;transform:rotate(-9deg) translate(-10px,8px);}to{opacity:1;transform:rotate(-2deg);}}
+@keyframes hj-b-in{0%{opacity:0;transform:rotate(9deg) translateY(-16px) scale(.92);}100%{opacity:1;transform:rotate(2deg);}}
+@keyframes hj-arc-in{from{clip-path:inset(-14px 100% -14px -12px);}to{clip-path:inset(-14px -12px -14px -12px);}}
+@keyframes hj-q-in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.hj-a{animation:hj-a-in .42s var(--ease-spring) backwards;}
+.hj-arc{animation:hj-arc-in .5s var(--ease-in-out) .14s backwards;}
+.hx-jump blockquote{animation:hj-q-in .4s var(--ease-out) .3s backwards;}
+.hj-b{animation:hj-b-in .5s var(--ease-spring) .52s backwards;}
+.hx-jump.is-fly .hj-b,.hx-jump.is-fly .hj-arc,.hx-jump.is-fly blockquote{animation:none;}
+@media (prefers-reduced-motion:reduce){.hj-bk,.hj-arc,.hx-jump blockquote{animation:none;transition:none;}}
+@media (max-width:640px){.hx-jump{--jc:60px;gap:10px;padding:28px 8px 8px;}.hx-jump blockquote{font-size:13.5px;min-height:5.8em;}}
+/* the narrowest phones: smaller covers and type, room for five rows, and a long title may wrap */
+@media (max-width:380px){.hx-jump{--jc:46px;gap:8px;padding-left:4px;padding-right:4px;}.hx-jump blockquote{font-size:12px;min-height:8.7em;}.hj-w{white-space:normal;}}
 
 .hx.is-compact .hx-x{grid-template-rows:0fr;opacity:0;}
 .hx.is-compact .hx-card{padding:7px;border-radius:999px;}
@@ -254,12 +285,10 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 /* C: the hero is a full-width band between the shelf rows */
 .hx-c .hx-hero{left:0;width:100%;transform:translateY(-50%);}
 .hx-c .hx-card{border-radius:0;border-left:none;border-right:none;padding:26px max(24px,calc((100% - 1080px) / 2));display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:10px 48px;align-items:center;text-align:left;}
-.hx-c .hx-arc{display:none;}
 .hx-c .hx-h1{margin:0;font-size:clamp(30px,4.4vw,48px);}
 .hx-c .hx-p{margin:8px 0 0;max-width:none;font-size:14px;}
 .hx-c .hx-bar{margin-top:0;}
 .hx-c .hx-chips{justify-content:flex-start;padding-top:12px;}
-.hx-c .hx-chips .lbl{display:none;}
 
 .hx-nav{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:7;display:flex;gap:2px;padding:3px;background:rgba(253,252,250,.94);border:1.5px solid var(--ink);border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.6);}
 /* corner nav: icon pills that pop open to icon + label on hover / keyboard focus */
@@ -287,9 +316,8 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   .hx-p{font-size:14px;}
   .hx-bar{margin-top:14px;}
   .hx-search input{height:50px;}
-  .hx-arc{max-width:230px;}
   .hx-chips{padding-top:12px;}
-  .hx-chips .lbl{display:none;}
+  .hx-note{padding-top:12px;font-size:12px;}
   /* phone bar: the mark alone is too faint on the busy wall, so it sits in a solid ink disc */
   .hx.is-compact .hx-logo{width:52px;padding-left:6px;}
   .hx.is-compact .hx-logo span{display:none;}
@@ -1205,24 +1233,8 @@ html,body{height:100%;}
       <div class="hx-hero" data-hx-band="1">
         <div class="hx-card">
           <div class="hx-x"><div>
-            <div class="hx-arc">
-              <svg viewBox="0 0 300 44" style="width:100%;height:auto;display:block;overflow:visible;">
-                <path id="bj-hx-arc" d="M4 38 Q77 -20 150 38 Q192 2 235 38 Q264 16 292 38" fill="none" stroke="var(--ink)" stroke-width="1.4" stroke-dasharray="2.4 3"></path>
-                <path d="M4 38 Q77 -20 150 38 Q192 2 235 38 Q264 16 292 38" fill="none" stroke="var(--card)" stroke-width="4.5" pathLength="100" stroke-dasharray="100" stroke-dashoffset="0">
-                  <animate attributeName="stroke-dashoffset" values="0;-50;-80;-100;-100" keyTimes="0;0.275;0.44;0.55;1" begin="0.6s" dur="5s" repeatCount="indefinite" calcMode="spline" keySplines="0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0 0 1 1"></animate>
-                </path>
-                <circle cx="4" cy="38" r="2.1" fill="var(--ink)"></circle>
-                <g opacity="0">
-                  <rect x="-4.5" y="-6.5" width="9" height="13" fill="var(--card)" stroke="var(--ink)" stroke-width="1.5"></rect>
-                  <line x1="-2" y1="-6.5" x2="-2" y2="6.5" stroke="var(--ink)" stroke-width="1.2"></line>
-                  <animate attributeName="opacity" values="0;1" begin="0.6s" dur="0.01s" fill="freeze"></animate>
-                  <animateMotion begin="0.6s" dur="5s" repeatCount="indefinite" rotate="auto" calcMode="spline" keyPoints="0;0.5;0.8;1;1" keyTimes="0;0.275;0.44;0.55;1" keySplines="0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0.2 0.6 0.8 0.4;0 0 1 1">
-                    <mpath href="#bj-hx-arc"></mpath>
-                  </animateMotion>
-                </g>
-              </svg>
-            </div>
             <h1 class="hx-h1">Every book is a door<br>to more books.</h1>
+            {{ hxJumpEl }}
             <p class="hx-p">{{ hxIntro }}</p>
           </div></div>
           <div>
@@ -1246,12 +1258,14 @@ html,body{height:100%;}
               </div>
             </div>
             <div class="hx-x"><div>
-              <div class="hx-chips">
-                <span class="lbl">Rabbit holes to fall into</span>
-                <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
-                  <button onClick="{{ ch.go }}">{{ ch.label }}</button>
-                </sc-for>
-              </div>
+              <sc-if value="{{ hxShowChips }}" hint-placeholder-val="{{ false }}">
+                <div class="hx-chips">
+                  <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
+                    <button onClick="{{ ch.go }}">{{ ch.label }}</button>
+                  </sc-for>
+                </div>
+              </sc-if>
+              <p class="hx-note">{{ hxNote }}</p>
             </div></div>
           </div>
         </div>
@@ -1644,13 +1658,14 @@ html,body{height:100%;}
 <!-- Vendored React 18 (UMD) — no CDN, works offline and over file:// -->
 <script src="/vendor/react.production.min.js"></script>
 <script src="/vendor/react-dom.production.min.js"></script>
-<!-- Data: exposes window.BookJumprData = { MENTIONS, META } -->
-<script src="/bookjumpr-data.js?v=2"></script>
+<!-- Data: window.BookJumprCore, every book and mention in compact form (tools/build.mjs). The synopses
+     (bookjumpr-syn.js) and the mention lines (bookjumpr-notes.js) are loaded later by app.js. -->
+<script src="/bookjumpr-core.js?v=1"></script>
 <!-- Network tab: constellation graph data (window.BookGraph) + engine (window.Constellation) —
      loaded lazily by app.js (P._loadConstellation) only when the #/network route is first hit,
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
-<script src="/home.js?v=4"></script>
-<script src="/app.js?v=14"></script>
+<script src="/home.js?v=5"></script>
+<script src="/app.js?v=26"></script>
 </body>
 </html>

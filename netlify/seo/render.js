@@ -109,7 +109,13 @@ function bookPage(D, k) {
   trail.push([t, `${SITE}/${k}`]);
   const image = D.G && D.G[k] ? { url: `${SITE}/og/${k}.png?v=${D.G[k]}`, alt: `${who}, and the books it mentions` } : null;
   if (image) ld.image = image.url;
-  return { title, desc, canonical: `/${k}`, ogType: 'book', body, ld: [ld, crumbs(trail)], image, noindex: !indexableBook(D, k) };
+  // What the app needs to show this page in full before the big synopsis and notes files arrive:
+  // the book's synopsis, and the line for each mention from or to it (keyed "<from>|<to>", as in app.js).
+  const notes = {};
+  out.forEach(([m, note]) => { if (note) notes[`${k}|${m}`] = note; });
+  inn.forEach((m) => { const note = noteFor(D, m, k); if (note) notes[`${m}|${k}`] = note; });
+  return { title, desc, canonical: `/${k}`, ogType: 'book', body, ld: [ld, crumbs(trail)], image, noindex: !indexableBook(D, k),
+    seed: { k, s: syn || '', n: notes } };
 }
 
 // One author's mentions rolled up by the other author: { out, in }, each [[otherSlug, name, [[fromKey, toKey], …]], …]
@@ -375,6 +381,7 @@ export function renderPage(html, pathname, D) {
   const extra = [];
   if (p.noindex) extra.push('<meta name="robots" content="noindex, follow">');
   if (p.ld.length) extra.push(`<script type="application/ld+json">${jsonLd({ '@context': 'https://schema.org', '@graph': p.ld })}</script>`);
+  if (p.seed) extra.push(`<script type="application/json" id="bj-seed">${jsonLd(p.seed)}</script>`);
   if (extra.length) out = out.replace('</head>', extra.join('\n') + '\n</head>');
   const block = ['<!-- seo:start — filled per page by netlify/seo/render.js; hidden once the app runs -->', '<div class="bj-seo">',
     ...p.body.filter(Boolean), '</div>', '<!-- seo:end -->'].join('\n');

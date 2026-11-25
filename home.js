@@ -198,8 +198,12 @@
   P._makeSlot = function () {
     var el = document.createElement('div');
     el.className = 'hw-slot';
-    var card = document.createElement('div');
+    // A real link, so crawlers and "open in new tab" can follow each cover; plain clicks and taps are still
+    // handled by the wall itself (_onUp), which tells a tap from a drag.
+    var card = document.createElement('a');
     card.className = 'hw-card';
+    card.draggable = false;
+    card.tabIndex = -1;
     el.appendChild(card);
     this.layer.appendChild(el);
     return { el: el, card: card, bk: null, lit: 0, litSet: -1, x: 0, y: 0, tf: '' };
@@ -208,6 +212,7 @@
     if (s.bk === id) return;
     s.bk = id;
     s.card.innerHTML = this.o.html(id);
+    if (this.o.href) s.card.setAttribute('href', this.o.href(id));
     s.el.setAttribute('data-bk', id);
     s.litSet = -1;
   };
@@ -439,7 +444,7 @@
 
   P._bind = function () {
     var self = this, scope = this.scope;
-    var isUI = function (el) { return el && el.closest && el.closest('input,button,a,textarea,select,[data-nodrag]'); };
+    var isUI = function (el) { return el && el.closest && !el.closest('.hw-slot') && el.closest('input,button,a,textarea,select,[data-nodrag]'); };
     this._onWheel = function (e) {
       if (isUI(e.target) && e.target.closest('[data-hx-sugg]')) return;
       e.preventDefault();
@@ -503,7 +508,7 @@
         return;
       }
       // A tap/click on a cover opens it.
-      if (performance.now() - pr.t < 600) {
+      if (performance.now() - pr.t < 600 && !(e.ctrlKey || e.metaKey || e.shiftKey || e.altKey)) {
         var slot = e.target.closest && e.target.closest('.hw-slot');
         // A tap in the gutter between covers opens the nearest one (forgiving touch targets).
         if (!slot && e.target.closest && e.target.closest('.hx-stage')) slot = self._nearest(e.clientX, e.clientY);
@@ -530,6 +535,14 @@
       clearTimeout(self._rz);
       self._rz = setTimeout(function () { if (!self._dead) { self.layout(); self._wake(); } }, 120);
     };
+    // Covers are links: a plain click must not follow the href (the tap was already handled in _onUp, and a
+    // drag must not navigate); modified clicks pass through so the browser can open a new tab.
+    this._onClick = function (e) {
+      if (!(e.target.closest && e.target.closest('.hw-slot'))) return;
+      if (e.button > 0 || e.ctrlKey || e.metaKey || e.shiftKey || e.altKey) return;
+      e.preventDefault(); e.stopPropagation();
+    };
+    scope.addEventListener('click', this._onClick, true);
     scope.addEventListener('wheel', this._onWheel, { passive: false });
     scope.addEventListener('pointerdown', this._onDown);
     scope.addEventListener('pointermove', this._onMove);
@@ -603,6 +616,7 @@
     clearTimeout(this._rz);
     var s = this.scope;
     s.removeEventListener('wheel', this._onWheel);
+    s.removeEventListener('click', this._onClick, true);
     s.removeEventListener('pointerdown', this._onDown);
     s.removeEventListener('pointermove', this._onMove);
     s.removeEventListener('pointerup', this._onUp);
