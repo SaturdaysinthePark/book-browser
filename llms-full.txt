@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-11-25. 1,052 books that mention other books, 8,768 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-11-25. 1,052 books that mention other books, 8,787 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -9814,6 +9814,25 @@ https://bookjumpr.com/donna-tartt/the-secret-history
 - Theogony by Hesiod: "This led into an even longer argument ... about whether Hesiod's primordial Chaos was simply empty space or chaos in the modern sense of the word."
 - Mary Poppins by P. L. Travers: "Camilla struggled on tiptoe to pull down her umbrella, which dragged her along in little skipping steps— Mary Poppins in her black funeral dress."
 - Alice's Adventures in Wonderland by Lewis Carroll: "polishing the leaves with meticulous care, like some crazed gardener from Alice in Wonderland."
+- Tom Swift by Victor Appleton: "I liked to read—Tom Swift, the Tolkien books—but also to watch television."
+- The Oresteia by Aeschylus: "Camilla, you were our Klytemnestra when we did the Oresteia; do you remember any of it?"
+- L'Allegro by John Milton: "“Yes,” said Charles. “L’Allegro and Il Penseroso. A well-matched pair.”"
+- Il Penseroso by John Milton: "“Yes,” said Charles. “L’Allegro and Il Penseroso. A well-matched pair.”"
+- The Rover Boys by Arthur M. Winfield: "There are one or two interesting things but mostly it’s Marie Corelli and old Rover Boys."
+- The Bobbsey Twins by Laura Lee Hope: "The libretto of The Pirates of Penzance. Numberless Bobbsey Twins."
+- London by Thomas Pennant: "Something called London by somebody called Pennant, six volumes bound in red leather."
+- The Pirates of Penzance by W. S. Gilbert and Arthur Sullivan: "The libretto of The Pirates of Penzance."
+- Madame Bovary by Gustave Flaubert: "Henry quoted long passages about Emma Bovary and her greyhound: “Sa pensée, sans but d’abord, vagabondait au hasard, comme sa levrette…”"
+- The Bride of Fu Manchu by Sax Rohmer: "Bunny put away his copy of The Bride of Fu Manchu and started carrying around a volume of Homer instead."
+- Mémoires by Duc de Saint-Simon: "reading, in French, the Mémoires of the Duc de Saint-Simon, which for some reason he was determined to get through."
+- The Invisible Man by H. G. Wells: "But, like the Invisible Man in H. G. Wells, I discovered that my gift had its price."
+- Phaedo by Plato: "I would have suggested something from the Phaedo."
+- Kidnapped by Robert Louis Stevenson: "I said Davy Balfour from Kidnapped."
+- Ilios by Heinrich Schliemann: "he was talking on and on in a low voice about Schliemann’s Ilios."
+- Perry Mason by Erle Stanley Gardner: "Even have a couple old Perry Masons. They’re pretty good."
+- A Greek-English Lexicon by Henry George Liddell and Robert Scott: "I grabbed my Greek Prose composition book and my Liddell and Scott and ran to Julian’s office."
+- Why So Pale and Wan, Fond Lover? by John Suckling: "past my ghost in the glass (Why so pale and wan, fond lover?) I heard the wind in the trees."
+- Poems by Rupert Brooke: "wrapped around a paperback copy of the poems of Rupert Brooke and a box of Junior Mints."
 
 ## The Secret of Chimneys by Agatha Christie (1925)
 https://bookjumpr.com/agatha-christie/the-secret-of-chimneys
