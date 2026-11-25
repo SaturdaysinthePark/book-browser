@@ -243,13 +243,29 @@ function statsPage(D) {
   };
 }
 
-function aboutPage() {
+// The About page's questions and answers, shown on the page and emitted as FAQPage structured data. The app shows
+// the same text (vals.aboutFaq in app.js), so keep the two in step. N: [books, mentions] from tools/build-seo.mjs.
+function aboutFaq(D) {
+  const about = (n) => 'about ' + (Math.round(n / 100) * 100).toLocaleString('en-US');
+  const [books, mentions] = D.N || [Object.keys(D.B).length, 0];
+  return [
+    ['What is BookJumpr?', `BookJumpr is a knowledge graph of books mentioned in other books. It covers ${about(books)} books and ${(Math.round(mentions / 100) * 100).toLocaleString('en-US')} mentions, each with the line where it happens.`],
+    ['What counts as a mention?', 'A book has to be named on the page: read, quoted, discussed or dropped into conversation. Allusions and footnotes don\u2019t count.'],
+    ['How do I use it?', 'Search for a book or author, or pick one from the wall. Each book shows the books it mentions and the books that mention it, so you can jump from one to the next.'],
+  ];
+}
+
+function aboutPage(D) {
+  const faq = aboutFaq(D);
   return {
     title: 'About BookJumpr: how it maps the books mentioned inside other books',
     desc: 'How BookJumpr collects the books named inside other books (read, quoted, discussed, or dropped into conversation), and what counts as a mention.',
     canonical: '/about', ogType: 'website',
-    body: ['<nav><a href="/">BookJumpr</a></nav>', '<h1>About BookJumpr: books talk about books</h1>', ...ABOUT_TEXT.map((p) => `<p>${esc(p)}</p>`), '<p>Browse every author on BookJumpr: <a href="/authors">authors A–Z</a>.</p>'],
-    ld: [crumbs([['BookJumpr', `${SITE}/`], ['About', `${SITE}/about`]])],
+    body: ['<nav><a href="/">BookJumpr</a></nav>', '<h1>About BookJumpr: books talk about books</h1>', ...ABOUT_TEXT.map((p) => `<p>${esc(p)}</p>`),
+      '<h2>Questions</h2>', ...faq.map(([q, a]) => `<h3>${esc(q)}</h3><p>${esc(a)}</p>`),
+      '<p>Browse every author on BookJumpr: <a href="/authors">authors A–Z</a>.</p>'],
+    ld: [crumbs([['BookJumpr', `${SITE}/`], ['About', `${SITE}/about`]]),
+      { '@type': 'FAQPage', mainEntity: faq.map(([q, a]) => ({ '@type': 'Question', name: q, acceptedAnswer: { '@type': 'Answer', text: a } })) }],
   };
 }
 
@@ -315,7 +331,7 @@ function pageFor(D, r) {
     case 'book': return D.B[r.id] ? bookPage(D, r.id) : notFound();
     case 'author': return D.A[r.slug] ? authorPage(D, r.slug) : notFound();
     case 'stats': return statsPage(D);
-    case 'about': return aboutPage();
+    case 'about': return aboutPage(D);
     case 'authors': return authorsPage(D, r.letter);
     case 'network': return networkPage(D, r.focus);
     case 'search': return {

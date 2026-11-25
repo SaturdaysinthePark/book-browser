@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>BookJumpr: Books Mentioned Inside Other Books</title>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-<meta name="description" content="BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one. Pick a book, browse its shelf, and jump.">
+<meta name="description" content="BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration. Pick a book, browse its shelf, and jump.">
 <link rel="canonical" href="https://bookjumpr.com/">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="BookJumpr">
 <meta property="og:title" content="BookJumpr: Books Mentioned Inside Other Books">
-<meta property="og:description" content="BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one. Pick a book, browse its shelf, and jump.">
+<meta property="og:description" content="BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration. Pick a book, browse its shelf, and jump.">
 <meta property="og:url" content="https://bookjumpr.com/">
 <meta property="og:image" content="https://bookjumpr.com/social-preview.png?v=2">
 <meta property="og:image:width" content="1200">
@@ -19,7 +19,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:site" content="@saturdaysonx">
 <meta name="twitter:title" content="BookJumpr: Books Mentioned Inside Other Books">
-<meta name="twitter:description" content="BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one.">
+<meta name="twitter:description" content="BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.">
 <meta name="twitter:image" content="https://bookjumpr.com/social-preview.png?v=2">
 <meta name="theme-color" content="#f7f5f0">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -28,7 +28,7 @@
 <style>.js .bj-seo{display:none;}</style>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@graph":[
- {"@type":"WebSite","@id":"https://bookjumpr.com/#website","name":"BookJumpr","url":"https://bookjumpr.com/","description":"BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one.","publisher":{"@id":"https://bookjumpr.com/#org"}},
+ {"@type":"WebSite","@id":"https://bookjumpr.com/#website","name":"BookJumpr","url":"https://bookjumpr.com/","description":"BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.","publisher":{"@id":"https://bookjumpr.com/#org"}},
  {"@type":"Organization","@id":"https://bookjumpr.com/#org","name":"BookJumpr","url":"https://bookjumpr.com/","logo":"https://bookjumpr.com/icon-512.png","sameAs":["https://x.com/saturdaysonx","https://www.instagram.com/saturdaysinabook/","https://www.tiktok.com/@saturdaysinabook"]}
 ]}
 </script>
@@ -1000,7 +1000,7 @@ html,body{height:100%;}
 <div class="bj-seo">
 <h1>BookJumpr: books mentioned inside other books</h1>
 <p><time datetime="2026-11-21">Updated November 21, 2026</time> · 5,951 books · 8,730 mentions</p>
-<p>BookJumpr maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers 5,951 books and 8,730 mentions, most with the line where it happens. Pick a book, see every book it mentions and every book that mentions it, and jump from one to the next.</p>
+<p>BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration. It covers 5,951 books and 8,730 mentions, most with the line where it happens. Pick a book, see every book it mentions and every book that mentions it, and jump from one to the next.</p>
 <h2>A few connections</h2>
 <ul>
 <li><a href="/haruki-murakami/norwegian-wood"><cite>Norwegian Wood</cite></a> (Haruki Murakami) mentions <a href="/j-d-salinger/the-catcher-in-the-rye"><cite>The Catcher in the Rye</cite></a>: “No War and Peace, no Kenzaburo Oe, no Catcher in the Rye.”</li>
@@ -1153,7 +1153,7 @@ html,body{height:100%;}
             </svg>
           </div>
           <h1 style="{{ heroH1 }}">Every book is a door<br>to more books.</h1>
-          <p style="{{ heroP }}">BookJumpr maps the books mentioned <em>inside</em> other books — when a character reads one, quotes one, or name-drops one.{{ introTail }}</p>
+          <p style="{{ heroP }}">BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.{{ introTail }}</p>
           <div style="{{ heroSearchWrap }}">
             <input value="{{ q }}" onChange="{{ onQ }}" onKeyDown="{{ onKey }}" onFocus="{{ onFocusHome }}" onBlur="{{ onBlur }}" placeholder="{{ homePlaceholder }}" style="width:100%;height:56px;border:1.5px solid var(--ink);border-radius:999px;padding:0 26px;font-size:16.5px;background:var(--paper);color:var(--ink);font-family:inherit;box-sizing:border-box;box-shadow:0 4px 0 rgba(20,20,20,.9);"></input>
             <sc-if value="{{ showHomeSuggest }}" hint-placeholder-val="{{ false }}">
@@ -1623,6 +1623,7 @@ html,body{height:100%;}
             <span class="ob-door-a">Natsume S&#333;seki</span>
           </a>
         </div>
+      {{ aboutFaq }}
       <p style="font-size:16px;line-height:1.7;margin-top:44px;">Looking for a particular writer? <a href="/authors" onClick="{{ goAuthors }}" style="color:var(--accent);">Browse every author A&ndash;Z</a>.</p>
     </div>
   </sc-if>
@@ -1650,6 +1651,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="/home.js?v=4"></script>
-<script src="/app.js?v=12"></script>
+<script src="/app.js?v=13"></script>
 </body>
 </html>

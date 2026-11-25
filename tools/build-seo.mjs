@@ -85,7 +85,7 @@ export function seoContent(updated) {
   MENTIONS.forEach(([a, b], i) => { if (a !== b && NODES[a] && NODES[b]) (outs[a] = outs[a] || []).push({ k: b, q: NOTES[i] ? clean(NOTES[i]) : '' }); });
   const mentioners = k => MENTIONS.filter(([a, b]) => b === k && a !== k && NODES[a]).map(([a]) => a);
   const qa = [
-    { q: 'What is BookJumpr?', a: `BookJumpr (${SITE}) is a free website that maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers ${Object.keys(NODES).length.toLocaleString('en-US')} books and ${MENTIONS.length.toLocaleString('en-US')} mentions, most with the line where the mention happens.` },
+    { q: 'What is BookJumpr?', a: `BookJumpr (${SITE}) is a free database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration. It covers ${Object.keys(NODES).length.toLocaleString('en-US')} books and ${MENTIONS.length.toLocaleString('en-US')} mentions, most with the line where the mention happens.` },
     { q: 'What is the most mentioned book in other books?', a: `In BookJumpr's data, ${by(NODES, top[0])} is the book most often named inside other books (${indeg[top[0]]} books), followed by ${by(NODES, top[1])} (${indeg[top[1]]}) and ${by(NODES, top[2])} (${indeg[top[2]]}).` },
     ...top.slice(0, 3).map(k => ({ q: `Which books mention ${NODES[k][0]}?`, a: `${indeg[k]} books in BookJumpr mention ${by(NODES, k)}, including ${listOf(mentioners(k).map(m => by(NODES, m)), 8)}. Full list: ${SITE}/${k}` })),
     ...QA_SOURCES.filter(k => NODES[k] && outs[k]).map(k => ({ q: `What books are mentioned in ${NODES[k][0]}?`, a: `${by(NODES, k)} mentions ${outs[k].length} books: ${listOf(outs[k].map(o => by(NODES, o.k)), 12)}. With quotes: ${SITE}/${k}` })),
@@ -100,6 +100,7 @@ export function seoContent(updated) {
     if (fs.existsSync(f)) edge.G[k] = crypto.createHash('sha1').update(fs.readFileSync(f)).digest('hex').slice(0, 8);
   }
   // R: old book paths that now redirect, from each book's other titles (a merged-away duplicate's title is kept as one)
+  edge.N = [Object.keys(NODES).length, MENTIONS.length];   // [books, mentions], for the About FAQ
   edge.R = {};
   for (const [k, alts] of Object.entries(ALIASES)) for (const alt of alts) {
     const p = `${k.split('/')[0]}/${slug(alt)}`;
@@ -135,7 +136,7 @@ export function renderHtml(s) {
     '<div class="bj-seo">',
     '<h1>BookJumpr: books mentioned inside other books</h1>',
     `<p><time datetime="${s.updated}">Updated ${prettyDate(s.updated)}</time> · ${s.books.toLocaleString('en-US')} books · ${s.mentions.toLocaleString('en-US')} mentions</p>`,
-    `<p>BookJumpr maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. It covers ${s.books.toLocaleString('en-US')} books and ${s.mentions.toLocaleString('en-US')} mentions, most with the line where it happens. Pick a book, see every book it mentions and every book that mentions it, and jump from one to the next.</p>`,
+    `<p>BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration. It covers ${s.books.toLocaleString('en-US')} books and ${s.mentions.toLocaleString('en-US')} mentions, most with the line where it happens. Pick a book, see every book it mentions and every book that mentions it, and jump from one to the next.</p>`,
     '<h2>A few connections</h2>',
     '<ul>',
     ...s.examples.map(e => `<li><a href="/${e.ka}"><cite>${esc(e.a[0])}</cite></a> (${esc(e.a[1])}) mentions <a href="/${e.kb}"><cite>${esc(e.b[0])}</cite></a>: “${esc(e.q)}”</li>`),
@@ -158,7 +159,7 @@ export function renderLlms(s) {
     '',
     `Last updated: ${s.updated}. Updated whenever books are added.`,
     '',
-    `> BookJumpr (${SITE}) maps the books mentioned inside other books: when a character reads one, quotes one, or name-drops one. ${s.books.toLocaleString('en-US')} books, ${s.mentions.toLocaleString('en-US')} mentions.`,
+    `> BookJumpr (${SITE}) is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration. ${s.books.toLocaleString('en-US')} books, ${s.mentions.toLocaleString('en-US')} mentions.`,
     '',
     'Each mention links a book to a book it names, usually with the line from the text where it happens. On the site you pick a book, see every book it mentions and every book that mentions it, and jump between them.',
     '',

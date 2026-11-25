@@ -1945,6 +1945,24 @@
     // Mobile: drop the trailing call-to-action sentence from the intro paragraph.
     // Desktop value keeps the leading space (static text ends at "name-drops one.").
     vals.introTail = m ? '' : ' Pick a book, browse its shelf, and jump.';
+    // About page: a short FAQ. Same questions and answers as aboutFaq in netlify/seo/render.js (which also
+    // emits them as FAQPage structured data, so the two must match); counts are rounded to the nearest hundred.
+    vals.aboutFaq = null;
+    if (page === 'about' && all.length) {
+      var about = function (n) { return 'about ' + (Math.round(n / 100) * 100).toLocaleString('en-US'); };
+      var faq = [
+        ['What is BookJumpr?', 'BookJumpr is a knowledge graph of books mentioned in other books. It covers ' + about(all.length) + ' books and ' + (Math.round(this.totalLinks / 100) * 100).toLocaleString('en-US') + ' mentions, each with the line where it happens.'],
+        ['What counts as a mention?', 'A book has to be named on the page: read, quoted, discussed or dropped into conversation. Allusions and footnotes don\u2019t count.'],
+        ['How do I use it?', 'Search for a book or author, or pick one from the wall. Each book shows the books it mentions and the books that mention it, so you can jump from one to the next.']
+      ];
+      vals.aboutFaq = h('section', { style: { marginTop: '44px' } },
+        h('h2', { style: { fontFamily: "'Instrument Serif',serif", fontWeight: 400, fontSize: '26px', margin: '0 0 10px' } }, 'Questions'),
+        faq.map(function (f) {
+          return h('div', { key: f[0], style: { margin: '0 0 16px' } },
+            h('h3', { style: { fontSize: '16px', fontWeight: 700, margin: '0 0 4px' } }, f[0]),
+            h('p', { style: { fontSize: '16px', lineHeight: 1.7, margin: 0, textWrap: 'pretty' } }, f[1]));
+        }));
+    }
     // Mobile: 44px tap targets for the icon buttons (icons inside keep their size).
     var iconBtn = function (size, op) {
       return { width: size + 'px', height: size + 'px', display: 'flex', alignItems: 'center', justifyContent: 'center', background: 'none', border: '1.5px solid transparent', borderRadius: '999px', cursor: 'pointer', opacity: op, padding: 0 };
@@ -2128,7 +2146,7 @@
       var st = this.state;
       vals.hxClass = 'hx hx-' + hv + (this._wallDark ? ' wall-dark' : '') + (st.hxCompact && hv !== 'c' ? ' is-compact' : '') + (st.hxEngaged ? ' is-engaged' : '') + (st.hxTyping ? ' is-typing' : '');
       vals.hxIntro = m ? 'The books mentioned inside other books — pick one and jump.'
-        : 'BookJumpr maps the books mentioned inside other books — when a character reads one, quotes one, or name-drops one.';
+        : 'BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.';
       vals.hxHint = hv === 'b' ? (m ? 'Drag anywhere' : 'Drag or scroll anywhere') : hv === 'c' ? 'Scroll to spin the shelves' : 'Scroll the shelves';
       vals.hxExpand = function () { self.setState({ hxCompact: false }); if (self._hw) self._hw.resetEngage(); };
       vals.onFocusHx = function () { self.setState({ suggestFor: 'home', hxTyping: true, hxCompact: m && hv !== 'c' ? true : self.state.hxCompact }); };
