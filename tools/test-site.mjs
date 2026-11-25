@@ -65,7 +65,7 @@ console.log('\nClicking around a book page');
   ok(path(page) === '/j-d-salinger/the-catcher-in-the-rye' && /Catcher in the Rye/.test(await h1(page)) && (await noReload(page)), `click → ${path(page)}, no reload`);
   await page.waitForTimeout(800);
   ok(await page.locator('section.bj-story h2:has-text("The Catcher in the Rye and other books")').count() === 1, 'book page shows the "… and other books" write-up');
-  ok((await page.evaluate(() => document.title)) === 'The Catcher in the Rye — BookJumpr', 'tab title follows');
+  { const t = await page.evaluate(() => document.title); ok(/^Books (mentioned in|that mention) The Catcher in the Rye by J\. ?D\. Salinger \(\d+\) \| BookJumpr$/.test(t), 'tab title follows: ' + t); }
   ok((await page.evaluate(() => document.querySelector('link[rel=canonical]').href)) === 'https://bookjumpr.com/j-d-salinger/the-catcher-in-the-rye', 'canonical follows');
   await page.goBack(); await page.waitForTimeout(1000);
   ok(path(page) === '/haruki-murakami/norwegian-wood' && /Norwegian Wood/.test(await h1(page)) && (await noReload(page)), `back → ${path(page)}`);

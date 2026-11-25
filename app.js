@@ -2164,6 +2164,7 @@
     // book page
     if (page === 'book') {
       var b = books[route.id];
+      vals.b_docTitle = null;
       if (b) {
         vals.b_title = b.title;
         vals.b_cv = this.cover(b, 'vt-hero');
@@ -2179,6 +2180,9 @@
         vals.b_byline = [b.author ? 'by ' + b.author : null, yl || null].filter(Boolean).join('  ·  ');
         vals.b_synopsis = b.synopsis || 'No synopsis on file yet — but the trail doesn’t stop here. See what it’s connected to below.';
         vals.cntOut = b.out.length; vals.cntIn = b.in.length;
+        // the tab title, the same as the edge function's <title> (netlify/seo/render.js bookPage)
+        var who = bHasAuthor ? b.title + ' by ' + b.author : b.title;
+        vals.b_docTitle = b.out.length ? 'Books mentioned in ' + who + ' (' + b.out.length + ') | BookJumpr' : 'Books that mention ' + who + ' (' + b.in.length + ') | BookJumpr';
         vals.hasOut = b.out.length > 0; vals.noOut = b.out.length === 0;
         vals.hasIn = b.in.length > 0; vals.noIn = b.in.length === 0;
         var CARD_CAP = 24;
@@ -2433,7 +2437,7 @@
     if (typeof document !== 'undefined') {
       var titleMap = {
         home: 'BookJumpr: Books Mentioned Inside Other Books',
-        book: (vals.b_title || 'Book') + ' — BookJumpr',
+        book: vals.b_docTitle || (vals.b_title || 'Book') + ' — BookJumpr',
         author: (vals.a_name || 'Author') + ' — BookJumpr',
         search: '“' + (route.q || '') + '” — Search — BookJumpr',
         stats: 'Stats — BookJumpr',
