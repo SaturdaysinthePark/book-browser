@@ -1,6 +1,6 @@
 # BookJumpr: every book and the books it mentions
 
-> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-11-21. 1,051 books that mention other books, 8,730 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
+> Generated from BookJumpr (https://bookjumpr.com). Last updated: 2026-11-25. 1,052 books that mention other books, 8,766 mentions in all. Where a mention has a note, it is usually the line from the book where the mention happens.
 
 ## 10:04 by Ben Lerner (2014)
 https://bookjumpr.com/ben-lerner/10-04
@@ -98,7 +98,7 @@ https://bookjumpr.com/roberto-bolano/2666
 https://bookjumpr.com/kurt-vonnegut/2br02b
 - Hamlet by William Shakespeare: ""'To be or not to be' was the telephone number of the municipal gas chambers of the Federal Bureau of Termination" — a deliberate pun explaining the story's title (2-B-R-0-2-B)."
 
-## 84, Charing Cross Road by Helene Hanff (1970)
+## 84 Charing Cross Road by Helene Hanff (1970)
 https://bookjumpr.com/helene-hanff/84-charing-cross-road
 - The Diary of Samuel Pepys by Samuel Pepys: "She demands "a real Pepys" after the shop sends an excerpted edition: "WHAT KIND OF A PEPYS' DIARY DO YOU CALL THIS?""
 - Imaginary Conversations by Walter Savage Landor: "Have you got a copy of Landor's Imaginary Conversations? ... the one with a dialogue between Aesop and Rhodope."
@@ -1477,7 +1477,7 @@ https://bookjumpr.com/larry-mcmurtry/books-a-memoir
 - Moby-Dick by Herman Melville: "I picked up a hefty book called The Whale, our old friend Moby-Dick under its English title"
 - Gone with the Wind by Margaret Mitchell: "I read the longest book in it, Gone With the Wind"
 - Life on the Mississippi by Mark Twain: "We had a very nice copy of Life on the Mississippi"
-- 84, Charing Cross Road by Helene Hanff: "A general reader named Helen Hanff tapped these sentiments in 84 Charing Cross Road"
+- 84 Charing Cross Road by Helene Hanff: "A general reader named Helen Hanff tapped these sentiments in 84 Charing Cross Road"
 - Eminent Victorians by Lytton Strachey: "its author went on to write Eminent Victorians"
 - Don Quixote by Miguel de Cervantes: "I did read, early on, some simplified version of Don Quixote, which I could tell...was a different order of book"
 - Jude the Obscure by Thomas Hardy: "bitterness over the treatment of Jude the Obscure caused him to leave fiction and turn to poetry"
@@ -7398,6 +7398,45 @@ https://bookjumpr.com/boethius/the-consolation-of-philosophy
 ## The Coral Island by R. M. Ballantyne (1857)
 https://bookjumpr.com/r-m-ballantyne/the-coral-island
 - Captain Cook's Voyages by James Cook: "The only book I found on board, after a careful search, was a volume of Captain Cook's voyages."
+
+## The Correspondent by Virginia Evans (2025)
+https://bookjumpr.com/virginia-evans/the-correspondent
+- State of Wonder by Ann Patchett: "I am writing to congratulate you on your most recent novel, State of Wonder, which was given to me for my birthday by my brother. I finished reading it this morning."
+- Bel Canto by Ann Patchett: "…that was when I read your first big smash Bel Canto in the very early part of the millennium and you sent a reply… I enjoyed Bel Canto very much, but this new book is even better."
+- Run by Ann Patchett: "I did write to you when I finished reading the book before this one, Run, but I never heard back."
+- Cutting for Stone by Abraham Verghese: "I am reading Cutting for Stone by Abraham Verghese (I had to look how to spell that one). It’s very long."
+- Murder on the Orient Express by Agatha Christie: "I am reading Murder on the Orient Express (Agatha Christie; third time)."
+- Crossing to Safety by Wallace Stegner: "I am reading Crossing to Safety by Wallace Stegner. Did you already read this?"
+- Never Let Me Go by Kazuo Ishiguro: "I’m reading Never Let Me Go by Kazuo Ishiguro."
+- The Remains of the Day by Kazuo Ishiguro: "I thought it echoed a bit of your earlier novel, The Remains of the Day, which I also read and… enjoyed very much."
+- Ulysses by James Joyce: "…for you it was a first edition of Ulysses by James Joyce, which I found in a collectors bookstore in Annapolis."
+- Blue Nights by Joan Didion: "I’ve enclosed a copy of Blue Nights for you… (and) here I am coming to you with my tail between my legs, unable to bring myself to read Blue Nights."
+- The Year of Magical Thinking by Joan Didion: "I went back and reread The Year of Magical Thinking. The first time I read it, years ago, I recall thinking I would return to it one day."
+- The White Album by Joan Didion: "“What I have made for myself is personal, but is not exactly peace…. Most of us live less theatrically, but remain the survivors of a peculiar and inward time.” Joan Didion, “On the Morning After the Sixties,” The White Album (epigraph)"
+- Mary Poppins by P. L. Travers: "The first letter I ever wrote was in 1948 to P. L. Travers regarding her book Mary Poppins. I loved this book and read it numerous times."
+- The Orphan Master's Son by Adam Johnson: "I am reading The Orphan Master’s Son by Adam Johnson."
+- 84 Charing Cross Road by Helene Hanff: "Thought of you today—in a bookshop found a translation of 84 Charing Cross Road (Helene Hanff)—did you ever read it?"
+- Travels with Charley by John Steinbeck: "I’m reading Travels with Charley by John Steinbeck (which is charming—an intellectual cross-country road trip)."
+- The Space Trilogy by C.S. Lewis: "I brought the Space Trilogy (C. S. Lewis) and a bunch of Isaac Asimovs, but I’ll finish those soon."
+- The Chronicles of Narnia by C.S. Lewis: "He told me there will be more books in The Chronicles of Narnia series, and he gave me a couple of hints about what happens!"
+- The Lord of the Rings by J R R Tolkien: "He suggested I read the series The Lord of the Rings, which came out last year… so I bought the first book and I started it last night."
+- Rebecca by Daphne du Maurier: "I’ve been reading Rebecca by Daphne du Maurier, but it’s taking me ages."
+- The Emperor of All Maladies by Siddhartha Mukherjee: "Did you read that remarkable book about cancer? The Emperor of All Maladies. The emperor, indeed. Mukherjee. Remarkable."
+- The Round House by Louise Erdrich: "I’m still reading The Round House (Louise Erdrich)."
+- The World Below by Sue Miller: "I am reading The World Below by Sue Miller."
+- Foundation by Isaac Asimov: "I’m reading the Foundation series by Isaac Asimov for the second time."
+- Inferno by Dan Brown: "I am reading Inferno, the newest Dan Brown."
+- Outlander by Diana Gabaldon: "I am writing to tell you I have just had the surprise of a lifetime and that is, namely, reading your book, Outlander."
+- Stoner by John Williams: "I was finishing another book (Stoner by John Williams, a third read for me)."
+- To the Lighthouse by Virginia Woolf: "I am reading To the Lighthouse by Virginia Woolf."
+- Wuthering Heights by Emily Bronte: "We are reading Wuthering Heights now."
+- Quarantine by Eavan Boland: "I was somewhat familiar with Eavan Boland, but had not read much. The opening poem, “Quarantine,” is stunning."
+- Amongst Women by John McGahern: "I had not read John McGahern… After reading Amongst Women, I went and read That They May Face the Rising Sun, which I liked very much."
+- That They May Face the Rising Sun by John McGahern: "After reading Amongst Women, I went and read That They May Face the Rising Sun, which I liked very much."
+- The Stories of William Trevor by William Trevor: "I picked up The Stories of William Trevor and I’m going slowly, reading one story per week so it lasts."
+- Pride and Prejudice by Jane Austen: "Trying to get through Pride and Prejudice one more time."
+- Lonesome Dove by Larry McMurtry: "I want to tell you about my experience with having read Lonesome Dove. I have read the book now three times."
+- The Girl with the Dragon Tattoo by Stieg Larsson: "I just finished The Girl with the Dragon Tattoo series of three books. Have you read them?"
 
 ## The Corsican Brothers by Alexandre Dumas
 https://bookjumpr.com/alexandre-dumas/the-corsican-brothers
