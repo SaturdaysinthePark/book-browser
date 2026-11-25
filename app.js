@@ -45,7 +45,7 @@
   // Home-page suggestion pool: hand-picked, widely-known popular fiction (kept short
   // so two mobile pills + the shuffle button stay on one row). Titles are resolved to
   // books by slug via bookByTitle, so punctuation/accents/case don't need to match.
-  // The home hero's "jump": one real mention shown under the search — the book, the line, and the book it names.
+  // The home hero's "jump": one real mention shown at the top of the card — the book, the line, and the book it names.
   // [mentioning book, mentioned book, the line (as in bookjumpr-notes.js), the words in it that name the book].
   // Hand-picked: short lines, well-known books. A pair whose books have left the data is skipped.
   var JUMPS = [
@@ -1857,7 +1857,7 @@
     while (lead.length || rest.length) { if (lead.length) outRows.push(lead.shift()); if (rest.length) outRows.push(rest.shift()); }
     return outRows;
   };
-  // The jump under the home search: cover → dotted arc → cover, with the line in between and the mentioned
+  // The jump at the top of the home hero: cover → dotted arc → cover, with the line in between and the mentioned
   // title marked in it. Keyed by its index, so a shuffle remounts it and the entrance animation (CSS) replays.
   P._hxJump = function () {
     var self = this, books = this.books;
@@ -2018,7 +2018,7 @@
         if (hv) {
           var seedX = (self.state.chipSeed || 0) + 1;
           if (self._hw) self._hw.shuffle(hv === 'c' ? self._hxRows(seedX) : null);
-          // the jump under the search swaps too: the old one leaves (is-out), then the next one plays in
+          // the jump at the top of the card swaps too: the old one leaves (is-out), then the next one plays in
           clearTimeout(self._hjT);
           self.setState({ chipSeed: seedX, hjOut: true });
           self._hjT = setTimeout(function () { self.setState({ hjSeed: (self.state.hjSeed || 0) + 1, hjOut: false }); }, 220);

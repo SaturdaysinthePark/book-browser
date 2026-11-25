@@ -140,7 +140,7 @@ console.log('\nHeader, search, stats and about');
   await page.goto(BASE + '/'); await page.waitForTimeout(1500); await mark(page);
   const chip = page.locator('button', { hasText: /^(Treasure Island|The Brothers Karamazov|Uncle Tom|Robinson Crusoe)/ }).first();
   if (await chip.count()) { await chip.click(); await page.waitForTimeout(1200); ok(path(page).split('/').length === 3 && (await noReload(page)), `home suggestion → ${path(page)}`); }
-  // the jump under the home search: two cover links and the line between them; the shuffle swaps it
+  // the jump at the top of the home hero: two cover links and the line between them; the shuffle swaps it
   await page.goto(BASE + '/'); await page.waitForTimeout(1500);
   const jump = () => page.evaluate(() => { const j = document.querySelector('.hx-jump'); return j && [j.querySelector('.hj-a').getAttribute('href'), j.querySelector('.hj-b').getAttribute('href'), j.querySelector('.hj-m').getAttribute('href')].join(' '); });
   const j1 = await jump();
