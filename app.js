@@ -1869,12 +1869,40 @@
     var link = function (b, cls, kids) {
       return h('a', { className: cls, href: '/' + b.id, draggable: false, onClick: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) }, kids);
     };
-    return h('div', { className: 'hx-jump' + (this.state.hjOut ? ' is-out' : ''), key: 'hj' + i },
+    return h('div', { className: 'hx-jump' + (this.state.hjOut ? ' is-out' : ''), key: 'hj' + i, ref: function (el) { if (el) self._hjFly(el); } },
       link(A, 'hj-bk hj-a', this.cover(A)),
       h('div', { className: 'hj-mid' },
         h('svg', { className: 'hj-arc', 'aria-hidden': true, ref: function (el) { if (el) self._hjArc(el); } }),
         h('blockquote', { cite: 'https://bookjumpr.com/' + A.id }, h('span', null, '“' + j[2].slice(0, at), link(B, 'hj-m', j[3]), j[2].slice(at + j[3].length) + '”'))),
       link(B, 'hj-bk hj-b', this.cover(B)));
+  };
+  // The entrance, once per mount (each shuffle mounts a new one): the mentioned book comes out of the first book
+  // small, hops across along an arc while growing, and lands in its place with a little squash; the first book
+  // gives a kick as it leaves. Positions are measured, so it works at any width. Without the Web Animations API
+  // (or with reduced motion) the CSS entrance in index.html stands in.
+  P._hjFly = function (el) {
+    if (el._flown) return;
+    el._flown = true;
+    var A = el.querySelector('.hj-a'), B = el.querySelector('.hj-b');
+    if (!A || !B || !B.animate || (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+    var dx = (A.offsetLeft + A.offsetWidth / 2) - (B.offsetLeft + B.offsetWidth / 2);   // from A's centre to B's
+    if (!dx) return;
+    var peak = Math.min(38, Math.abs(dx) * 0.13), lift = A.offsetHeight * 0.1, N = 16, frames = [], k;
+    var ease = function (u) { return u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2; };
+    for (k = 0; k <= N; k++) {
+      var t = ease(k / N), x = dx * (1 - t), y = -lift * (1 - t) - peak * 4 * t * (1 - t), sc = 0.26 + 0.74 * Math.pow(t, 1.15);
+      frames.push({ offset: 0.84 * k / N, opacity: k === 0 ? 0 : 1, easing: 'linear',
+        transform: 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + (-16 + 18 * t).toFixed(1) + 'deg) scale(' + sc.toFixed(3) + ')' });
+    }
+    frames[1].opacity = 1;
+    frames.push({ offset: 0.92, opacity: 1, transform: 'translate(0,3px) rotate(2deg) scale(1.05,.95)', easing: 'ease-out' });
+    frames.push({ offset: 1, opacity: 1, transform: 'rotate(2deg)' });
+    el.classList.add('is-fly');   // turns off the CSS entrance for the second book, and times the arc and the line to the hop
+    this._hjAnims = [
+      B.animate(frames, { duration: 900, delay: 340, fill: 'backwards' }),
+      A.animate([{ transform: 'rotate(-2deg)' }, { transform: 'rotate(-8deg) translate(-3px,2px) scale(.96)', offset: 0.35 }, { transform: 'rotate(-2deg)' }],
+        { duration: 380, delay: 300, easing: 'ease-out' })
+    ];
   };
   // Draw the arc to the measured width (so the dots stay round and evenly spaced at any size): a start dot,
   // round dots along a shallow curve, and an open arrowhead that follows the curve's end.
@@ -2020,6 +2048,7 @@
           if (self._hw) self._hw.shuffle(hv === 'c' ? self._hxRows(seedX) : null);
           // the jump under the headline swaps too: the old one leaves (is-out), then the next one plays in
           clearTimeout(self._hjT);
+          (self._hjAnims || []).forEach(function (a) { try { a.cancel(); } catch (e) {} });   // a hop still in flight
           self.setState({ chipSeed: seedX, hjOut: true });
           self._hjT = setTimeout(function () { self.setState({ hjSeed: (self.state.hjSeed || 0) + 1, hjOut: false }); }, 220);
           return;

@@ -260,6 +260,11 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hj-arc{animation:hj-arc-in .5s var(--ease-in-out) .14s backwards;}
 .hx-jump blockquote{animation:hj-q-in .4s var(--ease-out) .3s backwards;}
 .hj-b{animation:hj-b-in .5s var(--ease-spring) .52s backwards;}
+/* with the hop (app.js _hjFly): the second book is flown in by script; the arc trails it and the line follows */
+.hj-b{position:relative;z-index:2;}
+.hx-jump.is-fly .hj-b{animation:none;}
+.hx-jump.is-fly .hj-arc{animation:hj-arc-in .62s var(--ease-in-out) .42s backwards;}
+.hx-jump.is-fly blockquote{animation:hj-q-in .4s var(--ease-out) .78s backwards;}
 /* leaving (a shuffle was pressed): both books tip away and everything fades, then the next jump mounts */
 .hx-jump.is-out .hj-bk,.hx-jump.is-out .hj-arc,.hx-jump.is-out blockquote{animation:none;transition:opacity .2s ease,transform .2s ease;opacity:0;}
 .hx-jump.is-out .hj-a{transform:rotate(-8deg) translate(-8px,8px);} .hx-jump.is-out .hj-b{transform:rotate(8deg) translate(8px,8px);}
@@ -1656,6 +1661,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="/home.js?v=5"></script>
-<script src="/app.js?v=20"></script>
+<script src="/app.js?v=21"></script>
 </body>
 </html>
