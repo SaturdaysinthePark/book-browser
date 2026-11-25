@@ -2406,6 +2406,10 @@
       var st = this.state;
       vals.hxClass = 'hx hx-' + hv + (this._wallDark ? ' wall-dark' : '') + (st.hxCompact && hv !== 'c' ? ' is-compact' : '') + (st.hxEngaged ? ' is-engaged' : '') + (st.hxTyping ? ' is-typing' : '');
       vals.hxJumpEl = hv === 'c' ? null : this._hxJump();
+      // under the search: the shelf-rows home keeps its pills; the others say what the site is (the jump above
+      // already gives books to click)
+      vals.hxShowChips = hv === 'c';
+      vals.hxNote = hv === 'c' ? '' : 'BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.';
       vals.hxIntro = hv !== 'c' ? ''     // the jump under the headline says it; the shelf-rows home keeps its line
         : m ? 'The books mentioned inside other books — pick one and jump.'
         : 'BookJumpr is a database and knowledge graph of books mentioned in other books, tracking when a book explicitly names another through its characters or narration.';

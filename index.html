@@ -238,6 +238,9 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-shuf:active{transform:translateY(-50%) rotate(180deg);}
 .hx-sugg{position:absolute;top:calc(100% + 10px);left:0;right:0;background:var(--card);border:1.5px solid var(--ink);border-radius:16px;box-shadow:0 18px 40px rgba(0,0,0,.35);overflow:hidden;z-index:20;text-align:left;}
 .hx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;}
+/* what the site is, small and faint under the search (the homes with the jump; the shelf-rows home keeps its pills) */
+.hx-note{margin:0 auto;padding-top:16px;max-width:430px;font-size:12.5px;line-height:1.5;color:var(--mut);text-wrap:pretty;}
+.hx-note:empty{display:none;}
 .hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
 .hx-chips button:hover{background:var(--ink);color:var(--paper);}
 /* the jump in the home hero, under the headline: cover → dotted arc → cover, the line in between (app.js _hxJump) */
@@ -314,6 +317,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   .hx-bar{margin-top:14px;}
   .hx-search input{height:50px;}
   .hx-chips{padding-top:12px;}
+  .hx-note{padding-top:12px;font-size:12px;}
   /* phone bar: the mark alone is too faint on the busy wall, so it sits in a solid ink disc */
   .hx.is-compact .hx-logo{width:52px;padding-left:6px;}
   .hx.is-compact .hx-logo span{display:none;}
@@ -1254,11 +1258,14 @@ html,body{height:100%;}
               </div>
             </div>
             <div class="hx-x"><div>
-              <div class="hx-chips">
-                <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
-                  <button onClick="{{ ch.go }}">{{ ch.label }}</button>
-                </sc-for>
-              </div>
+              <sc-if value="{{ hxShowChips }}" hint-placeholder-val="{{ false }}">
+                <div class="hx-chips">
+                  <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
+                    <button onClick="{{ ch.go }}">{{ ch.label }}</button>
+                  </sc-for>
+                </div>
+              </sc-if>
+              <p class="hx-note">{{ hxNote }}</p>
             </div></div>
           </div>
         </div>
@@ -1659,6 +1666,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="/home.js?v=5"></script>
-<script src="/app.js?v=25"></script>
+<script src="/app.js?v=26"></script>
 </body>
 </html>
