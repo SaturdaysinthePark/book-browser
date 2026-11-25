@@ -1789,6 +1789,7 @@
       pool: this._hxPool(), seq: v === 'b' ? this._hxSeq() : null,
       rows: v === 'c' ? this._hxRows(this.state.chipSeed || 0) : null,
       html: function (id) { return self.coverHTML(self.books[id]); },
+      href: function (id) { return '/' + id; },
       neighbors: function (id) { var b = self.books[id]; return b ? b.out.concat(b.in) : []; },
       onOpen: function (id, el) { self.goBook(id, el); },
       onEngage: function () { self.setState({ hxEngaged: true, hxCompact: v !== 'c' }); }
