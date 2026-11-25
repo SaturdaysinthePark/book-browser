@@ -241,7 +241,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
 .hx-chips button:hover{background:var(--ink);color:var(--paper);}
 /* the jump in the home hero, under the headline: cover → dotted arc → cover, the line in between (app.js _hxJump) */
-.hx-jump{display:grid;grid-template-columns:var(--jc) minmax(0,1fr) var(--jc);gap:20px;align-items:center;--jc:84px;padding:14px 14px 10px;max-width:520px;margin:0 auto;}
+.hx-jump{display:grid;grid-template-columns:var(--jc) minmax(0,1fr) var(--jc);gap:20px;align-items:center;--jc:84px;padding:38px 14px 10px;max-width:520px;margin:0 auto;}
 .hx-jump .cv{--lit:1;border-radius:3px;box-shadow:0 6px 10px rgba(70,50,25,.22),0 1px 3px rgba(40,30,15,.22);}
 .hj-bk{display:block;color:inherit;text-decoration:none;-webkit-user-drag:none;transition:transform .32s var(--ease-spring);}
 .hj-a{transform:rotate(-2deg);} .hj-b{transform:rotate(2deg);}
@@ -263,14 +263,16 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 /* with the hop (app.js _hjFly): the second book is flown in by script; the arc trails it and the line follows */
 .hj-b{position:relative;z-index:2;}
 .hx-jump.is-fly .hj-b{animation:none;}
-.hx-jump.is-fly .hj-arc{animation:hj-arc-in .62s var(--ease-in-out) .42s backwards;}
-.hx-jump.is-fly blockquote{animation:hj-q-in .4s var(--ease-out) .78s backwards;}
+/* the trail keeps pace with the book: 70% across by the touch-down, a beat, then the rest (HOP in app.js) */
+@keyframes hj-trail{0%{clip-path:inset(-14px 100% -14px -12px);}59%{clip-path:inset(-14px 30% -14px -12px);}69%{clip-path:inset(-14px 30% -14px -12px);}100%{clip-path:inset(-14px -12px -14px -12px);}}
+.hx-jump.is-fly .hj-arc{animation:hj-trail 1.09s linear .34s backwards;}
+.hx-jump.is-fly blockquote{animation:hj-q-in .4s var(--ease-out) 1.1s backwards;}
 /* leaving (a shuffle was pressed): both books tip away and everything fades, then the next jump mounts */
 .hx-jump.is-out .hj-bk,.hx-jump.is-out .hj-arc,.hx-jump.is-out blockquote{animation:none;transition:opacity .2s ease,transform .2s ease;opacity:0;}
 .hx-jump.is-out .hj-a{transform:rotate(-8deg) translate(-8px,8px);} .hx-jump.is-out .hj-b{transform:rotate(8deg) translate(8px,8px);}
 .hx-jump.is-out blockquote{transform:translateY(-4px);}
 @media (prefers-reduced-motion:reduce){.hj-bk,.hj-arc,.hx-jump blockquote{animation:none;transition:none;}.hx-jump.is-out .hj-bk,.hx-jump.is-out .hj-arc,.hx-jump.is-out blockquote{transition:none;}}
-@media (max-width:640px){.hx-jump{--jc:60px;gap:10px;padding:10px 8px 8px;}.hx-jump blockquote{font-size:13.5px;min-height:4.35em;}}
+@media (max-width:640px){.hx-jump{--jc:60px;gap:10px;padding:28px 8px 8px;}.hx-jump blockquote{font-size:13.5px;min-height:4.35em;}}
 
 .hx.is-compact .hx-x{grid-template-rows:0fr;opacity:0;}
 .hx.is-compact .hx-card{padding:7px;border-radius:999px;}
@@ -1661,6 +1663,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="/home.js?v=5"></script>
-<script src="/app.js?v=21"></script>
+<script src="/app.js?v=22"></script>
 </body>
 </html>

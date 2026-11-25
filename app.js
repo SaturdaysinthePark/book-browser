@@ -1876,9 +1876,13 @@
         h('blockquote', { cite: 'https://bookjumpr.com/' + A.id }, h('span', null, '“' + j[2].slice(0, at), link(B, 'hj-m', j[3]), j[2].slice(at + j[3].length) + '”'))),
       link(B, 'hj-bk hj-b', this.cover(B)));
   };
+  // The hop's shape and timing, shared by the flying book (_hjFly) and its dotted trail (_hjArc, and the hj-trail
+  // keyframes in index.html): it covers `reach` of the way in the big hop, which ends at t1 of the duration;
+  // the small hop runs t2 → t3; the rest is the landing.
+  var HOP = { ms: 1400, delay: 340, reach: 0.7, t1: 0.46, t2: 0.54, t3: 0.78 };
   // The entrance, once per mount (each shuffle mounts a new one): the mentioned book comes out of the first book
-  // small, hops across along an arc while growing, and lands in its place with a little squash; the first book
-  // gives a kick as it leaves. Positions are measured, so it works at any width. Without the Web Animations API
+  // small, hops most of the way across, touches down, skips into its place and lands with a little squash; the
+  // first book gives a kick as it leaves. Positions are measured, so it works at any width. Without the Web Animations API
   // (or with reduced motion) the CSS entrance in index.html stands in.
   P._hjFly = function (el) {
     if (el._flown) return;
@@ -1887,35 +1891,43 @@
     if (!A || !B || !B.animate || (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
     var dx = (A.offsetLeft + A.offsetWidth / 2) - (B.offsetLeft + B.offsetWidth / 2);   // from A's centre to B's
     if (!dx) return;
-    var peak = Math.min(38, Math.abs(dx) * 0.13), lift = A.offsetHeight * 0.1, N = 16, frames = [], k;
-    var ease = function (u) { return u < 0.5 ? 2 * u * u : 1 - Math.pow(-2 * u + 2, 2) / 2; };
-    for (k = 0; k <= N; k++) {
-      var t = ease(k / N), x = dx * (1 - t), y = -lift * (1 - t) - peak * 4 * t * (1 - t), sc = 0.26 + 0.74 * Math.pow(t, 1.15);
-      frames.push({ offset: 0.84 * k / N, opacity: k === 0 ? 0 : 1, easing: 'linear',
-        transform: 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + (-16 + 18 * t).toFixed(1) + 'deg) scale(' + sc.toFixed(3) + ')' });
+    // Two parabolas, like a thrown thing: a big hop that carries it most of the way and touches down (the "boop"),
+    // then a small one into place. Sizes follow the cover's height, so phone and desktop move alike.
+    var hC = B.offsetHeight, frames = [], k, u, x, y, sc, rot;
+    var yStart = -0.1 * hC, yBoop = -0.14 * hC, h1 = 0.5 * hC, h2 = 0.2 * hC, xBoop = dx * (1 - HOP.reach);
+    var tf = function (x, y, rot, sx, sy) { return 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + rot.toFixed(1) + 'deg) scale(' + sx.toFixed(3) + ',' + sy.toFixed(3) + ')'; };
+    for (k = 0; k <= 12; k++) {          // the big hop: out of the first book, small, growing
+      u = k / 12; x = dx + (xBoop - dx) * u; y = yStart + (yBoop - yStart) * u - h1 * 4 * u * (1 - u); sc = 0.26 + 0.54 * u; rot = -16 + 16 * u;
+      frames.push({ offset: HOP.t1 * u, opacity: k === 0 ? 0 : 1, easing: 'linear', transform: tf(x, y, rot, sc, sc) });
     }
-    frames[1].opacity = 1;
-    frames.push({ offset: 0.92, opacity: 1, transform: 'translate(0,3px) rotate(2deg) scale(1.05,.95)', easing: 'ease-out' });
+    frames.push({ offset: (HOP.t1 + HOP.t2) / 2, opacity: 1, easing: 'linear', transform: tf(xBoop, yBoop + 0.03 * hC, 0, 0.9, 0.7) });   // boop: squash on the line
+    for (k = 0; k <= 8; k++) {           // the small hop into place
+      u = k / 8; x = xBoop * (1 - u); y = yBoop * (1 - u) - h2 * 4 * u * (1 - u); sc = 0.8 + 0.2 * u; rot = 7 * 4 * u * (1 - u) + 2 * u;
+      frames.push({ offset: HOP.t2 + (HOP.t3 - HOP.t2) * u, opacity: 1, easing: 'linear', transform: tf(x, y, rot, sc, sc) });
+    }
+    frames.push({ offset: (HOP.t3 + 1) / 2, opacity: 1, easing: 'ease-out', transform: tf(0, 0.025 * hC, 2, 1.06, 0.94) });   // land: squash
     frames.push({ offset: 1, opacity: 1, transform: 'rotate(2deg)' });
     el.classList.add('is-fly');   // turns off the CSS entrance for the second book, and times the arc and the line to the hop
     this._hjAnims = [
-      B.animate(frames, { duration: 900, delay: 340, fill: 'backwards' }),
+      B.animate(frames, { duration: HOP.ms, delay: HOP.delay, fill: 'backwards' }),
       A.animate([{ transform: 'rotate(-2deg)' }, { transform: 'rotate(-8deg) translate(-3px,2px) scale(.96)', offset: 0.35 }, { transform: 'rotate(-2deg)' }],
-        { duration: 380, delay: 300, easing: 'ease-out' })
+        { duration: 380, delay: HOP.delay - 40, easing: 'ease-out' })
     ];
   };
   // Draw the arc to the measured width (so the dots stay round and evenly spaced at any size): a start dot,
-  // round dots along a shallow curve, and an open arrowhead that follows the curve's end.
+  // round dots along the hop's two humps, and an open arrowhead that follows the curve's end.
   P._hjArc = function (svg) {
     var W = Math.round(svg.parentNode.clientWidth);
     if (!W || svg._w === W) return;
     svg._w = W;
-    var H = W < 220 ? 22 : 28, x0 = 4, y0 = H - 3, x1 = W - 6, y1 = H - 5, cx = W / 2, cy = -H * 0.55;
-    var ang = Math.atan2(y1 - cy, x1 - cx) * 180 / Math.PI;      // a quadratic curve ends heading (end − control)
-    var n = Math.round(W * 1.06 / 7.5), step = (96 / n).toFixed(3), dash = '';
+    // two humps, big then small, meeting where the book touches down
+    var H = W < 220 ? 24 : 30, x0 = 4, y0 = H - 3, x1 = W - 6, y1 = H - 5, xm = x0 + (x1 - x0) * HOP.reach, ym = H - 2;
+    var c1x = (x0 + xm) / 2, c1y = -H * 0.75, c2x = (xm + x1) / 2, c2y = H * 0.12;
+    var ang = Math.atan2(y1 - c2y, x1 - c2x) * 180 / Math.PI;    // a quadratic curve ends heading (end − control)
+    var n = Math.round(W * 1.16 / 7.5), step = (96 / n).toFixed(3), dash = '';
     for (var k = 0; k < n; k++) dash += '0.01 ' + step + ' ';
     svg.setAttribute('width', W); svg.setAttribute('height', H); svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
-    svg.innerHTML = '<path d="M' + x0 + ' ' + y0 + ' Q' + cx + ' ' + cy + ' ' + x1 + ' ' + y1 + '" pathLength="100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="' + dash + '0 100"/>'
+    svg.innerHTML = '<path d="M' + x0 + ' ' + y0 + ' Q' + c1x + ' ' + c1y.toFixed(1) + ' ' + xm.toFixed(1) + ' ' + ym + ' Q' + c2x.toFixed(1) + ' ' + c2y.toFixed(1) + ' ' + x1 + ' ' + y1 + '" pathLength="100" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-dasharray="' + dash + '0 100"/>'
       + '<circle cx="' + x0 + '" cy="' + y0 + '" r="2.6" fill="currentColor"/>'
       + '<path d="M-8 -4.5 L0 0 L-8 4.5" transform="translate(' + x1 + ' ' + y1 + ') rotate(' + ang.toFixed(1) + ')" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>';
   };
