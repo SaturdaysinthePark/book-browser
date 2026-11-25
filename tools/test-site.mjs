@@ -140,6 +140,16 @@ console.log('\nHeader, search, stats and about');
   await page.goto(BASE + '/'); await page.waitForTimeout(1500); await mark(page);
   const chip = page.locator('button', { hasText: /^(Treasure Island|The Brothers Karamazov|Uncle Tom|Robinson Crusoe)/ }).first();
   if (await chip.count()) { await chip.click(); await page.waitForTimeout(1200); ok(path(page).split('/').length === 3 && (await noReload(page)), `home suggestion → ${path(page)}`); }
+  // the jump under the home search: two cover links and the line between them; the shuffle swaps it
+  await page.goto(BASE + '/'); await page.waitForTimeout(1500);
+  const jump = () => page.evaluate(() => { const j = document.querySelector('.hx-jump'); return j && [j.querySelector('.hj-a').getAttribute('href'), j.querySelector('.hj-b').getAttribute('href'), j.querySelector('.hj-m').getAttribute('href')].join(' '); });
+  const j1 = await jump();
+  ok(!!j1 && j1.split(' ')[1] === j1.split(' ')[2], `home jump links two books and marks the mentioned one (${j1})`);
+  await page.locator('.hx-shuf').click(); await page.waitForTimeout(1500);
+  ok((await jump()) !== j1, 'shuffle swaps the home jump');
+  await mark(page); const jm = (await jump()).split(' ')[2];
+  await page.locator('.hj-m').click(); await page.waitForTimeout(1200);
+  ok(path(page) === jm && (await noReload(page)), `home jump mention → ${path(page)}`);
   await page.close();
 }
 

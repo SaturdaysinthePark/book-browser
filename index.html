@@ -240,7 +240,33 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;}
 .hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
 .hx-chips button:hover{background:var(--ink);color:var(--paper);}
-.hx-chips .lbl{width:100%;font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--mut);margin-bottom:2px;}
+/* the jump under the home search: cover → dotted arc → cover, the line in between (app.js _hxJump) */
+.hx-jump{display:grid;grid-template-columns:var(--jc) minmax(0,1fr) var(--jc);gap:20px;align-items:center;--jc:84px;padding:30px 14px 16px;}
+.hx-jump .cv{--lit:1;border-radius:3px;box-shadow:0 6px 10px rgba(70,50,25,.22),0 1px 3px rgba(40,30,15,.22);}
+.hj-bk{display:block;color:inherit;text-decoration:none;-webkit-user-drag:none;transition:transform .32s var(--ease-spring);}
+.hj-a{transform:rotate(-2deg);} .hj-b{transform:rotate(2deg);}
+.hj-a:hover{transform:rotate(-2deg) translateY(-5px) scale(1.05);} .hj-b:hover{transform:rotate(2deg) translateY(-5px) scale(1.05);}
+.hj-arc{display:block;overflow:visible;margin:0 auto 10px;color:var(--ink);}
+.hx-jump blockquote{margin:0;min-height:2.9em;display:flex;align-items:center;justify-content:center;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:16px;line-height:1.45;color:var(--ink);text-align:center;}
+.hx-jump blockquote>span{text-wrap:balance;}
+.hj-m{color:inherit;text-decoration:underline dotted;text-decoration-thickness:1px;text-decoration-color:color-mix(in srgb,var(--ink) 40%,transparent);text-underline-offset:5px;transition:text-decoration-color .15s;}
+.hj-m:hover{text-decoration-color:var(--ink);}
+.hx-jump + .hx-chips{padding-top:14px;}
+/* entrance, replayed on each shuffle: the first book settles, the arc draws across, the line rises, the second book lands */
+@keyframes hj-a-in{from{opacity:0;transform:rotate(-9deg) translate(-10px,8px);}to{opacity:1;transform:rotate(-2deg);}}
+@keyframes hj-b-in{0%{opacity:0;transform:rotate(9deg) translateY(-16px) scale(.92);}100%{opacity:1;transform:rotate(2deg);}}
+@keyframes hj-arc-in{from{clip-path:inset(-12px 100% -12px -12px);}to{clip-path:inset(-12px -12px -12px -12px);}}
+@keyframes hj-q-in{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+.hj-a{animation:hj-a-in .42s var(--ease-spring) backwards;}
+.hj-arc{animation:hj-arc-in .5s var(--ease-in-out) .14s backwards;}
+.hx-jump blockquote{animation:hj-q-in .4s var(--ease-out) .3s backwards;}
+.hj-b{animation:hj-b-in .5s var(--ease-spring) .52s backwards;}
+/* leaving (a shuffle was pressed): both books tip away and everything fades, then the next jump mounts */
+.hx-jump.is-out .hj-bk,.hx-jump.is-out .hj-arc,.hx-jump.is-out blockquote{animation:none;transition:opacity .2s ease,transform .2s ease;opacity:0;}
+.hx-jump.is-out .hj-a{transform:rotate(-8deg) translate(-8px,8px);} .hx-jump.is-out .hj-b{transform:rotate(8deg) translate(8px,8px);}
+.hx-jump.is-out blockquote{transform:translateY(-4px);}
+@media (prefers-reduced-motion:reduce){.hj-bk,.hj-arc,.hx-jump blockquote{animation:none;transition:none;}.hx-jump.is-out .hj-bk,.hx-jump.is-out .hj-arc,.hx-jump.is-out blockquote{transition:none;}}
+@media (max-width:640px){.hx-jump{--jc:60px;gap:10px;padding:22px 10px 14px;}.hx-jump blockquote{font-size:13.5px;min-height:4.35em;}.hx-jump + .hx-chips{padding-top:8px;}}
 
 .hx.is-compact .hx-x{grid-template-rows:0fr;opacity:0;}
 .hx.is-compact .hx-card{padding:7px;border-radius:999px;}
@@ -259,7 +285,6 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-c .hx-p{margin:8px 0 0;max-width:none;font-size:14px;}
 .hx-c .hx-bar{margin-top:0;}
 .hx-c .hx-chips{justify-content:flex-start;padding-top:12px;}
-.hx-c .hx-chips .lbl{display:none;}
 
 .hx-nav{position:absolute;top:calc(14px + env(safe-area-inset-top));right:14px;z-index:7;display:flex;gap:2px;padding:3px;background:rgba(253,252,250,.94);border:1.5px solid var(--ink);border-radius:999px;box-shadow:0 3px 0 rgba(0,0,0,.6);}
 /* corner nav: icon pills that pop open to icon + label on hover / keyboard focus */
@@ -289,7 +314,6 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
   .hx-search input{height:50px;}
   .hx-arc{max-width:230px;}
   .hx-chips{padding-top:12px;}
-  .hx-chips .lbl{display:none;}
   /* phone bar: the mark alone is too faint on the busy wall, so it sits in a solid ink disc */
   .hx.is-compact .hx-logo{width:52px;padding-left:6px;}
   .hx.is-compact .hx-logo span{display:none;}
@@ -1246,8 +1270,8 @@ html,body{height:100%;}
               </div>
             </div>
             <div class="hx-x"><div>
+              {{ hxJumpEl }}
               <div class="hx-chips">
-                <span class="lbl">Rabbit holes to fall into</span>
                 <sc-for list="{{ chips }}" as="ch" hint-placeholder-count="3">
                   <button onClick="{{ ch.go }}">{{ ch.label }}</button>
                 </sc-for>
@@ -1651,6 +1675,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="/home.js?v=5"></script>
-<script src="/app.js?v=16"></script>
+<script src="/app.js?v=17"></script>
 </body>
 </html>
