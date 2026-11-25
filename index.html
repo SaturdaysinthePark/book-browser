@@ -210,6 +210,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-x{display:grid;grid-template-rows:1fr;transition:grid-template-rows .55s var(--ease-out),opacity .35s ease,margin .55s var(--ease-out);}
 .hx-x > div{min-height:0;overflow:hidden;}
 .hx-h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(32px,6.4vw,52px);line-height:1.04;margin:14px 0 10px;letter-spacing:-.005em;}
+.hx-p:empty{display:none;}
 .hx-p{font-size:15px;line-height:1.55;color:rgba(20,20,20,.72);max-width:440px;margin:0 auto;text-wrap:pretty;}
 .hx-bar{display:flex;align-items:center;gap:8px;margin-top:22px;transition:margin .55s var(--ease-out);}
 .hx-logo{flex:none;display:flex;align-items:center;gap:8px;width:0;opacity:0;overflow:hidden;padding:0;border:none;background:none;cursor:pointer;transition:width .55s var(--ease-out),opacity .3s ease;color:var(--ink);}
@@ -239,8 +240,8 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-chips{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;padding-top:16px;}
 .hx-chips button{border:1.5px solid var(--ink);background:var(--card);border-radius:999px;padding:7px 15px;font-size:13px;cursor:pointer;font-family:inherit;color:var(--ink);transition:background .15s,color .15s;}
 .hx-chips button:hover{background:var(--ink);color:var(--paper);}
-/* the jump at the top of the home hero: cover → dotted arc → cover, the line in between (app.js _hxJump) */
-.hx-jump{display:grid;grid-template-columns:var(--jc) minmax(0,1fr) var(--jc);gap:20px;align-items:center;--jc:84px;padding:6px 14px 10px;max-width:520px;margin:0 auto;}
+/* the jump in the home hero, under the headline: cover → dotted arc → cover, the line in between (app.js _hxJump) */
+.hx-jump{display:grid;grid-template-columns:var(--jc) minmax(0,1fr) var(--jc);gap:20px;align-items:center;--jc:84px;padding:14px 14px 10px;max-width:520px;margin:0 auto;}
 .hx-jump .cv{--lit:1;border-radius:3px;box-shadow:0 6px 10px rgba(70,50,25,.22),0 1px 3px rgba(40,30,15,.22);}
 .hj-bk{display:block;color:inherit;text-decoration:none;-webkit-user-drag:none;transition:transform .32s var(--ease-spring);}
 .hj-a{transform:rotate(-2deg);} .hj-b{transform:rotate(2deg);}
@@ -264,7 +265,7 @@ a.ob-door:hover .ob-cv{transform:translateY(-4px);}
 .hx-jump.is-out .hj-a{transform:rotate(-8deg) translate(-8px,8px);} .hx-jump.is-out .hj-b{transform:rotate(8deg) translate(8px,8px);}
 .hx-jump.is-out blockquote{transform:translateY(-4px);}
 @media (prefers-reduced-motion:reduce){.hj-bk,.hj-arc,.hx-jump blockquote{animation:none;transition:none;}.hx-jump.is-out .hj-bk,.hx-jump.is-out .hj-arc,.hx-jump.is-out blockquote{transition:none;}}
-@media (max-width:640px){.hx-jump{--jc:60px;gap:10px;padding:6px 8px 8px;}.hx-jump blockquote{font-size:13.5px;min-height:4.35em;}}
+@media (max-width:640px){.hx-jump{--jc:60px;gap:10px;padding:10px 8px 8px;}.hx-jump blockquote{font-size:13.5px;min-height:4.35em;}}
 
 .hx.is-compact .hx-x{grid-template-rows:0fr;opacity:0;}
 .hx.is-compact .hx-card{padding:7px;border-radius:999px;}
@@ -1225,8 +1226,8 @@ html,body{height:100%;}
       <div class="hx-hero" data-hx-band="1">
         <div class="hx-card">
           <div class="hx-x"><div>
-            {{ hxJumpEl }}
             <h1 class="hx-h1">Every book is a door<br>to more books.</h1>
+            {{ hxJumpEl }}
             <p class="hx-p">{{ hxIntro }}</p>
           </div></div>
           <div>
@@ -1655,6 +1656,6 @@ html,body{height:100%;}
      since these two files add ~1.2MB that every other route never uses. -->
 <!-- The application -->
 <script src="/home.js?v=5"></script>
-<script src="/app.js?v=19"></script>
+<script src="/app.js?v=20"></script>
 </body>
 </html>
