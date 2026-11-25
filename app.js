@@ -354,7 +354,7 @@
 
   var BookJumpr = function (props) {
     React.Component.call(this, props);
-    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hjSeed: 0, hjOut: false, hxCompact: false, hxEngaged: false, hxTyping: false,
+    this.state = { route: { page: 'home' }, q: '', suggestFor: null, ready: false, vw: 0, chipSeed: 0, hjSeed: 0, hxCompact: false, hxEngaged: false, hxTyping: false,
       xHover: null, xAll: null, xQ: '', xPathOpen: false, xPathQ: '', xPathTo: null };
     // Data is available synchronously via the vendored global, so build it up front.
     this.buildData(DATA.NODES || {}, DATA.MENTIONS || [], DATA.ALIASES || {});
@@ -1857,42 +1857,69 @@
     while (lead.length || rest.length) { if (lead.length) outRows.push(lead.shift()); if (rest.length) outRows.push(rest.shift()); }
     return outRows;
   };
-  // The jump in the home hero, under the headline: cover → dotted arc → cover, with the line in between and the mentioned
-  // title marked in it. Keyed by its index, so a shuffle remounts it and the entrance animation (CSS) replays.
+  // The jump in the home hero, under the headline: cover → dotted arc → cover, with the line in between and the
+  // mentioned title marked in it. The element stays mounted; a shuffle changes what it shows (_hjShuffle).
   P._hxJump = function () {
     var self = this, books = this.books;
     var pool = this._hjPool || (this._hjPool = JUMPS.filter(function (j) { return books[j[0]] && books[j[1]] && j[2].indexOf(j[3]) >= 0; }));
     if (!pool.length) return null;
     if (this._hjStart == null) this._hjStart = Math.floor(Math.random() * pool.length);   // a different one each visit
     var i = (this._hjStart + (this.state.hjSeed || 0)) % pool.length, j = pool[i], A = books[j[0]], B = books[j[1]];
-    var at = j[2].indexOf(j[3]);
     var link = function (b, cls, kids) {
       return h('a', { className: cls, href: '/' + b.id, draggable: false, onClick: self._linkGo(function (e) { self.goBook(b.id, e && e.currentTarget); }) }, kids);
     };
-    return h('div', { className: 'hx-jump' + (this.state.hjOut ? ' is-out' : ''), key: 'hj' + i, ref: function (el) { if (el) self._hjFly(el); } },
-      link(A, 'hj-bk hj-a', this.cover(A)),
+    // The line as words (each its own inline block, so a line of them can flip together); the title, with any
+    // punctuation stuck to it, is one unbreakable word.
+    var at = j[2].indexOf(j[3]), before = j[2].slice(0, at), after = j[2].slice(at + j[3].length);
+    var pre = /(\S*)$/.exec(before)[1], post = /^(\S*)/.exec(after)[1];
+    var lead = before.slice(0, before.length - pre.length).split(/\s+/).filter(Boolean), tail = after.slice(post.length).split(/\s+/).filter(Boolean);
+    if (lead.length) lead[0] = '“' + lead[0]; else pre = '“' + pre;
+    if (tail.length) tail[tail.length - 1] += '”'; else post += '”';
+    var kids = [], word = function (k, c) { if (kids.length) kids.push(' '); kids.push(h('span', { className: 'hj-w', key: k }, c)); };
+    lead.forEach(function (w, n) { word('l' + n, w); });
+    word('t', [pre, link(B, 'hj-m', j[3]), post]);
+    tail.forEach(function (w, n) { word('r' + n, w); });
+    var cover = function (b, cls) { return link(b, 'hj-bk ' + cls, h('span', { className: 'hj-flip' }, self.cover(b))); };
+    return h('div', { className: 'hx-jump', ref: function (el) { self._hjEl = el; if (el && !el._in) { el._in = true; self._hjIn(el, true); } } },
+      cover(A, 'hj-a'),
       h('div', { className: 'hj-mid' },
         h('svg', { className: 'hj-arc', 'aria-hidden': true, ref: function (el) { if (el) self._hjArc(el); } }),
-        h('blockquote', { cite: 'https://bookjumpr.com/' + A.id }, h('span', null, '“' + j[2].slice(0, at), link(B, 'hj-m', j[3]), j[2].slice(at + j[3].length) + '”'))),
-      link(B, 'hj-bk hj-b', this.cover(B)));
+        h('blockquote', { cite: 'https://bookjumpr.com/' + A.id }, h('span', null, kids))),
+      cover(B, 'hj-b'));
   };
-  // The hop's shape and timing, shared by the flying book (_hjFly) and its dotted trail (_hjArc, and the hj-trail
-  // keyframes in index.html): it covers `reach` of the way in the big hop, which ends at t1 of the duration;
-  // the small hop runs t2 → t3; the rest is the landing.
-  var HOP = { ms: 1400, delay: 340, reach: 0.7, t1: 0.46, t2: 0.54, t3: 0.78 };
-  // The entrance, once per mount (each shuffle mounts a new one): the mentioned book comes out of the first book
+  // The hop's shape and timing, shared by the flying book and its dotted trail (_hjIn, _hjArc): it covers `reach`
+  // of the way in the big hop, which ends at t1 of the duration; the small hop runs t2 → t3; the rest is the landing.
+  var HOP = { ms: 1400, reach: 0.7, t1: 0.46, t2: 0.54, t3: 0.78 };
+  var HJ_CLIP = function (right) { return 'inset(-14px ' + right + ' -14px -12px)'; };
+  P._hjParts = function (el) {
+    var words = [].slice.call(el.querySelectorAll('.hj-w')), tops = [];
+    words.forEach(function (w) { if (tops.indexOf(w.offsetTop) < 0) tops.push(w.offsetTop); });
+    tops.sort(function (x, y) { return x - y; });
+    return { A: el.querySelector('.hj-a'), B: el.querySelector('.hj-b'), arc: el.querySelector('.hj-arc'),
+      words: words.map(function (w) { return { el: w, line: tops.indexOf(w.offsetTop) }; }) };   // which line each word sits on
+  };
+  P._hjCan = function (el) {
+    return !!(el && el.animate && el.offsetParent && !(typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches));
+  };
+  P._hjStop = function () {
+    clearTimeout(this._hjT);
+    (this._hjAnims || []).forEach(function (a) { try { a.cancel(); } catch (e) {} });
+    this._hjAnims = [];
+  };
+  // The arrival — on load (first) and after each shuffle's swap: the mentioned book comes out of the first book
   // small, hops most of the way across, touches down, skips into its place and lands with a little squash; the
-  // first book gives a kick as it leaves. Positions are measured, so it works at any width. Without the Web Animations API
-  // (or with reduced motion) the CSS entrance in index.html stands in.
-  P._hjFly = function (el) {
-    if (el._flown) return;
-    el._flown = true;
-    var A = el.querySelector('.hj-a'), B = el.querySelector('.hj-b');
-    if (!A || !B || !B.animate || (typeof matchMedia !== 'undefined' && matchMedia('(prefers-reduced-motion: reduce)').matches)) return;
+  // first book gives a kick as it leaves, the dotted trail keeps pace, and the line flips in a row at a time.
+  // After a shuffle the first book's cover is edge-on at this point and closes on its new face.
+  // Positions are measured, so it works at any width. Without the Web Animations API (or with reduced motion)
+  // the CSS entrance in index.html stands in on load, and a shuffle swaps at once.
+  P._hjIn = function (el, first) {
+    if (!this._hjCan(el)) return;
+    var p = this._hjParts(el), A = p.A, B = p.B, anims = this._hjAnims || (this._hjAnims = []);
     var dx = (A.offsetLeft + A.offsetWidth / 2) - (B.offsetLeft + B.offsetWidth / 2);   // from A's centre to B's
     if (!dx) return;
-    // Two parabolas, like a thrown thing: a big hop that carries it most of the way and touches down (the "boop"),
-    // then a small one into place. Sizes follow the cover's height, so phone and desktop move alike.
+    el.classList.add('is-fly');          // the script drives these, not the CSS entrance
+    var d0 = first ? 340 : 170;          // when the book leaves
+    // Two parabolas, like a thrown thing. Sizes follow the cover's height, so phone and desktop move alike.
     var hC = B.offsetHeight, frames = [], k, u, x, y, sc, rot;
     var yStart = -0.1 * hC, yBoop = -0.14 * hC, h1 = 0.5 * hC, h2 = 0.2 * hC, xBoop = dx * (1 - HOP.reach);
     var tf = function (x, y, rot, sx, sy) { return 'translate(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + rot.toFixed(1) + 'deg) scale(' + sx.toFixed(3) + ',' + sy.toFixed(3) + ')'; };
@@ -1907,12 +1934,51 @@
     }
     frames.push({ offset: (HOP.t3 + 1) / 2, opacity: 1, easing: 'ease-out', transform: tf(0, 0.025 * hC, 2, 1.06, 0.94) });   // land: squash
     frames.push({ offset: 1, opacity: 1, transform: 'rotate(2deg)' });
-    el.classList.add('is-fly');   // turns off the CSS entrance for the second book, and times the arc and the line to the hop
-    this._hjAnims = [
-      B.animate(frames, { duration: HOP.ms, delay: HOP.delay, fill: 'backwards' }),
-      A.animate([{ transform: 'rotate(-2deg)' }, { transform: 'rotate(-8deg) translate(-3px,2px) scale(.96)', offset: 0.35 }, { transform: 'rotate(-2deg)' }],
-        { duration: 380, delay: HOP.delay - 40, easing: 'ease-out' })
-    ];
+    anims.push(B.animate(frames, { duration: HOP.ms, delay: d0, fill: 'backwards' }));
+    anims.push(A.animate([{ transform: 'rotate(-2deg)' }, { transform: 'rotate(-8deg) translate(-3px,2px) scale(.96)', offset: 0.35 }, { transform: 'rotate(-2deg)' }],
+      { duration: 380, delay: d0 - 40, easing: 'ease-out' }));
+    if (!first) anims.push(A.querySelector('.hj-flip').animate([{ transform: 'rotateY(-90deg)', filter: 'brightness(.55)' }, { transform: 'rotateY(0deg)', filter: 'brightness(1)' }],
+      { duration: 280, easing: 'ease-out' }));
+    // the trail: as far as the touch-down by the end of the big hop, a beat, then the rest
+    var r1 = (100 * (1 - HOP.reach)).toFixed(0) + '%';
+    anims.push(p.arc.animate([{ clipPath: HJ_CLIP('100%'), offset: 0 }, { clipPath: HJ_CLIP(r1), offset: HOP.t1 / HOP.t3 }, { clipPath: HJ_CLIP(r1), offset: HOP.t2 / HOP.t3 }, { clipPath: HJ_CLIP('-12px'), offset: 1 }],
+      { duration: HOP.ms * HOP.t3, delay: d0, fill: 'backwards' }));
+    // the line: each row of words flips up into view, top row first — starting as the book touches down, so it
+    // isn't flown over, and finishing as it lands
+    var w0 = d0 + HOP.ms * HOP.t2 - 40;
+    p.words.forEach(function (w) {
+      anims.push(w.el.animate([{ transform: 'rotateX(-88deg)', opacity: 0 }, { transform: 'rotateX(0deg)', opacity: 1 }],
+        { duration: 240, delay: w0 + w.line * 130, easing: 'cubic-bezier(.2,.7,.2,1)', fill: 'backwards' }));
+    });
+  };
+  // A shuffle: both covers turn on their spines like a page, the rows of the line flip away and the trail draws
+  // back; when the covers are edge-on the jump is swapped for the next one, and _hjIn plays it in. A press while
+  // one is still turning finishes that swap at once and starts the next.
+  P._hjShuffle = function () {
+    var self = this, el = this._hjEl, T = 300;
+    var advance = function (cb) {
+      var set = function () { self.setState({ hjSeed: (self.state.hjSeed || 0) + 1 }); };
+      if (ReactDOM.flushSync) ReactDOM.flushSync(set); else set();
+      if (cb) cb();
+    };
+    this._hjStop();
+    if (this._hjTurning) { this._hjTurning = false; advance(); }
+    if (!this._hjCan(el)) { advance(); return; }
+    var p = this._hjParts(el), anims = this._hjAnims;
+    var turn = [{ transform: 'rotateY(0deg)', filter: 'brightness(1)' }, { transform: 'rotateY(-90deg)', filter: 'brightness(.55)' }];
+    anims.push(p.A.querySelector('.hj-flip').animate(turn, { duration: T, easing: 'ease-in', fill: 'forwards' }));
+    anims.push(p.B.querySelector('.hj-flip').animate(turn, { duration: T - 70, delay: 70, easing: 'ease-in', fill: 'forwards' }));
+    anims.push(p.arc.animate([{ clipPath: HJ_CLIP('-12px') }, { clipPath: HJ_CLIP('100%') }], { duration: T - 40, easing: 'ease-in', fill: 'forwards' }));
+    var lines = p.words.reduce(function (m, w) { return Math.max(m, w.line); }, 0), gap = lines ? Math.min(60, (T - 170) / lines) : 0;
+    p.words.forEach(function (w) {
+      anims.push(w.el.animate([{ transform: 'rotateX(0deg)', opacity: 1 }, { transform: 'rotateX(88deg)', opacity: 0 }],
+        { duration: 160, delay: w.line * gap, easing: 'ease-in', fill: 'forwards' }));
+    });
+    this._hjTurning = true;
+    this._hjT = setTimeout(function () {
+      self._hjTurning = false;
+      advance(function () { self._hjStop(); if (self._hjEl) self._hjIn(self._hjEl, false); });
+    }, T);
   };
   // Draw the arc to the measured width (so the dots stay round and evenly spaced at any size): a start dot,
   // round dots along the hop's two humps, and an open arrowhead that follows the curve's end.
@@ -2058,11 +2124,8 @@
         if (hv) {
           var seedX = (self.state.chipSeed || 0) + 1;
           if (self._hw) self._hw.shuffle(hv === 'c' ? self._hxRows(seedX) : null);
-          // the jump under the headline swaps too: the old one leaves (is-out), then the next one plays in
-          clearTimeout(self._hjT);
-          (self._hjAnims || []).forEach(function (a) { try { a.cancel(); } catch (e) {} });   // a hop still in flight
-          self.setState({ chipSeed: seedX, hjOut: true });
-          self._hjT = setTimeout(function () { self.setState({ hjSeed: (self.state.hjSeed || 0) + 1, hjOut: false }); }, 220);
+          self.setState({ chipSeed: seedX });
+          self._hjShuffle();     // the jump under the headline turns over to the next one
           return;
         }
         // Reshuffle the wall: keep ~75% of the covers (they glide to new spots via the FLIP in
