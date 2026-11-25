@@ -6,8 +6,10 @@
 // D is the edge data (netlify/seo/data.js): B (books), O (what a book mentions, with notes), I (what mentions it),
 // A (authors).
 
-// A book page needs a synopsis, plus at least BOOK_MIN_LINKS books it mentions or is mentioned by, or at least
-// BOOK_MIN_QUOTES of those mentions with a quoted line.
+// A book page is put forward on the strength of its quoted lines, which are the part no other site has:
+//   - at least BOOK_MIN_QUOTES mentions with a quoted line, synopsis or not; or
+//   - a synopsis, plus one quoted line or at least BOOK_MIN_LINKS books it mentions or is mentioned by.
+// A page with a single quoted line and no synopsis stays out: that is one sentence of content.
 export const BOOK_MIN_LINKS = 3, BOOK_MIN_QUOTES = 2;
 // An author page needs at least AUTHOR_MIN_LINKS mentions to or from their books, in total.
 export const AUTHOR_MIN_LINKS = 5;
@@ -22,7 +24,7 @@ export function bookStats(D, k) {
 export function indexableBook(D, k) {
   if (!D.B[k]) return false;
   const s = bookStats(D, k);
-  return s.synopsis && (s.links >= BOOK_MIN_LINKS || s.quotes >= BOOK_MIN_QUOTES);
+  return s.quotes >= BOOK_MIN_QUOTES || (s.synopsis && (s.quotes >= 1 || s.links >= BOOK_MIN_LINKS));
 }
 
 export function indexableAuthor(D, slug) {

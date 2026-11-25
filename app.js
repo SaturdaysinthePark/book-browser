@@ -21,6 +21,10 @@
  */
 (function () {
   'use strict';
+
+  // The page as the server sent it: its path and the search-worded <title> the edge function wrote for it
+  // (netlify/seo/render.js). The app keeps that title while the visitor is still on that page.
+  var SERVED = typeof document !== 'undefined' ? { path: location.pathname.replace(/\/+$/, '') || '/', title: document.title } : null;
   var React = window.React;
   var ReactDOM = window.ReactDOM;
   var h = React.createElement;
@@ -2439,14 +2443,16 @@
       var titleMap = {
         home: 'BookJumpr: Books Mentioned Inside Other Books',
         book: vals.b_docTitle || (vals.b_title || 'Book') + ' — BookJumpr',
-        author: (vals.a_name || 'Author') + ' — BookJumpr',
+        author: (vals.a_name || 'Author') + ': books, and the books they mention | BookJumpr',
         search: '“' + (route.q || '') + '” — Search — BookJumpr',
-        stats: 'Stats — BookJumpr',
-        network: 'Network — BookJumpr',
-        about: 'About — BookJumpr',
-        authors: (route.letter ? 'Authors: ' + route.letter.toUpperCase() : 'Authors A–Z') + ' — BookJumpr'
+        stats: 'The most name-dropped books: which books are mentioned most in other books | BookJumpr',
+        network: 'The network of books mentioned in books — BookJumpr',
+        about: 'About BookJumpr: how it maps the books mentioned inside other books',
+        authors: route.letter ? 'Authors starting with ' + route.letter.toUpperCase() + ' | BookJumpr' : 'Authors A–Z: every author on BookJumpr, and the books they mention'
       };
-      document.title = titleMap[page] || titleMap.home;
+      // Same wording as the server's titles; on the page the server sent, keep its title exactly.
+      var here = location.pathname.replace(/\/+$/, '') || '/';
+      document.title = (SERVED && here === SERVED.path && page !== 'search' && SERVED.title) || titleMap[page] || titleMap.home;
       // keep the canonical URL in step with the address bar (the edge function sets it for the first page loaded)
       var can = document.querySelector('link[rel="canonical"]');
       if (can && /^(home|book|author|authors|stats|about|network)$/.test(page)) can.href = 'https://bookjumpr.com' + (page === 'network' ? '/network' : '/' + this._routePath());
